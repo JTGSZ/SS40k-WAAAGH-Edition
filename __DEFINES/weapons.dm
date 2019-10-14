@@ -14,6 +14,8 @@
 #define NAGANTREVOLVER "7.62x38R"
 #define BROWNING50 ".50BMG"
 
+#define ORKSCRAPBULLET "scrapbullet"
+
 #define ROCKETGRENADE "rpg"
 #define GUIDEDROCKET "guided rocket"
 
