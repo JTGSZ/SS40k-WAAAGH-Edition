@@ -47,7 +47,12 @@ var/datum/controller/gameticker/ticker
 #define LOBBY_TICKING_RESTARTED 2
 /datum/controller/gameticker/proc/pregame()
 	var/oursong = file(pick(
-		"sound/music/title1.ogg",
+		"sound/music/title1.mod",
+		"sound/music/title2.it",
+		"sound/music/title3.xm",
+		"sound/music/title4.xm",
+		"sound/music/title5.xm",
+		"sound/music/title6.mod",
 		))
 
 	if(SNOW_THEME)
