@@ -184,20 +184,3 @@
 	sound = 'sound/ambience/spookyspace2.ogg'
 
 //Music - TODO, refactor this once the background music part of the Subsystem is done.
-
-/datum/ambience/mainmusic
-	length = 51 SECONDS
-	sound = 'sound/music/main.ogg'
-
-/datum/ambience/spacemusic
-	length = 3 MINUTES + 34 SECONDS
-	sound = 'sound/music/space.ogg'
-
-/datum/ambience/traitormusic
-	length = 5 MINUTES + 30 SECONDS
-	sound = 'sound/music/traitor.ogg'
-
-/datum/ambience/torvusmusic
-	length = 2 MINUTES + 1 SECONDS
-	sound = 'sound/music/torvus.ogg'
-
