@@ -49,7 +49,7 @@ var/datum/controller/gameticker/ticker
 	var/oursong = file(pick(
 		"sound/music/title1.mod",
 		"sound/music/title2.it",
-		"sound/music/title3.xm",
+		"sound/music/title3.it",
 		"sound/music/title4.xm",
 		"sound/music/title5.xm",
 		"sound/music/title6.mod",
