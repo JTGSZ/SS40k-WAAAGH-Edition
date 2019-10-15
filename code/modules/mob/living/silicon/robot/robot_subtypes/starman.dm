@@ -78,7 +78,7 @@
 	invocation_type = SpI_NONE
 	charge_type = Sp_RECHARGE
 	charge_max = 10
-	var/list/starman_music = list('sound/music/battle_against_a_machine.ogg', 'sound/music/imbossible.ogg')
+	var/list/starman_music = list()
 
 /spell/aoe_turf/starman_play_music/cast(list/targets, mob/user = user)
 	stop_starman_music()

@@ -1499,7 +1499,7 @@ proc/process_adminbus_teleport_locs()
 /area/medical/morgue
 	name = "\improper Morgue"
 	icon_state = "morgue"
-	ambient_sounds = list(/datum/ambience/ded1,/datum/ambience/ded2,/datum/ambience/mainmusic)
+	ambient_sounds = list(/datum/ambience/ded1,/datum/ambience/ded2)
 
 /area/medical/coldstorage
 	name = "Morgue"
@@ -2742,4 +2742,4 @@ var/list/the_station_areas = list (
 
 //for lack of a better spot and I couldn't be assed to find the definition of it.
 /area/mine
-	ambient_sounds = list(/datum/ambience/dorf,/datum/ambience/minecraft,/datum/ambience/torvusmusic)
+	ambient_sounds = list(/datum/ambience/dorf,/datum/ambience/minecraft)

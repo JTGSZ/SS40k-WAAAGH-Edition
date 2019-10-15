@@ -47,24 +47,12 @@ var/datum/controller/gameticker/ticker
 #define LOBBY_TICKING_RESTARTED 2
 /datum/controller/gameticker/proc/pregame()
 	var/oursong = file(pick(
-		"sound/music/space.ogg",
-		"sound/music/traitor.ogg",
-		"sound/music/space_oddity.ogg",
-		"sound/music/title1.ogg",
-		"sound/music/title2.ogg",
-		"sound/music/title3.ogg",
-		"sound/music/clown.ogg",
-		"sound/music/robocop.ogg",
-		"sound/music/gaytony.ogg",
-		"sound/music/rocketman.ogg",
-		"sound/music/2525.ogg",
-		"sound/music/moonbaseoddity.ogg",
-		"sound/music/whatisthissong.ogg",
-		"sound/music/space_asshole.ogg",
-		"sound/music/starman.ogg",
-		"sound/music/dawsonschristian.ogg",
-		"sound/music/carmenmirandasghost.ogg",
-		"sound/music/twilight.ogg",
+		"sound/music/title1.mod",
+		"sound/music/title2.it",
+		"sound/music/title3.it",
+		"sound/music/title4.xm",
+		"sound/music/title5.xm",
+		"sound/music/title6.mod",
 		))
 
 	if(SNOW_THEME)
