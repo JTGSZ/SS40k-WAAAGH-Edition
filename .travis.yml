@@ -51,10 +51,3 @@ script:
 - tools/travis/run_tests.py 2>&1 | tee /dev/stderr | sponge | awk '/UNIT TEST FAIL/ { exit 1 }'
 
 notifications:
-  irc:
-    channels:
-    - "irc.rizon.net#vgstation"
-    template:
-    - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
-    - "Change view : %{compare_url}"
-    - "Build details : %{build_url}"
