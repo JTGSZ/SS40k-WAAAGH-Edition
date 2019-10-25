@@ -11,20 +11,20 @@ echo -e "[Webhook]: Sending webhook to Discord uwu...\\n";
 case $1 in
   "success" )
     EMBED_COLOR=3066993
-    STATUS_MESSAGE="WAAAAAGH!"
-    AVATAR="https://raw.githubusercontent.com/JTGSZ/SS40k-WAAAGH-Edition/Bleeding-Edge/pass.png"
+    STATUS_MESSAGE="Passed"
+    AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-blue.png"
     ;;
 
   "failure" )
     EMBED_COLOR=15158332
-    STATUS_MESSAGE="'DIS BUILD FAILED YA DUMB GIT"
-    AVATAR="https://raw.githubusercontent.com/JTGSZ/SS40k-WAAAGH-Edition/Bleeding-Edge/fail.png"
+    STATUS_MESSAGE="Failed"
+    AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-red.png"
     ;;
 
   * )
     EMBED_COLOR=0
-    STATUS_MESSAGE="AND WOT IS 'DIS"
-    AVATAR="https://raw.githubusercontent.com/JTGSZ/SS40k-WAAAGH-Edition/Bleeding-Edge/unsure.png"
+    STATUS_MESSAGE="Travis, or your shit has died entirely."
+    AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-1.png"
     ;;
 esac
 
