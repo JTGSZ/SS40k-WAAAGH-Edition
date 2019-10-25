@@ -2475,6 +2475,7 @@
 			O.manual_stop_follow(O.locked_to)
 		if(C)
 			C.jumptomob(M)
+			O.manual_follow(M)
 
 	else if(href_list["emergency_shuttle_panel"])
 		emergency_shuttle_panel()
