@@ -983,8 +983,8 @@
 		return 0
 	var/list/params_list = params2list(params)
 	if(clamp)
-		pixel_x = Clamp(base_pixx + text2num(params_list["icon-x"]) - WORLD_ICON_SIZE/2, -WORLD_ICON_SIZE/2, WORLD_ICON_SIZE/2)
-		pixel_y = Clamp(base_pixy + text2num(params_list["icon-y"]) - WORLD_ICON_SIZE/2, -WORLD_ICON_SIZE/2, WORLD_ICON_SIZE/2)
+		pixel_x = clamp(base_pixx + text2num(params_list["icon-x"]) - WORLD_ICON_SIZE/2, -WORLD_ICON_SIZE/2, WORLD_ICON_SIZE/2)
+		pixel_y = clamp(base_pixy + text2num(params_list["icon-y"]) - WORLD_ICON_SIZE/2, -WORLD_ICON_SIZE/2, WORLD_ICON_SIZE/2)
 	else
 		pixel_x = base_pixx + text2num(params_list["icon-x"]) - WORLD_ICON_SIZE/2
 		pixel_y = base_pixy + text2num(params_list["icon-y"]) - WORLD_ICON_SIZE/2
