@@ -2547,6 +2547,8 @@
 #include "interface\web\info.dms"
 #include "interface\web\interface.dms"
 #include "maprendering\maprendering.dm"
+#include "maps\40kprocgen.dm"
+#include "maps\_generators.dm"
 #include "maps\_map.dm"
 #include "maps\_map_override.dm"
 #include "maps\tgstation.dm"
