@@ -16,9 +16,9 @@
 /datum/zLevel/snow
 	name = "snow"
 	base_turf = /turf/unsimulated/floor/snow
-	movementChance = ZLEVEL_BASE_CHANCE * ZLEVEL_SPACE_MODIFIER
 
 /datum/zLevel/snow/post_mapload()
+	//Lake generator
 	var/lake_density = rand(2,8)
 	for(var/i = 0 to lake_density)
 		var/turf/T = locate(rand(1, world.maxx),rand(1, world.maxy), z)
@@ -27,6 +27,7 @@
 		var/generator = pick(typesof(/obj/structure/radial_gen/cellular_automata/ice))
 		new generator(T)
 
+	//Snowforest lite tree generator.
 	var/tree_density = rand(25,45)
 	for(var/i = 0 to tree_density)
 		var/turf/T = locate(rand(1,world.maxx),rand(1, world.maxy), z)

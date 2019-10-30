@@ -1,29 +1,27 @@
 #ifndef MAP_OVERRIDE
 //**************************************************************
-// Map Datum -- Snowfort Station
-// Literally just box station (as of 16/12/2018), but with the base turf being snow
+// Map Datum -- ig vs ork testmap snowgen mk1
+// basically just a testing ground for development really.
 //**************************************************************
 
 /datum/map/active
-	nameShort = "snowIGvsORK"
+	nameShort = "maptestmk1"
 	nameLong = "Snowgen IG vs ORK"
 	map_dir = "snowigvsork"
 	tDomeX = 128
 	tDomeY = 58
 	tDomeZ = 2
 	zLevels = list(
-		/datum/zLevel/snow{
-			name = "station"
-		},
+		/datum/zLevel/station,
 		/datum/zLevel/centcomm,
-		/datum/zLevel/snow{
-			name = "CrashedSat" ;
+		/datum/zLevel/space{
+			name = "spaceOldSat" ;
 			},
-		/datum/zLevel/snow{
+		/datum/zLevel/space{
 			name = "derelict" ;
 			},
-		/datum/zLevel/snow,
-		/datum/zLevel/snow{
+		/datum/zLevel/mining,
+		/datum/zLevel/space{
 			name = "spacePirateShip" ;
 			},
 		)
@@ -278,5 +276,5 @@
 	flags = CONTIGUOUS_WALLS
 
 ////////////////////////////////////////////////////////////////
-#include "tgstation-snow.dmm"
+#include "maptestmk1.dmm"
 #endif

@@ -2743,3 +2743,13 @@ var/list/the_station_areas = list (
 //for lack of a better spot and I couldn't be assed to find the definition of it.
 /area/mine
 	ambient_sounds = list(/datum/ambience/dorf,/datum/ambience/minecraft)
+
+
+
+/*
+	Where my areas will go until I clean out this entire segment.
+*/
+/area/testmap/snowmap
+	name = "Snowgentest"
+	icon = 'icons/turf/jtareas.dmi'
+	icon_state = "snowgentest"
