@@ -4,6 +4,29 @@
 
 //This file is where all the generation is stored.
 //To activate it just use the zLevel path on your map loading file.
+/* Example:
+/datum/map/active
+	nameShort = "snowfort"
+	nameLong = "Snowfort Station"
+	map_dir = "snowstation"
+	zLevels = list(
+		/datum/zLevel/snow{
+			name = "station"
+			movementChance = ZLEVEL_BASE_CHANCE * ZLEVEL_STATION_MODIFIER
+		},
+		/datum/zLevel/centcomm,
+		/datum/zLevel/snow{
+			name = "CrashedSat" ;
+			},
+		/datum/zLevel/snow{
+			name = "derelict" ;
+			},
+		/datum/zLevel/snow,
+		/datum/zLevel/snow{
+			name = "spacePirateShip" ;
+			},
+		)
+*/
 /datum/zLevel/desert
 
 	name = "desert"
