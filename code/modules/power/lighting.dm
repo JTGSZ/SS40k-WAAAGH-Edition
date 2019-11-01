@@ -125,12 +125,29 @@ var/global/list/obj/machinery/light/alllights = list()
 
 	var/idle = 0 // For process().
 
+// create a new lighting fixture
 /obj/machinery/light/New()
 	..()
 	if(spawn_with_bulb)
 		current_bulb = new spawn_with_bulb()
 	else
 		update(0)
+	alllights += src
+
+	spawn(2)
+		var/area/A = get_area(src)
+		if(A && !A.requires_power)
+			on = 1
+
+		switch(fitting)
+			if("tube")
+				if(prob(2))
+					broken(1)
+			if("bulb")
+				if(prob(5))
+					broken(1)
+		spawn(1)
+			update(0)
 
 /obj/machinery/light/supports_holomap()
 	return TRUE
@@ -157,6 +174,22 @@ var/global/list/obj/machinery/light/alllights = list()
 	H.apply_damage(rand(1,2), BRUTE, pick(LIMB_RIGHT_LEG, LIMB_LEFT_LEG, LIMB_RIGHT_FOOT, LIMB_LEFT_FOOT))
 	return SPECIAL_ATTACK_FAILED
 
+/obj/machinery/light/broken
+	icon_state = "ltube-broken" //for the mapper
+	spawn_with_bulb = /obj/item/weapon/light/tube/broken
+
+/obj/machinery/light/he
+	icon_state = "lhetube1"
+	spawn_with_bulb = /obj/item/weapon/light/tube/he
+
+/obj/machinery/light/he/broken
+	icon_state = "lhetube-broken" //for the mapper
+	spawn_with_bulb = /obj/item/weapon/light/tube/he/broken
+
+/obj/machinery/light/he/burned
+	icon_state = "lhetube-burned" //for the mapper
+	spawn_with_bulb = /obj/item/weapon/light/tube/he/burned
+
 /obj/machinery/light/small
 	icon_state = "lbulb1"
 	fitting = "bulb"
@@ -164,6 +197,7 @@ var/global/list/obj/machinery/light/alllights = list()
 	spawn_with_bulb = /obj/item/weapon/light/bulb
 
 /obj/machinery/light/small/broken
+	icon_state = "lbulb-broken" //for the mapper
 	spawn_with_bulb = /obj/item/weapon/light/bulb/broken
 
 /obj/machinery/light/spot
@@ -172,38 +206,16 @@ var/global/list/obj/machinery/light/alllights = list()
 	spawn_with_bulb = /obj/item/weapon/light/tube/large
 
 /obj/machinery/light/built
+	icon_state = "ltube-empty" //for the mapper
 	spawn_with_bulb = null
 
 /obj/machinery/light/small/built
+	icon_state = "lbulb-empty" //for the mapper
 	spawn_with_bulb = null
 
 /obj/machinery/light/initialize()
 	..()
 	add_self_to_holomap()
-
-// create a new lighting fixture
-/obj/machinery/light/New()
-	..()
-	if(spawn_with_bulb)
-		current_bulb = new spawn_with_bulb()
-	else
-		update(0)
-	alllights += src
-
-	spawn(2)
-		var/area/A = get_area(src)
-		if(A && !A.requires_power)
-			on = 1
-
-		switch(fitting)
-			if("tube")
-				if(prob(2))
-					broken(1)
-			if("bulb")
-				if(prob(5))
-					broken(1)
-		spawn(1)
-			update(0)
 
 /obj/machinery/light/Destroy()
 	seton(0)
@@ -594,8 +606,9 @@ var/global/list/obj/machinery/light/alllights = list()
 	item_state = "c_tube"
 	starting_materials = list(MAT_GLASS = 100, MAT_IRON = 60)
 	w_type = RECYK_GLASS
-	brightness_range = 8
-	brightness_power = 3
+	brightness_range = 6
+	brightness_power = 1.5
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	cost = 8
 
 /obj/item/weapon/light/tube/he
@@ -603,9 +616,21 @@ var/global/list/obj/machinery/light/alllights = list()
 	desc = "An efficient light used to reduce strain on the station's power grid."
 	base_state = "hetube"
 	starting_materials = list(MAT_GLASS = 300, MAT_IRON = 60)
+	brightness_range = 8
+	brightness_power = 4
+	brightness_color = LIGHT_COLOR_HALOGEN
 	cost = 2
 
+/obj/item/weapon/light/tube/broken
+	status = LIGHT_BROKEN
+
 /obj/item/weapon/light/tube/burned
+	status = LIGHT_BURNED
+
+/obj/item/weapon/light/tube/he/broken
+	status = LIGHT_BROKEN
+
+/obj/item/weapon/light/tube/he/burned
 	status = LIGHT_BURNED
 
 /obj/item/weapon/light/tube/large
@@ -623,7 +648,7 @@ var/global/list/obj/machinery/light/alllights = list()
 	base_state = "bulb"
 	item_state = "contvapour"
 	fitting = "bulb"
-	brightness_range = 5
+	brightness_range = 3.5
 	brightness_power = 2
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	starting_materials = list(MAT_GLASS = 50, MAT_IRON = 30)
@@ -637,6 +662,9 @@ var/global/list/obj/machinery/light/alllights = list()
 	name = "high efficiency light bulb"
 	desc = "An efficient light used to reduce strain on the station's power grid."
 	base_state = "hebulb"
+	brightness_range = 6
+	brightness_power = 3
+	brightness_color = LIGHT_COLOR_HALOGEN
 	cost = 1
 	starting_materials = list(MAT_GLASS = 150, MAT_IRON = 30)
 	brightness_color = null//These should be white
@@ -672,11 +700,6 @@ var/global/list/obj/machinery/light/alllights = list()
 
 /obj/item/weapon/light/New()
 	..()
-	switch(name)
-		if("light tube")
-			brightness_range = rand(6,9)
-		if("light bulb")
-			brightness_range = rand(4,6)
 	update()
 
 // A syringe can inject plasma to make the light explode when it turns on.
