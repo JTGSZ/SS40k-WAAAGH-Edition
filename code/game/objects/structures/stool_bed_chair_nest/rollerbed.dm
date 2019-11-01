@@ -95,11 +95,6 @@
 			IV.pulledby.start_pulling(src)
 
 
-/obj/structure/bed/roller/deff
-	icon = 'maps/defficiency/medbay.dmi'
-	roller_type = /obj/item/roller/deff
-
-
 /obj/item/roller
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
@@ -109,10 +104,6 @@
 	item_state = "folded"
 	var/bed_type = /obj/structure/bed/roller
 	w_class = W_CLASS_LARGE // Can't be put in backpacks. Oh well.
-
-/obj/item/roller/deff
-	icon = 'maps/defficiency/medbay.dmi'
-	bed_type = /obj/structure/bed/roller/deff
 
 /obj/item/roller/attack_self(mob/user)
 	var/obj/structure/bed/roller/R = new bed_type(user.loc)
