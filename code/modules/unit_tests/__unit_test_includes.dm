@@ -5,4 +5,5 @@
 #include "hexadecimal.dm"
 #include "reagent_recipe_collisions.dm"
 #include "names.dm"
+#include "slipping.dm"
 #endif
