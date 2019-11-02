@@ -9,9 +9,7 @@
 	When somebody clicks a link in game, this Topic is called first.
 	It does the stuff in this proc and  then is redirected to the Topic() proc for the src=[0xWhatever]
 	(if specified in the link). ie locate(hsrc).Topic()
-
 	Such links can be spoofed.
-
 	Because of this certain things MUST be considered whenever adding a Topic() for something:
 		- Can it be fed harmful values which could cause runtimes?
 		- Is the Topic call an admin-only thing?
@@ -382,6 +380,10 @@
 		if(src in clients) //Did we log out before we reached this part of the function?
 			nanomanager.send_resources(src)
 
+// Sends resources to the client asynchronously.
+/client/proc/preload_resource(var/rsc)
+	Export("##action=preload_rsc", rsc)
+
 
 /client/proc/send_html_resources()
 	if(adv_camera && minimapinit)
@@ -417,10 +419,8 @@
 		if(!(role_desired & ROLEPREF_POLLED))
 			spawn
 				var/question={"[role_id]
-
 Yes/No: Only affects this round
 Never/Always: Affects future rounds, you will not be polled again.
-
 NOTE:  You will only be polled about this role once per round. To change your choice, use Preferences > Setup Special Roles.  The change will take place AFTER this recruiting period."}
 				var/answer = alert(src,question,"Role Recruitment", "Yes","No","Never")
 				switch(answer)
