@@ -354,17 +354,15 @@ var/savefile/panicfile
 /world/proc/update_status()
 	var/s = ""
 
-	if (config && config.server_name)
-		s += "<b>[config.server_name]</b> &#8212; "
+	//if (config && config.server_name)
+	//	s += "<b>[config.server_name]</b> &#8212; " //SORRY CONFIG-KUN -JTGSZ
 
 
-	s += {"<b>[station_name()]</b>"
-		(
-		<a href=\"http://\">" //Change this to wherever you want the hub to link to
-		Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version
-		</a>
-		)"}
-	var/list/features = list()
+	s += "<b>>SS40k: <i>WAAAGH EDITION!</i></b>] - Periodically up for Tests, Come try it out.<br>"
+	s += "<br>"
+	s += " \[<a href=\"https://discord.gg/4CucGgp\">Discord</a><br>"
+	
+/*	var/list/features = list()
 
 	if(ticker)
 		if(master_mode)
@@ -403,7 +401,7 @@ var/savefile/panicfile
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
-		s += ": [jointext(features, ", ")]"
+		s += ": [jointext(features, ", ")]" */
 
 	/* does this help? I do not know */
 	if (src.status != s)
