@@ -750,7 +750,7 @@ var/global/list/disease2_list = list()
 /datum/disease2/disease/proc/minormutate(var/index)
 	var/datum/disease2/effect/e = get_effect(index)
 	e.minormutate()
-	infectionchance = Clamp(infectionchance_base + rand(-10,10),0,100)
+	infectionchance = clamp(infectionchance_base + rand(-10,10),0,100)
 	//infectionchance = min(50,infectionchance + rand(0,10))
 	log += "<br />[timestamp()] Infection chance now [infectionchance]%"
 
