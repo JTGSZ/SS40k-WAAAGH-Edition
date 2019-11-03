@@ -152,6 +152,7 @@ var/global/list/accessable_z_levels = list()
 	var/name = ""
 	var/teleJammed = 0
 	var/movementJammed = 0 //Prevents you from accessing the zlevel by drifting
+	var/transitionLoops = FALSE //if true, transition sends you back to the same Z-level (see turfs/turf.dm)
 	var/bluespace_jammed = 0
 	var/movementChance = ZLEVEL_BASE_CHANCE
 	var/base_turf //Our base turf, what shows under the station when destroyed. Defaults to space because it's fukken Space Station 13
