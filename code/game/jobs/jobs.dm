@@ -14,6 +14,8 @@ var/const/CYBORG			=(1<<10)
 var/const/MOMMI				=(1<<11)
 var/const/MECHANIC			=(1<<12)
 
+var/const/BASICORK 			=(1<<13) //40k EDIT
+
 
 var/const/MEDSCI			=(1<<1)
 
