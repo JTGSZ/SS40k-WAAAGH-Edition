@@ -1924,6 +1924,32 @@ proc/process_adminbus_teleport_locs()
 	name = "\improper DJ Station Solars"
 	icon_state = "DJ"
 
+//SNOWMAP
+/area/surface/snow
+	name = "\improper Planet Surface"
+	icon_state = "sno2"
+	shuttle_can_crush = TRUE
+
+/area/surface/blizzard
+	name = "\improper The Blizzard"
+	icon_state = "sno"
+
+/area/surface/icecore
+	name = "\improper Frozen Core"
+	icon_state = "icecore"
+
+/area/surface/garage
+	name = "\improper Public Garage"
+	icon_state = "yellow"
+
+/area/surface/junkyard
+	name = "\improper Junk Yard"
+	icon_state = "disposal"
+
+
+
+
+
 //DERELICT
 
 /area/derelict
