@@ -8,7 +8,7 @@
 
 	eyes = "ork_eyes_s"
 
-	flags = NO_PAIN | HYPOTHERMIA_IMMUNE
+	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | IS_WHITELISTED | NO_SCAN | NO_SKIN
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
 
 	// Both must be set or it's only a 45% chance of manifesting.

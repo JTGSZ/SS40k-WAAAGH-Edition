@@ -7,6 +7,7 @@
 	spawn_positions = 3
 	supervisors = "da boss"
 	selection_color = "#ffeef0"
+	species_whitelist = list("Ork") //Orks are whitelisted to orks
 	access = list()
 	minimal_access = list()
 	alt_titles = list("Slugga Boy", "Shoota Boy", "Kommando", "Burna Boy", "Storm Boy")
@@ -25,31 +26,19 @@
 	)
 
 	items_to_spawn = list(
-		"Default" = list( 
+		/datum/species/ork = list( 
 			slot_ears_str = /obj/item/device/radio/headset/headset_med,
 			slot_w_uniform_str = list(
-				"Slugga Boy" =	/obj/item/clothing/under/color/grey,
-				"Shoota Boy" = /obj/item/clothing/under/color/grey,
-				"Kommando" = /obj/item/clothing/under/color/grey,
-				"Burna Boy" = /obj/item/clothing/under/color/grey,
-				"Storm Boy" = /obj/item/clothing/under/color/grey,
+				"Slugga Boy" =	/obj/item/clothing/under/ork/pants,
+				"Shoota Boy" = /obj/item/clothing/under/ork/pants,
+				"Kommando" = /obj/item/clothing/under/ork/pants,
+				"Burna Boy" = /obj/item/clothing/under/ork/pants,
+				"Storm Boy" = /obj/item/clothing/under/ork/pants,
 			),
 			slot_shoes_str = /obj/item/clothing/shoes/black,
 		),
 		/datum/species/ork = list(
-			slot_ears_str = /obj/item/device/radio/headset/headset_med,
-			slot_w_uniform_str = list(
-				"Slugga Boy" =	/obj/item/clothing/under/color/grey,,
-				"Shoota Boy" = /obj/item/clothing/under/color/grey,,
-				"Kommando" = /obj/item/clothing/under/color/grey,
-				"Burna Boy" = /obj/item/clothing/under/color/grey,
-				"Storm Boy" = /obj/item/clothing/under/color/grey,
-			),
-			slot_shoes_str = /obj/item/clothing/shoes/white,
-			slot_glasses_str = /obj/item/clothing/glasses/science,
-			slot_wear_suit_str = /obj/item/clothing/suit/space/vox/civ/medical/chemist,
-			slot_head_str = /obj/item/clothing/head/helmet/space/vox/civ/medical/chemist,
-			slot_wear_mask_str = /obj/item/clothing/mask/breath/,
+			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots
 		),
 	)
 
@@ -58,28 +47,81 @@
 	id_type = /obj/item/weapon/card/id/medical
 
 	special_snowflakes = list(
-		"Default" = list(
-			"Nurse" = list(slot_w_uniform_str, slot_head_str),
+		/datum/species/ork = list(
+			"Slugga Boy" = list(slot_w_uniform_str, 
+								slot_wear_suit_str, 
+								slot_head_str, 
+								slot_gloves_str, 
+								slot_belt_str)
+			,"Shoota Boy" = list(slot_w_uniform_str, 
+								slot_wear_suit_str, 
+								slot_head_str, 
+								slot_gloves_str, 
+								slot_belt_str)
+			,"Kommando" = list(slot_w_uniform_str, 
+								slot_wear_suit_str, 
+								slot_head_str, 
+								slot_gloves_str, 
+								slot_belt_str)
+			,"Burna Boy" = list(slot_w_uniform_str, 
+								slot_wear_suit_str, 
+								slot_head_str, 
+								slot_gloves_str, 
+								slot_belt_str)
+			,"Storm Boy" = list(slot_w_uniform_str, 
+								slot_wear_suit_str, 
+								slot_head_str, 
+								slot_gloves_str, 
+								slot_belt_str)
 		),
 	)
 
-// Handles the randomly generated equipment on basic boyz, ja?
+// Handles the randomly generated equipment on basic boyz, ja? 
 
 /datum/outfit/basicork/special_equip(var/title, var/slot, var/mob/living/carbon/human/H)
-	switch (title)
-		if ("Slugga Boy" || "Shoota Boy" || "Kommando" || "Burna Boy" || "Storm Boy")
-			switch (slot)
-				if (slot_w_uniform_str)
-					if(H.gender == FEMALE)
-						if(prob(50))
-							H.equip_or_collect(new /obj/item/clothing/under/rank/nursesuit(H), slot_w_uniform)
-						else
-							H.equip_or_collect(new /obj/item/clothing/under/rank/nurse(H), slot_w_uniform)
+	switch(title)
+		if("Slugga Boy" || "Shoota Boy" || "Kommando" || "Burna Boy" || "Storm Boy")
+			switch(slot)
+				if(slot_gloves_str) //Gloves
+					if(prob(25))
+						H.equip_or_collect(new /obj/item/clothing/gloves/ork/clothgloves(H), slot_gloves)
+				if(slot_w_uniform_str) //Uniform
+					if(prob(50))
+						H.equip_or_collect(new /obj/item/clothing/under/ork/pantsandshirt(H), slot_w_uniform)
 					else
-						H.equip_or_collect(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
-				if (slot_head_str)
-					if (H.gender == FEMALE)
-						H.equip_or_collect(new /obj/item/clothing/head/nursehat(H), slot_head)
+						H.equip_or_collect(new /obj/item/clothing/under/ork/leatherpantsandshirt(H), slot_w_uniform)
+//				if(slot_head_str) //Head
+//				if(slot_wear_suit_str) //suit
+//				if(slot_shoes_str) //Shoes
+//				if(slot_belt_str) //Belt
+//				if(slot_back_str) //Back
+//				
 
 /datum/outfit/basicork/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("WAAAAAAAAGH!")
+
+//gloves
+//obj/item/clothing/gloves/ork/clothgloves 
+//hats
+//obj/item/clothing/head/ork/milcap
+//obj/item/clothing/head/ork/armorhelmet
+//obj/item/clothing/head/ork/redbandana
+//obj/item/clothing/head/ork/bucket
+//suits
+//obj/item/clothing/suit/armor/ork/samuraiorkarmor
+//obj/item/clothing/suit/armor/ork/leatherbikervest
+//obj/item/clothing/suit/armor/ork/rwallplate
+//obj/item/clothing/suit/armor/ork/ironplate
+//uniforms
+//obj/item/clothing/under/ork/pants
+//obj/item/clothing/under/ork/pantsandshirt
+//obj/item/clothing/under/ork/leatherpantsandshirt
+//shoes
+//obj/item/clothing/shoes/ork/orkboots
+//Belts
+//obj/item/weapon/storage/belt/ork/basicbelt
+//obj/item/weapon/storage/belt/ork/basicbelt/stikkbombs
+//obj/item/weapon/storage/belt/ork/armorbelt
+//backpacks
+//obj/item/weapon/storage/backpack/ork/brownbackpack
+//obj/item/weapon/ork/burnapack
