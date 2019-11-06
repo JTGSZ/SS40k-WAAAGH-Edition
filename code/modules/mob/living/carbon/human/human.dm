@@ -90,6 +90,7 @@
 /mob/living/carbon/human/ork/New(var/new_loc, delay_ready_dna = 0)
 	..(new_loc, "Ork")
 	my_appearance.h_style = "Bald"
+	my_appearance.f_style = "Shaved"
 	regenerate_icons()
 
 /mob/living/carbon/human/NPC/New(var/new_loc, delay_ready_dna = 0)

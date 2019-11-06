@@ -5,6 +5,7 @@
 	known_languages = list(LANGUAGE_CATBEAST,LANGUAGE_HUMAN)
 
 	primitive = /mob/living/carbon/monkey
+	gender = MALE //they are all male, my man.
 
 	eyes = "ork_eyes_s"
 

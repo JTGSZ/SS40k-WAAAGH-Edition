@@ -26,8 +26,17 @@
 	)
 
 	items_to_spawn = list(
+		"Default" = list(
+			slot_w_uniform_str = list(
+				"Slugga Boy" = /obj/item/clothing/under/color/grey,
+				"Shoota Boy" =  /obj/item/clothing/under/color/grey,
+				"Kommando" = /obj/item/clothing/under/color/grey,
+				"Burna Boy" = /obj/item/clothing/under/color/grey,
+				"Storm Boy" =/obj/item/clothing/under/color/grey,
+			),
+				slot_shoes_str = /obj/item/clothing/shoes/black,
+		),
 		/datum/species/ork = list( 
-			slot_ears_str = /obj/item/device/radio/headset/headset_med,
 			slot_w_uniform_str = list(
 				"Slugga Boy" =	/obj/item/clothing/under/ork/pants,
 				"Shoota Boy" = /obj/item/clothing/under/ork/pants,
@@ -35,18 +44,11 @@
 				"Burna Boy" = /obj/item/clothing/under/ork/pants,
 				"Storm Boy" = /obj/item/clothing/under/ork/pants,
 			),
-			slot_shoes_str = /obj/item/clothing/shoes/black,
-		),
-		/datum/species/ork = list(
-			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots
-		),
+			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
+		)
 	)
 
-	pda_type = /obj/item/device/pda/chemist
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id/medical
-
-	special_snowflakes = list(
+/*	special_snowflakes = list(
 		/datum/species/ork = list(
 			"Slugga Boy" = list(slot_w_uniform_str, 
 								slot_wear_suit_str, 
@@ -89,7 +91,7 @@
 					if(prob(50))
 						H.equip_or_collect(new /obj/item/clothing/under/ork/pantsandshirt(H), slot_w_uniform)
 					else
-						H.equip_or_collect(new /obj/item/clothing/under/ork/leatherpantsandshirt(H), slot_w_uniform)
+						H.equip_or_collect(new /obj/item/clothing/under/ork/leatherpantsandshirt(H), slot_w_uniform)*/
 //				if(slot_head_str) //Head
 //				if(slot_wear_suit_str) //suit
 //				if(slot_shoes_str) //Shoes

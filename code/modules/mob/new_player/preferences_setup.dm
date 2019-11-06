@@ -470,6 +470,8 @@
 					clothes_s = new /icon(uniform_dmi, "grey_s")
 					clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
+				if(BASICORK)
+					clothes_s = new /icon(uniform_dmi)
 
 	// Observers get tourist outfit.
 	else
