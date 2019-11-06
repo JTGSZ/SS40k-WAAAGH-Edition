@@ -471,7 +471,7 @@
 					clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
 				if(BASICORK) //SS40k EDIT
-					clothes_s = new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkuniform1")
+					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
 					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
