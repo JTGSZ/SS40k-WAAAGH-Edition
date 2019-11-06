@@ -19,10 +19,10 @@
 	associated_job = /datum/job/basicork
 
 	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack/medic,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_chem,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/chem,
+		BACKPACK_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
 	)
 
 	items_to_spawn = list(
