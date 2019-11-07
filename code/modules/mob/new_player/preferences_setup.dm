@@ -264,7 +264,8 @@
 		clothes_s = new /icon(uniform_dmi, "grey_s")
 		clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
 		clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
-
+		if(current_species.name == "Ork") //Ss40k edit
+			clothes_s = new /icon(uniform_dmi, "orkuniform1_s") //Edit end - No naked orks on job pref.
 		//else
 		if(job_civilian_high)//I hate how this looks, but there's no reason to go through this switch if it's empty
 			switch(job_civilian_high)
@@ -470,6 +471,11 @@
 					clothes_s = new /icon(uniform_dmi, "grey_s")
 					clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
+				if(BASICORK) //SS40k EDIT
+					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
+					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
 
 	// Observers get tourist outfit.
 	else

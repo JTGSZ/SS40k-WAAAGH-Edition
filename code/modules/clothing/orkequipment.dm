@@ -31,7 +31,7 @@
 /* 
 	Gloves
 	*/
-/obj/item/clothing/gloves/ork/clothgloves
+/obj/item/clothing/gloves/ork/clothgloves 
 	name = "Ragged Gloves" //The name of the object ingame.
 	desc = "A pair of ragged cloth gloves." //Description upon examination
 	icon_state = "orkgloves1" //The state of the object icon when dropped/displayed in slot

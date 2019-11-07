@@ -323,8 +323,8 @@ var/global/list/damage_icon_parts = list()
 			if(facial_hair_style.do_colouration)
 				facial_s.Blend(rgb(my_appearance.r_facial, my_appearance.g_facial, my_appearance.b_facial), ICON_ADD)
 			face_standing.Blend(facial_s, ICON_OVERLAY)
-//		else
-			//warning("Invalid my_appearance.f_style for [species.name]: [my_appearance.f_style]")
+	//	else
+	//		warning("Invalid my_appearance.f_style for [species.name]: [my_appearance.f_style]")
 
 	if(my_appearance.h_style && !(src.head && ( src.head.flags & HIDEHAIRCOMPLETELY ) || \
 								  src.wear_mask && (src.wear_mask.body_parts_covered & HIDEHEADHAIR) ||\
@@ -338,8 +338,8 @@ var/global/list/damage_icon_parts = list()
 				hair_s.Blend(icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_acc"), ICON_OVERLAY)
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
-//		else
-			//warning("Invalid my_appearance.h_style for [species.name]: [my_appearance.h_style]")
+	//	else
+	//		warning("Invalid my_appearance.h_style for [species.name]: [my_appearance.h_style]")
 
 	if(body_alphas.len)
 		var/lowest_alpha = get_lowest_body_alpha()
