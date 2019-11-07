@@ -53,6 +53,8 @@ var/datum/controller/gameticker/ticker
 		"sound/music/title4.xm",
 		"sound/music/title5.xm",
 		"sound/music/title6.mod",
+		"sound/music/title7.mod",
+		"sound/music/title8.xm",
 		))
 
 	if(SNOW_THEME)
