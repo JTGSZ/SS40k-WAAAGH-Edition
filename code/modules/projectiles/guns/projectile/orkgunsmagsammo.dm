@@ -73,7 +73,7 @@
 	icon = 'icons/obj/orkstuff/orkequipment.dmi'
 	icon_state = "slugga"
 	item_state = "slugga"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment.dmi')
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
 	origin_tech = Tc_COMBAT + "=5;" + Tc_MATERIALS + "=2"
 	w_class = W_CLASS_MEDIUM
 	max_shells = 25
@@ -101,7 +101,7 @@
 	icon = 'icons/obj/orkstuff/orkequipment.dmi'
 	icon_state = "shotta"
 	item_state = "slugga" //Lame but I can't be assed to spend time on this atm.
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment.dmi')
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
 	origin_tech = Tc_COMBAT + "=6;" + Tc_MATERIALS + "=3"
 	ammo_type = "/obj/item/ammo_casing/shotgun"
 	mag_type = "/obj/item/ammo_storage/magazine/shottamag"

@@ -1323,6 +1323,7 @@
 #include "code\modules\client\preferences\subsections\limbs.dm"
 #include "code\modules\client\preferences\subsections\organs.dm"
 #include "code\modules\clothing\clothing.dm"
+#include "code\modules\clothing\IGequipment.dm"
 #include "code\modules\clothing\orkequipment.dm"
 #include "code\modules\clothing\accessories\accessory.dm"
 #include "code\modules\clothing\accessories\armband.dm"
