@@ -1,6 +1,6 @@
 /datum/job/general
 	title = "General"
-	flag = CAPTAIN
+	flag = GENERAL
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1

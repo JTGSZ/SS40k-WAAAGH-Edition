@@ -393,7 +393,7 @@
 
 		else if(job_engsec_high)
 			switch(job_engsec_high)
-				if(CAPTAIN)
+				if(GENERAL)
 					clothes_s = new /icon(uniform_dmi, "captain_s")
 					clothes_s.Blend(new /icon(feet_dmi, "brown"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "captain"), ICON_OVERLAY)
