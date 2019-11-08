@@ -9,7 +9,7 @@
 	name = "Syndicate Traitors"
 	persistent = 1
 	role_category = /datum/role/traitor
-	protected_from_jobs = list("Security Officer", "Merchant", "Warden", "Head of Personnel", "Cyborg", "Detective", "Head of Security", "Captain")
+	protected_from_jobs = list("Security Officer", "Merchant", "Warden", "Head of Personnel", "Cyborg", "Detective", "Head of Security", "General")
 	restricted_from_jobs = list("AI","Mobile MMI")
 	required_candidates = 1
 	weight = 5
@@ -57,9 +57,9 @@
 /datum/dynamic_ruleset/roundstart/changeling
 	name = "Changelings"
 	role_category = /datum/role/changeling
-	protected_from_jobs = list("Security Officer", "Warden","Merchant", "Head of Personnel", "Detective", "Head of Security", "Captain")
+	protected_from_jobs = list("Security Officer", "Warden","Merchant", "Head of Personnel", "Detective", "Head of Security", "General")
 	restricted_from_jobs = list("AI","Cyborg","Mobile MMI")
-	enemy_jobs = list("Security Officer","Detective", "Warden", "Head of Security", "Captain")
+	enemy_jobs = list("Security Officer","Detective", "Warden", "Head of Security", "General")
 	required_enemies = list(2,2,2,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
@@ -88,9 +88,9 @@
 /datum/dynamic_ruleset/roundstart/vampire
 	name = "Vampires"
 	role_category = /datum/role/vampire
-	protected_from_jobs = list("Security Officer", "Warden","Merchant", "Head of Personnel", "Detective", "Head of Security", "Captain")
+	protected_from_jobs = list("Security Officer", "Warden","Merchant", "Head of Personnel", "Detective", "Head of Security", "General")
 	restricted_from_jobs = list("AI","Cyborg","Mobile MMI", "Chaplain")
-	enemy_jobs = list("Security Officer","Detective", "Warden", "Head of Security", "Captain", "Chaplain")
+	enemy_jobs = list("Security Officer","Detective", "Warden", "Head of Security", "General", "Chaplain")
 	required_enemies = list(2,2,2,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 2
@@ -126,8 +126,8 @@
 /datum/dynamic_ruleset/roundstart/wizard
 	name = "Wizard"
 	role_category = /datum/role/wizard
-	restricted_from_jobs = list("Head of Security", "Captain")//just to be sure that a wizard getting picked won't ever imply a Captain or HoS not getting drafted
-	enemy_jobs = list("Security Officer","Detective","Head of Security", "Captain")
+	restricted_from_jobs = list("Head of Security", "General")//just to be sure that a wizard getting picked won't ever imply a Captain or HoS not getting drafted
+	enemy_jobs = list("Security Officer","Detective","Head of Security", "General")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
@@ -167,8 +167,8 @@
 /datum/dynamic_ruleset/roundstart/cwc
 	name = "Civil War of Casters"
 	role_category = /datum/role/wizard
-	restricted_from_jobs = list("Head of Security", "Captain")//just to be sure that a wizard getting picked won't ever imply a Captain or HoS not getting drafted
-	enemy_jobs = list("Security Officer","Detective","Warden","Head of Security", "Captain")
+	restricted_from_jobs = list("Head of Security", "General")//just to be sure that a wizard getting picked won't ever imply a Captain or HoS not getting drafted
+	enemy_jobs = list("Security Officer","Detective","Warden","Head of Security", "General")
 	required_enemies = list(3,3,2,2,2,2,2,1,1,0)
 	required_candidates = 1
 	weight = 2
@@ -219,8 +219,8 @@
 /datum/dynamic_ruleset/roundstart/bloodcult
 	name = "Blood Cult"
 	role_category = /datum/role/cultist
-	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain", "Head of Personnel", "Internal Affairs Agent")
-	enemy_jobs = list("Security Officer","Warden", "Detective","Head of Security", "Captain")
+	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent")
+	enemy_jobs = list("Security Officer","Warden", "Detective","Head of Security", "General")
 	required_enemies = list(3,3,2,2,2,2,2,1,1,0)
 	required_candidates = 4
 	weight = 2
@@ -268,8 +268,8 @@
 	role_category = /datum/role/legacy_cultist
 	role_category_override = CULTIST // H-ha
 	protected_from_jobs = list("Merchant")
-	restricted_from_jobs = list("AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain", "Head of Personnel", "Internal Affairs Agent", "Chaplain")
-	enemy_jobs = list("AI", "Cyborg", "Security Officer","Detective","Head of Security", "Captain", "Chaplain")
+	restricted_from_jobs = list("AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent", "Chaplain")
+	enemy_jobs = list("AI", "Cyborg", "Security Officer","Detective","Head of Security", "General", "Chaplain")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 4
 	weight = 3
@@ -305,8 +305,8 @@
 /datum/dynamic_ruleset/roundstart/nuclear
 	name = "Nuclear Emergency"
 	role_category = /datum/role/nuclear_operative
-	restricted_from_jobs = list("Head of Security", "Captain") //Just to be sure that a nukie getting picked won't ever imply a Captain or HoS not getting drafted
-	enemy_jobs = list("AI", "Cyborg", "Security Officer", "Warden","Detective","Head of Security", "Captain")
+	restricted_from_jobs = list("Head of Security", "General") //Just to be sure that a nukie getting picked won't ever imply a Captain or HoS not getting drafted
+	enemy_jobs = list("AI", "Cyborg", "Security Officer", "Warden","Detective","Head of Security", "General")
 	required_enemies = list(3, 3, 3, 3, 3, 2, 1, 1, 0, 0)
 	required_candidates = 5 //This value is useless, see operative_cap
 	weight = 3
@@ -361,8 +361,8 @@
 /datum/dynamic_ruleset/roundstart/malf
 	name = "Malfunctioning AI"
 	role_category = /datum/role/malfAI
-	enemy_jobs = list("Security Officer", "Warden","Detective","Head of Security", "Captain", "Scientist", "Chemist", "Research Director", "Chief Engineer")
-	restricted_from_jobs = list("Security Officer", "Warden","Detective","Head of Security", "Captain", "Research Director", "Chief Engineer")
+	enemy_jobs = list("Security Officer", "Warden","Detective","Head of Security", "General", "Scientist", "Chemist", "Research Director", "Chief Engineer")
+	restricted_from_jobs = list("Security Officer", "Warden","Detective","Head of Security", "General", "Research Director", "Chief Engineer")
 	job_priority = list("AI","Cyborg")
 	required_enemies = list(3,3,3,2,2,2,1,1,1,1)
 	required_candidates = 1
@@ -420,8 +420,8 @@
 /datum/dynamic_ruleset/roundstart/blob
 	name = "Blob Conglomerate"
 	role_category = /datum/role/blob_overmind/
-	restricted_from_jobs = list("AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden","Detective","Head of Security", "Captain", "Head of Personnel")
-	enemy_jobs = list("AI", "Cyborg", "Security Officer", "Warden","Detective","Head of Security", "Captain")
+	restricted_from_jobs = list("AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden","Detective","Head of Security", "General", "Head of Personnel")
+	enemy_jobs = list("AI", "Cyborg", "Security Officer", "Warden","Detective","Head of Security", "General")
 	required_enemies = list(3,3,3,3,3,2,1,1,0,0)
 	required_candidates = 1
 	weight = 3
@@ -482,8 +482,8 @@
 /datum/dynamic_ruleset/roundstart/delayed/revs
 	name = "Revolution"
 	role_category = /datum/role/revolutionary
-	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director", "Internal Affairs Agent")
-	enemy_jobs = list("Security Officer","Detective","Head of Security", "Captain", "Warden")
+	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "General", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director", "Internal Affairs Agent")
+	enemy_jobs = list("Security Officer","Detective","Head of Security", "General", "Warden")
 	required_enemies = list(3,3,3,3,3,2,2,1,0,0)
 	required_candidates = 3
 	weight = 2

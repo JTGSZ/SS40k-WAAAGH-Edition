@@ -49,7 +49,7 @@ var/const/ASSISTANT			=(1<<13)
 var/const/TRADER			=(1<<14)
 
 var/list/command_positions = list(
-	"Captain",
+	"General",
 	"Head of Personnel",
 	"Head of Security",
 	"Chief Engineer",
@@ -123,7 +123,7 @@ var/list/misc_positions = list(
 )
 
 var/list/all_jobs_txt = list(
-	"Captain",
+	"General",
 	"Head of Personnel",
 	"Head of Security",
 	"Chief Engineer",

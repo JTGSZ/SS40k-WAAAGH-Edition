@@ -89,7 +89,7 @@ var/list/failure_lines_by_specific_job = list(
 	"Trader" = list(
 		"I offered you a home, and you refused." = 5,
 	),
-	"Captain" = list(
+	"General" = list(
 		"Do you feel in charge?" = 5,
 	),
 )

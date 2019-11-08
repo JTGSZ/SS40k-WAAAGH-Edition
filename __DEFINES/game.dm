@@ -25,7 +25,7 @@
 
 #define FIREAXE_SLOWDOWN 1.4
 
-#define COMMAND_POSITIONS list("Captain", "Head of Personnel", "Head of Security", "Chief Engineer", "Research Director", "Chief Medical Officer")
+#define COMMAND_POSITIONS list("General", "Head of Personnel", "Head of Security", "Chief Engineer", "Research Director", "Chief Medical Officer")
 #define ENGINEERING_POSITIONS list("Chief Engineer", "Station  Engineer", "Atmospheric Technician", "Mechanic")
 #define MEDICAL_POSITIONS list("Chief Medical Officer", "Medical Doctor", "Geneticist", "Virologist", "Paramedic", "Chemist")
 #define SCIENCE_POSITIONS list("Research Director", "Scientist", "Geneticist", "Roboticist", "Mechanic")

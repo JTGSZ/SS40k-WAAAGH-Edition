@@ -352,7 +352,7 @@
 		if(access_heads)
 			return "Bridge"
 		if(access_captain)
-			return "Captain"
+			return "General"
 		if(access_all_personal_lockers)
 			return "Personal Lockers"
 		if(access_chapel_office)

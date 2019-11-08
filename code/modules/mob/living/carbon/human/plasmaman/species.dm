@@ -59,7 +59,7 @@
 		if("Research Director")
 			suit=/obj/item/clothing/suit/space/plasmaman/science/rd
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/science/rd
-		if("Captain")
+		if("General")
 			suit=/obj/item/clothing/suit/space/plasmaman/security/captain
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/security/captain
 		if("Head of Personnel")

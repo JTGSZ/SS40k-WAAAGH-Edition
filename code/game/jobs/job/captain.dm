@@ -1,5 +1,5 @@
 /datum/job/general
-	title = "Captain"
+	title = "General"
 	flag = CAPTAIN
 	department_flag = ENGSEC
 	faction = "Station"

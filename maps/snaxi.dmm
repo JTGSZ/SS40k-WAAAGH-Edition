@@ -2863,7 +2863,7 @@
 "bdc" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/full/reinforced,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{icon_state = "0-2"; d2 = 2},/turf/simulated/floor/plating,/area/crew_quarters/captain)
 "bdd" = (/obj/machinery/door/poddoor{id_tag = "Burn Chamber Vent"; name = "Burn Chamber Vent"},/turf/simulated/floor/engine{name = "vacuum floor"; nitrogen = 0.01; oxygen = 0.01},/area/engineering/burn_chamber)
 "bde" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging,/turf/simulated/floor/engine,/area/engineering/burn_chamber)
-"bdf" = (/obj/effect/landmark/start{name = "Captain"},/obj/structure/bed/chair/comfy/brown,/turf/simulated/floor/wood,/area/crew_quarters/captain)
+"bdf" = (/obj/effect/landmark/start{name = "General"},/obj/structure/bed/chair/comfy/brown,/turf/simulated/floor/wood,/area/crew_quarters/captain)
 "bdg" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor/plating,/area/maintenance/fpmaint2)
 "bdh" = (/obj/machinery/door/airlock/maintenance{req_access_txt = "12"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor/plating,/area/maintenance/fpmaint2)
 "bdi" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor{icon_state = "neutralcorner"; dir = 1},/area/hallway/primary/central{name = "\improper Central Security Hallway"})

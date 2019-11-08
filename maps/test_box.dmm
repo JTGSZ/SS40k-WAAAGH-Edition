@@ -3871,7 +3871,7 @@
 "bww" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor{icon_state = "dark"},/area/turret_protected/ai)
 "bwx" = (/obj/machinery/turret{dir = 8},/obj/machinery/light{dir = 4},/turf/simulated/floor/bluegrid,/area/turret_protected/ai)
 "bwy" = (/obj/machinery/requests_console{announcementConsole = 1; department = "Captain's Desk"; departmentType = 5; name = "Captain RC"; pixel_x = -30},/obj/structure/filingcabinet,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/simulated/floor/wood,/area/crew_quarters/captain)
-"bwz" = (/obj/structure/bed/chair/comfy/brown{dir = 4},/obj/effect/landmark/start{name = "Captain"},/turf/simulated/floor/wood,/area/crew_quarters/captain)
+"bwz" = (/obj/structure/bed/chair/comfy/brown{dir = 4},/obj/effect/landmark/start{name = "General"},/turf/simulated/floor/wood,/area/crew_quarters/captain)
 "bwA" = (/obj/machinery/computer/communications,/turf/simulated/floor/wood,/area/crew_quarters/captain)
 "bwB" = (/obj/structure/table/woodentable,/obj/item/device/eftpos{eftpos_name = "Captain EFTPOS scanner"},/obj/machinery/media/receiver/boombox,/turf/simulated/floor/wood,/area/crew_quarters/captain)
 "bwC" = (/obj/structure/table/woodentable,/obj/item/weapon/melee/chainofcommand,/obj/machinery/alarm{dir = 8; pixel_x = 24},/turf/simulated/floor/wood,/area/crew_quarters/captain)

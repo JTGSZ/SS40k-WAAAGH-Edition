@@ -825,7 +825,7 @@
 		)
 	var/list/impede_hard = list(
 		"Chaplain",
-		"Captain",
+		"General",
 		)
 	var/obj/effect/cult_ritual/conversion/conversion = null
 

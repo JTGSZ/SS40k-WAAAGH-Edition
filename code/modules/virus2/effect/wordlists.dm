@@ -50,7 +50,7 @@
 	"Science"	=	"Cargo",
 	"borg"		=	"human",
 	"HoS"		=	"CMO",
-	"QM"		=	"captain",
+	"QM"		=	"General",
 	"HoP"		=	"RD",
 	"plasma"	=	"oxygen",
 	"n2o"		=	"co2",
