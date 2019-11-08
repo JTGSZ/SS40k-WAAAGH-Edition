@@ -157,7 +157,7 @@ var/global/datum/money_account/trader_account
 	icon_state = "account_db"
 	density = TRUE
 	anchored = TRUE
-	req_one_access = list(access_hop, access_captain)
+	req_one_access = list(access_hop, access_general)
 	var/receipt_num
 	var/machine_id = ""
 	var/obj/item/weapon/card/id/held_card
@@ -303,7 +303,7 @@ var/global/datum/money_account/trader_account
 
 				if(access_cent_captain in idcard.access)
 					access_level = 2
-				else if((access_hop in idcard.access) || (access_captain in idcard.access))
+				else if((access_hop in idcard.access) || (access_general in idcard.access))
 					access_level = 1
 
 /obj/machinery/account_database/emag(mob/user)
@@ -314,7 +314,7 @@ var/global/datum/money_account/trader_account
 			var/obj/item/weapon/card/id/C = held_card
 			if(access_cent_captain in C.access)
 				access_level = 2
-			else if((access_hop in C.access) || (access_captain in C.access))
+			else if((access_hop in C.access) || (access_general in C.access))
 				access_level = 1
 		attack_hand(user)
 		to_chat(user, "<span class='notice'>You re-enable the security checks of [src].</span>")
@@ -371,7 +371,7 @@ var/global/datum/money_account/trader_account
 							if(access_level < 3)
 								if(access_cent_captain in C.access)
 									access_level = 2
-								else if((access_hop in C.access) || (access_captain in C.access))
+								else if((access_hop in C.access) || (access_general in C.access))
 									access_level = 1
 			if("view_account_detail")
 				var/index = text2num(href_list["account_index"])

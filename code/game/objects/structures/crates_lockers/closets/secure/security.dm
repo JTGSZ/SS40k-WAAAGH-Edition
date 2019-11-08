@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/captains
 	name = "Captain's Locker"
-	req_access = list(access_captain)
+	req_access = list(access_general)
 	icon_state = "capsecure1"
 	icon_closed = "capsecure"
 	icon_locked = "capsecure1"
@@ -252,7 +252,7 @@
 
 /obj/structure/closet/secure_closet/injection
 	name = "Lethal Injections"
-	req_access = list(access_captain)
+	req_access = list(access_general)
 
 /obj/structure/closet/secure_closet/injection/atoms_to_spawn()
 	return list(

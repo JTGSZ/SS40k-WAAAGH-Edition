@@ -370,7 +370,7 @@ var/global/list/loopModeNames=list(
 				<input type="radio" name="lock" id="lock_head" value="[access_heads]"[change_access == list(access_heads) ? " checked='selected'":""] /> <label for="lock_head">Any Head</label>
 			</div>
 			<div>
-				<input type="radio" name="lock" id="lock_cap" value="[access_captain]"[change_access == list(access_captain) ? " checked='selected'":""] /> <label for="lock_cap">Captain</label>
+				<input type="radio" name="lock" id="lock_cap" value="[access_general]"[change_access == list(access_general) ? " checked='selected'":""] /> <label for="lock_cap">Captain</label>
 			</div>
 		</fieldset>
 		<input type="submit" name="act" value="Save Settings" /></form>"}

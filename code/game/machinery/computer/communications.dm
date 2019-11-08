@@ -49,7 +49,7 @@ var/list/shuttle_log = list()
 	req_access = list(access_heads)
 	circuit = "/obj/item/weapon/circuitboard/communications"
 	var/prints_intercept = 1
-	var/authenticated = UNAUTH //1 = normal login, 2 = emagged or had access_captain, 0 = logged out. Gremlins can set to 1 or 0.
+	var/authenticated = UNAUTH //1 = normal login, 2 = emagged or had access_general, 0 = logged out. Gremlins can set to 1 or 0.
 	var/list/messagetitle = list()
 	var/list/messagetext = list()
 	var/currmsg = 0
@@ -92,7 +92,7 @@ var/list/shuttle_log = list()
 			var/mob/M = usr
 			if(allowed(M))
 				authenticated = AUTH_HEAD
-				if(access_captain in M.GetAccess())
+				if(access_general in M.GetAccess())
 					authenticated = AUTH_CAPT
 			if(emagged) //Login regardless if you have an ID
 				authenticated = AUTH_CAPT
