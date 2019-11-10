@@ -4290,7 +4290,7 @@
 	M.nutrition += REM * nutriment_factor
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.job in list("Trooper", "Commissar", "Inquisitor", "Warden"))
+		if(H.job in list("Trooper", "Commissar", "Inquisitor", "Sergeant"))
 			H.heal_organ_damage(1, 1)
 			H.nutrition += REM * nutriment_factor //Double nutrition
 
@@ -5695,7 +5695,7 @@
 		return 1
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.job in list("Trooper", "Commissar", "Inquisitor", "Warden"))
+		if(H.job in list("Trooper", "Commissar", "Inquisitor", "Sergeant"))
 			playsound(get_turf(H), 'sound/voice/halt.ogg', 100, 1, 0)
 		else
 			H.Knockdown(10)
@@ -6829,7 +6829,7 @@ var/global/list/tonio_doesnt_remove=list("tonio", "blood")
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.job in list("Trooper", "Commissar", "Inquisitor", "Warden"))
+		if(H.job in list("Trooper", "Commissar", "Inquisitor", "Sergeant"))
 			H.heal_organ_damage(1, 1) //liquid sprinkles!
 
 /datum/reagent/drink/coffee/medcoffee

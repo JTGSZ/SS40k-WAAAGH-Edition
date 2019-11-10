@@ -334,7 +334,7 @@ var/global/datum/controller/occupations/job_master
 	//People who wants to be assistants, sure, go on.
 	var/count = 0
 	var/datum/job/IG_trooper = job_master.GetJob("Trooper")
-	var/datum/job/IG_Trooper_Sergeant = job_master.GetJob("Warden")
+	var/datum/job/IG_Trooper_Sergeant = job_master.GetJob("Sergeant")
 	var/datum/job/commissar = job_master.GetJob("Commissar")
 	count = (IG_trooper.current_positions + IG_Trooper_Sergeant.current_positions + commissar.current_positions)
 	Debug("DO, Running Assistant Check 1")

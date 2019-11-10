@@ -46,7 +46,7 @@ Crew Monitor by Paul, based on the holomaps by Deity
 		"General" = 00,
 		"Head of Personnel" = 50,
 		"Commissar" = 10,
-		"Warden" = 11,
+		"Sergeant" = 11,
 		"Trooper" = 12,
 		"Inquisitor" = 13,
 		"Chief Medical Officer" = 20,

@@ -610,7 +610,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/handcuffs/syndicate
 	cost = 5
 	discounted_cost = 4
-	jobs_with_discount = list("Trooper", "Warden", "Commissar")
+	jobs_with_discount = list("Trooper", "Sergeant", "Commissar")
 
 /datum/uplink_item/jobspecific/syndietape_police
 	name = "Syndicate Police Tape"
@@ -618,7 +618,7 @@ var/list/uplink_items = list()
 	item = /obj/item/taperoll/syndie/police
 	cost = 10
 	discounted_cost = 8
-	jobs_with_discount = list("Trooper", "Warden", "Commissar")
+	jobs_with_discount = list("Trooper", "Sergeant", "Commissar")
 
 /datum/uplink_item/jobspecific/evidenceforger
 	name = "Evidence Forger"

@@ -9,7 +9,7 @@
 	name = VAMPIRE
 	special_role = VAMPIRE
 	disallow_job = FALSE
-	restricted_jobs = list("AI", "Cyborg", "Mobile MMI", "Trooper", "Warden", "Inquisitor", "Commissar", "General", "Chaplain")
+	restricted_jobs = list("AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Chaplain")
 	logo_state = "vampire-logo"
 	greets = list(GREET_DEFAULT,GREET_CUSTOM,GREET_ADMINTOGGLE, GREET_MASTER)
 	required_pref = VAMPIRE

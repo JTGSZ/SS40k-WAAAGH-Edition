@@ -76,7 +76,7 @@ var/savefile/Banlistjob
 		return 1
 	if(rank == "Security")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Commissar")
-		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Warden")
+		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Sergeant")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Inquisitor")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Trooper")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Cyborg")

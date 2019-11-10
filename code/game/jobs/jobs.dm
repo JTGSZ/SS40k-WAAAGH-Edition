@@ -106,7 +106,7 @@ var/list/cargo_positions = list(
 
 var/list/security_positions = list(
 	"Commissar",
-	"Warden",
+	"Sergeant",
 	"Inquisitor",
 	"Trooper"
 )
@@ -154,7 +154,7 @@ var/list/all_jobs_txt = list(
 	"Quartermaster",
 	"Cargo Technician",
 	"Shaft Miner",
-	"Warden",
+	"Sergeant",
 	"Inquisitor",
 	"Trooper",
 )

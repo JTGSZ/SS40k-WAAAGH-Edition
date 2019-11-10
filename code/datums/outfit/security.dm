@@ -66,7 +66,7 @@
 
 /datum/outfit/warden
 
-	outfit_name = "Warden"
+	outfit_name = "Sergeant"
 	associated_job = /datum/job/IG_Trooper_Sergeant
 
 	backpack_types = list(

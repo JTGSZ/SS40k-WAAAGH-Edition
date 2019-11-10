@@ -24,7 +24,7 @@
 
 
 /datum/job/IG_Trooper_Sergeant //This will be IG sergeant
-	title = "Warden"
+	title = "Sergeant"
 	flag = WARDEN
 	department_flag = ENGSEC
 	faction = "Station"

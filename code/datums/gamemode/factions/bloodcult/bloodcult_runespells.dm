@@ -817,7 +817,7 @@
 	var/success = CONVERSION_NOCHOICE
 	var/list/impede_medium = list(
 		"Trooper",
-		"Warden",
+		"Sergeant",
 		"Inquisitor",
 		"Commissar",
 		"Internal Affairs Agent",

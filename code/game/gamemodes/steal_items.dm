@@ -159,7 +159,7 @@
 /datum/theft_objective/traitor/ablative
 	name = "an ablative armor vest"
 	typepath = /obj/item/clothing/suit/armor/laserproof
-	protected_jobs = list("General", "Commissar", "Warden")
+	protected_jobs = list("General", "Commissar", "Sergeant")
 
 /datum/theft_objective/traitor/telebaton
 	name = "a telescopic baton"

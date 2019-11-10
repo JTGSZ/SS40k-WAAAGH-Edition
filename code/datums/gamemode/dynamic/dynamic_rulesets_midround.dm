@@ -164,7 +164,7 @@
 /datum/dynamic_ruleset/midround/autotraitor
 	name = "Syndicate Sleeper Agent"
 	role_category = /datum/role/traitor
-	protected_from_jobs = list("Trooper", "Warden", "Inquisitor", "Commissar", "General", "Head of Personnel", "Cyborg", "Merchant")
+	protected_from_jobs = list("Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Head of Personnel", "Cyborg", "Merchant")
 	restricted_from_jobs = list("AI","Mobile MMI")
 	required_candidates = 1
 	weight = 7
@@ -221,7 +221,7 @@
 /datum/dynamic_ruleset/midround/malf
 	name = "Malfunctioning AI"
 	role_category = /datum/role/malfAI
-	enemy_jobs = list("Trooper", "Warden","Inquisitor","Commissar", "General", "Scientist", "Chemist", "Research Director", "Chief Engineer")
+	enemy_jobs = list("Trooper", "Sergeant","Inquisitor","Commissar", "General", "Scientist", "Chemist", "Research Director", "Chief Engineer")
 	exclusive_to_jobs = list("AI")
 	required_enemies = list(3,3,3,2,2,2,1,1,1,1)
 	required_candidates = 1
@@ -314,7 +314,7 @@
 	name = "Nuclear Assault"
 	role_category = /datum/role/nuclear_operative
 	my_fac = /datum/faction/syndicate/nuke_op/
-	enemy_jobs = list("AI", "Cyborg", "Trooper", "Warden","Inquisitor","Commissar", "General")
+	enemy_jobs = list("AI", "Cyborg", "Trooper", "Sergeant","Inquisitor","Commissar", "General")
 	required_enemies = list(3, 3, 3, 3, 3, 2, 1, 1, 0, 0)
 	required_candidates = 5
 	weight = 5
@@ -388,7 +388,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/faction_based/revsquad
 	name = "Revolutionary Squad"
 	role_category = /datum/role/revolutionary/leader
-	enemy_jobs = list("AI", "Cyborg", "Trooper", "Warden","Inquisitor","Commissar", "General")
+	enemy_jobs = list("AI", "Cyborg", "Trooper", "Sergeant","Inquisitor","Commissar", "General")
 	required_enemies = list(3,3,3,3,3,2,1,1,0,0)
 	required_candidates = 3
 	weight = 5
@@ -426,7 +426,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/ninja
 	name = "Space Ninja Attack"
 	role_category = /datum/role/ninja
-	enemy_jobs = list("Trooper","Inquisitor", "Warden", "Commissar", "General")
+	enemy_jobs = list("Trooper","Inquisitor", "Sergeant", "Commissar", "General")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
@@ -557,7 +557,7 @@
 	name = "Vox Heist"
 	role_category = /datum/role/vox_raider
 	my_fac = /datum/faction/vox_shoal
-	enemy_jobs = list("AI", "Cyborg", "Trooper", "Warden","Inquisitor","Commissar", "General")
+	enemy_jobs = list("AI", "Cyborg", "Trooper", "Sergeant","Inquisitor","Commissar", "General")
 	required_enemies = list(2,2,2,1,1,1,1,1,0,0)
 	required_candidates = 5
 	weight = 5
