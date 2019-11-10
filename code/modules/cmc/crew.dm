@@ -43,9 +43,9 @@ Crew Monitor by Paul, based on the holomaps by Deity
 	var/list/textview_updatequeued = list() //list of _using set textviewupdate setting
 	var/list/holomap = list() //list of _using set holomap-enable setting
 	var/list/jobs = list( //needed for formatting, stolen from the old cmc
-		"Captain" = 00,
+		"General" = 00,
 		"Head of Personnel" = 50,
-		"Head of Security" = 10,
+		"Commissar" = 10,
 		"Warden" = 11,
 		"Security Officer" = 12,
 		"Detective" = 13,

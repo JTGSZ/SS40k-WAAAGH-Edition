@@ -585,11 +585,11 @@
 	desc = "The spare ID of the High Lord himself."
 	icon_state = "gold"
 	item_state = "gold_id"
-	registered_name = "Captain"
-	assignment = "Captain"
+	registered_name = "General"
+	assignment = "General"
 
 /obj/item/weapon/card/id/captains_spare/New()
-	var/datum/job/captain/J = new/datum/job/captain
+	var/datum/job/general/J = new/datum/job/general
 	access = J.get_access()
 	..()
 
@@ -617,7 +617,7 @@
 
 /obj/item/weapon/card/id/salvage_captain
 	name = "Captain's ID"
-	registered_name = "Captain"
+	registered_name = "General"
 	icon_state = "centcom"
 	desc = "Finders, keepers."
 	access = list(access_salvage_captain)

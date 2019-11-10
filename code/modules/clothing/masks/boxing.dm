@@ -11,7 +11,7 @@
 
 /obj/item/clothing/mask/luchador/affect_speech(var/datum/speech/speech, var/mob/living/L)
 	var/message=speech.message
-	message = replacetext(message, "captain", "CAPITÁN")
+	message = replacetext(message, "General", "CAPITÁN")
 	message = replacetext(message, "station", "ESTACIÓN")
 	message = replacetext(message, "sir", "SEÑOR")
 	message = replacetext(message, "the ", "el ")

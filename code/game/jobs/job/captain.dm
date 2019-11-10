@@ -1,11 +1,11 @@
-/datum/job/captain
-	title = "Captain"
-	flag = CAPTAIN
+/datum/job/general
+	title = "General"
+	flag = GENERAL
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nanotrasen officials and Space law"
+	supervisors = "the emperor, and the imperium of man"
 	selection_color = "#ccccff"
 	idtype = /obj/item/weapon/card/id/gold
 	req_admin_notify = 1
@@ -18,7 +18,7 @@
 	pdaslot=slot_l_store
 	pdatype=/obj/item/device/pda/captain
 
-/datum/job/captain/equip(var/mob/living/carbon/human/H)
+/datum/job/general/equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return 0
 	H.equip_or_collect(new /obj/item/device/radio/headset/heads/captain(H), slot_ears)
@@ -53,10 +53,10 @@
 	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ] <br/> <b>Security:</b> [SEC_FREQ] <br/> <b>Medical:</b> [MED_FREQ] <br/> <b>Science:</b> [SCI_FREQ] <br/> <b>Engineering:</b> [ENG_FREQ] <br/> <b>Service:</b> [SER_FREQ] <b>Cargo:</b> [SUP_FREQ]<br/>")
 	return 1
 
-/datum/job/captain/get_access()
+/datum/job/general/get_access()
 	return get_all_accesses()
 
-/datum/job/captain/reject_new_slots()
+/datum/job/general/reject_new_slots()
 	if(security_level == SEC_LEVEL_RED)
 		return FALSE
 	else

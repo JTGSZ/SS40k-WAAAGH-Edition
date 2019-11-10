@@ -6,8 +6,8 @@ var/list/station_departments = list("Command", "Medical", "Engineering", "Scienc
 // Whether this is a head position
 /datum/job/var/head_position = 0
 
-/datum/job/captain/department = "Command"
-/datum/job/captain/head_position = 1
+/datum/job/general/department = "Command"
+/datum/job/general/head_position = 1
 
 /datum/job/hop/department = "Civilian"
 /datum/job/hop/head_position = 1
@@ -64,8 +64,8 @@ var/list/station_departments = list("Command", "Medical", "Engineering", "Scienc
 
 /datum/job/roboticist/department = "Science"
 
-/datum/job/hos/department = "Security"
-/datum/job/hos/head_position = 1
+/datum/job/commissar/department = "Security"
+/datum/job/commissar/head_position = 1
 
 /datum/job/warden/department = "Security"
 

@@ -5,7 +5,7 @@
 /obj/item/weapon/choppa
 	name = "choppa"
 	desc = "A basic choppa made for choppin shit."
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment.dmi')
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
 	icon = 'icons/obj/orkstuff/orkequipment.dmi'
 	icon_state = "choppa"
 	item_state = "choppa"
@@ -36,7 +36,7 @@
 	icon = 'icons/obj/orkstuff/orkequipment.dmi'
 	icon_state = "nobshield"
 	item_state = "nobshield"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment.dmi')
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
 	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK

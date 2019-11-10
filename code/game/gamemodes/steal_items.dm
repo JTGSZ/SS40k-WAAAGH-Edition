@@ -69,32 +69,32 @@
 /datum/theft_objective/traitor/antique_laser_gun
 	name = "the captain's antique laser gun"
 	typepath = /obj/item/weapon/gun/energy/laser/captain
-	protected_jobs = list("Captain")
+	protected_jobs = list("General")
 
 /datum/theft_objective/traitor/hand_tele
 	name = "a hand teleporter"
 	typepath = /obj/item/weapon/hand_tele
-	protected_jobs = list("Captain", "Research Director", "Head of Personnel")
+	protected_jobs = list("General", "Research Director", "Head of Personnel")
 
 /datum/theft_objective/traitor/cap_hardsuit
 	name = "the captain's full-body armor" //technically only the bodypiece, which is the hardest one to conceal anyways
 	typepath = /obj/item/clothing/suit/armor/captain
-	protected_jobs = list("Captain")
+	protected_jobs = list("General")
 
 /datum/theft_objective/traitor/cap_stamp
 	name = "the captain's rubber stamp"
 	typepath = /obj/item/weapon/stamp/captain
-	protected_jobs = list("Captain")
+	protected_jobs = list("General")
 
 /datum/theft_objective/traitor/cap_jumpsuit
 	name = "the captain's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/captain
-	protected_jobs = list("Captain", "Head of Personnel")
+	protected_jobs = list("General", "Head of Personnel")
 
 /datum/theft_objective/traitor/ai
 	name = "a functional AI"
 	typepath = /obj/item/device/aicard
-	protected_jobs = list("Captain", "Research Director", "Head of Personnel", "Chief Engineer")
+	protected_jobs = list("General", "Research Director", "Head of Personnel", "Chief Engineer")
 
 /datum/theft_objective/traitor/magboots
 	name = "a pair of advanced magboots"
@@ -119,32 +119,32 @@
 /datum/theft_objective/traitor/corgi
 	name = "a piece of corgi meat"
 	typepath = /obj/item/weapon/reagent_containers/food/snacks/meat/animal/corgi
-	protected_jobs = list("Captain", "Head of Personnel") //Really HoP? Your own dog?
+	protected_jobs = list("General", "Head of Personnel") //Really HoP? Your own dog?
 
 /datum/theft_objective/traitor/rd_jumpsuit
 	name = "the research director's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/research_director
-	protected_jobs = list("Captain", "Research Director", "Head of Personnel")
+	protected_jobs = list("General", "Research Director", "Head of Personnel")
 
 /datum/theft_objective/traitor/ce_jumpsuit
 	name = "the chief engineer's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/chief_engineer
-	protected_jobs = list("Captain", "Chief Engineer", "Head of Personnel")
+	protected_jobs = list("General", "Chief Engineer", "Head of Personnel")
 
 /datum/theft_objective/traitor/cmo_jumpsuit
 	name = "the chief medical officer's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/chief_medical_officer
-	protected_jobs = list("Captain", "Chief Medical Officer", "Head of Personnel")
+	protected_jobs = list("General", "Chief Medical Officer", "Head of Personnel")
 
 /datum/theft_objective/traitor/hos_jumpsuit
 	name = "the head of security's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/head_of_security
-	protected_jobs = list("Captain", "Head of Security", "Head of Personnel")
+	protected_jobs = list("General", "Commissar", "Head of Personnel")
 
 /datum/theft_objective/traitor/hop_jumpsuit
 	name = "the head of personnel's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/head_of_personnel
-	protected_jobs = list("Captain", "Head of Personnel")
+	protected_jobs = list("General", "Head of Personnel")
 
 /datum/theft_objective/traitor/hypospray
 	name = "a hypospray"
@@ -154,27 +154,27 @@
 /datum/theft_objective/traitor/pinpointer
 	name = "the captain's pinpointer"
 	typepath = /obj/item/weapon/pinpointer
-	protected_jobs = list("Captain")
+	protected_jobs = list("General")
 
 /datum/theft_objective/traitor/ablative
 	name = "an ablative armor vest"
 	typepath = /obj/item/clothing/suit/armor/laserproof
-	protected_jobs = list("Captain", "Head of Security", "Warden")
+	protected_jobs = list("General", "Commissar", "Warden")
 
 /datum/theft_objective/traitor/telebaton
 	name = "a telescopic baton"
 	typepath = /obj/item/weapon/melee/telebaton
-	protected_jobs = list("Captain", "Head of Security")
+	protected_jobs = list("General", "Commissar")
 
 /datum/theft_objective/traitor/planningframe
 	name = "the law planning frame"
 	typepath = /obj/item/weapon/planning_frame
-	protected_jobs = list("Captain", "Research Director", "Chief Engineer", "Head of Personnel")
+	protected_jobs = list("General", "Research Director", "Chief Engineer", "Head of Personnel")
 
 /datum/theft_objective/traitor/belt
 	name = "the chief engineer's advanced toolbelt"
 	typepath = /obj/item/weapon/storage/belt/utility/chief
-	protected_jobs = list("Captain", "Chief Engineer")
+	protected_jobs = list("General", "Chief Engineer")
 
 /datum/theft_objective/traitor/ttv
 	name = "a tank transfer valve"
@@ -195,7 +195,7 @@
 /datum/theft_objective/traitor/lawgiver
 	name = "the lawgiver"
 	typepath = /obj/item/weapon/gun/lawgiver
-	protected_jobs = list("Head of Security")
+	protected_jobs = list("Commissar")
 
 /datum/theft_objective/number
 	var/min=0

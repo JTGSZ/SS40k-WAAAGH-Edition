@@ -40,14 +40,14 @@
 /obj/structure/displaycase/captains_laser/setContent()
 	occupant=new /obj/item/weapon/gun/energy/laser/captain(src)
 	locked=1
-	req_access=list(access_captain)
+	req_access=list(access_general)
 	update_icon()
 
 /obj/structure/displaycase/gooncode/setContent()
 	occupant=new /obj/item/toy/gooncode(src)
 	desc = "The glass is cracked and there are traces of something leaking out."
 	locked=1
-	req_access=list(access_captain)
+	req_access=list(access_general)
 	update_icon()
 
 /obj/structure/displaycase/lamarr/setContent()

@@ -393,7 +393,7 @@
 
 		else if(job_engsec_high)
 			switch(job_engsec_high)
-				if(CAPTAIN)
+				if(GENERAL)
 					clothes_s = new /icon(uniform_dmi, "captain_s")
 					clothes_s.Blend(new /icon(feet_dmi, "brown"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "captain"), ICON_OVERLAY)
@@ -401,7 +401,7 @@
 					clothes_s.Blend(new /icon('icons/mob/eyes.dmi', "sun"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "caparmor"), ICON_OVERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-cap",null,"courierbagcom")
-				if(HOS)
+				if(COMMISSAR)
 					clothes_s = new /icon(uniform_dmi, "hosred_s")
 					clothes_s.Blend(new /icon(feet_dmi, "jackboots"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "black"), ICON_UNDERLAY)

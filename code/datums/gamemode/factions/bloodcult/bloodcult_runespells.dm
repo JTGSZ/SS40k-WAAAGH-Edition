@@ -819,13 +819,13 @@
 		"Security Officer",
 		"Warden",
 		"Detective",
-		"Head of Security",
+		"Commissar",
 		"Internal Affairs Agent",
 		"Head of Personnel",
 		)
 	var/list/impede_hard = list(
 		"Chaplain",
-		"Captain",
+		"General",
 		)
 	var/obj/effect/cult_ritual/conversion/conversion = null
 

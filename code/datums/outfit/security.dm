@@ -3,8 +3,8 @@
 
 /datum/outfit/hos
 
-	outfit_name = "Head of Security"
-	associated_job = /datum/job/hos
+	outfit_name = "Commissar"
+	associated_job = /datum/job/commissar
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,

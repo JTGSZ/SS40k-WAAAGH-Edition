@@ -264,7 +264,7 @@ var/list/dispenser_presets = list()
 	amount = 1
 
 /datum/suit/dorf/head/captain
-	name = "Captain"
+	name = "General"
 	to_spawn = (/obj/item/clothing/suit/armor/captain,/obj/item/clothing/head/helmet/space/capspace)
 
 /datum/suit/dorf/head/chiefengie

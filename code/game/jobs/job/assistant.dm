@@ -31,8 +31,8 @@
 
 	var/datum/job/officer = job_master.GetJob("Security Officer")
 	var/datum/job/warden = job_master.GetJob("Warden")
-	var/datum/job/hos = job_master.GetJob("Head of Security")
-	var/sec_jobs = (officer.current_positions + warden.current_positions + hos.current_positions)
+	var/datum/job/commissar = job_master.GetJob("Commissar")
+	var/sec_jobs = (officer.current_positions + warden.current_positions + commissar.current_positions)
 
 	if(sec_jobs > 5)
 		return 99

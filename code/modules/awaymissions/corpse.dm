@@ -26,7 +26,7 @@
 	var/corpseback = null
 	var/corpseid = 0     //Just set to 1 if you want them to have an ID
 	var/corpseidjob = null // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
-	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
+	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "General" if you want it to be all access.
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
 	var/mutantrace = null
 
@@ -274,7 +274,7 @@
 	corpsepocket1 = list(/obj/item/device/radio/off, /obj/item/weapon/crowbar, /obj/item/weapon/reagent_containers/hypospray/autoinjector, /obj/item/weapon/reagent_containers/food/snacks/magbites, /obj/item/weapon/reagent_containers/food/snacks/donkpocket, /obj/item/device/flash, /obj/item/weapon/grenade/flashbang, /obj/item/device/flashlight, /obj/item/weapon/handcuffs, /obj/item/weapon/handcuffs/cable/red, /obj/item/weapon/legcuffs/bolas)
 	corpsepocket2 = list(/obj/item/device/radio/off, /obj/item/weapon/crowbar, /obj/item/weapon/reagent_containers/hypospray/autoinjector, /obj/item/weapon/reagent_containers/food/snacks/magbites, /obj/item/weapon/reagent_containers/food/snacks/donkpocket, /obj/item/device/flash, /obj/item/weapon/grenade/flashbang, /obj/item/device/flashlight, /obj/item/weapon/handcuffs, /obj/item/weapon/handcuffs/cable/red, /obj/item/weapon/legcuffs/bolas)
 	corpseback = list(/obj/item/weapon/fireaxe, /obj/item/weapon/storage/backpack/clown, /obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/holding, /obj/item/weapon/storage/backpack)
-	corpseidaccess = "Captain"
+	corpseidaccess = "General"
 
 /obj/effect/landmark/corpse/bartender
 	name = "Bartender"
@@ -695,7 +695,7 @@
 	corpseidaccess = "Detective"
 
 /obj/effect/landmark/corpse/headofsecurity
-	name = "Head of Security"
+	name = "Commissar"
 	corpseuniform = /obj/item/clothing/under/rank/security
 	corpsesuit = /obj/item/clothing/suit/armor/hos/jensen
 	corpseback = /obj/item/weapon/storage/backpack/security
@@ -707,8 +707,8 @@
 	corpsepocket1 = /obj/item/weapon/handcuffs
 	corpsepocket2 = /obj/item/weapon/implanter/loyalty
 	corpseid = 1
-	corpseidjob = "Head of Security"
-	corpseidaccess = "Head of Security"
+	corpseidjob = "Commissar"
+	corpseidaccess = "Commissar"
 
 /obj/effect/landmark/corpse/headofsecurity/rig
 	corpsesuit = /obj/item/clothing/suit/space/rig/security
@@ -730,7 +730,7 @@
 	corpseidaccess = "Head of Personnel"
 
 /obj/effect/landmark/corpse/captain
-	name = "Captain"
+	name = "General"
 	corpseuniform = /obj/item/clothing/under/rank/captain
 	corpsesuit = /obj/item/clothing/suit/armor/captain
 	corpseback = /obj/item/weapon/storage/backpack/captain
@@ -742,8 +742,8 @@
 	corpsegloves = /obj/item/clothing/gloves/captain
 	corpseshoes = /obj/item/clothing/shoes/brown
 	corpseid = 1
-	corpseidjob = "Captain"
-	corpseidaccess = "Captain"
+	corpseidjob = "General"
+	corpseidaccess = "General"
 
 /obj/effect/landmark/corpse/captain/rig
 	corpseback = /obj/item/weapon/tank/oxygen
@@ -827,7 +827,7 @@
 	corpseglasses = /obj/item/clothing/glasses/sunglasses
 	corpseid = 1
 	corpseidjob = "Bridge Officer"
-	corpseidaccess = "Captain"
+	corpseidaccess = "General"
 
 /obj/effect/landmark/corpse/commander
 	name = "Commander"
@@ -842,7 +842,7 @@
 	corpsepocket1 = /obj/item/weapon/lighter/zippo
 	corpseid = 1
 	corpseidjob = "Commander"
-	corpseidaccess = "Captain"
+	corpseidaccess = "General"
 
 /////////////////Simple-Mob Corpses/////////////////////
 

@@ -72,7 +72,7 @@
 					"After seven years of research, Dr Acuilar and his team came up with this simple breakthrough male enhancement formula.", \
 					"Men of all species report AMAZING increases in length, width and stamina.")
 				if(5)
-					sender = pick("Dr", "Crown prince", "King Regent", "Professor", "Captain")
+					sender = pick("Dr", "Crown prince", "King Regent", "Professor", "General")
 					sender += " [pick("Robert", "Alfred", "Josephat", "Kingsley", "Sehi", "Zbahi")] [pick("Mugawe", "Nkem", "Gbatokwia", "Nchekwube", "Ndim", "Ndubisi")]"
 					message = pick("YOUR FUND HAS BEEN MOVED TO [pick("Salusa", "Segunda", "Cepheus", "Andromeda", "Gruis", "Corona", "Aquila", "Asellus")] DEVELOPMENTARY BANK FOR ONWARD REMITTANCE.", \
 					"We are happy to inform you that due to the delay, we have been instructed to IMMEDIATELY deposit all funds into your account", \
