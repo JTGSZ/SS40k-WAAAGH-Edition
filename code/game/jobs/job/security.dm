@@ -39,7 +39,7 @@
 
 /datum/job/inquisitor //This will be inquisitor
 	title = "Inquisitor"
-	flag = DETECTIVE
+	flag = INQUISITOR
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1

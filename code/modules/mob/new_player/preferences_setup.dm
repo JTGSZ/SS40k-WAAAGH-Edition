@@ -415,7 +415,7 @@
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "policehelm"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "armor"), ICON_OVERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-sec","securitypack","courierbagsec")
-				if(DETECTIVE)
+				if(INQUISITOR)
 					clothes_s = new /icon(uniform_dmi, "detective_s")
 					clothes_s.Blend(new /icon(feet_dmi, "brown"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "bgloves"), ICON_UNDERLAY)
