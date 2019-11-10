@@ -765,7 +765,7 @@ window "popupwindow"
 window "rpane"
 	elem "rpane"
 		type = MAIN
-		pos = 281,0
+		pos = 218,0
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
@@ -800,7 +800,7 @@ window "rpane"
 		is-vert = false
 	elem "special_button"
 		type = BUTTON
-		pos = 531,0
+		pos = 264,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
@@ -819,7 +819,7 @@ window "rpane"
 		saved-params = ""
 	elem "rulesb"
 		type = BUTTON
-		pos = 253,0
+		pos = 128,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
@@ -829,7 +829,7 @@ window "rpane"
 		group = "rpanemode"
 	elem "changelog"
 		type = BUTTON
-		pos = 316,0
+		pos = 192,0
 		size = 67x16
 		anchor1 = none
 		anchor2 = none
@@ -852,7 +852,7 @@ window "rpane"
 		button-type = pushbox
 	elem "browseb"
 		type = BUTTON
-		pos = 580,0
+		pos = 328,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
