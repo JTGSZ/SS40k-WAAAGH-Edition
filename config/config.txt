@@ -167,12 +167,6 @@ GUEST_BAN
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
 # SERVER ss13.example.com:2506
 
-## forum address
-# FORUMURL http://example.com
-
-## Wiki address
-# WIKIURL http://example.com
-
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS http://example.com
 
@@ -281,8 +275,6 @@ RESPAWN_AS_MOMMI
 ##
 ##  Do NOT share this, it's like a password.
 #MEDIA_SECRET_KEY youshouldchangethisbro
-
-RENDERS_URL http://ss13.pomf.se/img/map-renders
 
 ##POLL_RESULTS_URL
 ##Uncomment to add a "Results" button to the player polls, linking to the page where that poll's results are. [poll_results_url]/[pollid]
