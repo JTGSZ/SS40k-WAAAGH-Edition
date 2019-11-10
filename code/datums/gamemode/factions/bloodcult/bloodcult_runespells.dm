@@ -816,7 +816,7 @@
 	var/flavor_text = 0
 	var/success = CONVERSION_NOCHOICE
 	var/list/impede_medium = list(
-		"Security Officer",
+		"Trooper",
 		"Warden",
 		"Detective",
 		"Commissar",

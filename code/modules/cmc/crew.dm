@@ -47,7 +47,7 @@ Crew Monitor by Paul, based on the holomaps by Deity
 		"Head of Personnel" = 50,
 		"Commissar" = 10,
 		"Warden" = 11,
-		"Security Officer" = 12,
+		"Trooper" = 12,
 		"Detective" = 13,
 		"Chief Medical Officer" = 20,
 		"Chemist" = 21,

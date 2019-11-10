@@ -333,7 +333,7 @@ var/global/datum/controller/occupations/job_master
 
 	//People who wants to be assistants, sure, go on.
 	var/count = 0
-	var/datum/job/IG_trooper = job_master.GetJob("Security Officer")
+	var/datum/job/IG_trooper = job_master.GetJob("Trooper")
 	var/datum/job/warden = job_master.GetJob("Warden")
 	var/datum/job/commissar = job_master.GetJob("Commissar")
 	count = (IG_trooper.current_positions + warden.current_positions + commissar.current_positions)

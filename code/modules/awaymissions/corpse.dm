@@ -659,7 +659,7 @@
 	corpseidaccess = "Research Director"
 
 /obj/effect/landmark/corpse/securityofficer
-	name = "Security Officer"
+	name = "Trooper"
 	corpseuniform = /obj/item/clothing/under/rank/security
 	corpsesuit = /obj/item/clothing/suit/armor/vest/security
 	corpseback = /obj/item/weapon/storage/backpack/security
@@ -671,8 +671,8 @@
 	corpsepocket1 = /obj/item/weapon/handcuffs
 	corpsepocket2 = /obj/item/device/flash
 	corpseid = 1
-	corpseidjob = "Security Officer"
-	corpseidaccess = "Security Officer"
+	corpseidjob = "Trooper"
+	corpseidaccess = "Trooper"
 
 /obj/effect/landmark/corpse/securityofficer/rig
 	corpsesuit = /obj/item/clothing/suit/space/rig/security
@@ -775,7 +775,7 @@
 	corpseid = 1
 	name = "Lucy Pinata"
 	corpseidjob = "Waifu"
-	corpseidaccess = "Security Officer"
+	corpseidaccess = "Trooper"
 	corpsegender = G_FEMALE
 
 /////////////////Non-Crew (but still playable at roundstart)//////////////////////

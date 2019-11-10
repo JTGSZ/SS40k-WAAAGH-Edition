@@ -3,7 +3,7 @@
 	name = LEGACY_CULTIST
 	special_role = LEGACY_CULTIST
 	disallow_job = FALSE
-	restricted_jobs = list("AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Commissar", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent", "Merchant")
+	restricted_jobs = list("AI", "Cyborg", "Mobile MMI", "Trooper", "Warden", "Detective", "Commissar", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent", "Merchant")
 	logo_state = "cult-logo"
 	greets = list("default","custom","admintoggle")
 	required_pref = CULTIST

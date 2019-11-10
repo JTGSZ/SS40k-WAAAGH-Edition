@@ -53,7 +53,7 @@
 	outfit_datum = /datum/outfit/detective
 
 /datum/job/IG_trooper //This will be converted to the basic guardsman.
-	title = "Security Officer"
+	title = "Trooper"
 	flag = OFFICER
 	department_flag = ENGSEC
 	faction = "Station"

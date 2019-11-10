@@ -108,7 +108,7 @@ var/list/security_positions = list(
 	"Commissar",
 	"Warden",
 	"Detective",
-	"Security Officer"
+	"Trooper"
 )
 
 var/list/nonhuman_positions = list(
@@ -156,7 +156,7 @@ var/list/all_jobs_txt = list(
 	"Shaft Miner",
 	"Warden",
 	"Detective",
-	"Security Officer",
+	"Trooper",
 )
 
 var/list/departement_list = list(

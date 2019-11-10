@@ -42,7 +42,7 @@
 /datum/dynamic_ruleset/latejoin/infiltrator
 	name = "Syndicate Infiltrator"
 	role_category = /datum/role/traitor
-	protected_from_jobs = list("Security Officer", "Warden", "Head of Personnel", "Detective", "Commissar", "General", "Merchant")
+	protected_from_jobs = list("Trooper", "Warden", "Head of Personnel", "Detective", "Commissar", "General", "Merchant")
 	restricted_from_jobs = list("AI","Cyborg","Mobile MMI")
 	required_candidates = 1
 	weight = 7
@@ -71,7 +71,7 @@
 /datum/dynamic_ruleset/latejoin/raginmages
 	name = "Ragin' Mages"
 	role_category = /datum/role/wizard
-	enemy_jobs = list("Security Officer","Detective", "Warden", "Commissar", "General")
+	enemy_jobs = list("Trooper","Detective", "Warden", "Commissar", "General")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 1
@@ -111,7 +111,7 @@
 /datum/dynamic_ruleset/latejoin/ninja
 	name = "Space Ninja Attack"
 	role_category = /datum/role/ninja
-	enemy_jobs = list("Security Officer","Detective", "Warden", "Commissar", "General")
+	enemy_jobs = list("Trooper","Detective", "Warden", "Commissar", "General")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
@@ -147,8 +147,8 @@
 /datum/dynamic_ruleset/latejoin/provocateur
 	name = "Provocateur"
 	role_category = /datum/role/revolutionary
-	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Commissar", "General", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director", "Internal Affairs Agent")
-	enemy_jobs = list("AI", "Cyborg", "Security Officer","Detective","Commissar", "General", "Warden")
+	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Trooper", "Warden", "Detective", "Commissar", "General", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director", "Internal Affairs Agent")
+	enemy_jobs = list("AI", "Cyborg", "Trooper","Detective","Commissar", "General", "Warden")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 2

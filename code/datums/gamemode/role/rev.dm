@@ -2,7 +2,7 @@
 	name = REV
 	id = REV
 	required_pref = REV
-	restricted_jobs = list("Security Officer", "Warden", "Detective", "AI", "Cyborg","Mobile MMI","General", "Head of Personnel", "Commissar", "Chief Engineer", "Research Director", "Chief Medical Officer", "Internal Affairs Agent")
+	restricted_jobs = list("Trooper", "Warden", "Detective", "AI", "Cyborg","Mobile MMI","General", "Head of Personnel", "Commissar", "Chief Engineer", "Research Director", "Chief Medical Officer", "Internal Affairs Agent")
 	logo_state = "rev-logo"
 	greets = list(GREET_DEFAULT,GREET_CUSTOM,GREET_ROUNDSTART,GREET_MIDROUND,GREET_LATEJOIN,GREET_CONVERTED,GREET_PROVOC_CONVERTED,GREET_REVSQUAD_CONVERTED,GREET_ADMINTOGGLE)
 
