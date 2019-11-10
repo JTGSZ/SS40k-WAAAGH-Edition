@@ -29,10 +29,10 @@
 	if(!config.assistantlimit)
 		return 99
 
-	var/datum/job/officer = job_master.GetJob("Security Officer")
+	var/datum/job/IG_trooper = job_master.GetJob("Security Officer")
 	var/datum/job/warden = job_master.GetJob("Warden")
 	var/datum/job/commissar = job_master.GetJob("Commissar")
-	var/sec_jobs = (officer.current_positions + warden.current_positions + commissar.current_positions)
+	var/sec_jobs = (IG_trooper.current_positions + warden.current_positions + commissar.current_positions)
 
 	if(sec_jobs > 5)
 		return 99

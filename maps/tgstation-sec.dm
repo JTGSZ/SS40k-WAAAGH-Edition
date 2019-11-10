@@ -30,7 +30,7 @@
 		/datum/job/commissar,
 		/datum/job/warden,
 		/datum/job/detective,
-		/datum/job/officer,
+		/datum/job/IG_trooper,
 		/datum/job/ai,
 		/datum/job/cyborg,
 		/datum/job/mommi)

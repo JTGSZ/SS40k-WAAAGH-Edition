@@ -232,7 +232,7 @@
 /datum/outfit/officer
 
 	outfit_name = "Security Officer"
-	associated_job = /datum/job/officer
+	associated_job = /datum/job/IG_trooper
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,

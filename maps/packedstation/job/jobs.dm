@@ -74,7 +74,7 @@
 	access = list(access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court, access_engine)
 	minimal_access = list(access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court)
 
-/datum/job/officer/New()
+/datum/job/IG_trooper/New()
 	..()
 	total_positions = 4
 	spawn_positions = 4
