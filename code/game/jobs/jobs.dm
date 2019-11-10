@@ -2,7 +2,7 @@ var/const/ENGSEC			=(1<<0)
 
 var/const/GENERAL			=(1<<0)
 var/const/COMMISSAR			=(1<<1)
-var/const/WARDEN			=(1<<2)
+var/const/IGSERGEANT		=(1<<2)
 var/const/INQUISITOR		=(1<<3)
 var/const/IGTROOPER			=(1<<4)
 var/const/CHIEF				=(1<<5)
