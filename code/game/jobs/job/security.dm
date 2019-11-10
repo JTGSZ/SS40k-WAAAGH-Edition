@@ -23,7 +23,7 @@
 		return "Red Alert"
 
 
-/datum/job/warden //This will be IG sergeant
+/datum/job/IG_Trooper_Sergeant //This will be IG sergeant
 	title = "Warden"
 	flag = WARDEN
 	department_flag = ENGSEC
@@ -44,7 +44,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the Emperor"
 	selection_color = "#ffeeee"
 	access = list()
 	minimal_access = list()
@@ -57,8 +57,8 @@
 	flag = IGTROOPER
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 500
+	spawn_positions = 50
 	supervisors = "Commissar and your Platoon Sergeant."
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security

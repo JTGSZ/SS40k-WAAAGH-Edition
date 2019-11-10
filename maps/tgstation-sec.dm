@@ -28,7 +28,7 @@
 	enabled_jobs = list(/datum/job/trader)
 	disabled_jobs = list(
 		/datum/job/commissar,
-		/datum/job/warden,
+		/datum/job/IG_Trooper_Sergeant,
 		/datum/job/inquisitor,
 		/datum/job/IG_trooper,
 		/datum/job/ai,

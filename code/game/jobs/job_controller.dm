@@ -334,9 +334,9 @@ var/global/datum/controller/occupations/job_master
 	//People who wants to be assistants, sure, go on.
 	var/count = 0
 	var/datum/job/IG_trooper = job_master.GetJob("Trooper")
-	var/datum/job/warden = job_master.GetJob("Warden")
+	var/datum/job/IG_Trooper_Sergeant = job_master.GetJob("Warden")
 	var/datum/job/commissar = job_master.GetJob("Commissar")
-	count = (IG_trooper.current_positions + warden.current_positions + commissar.current_positions)
+	count = (IG_trooper.current_positions + IG_Trooper_Sergeant.current_positions + commissar.current_positions)
 	Debug("DO, Running Assistant Check 1")
 	var/datum/job/assist = new /datum/job/assistant()
 	var/datum/job/master_assistant = GetJob("Assistant")
@@ -383,7 +383,7 @@ var/global/datum/controller/occupations/job_master
 	for(var/mob/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == BE_ASSISTANT)
 			if(config.assistantlimit)
-				count = (IG_trooper.current_positions + warden.current_positions + commissar.current_positions)
+				count = (IG_trooper.current_positions + IG_Trooper_Sergeant.current_positions + commissar.current_positions)
 				if(master_assistant.current_positions > (config.assistantratio * count))
 					if(count < 5) // if theres more than 5 security on the station just let assistants join regardless, they should be able to handle the tide
 						to_chat(player, "You have been returned to lobby because there's not enough security to make you an assistant.")

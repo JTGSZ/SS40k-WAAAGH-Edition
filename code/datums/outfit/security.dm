@@ -67,7 +67,7 @@
 /datum/outfit/warden
 
 	outfit_name = "Warden"
-	associated_job = /datum/job/warden
+	associated_job = /datum/job/IG_Trooper_Sergeant
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,
