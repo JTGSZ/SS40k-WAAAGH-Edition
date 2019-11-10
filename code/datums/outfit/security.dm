@@ -131,7 +131,7 @@
 /datum/outfit/detective
 
 	outfit_name = "Detective"
-	associated_job = /datum/job/detective
+	associated_job = /datum/job/inquisitor
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack,

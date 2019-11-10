@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the general, the emperor, and the imperium of man"
+	supervisors = "the Regiment General"
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
 	access = list()
@@ -37,7 +37,7 @@
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/warden
 
-/datum/job/detective //This will be inquisitor
+/datum/job/inquisitor //This will be inquisitor
 	title = "Detective"
 	flag = DETECTIVE
 	department_flag = ENGSEC
@@ -59,7 +59,7 @@
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the head of security"
+	supervisors = "Commissar and your Platoon Sergeant."
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security
 	access = list()

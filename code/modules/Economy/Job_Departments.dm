@@ -69,6 +69,6 @@ var/list/station_departments = list("Command", "Medical", "Engineering", "Scienc
 
 /datum/job/warden/department = "Security"
 
-/datum/job/detective/department = "Security"
+/datum/job/inquisitor/department = "Security"
 
 /datum/job/IG_trooper/department = "Security"

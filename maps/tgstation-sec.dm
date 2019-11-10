@@ -29,7 +29,7 @@
 	disabled_jobs = list(
 		/datum/job/commissar,
 		/datum/job/warden,
-		/datum/job/detective,
+		/datum/job/inquisitor,
 		/datum/job/IG_trooper,
 		/datum/job/ai,
 		/datum/job/cyborg,

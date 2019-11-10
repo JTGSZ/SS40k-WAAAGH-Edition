@@ -69,7 +69,7 @@
 
 // Security
 
-/datum/job/detective/New()
+/datum/job/inquisitor/New()
 	..()
 	access = list(access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court, access_engine)
 	minimal_access = list(access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court)
