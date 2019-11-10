@@ -818,7 +818,7 @@
 	var/list/impede_medium = list(
 		"Trooper",
 		"Warden",
-		"Detective",
+		"Inquisitor",
 		"Commissar",
 		"Internal Affairs Agent",
 		"Head of Personnel",

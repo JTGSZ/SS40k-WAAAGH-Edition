@@ -130,7 +130,7 @@
 
 /datum/outfit/detective
 
-	outfit_name = "Detective"
+	outfit_name = "Inquisitor"
 	associated_job = /datum/job/inquisitor
 
 	backpack_types = list(
@@ -146,23 +146,23 @@
 			slot_w_uniform_str = list(
 				"Forensic Technician" = /obj/item/clothing/under/det,
 				"Gumshoe" = /obj/item/clothing/under/det/noir,
-				"Detective" = /obj/item/clothing/under/det,
+				"Inquisitor" = /obj/item/clothing/under/det,
 			),
 			slot_shoes_str = list(
 				"Forensic Technician" = /obj/item/clothing/shoes/brown,
 				"Gumshoe" = /obj/item/clothing/shoes/laceup,
-				"Detective" = /obj/item/clothing/shoes/brown,
+				"Inquisitor" = /obj/item/clothing/shoes/brown,
 			),
 			slot_helmet_str = list(
 				"Gumshoe" = /obj/item/clothing/head/det_hat/noir,
-				"Detective" = /obj/item/clothing/head/det_hat,
+				"Inquisitor" = /obj/item/clothing/head/det_hat,
 			),
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
 			slot_wear_suit_str = list(
 				"Forensic Technician" = /obj/item/clothing/suit/storage/forensics/blue,
 				"Gumshoe" = /obj/item/clothing/suit/storage/det_suit/noir,
-				"Detective" = /obj/item/clothing/suit/storage/det_suit,
+				"Inquisitor" = /obj/item/clothing/suit/storage/det_suit,
 			),
 			slot_l_store_str = /obj/item/weapon/lighter/zippo,
 		),
@@ -171,12 +171,12 @@
 			slot_w_uniform_str = list(
 				"Forensic Technician" = /obj/item/clothing/under/det,
 				"Gumshoe" = /obj/item/clothing/shoes/laceup,
-				"Detective" = /obj/item/clothing/under/det,
+				"Inquisitor" = /obj/item/clothing/under/det,
 			),
 			slot_shoes_str = list(
 				"Forensic Technician" = /obj/item/clothing/shoes/brown,
 				"Gumshoe" = /obj/item/clothing/shoes/laceup,
-				"Detective" = /obj/item/clothing/shoes/brown,
+				"Inquisitor" = /obj/item/clothing/shoes/brown,
 			),
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
@@ -190,12 +190,12 @@
 			slot_w_uniform_str = list(
 				"Forensic Technician" = /obj/item/clothing/under/det,
 				"Gumshoe" = /obj/item/clothing/under/det/noir,
-				"Detective" = /obj/item/clothing/under/det,
+				"Inquisitor" = /obj/item/clothing/under/det,
 			),
 			slot_shoes_str = list(
 				"Forensic Technician" = /obj/item/clothing/shoes/brown,
 				"Gumshoe" = /obj/item/clothing/under/det/noir,
-				"Detective" = /obj/item/clothing/shoes/brown,
+				"Inquisitor" = /obj/item/clothing/shoes/brown,
 			),
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,

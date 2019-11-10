@@ -48,7 +48,7 @@ Crew Monitor by Paul, based on the holomaps by Deity
 		"Commissar" = 10,
 		"Warden" = 11,
 		"Trooper" = 12,
-		"Detective" = 13,
+		"Inquisitor" = 13,
 		"Chief Medical Officer" = 20,
 		"Chemist" = 21,
 		"Geneticist" = 22,

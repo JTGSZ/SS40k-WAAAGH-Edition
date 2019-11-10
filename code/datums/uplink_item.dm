@@ -626,7 +626,7 @@ var/list/uplink_items = list()
 	item = /obj/item/device/detective_scanner/forger
 	cost = 6
 	discounted_cost = 4
-	jobs_with_discount = list("Detective")
+	jobs_with_discount = list("Inquisitor")
 
 /datum/uplink_item/jobspecific/conversionkit
 	name = "Revolver Conversion Kit"
@@ -634,7 +634,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/storage/box/syndie_kit/conversion
 	cost = 12
 	discounted_cost = 10
-	jobs_with_discount = list("Detective")
+	jobs_with_discount = list("Inquisitor")
 
 /datum/uplink_item/jobspecific/briefcase_smg
 	name = "Concealed SMG"

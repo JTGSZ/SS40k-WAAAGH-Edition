@@ -306,7 +306,7 @@
 					if(H.is_wearing_any(list(/obj/item/clothing/under/rank/internalaffairs, /obj/item/clothing/under/bridgeofficer, /obj/item/clothing/under/lawyer)))
 						chance += 250
 					episode_names += new /datum/episode_name/rare("DEVIL'S ADVOCATE", "The IAA was the only survivor in the shuttle.", chance)
-				else if(!H.isUnconscious() && H.mind && H.mind.assigned_role == "Detective")
+				else if(!H.isUnconscious() && H.mind && H.mind.assigned_role == "Inquisitor")
 					var/chance = 250
 					if(H.find_held_item_by_type(/obj/item/weapon/gun/projectile/detective))
 						chance += 1000

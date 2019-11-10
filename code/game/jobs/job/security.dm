@@ -38,7 +38,7 @@
 	outfit_datum = /datum/outfit/warden
 
 /datum/job/inquisitor //This will be inquisitor
-	title = "Detective"
+	title = "Inquisitor"
 	flag = DETECTIVE
 	department_flag = ENGSEC
 	faction = "Station"
