@@ -45,7 +45,7 @@ Crew Monitor by Paul, based on the holomaps by Deity
 	var/list/jobs = list( //needed for formatting, stolen from the old cmc
 		"General" = 00,
 		"Head of Personnel" = 50,
-		"Head of Security" = 10,
+		"Commissar" = 10,
 		"Warden" = 11,
 		"Security Officer" = 12,
 		"Detective" = 13,

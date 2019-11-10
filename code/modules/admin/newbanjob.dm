@@ -69,13 +69,13 @@ var/savefile/Banlistjob
 	if(rank == "Heads")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Head of Personnel")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "General")
-		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Head of Security")
+		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Commissar")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Chief Engineer")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Research Director")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Chief Medical Officer")
 		return 1
 	if(rank == "Security")
-		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Head of Security")
+		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Commissar")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Warden")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Detective")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Security Officer")
@@ -136,7 +136,7 @@ var/savefile/Banlistjob
 		return 1
 	if(rank == "Detective_HoS")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Detective")
-		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Head of Security")
+		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Commissar")
 		return 1
 	if(rank == "Virologist_RD_CMO")
 		AddBanjob(ckey, computerid, reason, bannedby, temp, minutes, "Chief Medical Officer")

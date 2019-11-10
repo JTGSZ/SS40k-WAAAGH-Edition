@@ -139,7 +139,7 @@
 /datum/theft_objective/traitor/hos_jumpsuit
 	name = "the head of security's jumpsuit"
 	typepath = /obj/item/clothing/under/rank/head_of_security
-	protected_jobs = list("General", "Head of Security", "Head of Personnel")
+	protected_jobs = list("General", "Commissar", "Head of Personnel")
 
 /datum/theft_objective/traitor/hop_jumpsuit
 	name = "the head of personnel's jumpsuit"
@@ -159,12 +159,12 @@
 /datum/theft_objective/traitor/ablative
 	name = "an ablative armor vest"
 	typepath = /obj/item/clothing/suit/armor/laserproof
-	protected_jobs = list("General", "Head of Security", "Warden")
+	protected_jobs = list("General", "Commissar", "Warden")
 
 /datum/theft_objective/traitor/telebaton
 	name = "a telescopic baton"
 	typepath = /obj/item/weapon/melee/telebaton
-	protected_jobs = list("General", "Head of Security")
+	protected_jobs = list("General", "Commissar")
 
 /datum/theft_objective/traitor/planningframe
 	name = "the law planning frame"
@@ -195,7 +195,7 @@
 /datum/theft_objective/traitor/lawgiver
 	name = "the lawgiver"
 	typepath = /obj/item/weapon/gun/lawgiver
-	protected_jobs = list("Head of Security")
+	protected_jobs = list("Commissar")
 
 /datum/theft_objective/number
 	var/min=0

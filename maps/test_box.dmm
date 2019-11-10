@@ -482,7 +482,7 @@
 "ajn" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/disposalpipe/segment,/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/security/hos)
 "ajo" = (/obj/structure/bed/chair{dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 9},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/security/hos)
 "ajp" = (/obj/structure/table/woodentable,/obj/item/device/megaphone,/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/security/hos)
-"ajq" = (/obj/structure/bed/chair/comfy/black{dir = 8},/obj/effect/landmark/start{name = "Head of Security"},/turf/simulated/floor{icon_state = "dark"},/area/security/hos)
+"ajq" = (/obj/structure/bed/chair/comfy/black{dir = 8},/obj/effect/landmark/start{name = "Commissar"},/turf/simulated/floor{icon_state = "dark"},/area/security/hos)
 "ajr" = (/obj/item/device/radio/intercom{pixel_x = 27},/obj/machinery/light{dir = 4},/obj/machinery/computer/security/advanced,/turf/simulated/floor{icon_state = "dark"},/area/security/hos)
 "ajs" = (/obj/structure/cable{icon_state = "0-2"; d2 = 2},/obj/machinery/power/solar/panel{id_tag = "auxsolareast"; name = "Port Auxiliary Solar Array"},/turf/simulated/floor/airless{icon_state = "solarpanel"},/area/solar/fstarboard)
 "ajt" = (/obj/structure/cable,/obj/structure/catwalk{icon_state = "catwalk3"},/turf/space,/area/solar/fstarboard)

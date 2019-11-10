@@ -695,7 +695,7 @@
 	corpseidaccess = "Detective"
 
 /obj/effect/landmark/corpse/headofsecurity
-	name = "Head of Security"
+	name = "Commissar"
 	corpseuniform = /obj/item/clothing/under/rank/security
 	corpsesuit = /obj/item/clothing/suit/armor/hos/jensen
 	corpseback = /obj/item/weapon/storage/backpack/security
@@ -707,8 +707,8 @@
 	corpsepocket1 = /obj/item/weapon/handcuffs
 	corpsepocket2 = /obj/item/weapon/implanter/loyalty
 	corpseid = 1
-	corpseidjob = "Head of Security"
-	corpseidaccess = "Head of Security"
+	corpseidjob = "Commissar"
+	corpseidaccess = "Commissar"
 
 /obj/effect/landmark/corpse/headofsecurity/rig
 	corpsesuit = /obj/item/clothing/suit/space/rig/security

@@ -418,7 +418,7 @@
 		if(access_hop)
 			return "Head of Personnel"
 		if(access_hos)
-			return "Head of Security"
+			return "Commissar"
 		if(access_ce)
 			return "Chief Engineer"
 		if(access_RC_announce)

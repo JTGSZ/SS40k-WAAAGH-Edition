@@ -1,7 +1,7 @@
 var/const/ENGSEC			=(1<<0)
 
 var/const/GENERAL			=(1<<0)
-var/const/HOS				=(1<<1)
+var/const/COMMISSAR			=(1<<1)
 var/const/WARDEN			=(1<<2)
 var/const/DETECTIVE			=(1<<3)
 var/const/OFFICER			=(1<<4)
@@ -51,7 +51,7 @@ var/const/TRADER			=(1<<14)
 var/list/command_positions = list(
 	"General",
 	"Head of Personnel",
-	"Head of Security",
+	"Commissar",
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer"
@@ -105,7 +105,7 @@ var/list/cargo_positions = list(
 )
 
 var/list/security_positions = list(
-	"Head of Security",
+	"Commissar",
 	"Warden",
 	"Detective",
 	"Security Officer"
@@ -125,7 +125,7 @@ var/list/misc_positions = list(
 var/list/all_jobs_txt = list(
 	"General",
 	"Head of Personnel",
-	"Head of Security",
+	"Commissar",
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer",

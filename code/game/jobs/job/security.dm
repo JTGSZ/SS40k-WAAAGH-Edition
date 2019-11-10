@@ -1,6 +1,6 @@
-/datum/job/hos
-	title = "Head of Security"
-	flag = HOS
+/datum/job/commissar
+	title = "Commissar"
+	flag = COMMISSAR
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -22,7 +22,7 @@
 
 	outfit_datum = /datum/outfit/hos
 
-/datum/job/hos/reject_new_slots()
+/datum/job/commissar/reject_new_slots()
 	if(security_level == SEC_LEVEL_RED)
 		return FALSE
 	else

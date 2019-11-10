@@ -819,7 +819,7 @@
 		"Security Officer",
 		"Warden",
 		"Detective",
-		"Head of Security",
+		"Commissar",
 		"Internal Affairs Agent",
 		"Head of Personnel",
 		)
