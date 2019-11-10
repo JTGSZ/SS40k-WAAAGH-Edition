@@ -54,7 +54,7 @@
 
 /datum/job/IG_trooper //This will be converted to the basic guardsman.
 	title = "Trooper"
-	flag = OFFICER
+	flag = IGTROOPER
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 5
