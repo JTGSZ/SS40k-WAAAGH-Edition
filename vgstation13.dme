@@ -977,6 +977,7 @@
 #include "code\game\objects\items\weapons\gift_wrappaper.dm"
 #include "code\game\objects\items\weapons\glowstick.dm"
 #include "code\game\objects\items\weapons\handcuffs.dm"
+#include "code\game\objects\items\weapons\IGmeleegear.dm"
 #include "code\game\objects\items\weapons\kitchen.dm"
 #include "code\game\objects\items\weapons\lance.dm"
 #include "code\game\objects\items\weapons\manuals.dm"
