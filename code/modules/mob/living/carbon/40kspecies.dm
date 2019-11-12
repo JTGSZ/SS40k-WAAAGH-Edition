@@ -46,3 +46,7 @@
 //	wear_mask_icons     = 'icons/mob/mask.dmi'
 	back_icons          = 'icons/mob/species/ork/orkgearMOB.dmi'
 //	id_icons            = 'icons/mob/ids.dmi'
+
+/datum/species/ork/gib(mob/living/carbon/human/H)
+	..()
+	H.default_gib()
