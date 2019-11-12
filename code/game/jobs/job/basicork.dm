@@ -5,6 +5,7 @@
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
+	wage_payout = 0
 	supervisors = "da boss"
 	selection_color = "#ffeef0"
 	species_whitelist = list("Ork") //Orks are whitelisted to orks

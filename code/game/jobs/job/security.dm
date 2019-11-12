@@ -8,6 +8,7 @@
 	supervisors = "the Regiment General"
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
+	wage_payout = 80
 	access = list()
 	minimal_access = list()
 	minimal_player_age = 30
@@ -30,6 +31,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	wage_payout = 65
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	access = list()
@@ -44,6 +46,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	wage_payout = 65
 	supervisors = "the Emperor"
 	selection_color = "#ffeeee"
 	access = list()
@@ -59,6 +62,7 @@
 	faction = "Station"
 	total_positions = 500
 	spawn_positions = 50
+	wage_payout = 45
 	supervisors = "Commissar and your Platoon Sergeant."
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security

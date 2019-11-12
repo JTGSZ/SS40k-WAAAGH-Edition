@@ -5,6 +5,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	wage_payout = 80
 	supervisors = "the captain"
 	selection_color = "#ffddf0"
 	req_admin_notify = 1
@@ -30,6 +31,7 @@
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
+	wage_payout = 65
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
@@ -49,6 +51,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
+	wage_payout = 65
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
@@ -67,6 +70,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
+	wage_payout = 45
 	supervisors = "the chief medical officer and research director"
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_science, access_eva)
@@ -85,6 +89,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the chief medical officer"
+	wage_payout = 45
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_biohazard, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_virology, access_biohazard)

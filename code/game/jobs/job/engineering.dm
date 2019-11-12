@@ -7,6 +7,7 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffeeaa"
+	wage_payout = 80
 	req_admin_notify = 1
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
@@ -32,6 +33,7 @@
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
+	wage_payout = 65
 	supervisors = "the chief engineer"
 	selection_color = "#fff5cc"
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
@@ -51,6 +53,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
+	wage_payout = 65
 	supervisors = "the chief engineer"
 	selection_color = "#fff5cc"
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
@@ -69,6 +72,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
+	wage_payout = 45
 	supervisors = "the research director and the chief engineer"
 	selection_color = "#fff5cc"
 	access = list(access_eva, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_mechanic, access_tcomsat, access_science)

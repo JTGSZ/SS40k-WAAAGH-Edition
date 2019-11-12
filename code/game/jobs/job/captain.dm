@@ -12,6 +12,7 @@
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 30
+	wage_payout = 100
 
 	species_whitelist = list("Human")
 
@@ -73,6 +74,7 @@
 	selection_color = "#ddddff"
 	req_admin_notify = 1
 	minimal_player_age = 20
+	wage_payout = 85
 
 	species_whitelist = list("Human")
 

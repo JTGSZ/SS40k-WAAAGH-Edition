@@ -5,6 +5,7 @@
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 2
+	wage_payout = 55
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	access = list(access_paramedic, access_medical, access_sec_doors, access_maint_tunnels, access_external_airlocks, access_eva, access_morgue)
