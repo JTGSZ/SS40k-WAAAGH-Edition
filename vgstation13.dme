@@ -2084,6 +2084,7 @@
 #include "code\modules\projectiles\guns\projectile\bow.dm"
 #include "code\modules\projectiles\guns\projectile\bulletstorm.dm"
 #include "code\modules\projectiles\guns\projectile\flare.dm"
+#include "code\modules\projectiles\guns\projectile\IGgunsmagsammo.dm"
 #include "code\modules\projectiles\guns\projectile\mahoguny.dm"
 #include "code\modules\projectiles\guns\projectile\minigun.dm"
 #include "code\modules\projectiles\guns\projectile\mosin.dm"
