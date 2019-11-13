@@ -1533,15 +1533,6 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	access = list(access_engine)
 	group = "Engineering"
 
-/datum/supply_packs/rust_injector
-	contains = list(/obj/machinery/power/rust_fuel_injector)
-	name = "R-UST Mk. 7 fuel injector"
-	cost = 25
-	containertype = /obj/structure/closet/crate/secure/large
-	containername = "\improper R-UST Mk. 7 injector crate"
-	group = "Engineering"
-	access = list(access_engine)
-
 /datum/supply_packs/rust_gyrotron
 	contains = list(/obj/machinery/rust/gyrotron)
 	name = "R-UST Mk. 7 gyrotron"
@@ -1551,30 +1542,16 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	group = "Engineering"
 	access = list(access_engine)
 
-/datum/supply_packs/rust_compressor
-	contains = list(/obj/item/weapon/module/rust_fuel_compressor)
-	name = "R-UST Mk. 7 fuel compressor board"
-	cost = 30
+/datum/supply_packs/rust
+	contains = list(/obj/item/weapon/module/rust_fuel_compressor,
+					/obj/item/weapon/module/rust_fuel_port,
+					/obj/machinery/power/rust_fuel_injector,
+					/obj/machinery/power/rust_core
+					)
+	name = "R-UST Mk. 7 foundation kit"
+	cost = 50
 	containertype = /obj/structure/closet/crate/secure/engisec
 	containername = "\improper R-UST Mk. 7 fuel compressor circuitry crate"
-	group = "Engineering"
-	access = list(access_engine)
-
-/datum/supply_packs/rust_assembly_port
-	contains = list(/obj/item/weapon/module/rust_fuel_port)
-	name = "R-UST Mk. 7 fuel assembly port board"
-	cost = 20
-	containertype = /obj/structure/closet/crate/secure/engisec
-	containername = "\improper R-UST Mk. 7 fuel assembly port circuitry crate"
-	group = "Engineering"
-	access = list(access_engine)
-
-/datum/supply_packs/rust_core
-	contains = list(/obj/machinery/power/rust_core)
-	name = "R-UST Mk. 7 Tokamak core"
-	cost = 50
-	containertype = /obj/structure/closet/crate/secure/large
-	containername = "\improper R-UST Mk. 7 tokamak crate"
 	group = "Engineering"
 	access = list(access_engine)
 
@@ -1582,7 +1559,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	contains = list(/obj/structure/closet/crate/flatpack/starscreen_generator,
 					/obj/structure/closet/crate/flatpack/starscreen_capacitor)
 	name = "Starscreen shield generator"
-	cost = 200
+	cost = 100
 	containertype = /obj/structure/closet/crate/secure/large/reinforced
 	containername = "Starscreen shield generator crate"
 	group = "Engineering"
@@ -1597,7 +1574,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	contains = list(/obj/structure/closet/crate/flatpack/starscreen_ex_generator,
 					/obj/structure/closet/crate/flatpack/starscreen_capacitor)
 	name = "Starscreen-EX shield generator"
-	cost = 200
+	cost = 100
 	containertype = /obj/structure/closet/crate/secure/large/reinforced
 	containername = "Starscreen-EX shield generator crate"
 	group = "Engineering"
@@ -1620,7 +1597,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/circulator
 	contains = list(/obj/machinery/atmospherics/binary/circulator)
 	name = "Binary atmospheric circulator"
-	cost = 60
+	cost = 25
 	containertype = /obj/structure/closet/crate/secure/large
 	containername = "atmospheric circulator crate"
 	group = "Engineering"
@@ -1629,7 +1606,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/supermatter_shard
 	contains = list(/obj/machinery/power/supermatter/shard)
 	name = "Supermatter shard"
-	cost = 500 //So cargo thinks thrice before killing themselves with it. You're going to need a department account most likely.
+	cost = 300 //So cargo thinks thrice before killing themselves with it. You're going to need a department account most likely.
 	containertype = /obj/structure/closet/crate/secure/large/reinforced/shard/empty
 	containername = "supermatter shard crate"
 	group = "Engineering"
@@ -1659,7 +1636,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 						/obj/item/weapon/stock_parts/capacitor,
 						/obj/item/weapon/stock_parts/console_screen)
 	name = "Portable SMES parts"
-	cost = 70
+	cost = 50
 	containertype = /obj/structure/closet/crate/secure/engisec
 	containername = "portable SMES crate"
 	group = "Engineering"
@@ -1716,7 +1693,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	name = "DIY Shuttle Engine kit"
 	contains = list(/obj/structure/shuttle/engine/propulsion/DIY,
 					/obj/structure/shuttle/engine/heater/DIY)
-	cost = 250
+	cost = 100
 	containertype = /obj/structure/closet/crate/secure/engisec
 	containername = "\improper Shuttle engines crate"
 	group = "Engineering"
@@ -1726,7 +1703,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	contains = list(/obj/item/shuttle_license,
 					/obj/item/weapon/book/manual/ship_building)
 
-	cost = 750
+	cost = 300
 	containertype = /obj/structure/closet/crate/secure/engisec
 	containername = "secure shuttle permit crate"
 	group = "Engineering"
