@@ -194,7 +194,21 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	..()
 	var/datum/pda_app/balance_check/app = new /datum/pda_app/balance_check()
 	app.onInstall(src)
+	var/datum/pda_app/balance_check/app2 = new /datum/pda_app/alarm()
+	app2.onInstall(src)
 	reply = src
+
+	PDAs += src
+	if(default_cartridge)
+		cartridge = new default_cartridge(src)
+	new /obj/item/weapon/pen(src)
+	MM = text2num(time2text(world.timeofday, "MM")) 	// get the current month
+	DD = text2num(time2text(world.timeofday, "DD")) 	// get the day
+	currentevent1 = pick(currentevents1)
+	currentevent2 = pick(currentevents2)
+	currentevent3 = pick(currentevents3)
+	onthisday = pick(history)
+	didyouknow = pick(facts)
 
 /obj/item/device/pda/medical
 	name = "Medical PDA"
@@ -612,20 +626,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
  *	The Actual PDA
  */
 
-/obj/item/device/pda/New()
-	..()
-	PDAs += src
-	if(default_cartridge)
-		cartridge = new default_cartridge(src)
-	new /obj/item/weapon/pen(src)
-	MM = text2num(time2text(world.timeofday, "MM")) 	// get the current month
-	DD = text2num(time2text(world.timeofday, "DD")) 	// get the day
-	currentevent1 = pick(currentevents1)
-	currentevent2 = pick(currentevents2)
-	currentevent3 = pick(currentevents3)
-	onthisday = pick(history)
-	didyouknow = pick(facts)
-
 /obj/item/device/pda/proc/can_use(mob/user)
 	if(user && ismob(user))
 		if(user.incapacitated())
@@ -695,7 +695,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				dat += text("<br><A href='?src=\ref[src];choice=UpdateInfo'>[id ? "Update PDA Info" : ""]</A><br><br>")
 
 
-				dat += {"Station Time: [worldtime2text()]
+				dat += {"Station Time: [worldtime2text()] <a href='byond://?src=\ref[src];choice=alarm'><span class='pda_icon pda_clock'></span> Set Alarm</a>
 					<br><br>
 					<h4>General Functions</h4>
 					<ul>
@@ -723,8 +723,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					for(var/datum/pda_app/app in applications)
 						if(app.menu)
 							dat += {"<li><a href='byond://?src=\ref[src];choice=[app.menu]'>[app.icon ? "<span class='pda_icon [app.icon]'></span> " : ""][app.name]</a></li>"}
-						else
-							dat += {"<li>[app.icon ? "<span class='pda_icon [app.icon]'></span> " : ""][app.name]</li>"}
 					dat += {"</ul>"}
 
 				if (cartridge)
@@ -919,6 +917,16 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					<b>Did you know...</b><br>
 					<li>[didyouknow]</li><br>"}
 
+			if (PDA_APP_ALARM)
+				var/datum/pda_app/alarm/app = locate(/datum/pda_app/alarm) in applications
+				dat += {"<h4>Alarm Application</h4>"}
+				if(app)
+					dat += {"
+					The alarm is currently <a href='byond://?src=\ref[src];choice=toggleAlarm'>[app.status ? "ON" : "OFF"]</a><br>
+					Current Time:[worldtime2text()]<BR>
+					Alarm Time: [app.target ? "[worldtime2text(app.target)]" : "Unset"] <a href='byond://?src=\ref[src];choice=setAlarm'>SET</a><BR>
+					"}
+
 			if (PDA_APP_RINGER)
 				var/datum/pda_app/ringer/app = locate(/datum/pda_app/ringer) in applications
 				dat += {"<h4>Ringer Application</h4>"}
@@ -1017,20 +1025,16 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if(user.client)
 					var/datum/asset/simple/C = new/datum/asset/simple/pda_stationmap()
 					send_asset_list(user.client, C.assets)
-
 				var/datum/pda_app/station_map/app = locate(/datum/pda_app/station_map) in applications
 				dat += {"<h4>Station Map Application</h4>"}
 				if(app)
 					var/turf/T = get_turf(src.loc)
-
 					if(!fexists("icons/pda_icons/pda_minimap_[map.nameShort].png"))
 						dat += {"<span class='warning'>It appears that our services have yet to produce a minimap of this station. We apologize for the inconvenience.</span>"}
-
 					if(T.z == map.zMainStation)
 						dat += {"Current Location: <b>[T.loc.name] ([T.x-WORLD_X_OFFSET[map.zMainStation]],[T.y-WORLD_Y_OFFSET[map.zMainStation]],1)</b><br>"}	//it's a "Station Map" app, so it only gives information reguarding
 					else																									//the station's z-level
 						dat += {"Current Location: <b>Unknown</b><br>"}
-
 					if(fexists("icons/pda_icons/pda_minimap_[map.nameShort].png"))
 						dat += {"
 						<div style="position: relative; left: 0; top: 0;">
@@ -1041,7 +1045,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						for(var/datum/minimap_marker/mkr in app.markers)
 							dat += {"<img src="pda_minimap_mkr.gif" style="position: absolute; top: [((mkr.y+WORLD_Y_OFFSET[map.zMainStation]) * -1) + PDA_MINIMAP_OFFSET_Y + PDA_MINIMAP_WIDTH/2]px; left: [mkr.x+WORLD_X_OFFSET[map.zMainStation] + PDA_MINIMAP_OFFSET_X - PDA_MINIMAP_WIDTH/2]px;"/>"}
 						dat += {"</div>"}
-
 					else
 						dat += {"
 						<div style="position: relative; left: 0; top: 0;">
@@ -1052,7 +1055,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						for(var/datum/minimap_marker/mkr in app.markers)
 							dat += {"<img src="pda_minimap_mkr.gif" style="position: absolute; top: [((mkr.y+WORLD_Y_OFFSET[map.zMainStation]) * -1) + PDA_MINIMAP_OFFSET_Y + PDA_MINIMAP_WIDTH/2]px; left: [mkr.x+WORLD_X_OFFSET[map.zMainStation] + PDA_MINIMAP_OFFSET_X - PDA_MINIMAP_WIDTH/2]px;"/>"}
 						dat += {"</div>"}
-
 /*
 					dat += {"
 					<div style="position: relative; left: 0; top: 0;">
@@ -1062,7 +1064,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						dat += {"<img src="pda_minimap_loc.gif" style="position: absolute; top: [(T.y * -1) + 247]px; left: [T.x-8]px;"/>"}
 					for(var/datum/minimap_marker/mkr in app.markers)
 						dat += {"<img src="pda_minimap_mkr.gif" style="position: absolute; top: [((mkr.y+WORLD_Y_OFFSET) * -1) + 247]px; left: [mkr.x+WORLD_X_OFFSET-8]px;"/>"}
-
 					dat += {"</div>"}
 */
 					dat += {"<h5>Markers</h5>
@@ -1070,7 +1071,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					<a href='byond://?src=\ref[src];choice=minimapMarker;mMark=y'>Y=[app.marky]</a>;
 					<a href='byond://?src=\ref[src];choice=minimapMarker;mMark=add'>Add New Marker</a>
 					"}
-
 					if(!(app.markers.len))
 						dat += {"<br><span class='warning'>no markers</span>"}
 					else
@@ -1463,7 +1463,18 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			mode = 5
 
 //APPLICATIONS FUNCTIONS===========================
-
+		if("alarm")
+			mode = PDA_APP_ALARM
+		if("toggleAlarm")
+			var/datum/pda_app/ringer/app = locate(/datum/pda_app/alarm) in applications
+			if(app)
+				app.status = !(app.status)
+		if("setAlarm")
+			var/datum/pda_app/alarm/app = locate(/datum/pda_app/alarm) in applications
+			if(app)
+				var/nutime = round(input("How long before the alarm triggers, in minutes?", "Alarm", 1) as num)
+				if(app.set_alarm(nutime))
+					to_chat(usr, "[bicon(src)]<span class='info'>The PDA confirms your [nutime] minute timer.</span>")
 		if("101")//PDA_APP_RINGER
 			mode = PDA_APP_RINGER
 		if("toggleDeskRinger")
@@ -1531,7 +1542,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		/* Old Station Map Stuff
 		if(PDA_APP_STATIONMAP)
 			mode = PDA_APP_STATIONMAP
-
 		if("minimapMarker")
 			var/datum/pda_app/station_map/app = locate(/datum/pda_app/station_map) in applications
 			switch(href_list["mMark"])
@@ -1557,7 +1567,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					mkr.name = marker_name
 					app.markers += mkr
 					mkr.num = app.markers.len
-
 		if("removeMarker")
 			var/datum/pda_app/station_map/app = locate(/datum/pda_app/station_map) in applications
 			var/to_remove = text2num(href_list["rMark"])
@@ -1808,7 +1817,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 					var/log = replacetext(n, "\n", "(new line)")//no intentionally spamming admins with 100 lines, nice try
 					log_say("[src] notes - [U] changed the text to: [log]")
-					message_admins("[src] notes - [U] changed the text to: [log]", 1)
 					for(var/mob/dead/observer/M in player_list)
 						if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTPDA))
 							M.show_message("<span class='game say'>[src] notes - <span class = 'name'>[U]</span> changed the text to:</span> [log]")
