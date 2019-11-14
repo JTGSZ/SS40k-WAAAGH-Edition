@@ -87,7 +87,7 @@
 	if(!M.mind)
 		return 0
 
-	var/remove_acc = input(usr,"Which attachment do you want to remove?", "[src]", "Cancel") as null|anything in attachments
+	var/remove_acc = input(usr,"Which attachment do you want to remove?", "", "Cancel") as null|anything in attachments
 	if(remove_acc != "Cancel")
 		usr.put_in_hands(remove_acc)
 		attachments -= remove_acc
@@ -131,7 +131,7 @@
 			else
 				return
 
-		attachments += ATCH
+		attachments["[ATCH.name]"] = ATCH
 		ATCH.update_icon()
 		update_icon()
 		return 1
