@@ -78,7 +78,7 @@
 	var/attachment_flags = 0
 	var/list/attachments = list() //List of Attachments
 
-/*/obj/item/weapon/gun/energy/laser/lasgun/verb/remove_attachment()
+/obj/item/weapon/gun/energy/laser/lasgun/verb/remove_attachment()
 	set name = "Remove Attachment"
 	set category = "Object"
 	set desc = "Remove an attachment from your gun."
@@ -87,7 +87,11 @@
 	if(!M.mind)
 		return 0
 
-	var/input = stripped_input*/
+	var/remove_acc = input(usr,"Which attachment do you want to remove?", "[src]", "Cancel") as null|anything in attachments
+	if(remove_acc != "Cancel")
+		usr.put_in_hands(remove_acc)
+		attachments -= remove_acc
+		return
 
 /obj/item/weapon/gun/energy/laser/lasgun/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
