@@ -1,12 +1,4 @@
 //Within is the imperial guard ranged stuff for the moment. Lasguns etc
-/*
-	ATTACHMENT FLAGS
-					*/
-#define BAYONET 1
-
-
-
-
 
 /*
 	MAGAZINES/AMMO
@@ -75,8 +67,7 @@
 	charge_cost = 50
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
 	var/bayonet = 0 //Bayonet attachment.
-	var/attachment_flags = 0
-	var/list/attachments = list() //List of Attachments
+//	var/list/attachments = list() //List of Attachments. Trying out contents instead of attachment list.
 
 /obj/item/weapon/gun/energy/laser/lasgun/verb/remove_attachment()
 	set name = "Remove Attachment"
@@ -90,7 +81,7 @@
 	var/remove_acc = input(usr,"Which attachment do you want to remove?", "", "Cancel") as null|anything in attachments
 	if(remove_acc != "Cancel")
 		usr.put_in_hands(remove_acc)
-		attachments -= remove_acc
+//		attachments -= remove_acc // Trying out contents instead of attachment list.
 		return
 
 /obj/item/weapon/gun/energy/laser/lasgun/verb/rename_gun() //I could add possession here later for funs.
@@ -131,7 +122,7 @@
 			else
 				return
 
-		attachments["[ATCH.name]"] = ATCH
+		//attachments += ATCH - I'll just try using contents instead of an attachment list.
 		ATCH.update_icon()
 		update_icon()
 		return 1
