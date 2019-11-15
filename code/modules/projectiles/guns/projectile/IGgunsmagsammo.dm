@@ -66,23 +66,6 @@
 	projectile_type = /obj/item/projectile/beam
 	charge_cost = 50
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
-	var/bayonet = 0 //Bayonet attachment.
-//	var/list/attachments = list() //List of Attachments. Trying out contents instead of attachment list.
-
-/obj/item/weapon/gun/energy/laser/lasgun/verb/remove_attachment()
-	set name = "Remove Attachment"
-	set category = "Object"
-	set desc = "Remove an attachment from your gun."
-
-	var/mob/M = usr
-	if(!M.mind)
-		return 0
-
-	var/remove_acc = input(usr,"Which attachment do you want to remove?", "", "Cancel") as null|anything in attachments
-	if(remove_acc != "Cancel")
-		usr.put_in_hands(remove_acc)
-//		attachments -= remove_acc // Trying out contents instead of attachment list.
-		return
 
 /obj/item/weapon/gun/energy/laser/lasgun/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
@@ -107,26 +90,9 @@
 			LoadMag(AM, user)
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
-	if(istype(A, /obj/item/weapon/attachment/bayonet))
-		var/obj/item/weapon/attachment/bayonet/BY = A
-		if(!bayonet)
-			GunAttachment(BY, user)
-		else
-			to_chat(user, "<span class='warning'>There is already a bayonet on \the [src]!</span>")
-
-/obj/item/weapon/gun/energy/laser/lasgun/proc/GunAttachment(var/obj/item/weapon/attachment/ATCH, var/mob/user)
-	if(istype(ATCH, /obj/item/weapon/attachment))
-		if(user)
-			if(user.drop_item(ATCH, src))
-				to_chat(user, "<span class='notice'>You attach [ATCH.name] to \the [src].</span>")
-			else
-				return
-
-		//attachments += ATCH - I'll just try using contents instead of an attachment list.
-		ATCH.update_icon()
-		update_icon()
-		return 1
-	return 0
+	//if(istype(A, /obj/item/weapon/attachment))
+	//	var/obj/item/weapon/attachment/ATCH = A
+	//	GunAttachment(ATCH, user)*/
 
 /obj/item/weapon/gun/energy/laser/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
 	if(target)
@@ -161,7 +127,7 @@
 		mag = 0
 
 	if(charge_states)
-		icon_state = "[initial(icon_state)][ratio][mag ? "-mg" : "-nmg"][bayonet ? "-by" : "-nby"]"
+		icon_state = "[initial(icon_state)][ratio][mag ? "-mg" : "-nmg"]"//[bayonet ? "-by" : "-nby"]"
 
 /obj/item/weapon/gun/energy/laser/lasgun/proc/LoadMag(var/obj/item/weapon/cell/AM, var/mob/user)
 	if(istype(AM, /obj/item/weapon/cell) && !power_supply)
