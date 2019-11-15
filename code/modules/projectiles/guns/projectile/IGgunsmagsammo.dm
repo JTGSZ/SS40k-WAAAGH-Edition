@@ -11,50 +11,6 @@
 	maxcharge = 5000
 	starting_materials = list(MAT_IRON = 700, MAT_GLASS = 80)
 
-/*
-	ATTACHMENTS
-				*/
-/obj/item/weapon/attachment/bayonet //Bayonet
-	name = "bayonet"
-	desc = "A bayonet made to be attached to a lasgun."
-	icon = 'icons/obj/IGstuff/IGequipment.dmi'
-	icon_state = "bayonet"
-	item_state = "bayonet"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
-	siemens_coefficient = 1
-	sharpness = 1.5
-	force = 10.0
-	throwforce = 10.0
-	throw_speed = 3
-	throw_range = 7
-	w_class = W_CLASS_SMALL
-	starting_materials = list(MAT_IRON = 12000)
-	w_type = RECYK_METAL
-	melt_temperature = MELTPOINT_STEEL
-	origin_tech = Tc_MATERIALS + "=1"
-	sharpness_flags = SHARP_TIP | SHARP_BLADE
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
-
-/obj/item/weapon/attachment/bayonet/attackby(obj/item/weapon/W, mob/user)
-	..()
-	if(user.is_in_modules(src))
-		return
-	if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
-		if(WT.remove_fuel(1, user))
-			to_chat(user, "You slice the handle off of \the [src].")
-			playsound(user, 'sound/items/Welder.ogg', 50, 1)
-			if(src.loc == user)
-				user.drop_item(src, force_drop = 1)
-				var/obj/item/weapon/metal_blade/I = new (get_turf(user))
-				user.put_in_hands(I)
-			else
-				new /obj/item/weapon/metal_blade(get_turf(src.loc))
-			qdel(src)
-			return
-
-
 /obj/item/weapon/gun/energy/laser/lasgun
 	name = "M-Galaxy Pattern Lasgun"
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
@@ -90,9 +46,9 @@
 			LoadMag(AM, user)
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
-	//if(istype(A, /obj/item/weapon/attachment))
-	//	var/obj/item/weapon/attachment/ATCH = A
-	//	GunAttachment(ATCH, user)*/
+	if(istype(A, /obj/item/weapon/attachment))
+		var/obj/item/weapon/attachment/ATCH = A
+		GunAttachment(ATCH, user)
 
 /obj/item/weapon/gun/energy/laser/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
 	if(target)
@@ -126,8 +82,13 @@
 	else
 		mag = 0
 
+	var/bayonet = FALSE
+	for(var/obj/item/weapon/attachment/bayonet/ATCH in attachments)
+		if(ATCH)
+			bayonet = TRUE
+
 	if(charge_states)
-		icon_state = "[initial(icon_state)][ratio][mag ? "-mg" : "-nmg"]"//[bayonet ? "-by" : "-nby"]"
+		icon_state = "[initial(icon_state)][ratio][mag ? "-mg" : "-nmg"][bayonet ? "-by" : "-nby"]"
 
 /obj/item/weapon/gun/energy/laser/lasgun/proc/LoadMag(var/obj/item/weapon/cell/AM, var/mob/user)
 	if(istype(AM, /obj/item/weapon/cell) && !power_supply)
