@@ -12,12 +12,8 @@
 	//Buttons
 	winset(src, "textb", 					"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
 	winset(src, "infob", 					"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
-	winset(src, "wikib", 					"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
-	winset(src, "forumb", 				"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
 	winset(src, "rulesb", 				"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
 	winset(src, "changelog", 			"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
-	winset(src, "mapb", 					"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
-	winset(src, "github",		 			"background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
 	winset(src, "special_button", "background-color = [COLOR_WHITEMODE_BACKGROUND];text-color = [COLOR_WHITEMODE_TEXT]")
 	//Status and verb tabs
 	winset(src, "info", 					"background-color = [COLOR_WHITEMODE_INFOBACKGROUND];tab-background-color = [COLOR_WHITEMODE_BACKGROUND];\
@@ -41,12 +37,8 @@
 	//Buttons
 	winset(src, "textb", 					"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "infob", 					"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
-	winset(src, "wikib", 					"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
-	winset(src, "forumb", 				"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "rulesb", 				"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "changelog", 			"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
-	winset(src, "mapb", 					"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
-	winset(src, "github", 				"background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "special_button", "background-color = [COLOR_DARKMODE_BUTTONBACKGROUND];text-color = [COLOR_DARKMODE_TEXT]")
 	//Status and verb tabs
 	winset(src, "info", 					"background-color = [COLOR_DARKMODE_DARKBACKGROUND];tab-background-color = [COLOR_DARKMODE_BACKGROUND];\
