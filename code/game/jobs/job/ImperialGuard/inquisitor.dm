@@ -55,44 +55,6 @@
 			),
 			slot_l_store_str = /obj/item/weapon/lighter/zippo,
 		),
-		/datum/species/plasmaman = list(
-			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
-			slot_w_uniform_str = list(
-				"Forensic Technician" = /obj/item/clothing/under/det,
-				"Gumshoe" = /obj/item/clothing/shoes/laceup,
-				"Inquisitor" = /obj/item/clothing/under/det,
-			),
-			slot_shoes_str = list(
-				"Forensic Technician" = /obj/item/clothing/shoes/brown,
-				"Gumshoe" = /obj/item/clothing/shoes/laceup,
-				"Inquisitor" = /obj/item/clothing/shoes/brown,
-			),
-			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
-			slot_wear_suit_str = /obj/item/clothing/suit/space/plasmaman/security/detective,
-			slot_head_str = /obj/item/clothing/head/helmet/space/plasmaman/security/detective,
-			slot_wear_mask_str =  /obj/item/clothing/mask/breath/,
-			slot_l_store_str = /obj/item/weapon/lighter/zippo,
-		),
-		/datum/species/vox = list(
-			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
-			slot_w_uniform_str = list(
-				"Forensic Technician" = /obj/item/clothing/under/det,
-				"Gumshoe" = /obj/item/clothing/under/det/noir,
-				"Inquisitor" = /obj/item/clothing/under/det,
-			),
-			slot_shoes_str = list(
-				"Forensic Technician" = /obj/item/clothing/shoes/brown,
-				"Gumshoe" = /obj/item/clothing/under/det/noir,
-				"Inquisitor" = /obj/item/clothing/shoes/brown,
-			),
-			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
-			slot_wear_suit_str = /obj/item/clothing/suit/space/vox/civ/security,
-			slot_head_str = /obj/item/clothing/head/helmet/space/vox/civ/security,
-			slot_wear_mask_str =  /obj/item/clothing/mask/breath/,
-			slot_l_store_str = /obj/item/weapon/lighter/zippo,
-		),
 	)
 
 	items_to_collect = list(
