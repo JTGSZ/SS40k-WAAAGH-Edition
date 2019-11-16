@@ -6,12 +6,20 @@
 /obj/item/weapon/gun/energy/laser/lasgun
 	var/list/attachments = list()
 
-/*
-	SOME GENERAL FLAGS FOR EFFECTS HANDLER
-													*/ //1 2 4 8 16 32 64 128 256 512 1024
+//Bitflag increments
+//1 2 4 8 16 32 64 128 256 512 1024
+//2048 4096 8192 16384 32768 65535
+//131072 262144 524288 1048576 2097152 4194304 8388608
 
-#define MELEEDMGADDITION 1
-#define MELEESOUNDSWAP 2
+/*
+	SOME GENERAL FLAGS FOR EFFECTS HANDLER				
+													*/ 
+													
+
+#define MELEE_DMG 1 //Do we add melee damage on?
+#define MELEE_SOUNDSWAP 2 //Does the melee dmg soundswap occur?
+#define GUN_FIRESOUNDSWAP 4 //Are we a gun with a fire sound that can be swapped?
+#define VERB_OBJ 8 //Does a verb get transferred on and off the object?
 
 /*
 			ATTACHMENTS
@@ -35,12 +43,15 @@
 	origin_tech = Tc_MATERIALS + "=1"
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	var/fire_sound
 	attack_verb = list("slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
 	
-	//Right here are all of the variables I will hold on the attachment objects.
+	//---------ATTACHMENT CONTROL VARIABLES---------//
 	var/atch_total_limit = 0 //0 is infinity, basically how many of an attachment you can have.
 	var/atch_effect_flags = 0 //FLAGS go here to determine how the effects system handles something.
-	
+	var/atch_possible = TRUE //Can we even attach this to the other object?
+	var/atch_verb //What we will attach a verb path to for transfer back and forth.
+
 /obj/item/weapon/attachment/bayonet //Bayonet
 	name = "bayonet"
 	desc = "A bayonet made to be attached to a lasgun."
@@ -55,7 +66,7 @@
 	
 	//Attachment variables
 	atch_total_limit = 1 //How many of these we can have on one gun.
-	atch_effect_flags = MELEEDMGADDITION | MELEESOUNDSWAP
+	atch_effect_flags = MELEE_DMG | MELEE_SOUNDSWAP
 
 /obj/item/weapon/attachment/bayonet/attackby(obj/item/weapon/W, mob/user)
 	..()
@@ -76,13 +87,13 @@
 			return
 
 /*
-	EXAMPLE ATTACKBY
-					*/
+	DEBUGGING ATTACKBY
+						*/
 
-/obj/item/weapon/gun/energy/laser/lasgun/attackby(var/obj/item/A, var/mob/user) //Loading
-	if(istype(A, /obj/item/weapon/attachment))
-		var/obj/item/weapon/attachment/ATCH = A
-		GunAttachment(ATCH, user)
+///obj/item/weapon/gun/energy/laser/lasgun/attackby(var/obj/item/A, var/mob/user) //Loading
+//	if(istype(A, /obj/item/weapon/attachment))
+//		var/obj/item/weapon/attachment/ATCH = A
+//		GunAttachment(ATCH, user)
 
 /*
 	THE VERB TO HANDLE REMOVAL OF ATTACHMENTS
@@ -115,6 +126,11 @@
 /obj/item/weapon/gun/energy/laser/lasgun/proc/GunAttachment(var/obj/item/weapon/attachment/ATCH, var/mob/user)
 	var/obj/item/weapon/attachment/A = ATCH
 	var/iteration = 0
+	
+	if(!ATCH.atch_possible) //Can we attach this object to the other object?
+		to_chat(user, "<span class = 'notice'> You can't figure out how to attach this to [src].</span>")
+		return
+	
 	if(istype(ATCH, /obj/item/weapon/attachment)) //If it is the type of attachment or a child.
 		if(!ATCH.atch_total_limit == 0) //If total limit is not 0
 			for(A in attachments)
@@ -137,25 +153,28 @@
 	EFFECTS HANDLER
 						*/
 //How I should handle it..
-//Basically I need to make a way to dictate what kind of adjustments will be occurring here.
-//aka, force change, click delay change, sound change, spread change etc.
-//Now as to how we do that, I need to hold the original or at least just add something temporary.
 //One thing of note is that we will always enter and always exit if attachment is occurring.
-//I'll have a var related to special handling to just return in case we need to handle effects on the item itself.
-//for hitsound we are going to use initial() since it can give me the initial value of a object.
 /obj/item/weapon/gun/energy/laser/lasgun/proc/AttachmentEffect(var/obj/item/weapon/attachment/ATCH, var/mob/user, var/onORoff, var/specialhandler)
 
 	if(specialhandler) //If we have special handling (Which means I intend to handle it on the object)
 		return //We just return
 	
 	if(onORoff) //If we are going on
-		if(ATCH.atch_effect_flags & MELEEDMGADDITION) //We add force on from attachment
+		if(ATCH.atch_effect_flags & MELEE_DMG) //We add force on from attachment
 			src.force += ATCH.force
-		if(ATCH.atch_effect_flags & MELEESOUNDSWAP)
+		if(ATCH.atch_effect_flags & MELEE_SOUNDSWAP) //Swap melee noises
 			src.hitsound = ATCH.hitsound
-	
+		if(ATCH.atch_effect_flags & GUN_FIRESOUNDSWAP) //Swap gunfire noises
+			src.fire_sound = ATCH.fire_sound
+		if(ATCH.atch_effect_flags & VERB_OBJ) //Add the verb to the source object
+			src.verbs += ATCH.atch_verb
+
 	if(!onORoff) //If we are going off
-		if(ATCH.atch_effect_flags & MELEEDMGADDITION) //We remove force from attachment
+		if(ATCH.atch_effect_flags & MELEE_DMG) //We remove force from attachment
 			src.force -= ATCH.force
-		if(ATCH.atch_effect_flags & MELEESOUNDSWAP)
+		if(ATCH.atch_effect_flags & MELEE_SOUNDSWAP) //Set hitsound to initial sound.
 			src.hitsound = initial(src.hitsound)
+		if(ATCH.atch_effect_flags & GUN_FIRESOUNDSWAP) //Set fire_sound to initial sound.
+			src.fire_sound = initial(src.fire_sound)
+		if(ATCH.atch_effect_flags & VERB_OBJ) //Remove verb from source object.
+			src.verbs -= ATCH.atch_verb
