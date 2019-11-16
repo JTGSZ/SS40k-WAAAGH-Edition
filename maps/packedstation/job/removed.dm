@@ -47,7 +47,7 @@
 	total_positions = 0
 	spawn_positions = 0
 
-/datum/job/IG_Trooper_Sergeant
+/datum/job/IG_trooper_sergeant
 	..()
 	total_positions = 0
 	spawn_positions = 0
