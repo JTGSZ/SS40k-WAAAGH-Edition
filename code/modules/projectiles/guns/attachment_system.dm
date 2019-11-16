@@ -43,7 +43,7 @@
 	origin_tech = Tc_MATERIALS + "=1"
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	var/fire_sound
+	var/fire_sound //Holder for firesound path on attachments, mostly for the flag.
 	attack_verb = list("slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
 	
 	//---------ATTACHMENT CONTROL VARIABLES---------//
