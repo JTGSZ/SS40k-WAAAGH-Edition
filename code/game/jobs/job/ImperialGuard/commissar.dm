@@ -1,5 +1,5 @@
 //------------Commissar---------------//
-/datum/job/commissar
+/datum/job/commissar //Note to self: Listen to Riot City - Burn the night(2019) after Eternal Champion - Armor of Ire(2016)
 	title = "Commissar"
 	flag = COMMISSAR
 	department_flag = ENGSEC

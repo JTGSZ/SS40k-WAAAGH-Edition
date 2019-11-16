@@ -11,10 +11,9 @@
 	selection_color = "#ffeeee"
 	access = list()
 	minimal_access = list()
-	alt_titles = list("Forensic Technician","Gumshoe")
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/inquisitor
-
+	species_whitelist = list("Human")
 
 //-------------Inquisitor Outfit Datums--------------//
 /datum/outfit/inquisitor
@@ -32,27 +31,12 @@
 	items_to_spawn = list(
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
-			slot_w_uniform_str = list(
-				"Forensic Technician" = /obj/item/clothing/under/det,
-				"Gumshoe" = /obj/item/clothing/under/det/noir,
-				"Inquisitor" = /obj/item/clothing/under/det,
-			),
-			slot_shoes_str = list(
-				"Forensic Technician" = /obj/item/clothing/shoes/brown,
-				"Gumshoe" = /obj/item/clothing/shoes/laceup,
-				"Inquisitor" = /obj/item/clothing/shoes/brown,
-			),
-			slot_helmet_str = list(
-				"Gumshoe" = /obj/item/clothing/head/det_hat/noir,
-				"Inquisitor" = /obj/item/clothing/head/det_hat,
-			),
+			slot_w_uniform_str = /obj/item/clothing/under/det,
+			slot_shoes_str = /obj/item/clothing/shoes/brown,
+			slot_helmet_str = /obj/item/clothing/head/det_hat,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
-			slot_wear_suit_str = list(
-				"Forensic Technician" = /obj/item/clothing/suit/storage/forensics/blue,
-				"Gumshoe" = /obj/item/clothing/suit/storage/det_suit/noir,
-				"Inquisitor" = /obj/item/clothing/suit/storage/det_suit,
-			),
+			slot_wear_suit_str = /obj/item/clothing/suit/storage/det_suit,
 			slot_l_store_str = /obj/item/weapon/lighter/zippo,
 		),
 	)
@@ -72,8 +56,3 @@
 
 /datum/outfit/inquisitor/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <b>Security:</b> [SEC_FREQ]<br/>")
-	H.dna.SetSEState(SOBERBLOCK,1)
-	H.mutations += M_SOBER
-	if (H.mind.role_alt_title == "Gumshoe")
-		H.mutations += M_NOIR
-		H.dna.SetSEState(NOIRBLOCK,1)

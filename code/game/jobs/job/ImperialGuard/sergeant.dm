@@ -13,7 +13,7 @@
 	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/IG_trooper_sergeant
-
+	species_whitelist = list("Human")
 
 // ------------ Sergeant Outfit Datum --------------//
 
