@@ -87,7 +87,7 @@
 			return
 
 /*
-	DEBUGGING ATTACKBY
+	DEBUGGING ATTACKBY - Used for debugging of course.
 						*/
 
 ///obj/item/weapon/gun/energy/laser/lasgun/attackby(var/obj/item/A, var/mob/user) //Loading
