@@ -360,7 +360,7 @@ var/savefile/panicfile
 
 	s += "<b>>SS40k: <i>WAAAGH EDITION!</i></b>] - Periodically up for Tests, Come try it out.<br>"
 	s += "<br>"
-	s += " \[<a href=\"https://discord.gg/4CucGgp\">Discord</a><br>"
+	s += " \[<a href=\"https://discord.gg/5F9sQDF\">Discord</a><br>"
 	
 /*	var/list/features = list()
 
