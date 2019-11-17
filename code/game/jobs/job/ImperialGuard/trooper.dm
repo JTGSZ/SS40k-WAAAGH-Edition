@@ -15,6 +15,7 @@
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/IG_trooper
 	species_whitelist = list("Human")
+
 /datum/job/IG_trooper/get_total_positions()
 	. = ..()
 
