@@ -1,1 +1,1 @@
-Make sure to check your stuff on occassion.
+Test If you are about to merge something hectic. Otherwise at least compile it.
