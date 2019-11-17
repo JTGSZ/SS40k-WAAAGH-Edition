@@ -21,7 +21,7 @@
 
 	var/datum/job/assistant = job_master.GetJob("Assistant")
 	if(assistant.current_positions > 5)
-		. = clamp(. + assistant.current_positions - 5, 0, 99)
+		. = clamp(. + assistant.current_positions - 5, 0, 99) 
 
 
 

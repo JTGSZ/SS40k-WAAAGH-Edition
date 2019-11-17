@@ -268,10 +268,6 @@
 	IMPERIAL GUARD BELTS
 						*/
 
-/*
-	Belts
-	*/
-
 /obj/item/weapon/storage/belt/iguard/basicbelt
 	name = "Basic Belt"
 	desc = "A standard issue belt."
@@ -280,3 +276,27 @@
 	w_class = W_CLASS_LARGE
 	storage_slots = 14
 	can_only_hold = list()
+
+/*
+	IMPERIAL GUARD GASMASKS
+							*/
+
+/obj/item/clothing/mask/gas/iguard/trooper_mask
+	name = "gas mask"
+	desc = "A standard issue imperial guard gas mask."
+	icon_state = "ig" //Check: Its there
+	item_state = "ig" //Check: Its there
+	siemens_coefficient = 0.7
+	w_class = W_CLASS_SMALL
+	can_flip = 0
+	canstage = 0
+
+/obj/item/clothing/mask/gas/iguard/stormtrooper_mask
+	name = "stormtrooper gasmask"
+	desc = "A face-covering mask ment for only the finest the imperial guard can field."
+	icon_state = "stormm" //Check: Its there
+	item_state = "stormm" //Check: Its there
+	siemens_coefficient = 0.7
+	w_class = W_CLASS_SMALL
+	can_flip = 0
+	canstage = 0
