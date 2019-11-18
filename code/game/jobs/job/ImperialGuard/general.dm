@@ -35,19 +35,14 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_helmet_str = /obj/item/clothing/head/caphat,
 			slot_ears_str = /obj/item/device/radio/headset/heads/captain,
-			slot_w_uniform_str = /obj/item/clothing/under/rank/captain,
-			slot_shoes_str = /obj/item/clothing/shoes/jackboots,
+			slot_w_uniform_str = /obj/item/clothing/under/iguard/general,
+			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_glasses_str = /obj/item/clothing/glasses/sunglasses,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/hos/jensen,
-			slot_l_store_str = /obj/item/device/flash
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/commanderarmor,
 		),
 	)
 	items_to_collect = list(
-		/obj/item/weapon/storage/box/ids,
-		/obj/item/weapon/gun/energy/gun
 	)
 
 	implant_types = list(
