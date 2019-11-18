@@ -23,31 +23,29 @@
 	associated_job = /datum/job/IG_trooper_sergeant
 
 	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_sec,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/sec,
+		BACKPACK_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
+		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
+		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
+		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
 	)
 
 	items_to_spawn = list(
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
-			slot_w_uniform_str = /obj/item/clothing/under/rank/warden,
-			slot_shoes_str = /obj/item/clothing/shoes/jackboots,
+			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
+			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_sergeant_helmet,
+			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/hos/jensen,
-			slot_l_store_str = /obj/item/device/flash,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/IG_cadian_sergeant_armor,
+			slot_s_store_str = /obj/item/weapon/gun/energy/laser/lasgun,
 		),
 	)
 
 	items_to_collect = list(
-		/obj/item/weapon/handcuffs = slot_r_store_str,
-		/obj/item/weapon/gun/energy/taser = GRASP_LEFT_HAND,
+		/obj/item/weapon/chainsword = GRASP_LEFT_HAND,
 	)
 
 	implant_types = list(
-		/obj/item/weapon/implant/loyalty/,
 	)
 
 	pda_type = /obj/item/device/pda/warden

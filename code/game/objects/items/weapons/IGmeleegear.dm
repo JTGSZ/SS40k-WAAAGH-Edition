@@ -16,7 +16,7 @@
 	w_class = W_CLASS_MEDIUM
 	sharpness = 1.2
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | SERRATED_BLADE | CHOPWOOD | CUT_AIRLOCK
-	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "slamdunks")
+	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "saws")
 
 /obj/item/weapon/chainsword/New()
 	. = ..()
