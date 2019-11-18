@@ -115,7 +115,7 @@
 			icon_state = "inqaltcape"
 			item_state = "inqalecape"
 
-/obj/item/clothing/suit/armor/imperialarmor
+/obj/item/clothing/suit/armor/IG_cadian_armor
 	name = "guardsman armor"
 	desc = "Standard issue armor given to Guardsmen of the Imperial Guard. Protects against some damage."
 	icon_state = "guardsman_armor" //Check: Its there
@@ -124,7 +124,7 @@
 	armor = list(melee = 30, bullet = 10, laser = 30,energy = 10, bomb = 25, bio = 0, rad = 0)
 	allowed = list(/obj/item/weapon/gun/energy/laser/lasgun)
 
-/obj/item/clothing/suit/armor/imperialarmor/medic 
+/obj/item/clothing/suit/armor/IG_cadian_medic_armor
 	name = "guardsman medic armor"
 	desc = "Standard issue armor given to Guardsmen Medics of the Imperial Guard. Lighter than the normal variant."
 	icon_state = "guardsmanmedic_armor" //Check: Its there
@@ -133,7 +133,7 @@
 	armor = list(melee = 25, bullet = 10, laser = 25,energy = 10, bomb = 15, bio = 25, rad = 0) //In case of... Nurgle?
 	allowed = list(/obj/item/weapon/gun/energy/laser/lasgun)
 
-/obj/item/clothing/suit/armor/imperialarmor/leader 
+/obj/item/clothing/suit/armor/IG_cadian_sergeant_armor
 	name = "guardsman sergeant armor"
 	desc = "Standard issue armor given to Guardsmen Sergeants of the Imperial Guard. More resistant to heavy fire than the normal variant"
 	icon_state = "guardsmanleader_armor" //Check: Its there
@@ -146,7 +146,7 @@
 	IG SHOES AND BOOTS
 						*/
 
-/obj/item/clothing/shoes/iguard/imperialboots
+/obj/item/clothing/shoes/iguard/IG_cadian_boots
 	name = "Imperial Flak Boots"
 	desc = "Footwear of the Imperial Guard, they look uncomfortable"
 	icon_state = "imperialboots" //Check: Its there
@@ -199,7 +199,7 @@
 	IG HELMETS
 				*/
 
-/obj/item/clothing/head/iguard/cadianhelmet 
+/obj/item/clothing/head/iguard/stormtrooper
 	name = "Cadian Helmet"
 	desc = "Standard gear for a Cadian Shock Trooper."
 	icon_state = "stormh" //Check: its there
@@ -208,7 +208,7 @@
 	body_parts_covered = HEAD|EARS|EYES
 
 
-/obj/item/clothing/head/iguard/imperialhelmet
+/obj/item/clothing/head/iguard/IG_cadian_helmet
 	name = "guardsman helmet"
 	desc = "Standard issue helmet given to Guardsmen of the Imperial Guard. Protects against some damage"
 	icon_state = "guardsman_helmet" //Check: Its there
@@ -216,7 +216,7 @@
 	armor = list(melee = 30, bullet = 10, laser = 30,energy = 10, bomb = 25, bio = 0, rad = 0)
 	body_parts_covered = HEAD|EARS|EYES
 
-/obj/item/clothing/head/iguard/imperialhelmetmedic
+/obj/item/clothing/head/iguard/IG_cadian_medic_helmet
 	name = "guardsman medic helmet"
 	desc = "Standard issue helmet given to Guardsmen Medics of the Imperial Guard. Lighter than the normal variant"
 	icon_state = "guardsmanmedic_helmet" //Check: Its there
@@ -224,7 +224,7 @@
 	body_parts_covered = HEAD|EARS|EYES
 	armor = list(melee = 25, bullet = 10, laser = 25,energy = 10, bomb = 15, bio = 25, rad = 0) //In case of... Nurgle?
 
-/obj/item/clothing/head/iguard/imperialhelmetleader
+/obj/item/clothing/head/iguard/IG_cadian_sergeant_helmet
 	name = "guardsman sergeant helmet"
 	desc = "Standard issue helmet given to Guardsmen Sergeants of the Imperial Guard. More resistant to heavy fire than the normal variant"
 	icon_state = "guardsmanleader_helmet" //Check: Its there
@@ -232,7 +232,7 @@
 	body_parts_covered = HEAD|EARS|EYES
 	armor = list(melee = 40, bullet = 40, laser = 40,energy = 30, bomb = 35, bio = 0, rad = 0)
 
-/obj/item/clothing/head/iguard/DKhelmet
+/obj/item/clothing/head/iguard/IG_krieg_helmet
 	name = "Mark IX Helmet"
 	desc = "The standard-issue Mark IX helmet is made of plasteel and constructed to ensure a good fit around the gasmask; ventilation is provided through a top spine, which has its own internal filter to keep out biological and chemical agents."
 	icon_state = "krieghelm" //Check: Its there
@@ -241,7 +241,7 @@
 	body_parts_covered = HEAD|EARS|EYES
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 
-/obj/item/clothing/head/iguard/valhalla
+/obj/item/clothing/head/iguard/IG_valhallan_helmet
 	name = "Valhallan Helmet"
 	desc = "A cold resistant, heavily padded helmet that is issued to the Valhallan Ice Warriors."
 	icon_state = "valhalla" //Check: its there

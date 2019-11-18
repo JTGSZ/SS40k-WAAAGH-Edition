@@ -33,7 +33,7 @@
 			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
 			slot_w_uniform_str = /obj/item/clothing/under/det,
 			slot_shoes_str = /obj/item/clothing/shoes/brown,
-			slot_helmet_str = /obj/item/clothing/head/det_hat,
+			slot_head_str = /obj/item/clothing/head/det_hat,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_glasses_str = /obj/item/clothing/glasses/sunglasses/sechud,
 			slot_wear_suit_str = /obj/item/clothing/suit/storage/det_suit,
