@@ -57,7 +57,7 @@
 	"opposite"	=	"same",
 	"Ian"		=	"Runtime",
 	"dog"		=	"cat",
-	"chaplain"	=	"cultist",
+	"Preacher"	=	"cultist",
 	"rune"		=	"graffiti",
 	"hot"		=	"cold",
 	"on fire"	=	"freezing",

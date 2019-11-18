@@ -667,7 +667,7 @@
 
 	if (/spell/targeted/empath in M.spell_list)
 		to_chat(M, "<span class='warning'>You sense [usr.name] reading your mind.</span>")
-	else if (prob(5) || (M.mind && M.mind.assigned_role=="Chaplain"))
+	else if (prob(5) || (M.mind && M.mind.assigned_role=="Preacher"))
 		to_chat(M, "<span class='warning'>You sense someone intruding upon your thoughts...</span>")
 
 ////////////////////////////////////////////////////////////////////////

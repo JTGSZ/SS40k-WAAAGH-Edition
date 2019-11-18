@@ -102,8 +102,8 @@
 	var/name = "Christianity"
 	var/deity_name = "Space Jesus"
 	var/bible_name = "The Holy Bible"
-	var/male_adept = "Chaplain"
-	var/female_adept = "Chaplain"
+	var/male_adept = "Preacher"
+	var/female_adept = "Preacher"
 	var/convert_method = "splashing them with holy water, holding a bible in hand."
 
 	var/bible_type = /obj/item/weapon/storage/bible

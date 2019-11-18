@@ -1,6 +1,6 @@
 //Due to how large this one is, it gets its own file from civilian.dm
-/datum/job/chaplain
-	title = "Chaplain"
+/datum/job/preacher
+	title = "Preacher"
 	flag = CHAPLAIN
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -15,7 +15,7 @@
 	pdatype = /obj/item/device/pda/chaplain
 	var/datum/religion/chap_religion
 
-/datum/job/chaplain/equip(var/mob/living/carbon/human/H)
+/datum/job/preacher/equip(var/mob/living/carbon/human/H)
 	switch(H.backbag)
 		if(2)
 			H.equip_or_collect(new /obj/item/weapon/storage/backpack(H), slot_back)
@@ -42,6 +42,6 @@
 		ChooseReligion(H)
 	return 1
 
-/datum/job/chaplain/priority_reward_equip(var/mob/living/carbon/human/H)
+/datum/job/preacher/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.equip_or_collect(new /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater(H.back), slot_in_backpack)

@@ -824,7 +824,7 @@
 		"Head of Personnel",
 		)
 	var/list/impede_hard = list(
-		"Chaplain",
+		"Preacher",
 		"General",
 		)
 	var/obj/effect/cult_ritual/conversion/conversion = null
@@ -982,7 +982,7 @@
 		victim.Knockdown(15)
 		victim.Stun(15)
 
-		if (victim.client && victim.mind.assigned_role != "Chaplain")//Chaplains can never be converted
+		if (victim.client && victim.mind.assigned_role != "Preacher")//Chaplains can never be converted
 			acceptance = get_role_desire_str(victim.client.prefs.roles[CULTIST])
 		if (jobban_isbanned(victim, CULTIST) || isantagbanned(victim))
 			acceptance = "Banned"

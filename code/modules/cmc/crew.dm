@@ -69,7 +69,7 @@ Crew Monitor by Paul, based on the holomaps by Deity
 		"Chef" = 62,
 		"Botanist" = 63,
 		"Librarian" = 64,
-		"Chaplain" = 65,
+		"Preacher" = 65,
 		"Clown" = 66,
 		"Mime" = 67,
 		"Janitor" = 68,

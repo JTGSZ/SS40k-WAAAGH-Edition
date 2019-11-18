@@ -77,7 +77,7 @@
 		if("Botanist")
 			suit=/obj/item/clothing/suit/space/plasmaman/botanist
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/botanist
-		if("Chaplain")
+		if("Preacher")
 			suit=/obj/item/clothing/suit/space/plasmaman/chaplain
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/chaplain
 		if("Janitor")

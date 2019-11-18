@@ -219,7 +219,7 @@
 					tradercount++
 				if(H.mind && H.mind.assigned_role == "Shaft Miner")
 					minercount++
-				if(H.mind && H.mind.assigned_role == "Chaplain")
+				if(H.mind && H.mind.assigned_role == "Preacher")
 					chaplaincount++
 					if(ischangeling(H))
 						episode_names += new /datum/episode_name/rare("[uppertext(H.real_name)]: A BLESSING IN DISGUISE", "The Chaplain, [H.real_name], was a changeling and escaped alive.", 750)
@@ -347,7 +347,7 @@
 					if(H.is_wearing_item(/obj/item/clothing/under/rank/xenoarch))
 						chance += 500
 					episode_names += new /datum/episode_name/rare("THE CREW IS NOW ANCIENT HISTORY", "The Xenoarchaeologist was the only survivor in the shuttle.", chance)
-				else if(!H.isUnconscious() && H.mind && H.mind.assigned_role == "Chaplain") //We don't check for uniform here because the chaplain's thing kind of is to improvise their garment gimmick
+				else if(!H.isUnconscious() && H.mind && H.mind.assigned_role == "Preacher") //We don't check for uniform here because the chaplain's thing kind of is to improvise their garment gimmick
 					episode_names += new /datum/episode_name/rare("BLESS THIS MESS", "The Chaplain was the only survivor in the shuttle.", 1250)
 
 				if(H.is_wearing_item(/obj/item/clothing/suit/raincoat) && H.find_held_item_by_type(/obj/item/weapon/fireaxe))

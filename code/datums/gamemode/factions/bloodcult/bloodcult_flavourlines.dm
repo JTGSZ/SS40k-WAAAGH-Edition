@@ -287,7 +287,7 @@ var/list/all_depts_list = list(
 	if (veil_thickness >= CULT_ACT_III)
 		valid_lines += failure_lines_thin_veil
 
-	if(victim.mind && victim.mind.assigned_role == "Chaplain")
+	if(victim.mind && victim.mind.assigned_role == "Preacher")
 		var/list/cult_blood_chaplain = list("cult", "narsie", "nar'sie", "narnar", "nar-sie")
 		var/list/cult_clock_chaplain = list("ratvar", "clockwork", "ratvarism")
 		if (religion_name in cult_blood_chaplain)

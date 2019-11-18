@@ -463,7 +463,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/rambler
 	name = "Soul Rambler Migration"
 	role_category = /datum/role/rambler
-	enemy_jobs = list("Librarian","Inquisitor", "Chaplain", "Internal Affairs Agent")
+	enemy_jobs = list("Librarian","Inquisitor", "Preacher", "Internal Affairs Agent")
 	required_enemies = list(0,0,1,1,2,2,3,3,3,4)
 	required_candidates = 1
 	weight = 1

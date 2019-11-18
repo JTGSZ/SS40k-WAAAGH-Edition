@@ -418,14 +418,14 @@
 	corpseidjob = "Bridge Officer"
 
 /obj/effect/landmark/corpse/chaplain
-	name = "Chaplain"
+	name = "Preacher"
 	corpseuniform = /obj/item/clothing/under/rank/chaplain
 	corpseback = /obj/item/weapon/storage/backpack
 	corpseradio = /obj/item/device/radio/headset
 	corpseshoes = /obj/item/clothing/shoes/laceup
 	corpseid = 1
-	corpseidjob = "Chaplain"
-	corpseidaccess = "Chaplain"
+	corpseidjob = "Preacher"
+	corpseidaccess = "Preacher"
 
 /obj/effect/landmark/corpse/quartermaster
 	name = "Quartermaster"

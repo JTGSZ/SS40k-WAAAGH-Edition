@@ -82,7 +82,7 @@
 	// Non-mature vampires are not stopped by holy things.
 	if(M)
 		//Chaplains are ALWAYS resistant to vampire powers
-		if(mind && mind.assigned_role == "Chaplain")
+		if(mind && mind.assigned_role == "Preacher")
 			to_chat(M.current, "<span class='warning'>[src] resists our powers!</span>")
 			return 0
 		// Null rod nullifies vampire powers, unless we're a young vamp.

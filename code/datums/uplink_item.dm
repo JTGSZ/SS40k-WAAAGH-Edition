@@ -936,7 +936,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/storage/bible/traitor_gun
 	cost = 14
 	discounted_cost = 10
-	jobs_with_discount = list("Chaplain")
+	jobs_with_discount = list("Preacher")
 
 /datum/uplink_item/jobspecific/occultbook
 	name = "Occult Book"
@@ -944,7 +944,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/book/occult
 	cost = 4
 	discounted_cost = 2
-	jobs_with_discount = list("Librarian", "Chaplain")
+	jobs_with_discount = list("Librarian", "Preacher")
 
 /datum/uplink_item/jobspecific/powercreeper_packet
 	name = "Powercreep Packet"

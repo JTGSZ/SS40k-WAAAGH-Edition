@@ -1,7 +1,7 @@
 /proc/is_convertable_to_cult_legacy(datum/mind/mind)
 	if(!istype(mind))
 		return 0
-	if(istype(mind.current, /mob/living/carbon/human) && (mind.assigned_role == "Chaplain"))
+	if(istype(mind.current, /mob/living/carbon/human) && (mind.assigned_role == "Preacher"))
 		return 0
 	for(var/obj/item/weapon/implant/loyalty/L in mind.current)
 		if(L && (L.imp_in == mind.current))//Checks to see if the person contains an implant, then checks that the implant is actually inside of them

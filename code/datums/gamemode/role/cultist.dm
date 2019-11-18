@@ -2,7 +2,7 @@
 	id = CULTIST
 	name = "Cultist"
 	required_pref = CULTIST
-	protected_jobs = list("Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent", "Merchant")
+	protected_jobs = list("Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Preacher", "Head of Personnel", "Internal Affairs Agent", "Merchant")
 	logo_state = "cult-logo"
 	greets = list(GREET_DEFAULT,GREET_CUSTOM,GREET_ROUNDSTART,GREET_ADMINTOGGLE)
 	var/list/tattoos = list()

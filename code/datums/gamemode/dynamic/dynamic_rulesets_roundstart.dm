@@ -89,8 +89,8 @@
 	name = "Vampires"
 	role_category = /datum/role/vampire
 	protected_from_jobs = list("Trooper", "Sergeant","Merchant", "Head of Personnel", "Inquisitor", "Commissar", "General")
-	restricted_from_jobs = list("AI","Cyborg","Mobile MMI", "Chaplain")
-	enemy_jobs = list("Trooper","Inquisitor", "Sergeant", "Commissar", "General", "Chaplain")
+	restricted_from_jobs = list("AI","Cyborg","Mobile MMI", "Preacher")
+	enemy_jobs = list("Trooper","Inquisitor", "Sergeant", "Commissar", "General", "Preacher")
 	required_enemies = list(2,2,2,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 2
@@ -219,7 +219,7 @@
 /datum/dynamic_ruleset/roundstart/bloodcult
 	name = "Blood Cult"
 	role_category = /datum/role/cultist
-	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent")
+	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Preacher", "Head of Personnel", "Internal Affairs Agent")
 	enemy_jobs = list("Trooper","Sergeant", "Inquisitor","Commissar", "General")
 	required_enemies = list(3,3,2,2,2,2,2,1,1,0)
 	required_candidates = 4
@@ -268,8 +268,8 @@
 	role_category = /datum/role/legacy_cultist
 	role_category_override = CULTIST // H-ha
 	protected_from_jobs = list("Merchant")
-	restricted_from_jobs = list("AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Chaplain", "Head of Personnel", "Internal Affairs Agent", "Chaplain")
-	enemy_jobs = list("AI", "Cyborg", "Trooper","Inquisitor","Commissar", "General", "Chaplain")
+	restricted_from_jobs = list("AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Preacher", "Head of Personnel", "Internal Affairs Agent", "Preacher")
+	enemy_jobs = list("AI", "Cyborg", "Trooper","Inquisitor","Commissar", "General", "Preacher")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 4
 	weight = 3
@@ -446,7 +446,7 @@
 			if("Station Engineer","Atmospheric Technician","Chief Engineer")
 				blob_looks_player["AME"] = 32
 				blob_looks_player["AME_new"] = 64
-			if("Chaplain")
+			if("Preacher")
 				blob_looks_player["skelleton"] = 64
 	return 1
 

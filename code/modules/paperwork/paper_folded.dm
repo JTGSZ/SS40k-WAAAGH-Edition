@@ -177,7 +177,7 @@
 		"[pick("R&D","Cargo","The Chemist")] will leave you a gift.",\
 		"You will soon find yourself in [pick("Medbay","Brig","outer space","the Morgue")].",\
 		"Don't count in the escape shuttle.",\
-		"The [pick("Clown","Commissar","Chaplain","Janitor")] is after you.")
+		"The [pick("Clown","Commissar","Preacher","Janitor")] is after you.")
 	var/flop = 0
 	icon_state = "fortuneteller_closed"
 /obj/item/weapon/p_folded/fortune/attack_self(mob/user)

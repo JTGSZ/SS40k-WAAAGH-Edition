@@ -3889,7 +3889,7 @@
 "bwO" = (/obj/structure/closet/coffin,/turf/simulated/floor{icon_state = "dark"},/area/chapel/office)
 "bwP" = (/obj/structure/closet/coffin,/obj/machinery/door/window{dir = 4; base_state = "right"},/turf/simulated/floor{icon_state = "dark"},/area/chapel/office)
 "bwQ" = (/obj/machinery/light_switch{pixel_y = -28},/turf/simulated/floor{icon_state = "dark"},/area/chapel/office)
-"bwR" = (/obj/effect/landmark/start{name = "Chaplain"},/obj/structure/bed/chair{dir = 1},/obj/machinery/newscaster{dir = 1; pixel_y = -28},/turf/simulated/floor{icon_state = "dark"},/area/chapel/office)
+"bwR" = (/obj/effect/landmark/start{name = "Preacher"},/obj/structure/bed/chair{dir = 1},/obj/machinery/newscaster{dir = 1; pixel_y = -28},/turf/simulated/floor{icon_state = "dark"},/area/chapel/office)
 "bwS" = (/obj/machinery/requests_console{department = "Chapel"; departmentType = 2; pixel_y = -32},/obj/item/device/radio/intercom{pixel_x = 25; pixel_y = 0},/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/disposal,/turf/simulated/floor{icon_state = "dark"},/area/chapel/office)
 "bwT" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0; tag = ""},/turf/simulated/floor/bluegrid,/area/turret_protected/ai_upload)
 "bwU" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/status_display,/obj/structure/window/reinforced,/turf/simulated/floor/plating,/area/security/checkpoint/science)

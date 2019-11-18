@@ -91,7 +91,7 @@ var/list/civilian_positions = list(
 	"Janitor",
 	"Librarian",
 	"Internal Affairs Agent",
-	"Chaplain",
+	"Preacher",
 	"Clown",
 	"Mime",
 	"Assistant"
@@ -147,7 +147,7 @@ var/list/all_jobs_txt = list(
 	"Janitor",
 	"Librarian",
 	"Internal Affairs Agent",
-	"Chaplain",
+	"Preacher",
 	"Clown",
 	"Mime",
 	"Assistant",

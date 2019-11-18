@@ -428,7 +428,7 @@
 				to_chat(user, "<span class='danger'>The veil is still too thick for you to draw power from this rune.</span>")	
 				
 	//"Cult" chaplains can read the words, but they have to figure out the spell themselves. Also has a chance to trigger a taunt from Nar-Sie.
-	else if(istype(user, /mob/living/carbon/human) && (user.mind.assigned_role == "Chaplain")) 
+	else if(istype(user, /mob/living/carbon/human) && (user.mind.assigned_role == "Preacher")) 
 		var/list/cult_blood_chaplain = list("cult", "narsie", "nar'sie", "narnar", "nar-sie")
 		var/list/cult_clock_chaplain = list("ratvar", "clockwork", "ratvarism")
 		if (religion_name in cult_blood_chaplain)
