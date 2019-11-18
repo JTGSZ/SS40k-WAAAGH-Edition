@@ -19,6 +19,8 @@
 	species_restricted = list("Human")
 /obj/item/weapon/storage/belt/iguard
 	icon = 'icons/obj/IGstuff/IGarmorandclothesOBJ.dmi'
+/obj/item/weapon/storage/backpack/iguard
+	icon = 'icons/obj/IGstuff/IGarmorandclothesOBJ.dmi'
 
 /*
 	IG ARMOR AND SUITS
@@ -300,3 +302,18 @@
 	w_class = W_CLASS_SMALL
 	can_flip = 0
 	canstage = 0
+
+/*
+	Backpacks
+				*/
+/obj/item/weapon/storage/backpack/iguard/trooperbag
+	name = "Standard issue Backpack"
+	desc = "A standard issue backpack, maybe one day there will be more to it."
+	icon_state = "impbag" //Check: Its there
+	item_state = "impbag" //Check: Its there
+
+/obj/item/weapon/storage/backpack/iguard/stormtrooperbag
+	name = "Stormtrooper Backpack"
+	desc = "This backpack looks like one of the finest the imperial guard can offer."
+	icon_state = "stormp" //Check: Its there
+	item_state = "stormp" //Check: Its there
