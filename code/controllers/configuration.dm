@@ -151,16 +151,12 @@
 	var/irc_bot_server_id = 45678
 	var/python_path = "" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 
-	var/assistantlimit = 0 //enables assistant limiting
-	var/assistantratio = 2 //how many assistants to security members
-
 	var/emag_energy = -1
 	var/emag_starts_charged = 1
 	var/emag_recharge_rate = 0
 	var/emag_recharge_ticks = 0
 
 	var/map_voting = 0
-	var/renders_url = ""
 
 	var/default_ooc_color = "#002eb8"
 
@@ -532,10 +528,6 @@
 
 				if("req_cult_ghostwriter")
 					config.cult_ghostwriter_req_cultists = value
-				if("assistant_limit")
-					config.assistantlimit = 1
-				if("assistant_ratio")
-					config.assistantratio = text2num(value)
 				if("copy_logs")
 					copy_logs = value
 				if("media_base_url")
@@ -550,8 +542,6 @@
 					poll_results_url = value
 				if("map_voting")
 					map_voting = 1
-				if("renders_url")
-					renders_url = value
 				if("mommi_static")
 					mommi_static = 1
 				if("skip_minimap_generation")

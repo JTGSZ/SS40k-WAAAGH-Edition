@@ -26,16 +26,3 @@
 	else
 		return list()
 
-/datum/job/assistant/get_total_positions()
-	if(!config.assistantlimit)
-		return 99
-
-	var/datum/job/IG_trooper = job_master.GetJob("Trooper")
-	var/datum/job/IG_trooper_sergeant = job_master.GetJob("Sergeant")
-	var/datum/job/commissar = job_master.GetJob("Commissar")
-	var/sec_jobs = (IG_trooper.current_positions + IG_trooper_sergeant.current_positions + commissar.current_positions)
-
-	if(sec_jobs > 5)
-		return 99
-
-	return clamp(sec_jobs * config.assistantratio + xtra_positions, total_positions, 99)

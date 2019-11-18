@@ -18,13 +18,6 @@
 
 	outfit_datum = /datum/outfit/commissar
 
-/datum/job/commissar/reject_new_slots()
-	if(security_level == SEC_LEVEL_RED)
-		return FALSE
-	else
-		return "Red Alert"
-
-
 //-------------Commissar Outfit Datum--------------//
 /datum/outfit/commissar
 

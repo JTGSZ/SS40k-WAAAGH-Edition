@@ -16,15 +16,6 @@
 	outfit_datum = /datum/outfit/IG_cadian_trooper
 	species_whitelist = list("Human")
 
-/datum/job/IG_trooper/get_total_positions()
-	. = ..()
-
-	var/datum/job/assistant = job_master.GetJob("Assistant")
-	if(assistant.current_positions > 5)
-		. = clamp(. + assistant.current_positions - 5, 0, 99) 
-
-
-
 //--------------Trooper Outfit Datum----------------//
 /datum/outfit/IG_cadian_trooper
 
@@ -42,7 +33,7 @@
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
-			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_helmet
+			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_helmet,
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/IG_cadian_armor,

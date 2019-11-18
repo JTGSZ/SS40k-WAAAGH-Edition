@@ -21,12 +21,6 @@
 /datum/job/general/get_access()
 	return get_all_accesses()
 
-/datum/job/general/reject_new_slots()
-	if(security_level == SEC_LEVEL_RED)
-		return FALSE
-	else
-		return "Red Alert"
-
 /datum/outfit/general
 
 	outfit_name = "General"
