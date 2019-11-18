@@ -323,8 +323,7 @@
 					clothes_s.Blend(new /icon(suit_dmi, "ia_jacket_open"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('icons/mob/in-hand/right/backpacks_n_bags.dmi', "briefcase-centcomm"), ICON_UNDERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
-
-				if(CHAPLAIN)
+				if(PREACHER)
 					clothes_s = new /icon(uniform_dmi, "chapblack_s")
 					clothes_s.Blend(new /icon(feet_dmi, "laceups"), ICON_UNDERLAY)
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
