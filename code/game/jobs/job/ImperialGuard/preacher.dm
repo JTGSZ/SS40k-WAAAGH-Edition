@@ -1,4 +1,3 @@
-//Due to how large this one is, it gets its own file from civilian.dm
 /datum/job/preacher
 	title = "Preacher"
 	flag = PREACHER
@@ -6,41 +5,53 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Emperor"
+	supervisors = "The Ecclesiarchy"
 	wage_payout = 25
 	selection_color = "#dddddd"
 	access = list()
 	minimal_access = list()
-	pdaslot = slot_belt
-	pdatype = /obj/item/device/pda/chaplain
 	var/datum/religion/chap_religion
+	
+	species_whitelist = list("Human")
+	outfit_datum = /datum/outfit/preacher
 
-/datum/job/preacher/equip(var/mob/living/carbon/human/H)
-	switch(H.backbag)
-		if(2)
-			H.equip_or_collect(new /obj/item/weapon/storage/backpack(H), slot_back)
-		if(3)
-			H.equip_or_collect(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
-		if(4)
-			H.equip_or_collect(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		if(5)
-			H.equip_or_collect(new /obj/item/weapon/storage/backpack/messenger(H), slot_back)
+/datum/outfit/preacher
+
+	outfit_name = "Preacher"
+	associated_job = /datum/job/preacher
+
+	backpack_types = list(
+		BACKPACK_STRING = /obj/item/weapon/storage/backpack,
+		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_norm,
+		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
+		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger,
+	)
+
+	items_to_spawn = list(
+		"Default" = list(
+			slot_ears_str = /obj/item/device/radio/headset/heads/captain,
+			slot_w_uniform_str = /obj/item/clothing/under/rank/chaplain,
+			slot_shoes_str = /obj/item/clothing/shoes/laceup,
+			slot_gloves_str = /obj/item/clothing/gloves/black,
+			slot_l_store_str = /obj/item/weapon/nullrod,
+		),
+	)
+	items_to_collect = list(
+		/obj/item/weapon/thurible = GRASP_LEFT_HAND,
+	)
+
+	implant_types = list(
+		/obj/item/weapon/implant/loyalty/,
+	)
+
+	pda_type = /obj/item/device/pda/chaplain
+	pda_slot = slot_l_store
+	id_type = /obj/item/weapon/card/id
+
+
+/datum/outfit/preacher/post_equip(var/mob/living/carbon/human/H)
 	H.add_language("Spooky") //SPOOK
-	H.equip_or_collect(new /obj/item/clothing/under/rank/chaplain(H), slot_w_uniform)
-	H.equip_or_collect(new /obj/item/weapon/nullrod(H), slot_l_store)//each chaplain brings their own
-	//H.equip_or_collect(new /obj/item/device/pda/chaplain(H), slot_belt)
-	H.equip_or_collect(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-
-	if(H.backbag == 1)
-		H.put_in_hands(new H.species.survival_gear(H))
-	else
-		H.equip_or_collect(new H.species.survival_gear(H.back), slot_in_backpack)
-
-	H.put_in_hands(new /obj/item/weapon/thurible(H))
-
-	spawn(0) //We are done giving earthly belongings, now let's move on to spiritual matters
-		ChooseReligion(H)
-	return 1
+	ChooseReligion(H)
 
 /datum/job/preacher/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
