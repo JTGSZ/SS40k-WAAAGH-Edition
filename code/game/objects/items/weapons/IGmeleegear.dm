@@ -57,3 +57,6 @@
 			cooldown = world.time
 	else
 		..()
+
+
+/obj/item/offhand //Reference this when you need to make a 2 handed weapon.
