@@ -4,7 +4,7 @@
 	info_flag = JINFO_SILICON
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	selection_color = "#ccffcc"
 	supervisors = "your laws"
@@ -23,7 +23,7 @@
 	info_flag = JINFO_SILICON
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
@@ -42,7 +42,7 @@
 	info_flag = JINFO_SILICON
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
