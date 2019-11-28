@@ -64,6 +64,10 @@
 /*
  * Eviscerator
  */
+/obj/item/projectile/fire_breath/eviscerator //The fire projectile we will use, cap it to 3 turfs.
+	fire_blast_type = /obj/effect/fire_blast/no_spread
+	max_range = 4
+
 /obj/item/weapon/gun/eviscerator
 	name = "Eviscerator"
 	desc = "A oversized chainsword. This one has a exterminator attached to it too."
@@ -87,5 +91,5 @@
 	return 1
 
 /obj/item/weapon/gun/eviscerator/process_chambered()
-	in_chamber = new/obj/item/projectile/fire_breath/straight(src)
+	in_chamber = new/obj/item/projectile/fire_breath/eviscerator(src)
 	return 1

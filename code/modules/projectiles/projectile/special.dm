@@ -367,7 +367,7 @@ obj/item/projectile/kinetic/New()
 	var/temperature = T0C + 175
 	var/fire_duration
 
-/obj/item/projectile/fire_breath/straight
+/obj/item/projectile/fire_breath/straight 
 	fire_blast_type = /obj/effect/fire_blast/no_spread
 
 /obj/item/projectile/fire_breath/New(turf/T, var/direction, var/F_Dam, var/P, var/T, var/F_Dur)
