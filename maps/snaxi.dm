@@ -38,6 +38,7 @@
 	center_y = 150
 
 	snow_theme = 1
+	can_enlarge = FALSE
 
 /datum/map/active/New()
 	.=..()
