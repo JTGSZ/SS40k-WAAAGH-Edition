@@ -49,6 +49,26 @@
 	if(keytype && !vin)
 		heldkey = new keytype(src)
 
+/obj/structure/bed/chair/vehicle/snowmobile/security
+	name = "security snowmobile"
+	desc = "An armored security snowmobile. Take note, it does not use a universal key."
+	health = 200
+	max_health = 200
+	icon_state = "snowcurity"
+	headlights = FALSE
+
+/obj/structure/bed/chair/vehicle/snowmobile/New()
+	..()
+	new /datum/action/vehicle/toggle_headlights/siren(src)
+
+/obj/structure/bed/chair/vehicle/snowmobile/security/process()
+	..()
+	if(light)
+		if(light_color == "#FF0000")
+			light_color = "#0000FF"
+		else
+			light_color = "#FF0000"
+
 /obj/structure/bed/chair/vehicle/snowmobile/getMovementDelay()
 	var/turf/T = loc
 	if(is_type_in_list(T, approved_terrain))
