@@ -53,7 +53,7 @@
 	var/tank_slot_name = "suit storage"
 
 	switch(H.mind.assigned_role)
-		if("Scientist","Geneticist","Roboticist")
+		if("Scientist","Roboticist")
 			suit=/obj/item/clothing/suit/space/plasmaman/science
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/science
 		if("Research Director")
@@ -62,36 +62,12 @@
 		if("General")
 			suit=/obj/item/clothing/suit/space/plasmaman/security/captain
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/security/captain
-		if("Head of Personnel")
-			suit=/obj/item/clothing/suit/space/plasmaman/security/hop
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/security/hop
 		if("Bartender", "Chef")
 			suit=/obj/item/clothing/suit/space/plasmaman/service
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/service
-		if("Cargo Technician", "Quartermaster")
-			suit=/obj/item/clothing/suit/space/plasmaman/cargo
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/cargo
-		if("Shaft Miner")
-			suit=/obj/item/clothing/suit/space/plasmaman/miner
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/miner
-		if("Botanist")
-			suit=/obj/item/clothing/suit/space/plasmaman/botanist
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/botanist
 		if("Preacher")
 			suit=/obj/item/clothing/suit/space/plasmaman/chaplain
 			helm=/obj/item/clothing/head/helmet/space/plasmaman/chaplain
-		if("Janitor")
-			suit=/obj/item/clothing/suit/space/plasmaman/janitor
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/janitor
-		if("Clown")
-			suit=/obj/item/clothing/suit/space/plasmaman/clown
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/clown
-		if("Mime")
-			suit=/obj/item/clothing/suit/space/plasmaman/mime
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/mime
-		if("Internal Affairs Agent")
-			suit=/obj/item/clothing/suit/space/plasmaman/lawyer
-			helm=/obj/item/clothing/head/helmet/space/plasmaman/lawyer
 	H.equip_or_collect(new suit(H), slot_wear_suit)
 	H.equip_or_collect(new helm(H), slot_head)
 	H.equip_or_collect(new/obj/item/weapon/tank/plasma/plasmaman(H), tank_slot) // Bigger plasma tank from Raggy.

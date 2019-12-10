@@ -51,7 +51,6 @@ Crew Monitor by Paul, based on the holomaps by Deity
 		"Inquisitor" = 13,
 		"Chief Medical Officer" = 20,
 		"Chemist" = 21,
-		"Geneticist" = 22,
 		"Virologist" = 23,
 		"Medical Doctor" = 24,
 		"Paramedic" = 25,

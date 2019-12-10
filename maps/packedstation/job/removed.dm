@@ -25,12 +25,6 @@
 	total_positions = 0
 	spawn_positions = 0
 
-
-/datum/job/geneticist
-	..()
-	total_positions = 0
-	spawn_positions = 0
-
 /datum/job/virologist
 	..()
 	total_positions = 0

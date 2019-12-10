@@ -67,7 +67,6 @@ var/list/engineering_positions = list(
 var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Medical Doctor",
-	"Geneticist",
 	"Virologist",
 //	"Psychiatrist",
 	"Paramedic",
@@ -77,7 +76,6 @@ var/list/medical_positions = list(
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
-	"Geneticist",	//Part of both medical and science
 	"Roboticist",
 	"Mechanic"
 )
@@ -133,7 +131,6 @@ var/list/all_jobs_txt = list(
 	"Atmospheric Technician",
 	"Mechanic",
 	"Medical Doctor",
-	"Geneticist",
 	"Virologist",
 //	"Psychiatrist",
 	"Paramedic",

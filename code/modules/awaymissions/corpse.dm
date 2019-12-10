@@ -475,31 +475,6 @@
 	corpseidjob = "Chemist"
 	corpseidaccess = "Chemist"
 
-/obj/effect/landmark/corpse/geneticist
-	name = "Geneticist"
-	corpseradio = /obj/item/device/radio/headset/headset_med
-	corpseuniform = /obj/item/clothing/under/rank/geneticist
-	corpsesuit = /obj/item/clothing/suit/storage/labcoat/genetics
-	corpseback = /obj/item/weapon/storage/backpack/medic
-	corpsepocket1 = /obj/item/device/flashlight/pen
-	corpseshoes = /obj/item/clothing/shoes/white
-	corpseid = 1
-	corpseidjob = "Geneticist"
-	corpseidaccess = "Geneticist"
-
-/obj/effect/landmark/corpse/virologist
-	name = "Virologist"
-	corpseradio = /obj/item/device/radio/headset/headset_med
-	corpseuniform = /obj/item/clothing/under/rank/virologist
-	corpsesuit = /obj/item/clothing/suit/storage/labcoat/virologist
-	corpsemask = /obj/item/clothing/mask/surgical
-	corpseback = /obj/item/weapon/storage/backpack/medic
-	corpsepocket1 = /obj/item/device/flashlight/pen
-	corpseshoes = /obj/item/clothing/shoes/white
-	corpseid = 1
-	corpseidjob = "Geneticist"
-	corpseidaccess = "Geneticist"
-
 /obj/effect/landmark/corpse/paramedic
 	name = "Paramedic"
 	corpseradio = /obj/item/device/radio/headset/headset_med

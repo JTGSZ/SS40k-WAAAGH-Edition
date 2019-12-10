@@ -913,7 +913,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/gun/energy/radgun
 	cost = 18
 	discounted_cost = 12
-	jobs_with_discount = list("Geneticist", "Chief Medical Officer")
+	jobs_with_discount = list("Chief Medical Officer")
 
 /datum/uplink_item/jobspecific/flaregun
 	name = "Modified Flaregun"

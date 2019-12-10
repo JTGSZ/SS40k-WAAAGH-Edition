@@ -63,8 +63,7 @@
 	. = ..()
 	H.equip_or_collect(new /obj/item/weapon/storage/bag/chem(H.back), slot_in_backpack)
 
-/datum/job/geneticist
-	title = "Geneticist"
+/datum/job/geneticist 
 	flag = GENETICIST
 	department_flag = MEDSCI
 	faction = "Station"
@@ -76,10 +75,6 @@
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_science, access_eva)
 	minimal_access = list(access_medical, access_morgue, access_genetics, access_science)
 	outfit_datum = /datum/outfit/geneticist
-
-/datum/job/geneticist/priority_reward_equip(var/mob/living/carbon/human/H)
-	. = ..()
-	H.equip_or_collect(new /obj/item/weapon/storage/belt/medical(H.back), slot_in_backpack)
 
 /datum/job/virologist
 	title = "Virologist"

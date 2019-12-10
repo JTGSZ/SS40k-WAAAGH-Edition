@@ -27,8 +27,8 @@
 
 #define COMMAND_POSITIONS list("General", "Head of Personnel", "Commissar", "Chief Engineer", "Research Director", "Chief Medical Officer")
 #define ENGINEERING_POSITIONS list("Chief Engineer", "Station  Engineer", "Atmospheric Technician", "Mechanic")
-#define MEDICAL_POSITIONS list("Chief Medical Officer", "Medical Doctor", "Geneticist", "Virologist", "Paramedic", "Chemist")
-#define SCIENCE_POSITIONS list("Research Director", "Scientist", "Geneticist", "Roboticist", "Mechanic")
+#define MEDICAL_POSITIONS list("Chief Medical Officer", "Medical Doctor", "Virologist", "Paramedic", "Chemist")
+#define SCIENCE_POSITIONS list("Research Director", "Scientist", , "Roboticist", "Mechanic")
 #define CIVILIAN_POSITIONS list("Head of Personnel", "Bartender", "Botanist", "Chef", "Janitor", "Librarian", "Internal Affairs Agent", "Preacher", "Clown", "Mime", "Assistant")
 #define CARGO_POSITIONS list("Head of Personnel", "Quartermaster", "Cargo Technician", "Shaft Miner")
 #define SECURITY_POSITIONS list("Commissar", "Sergeant", "Inquisitor", "Trooper")
