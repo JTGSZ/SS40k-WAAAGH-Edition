@@ -57,24 +57,10 @@
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_chemistry)
 	alt_titles = list("Pharmacist")
-	outfit_datum = /datum/outfit/chemist
 
 /datum/job/chemist/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.equip_or_collect(new /obj/item/weapon/storage/bag/chem(H.back), slot_in_backpack)
-
-/datum/job/geneticist 
-	flag = GENETICIST
-	department_flag = MEDSCI
-	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
-	wage_payout = 45
-	supervisors = "the chief medical officer and research director"
-	selection_color = "#ffeef0"
-	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_science, access_eva)
-	minimal_access = list(access_medical, access_morgue, access_genetics, access_science)
-	outfit_datum = /datum/outfit/geneticist
 
 /datum/job/virologist
 	title = "Virologist"

@@ -5,43 +5,23 @@ var/const/COMMISSAR			=(1<<1)
 var/const/IGSERGEANT		=(1<<2)
 var/const/INQUISITOR		=(1<<3)
 var/const/IGTROOPER			=(1<<4)
-var/const/CHIEF				=(1<<5)
-var/const/ENGINEER			=(1<<6)
-var/const/ATMOSTECH			=(1<<7)
-var/const/ROBOTICIST		=(1<<8)
 var/const/AI				=(1<<9)
 var/const/CYBORG			=(1<<10)
 var/const/MOMMI				=(1<<11)
-var/const/MECHANIC			=(1<<12)
-
-var/const/BASICORK 			=(1<<13) //40k EDIT
+var/const/BASICORK 			=(1<<13) 
 
 
 var/const/MEDSCI			=(1<<1)
 
 var/const/RD				=(1<<0)
-var/const/SCIENTIST			=(1<<1)
-var/const/CHEMIST			=(1<<2)
-var/const/CMO				=(1<<3)
 var/const/DOCTOR			=(1<<4)
-var/const/GENETICIST		=(1<<5)
-var/const/VIROLOGIST		=(1<<6)
-//var/const/PSYCHIATRIST		=(1<<7)
-var/const/PARAMEDIC			=(1<<7)
-
 
 var/const/CIVILIAN			=(1<<2)
 
-var/const/HOP				=(1<<0)
 var/const/BARTENDER			=(1<<1)
-var/const/BOTANIST			=(1<<2)
 var/const/CHEF				=(1<<3)
 var/const/JANITOR			=(1<<4)
-var/const/LIBRARIAN			=(1<<5)
-var/const/QUARTERMASTER		=(1<<6)
-var/const/CARGOTECH			=(1<<7)
 var/const/MINER				=(1<<8)
-var/const/LAWYER			=(1<<9)
 var/const/PREACHER			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
@@ -50,45 +30,26 @@ var/const/TRADER			=(1<<14)
 
 var/list/command_positions = list(
 	"General",
-	"Head of Personnel",
 	"Commissar",
-	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
 )
 
 var/list/engineering_positions = list(
-	"Chief Engineer",
-	"Station Engineer",
-	"Atmospheric Technician",
-	"Mechanic"
 )
 
 var/list/medical_positions = list(
-	"Chief Medical Officer",
 	"Medical Doctor",
-	"Virologist",
-//	"Psychiatrist",
-	"Paramedic",
-	"Chemist"
 )
 
 var/list/science_positions = list(
 	"Research Director",
-	"Scientist",
-	"Roboticist",
-	"Mechanic"
 )
 
-//BS12 EDIT
 var/list/civilian_positions = list(
 	"Head of Personnel",
 	"Bartender",
-	"Botanist",
 	"Chef",
 	"Janitor",
-	"Librarian",
-	"Internal Affairs Agent",
 	"Preacher",
 	"Clown",
 	"Mime",
@@ -96,10 +57,6 @@ var/list/civilian_positions = list(
 )
 
 var/list/cargo_positions = list(
-	"Head of Personnel",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner"
 )
 
 var/list/security_positions = list(
@@ -122,35 +79,15 @@ var/list/misc_positions = list(
 
 var/list/all_jobs_txt = list(
 	"General",
-	"Head of Personnel",
 	"Commissar",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer",
-	"Station Engineer",
-	"Atmospheric Technician",
-	"Mechanic",
 	"Medical Doctor",
-	"Virologist",
-//	"Psychiatrist",
-	"Paramedic",
-	"Chemist",
-	"Research Director",
-	"Scientist",
-	"Roboticist",
 	"Bartender",
-	"Botanist",
 	"Chef",
 	"Janitor",
-	"Librarian",
-	"Internal Affairs Agent",
 	"Preacher",
 	"Clown",
 	"Mime",
 	"Assistant",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner",
 	"Sergeant",
 	"Inquisitor",
 	"Trooper",
