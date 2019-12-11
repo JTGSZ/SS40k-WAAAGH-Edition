@@ -2585,7 +2585,7 @@
 #include "z40k_shit\40kspecies.dm"
 #include "z40k_shit\attachment_system.dm"
 #include "z40k_shit\IGequipment.dm"
-#include "z40k_shit\IGgunsmagsammo.dm"
+#include "z40k_shit\IGLasgun.dm"
 #include "z40k_shit\IGmeleegear.dm"
 #include "z40k_shit\orkequipment.dm"
 #include "z40k_shit\orkgunsmagsammo.dm"

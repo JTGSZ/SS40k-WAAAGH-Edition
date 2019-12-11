@@ -8,7 +8,7 @@
 	origin_tech = Tc_POWERSTORAGE + "=8"
 	icon = 'icons/obj/IGstuff/IGequipment.dmi'
 	icon_state = "lasgunmag"
-	maxcharge = 5000
+	maxcharge = 4500
 	starting_materials = list(MAT_IRON = 700, MAT_GLASS = 80)
 
 /obj/item/weapon/gun/energy/laser/lasgun
@@ -20,8 +20,13 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
 	projectile_type = /obj/item/projectile/beam
-	charge_cost = 50
+	charge_cost = 75
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
+	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
+	var/degradation_state = 1 //We will use this to keep track of the lasgun degradation.
+	var/gunheat = 0 //The heat of the lasgun.
+
+//Our Cell is power_supply and get_cell is ran on a parent.
 
 /obj/item/weapon/gun/energy/laser/lasgun/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
@@ -32,12 +37,67 @@
 	if(!M.mind)
 		return 0
 
-	var/input = stripped_input(usr,"What do you want to name the gun?", ,"", MAX_NAME_LEN)
+	var/input = stripped_input(usr,"What do you want to name the gun?","", MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(src,M))
 		name = input
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
+
+/obj/item/weapon/gun/energy/laser/lasgun/verb/adjust_power() //This adjusts the strength of the lasgun shot.
+	set name = "Adjust Power Setting"
+	set category = "Object"
+	set desc = "Click to adjust the lasgun shot strength."
+
+	var/mob/M = usr
+	if(!M.mind)
+		return 0
+
+	var/chargestrength = input(usr, "Adjust Power Settings", "Lasgun Power Setting") in list("Low Power","Medium Power","Maximum Power")
+	if(chargestrength)
+		if("Low")
+			src.lasgun_shot_strength = 1 //We set strength
+			src.charge_cost = 75	//And we set charge cost - 60 shots
+		if("Medium")
+			src.lasgun_shot_strength = 2 //Med STR
+			src.charge_cost = 150 // 30 Shots
+		if("High")
+			src.lasgun_shot_strength = 3 //High STR
+			src.charge_cost = 300 //15 shots
+
+/obj/item/weapon/gun/energy/laser/lasgun/process() //In process we handle heat
+	if(gunheat > 0) //If we are greater than 0
+		gunheat -= 5 //We go down by 5 a tick.
+	if(gunheat >= 100) //If we are greater than or equal to 100
+		to_chat(usr,"Boom") //bad things occur, perhaps gunheat handling and degradation can be on a combined proc.
+
+/obj/item/weapon/gun/energy/laser/lasgun/process_chambered()
+	if(in_chamber)
+		return 1
+	if(!power_supply)
+		return 0
+	if(!power_supply.use(charge_cost))
+		return 0
+	if(!projectile_type)
+		return 0
+	switch(lasgun_shot_strength) //We change the projectile processed based on lasgun strength
+		if(1)
+			power_supply.use(charge_cost) //Sets the charge cost based on the power neways
+			gunheat += 5
+			in_chamber = new projectile_type(src)
+			return 1
+		if(2)
+			power_supply.use(charge_cost)
+			gunheat += 10
+			in_chamber = new projectile_type(src)
+			return 1
+		if(3)
+			power_supply.use(charge_cost)
+			gunheat += 50
+			in_chamber = new projectile_type(src)
+			return 1
+	return 0
+	
 
 /obj/item/weapon/gun/energy/laser/lasgun/attackby(var/obj/item/A as obj, mob/user as mob) //Loading
 	if(istype(A, /obj/item/weapon/cell))
@@ -115,51 +175,3 @@
 		update_icon()
 		return 1
 	return 0
-
-/obj/item/weapon/gun/energy/laser/lasgun/failure_check(var/mob/living/carbon/human/M)
-	if(istext(projectile_type))
-		projectile_type = text2path(projectile_type)
-	switch(projectile_type)
-		if(/obj/item/projectile/beam/captain)
-			if(prob(5))
-				downgradelasgun(M)
-				return 1
-		if(/obj/item/projectile/beam/heavylaser)
-			if(prob(15))
-				downgradelasgun(M)
-				return 1
-		if(/obj/item/projectile/beam, /obj/item/projectile/beam/retro)
-			if(prob(10))
-				downgradelasgun(M)
-				return 1
-		if(/obj/item/projectile/beam/lightlaser)
-			if(prob(8))
-				downgradelasgun(M)
-				return 1
-		if(/obj/item/projectile/beam/weaklaser)
-			if(prob(5))
-				downgradelasgun(M)
-				return 1
-	if(prob(1))
-		to_chat(M, "<span class='danger'>\The [src] explodes!.</span>")
-		explosion(get_turf(loc), -1, 0, 2)
-		M.drop_item(src, force_drop = 1)
-		qdel(src)
-		return 0
-	return ..()
-
-/obj/item/weapon/gun/energy/laser/lasgun/proc/downgradelasgun(var/mob/living/carbon/human/M)
-	switch(projectile_type)
-		if(/obj/item/projectile/beam/heavylaser)
-			projectile_type = /obj/item/projectile/beam
-			fire_sound = 'sound/weapons/Laser.ogg'
-		if(/obj/item/projectile/beam/captain, /obj/item/projectile/beam, /obj/item/projectile/beam/retro)
-			projectile_type = /obj/item/projectile/beam/lightlaser
-		if(/obj/item/projectile/beam/lightlaser)
-			projectile_type = /obj/item/projectile/beam/weaklaser
-		if(/obj/item/projectile/beam/weaklaser)
-			projectile_type = /obj/item/projectile/beam/veryweaklaser
-	in_chamber = null
-	in_chamber = new projectile_type(src)
-	fire_delay +=3
-	to_chat(M, "<span class='warning'>Something inside \the [src] pops.</span>")
