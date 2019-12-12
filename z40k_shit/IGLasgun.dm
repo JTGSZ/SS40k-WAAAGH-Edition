@@ -1,6 +1,22 @@
 //Within is the imperial guard ranged stuff for the moment. Lasguns etc
 
 /*
+	BEAMLIST
+			*/
+
+/obj/item/projectile/beam/maxpower
+	name = "powerful laser"
+	damage = 25
+
+/obj/item/projectile/beam/medpower
+	name = "average laser"
+	damage = 15
+
+/obj/item/projectile/beam/lowpower
+	name = "low-power laser"
+	damage = 10
+
+/*
 	MAGAZINES/AMMO
 					*/
 /obj/item/weapon/cell/lasgunmag //Our magazine
@@ -23,7 +39,7 @@
 	charge_cost = 75
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
-	var/degradation_state = 1 //We will use this to keep track of the lasgun degradation.
+	var/degradation_state = 5 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
 
 //Our Cell is power_supply and get_cell is ran on a parent.
@@ -68,8 +84,6 @@
 /obj/item/weapon/gun/energy/laser/lasgun/process() //In process we handle heat
 	if(gunheat > 0) //If we are greater than 0
 		gunheat -= 5 //We go down by 5 a tick.
-	if(gunheat >= 100) //If we are greater than or equal to 100
-		to_chat(usr,"Boom") //bad things occur, perhaps gunheat handling and degradation can be on a combined proc.
 
 /obj/item/weapon/gun/energy/laser/lasgun/process_chambered()
 	if(in_chamber)
@@ -81,21 +95,34 @@
 	if(!projectile_type)
 		return 0
 	switch(lasgun_shot_strength) //We change the projectile processed based on lasgun strength
-		if(1)
+		if(1) //Low-power
 			power_supply.use(charge_cost) //Sets the charge cost based on the power neways
 			gunheat += 5
-			in_chamber = new projectile_type(src)
 			return 1
-		if(2)
+			switch(degradation_state)
+				if(10 to 6)
+					in_chamber = new /obj/item/projectile/beam/lowpower(src)
+				if(5 to 0)
+					in_chamber = new /obj/item/projectile/beam/lowpower/degraded(src)
+		if(2) //Medium-power
 			power_supply.use(charge_cost)
 			gunheat += 10
-			in_chamber = new projectile_type(src)
 			return 1
-		if(3)
+			switch(degradation_state)
+				if(10 to 6)
+					in_chamber = new /obj/item/projectile/beam/medpower(src)
+				if(5 to 0)
+					in_chamber = new /obj/item/projectile/beam/medpower/degraded(src)
+		if(3) //High-power
 			power_supply.use(charge_cost)
-			gunheat += 50
+			gunheat += 30
 			in_chamber = new projectile_type(src)
 			return 1
+			switch(degradation_state)
+				if(10 to 6)
+					in_chamber = new /obj/item/projectile/beam/maxpower(src)
+				if(5 to 0)
+					in_chamber = new /obj/item/projectile/beam/maxpower/degraded(src)
 	return 0
 	
 
@@ -175,3 +202,92 @@
 		update_icon()
 		return 1
 	return 0
+
+
+//In the failure check we will account for heat failures, along with weapon degradation.
+/obj/item/weapon/gun/energy/laser/lasgun/failure_check(var/mob/living/carbon/human/M)
+	if(istext(projectile_type))
+		projectile_type = text2path(projectile_type)
+	switch(projectile_type)
+		if(/obj/item/projectile/beam/lowpower, /obj/item/projectile/beam/lowpower/degraded)
+			if(prob(2))
+				degradegun(M)
+				return 1
+		if(/obj/item/projectile/beam/medpower, /obj/item/projectile/beam/medpower/degraded)
+			if(prob(5))
+				degradegun(M)
+				return 1
+		if(/obj/item/projectile/beam/maxpower, /obj/item/projectile/beam/maxpower/degraded)
+			if(prob(30))
+				degradegun(M)
+				return 1
+			if(prob(1))
+				to_chat(M, "<span class='danger'>\The [src] overloads and explodes!.</span>")
+				explosion(get_turf(loc), -1, 0, 2)
+				M.drop_item(src, force_drop = 1)
+				qdel(src)
+				return 0
+
+	switch(gunheat) //Heat failure
+		if(60 to 79)
+			if(prob(25))
+				fire_delay += rand(2, 6)
+				spark(src)
+				to_chat(M, "<span class='warning'>\The [src] sparks violently.</span>")
+				return 1
+		if(80 to 99)
+			if(prob(5))
+				M.drop_item()
+				M.audible_scream()
+				M.adjustFireLossByPart(rand(5, 10), LIMB_LEFT_HAND, src)
+				M.adjustFireLossByPart(rand(5, 10), LIMB_RIGHT_HAND, src)
+				to_chat(M, "<span class='danger'>\The [src] burns your hands!.</span>")
+				return 0
+		if(100 to INFINITY)
+			var/turf/T = get_turf(loc)
+			explosion(T, 0, 1, 3, 5)
+			M.drop_item(src, force_drop = 1)
+			qdel(src)
+			to_chat(M, "<span class='danger'>\The [src] explodes!.</span>")
+			return 0
+
+	return ..()
+
+//Right here is where the beam change occurs.
+/obj/item/weapon/gun/energy/laser/lasgun/proc/degradegun(var/mob/living/carbon/human/M)
+	if(degradation_state > 0)
+		degradation_state--
+		fire_delay +=3
+		to_chat(M, "<span class='warning'>Something inside \the [src] pops.</span>")
+	if(0 >= degradation_state)
+		if(prob(50))
+			var/turf/T = get_turf(loc)
+			explosion(T, 0, 1, 3, 5)
+			M.drop_item(src, force_drop = 1)
+			qdel(src)
+			to_chat(M, "<span class='danger'>\The [src] explodes!.</span>")
+		else
+			to_chat(M, "<span class='danger'>\The [src] breaks apart!.</span>")
+			qdel(src)
+
+
+/obj/item/projectile/beam/maxpower
+	name = "powerful laser"
+	damage = 25
+
+/obj/item/projectile/beam/maxpower/degraded
+	damage = 20
+	
+/obj/item/projectile/beam/medpower
+	name = "average laser"
+	damage = 15
+
+/obj/item/projectile/beam/medpower/degraded
+	damage = 10
+
+/obj/item/projectile/beam/lowpower
+	name = "low-power laser"
+	damage = 10
+
+/obj/item/projectile/beam/lowpower/degraded
+	damage = 5
