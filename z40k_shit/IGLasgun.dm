@@ -1,22 +1,6 @@
 //Within is the imperial guard ranged stuff for the moment. Lasguns etc
 
 /*
-	BEAMLIST
-			*/
-
-/obj/item/projectile/beam/maxpower
-	name = "powerful laser"
-	damage = 25
-
-/obj/item/projectile/beam/medpower
-	name = "average laser"
-	damage = 15
-
-/obj/item/projectile/beam/lowpower
-	name = "low-power laser"
-	damage = 10
-
-/*
 	MAGAZINES/AMMO
 					*/
 /obj/item/weapon/cell/lasgunmag //Our magazine
@@ -39,7 +23,7 @@
 	charge_cost = 75
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
-	var/degradation_state = 5 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
+	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
 
 //Our Cell is power_supply and get_cell is ran on a parent.
@@ -99,8 +83,8 @@
 			power_supply.use(charge_cost) //Sets the charge cost based on the power neways
 			gunheat += 5
 			return 1
-			switch(degradation_state)
-				if(10 to 6)
+			switch(degradation_state) //States of degradation
+				if(10 to 6) //We start at 10
 					in_chamber = new /obj/item/projectile/beam/lowpower(src)
 				if(5 to 0)
 					in_chamber = new /obj/item/projectile/beam/lowpower/degraded(src)
@@ -230,13 +214,13 @@
 
 	switch(gunheat) //Heat failure
 		if(60 to 79)
-			if(prob(25))
-				fire_delay += rand(2, 6)
+			if(prob(50))
 				spark(src)
 				to_chat(M, "<span class='warning'>\The [src] sparks violently.</span>")
 				return 1
 		if(80 to 99)
-			if(prob(5))
+			if(prob(80))
+				fire_delay += rand(2, 6)
 				M.drop_item()
 				M.audible_scream()
 				M.adjustFireLossByPart(rand(5, 10), LIMB_LEFT_HAND, src)
@@ -271,9 +255,13 @@
 			qdel(src)
 
 
+/*
+	BEAMLIST
+			*/
+
 /obj/item/projectile/beam/maxpower
 	name = "powerful laser"
-	damage = 25
+	damage = 30
 
 /obj/item/projectile/beam/maxpower/degraded
 	damage = 20
