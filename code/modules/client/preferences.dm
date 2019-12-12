@@ -449,7 +449,7 @@ var/const/MAX_SAVE_SLOTS = 8
 		else
 			return "High"
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("Chief Engineer", "AI"), widthPerColumn = 295, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("General", "AI"), widthPerColumn = 295, height = 620)
 	if(!job_master)
 		return
 
@@ -565,13 +565,13 @@ var/const/MAX_SAVE_SLOTS = 8
 
 		if(job.species_whitelist.len)
 			if(!job.species_whitelist.Find(src.species))
-				prefLevelLabel = "Unavailable"
+				prefLevelLabel = "Species Locked"
 				prefLevelColor = "gray"
 				prefUpperLevel = 0
 				prefLowerLevel = 0
 		else if(job.species_blacklist.len)
 			if(job.species_blacklist.Find(src.species))
-				prefLevelLabel = "Unavailable"
+				prefLevelLabel = "Species Locked"
 				prefLevelColor = "gray"
 				prefUpperLevel = 0
 				prefLowerLevel = 0
