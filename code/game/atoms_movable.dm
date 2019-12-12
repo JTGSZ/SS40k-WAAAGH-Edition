@@ -71,7 +71,7 @@
 	var/turf/T = loc
 	if (opacity && istype(T))
 		T.reconsider_lights()
-		
+
 	if(materials)
 		returnToPool(materials)
 		materials = null
@@ -179,7 +179,7 @@
 		return
 
 	//We always split up movements into cardinals for issues with diagonal movements.
-	if(loc != NewLoc)
+	if(Dir || (loc != NewLoc))
 		if (!(Dir & (Dir - 1))) //Cardinal move
 			. = ..()
 		else //Diagonal move, split it into cardinal moves
