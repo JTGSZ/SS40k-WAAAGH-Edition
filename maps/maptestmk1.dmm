@@ -1,5 +1,37 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"d" = (
+/obj/effect/landmark/start/inquisitor,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"j" = (
+/obj/effect/landmark/start/commissar,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"o" = (
+/obj/effect/landmark/start/preacher,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"p" = (
+/obj/effect/landmark/start/IG_Cadian_Trooper,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
 "t" = (
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"w" = (
+/obj/effect/landmark/start,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"T" = (
+/obj/effect/landmark/start/general,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"U" = (
+/obj/effect/landmark/start/basicOrk,
+/turf/unsimulated/floor/snow,
+/area/warhammer/maptestmk1)
+"W" = (
+/obj/effect/landmark/start/IG_Cadian_Sergeant,
 /turf/unsimulated/floor/snow,
 /area/warhammer/maptestmk1)
 
@@ -4547,10 +4579,10 @@ t
 t
 t
 t
+U
 t
 t
-t
-t
+W
 t
 t
 t
@@ -4849,14 +4881,14 @@ t
 t
 t
 t
+w
 t
 t
 t
+j
 t
 t
-t
-t
-t
+p
 t
 t
 t
@@ -5057,7 +5089,7 @@ t
 t
 t
 t
-t
+T
 t
 t
 t
@@ -5261,7 +5293,7 @@ t
 t
 t
 t
-t
+d
 t
 t
 t
@@ -5465,7 +5497,7 @@ t
 t
 t
 t
-t
+o
 t
 t
 t
