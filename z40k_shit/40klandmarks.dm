@@ -1,3 +1,7 @@
+//Observer Start
+/obj/effect/landmark/observer
+	name = "Observer-Start"
+
 //Imperial Guard
 /obj/effect/landmark/start/general
 	name = "General"

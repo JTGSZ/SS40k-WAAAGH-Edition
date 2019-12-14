@@ -2557,7 +2557,7 @@
 #include "maps\_generators.dm"
 #include "maps\_map.dm"
 #include "maps\_map_override.dm"
-#include "maps\maptestmk1.dm"
+#include "maps\maptestdesert.dm"
 #include "maps\_procedural mapping\mapGenerator.dm"
 #include "maps\_procedural mapping\mapGeneratorModule.dm"
 #include "maps\_procedural mapping\mapGeneratorReadme.dm"

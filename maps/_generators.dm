@@ -31,8 +31,9 @@
 
 	name = "desert"
 	teleJammed = 1
-	movementJammed = 1
 	base_turf = /turf/unsimulated/beach/sand
+	transitionLoops = TRUE
+	movementJammed = TRUE
 
 //for snowmap
 /datum/zLevel/snowsurface
