@@ -16,18 +16,13 @@
 			name = "station"
 		},
 		)
-	enabled_jobs = list(/datum/job/trader)
+	enabled_jobs = list()
 
-	load_map_elements = list(
-	/datum/map_element/dungeon/holodeck
-	)
-
-	holomap_offset_x = list(0,0,0,86,4,0,0,)
-	holomap_offset_y = list(0,0,0,94,10,0,0,)
+	load_map_elements = list()
 
 	center_x = 226
 	center_y = 254
-	only_spawn_map_exclusive_vaults = TRUE
+	only_spawn_map_exclusive_vaults = FALSE
 
 
 ////////////////////////////////////////////////////////////////
