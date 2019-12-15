@@ -10,3 +10,8 @@
 	name = "maptestmk1"
 	icon_state = "maptestmk1"
 	requires_power = 0
+
+/area/warhammer/maptestmk2
+	name = "maptestmk2"
+	icon_state = "maptestmk1"
+	requires_power = 0

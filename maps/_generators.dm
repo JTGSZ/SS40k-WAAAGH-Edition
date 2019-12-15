@@ -31,7 +31,7 @@
 
 	name = "desert"
 	teleJammed = 1
-	base_turf = /turf/unsimulated/beach/sand
+	base_turf = /turf/unsimulated/outside/sand
 	transitionLoops = TRUE
 	movementJammed = TRUE
 

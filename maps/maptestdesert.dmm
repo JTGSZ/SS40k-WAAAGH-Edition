@@ -1,40 +1,40 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "e" = (
 /obj/effect/landmark/start/IG_Cadian_Trooper,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "i" = (
 /obj/effect/landmark/start/IG_Cadian_Sergeant,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "p" = (
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "r" = (
 /obj/effect/landmark/start/general,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "w" = (
 /obj/effect/landmark/start/commissar,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "G" = (
 /obj/effect/landmark/start/preacher,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "K" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "L" = (
 /obj/effect/landmark/start/inquisitor,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 "R" = (
 /obj/effect/landmark/start/basicOrk,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/outside/sand,
 /area/warhammer/maptestmk1)
 
 (1,1,1) = {"
