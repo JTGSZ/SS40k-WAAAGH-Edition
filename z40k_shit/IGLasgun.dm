@@ -19,14 +19,30 @@
 	item_state = "lasgun"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/item/projectile/beam/lowpower
 	charge_cost = 75
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
 	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
+	defective = 1
 
-//Our Cell is power_supply and get_cell is ran on a parent.
+/obj/item/weapon/gun/energy/laser/lasgun/examine(mob/user)
+	..()
+	switch(gunheat)
+		if(60 to 120)
+			to_chat(user, "The [src] is pretty hot.")
+		if(121 to 151)
+			to_chat(user, "<span class='warning'>The [src] is VERY hot.</span>")
+
+/obj/item/weapon/gun/energy/laser/lasgun/New()
+	..()
+	processing_objects.Add(src)
+	update_icon()
+
+/obj/item/weapon/gun/energy/laser/lasgun/Destroy()
+	processing_objects.Remove(src)
+	..()
 
 /obj/item/weapon/gun/energy/laser/lasgun/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
@@ -53,18 +69,41 @@
 	if(!M.mind)
 		return 0
 
-	var/chargestrength = input(usr, "Adjust Power Settings", "Lasgun Power Setting") in list("Low Power","Medium Power","Maximum Power")
+	var/chargestrength = input(usr, "Adjust Power Settings (Warning: Mishandling can result in misfires)", "Lasgun Power Setting") in list("Low Power","Medium Power","Maximum Power")
 	if(chargestrength)
-		if("Low")
+		if(chargestrength == "Low Power")
 			src.lasgun_shot_strength = 1 //We set strength
 			src.charge_cost = 75	//And we set charge cost - 60 shots
-		if("Medium")
+		if(chargestrength == "Medium Power")
 			src.lasgun_shot_strength = 2 //Med STR
 			src.charge_cost = 150 // 30 Shots
-		if("High")
+		if(chargestrength == "Maximum Power")
 			src.lasgun_shot_strength = 3 //High STR
 			src.charge_cost = 300 //15 shots
+		src.setprojtype() //The verb calls this, we can add arguments later once we know what we need.
 
+/obj/item/weapon/gun/energy/laser/lasgun/proc/setprojtype() // Yep
+//This proc/verb set can be made into a generic on guns later with a actual list of choices.
+	if(lasgun_shot_strength == 1) //So forgive me if its kinda ass
+		switch(degradation_state)
+			if(0 to 5)
+				projectile_type = /obj/item/projectile/beam/lowpower/degraded
+			if(6 to 10)
+				projectile_type = /obj/item/projectile/beam/lowpower
+	if(lasgun_shot_strength == 2)
+		switch(degradation_state)
+			if(0 to 5)
+				projectile_type = /obj/item/projectile/beam/medpower/degraded
+			if(6 to 10)
+				projectile_type = /obj/item/projectile/beam/medpower
+	if(lasgun_shot_strength == 3)
+		switch(degradation_state)
+			if(0 to 5)
+				projectile_type = /obj/item/projectile/beam/maxpower/degraded
+			if(6 to 10)
+				projectile_type = /obj/item/projectile/beam/maxpower
+	in_chamber = null
+		
 /obj/item/weapon/gun/energy/laser/lasgun/process() //In process we handle heat
 	if(gunheat > 0) //If we are greater than 0
 		gunheat -= 5 //We go down by 5 a tick.
@@ -74,40 +113,19 @@
 		return 1
 	if(!power_supply)
 		return 0
-	if(!power_supply.use(charge_cost))
+	if(!power_supply.use(charge_cost)) 
 		return 0
 	if(!projectile_type)
 		return 0
 	switch(lasgun_shot_strength) //We change the projectile processed based on lasgun strength
 		if(1) //Low-power
-			power_supply.use(charge_cost) //Sets the charge cost based on the power neways
 			gunheat += 5
-			return 1
-			switch(degradation_state) //States of degradation
-				if(10 to 6) //We start at 10
-					in_chamber = new /obj/item/projectile/beam/lowpower(src)
-				if(5 to 0)
-					in_chamber = new /obj/item/projectile/beam/lowpower/degraded(src)
 		if(2) //Medium-power
-			power_supply.use(charge_cost)
 			gunheat += 10
-			return 1
-			switch(degradation_state)
-				if(10 to 6)
-					in_chamber = new /obj/item/projectile/beam/medpower(src)
-				if(5 to 0)
-					in_chamber = new /obj/item/projectile/beam/medpower/degraded(src)
 		if(3) //High-power
-			power_supply.use(charge_cost)
 			gunheat += 30
-			in_chamber = new projectile_type(src)
-			return 1
-			switch(degradation_state)
-				if(10 to 6)
-					in_chamber = new /obj/item/projectile/beam/maxpower(src)
-				if(5 to 0)
-					in_chamber = new /obj/item/projectile/beam/maxpower/degraded(src)
-	return 0
+	in_chamber = new projectile_type(src)
+	return 1
 	
 
 /obj/item/weapon/gun/energy/laser/lasgun/attackby(var/obj/item/A as obj, mob/user as mob) //Loading
@@ -194,40 +212,56 @@
 		projectile_type = text2path(projectile_type)
 	switch(projectile_type)
 		if(/obj/item/projectile/beam/lowpower, /obj/item/projectile/beam/lowpower/degraded)
-			if(prob(2))
+			if(prob(2)) //2
 				degradegun(M)
 				return 1
 		if(/obj/item/projectile/beam/medpower, /obj/item/projectile/beam/medpower/degraded)
-			if(prob(5))
+			if(prob(5)) //5
 				degradegun(M)
 				return 1
 		if(/obj/item/projectile/beam/maxpower, /obj/item/projectile/beam/maxpower/degraded)
-			if(prob(30))
+			if(prob(20)) //20
 				degradegun(M)
 				return 1
-			if(prob(1))
+			if(prob(5)) // 1
 				to_chat(M, "<span class='danger'>\The [src] overloads and explodes!.</span>")
 				explosion(get_turf(loc), -1, 0, 2)
 				M.drop_item(src, force_drop = 1)
 				qdel(src)
 				return 0
 
-	switch(gunheat) //Heat failure
+	switch(gunheat) //Heat failure, we handle this on a increasing scale of probability.
 		if(60 to 79)
 			if(prob(50))
 				spark(src)
 				to_chat(M, "<span class='warning'>\The [src] sparks violently.</span>")
 				return 1
-		if(80 to 99)
-			if(prob(80))
+		if(80 to 120)
+			if(prob(10))
+				fire_delay += rand(2, 6)
+				M.drop_item()
+				M.audible_scream()
+				M.adjustFireLossByPart(rand(1, 3), LIMB_LEFT_HAND, src)
+				M.adjustFireLossByPart(rand(1, 3), LIMB_RIGHT_HAND, src)
+				to_chat(M, "<span class='danger'>\The [src] burns your hands!.</span>")
+				return 0
+		if(121 to 150)
+			if(prob(50))
 				fire_delay += rand(2, 6)
 				M.drop_item()
 				M.audible_scream()
 				M.adjustFireLossByPart(rand(5, 10), LIMB_LEFT_HAND, src)
 				M.adjustFireLossByPart(rand(5, 10), LIMB_RIGHT_HAND, src)
-				to_chat(M, "<span class='danger'>\The [src] burns your hands!.</span>")
+				to_chat(M, "<span class='danger'>\The [src] SCORCHES your hands!.</span>")
 				return 0
-		if(100 to INFINITY)
+			if(prob(25))
+				var/turf/T = get_turf(loc)
+				explosion(T, 0, 1, 3, 5)
+				M.drop_item(src, force_drop = 1)
+				qdel(src)
+				to_chat(M, "<span class='danger'>\The [src] explodes!.</span>")
+				return 0
+		if(151 to INFINITY)
 			var/turf/T = get_turf(loc)
 			explosion(T, 0, 1, 3, 5)
 			M.drop_item(src, force_drop = 1)
