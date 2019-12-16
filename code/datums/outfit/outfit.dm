@@ -188,8 +188,7 @@
 	C.registered_name = H.real_name
 	C.rank = rank
 	C.assignment = H.mind.role_alt_title
-	C.name = "[C.registered_name]'s ID Card ([C.assignment])"
-	C.associated_account_number = H.mind.initial_account.account_number
+	C.name = "[C.registered_name]'s ID Card ([C.assignment])" 
 	H.equip_or_collect(C, slot_wear_id)
 		
 	if (pda_type)
@@ -199,6 +198,8 @@
 		pda.name = "PDA-[H.real_name] ([pda.ownjob])"
 		H.equip_or_collect(pda, pda_slot)
 
+	if(H.mind && H.mind.initial_account) //40K REVISIT - This just silences the runtime.
+		C.associated_account_number = H.mind.initial_account.account_number
 
 /datum/outfit/proc/post_equip(var/mob/living/carbon/human/H)
 	return // Empty
