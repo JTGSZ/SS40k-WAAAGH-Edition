@@ -28,7 +28,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	mouse_opacity = 0
 	luminosity = 0
 	var/lightswitch = 1
-	var/list/ambient_sounds = list(/datum/ambience/generic1,/datum/ambience/generic2,/datum/ambience/generic3,/datum/ambience/generic4,/datum/ambience/generic5,/datum/ambience/generic6,/datum/ambience/generic7,/datum/ambience/generic8,/datum/ambience/generic9,/datum/ambience/generic10,/datum/ambience/generic11,/datum/ambience/generic12,/datum/ambience/generic13,/datum/ambience/generic14)
+	var/list/ambient_sounds = list()
 	//note. the above sounds apply to literally every area. if it does not apply. null it out. the old code had this for every other area so I don't think it's an issue
 
 	//space sounds below - Figure this out.
