@@ -452,7 +452,7 @@
 		message_admins("ERROR - NO VALID OVERRIDE SPAWN. Here's what I've got: [json_encode(landmarks_list)]")
 		//Error! We have no targetable spawn!
 		return
-	target.forceMove(override_point)
+	target.forceMove(override_point.loc)
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank)
 	if (ticker.current_state == GAME_STATE_PLAYING)
