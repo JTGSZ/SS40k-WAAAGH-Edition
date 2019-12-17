@@ -376,6 +376,8 @@
 	var/datum/job/J = job_master.GetJob(rank)
 	if(J.spawns_from_edge)
 		Meteortype_Latejoin(what_to_move, rank)
+	else if(J.landmark_job_override)
+		Staticspawn_Latejoin(what_to_move, rank)
 	else
 		// TODO:  Job-specific latejoin overrides.
 		what_to_move.forceMove(pick((assistant_latejoin.len > 0 && rank == "Assistant") ? assistant_latejoin : latejoin))
@@ -440,6 +442,17 @@
 	target.forceMove(start_point)
 	target.throw_at(endpoint)
 
+/proc/Staticspawn_Latejoin(var/atom/movable/target, var/rank)
+	var/obj/effect/landmark/start/override_point = null
+	for(var/obj/effect/landmark/start/S in landmarks_list)
+		if(S.name == rank)
+			override_point = S
+			break
+	if(!override_point)
+		message_admins("ERROR - NO VALID OVERRIDE SPAWN. Here's what I've got: [json_encode(landmarks_list)]")
+		//Error! We have no targetable spawn!
+		return
+	target.forceMove(override_point)
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank)
 	if (ticker.current_state == GAME_STATE_PLAYING)

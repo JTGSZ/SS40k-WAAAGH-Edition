@@ -20,6 +20,7 @@
 
 /obj/effect/landmark/start/IG_Cadian_Trooper
 	name = "Trooper"
+	landmark_override = TRUE
 
 //Orks
 /obj/effect/landmark/start/basicOrk

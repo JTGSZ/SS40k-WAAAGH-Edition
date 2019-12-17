@@ -56,9 +56,10 @@
 	var/no_starting_money = 0 //If 1, don't start with a bank account or money
 	var/wage_payout = 50 //Default wage payout
 	var/no_id = 0 //If 1, don't spawn with an ID
-	var/no_pda= 0 //If 1, don't spawn with a PDA
+	var/no_pda = 0 //If 1, don't spawn with a PDA
 	var/no_headset = 0 //If 1, don't spawn with a headset
 	var/spawns_from_edge = 0 //Instead of spawning on the shuttle, spawns in space and gets thrown
+	var/landmark_job_override = FALSE //Instead of spawning on the shuttle, we jus spawn at the start round landmarks again.
 
 	var/no_random_roll = 0 //If 1, don't select this job randomly!
 

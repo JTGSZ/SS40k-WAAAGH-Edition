@@ -4,6 +4,7 @@
 	icon_state = "x2"
 	anchored = 1
 	w_type=NOT_RECYCLABLE
+	var/landmark_override = FALSE
 
 /obj/effect/landmark/New()
 	. = ..()
