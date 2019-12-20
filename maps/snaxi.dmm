@@ -2950,7 +2950,7 @@
 "beL" = (/obj/structure/bed/chair/office/dark{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor/wood,/area/crew_quarters/courtroom)
 "beM" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor/plating,/area/crew_quarters/courtroom)
 "beN" = (/turf/simulated/wall/r_wall,/area/mine/living_quarters)
-"beO" = (/turf/simulated/floor/plating,/obj/structure/shuttle/engine/propulsion/right,/turf/simulated/shuttle/wall{icon_state = "swall_f9"},/area/shuttle/escape_pod1)
+"beO" = (/turf/simulated/floor/plating,/obj/structure/shuttle/engine/propulsion/right,/turf/simulated/shuttle/wall{icon_state = "swall_f9"},/area/shuttle/escape_pod2)
 "beP" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 6},/turf/simulated/floor{dir = 8; icon_state = "brown"},/area/mine/living_quarters)
 "beQ" = (/obj/machinery/atmospherics/unary/vent_pump{on = 1},/obj/structure/disposalpipe/trunk,/obj/machinery/disposal,/turf/simulated/floor,/area/supply/miningdelivery)
 "beR" = (/turf/simulated/floor{icon_state = "neutralcorner"; dir = 4},/area/hallway/primary/central{name = "\improper Central Security Hallway"})
