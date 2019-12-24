@@ -28,10 +28,10 @@
 /obj/item/clothing/suit/armor/iguard/comissarcoat
 	name = "commissar coat"
 	desc = "A large coat with comissar stripes and heavy reinforcements."
-	icon_state = "comissarcoat" //Check: Its there
-	item_state = "comissarcoat" //Check: Its there
+	icon_state = "commissarcoat" //Check: Its there
+	item_state = "commissarcoat" //Check: Its there
 	armor = list(melee = 50, bullet = 50, laser = 50, energy = 50, bomb = 50, bio = 50, rad = 50)
-	body_parts_covered = FULL_TORSO|ARMS|LEGS
+	body_parts_covered = FULL_TORSO
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 
 /obj/item/clothing/suit/armor/iguard/commanderarmor 
@@ -39,7 +39,7 @@
 	desc = "An armored coat reinforced with ceramic plates and pauldrons to provide additional protection whilst still offering maximum mobility and flexibility. Issued only to the imperium's finest."
 	icon_state = "commanderarmor" //Check: Its there
 	item_state = "commanderarmor"//Check: Its there
-	body_parts_covered = FULL_TORSO|ARMS|LEGS|FEET|HANDS
+	body_parts_covered = UPPER_TORSO
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 	armor = list(melee = 65, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)
 
@@ -185,7 +185,7 @@
 	name = "generals uniform"
 	desc = "Its a uniform fit for a general."
 	icon_state = "general" //Check: Its there
-	item_state = "general" //Check: Its there
+	item_state = "general" //Check: Its there 
 	_color = "general"
 
 /obj/item/clothing/under/iguard/commissar
