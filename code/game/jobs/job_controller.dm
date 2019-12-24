@@ -480,28 +480,6 @@ var/global/datum/controller/occupations/job_master
 			if("AI","Clown","Cyborg")	//don't need bag preference stuff!
 				if(rank=="Clown") // Clowns DO need to breathe, though - N3X
 					H.species.equip(H)
-			else
-				// This is deprecated and should be removed after outfit datums are finished.
-				switch(H.backbag) //BS12 EDIT
-					if(1)
-						if(H.species.survival_gear)
-							H.put_in_hand(GRASP_RIGHT_HAND, new H.species.survival_gear(H))
-					if(2)
-						var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack(H)
-						if(H.species.survival_gear)
-							new H.species.survival_gear(BPK)
-						H.equip_to_slot_or_del(BPK, slot_back,1)
-					if(3)
-						var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack/satchel_norm(H)
-						if(H.species.survival_gear)
-							new H.species.survival_gear(BPK)
-						H.equip_to_slot_or_del(BPK, slot_back,1)
-					if(4)
-						var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack/satchel(H)
-						if(H.species.survival_gear)
-							new H.species.survival_gear(BPK)
-						H.equip_to_slot_or_del(BPK, slot_back,1)
-
 				// -- OUTFIT DATUM BANDAID -- To be removed when outfit datums are finished...
 				if (!job.outfit_datum)
 					H.species.equip(H)

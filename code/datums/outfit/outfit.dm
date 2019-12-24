@@ -7,6 +7,7 @@
 	- items_to_spawn: items to spawn, arranged if needed by race.
 	  "Default" is the list of items for humans.
 	- use_pref_bag: if we use the backpack he has in prefs, or if we give him a standard backpack.
+	- no_backpack: If we don't give them a backpack + survival gear.
 	- equip_survival_gear: if we give him the basic survival gear.
 	- items_to_collect: items to put in the backbag
 		The associative key is for when to put it if we have no backbag.
@@ -48,6 +49,7 @@
 	)
 
 	var/use_pref_bag = TRUE
+	var/no_backpack = FALSE
 	var/give_disabilities_equipment = TRUE
 	var/list/equip_survival_gear = list()
 
@@ -126,7 +128,9 @@
 /datum/outfit/proc/equip_backbag(var/mob/living/carbon/human/H, var/species)
 	// -- Backbag
 	var/obj/item/chosen_backpack = null
-	if (use_pref_bag)
+	if(no_backpack)
+		return
+	else if(use_pref_bag)
 		var/backbag_string = num2text(H.backbag)
 		chosen_backpack = backpack_types[backbag_string]
 	else
@@ -147,31 +151,34 @@
 		else
 			H.equip_or_collect(new H.species.survival_gear(H.back), slot_in_backpack)
 
-	// -- No backbag, let's improvise
+	// -- No backbag, let's improvise -- unless you have no backpack tagged.
 	
 	else
-		var/obj/item/weapon/storage/box/survival/pack
-		if (equip_survival_gear.len)
-			if (ispath(equip_survival_gear[species]))
-				pack = new equip_survival_gear(H)
-				H.put_in_hand(GRASP_RIGHT_HAND, pack)
+		if(no_backpack)
+			return
 		else
-			pack = new H.species.survival_gear(H)
-			H.put_in_hand(GRASP_RIGHT_HAND, pack)
-		for (var/item in items_to_collect)
-			if (items_to_collect[item] == "Surival Box" && pack)
-				new item(pack)
+			var/obj/item/weapon/storage/box/survival/pack
+			if (equip_survival_gear.len)
+				if (ispath(equip_survival_gear[species]))
+					pack = new equip_survival_gear(H)
+					H.put_in_hand(GRASP_RIGHT_HAND, pack)
 			else
-				if (!isnum(items_to_collect[item])) // Not a number : it's a slot
-					var/item_slot = text2num(items_to_collect[item])
-					if (item_slot)
-						H.equip_or_collect(new item(get_turf(H)), item_slot)
-					else
-						new item(get_turf(H))
+				pack = new H.species.survival_gear(H)
+				H.put_in_hand(GRASP_RIGHT_HAND, pack)
+			for (var/item in items_to_collect)
+				if (items_to_collect[item] == "Surival Box" && pack)
+					new item(pack)
 				else
-					var/hand_slot = items_to_collect[item]
-					if (hand_slot) // ie, if it's an actual number
-						H.put_in_hand(hand_slot, new item)
+					if (!isnum(items_to_collect[item])) // Not a number : it's a slot
+						var/item_slot = text2num(items_to_collect[item])
+						if (item_slot)
+							H.equip_or_collect(new item(get_turf(H)), item_slot)
+						else
+							new item(get_turf(H))
+					else
+						var/hand_slot = items_to_collect[item]
+						if (hand_slot) // ie, if it's an actual number
+							H.put_in_hand(hand_slot, new item)
 
 /datum/outfit/proc/species_final_equip(var/mob/living/carbon/human/H)
 	if (H.species)

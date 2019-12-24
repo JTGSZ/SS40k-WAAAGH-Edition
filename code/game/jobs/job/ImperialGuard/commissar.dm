@@ -23,13 +23,15 @@
 
 	outfit_name = "Commissar"
 	associated_job = /datum/job/commissar
+	no_backpack = TRUE
 
-	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_sec,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/sec,
-	)
+
+	//backpack_types = list(
+	//	BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,
+	//	SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_sec,
+	//	SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
+	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/sec,
+	//)
 
 	items_to_spawn = list(
 		"Default" = list(
