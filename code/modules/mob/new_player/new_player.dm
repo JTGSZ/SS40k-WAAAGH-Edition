@@ -420,7 +420,7 @@
 					if(M.stat == DEAD && M.client)
 						handle_render(M,"<span class='game say'>PDA Message - <span class='name'>Trader [character.real_name] has arrived in the sector from space.</span></span>",character) //handle_render generates a Follow link
 			else
-				AnnounceArrival(character, rank)
+				//AnnounceArrival(character, rank)
 				CallHook("Arrival", list("character" = character, "rank" = rank))
 			FuckUpGenes(character)
 			DiseaseCarrierCheck(character)
@@ -456,7 +456,7 @@
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank)
 	if (ticker.current_state == GAME_STATE_PLAYING)
-		if(character.mind.role_alt_title)
+		if(character.mind.role_alt_title) 
 			rank = character.mind.role_alt_title
 		var/datum/speech/speech = announcement_intercom.create_speech("[character.real_name],[rank ? " [rank]," : " visitor," ] has arrived on the station.", transmitter=announcement_intercom)
 		speech.speaker = character
