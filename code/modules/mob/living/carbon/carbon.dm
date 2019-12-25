@@ -254,9 +254,11 @@
 					"<span class='notice'>You pat [src]'s head.</span>", \
 					)
 				var/image/heart = image('icons/mob/animal.dmi',src,"heart-ani2")
-				heart.pixel_y = 7
+				heart.pixel_y = rand(7,12)
+				heart.pixel_x = rand(9,13)
 				heart.plane = ABOVE_HUMAN_PLANE
-				flick_overlay(heart, list(M.client), 20)
+				animate(heart, pixel_x = 32, pixel_y = 32 + rand(0,8), alpha = 0, time = 24)
+				flick_overlay(heart, list(M.client), 24)
 			
 			else if((M.zone_sel.selecting == "l_hand" && !(!S || S.status & ORGAN_DESTROYED)) || (M.zone_sel.selecting == "r_hand" && !(!S || S.status & ORGAN_DESTROYED)))
 				var/shock_damage = 5

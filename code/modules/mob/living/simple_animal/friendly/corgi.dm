@@ -690,6 +690,9 @@
 			if(I_HELP)
 				var/image/heart = image('icons/mob/animal.dmi',src,"heart-ani2")
 				heart.plane = ABOVE_HUMAN_PLANE
+				heart.pixel_x = rand(-4,4)
+				heart.pixel_y = rand(-4,4)
+				animate(heart, pixel_y = 32, alpha = 0, time = 24)
 				flick_overlay(heart, list(M.client), 20)
 				emote("me", EMOTE_AUDIBLE, pick("yaps happily.","yips happily.","gives a hearty bark!","yips and cuddles up to you."))
 				playsound(loc, 'sound/voice/corgibark.ogg', 80, 1)
