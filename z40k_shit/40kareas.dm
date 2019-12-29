@@ -6,6 +6,10 @@
 	name = "Parent don't use this"
 	icon = 'z40k_shit/icons/40kareas.dmi'
 
+/area/vault/warhammergen
+	name = "Parent don't use this"
+	icon = 'z40k_shit/icons/40kareas.dmi'
+
 /area/warhammer/maptestmk1
 	name = "maptestmk1"
 	icon_state = "maptestmk1"
@@ -34,19 +38,19 @@
 					*/
 
 //--------Spawn Template Areas-------//
-/area/warhammer/cadianspawn
+/area/vault/warhammergen/cadianspawn
 	name = "cadian spawn"
 	icon_state = "cadian_spawn"
 
-/area/warhammer/orkspawn
+/area/vault/warhammergen/orkspawn
 	name = "ork spawn"
 	icon_state = "ork_spawn"
 
 //-------Miscallaneous Areas-------//
-/area/warhammer/rngruins
+/area/vault/warhammergen/rngruins
 	name = "rng ruins"
 	icon_state = "rng_ruins"
 
-/area/warhammer/rngwreckage
+/area/vault/warhammergen/rngwreckage
 	name = "rng wreckage"
 	icon_state = "rng_wreckage"

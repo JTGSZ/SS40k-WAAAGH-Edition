@@ -8,12 +8,13 @@
 	spawn_positions = 1
 	wage_payout = 65
 	supervisors = "the Emperor"
-	selection_color = "#ffeeee"
+	selection_color = "#efff14"
 	access = list()
 	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/inquisitor
 	species_whitelist = list("Human")
+	landmark_job_override = TRUE
 
 //-------------Inquisitor Outfit Datums--------------//
 /datum/outfit/inquisitor

@@ -7,10 +7,11 @@
 	spawn_positions = 1
 	supervisors = "The Ecclesiarchy"
 	wage_payout = 25
-	selection_color = "#dddddd"
+	selection_color = "#efff14"
 	access = list()
 	minimal_access = list()
 	var/datum/religion/chap_religion
+	landmark_job_override = TRUE
 	
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/preacher

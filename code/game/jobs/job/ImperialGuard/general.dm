@@ -6,13 +6,14 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the emperor, and the imperium of man"
-	selection_color = "#ccccff"
+	selection_color = "#017423ff"
 	idtype = /obj/item/weapon/card/id/gold
 	req_admin_notify = 1
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 30
 	wage_payout = 100
+	landmark_job_override = TRUE
 
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/general

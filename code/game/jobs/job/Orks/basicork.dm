@@ -7,10 +7,11 @@
 	spawn_positions = 3
 	wage_payout = 0
 	supervisors = "da boss"
-	selection_color = "#ffeef0"
+	selection_color = "#bb0016"
 	species_whitelist = list("Ork") //Orks are whitelisted to orks
 	access = list()
 	minimal_access = list()
+	landmark_job_override = TRUE
 	alt_titles = list("Slugga Boy", "Shoota Boy", "Kommando", "Burna Boy", "Storm Boy")
 	outfit_datum = /datum/outfit/basicork
 
