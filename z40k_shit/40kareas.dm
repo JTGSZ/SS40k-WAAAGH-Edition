@@ -19,6 +19,7 @@
 	name = "maptestmk2"
 	icon_state = "maptestmk1"
 	requires_power = 0
+
 /*
 	Areas for general map biomes
 								*/

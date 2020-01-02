@@ -56,6 +56,8 @@
 
 	//If 1, only spawn vaults that are exclusive to this map (other vaults aren't spawned). For more info, see code/modules/randomMaps/vault_definitions.dm
 	var/only_spawn_map_exclusive_vaults = 0
+	//This is what area the vaults spawn ontop of. Overwrite it if you want to use a different area.
+	var/map_vault_area = /area/random_vault
 
 	// List of package tagger locations. Due to legacy shitcode you can only append or replace ones with null, or you'll break stuff.
 	var/list/default_tagger_locations = list(

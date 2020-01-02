@@ -2,44 +2,44 @@
 "d" = (
 /obj/effect/landmark/start/inquisitor,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "j" = (
 /obj/effect/landmark/start/commissar,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "o" = (
 /obj/effect/landmark/start/preacher,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "p" = (
 /obj/effect/landmark/start/IG_Cadian_Trooper,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "t" = (
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "w" = (
 /obj/effect/landmark/start,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "T" = (
 /obj/effect/landmark/start/general,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "U" = (
 /obj/effect/landmark/start/basicOrk,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "W" = (
 /obj/effect/landmark/start/IG_Cadian_Sergeant,
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 "Y" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
 /turf/unsimulated/floor/snow,
-/area/warhammer/maptestmk1)
+/area/warhammer/snow)
 
 (1,1,1) = {"
 t

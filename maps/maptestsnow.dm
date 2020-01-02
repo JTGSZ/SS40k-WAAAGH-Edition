@@ -23,6 +23,7 @@
 	center_x = 226
 	center_y = 254
 	only_spawn_map_exclusive_vaults = FALSE
+	map_vault_area = /area/warhammer/snow
 
 
 ////////////////////////////////////////////////////////////////

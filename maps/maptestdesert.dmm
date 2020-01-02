@@ -2,40 +2,40 @@
 "e" = (
 /obj/effect/landmark/start/IG_Cadian_Trooper,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "i" = (
 /obj/effect/landmark/start/IG_Cadian_Sergeant,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "p" = (
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "r" = (
 /obj/effect/landmark/start/general,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "w" = (
 /obj/effect/landmark/start/commissar,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "G" = (
 /obj/effect/landmark/start/preacher,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "K" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "L" = (
 /obj/effect/landmark/start/inquisitor,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 "R" = (
 /obj/effect/landmark/start/basicOrk,
 /turf/unsimulated/outside/sand,
-/area/warhammer/maptestmk1)
+/area/warhammer/desert)
 
 (1,1,1) = {"
 p

@@ -16,7 +16,6 @@
 #define POPULATION_DENSE  1 //Performs large calculations to make vaults able to spawn right next to each other and not overlap. Recommended with smaller areas - may lag bigly in big areas
 #define POPULATION_SCARCE 2 //Performs less calculations by cheating a bit and assuming that every vault's size is 100x100. Vaults are farther away from each other - recommended with big areas
 
-
 //#define SPAWN_ALL_VAULTS //Uncomment to spawn every hecking vault in the game
 //#define SPAWN_MAX_VAULTS //Uncomment to spawn as many vaults as the code supports
 
@@ -78,7 +77,7 @@
 
 	message_admins("<span class='info'>Spawning [vault_number] vaults in space!</span>")
 
-	var/area/A = locate(/area/random_vault)
+	var/area/A = locate(map.map_vault_area)
 	var/result = populate_area_with_vaults(A, amount = vault_number, population_density = POPULATION_SCARCE)
 
 	for(var/turf/TURF in A) //Replace all of the temporary areas with space
