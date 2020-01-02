@@ -1,6 +1,6 @@
 /client/verb/who()
 	set name = "Who"
-	set category = "OOC"
+	set hidden = 1
 
 	var/msg = "\n<b>Current Players:</b>\n"
 
@@ -79,8 +79,7 @@
 	log_admin("[key_name(usr)] used who verb advanced (shows OOC key - IC name, status and if antagonist)")
 
 /client/verb/adminwho()
-	set category = "Admin"
-	set name = "Adminwho"
+	set name = ".Adminwho"
 
 	var/aNames = ""
 	var/mNames = ""

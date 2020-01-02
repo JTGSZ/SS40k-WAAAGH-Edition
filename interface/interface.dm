@@ -8,8 +8,7 @@
 #undef RULES_FILE
 
 /client/verb/hotkeys_help()
-	set name = "hotkeys-help"
-	set category = "OOC"
+	set name = ".hotkeys-help"
 
 	var/hotkey_mode = {"<font color='purple'>
 Hotkey-Mode: (hotkey-mode must be on)

@@ -1315,8 +1315,7 @@ Use this proc preferably at the end of an equipment loadout
 	return
 
 /client/verb/changes()
-	set name = "Changelog"
-	set category = "OOC"
+	set name = ".Changelog"
 	getFiles(
 		'html/postcardsmall.jpg',
 		'html/somerights20.png',
