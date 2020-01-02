@@ -583,44 +583,6 @@ var/global/datum/controller/occupations/job_master
 	H.update_inv_wear_id()
 	return 1
 
-
-
-/datum/controller/occupations/proc/LoadJobs(jobsfile) //ran during round setup, reads info from jobs.txt -- Urist
-	if(!config.load_jobs_from_txt)
-		return 0
-
-	var/list/jobEntries = file2list(jobsfile)
-
-	for(var/job in jobEntries)
-		if(!job)
-			continue
-
-		job = trim(job)
-		if (!length(job))
-			continue
-
-		var/pos = findtext(job, "=")
-		var/name = null
-		var/value = null
-
-		if(pos)
-			name = copytext(job, 1, pos)
-			value = copytext(job, pos + 1)
-		else
-			continue
-
-		if(name && value)
-			var/datum/job/J = GetJob(name)
-			if(!J)
-				continue
-			J.set_total_positions(value)
-			J.spawn_positions = text2num(value)
-			if(name == "AI" || name == "Cyborg" || name == "Mobile MMI" || name == "Trader")//I dont like this here but it will do for now
-				J.set_total_positions(0)
-
-	return 1
-
-
 /datum/controller/occupations/proc/HandleFeedbackGathering()
 	for(var/datum/job/job in occupations)
 		var/tmp_str = "|[job.title]|"
