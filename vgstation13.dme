@@ -2566,6 +2566,7 @@
 #include "maps\_procedural mapping\mapGeneratorModules\nature.dm"
 #include "maps\_procedural mapping\mapGenerators\nature.dm"
 #include "maps\_randomMaps\dungeons.dm"
+#include "maps\_randomMaps\spawn_vault_definitions.dm"
 #include "maps\_randomMaps\special.dm"
 #include "maps\_randomMaps\transit.dm"
 #include "maps\_randomMaps\vault_definitions.dm"
