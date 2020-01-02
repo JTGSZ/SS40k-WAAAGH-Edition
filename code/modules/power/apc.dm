@@ -119,9 +119,9 @@
 /obj/machinery/power/apc/New(loc, var/ndir, var/building=0)
 	..(loc)
 	var/area/this_area = get_area(src)
-	if(this_area.areaapc)
+	if(this_area.areaapc || this_area.forbid_apc)
 		var/turf/T = get_turf(src)
-		world.log << "Second APC detected in area: [this_area.name] [T.x], [T.y], [T.z]. Deleting the second APC."
+		world.log << "[this_area.forbid_apc ? "Forbidden" : "Second"] APC detected in area: [this_area.name] [T.x], [T.y], [T.z]. Deleting the second APC."
 		qdel(src)
 		return
 
@@ -1090,7 +1090,6 @@
 		use_power(src.light_consumption, LIGHT)
 	if (environ > 1) // off=0, off auto=1, on=2, on auto=3
 		use_power(src.environ_consumption, ENVIRON)
-
 	area.calc_lighting() */
 
 	lastused_light = this_area.usage(LIGHT)

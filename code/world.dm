@@ -199,7 +199,6 @@ var/savefile/panicfile
 		if(ticker)
 			s["gamestate"] = ticker.current_state
 		s["active_players"] = get_active_player_count()
-		s["revision"] = return_revision()
 		var/n = 0
 		var/admins = 0
 
@@ -212,8 +211,6 @@ var/savefile/panicfile
 			n++
 		s["players"] = n
 
-		if(revdata)
-			s["revision"] = revdata.revision
 		s["admins"] = admins
 
 		return list2params(s)

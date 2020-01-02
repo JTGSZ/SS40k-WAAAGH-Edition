@@ -288,7 +288,7 @@ SKIP_HOLOMINIMAP_GENERATION
 
 ## SKIP_VAULT_GENERATION
 ## Uncomment to disable generation of vaults (makes the server start faster!)
-SKIP_VAULT_GENERATION
+#SKIP_VAULT_GENERATION
 
 ## NO_LOBBY_MUSIC
 ## Uncomment to never play lobby music. Useful if you use guest keys to multiaccount-test stuff, since you can't use client preferences for those.

@@ -31,6 +31,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/list/ambient_sounds = list()
 	//note. the above sounds apply to literally every area. if it does not apply. null it out. the old code had this for every other area so I don't think it's an issue
 
+	var/construction_zone = FALSE //treat this area like space for blueprints?
+	var/forbid_apc = FALSE //never build an APC here?
+
 	//space sounds below - Figure this out.
 	//note. the above will cause those ambient sounds to be in EVERY AREA that doesn't have them overridden. put ambient_sounds = null in your area def, or overwrite this.
 	var/eject = null
