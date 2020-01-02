@@ -39,6 +39,7 @@
 /datum/zLevel/snowsurface
 	name = "snowy surface"
 	base_turf = /turf/unsimulated/floor/snow
+	base_area = /area/surface/snow
 	movementJammed = TRUE //Prevents you from accessing the z level by drifting.
 	transitionLoops = TRUE // Basically going off the Z border just wraps you around.
 
