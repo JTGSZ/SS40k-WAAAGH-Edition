@@ -20,10 +20,14 @@
 
 	load_map_elements = list()
 
-	center_x = 226
-	center_y = 254
+	center_x = 100
+	center_y = 100
 	only_spawn_map_exclusive_vaults = FALSE
+	can_enlarge = FALSE
 	map_vault_area = /area/warhammer/desert
+
+/proc/place_spawn_elements()
+
 
 
 ////////////////////////////////////////////////////////////////

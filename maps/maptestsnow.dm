@@ -20,9 +20,10 @@
 
 	load_map_elements = list()
 
-	center_x = 226
-	center_y = 254
+	center_x = 50
+	center_y = 50
 	only_spawn_map_exclusive_vaults = FALSE
+	can_enlarge = FALSE
 	map_vault_area = /area/warhammer/snow
 
 
