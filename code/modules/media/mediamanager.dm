@@ -221,10 +221,14 @@ to_chat(#define MP_DEBUG(x) owner, x)
 	send_update()
 
 /client/verb/change_volume()
-	set name = ".set-volume"
+	set name = "set-volume"
 	set desc = "Set jukebox volume"
+	set category = null
+
+	set_new_volume()
 
 /client/proc/set_new_volume()
+
 	if(!media || !istype(media))
 		to_chat(usr, "You have no media datum to change, if you're not in the lobby tell an admin.")
 		return

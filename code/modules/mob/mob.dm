@@ -1029,7 +1029,7 @@ Use this proc preferably at the end of an equipment loadout
 //overriden here and in /mob/dead/observer for different point span classes and sanity checks
 /mob/verb/pointed(atom/A as turf | obj | mob in view(get_turf(src)))
 	set name = "Point To"
-	set category = "Object"
+	set category = null
 
 	if((usr.isUnconscious() && !isobserver(src)) || !(get_turf(src))|| attack_delayer.blocked())
 		return 0
@@ -1122,7 +1122,7 @@ Use this proc preferably at the end of an equipment loadout
 
 /mob/verb/stop_pulling()
 	set name = "Stop Pulling"
-	set category = "IC"
+	set category = null
 
 	if(pulling)
 		pulling.pulledby = null
@@ -1140,7 +1140,7 @@ Use this proc preferably at the end of an equipment loadout
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "IC"
+	set category = null
 	set src = usr
 
 	if(attack_delayer.blocked())
@@ -1208,7 +1208,7 @@ Use this proc preferably at the end of an equipment loadout
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
 /mob/verb/examination(atom/A as mob|obj|turf in view(get_turf(src))) //It used to be oview(12), but I can't really say why
 	set name = "Examine"
-	set category = "IC"
+	set category = null
 
 //	if( (sdisabilities & BLIND || blinded || stat) && !istype(src,/mob/dead/observer) )
 	if(is_blind(src))
