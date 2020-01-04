@@ -24,11 +24,19 @@
 	center_y = 100
 	only_spawn_map_exclusive_vaults = FALSE
 	can_enlarge = FALSE
-	map_vault_area = /area/warhammer/desert
+	//map_vault_area = /area/warhammer/desert
 
-/proc/place_spawn_elements()
+/datum/map/active/map_specific_init()
+	spawn_loada()
 
+/proc/spawn_loada()
+	var/datum/map_element/ME
+	var/x_coord = 100
+	var/y_coord = 100
+	var/z_coord = 1
 
+	ME = new /datum/map_element/vault/test_ig_spawn
+	ME.load(x_coord - 1, y_coord - 1, z_coord)
 
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
