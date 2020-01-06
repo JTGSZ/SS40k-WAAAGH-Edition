@@ -35,7 +35,7 @@
 	var/y_coord = 100
 	var/z_coord = 1
 
-	ME = /datum/map_element/vault/test_ig_spawn // This needs unhardcoded later anyways
+	ME = new /datum/map_element/vault/test_ig_spawn // This needs unhardcoded later anyways
 	var/list/template_dimensions = ME.get_dimensions()
 	var/template_x = template_dimensions[1] //Max horizontal Dimension of the template we have
 	var/template_y = template_dimensions[2] //Max vertical Dimension
