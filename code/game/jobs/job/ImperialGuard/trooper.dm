@@ -37,7 +37,7 @@
 			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_helmet,
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/IG_cadian_armor,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_armor,
 			slot_s_store_str = /obj/item/weapon/gun/energy/laser/lasgun,
 		),
 	)
