@@ -46,6 +46,10 @@
 	var/z_coord = 1 //Z level will always be 1
 	var/x_coord = 0 //Holder for calculated x - horizontal
 	var/y_coord = 0 //Holder for calculated y - vertical
+
+	var/z1_coord = 1 //Placement of the opposing template
+	var/x1_coord = 0 //X 1
+	var/y1_coord = 0 //Y 1
 	
 	//Primary Placement coordinates for the origin position on the map.
 	var/primary_x = 1 //the main X value sent through
@@ -61,9 +65,9 @@
 		switch(ASS.spawn_alignment)
 			if("horizontals")
 				primary_x = rand_x
-				primary_y = clamp(rand_y, 1, round(world.maxy/4))
+				primary_y = rand(1, clamp(rand_y, 1, round(world.maxy/4)))
 			if("verticals")
-				primary_x = clamp(rand_x, 1, round(world.maxx/4))
+				primary_x = rand(1, clamp(rand_x, 1, round(world.maxx/4)))
 				primary_y = rand_y
 			if("random")
 				primary_x = rand_x
@@ -85,9 +89,15 @@
 		x_coord = clamp(primary_x, edgelimit_min_x, edgelimit_max_x) //x coord is rng clamped between 1 and edgelimit x
 		y_coord = clamp(primary_y, edgelimit_min_y, edgelimit_max_y)
 		ME.load(x_coord, y_coord, z_coord)
+		log_startup_progress("[ME] spawned at coordinates X:[x_coord], Y:[y_coord], Z:[z_coord]")
+		log_startup_progress("Edgelimit Max X:[edgelimit_max_x], Edgelimit Max Y:[edgelimit_max_y].")
+		log_startup_progress("Edgelimit Min X:[edgelimit_min_x], Edgelimit Min Y:[edgelimit_min_y].")
+		log_startup_progress("Template X: [template_x], Template Y: [template_y]")
+		log_startup_progress("Primary X: [primary_x], Primary Y: [primary_y]")
+		log_startup_progress("Rand X: [rand_x], Rand Y: [rand_y]")
 	//world.maxy Max Y - Vertical - Columns
 	//world.maxx Max X - Horizontal - Rows
-	// Min will always be 1 and 1 ofc
+
 
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
