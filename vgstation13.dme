@@ -2596,4 +2596,5 @@
 #include "z40k_shit\orkgunsmagsammo.dm"
 #include "z40k_shit\orkmeleegear.dm"
 #include "z40k_shit\_globalprocs\spawnloada1.dm"
+#include "z40k_shit\_globalprocs\spawnloada2.dm"
 // END_INCLUDE
