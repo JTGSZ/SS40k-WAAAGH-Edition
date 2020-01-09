@@ -26,7 +26,7 @@
 	can_enlarge = FALSE
 
 //Spawnloada1 variables
-	spawn_overwrite = TRUE //EX: This being true means template  can overwrite template 1
+	spawn_overwrite = TRUE //EX: This being true means template 2 can overwrite template 1
 	spawn_template_1 = /datum/map_element/vault/test_ig_spawn
 	spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 	spawn_alignment = "horizontals"

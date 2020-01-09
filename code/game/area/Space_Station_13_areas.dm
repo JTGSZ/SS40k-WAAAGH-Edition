@@ -2598,7 +2598,6 @@ var/list/the_station_areas = list (
 	/area/turret_protected/tcomms_control_room,
 	/area/turret_protected/ai_upload_foyer,
 	/area/turret_protected/ai,
-	/area/derelictparts,
 )
 
 

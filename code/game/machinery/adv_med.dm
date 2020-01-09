@@ -28,8 +28,6 @@
 /obj/machinery/bodyscanner/New()
 	..()
 	immune = new
-	if(map.nameShort == "deff")
-		icon = 'maps/defficiency/medbay.dmi'
 	RefreshParts()
 
 /obj/machinery/bodyscanner/Destroy()

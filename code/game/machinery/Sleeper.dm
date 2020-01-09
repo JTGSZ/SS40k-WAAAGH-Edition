@@ -39,8 +39,6 @@
 
 /obj/machinery/sleeper/New()
 	..()
-	if(map.nameShort == "deff")
-		icon = 'maps/defficiency/medbay.dmi'
 	RefreshParts()
 
 /obj/machinery/sleeper/Destroy()
@@ -508,8 +506,6 @@
 		base_icon = "galo"
 		icon_state = "galo_open"
 		galize = 1
-	else if(map.nameShort == "deff")
-		icon = 'maps/defficiency/medbay.dmi'
 	update_icon()
 
 /obj/machinery/sleeper/mancrowave/go_out(var/exit = loc, var/ejector)

@@ -2571,8 +2571,6 @@
 #include "maps\_randomMaps\vaults.dm"
 #include "maps\_universal_generators\cellular_automata.dm"
 #include "maps\_universal_generators\radial_generator.dm"
-#include "maps\defficiency\areas.dm"
-#include "maps\packedstation\telecomms.dm"
 #include "maps\randomvaults\dance_revolution.dm"
 #include "maps\randomvaults\objects.dm"
 #include "maps\randomvaults\sokoban.dm"
