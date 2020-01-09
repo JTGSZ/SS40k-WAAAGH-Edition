@@ -104,6 +104,39 @@
 	var/can_enlarge = TRUE //can map elements expand this map? turn off for surface maps
 	var/datum/climate/climate = null //use for weather cycle
 
+//SPAWNLOADA1 VARIABLES
+// ----See: spawnloada1.dm for a cohesive table on what these do and the code itself.
+
+	//Moving them in relation to the borders this amount of tiles.
+	var/border_range_x = 0 //EX: 20 means we will move 20 turfs away for better or worse
+	var/border_range_y = 0 //EX: -20 Means we will move 20 turfs closer, but not into the boundary.
+
+	//We move them this amount of distance in relation to each other
+	var/spawn_distance = 0 //EX: -20/20 Means 20 closer or further. 
+	var/spawn_overwrite = FALSE //EX: This being true means template  can overwrite template 1
+
+	//These basically let you set a boundary box/rectangle that the spawns can occur in.
+	var/spawn_max_x = 0 //Is world.maxx by default - Furthest Right we go
+	var/spawn_max_y = 0 //Is world.maxy by default - Furthest North we go
+	var/spawn_min_x = 0 //Is 1 by default - Furthest left we go
+	var/spawn_min_y = 0 //Is 1 by default - Furthest south we go
+
+	//Map Elements or templates go into these variables.
+	var/spawn_template_1
+	var/spawn_template_2
+
+	//String entries for preset spawn alignments
+	//-"horizontals" - Basically are opposing north and south
+	//-"verticals" - Basically opposing east and west
+	//-"random" - Random for better or worse
+
+	var/spawn_alignment = "horizontals"
+
+	//Toggles startup coordinate debugging
+	var/dd_debug = FALSE
+
+
+
 /datum/map/New()
 	. = ..()
 

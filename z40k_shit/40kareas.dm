@@ -42,16 +42,20 @@
 /area/vault/warhammergen/cadianspawn
 	name = "cadian spawn"
 	icon_state = "cadian_spawn"
+	requires_power = 0
 
 /area/vault/warhammergen/orkspawn
 	name = "ork spawn"
 	icon_state = "ork_spawn"
+	requires_power = 0
 
 //-------Miscallaneous Areas-------//
 /area/vault/warhammergen/rngruins
 	name = "rng ruins"
 	icon_state = "rng_ruins"
+	requires_power = 0
 
 /area/vault/warhammergen/rngwreckage
 	name = "rng wreckage"
 	icon_state = "rng_wreckage"
+	requires_power = 0
