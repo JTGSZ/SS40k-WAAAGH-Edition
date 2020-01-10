@@ -1144,6 +1144,7 @@ var/default_colour_matrix = list(1,0,0,0,\
 #define PROJREACT_OBJS		4//structures, machines and items
 #define PROJREACT_MOBS		8//all mobs
 #define PROJREACT_BLOB		16//blob
+#define PROJREACT_WATER		32 //40k instances of water.
 
 ///////////////////////
 ///////RESEARCH////////
