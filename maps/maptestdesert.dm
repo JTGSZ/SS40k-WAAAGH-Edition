@@ -34,8 +34,8 @@
 
 
 /datum/map/active/map_specific_init()
-	spawn_loada1(src)
-
+	jt_loada_spawns(src)
+	jt_loada_lakes(src)
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
 #endif

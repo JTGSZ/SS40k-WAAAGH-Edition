@@ -35,7 +35,7 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 -----Toggles startup coordinate debugging-----
 	dd_debug = TRUE
 */
-/proc/spawn_loada1(var/datum/map/active/ASS)
+/proc/jt_loada_spawns(var/datum/map/active/ASS)
 	var/datum/map_element/ME //Map Element 1
 	var/datum/map_element/MEOP //Map Element 2
 
