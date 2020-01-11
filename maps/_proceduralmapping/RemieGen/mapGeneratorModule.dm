@@ -144,3 +144,8 @@
 	clusterCheckFlags = CLUSTER_CHECK_NONE
 	spawnableAtoms = list(/atom = 75)
 	spawnableTurfs = list(/turf = 75)
+
+/datum/mapGeneratorModule/lakeblock
+	clusterCheckFlags = CLUSTER_CHECK_NONE
+	spawnableAtoms = list(/obj/waterpatch = 100)
+	spawnableTurfs = list()

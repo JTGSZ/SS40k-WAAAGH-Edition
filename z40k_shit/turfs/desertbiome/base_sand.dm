@@ -6,5 +6,5 @@
 	luminosity = 1
 	plane = PLATING_PLANE
 
-	can_border_transition = 1
+	can_border_transition = FALSE
 

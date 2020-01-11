@@ -1,9 +1,9 @@
 /obj/structure/radial_gen/cellular_automata/waterlake
 	name = "water lake"
 	ca_wall = /turf/unsimulated/outside/sand
-	mapgrid_width = 10
-	mapgrid_height = 5
-	mapgrid_scale = 2
+	mapgrid_width = 10 // 10 - THIS SHOULD BE THE TOTAL WIDTH IT CAN GENERATE TO
+	mapgrid_height = 10 // 5 - THIS SHOULD BE THE TOTAL HEIGHT IT CAN GENERATE TO
+	mapgrid_scale = 5 // 2 - THIS SHOULD BE HOW LIKELY IT IS TO GET TO IT
 
 /obj/structure/radial_gen/cellular_automata/waterlake/makefloor(var/turf/unsimulated/outside/sand/T)
 	if(T)

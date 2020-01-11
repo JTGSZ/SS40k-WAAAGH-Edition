@@ -104,8 +104,14 @@
 	var/can_enlarge = TRUE //can map elements expand this map? turn off for surface maps
 	var/datum/climate/climate = null //use for weather cycle
 
-//SPAWNLOADA1 VARIABLES
-// ----See: spawnloada1.dm for a cohesive table on what these do and the code itself.
+//Loada Debugging
+	//Toggles startup coordinate debugging
+	var/dd_debug = FALSE
+	//Basically dumps everything into dream daemon so you can see how it generated without
+	//entering the game.
+
+//JT_LOADA_SPAWN VARIABLES
+// ----See: jt_loada_spawns.dm for a cohesive table on what these do and the code itself.
 
 	//Moving them in relation to the borders this amount of tiles.
 	var/border_range_x = 0 //EX: 20 means we will move 20 turfs away for better or worse
@@ -132,10 +138,9 @@
 
 	var/spawn_alignment = "horizontals"
 
-	//Toggles startup coordinate debugging
-	var/dd_debug = FALSE
 
-
+//Loada Lakes module
+	var/amount_of_lakes = 0
 
 /datum/map/New()
 	. = ..()

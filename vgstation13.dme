@@ -2565,6 +2565,7 @@
 #include "maps\_proceduralmapping\RemieGen\mapGenerator.dm"
 #include "maps\_proceduralmapping\RemieGen\mapGeneratorModule.dm"
 #include "maps\_proceduralmapping\RemieGen\mapGeneratorReadme.dm"
+#include "maps\_proceduralmapping\RemieGen\testlake.dm"
 #include "maps\_proceduralmapping\RemieGen\mapGeneratorModules\nature.dm"
 #include "maps\_proceduralmapping\RemieGen\mapGenerators\nature.dm"
 #include "maps\_randomMaps\40kspawn_vault_definitions.dm"

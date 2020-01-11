@@ -10,6 +10,7 @@
 	turf_speed_multiplier = 1
 	gender = PLURAL
 	var/footprint_color = "#ff0808" //This sets the color of the footprints.
+	can_border_transition = FALSE
 
 /turf/unsimulated/outside/ex_act(severity)
 	switch(severity)

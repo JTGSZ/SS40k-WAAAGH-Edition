@@ -25,17 +25,23 @@
 	only_spawn_map_exclusive_vaults = FALSE
 	can_enlarge = FALSE
 
-//Spawnloada1 variables
+//loada_spawn variables
 	spawn_overwrite = TRUE //EX: This being true means template 2 can overwrite template 1
 	spawn_template_1 = /datum/map_element/vault/test_ig_spawn
 	spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 	spawn_alignment = "horizontals"
 	dd_debug = TRUE
 
+//loada_lakes
+	amount_of_lakes = 0
+
 
 /datum/map/active/map_specific_init()
 	jt_loada_spawns(src)
-	jt_loada_lakes(src)
+
+	//jt_loada_lakes1(src)
+
+	jt_loada_lakes2(src)
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
 #endif
