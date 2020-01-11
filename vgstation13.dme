@@ -2596,5 +2596,5 @@
 #include "z40k_shit\orks\orkmeleegear\orkmeleegear.dm"
 #include "z40k_shit\systems\attachment_system.dm"
 #include "z40k_shit\turfs\outsideparent.dm"
-#include "z40k_shit\turfs\desertbiome\40kunsimulated.dm"
+#include "z40k_shit\turfs\desertbiome\base_sand.dm"
 // END_INCLUDE
