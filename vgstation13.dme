@@ -2560,6 +2560,7 @@
 #include "maps\_proceduralmapping\CeltGen\cellular_automata.dm"
 #include "maps\_proceduralmapping\CeltGen\desert_water.dm"
 #include "maps\_proceduralmapping\CeltGen\radial_generator.dm"
+#include "maps\_proceduralmapping\JTGGen\badplotter.dm"
 #include "maps\_proceduralmapping\JTGGen\jt_loada_lakes.dm"
 #include "maps\_proceduralmapping\JTGGen\jt_loada_spawns.dm"
 #include "maps\_proceduralmapping\RemieGen\mapGenerator.dm"
