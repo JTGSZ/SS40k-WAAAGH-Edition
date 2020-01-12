@@ -1,8 +1,4 @@
-//STAGE 1 - Generate any mountains/hills and other shits.
-//STAGE 2 - Random ruin and wreckage templates.
-//STAGE 3 - spawnloada1 is ran placing the spawns.
-//STAGE TURF INIT - Copy and pasted floragen shit from the halloween ball.
-
+//1-12-2020 - KEEP THIS UNTICKED, THESE ALL WORK BUT GENERATE FAILURES. - JTGSZ
 
 /proc/jt_loada_lakes(var/datum/map/active/ASS) //This doesn't work worth a shit
 
@@ -39,8 +35,3 @@
 	N.defineCircularRegion(start1, end1)
 	N.generate()
 	log_startup_progress("LAKE LOADA 2 SUCCESSFUL")
-
-/proc/jt_loada_lakes3(var/datum/map/active/ASS)
-	CreateDeeps()
-	CreateShallows()
-	log_startup_progress("LAKE LOADA 3 SUCCESSFUL")

@@ -35,13 +35,13 @@
 //loada_lakes
 	amount_of_lakes = 0
 
+//loada_rivers
+	var/rivercount = 0
 
 /datum/map/active/map_specific_init()
 	jt_loada_spawns(src)
 
-	//jt_loada_lakes1(src)
-
-	jt_loada_lakes2(src)
+	jt_loada_rivers1(src, 1)
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
 #endif
