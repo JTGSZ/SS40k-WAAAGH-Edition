@@ -1,8 +1,10 @@
+//I'm leaving this unticked simply because I'm not using it over badplotter, but it compiles and works.
+//1/13/2020 - JTGSZ
 
 //You need to set these to filepaths otherwise it won't work, atm it selects from the blank.
-#define VOR_REGION_ICON 
-#define VOR_BORDER_ICON 
-#define VOR_WATER_ICON 
+#define VOR_REGION_ICON 'icons/turf/gentest.dmi'
+#define VOR_BORDER_ICON 'icons/turf/gentest.dmi'
+#define VOR_WATER_ICON 'icons/turf/gentest.dmi'
 
 
 /datum/voronoi_diagrams

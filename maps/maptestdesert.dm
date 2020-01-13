@@ -30,18 +30,15 @@
 	spawn_template_1 = /datum/map_element/vault/test_ig_spawn
 	spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 	spawn_alignment = "horizontals"
+	
+	//Debug textvar on all the mapgen 
+	//so you can just read it out on dream daemon instead of actually joining game.
 	dd_debug = TRUE
-
-//loada_lakes
-	amount_of_lakes = 0
-
-//loada_rivers
-	var/rivercount = 0
 
 /datum/map/active/map_specific_init()
 	jt_loada_spawns(src)
 
-	jt_loada_rivers1(src, 1)
+	jt_loada_river2lake1(src)
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
 #endif

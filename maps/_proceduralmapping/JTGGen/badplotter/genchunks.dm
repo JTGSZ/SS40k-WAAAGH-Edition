@@ -1,10 +1,21 @@
+//Stolen from some dumb zip i had on my desktop for archipalegos
+//I realized I could just reverse the islands and ocean, and work with it.
+//Ironically pathed objects has better performance/quality than just doing large calculations.
+
 #define MAP_AREA (world.maxx * world.maxy) //Map area
 
 //customization is handled by calculating percentages of map area, so a given set of settings
 //should scale to larger or smaller maps.
+
+//Sets - Marsh
+//#define PERCENT_LAND 0.20
+//#define MAX_BADPLOTTER_PER_SEED 32
+//#define SEED_FACTOR 0.002
+
 #define PERCENT_LAND 0.20
 #define MAX_BADPLOTTER_PER_SEED 32
-#define SEED_FACTOR 0.002
+#define SEED_FACTOR (1 / MAP_AREA)
+
 //setting SEED_FACTOR lower will reduce the likelihood of many islands.
 //to define a specific number of seeds, define it as "(n / MAP_AREA)" where n is the desired number of seeds.
 
@@ -12,29 +23,17 @@
 
 #define SEEDS round(MAP_AREA * SEED_FACTOR, 1)
 #define LAND_TURFS (MAP_AREA * PERCENT_LAND)
-#define EXPANSIONS (LAND_TURFS) - SEEDS
+//#define EXPANSIONS (LAND_TURFS) - SEEDS //This is the default setting - 1/13/2020
+//500 kind of acceptable
+#define EXPANSIONS 800
 
 //Rocks if you ever wanted them bitches in this.
 #define ROCK_TURFS LAND_TURFS * PERCENT_ROCKS
 #define PERCENT_ROCKS 0.04
 
-/obj/helper/badplotter/ //This is basically an object that moves around and does stuff on its own.
-	name = "badplotter"
-	desc = "he plottin somein real bad"
-	density = 0
-	var/list/cardinalDirs = list(1, 2, 4, 8)
 
-/obj/helper/badplotter/proc/roam()
-	var/newDir = pick(cardinalDirs)
-	var/turf/T = get_step(src, newDir)
-	if(T)
-		loc = T
 
-		if(istype(T, /turf/unsimulated/outside/sand)) 
-			T = new /turf/unsimulated/outside/gentest/water(T) 
-			return 1
-
-/proc/CreateDeeps()
+/proc/CreateDeeps(var/datum/map/active/ASS)
 	var/list/badplotter = list()
 	var/turf/T
 	var/obj/helper/badplotter/bplot
@@ -46,7 +45,7 @@
 			if(istype(T, /turf/unsimulated/outside/gentest/water)) 
 				continue
 			else
-				T = new /turf/unsimulated/outside/gentest/water(locate(T.x, T.y, 1))
+				new /turf/unsimulated/outside/gentest/water(T)
 				for(var/botCount in 1 to rand(1, MAX_BADPLOTTER_PER_SEED))
 					bplot = new(T)
 					badplotter += bplot
@@ -62,6 +61,11 @@
 	for(bplot in badplotter) 
 		qdel(bplot)
 
+	if(ASS.dd_debug)
+		log_startup_progress("------Loada Lakes(Deeps&Shallows)----")
+		log_startup_progress("Seeds: [SEEDS] A Location: [T]")
+		log_startup_progress("Expansions: [EXPANSIONS]")
+
 
 /proc/CreateShallows()
 	var/turf/T
@@ -71,7 +75,7 @@
 			T = locate(curX, curY, 1)
 			if(istype(T, /turf/unsimulated/outside/sand))
 				if(locate(/turf/unsimulated/outside/gentest/water) in oview(T, 1))
-					T = new /turf/unsimulated/outside/gentest/watershallow(T)
+					new /turf/unsimulated/outside/gentest/watershallow(T)
 
 
 /proc/CreateRocks()
@@ -84,7 +88,7 @@
 			if(istype(T, /turf/unsimulated/outside/gentest/water) \
 			|| istype(T, /turf/unsimulated/outside/gentest/watershallow))
 				holdType = T.type
-				T = new /turf/unsimulated/outside/gentest/rock(T)
+				new /turf/unsimulated/outside/gentest/rock(T)
 				T.underlays += holdType
 				break
 

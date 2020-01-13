@@ -140,7 +140,16 @@
 
 
 //Loada Lakes module
+		//-Amount of lakes to spawn (currently does nothing)
 	var/amount_of_lakes = 0
+
+//loada_rivers module
+		//-Amount of rivers to spawn (Currently unfinished)
+	var/rivercount = 0
+
+//Loada River 2 lake Module
+		//-Whether rivers deviate from being perfect lines or not (setting for all rivers)
+	var/deviant = TRUE
 
 /datum/map/New()
 	. = ..()

@@ -4,14 +4,21 @@
 //STAGE TURF INIT - Copy and pasted floragen shit from the halloween ball.
 
 /proc/jt_loada_lakes3(var/datum/map/active/ASS)
-	CreateDeeps()
+	CreateDeeps(ASS)
 	CreateShallows()
 	
 	if(ASS.dd_debug)
-		log_startup_progress("LAKE LOADA 3 SUCCESSFUL")
+		log_startup_progress("LAKE LOADA 3 INITIATED")
 
-/proc/jt_loada_rivers1(var/datum/map/active/ASS, var/rivercount)
-	CreateRiver(rivercount)
+/proc/jt_loada_rivers1(var/datum/map/active/ASS)
+	CreateRiver(ASS)
 	
 	if(ASS.dd_debug)
-		log_startup_progress("RIVER LOADA 1 SUCCESSFUL")
+		log_startup_progress("RIVER LOADA 1 INITIATED")
+
+/proc/jt_loada_river2lake1(var/datum/map/active/ASS)
+	CreateRiver2Lake(ASS) //
+	CreateShallows()
+
+	if(ASS.dd_debug)
+		log_startup_progress("RIVER 2 LAKE LOADA INITIATED")
