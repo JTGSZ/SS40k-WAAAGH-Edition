@@ -35,7 +35,7 @@ W(8)---- *****  ---- E(4)
 	
 	if(ASS.dd_debug)
 		log_startup_progress("---------LOADA RIVER----------")
-		log_startup_progress("Lineplotter: [TT.loc] LineNode: [PP.loc]")
+		log_startup_progress("LINEPLOTSTART: X: [TT.x], Y: [TT.y]")
 
 /proc/CreateRiver2Lake(var/datum/map/active/ASS, var/deviant) //Deviant is river deviation
 	var/list/badplotter = list()
@@ -83,5 +83,5 @@ W(8)---- *****  ---- E(4)
 
 	if(ASS.dd_debug)
 		log_startup_progress("---LOADA RIVER2LAKE(Deeps&Shallows&River)---")
-		log_startup_progress("LAKE NODE: [T.loc] LINEPLOTSTART: [TT.loc]")
+		log_startup_progress("LAKE NODE: X: [T.x], Y: [TT.y] LINEPLOTSTART: X: [TT.x], Y: [TT.y]")
 		log_startup_progress("Seeds: [SEEDS]")
