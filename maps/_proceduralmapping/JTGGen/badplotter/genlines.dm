@@ -71,17 +71,19 @@ W(8)---- *****  ---- E(4)
 			if(bplot.roam()) 
 				break
 
-	for(var/i in 1 to world.maxy + world.maxx)
+	for(var/i in 1 to 2000) //2000 loops should be good enough for us.
 		bline.roam2node(node, ASS.deviant)
-		if(bline.loc == T.loc)
+		if(bline.y == node.y && bline.x == node.x)
+			if(ASS.dd_debug)
+				log_startup_progress("NODE AND LINE COMPLETED AND DELETED AT X: [bline.x], Y: [bline.y]")
 			qdel(bline)
 			qdel(node)
-			break
+			break //We break if we get there before that
 
 	for(bplot in badplotter) 
 		qdel(bplot)
 
 	if(ASS.dd_debug)
 		log_startup_progress("---LOADA RIVER2LAKE(Deeps&Shallows&River)---")
-		log_startup_progress("LAKE NODE: X: [T.x], Y: [TT.y] LINEPLOTSTART: X: [TT.x], Y: [TT.y]")
+		log_startup_progress("LAKE NODE: X: [T.x], Y: [T.y] LINEPLOTSTART: X: [TT.x], Y: [TT.y]")
 		log_startup_progress("Seeds: [SEEDS]")

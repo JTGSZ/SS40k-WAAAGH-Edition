@@ -37,16 +37,10 @@ W(8)---- *****  ---- E(4)
 /obj/helper/badliner
 	name = "badliner"
 	density = 0
-	var/delayset = 0 //How many loops before we are back on track
-	var/setdir = 0 // Basically a rng direction we can lock in
-	var/lockin = FALSE //WE LOCKED IN COME ALONG FOR THE RIDE
-	var/curvemyballs = FALSE //We make a curve
-	var/ballcurve1 = 0 //How long before we swap dirs in a curve
-
-	var/list/cardinalDirs = list(1, 2, 4, 8)
-
-/obj/helper/badliner/proc/roam2nodeNEWDIR()
-	setdir = pick(10,6) //EAST, SOUTHEAST, WEST, SOUTHWEST.
+	var/ballcurvature = FALSE //Are we curving?
+	var/curveticker = 0 //how many ticks are we curving?
+	var/balls2shaft = FALSE //If we are currently holding our curved direction?
+	var/HUR_DUR //this where we currently headin, east if there be a fuckup
 
 /*
 
@@ -58,42 +52,37 @@ W(8)---- *****  ---- E(4)
 
 */															//Deviant is deviation.
 /obj/helper/badliner/proc/roam2node(var/node, var/deviant) //Node is the node it roams to
-	var/turf/BALLS //THIS PROC SUCKS BALLS
-	var/verydeviant = TRUE //idc I can just move this up one day or some shit, its testing.
+	var/turf/BALLS = get_turf(src)//THIS PROC SUCKS BALLS - where we at.
+	var/turf/NODEGOAL = get_turf(node) //where we wanna be
+	//var/turf/NODEGOALDIR = get_dir(BALLS, NODEGOAL) //This is the direction to get where we wanna be
 
-	if(deviant)
-		if(prob(80)) //Probability to DEVIATE
-			BALLS = get_step_rand(src)
+	//After having fucked with just doing this by coordinates, now im trying directions.
+	//Basically it was becoming very hard to read doing riverbends.
+	//Yeah now we resemble lavariver shit more, this still needs redone at some point tho.
+
+
+	if(ballcurvature) //CURVING SEGMENT 1 DIAGONAL FROM LINE
+		if(prob(20))
+			ballcurvature = FALSE
+			HUR_DUR = get_dir(BALLS, NODEGOAL)
+	else if(prob(20))
+		ballcurvature = 1
+		if(prob(50))
+			HUR_DUR = turn(HUR_DUR, 45) //we go to a diagonal
 		else
-			if(verydeviant)
-				if(prob(5))
-					lockin = TRUE
-				if(lockin)
-					if(curvemyballs) //We use delayset to do a proper curve
-						if(setdir == 10) //If we SE
-							if(ballcurve1 < 3)
-								BALLS = get_step(src,setdir)
-								ballcurve1++
-						if(setdir == 6) //If we SW
-					
-					else
-						BALLS = get_step(src,setdir) //WE ARE ALONG FOR THE RIDE
-						delayset++ //WE ADD UP
-				else
-					BALLS = get_step_towards(src, node) //If we ain't locked in we movin norm
-				if(delayset >= 5) //If delayset is greater than or equal to 5
-					lockin = FALSE //lockin turns to false again
-					delayset = 0 // delayset is back to 0
-					roam2nodeNEWDIR() //And we pick a new direction
+			HUR_DUR = turn(HUR_DUR, -45) //either direction
 	else
-		BALLS = get_step_towards(src, node)
-	
-	if(BALLS) //Our location is BALLS
-		loc = BALLS
+		HUR_DUR = get_dir(HUR_DUR, NODEGOAL)
+
+	step(src, HUR_DUR)
+
+	//We step to the current direction
+	//step(src, HUR_DUR) //This replaces us just setting our location to BALLS
 	
 	for(var/turf/unsimulated/outside/NIG in orange(1,src))
 		if(!NIG.density || istype(NIG, /turf/unsimulated/outside/sand)) 
 			new /turf/unsimulated/outside/gentest/water(NIG)
+
 /*
 	NODE LINER
 				*/
