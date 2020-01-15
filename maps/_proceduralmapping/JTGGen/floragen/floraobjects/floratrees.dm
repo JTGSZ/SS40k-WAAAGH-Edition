@@ -120,6 +120,7 @@
 			health -= rand(10,30)
 			update_health()
 
+//---------Snow Trees---------------
 /obj/structure/flora/tree/pine
 	name = "pine tree"
 	icon = 'icons/obj/flora/pinetrees.dmi'
@@ -158,3 +159,22 @@
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_stump"
 	shovelaway = TRUE
+
+//--------------Dead desert Trees-----------//
+
+/obj/structure/flora/tree/dead/desert
+	name = "dead tree"
+	icon = 'z40k_shit/icons/doodads/flora64x64.dmi'
+
+/obj/structure/flora/tree/dead/desert/New()
+	..()
+	icon_state = "deadtree_[rand(1, 6)]"
+			
+			
+/obj/structure/flora/tree/dead/desert/tall
+	name = "tall dead tree"
+	icon = 'z40k_shit/icons/doodads/flora64x128.dmi'
+
+/obj/structure/flora/tree/dead/desert/tall/New()
+	..()
+	icon_state = "tree_[rand(1, 3)]"

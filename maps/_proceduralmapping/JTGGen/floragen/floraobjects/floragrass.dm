@@ -1,4 +1,4 @@
-//grass
+//snow grass
 /obj/structure/flora/grass
 	name = "grass"
 	icon = 'icons/obj/flora/snowflora.dmi'
@@ -33,3 +33,13 @@
 /obj/structure/flora/grass/white/New()
 	..()
 	icon_state = "snowgrass_[rand(1, 6)]"
+
+//Dry grass
+
+/obj/structure/flora/grass/drygrass
+	name = "dry motherfuckin grass"
+	icon = 'z40k_shit/icons/doodads/flora32x32.dmi'
+
+/obj/structure/flora/grass/drygrass/New()
+	..()
+	icon_state = "tall_grass_[rand(1,8)]"
