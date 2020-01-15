@@ -36,17 +36,11 @@
 
 //These are basically what can spawn in the lists, the number is the weight.
 //The weight dictates how likely it is to spawn over other things in the lists. If you were to use pickweight.
-#define LUSH_GRASS_SPAWN_LIST list()
-								   
-
-#define TREE_SPAWN_LIST list()
-
+#define LUSH_GRASS_SPAWN_LIST list()								   
+#define TREE_SPAWN_LIST 	list()
 #define AUSFLORA_SPAWN_LIST list()
-
 #define ROCKS_SPAWN_LIST	list()
-
 #define DEBRIS_SPAWN_LIST	list()
-
 //Lists that occur when the cluster doesn't happen but probability dictates it tries.
 #define DESOLATE_SPAWN_LIST list()
 

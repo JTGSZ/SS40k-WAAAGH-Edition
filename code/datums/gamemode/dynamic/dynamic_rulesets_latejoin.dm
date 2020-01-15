@@ -107,7 +107,7 @@
 //               SPACE NINJA                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                          //
 //////////////////////////////////////////////
-
+/*
 /datum/dynamic_ruleset/latejoin/ninja
 	name = "Space Ninja Attack"
 	role_category = /datum/role/ninja
@@ -135,7 +135,10 @@
 		if(!newninja.antag.current.ThrowAtStation())
 			newninja.antag.current.spawn_rand_maintenance()
 	return 1
-
+*/
+//TODO: ADD A "DO YOU WANT TO BE A [ROLE]?" PROMPT TO LATE-JOINERS BECAUSE PEOPLE HATE BEING A NINJA
+//TODO: ADD AN EQUIVALENT OF generate_ruleset_body() FOR LATEJOINS SO NINJAS DON'T SPAWN AS NAKED DYING VOX
+//DON'T RE-ENABLE TILL THAT'S DONE
 
 
 //////////////////////////////////////////////
