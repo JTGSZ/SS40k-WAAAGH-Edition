@@ -36,13 +36,13 @@
 
 //These are basically what can spawn in the lists, the number is the weight.
 //The weight dictates how likely it is to spawn over other things in the lists. If you were to use pickweight.
-#define LUSH_GRASS_SPAWN_LIST list()								   
+#define LUSH_GRASS_SPAWN_LIST list(/obj/structure/flora/grass/drygrass = 10, /obj/structure/flora/tree/dead/desert = 1, /obj/structure/flora/tree/dead/desert/tall = 1)								   
 #define TREE_SPAWN_LIST 	list()
 #define AUSFLORA_SPAWN_LIST list()
 #define ROCKS_SPAWN_LIST	list()
 #define DEBRIS_SPAWN_LIST	list()
 //Lists that occur when the cluster doesn't happen but probability dictates it tries.
-#define DESOLATE_SPAWN_LIST list()
+#define DESOLATE_SPAWN_LIST list(/obj/structure/flora/grass/drygrass = 2, /obj/structure/flora/tree/dead/desert/tall = 1)
 
 //I just kinda made it worse... Like a lot worse. Ngl man.
 /turf/unsimulated/outside/proc/floraGen()
