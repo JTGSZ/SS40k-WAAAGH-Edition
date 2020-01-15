@@ -36,9 +36,11 @@
 	dd_debug = TRUE
 
 /datum/map/active/map_specific_init()
-	jt_loada_spawns(src)
+	loada_spawns(src)
 
-	jt_loada_river2lake1(src)
+	loada_river2lake1(src)
+
+	loada_floragen()
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
 #endif

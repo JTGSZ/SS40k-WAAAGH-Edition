@@ -16,19 +16,7 @@
 
 	//var/turfverb = "dig out" //Going to use this for the action of digging a turf out.
 
-//---FloraGen Holders-------------
-	var/obj/structure/flora/turfGrass = null
-	var/obj/structure/flora/turfTree = null
-	var/obj/structure/flora/turfAusflora = null
-	var/obj/structure/flora/turfRocks = null
-	var/obj/structure/flora/turfDebris = null
-
 /turf/unsimulated/outside/initialize()
-	if(!(\
-			(locate(/obj/structure) in src) || \
-			(locate(/obj/machinery) in src) ))
-		floraGen() //And off we go riding into hell.
-	update_icon()
 
 /turf/unsimulated/outside/ex_act(severity)
 	switch(severity)
@@ -59,18 +47,6 @@
 /turf/unsimulated/outside/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0, var/allow = 1)
 	if(footprint_parent)
 		qdel(footprint_parent)
-	if(turfGrass)
-		qdel(turfGrass)
-	if(turfTree)
-		qdel(turfTree)
-	if(turfAusflora)
-		qdel(turfAusflora)
-	if(turfRocks)
-		qdel(turfRocks)
-	if(turfDebris)
-		qdel(turfDebris)
-	. =  ..()
-
 	..()
 
 /turf/unsimulated/outside/New()
@@ -83,17 +59,7 @@
 /turf/unsimulated/outside/Destroy()
 	if(footprint_parent)
 		qdel(footprint_parent)
-	if(turfGrass)
-		qdel(turfGrass)
-	if(turfTree)
-		qdel(turfTree)
-	if(turfAusflora)
-		qdel(turfAusflora)
-	if(turfRocks)
-		qdel(turfRocks)
-	if(turfDebris)
-		qdel(turfDebris)
-	. =  ..()
+	..()
 
 /turf/unsimulated/outside/proc/update_environment()
 	if(footprint_parent)
