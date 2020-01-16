@@ -2,6 +2,13 @@
 /obj/effect/landmark/observer
 	name = "Observer-Start"
 
+/obj/effect/landmark/latejoin
+	name = "JoinLate"
+	//Place where latejoins end up
+
+/obj/effect/landmark/newplayerstart //Basically spawnbox, mobs load in here and move to other locs
+	name = "start"					//Also handles the lobby screen area
+
 //Imperial Guard
 /obj/effect/landmark/start/general
 	name = "General"

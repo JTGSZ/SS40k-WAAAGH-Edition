@@ -51,6 +51,9 @@
  	var/under_turf = /turf/space
  */
 
+	// This is a MULTIPLIER OVER THE MOB'S USUAL MOVEMENT DELAY.
+	// a higher number makes the mob move slower.
+	// a lower number makes the mob move superfast.
 	var/turf_speed_multiplier = 1
 
 	var/explosion_block = 0
@@ -71,6 +74,9 @@
 	var/junction = 0
 
 	var/volume_mult = 1 //how loud are things on this turf?
+
+	//Do we allow the generator to spawn shit on this turf?
+	var/floragen = FALSE
 
 /turf/examine(mob/user)
 	..()

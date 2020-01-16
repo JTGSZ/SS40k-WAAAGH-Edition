@@ -108,6 +108,8 @@
 	. = 1
 	if(!T)
 		return 0
+	if(!T.floragen) //We also don't spawn shit if floragen is false
+		. = 0	
 	if(T.density)
 		. = 0
 	for(var/atom/A in T)

@@ -25,7 +25,7 @@
 		if("airtunnel_bottom")
 			airtunnel_bottom = y
 
-		if("monkey")
+		if("monkey") 
 			monkeystart += loc
 			qdel(src)
 		if("start")

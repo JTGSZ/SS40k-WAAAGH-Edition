@@ -38,7 +38,7 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 /proc/loada_spawns(var/datum/map/active/ASS)
 	var/datum/map_element/ME //Map Element 1
 	var/datum/map_element/MEOP //Map Element 2
-
+	
 	var/z1_coord = 1 //Z level will always be 1
 	var/x1_coord = 0 //Holder for calculated x - horizontal
 	var/y1_coord = 0 //Holder for calculated y - vertical
@@ -50,6 +50,7 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 	//Center with changes to it picks which side to draw from
 	var/center_x = round(world.maxx/2) //EX: 200/2 = 100
 	var/center_y = round(world.maxy/2) //Exact center of a whole map.
+	var/exact_center = locate(center_x,center_y,1)
 
 	//Primary Placement coordinates for the origin position on the map.
 	var/primary_x1 = 1 //the main X value sent through
@@ -57,6 +58,10 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 	
 	var/primary_x2 = 1 //The opposing template placement
 	var/primary_y2 = 1 //The opposing template placement
+
+	new /obj/effect/landmark/observer(exact_center) //Observer landmark appears at exact center
+	new /obj/effect/landmark/latejoin(exact_center) //Latejoins appear in the center too
+	new /obj/effect/landmark/newplayerstart(exact_center) //Might as well try putting the start in the center too
 
 	ME = new ASS.spawn_template_1 //This needs unhardcoded later anyways
 	

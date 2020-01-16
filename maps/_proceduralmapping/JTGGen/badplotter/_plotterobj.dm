@@ -27,7 +27,7 @@ W(8)---- *****  ---- E(4)
 		loc = T
 
 		if(istype(T, /turf/unsimulated/outside/sand)) 
-			T = new /turf/unsimulated/outside/gentest/water(T) 
+			T = new /turf/unsimulated/outside/water/deep(T) 
 			return 1
 /*
 	BAD LINER
@@ -81,7 +81,7 @@ W(8)---- *****  ---- E(4)
 	
 	for(var/turf/unsimulated/outside/NIG in orange(1,src))
 		if(!NIG.density || istype(NIG, /turf/unsimulated/outside/sand)) 
-			new /turf/unsimulated/outside/gentest/water(NIG)
+			new /turf/unsimulated/outside/water/deep(NIG)
 
 /*
 	NODE LINER
@@ -93,22 +93,3 @@ W(8)---- *****  ---- E(4)
 	desc = "he a badboy"
 	density = 0
 
-/*
-	TEST OBJECTS
-				*/
-
-//Test objects below.
-/turf/unsimulated/outside/gentest
-	name = "Gentest"
-	icon = 'icons/turf/gentest.dmi'
-
-/turf/unsimulated/outside/gentest/water
-	name = "WATER DEEP"
-	icon_state = "water2"
-
-/turf/unsimulated/outside/gentest/rock
-	name = "PLACEHOLDER"
-
-/turf/unsimulated/outside/gentest/watershallow
-	name = "WATERSHALLOW"
-	icon_state = "water"

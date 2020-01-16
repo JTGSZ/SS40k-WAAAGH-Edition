@@ -42,10 +42,10 @@
 		//make a new single segment
 		while(1)
 			T = locate(rand(1, world.maxx), rand(1, world.maxy), 1)
-			if(istype(T, /turf/unsimulated/outside/gentest/water)) 
+			if(istype(T, /turf/unsimulated/outside/water/deep)) 
 				continue
 			else
-				new /turf/unsimulated/outside/gentest/water(T)
+				new /turf/unsimulated/outside/water/deep(T)
 				for(var/botCount in 1 to rand(1, MAX_BADPLOTTER_PER_SEED))
 					bplot = new(T)
 					badplotter += bplot
@@ -74,8 +74,8 @@
 		for(var/curY in 1 to world.maxy)
 			T = locate(curX, curY, 1)
 			if(istype(T, /turf/unsimulated/outside/sand))
-				if(locate(/turf/unsimulated/outside/gentest/water) in oview(T, 1))
-					new /turf/unsimulated/outside/gentest/watershallow(T)
+				if(locate(/turf/unsimulated/outside/water/deep) in oview(T, 1))
+					new /turf/unsimulated/outside/water/shallow(T)
 
 
 /proc/CreateRocks()
@@ -85,25 +85,9 @@
 		var/holdType
 		while(1)
 			T = locate(rand(1, world.maxx), rand(1, world.maxy), 1)
-			if(istype(T, /turf/unsimulated/outside/gentest/water) \
-			|| istype(T, /turf/unsimulated/outside/gentest/watershallow))
+			if(istype(T, /turf/unsimulated/outside/water/deep) \
+			|| istype(T, /turf/unsimulated/outside/water/shallow))
 				holdType = T.type
 				new /turf/unsimulated/outside/gentest/rock(T)
 				T.underlays += holdType
 				break
-
-//Test objects below.
-/turf/unsimulated/outside/gentest
-	name = "Gentest"
-	icon = 'icons/turf/gentest.dmi'
-
-/turf/unsimulated/outside/gentest/water
-	name = "WATER DEEP"
-	icon_state = "water2"
-
-/turf/unsimulated/outside/gentest/rock
-	name = "PLACEHOLDER"
-
-/turf/unsimulated/outside/gentest/watershallow
-	name = "WATERSHALLOW"
-	icon_state = "water"

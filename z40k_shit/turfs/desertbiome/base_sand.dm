@@ -7,4 +7,6 @@
 	plane = PLATING_PLANE
 
 	can_border_transition = FALSE
+	floragen = TRUE
+
 

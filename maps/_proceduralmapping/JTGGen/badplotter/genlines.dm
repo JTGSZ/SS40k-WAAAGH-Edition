@@ -49,10 +49,10 @@ W(8)---- *****  ---- E(4)
 		//make a new single segment
 		while(1)
 			T = locate(rand(1, world.maxx), rand(1, world.maxy), 1)
-			if(istype(T, /turf/unsimulated/outside/gentest/water)) 
+			if(istype(T, /turf/unsimulated/outside/water/deep)) 
 				continue
 			else
-				new /turf/unsimulated/outside/gentest/water(T)
+				new /turf/unsimulated/outside/water/deep(T)
 				node = new(T)
 				for(var/botCount in 1 to rand(1, MAX_BADPLOTTER_PER_SEED))
 					bplot = new(T)

@@ -14,6 +14,9 @@
 
 	can_border_transition = FALSE
 
+	//Do we allow the generator to spawn shit on this turf?
+	floragen = FALSE
+
 	//var/turfverb = "dig out" //Going to use this for the action of digging a turf out.
 
 /turf/unsimulated/outside/initialize()
