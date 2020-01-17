@@ -56,7 +56,7 @@
 	log_startup_progress("Finished with cleanup/detailing. [stop_watch(watch5)]s.")
 
 	var/watch4 = start_watch()
-	loada_floragen()
+	loada_floragen(src)
 	log_startup_progress("Finished with floragen in [stop_watch(watch4)]s.")
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"

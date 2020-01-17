@@ -52,7 +52,7 @@
 
 /datum/outfit/preacher/post_equip(var/mob/living/carbon/human/H)
 	H.add_language("Spooky") //SPOOK
-	ChooseReligion(H)
+	ChooseReligion(H, FALSE)
 
 /datum/job/preacher/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
