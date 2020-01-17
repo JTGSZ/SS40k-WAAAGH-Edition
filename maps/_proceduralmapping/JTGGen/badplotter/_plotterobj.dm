@@ -26,8 +26,9 @@ W(8)---- *****  ---- E(4)
 	if(T)
 		loc = T
 
-		if(istype(T, /turf/unsimulated/outside/sand)) 
+		if(istype(T, /turf)) //Nowe get all of them
 			T = new /turf/unsimulated/outside/water/deep(T) 
+			T = new /area/warhammer/water(T)
 			return 1
 /*
 	BAD LINER
@@ -79,9 +80,10 @@ W(8)---- *****  ---- E(4)
 	//We step to the current direction
 	//step(src, HUR_DUR) //This replaces us just setting our location to BALLS
 	
-	for(var/turf/unsimulated/outside/NIG in orange(1,src))
-		if(!NIG.density || istype(NIG, /turf/unsimulated/outside/sand)) 
+	for(var/turf/NIG in orange(1,src))
+		if(istype(NIG, /turf)) //No density check, WE CUTTIN THRU
 			new /turf/unsimulated/outside/water/deep(NIG)
+			new /area/warhammer/water(NIG)
 
 /*
 	NODE LINER

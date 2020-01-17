@@ -154,6 +154,7 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 		if(ASS.spawn_overwrite) //If we can overwrite
 			x2_coord = clamp(primary_x2, edgelimit_min_x1, edgelimit_max_x2)
 			y2_coord = clamp(primary_y2, edgelimit_min_y1, edgelimit_max_y2)
+
 			MEOP.load(x2_coord, y2_coord, z2_coord)
 		else //if spawn_overwrite = FALSE
 			if(edgelimit_min_x2 > edgelimit_max_x2) //If we end up greater than the max

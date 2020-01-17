@@ -5,4 +5,6 @@
 	var/end = locate(world.maxx,world.maxy,1)
 	N.defineRegion(start, end)
 	N.generate()
-	log_startup_progress("FLORA LOAD SUCCESSFUL")
+	
+	if(ASS.dd_debug)
+		log_startup_progress("FLORA LOAD SUCCESSFUL")

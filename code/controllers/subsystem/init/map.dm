@@ -18,7 +18,7 @@ var/datum/subsystem/map/SSmap
 		log_startup_progress("Attempting to generate an away mission...")
 		createRandomZlevel()
 
-	if (!config.skip_vault_generation)
+	/*if (!config.skip_vault_generation)
 		var/watch = start_watch()
 		log_startup_progress("Placing random space structures...")
 		generate_vaults()
@@ -29,7 +29,7 @@ var/datum/subsystem/map/SSmap
 
 	for(var/i = 0, i < max_secret_rooms, i++)
 		make_mining_asteroid_secret()
-
+*/
 	log_startup_progress("Calling post on zLevels, letting them know they can do zlevel specific stuff...")
 	var/watch_prim = start_watch()
 	for(var/datum/zLevel/z in map.zLevels)

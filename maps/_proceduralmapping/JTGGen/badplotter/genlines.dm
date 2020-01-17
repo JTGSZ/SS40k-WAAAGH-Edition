@@ -53,6 +53,7 @@ W(8)---- *****  ---- E(4)
 				continue
 			else
 				new /turf/unsimulated/outside/water/deep(T)
+				new /area/warhammer/water(T) //Area Change
 				node = new(T)
 				for(var/botCount in 1 to rand(1, MAX_BADPLOTTER_PER_SEED))
 					bplot = new(T)

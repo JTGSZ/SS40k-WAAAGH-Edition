@@ -10,7 +10,7 @@ var/list/existing_vaults = list()
 
 	var/only_spawn_once = 1 //If 0, this vault can spawn multiple times on a single map
 
-	var/base_turf_type = /turf/space //The "default" turf type that surrounds this vault. If it differs from the z-level's base turf type (for example if this vault is loaded on a snow map), all turfs of this type will be replaced with turfs of the z-level's base turf type
+	var/base_turf_type = /turf/unsimulated/outside/sand //The "default" turf type that surrounds this vault. If it differs from the z-level's base turf type (for example if this vault is loaded on a snow map), all turfs of this type will be replaced with turfs of the z-level's base turf type
 
 /datum/map_element/vault/initialize(list/objects)
 	..(objects)
@@ -18,7 +18,7 @@ var/list/existing_vaults = list()
 
 	var/zlevel_base_turf_type = get_base_turf(location.z)
 	if(!zlevel_base_turf_type)
-		zlevel_base_turf_type = /turf/space
+		zlevel_base_turf_type = /turf/unsimulated/outside/sand
 
 	for(var/turf/new_turf in objects)
 		if(new_turf.type == base_turf_type) //New turf is vault's base turf

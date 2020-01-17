@@ -34,6 +34,11 @@
 	icon_state = "snow"
 	requires_power = 0
 
+/area/warhammer/water
+	name = "water"
+	icon_state = "water"
+	requires_power = 0
+
 /*
 	Template Areas
 					*/

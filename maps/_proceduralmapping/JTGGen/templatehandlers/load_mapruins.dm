@@ -6,38 +6,36 @@
 //2. add the map's name to the vault_map_names list
 //3. the game will handle the rest
 
-//#define MINIMUM_VAULT_AMOUNT 5 //Amount of guaranteed vault spawns
-//#define MAXIMUM_VAULT_AMOUNT 15
+#define MINIMUM_VAULT_AMOUNT 5 //Amount of guaranteed vault spawns
+#define MAXIMUM_VAULT_AMOUNT 15
 
-//#define MAX_VAULT_WIDTH  80 //Vaults bigger than that have a slight chance of overlapping with other vaults
-//#define MAX_VAULT_HEIGHT 80
+#define MAX_VAULT_WIDTH  80 //Vaults bigger than that have a slight chance of overlapping with other vaults
+#define MAX_VAULT_HEIGHT 80
 
-//For the populate_area_with_vaults() proc
+//For the loada_populate_templates() proc
 #define POPULATION_DENSE  1 //Performs large calculations to make vaults able to spawn right next to each other and not overlap. Recommended with smaller areas - may lag bigly in big areas
 #define POPULATION_SCARCE 2 //Performs less calculations by cheating a bit and assuming that every vault's size is 100x100. Vaults are farther away from each other - recommended with big areas
 
-//#define SPAWN_ALL_VAULTS //Uncomment to spawn every hecking vault in the game
-//#define SPAWN_MAX_VAULTS //Uncomment to spawn as many vaults as the code supports
-
-#ifdef SPAWN_MAX_VAULTS
-#warn Spawning maximum amount of vaults!
-#undef MINIMUM_VAULT_AMOUNT
-#define MINIMUM_VAULT_AMOUNT MAXIMUM_VAULT_AMOUNT
-#endif
-
 //List of spawnable vaults is in code/modules/randomMaps/vault_definitions.dm
 
-//This a random vault spawns somewhere in this area. Then this area is replaced with space!
-/area/random_vault
-	name = "random vault area"
-	desc = "Spawn a vault in there somewhere"
-	icon_state = "random_vault"
-	flags = NO_PERSISTENCE|NO_PACIFICATION
+/proc/loada_generate_template()
+	var/area/space = get_space_area()
 
-/area/vault
-	flags = NO_PERSISTENCE|NO_PACIFICATION
+	var/list/list_of_vaults = loada_get_map_elements()
 
-/proc/get_map_element_objects(base_type = /datum/map_element/vault)
+	var/vault_number = rand(MINIMUM_VAULT_AMOUNT, min(list_of_vaults.len, MAXIMUM_VAULT_AMOUNT))
+
+	message_admins("<span class='info'>Spawning [vault_number] vaults in space!</span>")
+
+	var/area/A = locate(map.map_vault_area)
+	var/result = loada_populate_templates(A, amount = vault_number, population_density = POPULATION_SCARCE)
+
+	for(var/turf/TURF in A) //Replace all of the temporary areas with space
+		TURF.set_area(space)
+
+	message_admins("<span class='info'>Loaded [result] out of [vault_number] vaults.</span>")
+
+/proc/loada_get_map_elements(base_type = /datum/map_element/vault)
 	var/list/list_of_vaults = typesof(base_type) - base_type
 
 	for(var/V in list_of_vaults) //Turn list of paths into list of objects
@@ -63,42 +61,7 @@
 
 	return list_of_vaults
 
-/proc/generate_vaults()
-	var/area/space = get_space_area()
-
-	var/list/list_of_vaults = get_map_element_objects()
-
-	var/vault_number = rand(MINIMUM_VAULT_AMOUNT, min(list_of_vaults.len, MAXIMUM_VAULT_AMOUNT))
-
-	#ifdef SPAWN_ALL_VAULTS
-	#warn Spawning ALL vaults!
-	vault_number = list_of_vaults.len
-	#endif
-
-	message_admins("<span class='info'>Spawning [vault_number] vaults in space!</span>")
-
-	var/area/A = locate(map.map_vault_area)
-	var/result = populate_area_with_vaults(A, amount = vault_number, population_density = POPULATION_SCARCE)
-
-	for(var/turf/TURF in A) //Replace all of the temporary areas with space
-		TURF.set_area(space)
-
-	message_admins("<span class='info'>Loaded [result] out of [vault_number] vaults.</span>")
-
-/proc/generate_asteroid_secrets()
-	var/list/list_of_surprises = get_map_element_objects(/datum/map_element/mining_surprise)
-
-	var/surprise_number = rand(1, min(list_of_surprises.len, max_secret_rooms))
-
-	var/result = populate_area_with_vaults(/area/mine/unexplored, list_of_surprises, surprise_number, filter_function=/proc/asteroid_can_be_placed)
-
-	message_admins("<span class='info'>Loaded [result] out of [surprise_number] mining surprises.</span>")
-
-/proc/asteroid_can_be_placed(var/datum/map_element/E, var/turf/start_turf)
-	var/list/dimensions = E.get_dimensions()
-	var/result = check_complex_placement(start_turf,dimensions[1], dimensions[2])
-	return result
-//Proc that populates a single area with many vaults, randomly
+	//Proc that populates a single area with many vaults, randomly
 //A is the area OR a list of turfs where the placement happens
 //map_element_objects is a list of vaults that have to be placed. Defaults to subtypes of /datum/map_element/vault (meaning all vaults are spawned)
 //amount is the maximum amount of vaults placed. If -1, it will place as many vaults as it can
@@ -106,39 +69,39 @@
 //POPULATION_SCARCE is cheaper but may not do the job as well
 //NOTE: Vaults may be placed partially outside of the area. Only the lower left corner is guaranteed to be in the area
 
-/proc/populate_area_with_vaults(area/A, list/map_element_objects, var/amount = -1, population_density = POPULATION_DENSE, filter_function)
-	var/list/area_turfs
+/proc/loada_populate_templates(area/A, list/map_element_objects, var/amount = -1, population_density = POPULATION_DENSE, filter_function)
+	var/list/area_turfs //List of area_turfs
 
-	if(ispath(A, /area))
-		A = locate(A)
-	if(isarea(A))
-		area_turfs = A.get_turfs()
-	else if(istype(A, /list))
-		area_turfs = A
-	ASSERT(area_turfs)
+	if(ispath(A, /area)) //If paarameter var area/a is an path on /area
+		A = locate(A) //A is locate the Area
+	if(isarea(A)) //If is area
+		area_turfs = A.get_turfs() //We we get the turfs in A and put them in area_turfs
+	else if(istype(A, /list)) //else if A is a type of list.
+		area_turfs = A //area turfs is now A
+	ASSERT(area_turfs) //??
 
-	if(!map_element_objects)
-		map_element_objects = get_map_element_objects()
+	if(!map_element_objects) //If no map element objects in list
+		map_element_objects = loada_get_map_elements() //We retrieve them.
 
 	message_admins("<span class='info'>Starting populating [isarea(A) ? "an area ([A])" : "a list of [area_turfs.len] turfs"] with vaults.")
 
 	var/list/spawned = list()
 	var/successes = 0
 
-	while(map_element_objects.len)
-		var/datum/map_element/ME = pick(map_element_objects)
-		map_element_objects.Remove(ME)
+	while(map_element_objects.len) //While we still have objects in map_element_objects.
+		var/datum/map_element/ME = pick(map_element_objects) //ME = pick from list.
+		map_element_objects.Remove(ME) //We then removed what it picked.
 
-		if(!istype(ME))
+		if(!istype(ME)) //if its not a map element
 			continue
 
 		var/list/dimensions = ME.get_dimensions() //List with the element's width and height
 
-		var/new_width = dimensions[1]
-		var/new_height = dimensions[2]
+		var/new_width = dimensions[1] //Width of template
+		var/new_height = dimensions[2] //height of template
 
-		var/list/valid_spawn_points
-		switch(population_density)
+		var/list/valid_spawn_points //we now have a list of valid spawn_points
+		switch(population_density) //Switch population density
 			if(POPULATION_DENSE)
 				//Copy the list of all turfs
 				valid_spawn_points = area_turfs.Copy()

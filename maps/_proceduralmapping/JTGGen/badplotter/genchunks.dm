@@ -46,6 +46,7 @@
 				continue
 			else
 				new /turf/unsimulated/outside/water/deep(T)
+				new /area/warhammer/water(T)
 				for(var/botCount in 1 to rand(1, MAX_BADPLOTTER_PER_SEED))
 					bplot = new(T)
 					badplotter += bplot
@@ -67,27 +68,3 @@
 		log_startup_progress("Expansions: [EXPANSIONS]")
 
 
-/proc/CreateShallows()
-	var/turf/T
-
-	for(var/curX in 1 to world.maxx)
-		for(var/curY in 1 to world.maxy)
-			T = locate(curX, curY, 1)
-			if(istype(T, /turf/unsimulated/outside/sand))
-				if(locate(/turf/unsimulated/outside/water/deep) in oview(T, 1))
-					new /turf/unsimulated/outside/water/shallow(T)
-
-
-/proc/CreateRocks()
-	var/turf/T
-
-	for(var/i in 1 to ROCK_TURFS)
-		var/holdType
-		while(1)
-			T = locate(rand(1, world.maxx), rand(1, world.maxy), 1)
-			if(istype(T, /turf/unsimulated/outside/water/deep) \
-			|| istype(T, /turf/unsimulated/outside/water/shallow))
-				holdType = T.type
-				new /turf/unsimulated/outside/gentest/rock(T)
-				T.underlays += holdType
-				break
