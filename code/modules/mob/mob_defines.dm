@@ -126,6 +126,7 @@
 	var/dizziness = 0//Carbon
 	var/jitteriness = 0//Carbon
 	var/flying = 0
+	var/highflying = 0 //Basically If we are flying high in the air offscreen
 	var/charges = 0.0
 	var/nutrition = 400.0//Carbon
 
