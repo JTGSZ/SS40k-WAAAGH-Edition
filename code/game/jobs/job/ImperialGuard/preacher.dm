@@ -52,7 +52,7 @@
 
 /datum/outfit/preacher/post_equip(var/mob/living/carbon/human/H)
 	H.add_language("Spooky") //SPOOK
-	ChooseReligion(H, FALSE)
+	ChooseReligion(H, FALSE) //Our mob, the second var is if we are a follower of Chaos.
 
 /datum/job/preacher/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()

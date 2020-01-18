@@ -15,4 +15,5 @@
 	name = "WATERSHALLOW"
 	icon_state = "water"
 	turf_speed_multiplier = 1.4
+	var/isedge
 

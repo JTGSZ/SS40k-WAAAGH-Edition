@@ -59,7 +59,7 @@ W(8)---- *****  ---- E(4)
 
 	//After having fucked with just doing this by coordinates, now im trying directions.
 	//Basically it was becoming very hard to read doing riverbends.
-	//Yeah now we resemble lavariver shit more, this still needs redone at some point tho.
+	//Yeah now we resemble lavariver shit more, this still needs redone at some point tho to be gradual.
 
 
 	if(ballcurvature) //CURVING SEGMENT 1 DIAGONAL FROM LINE

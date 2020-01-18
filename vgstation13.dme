@@ -2614,6 +2614,7 @@
 #include "z40k_shit\turfs\footprintholder.dm"
 #include "z40k_shit\turfs\gentest.dm"
 #include "z40k_shit\turfs\outsideparent.dm"
+#include "z40k_shit\turfs\smoothingcoastline.dm"
 #include "z40k_shit\turfs\waterturfs.dm"
 #include "z40k_shit\turfs\weatherholder.dm"
 #include "z40k_shit\turfs\desertbiome\base_sand.dm"

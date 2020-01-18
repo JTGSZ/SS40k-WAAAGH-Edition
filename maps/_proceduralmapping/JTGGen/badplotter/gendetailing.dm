@@ -9,7 +9,6 @@
 					new /turf/unsimulated/outside/water/shallow(T)
 					new /area/warhammer/water(T)
 
-
 /proc/CreateRocks()
 	var/turf/T
 
@@ -40,3 +39,14 @@
 						T.ChangeTurf(base_turf)
 				else
 					T.ChangeTurf(base_turf)
+
+/proc/CreateCoastline()
+	var/turf/T
+
+	for(var/curX in 1 to world.maxx)
+		for(var/curY in 1 to world.maxy) 
+			T = locate(curX, curY, 1)
+			if(istype(T, /turf/unsimulated/outside/sand)) //If we are sand
+				if(locate(/turf/unsimulated/outside/water/shallow) in oview(T, 1)) //And we see Shallow water around us
+					new /turf/unsimulated/outside/smoothingcoastline(T) //Then we form smoothing coastline turfs in place.
+
