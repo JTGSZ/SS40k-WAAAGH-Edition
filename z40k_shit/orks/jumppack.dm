@@ -20,6 +20,12 @@
 	if(user.highflying)
 		user.visible_message("<span class='danger'> [user] takes their jumppack off in the air and learns about gravity!</span>")
 		user.gib()
+	if(user.flying)
+		user.flying = 0
+		user.visible_message("<span class='danger'> [user] takes their jumppack off and meets the ground!</span>")
+		user.Stun(stuntime)
+		user.Knockdown(knockdowntime)
+		hoveranimland()
 
 /obj/item/ork/jumppack/proc/hoverleap(var/mob/user) // We are flying, but its more like hovering.
 	if(user.flying)
