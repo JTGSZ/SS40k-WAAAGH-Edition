@@ -6,6 +6,7 @@
 	item_state = "orkburnapack"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
+	species_fit = list("Ork")
 	var/obj/item/weapon/gun/flamernozzle/mynozzle // The specific gun end tied to this pack
 	var/heldorholstered = 0 //Is the nozzle on it or off of it
 	var/max_fuel = 1500 //The max amount of fuel this can hold

@@ -33,7 +33,7 @@
 		"eyes" =     /datum/organ/internal/eyes
 	)
 
-	uniform_icons = 'icons/mob/species/ork/orkgearMOB.dmi'
+	uniform_icons 		= 'icons/mob/species/ork/orkgearMOB.dmi'
 //	fat_uniform_icons   = 'icons/mob/uniform_fat.dmi'
 	gloves_icons        = 'icons/mob/species/ork/orkgearMOB.dmi'
 //	glasses_icons       = 'icons/mob/eyes.dmi'

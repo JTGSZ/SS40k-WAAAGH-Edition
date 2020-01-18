@@ -8,6 +8,7 @@
 	item_state = "orkjumppack"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
+	species_fit = list("Ork")
 	var/usetime // Whats the total usetime of the pack.
 	var/wallcrashiterations = 4 // How many times are we going to destroy everything before we stop.
 	var/highinair = 0 //Am I flying, like real high?, If I am flying and the user pulls me off they will die.
@@ -30,7 +31,7 @@
 
 /obj/item/ork/jumppack/proc/flyleap(var/mob/living/user, duration, enteranim = "liquify", exitanim = "reappear", smoke = 1) //We fly high into the air
 	//Yeah, this code is copy and pasted from ethereal jaunt mostly
-	ethereal_jaunt(user, duration, enteranim, exitanim, smoke)
+	//ethereal_jaunt(user, duration, enteranim, exitanim, smoke) //Reference line
 
 	var/mobloc = get_turf(user)
 	if(user.incorporeal_move == INCORPOREAL_ETHEREAL) //they're already jaunting, we have another fix for this but this is sane
@@ -92,7 +93,7 @@
 		return
 	if(user.flying)
 		to_chat(user,"<span class='notice'> You pulse the jump pack to land again.</span>")
-		flyland()
+		flyland(user)
 		return
 	if(world.time < usetime + 120)
 		to_chat(user,"<span class='warning'> The Jetpack is still charging!</span>")
@@ -103,11 +104,11 @@
 		user.Knockdown(knockdowntime)
 		user.take_organ_damage(15, 0)
 		return
-	flyleap() // We leap into the air.
+	flyleap(user) // We leap into the air.
 	sleep(50)
 	if(user.flying)
 		to_chat(user, "<span class='warning'> You fall back down towards the ground.</span>")
-		flyland()
+		flyland(user)
 		return
 
 /obj/item/ork/jumppack/verb/hover()
@@ -124,9 +125,9 @@
 		to_chat(user, "<span class='warning'>The Jumppack is still charging!</span>")
 		return
 	if(!user.flying)
-		hoverleap()
+		hoverleap(user)
 	else
-		hoverland()
+		hoverland(user)
 
 /obj/item/ork/jumppack/verb/activatejetpack()
 	set name = "Jetpack (short burst)"
@@ -152,7 +153,6 @@
 				var/range = 1
 				var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 				S.time_to_live = 20 //2 seconds instead of full 10
-				item_state = "RGjumppackon"
 				update_icon()
 				playsound(loc, 'sound/effects/jump_pack1.ogg', 75, 0)
 				for(var/turf/simulated/wall/M in range(range, src.loc))									//Cool-Aid man 'OH YEAH!!!'
@@ -170,7 +170,7 @@
 					M.burn_tile()
 				for(var/obj/machinery/door/M in range(range, src.loc))
 					qdel(M)
-				for(var/mob/living/carbon/human/M in range(range, src.loc))
+				for(var/mob/living/carbon/human/M in orange(range, src.loc))
 					M.Stun(stuntime)
 					M.Knockdown(knockdowntime)
 
@@ -191,7 +191,7 @@
 					M.burn_tile()
 				for(var/obj/machinery/door/M in range(range, src.loc))
 					qdel(M)
-				for(var/mob/living/carbon/human/M in range(range, src.loc))
+				for(var/mob/living/carbon/human/M in orange(range, src.loc))
 					M.Stun(stuntime)
 					M.Knockdown(knockdowntime)
 				B.Move(get_step(user,movementdirection), movementdirection)	

@@ -27,6 +27,9 @@
 /obj/item/weapon/storage/belt/ork
 	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
 	species_fit = list("Ork")
+/obj/item/weapon/storage/backpack/ork
+	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	species_fit = list("Ork")
 
 /* 
 	Gloves
