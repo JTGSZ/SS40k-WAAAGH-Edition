@@ -1,4 +1,4 @@
-/* TODO: FINISH THIS JUMPPACK, IT'LL BE FUCKING EPIC MOTHERFUCKER.
+ 
 //Heres the jumppack and all of its code
 /obj/item/ork/jumppack
 	name = "Jumppack"
@@ -33,7 +33,6 @@
 	ethereal_jaunt(user, duration, enteranim, exitanim, smoke)
 
 	var/mobloc = get_turf(user)
-	var/previncorp = user.incorporeal_move //This shouldn't ever matter under usual circumstances
 	if(user.incorporeal_move == INCORPOREAL_ETHEREAL) //they're already jaunting, we have another fix for this but this is sane
 		return
 	user.unlock_from()
@@ -48,7 +47,6 @@
 	user.incorporeal_move = INCORPOREAL_ETHEREAL
 	user.invisibility = INVISIBILITY_MAXIMUM
 	user.flags |= INVULNERABLE
-	var/old_density = user.density
 	user.setDensity(FALSE)
 	user.candrop = 0
 	user.alphas["etheral_jaunt"] = 125 //Spoopy mode to know you are flying
@@ -60,7 +58,7 @@
 
 /obj/item/ork/jumppack/proc/flyland(var/mob/living/user, duration, enteranim = "liquify", exitanim = "reappear", smoke = 1) //We land from high in the air
 	//Begin landing
-	mobloc = get_turf(user)
+	var/mobloc = get_turf(user)
 	if(smoke)
 		var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 		S.time_to_live = 20 //2 seconds instead of full 10
@@ -76,9 +74,9 @@
 	for(var/obj/abstract/screen/movable/spell_master/SM in user.spell_masters)
 		SM.silence_spells(0)
 	user.flags &= ~INVULNERABLE
-	user.setDensity(old_density)
+	user.setDensity(TRUE)
 	user.candrop = 1
-	user.incorporeal_move = previncorp
+	user.incorporeal_move = INCORPOREAL_DEACTIVATE
 	user.alphas -= "etheral_jaunt"
 	user.handle_alpha()
 
@@ -92,14 +90,14 @@
 
 	if(!user.canmove || user.stat || user.restrained())
 		return
-	if(user.flying && !user.dropping)
+	if(user.flying)
 		to_chat(user,"<span class='notice'> You pulse the jump pack to land again.</span>")
 		flyland()
 		return
 	if(world.time < usetime + 120)
 		to_chat(user,"<span class='warning'> The Jetpack is still charging!</span>")
 		return
-	if(!istype(user.loc, /turf/snow) && !istype(user.loc, /turf/unsimulated/floor/snow))
+	if(!istype(user.loc, /turf/unsimulated/outside))
 		user.visible_message("<span class='danger'> [user] shoots into the air and hits their head on the ceiling!</span>")
 		user.Stun(stuntime)
 		user.Knockdown(knockdowntime)
@@ -126,9 +124,9 @@
 		to_chat(user, "<span class='warning'>The Jumppack is still charging!</span>")
 		return
 	if(!user.flying)
-		hover()
+		hoverleap()
 	else
-		unhover()
+		hoverland()
 
 /obj/item/ork/jumppack/verb/activatejetpack()
 	set name = "Jetpack (short burst)"
@@ -201,5 +199,5 @@
 				sleep(3)
 				playsound(loc, 'sound/effects/jump_pack3.ogg', 75, 0)
 				B.Move(get_step(user,movementdirection), movementdirection)	
-	usetime = world.time	*/
+	usetime = world.time
 
