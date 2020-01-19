@@ -7,14 +7,14 @@
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
 	species_fit = list("Ork")
-	var/obj/item/weapon/gun/flamernozzle/mynozzle // The specific gun end tied to this pack
+	var/obj/item/weapon/gun/flamernozzle/nozzle // The specific gun end tied to this pack
 	var/heldorholstered = 0 //Is the nozzle on it or off of it
 	var/max_fuel = 1500 //The max amount of fuel this can hold
 	var/start_fueled = 1 // Do we start fueled
 
 /obj/item/weapon/ork/burnapack/New()
 	. = ..()
-	mynozzle = new(src)
+	nozzle = new /obj/item/weapon/gun/flamernozzle(src)
 	create_reagents(max_fuel)
 	if(start_fueled)
 		reagents.add_reagent(FUEL, max_fuel)
@@ -41,10 +41,21 @@
 	set category = "Object"
 	set src in usr
 
-	if (!can_use_verbs(usr))
-		return
+	var/mob/living/user = usr
 
-	detach_nozzle()
+	if (!can_use_verbs(user))
+		return
+	var/obj/item/weapon/gun/flamernozzle/nozzle = locate() in src	
+	if(!nozzle)
+		to_chat(user, "Your pack seems to have no nozzle, FUCK.")
+		return
+	user.put_in_hands(nozzle)
+	heldorholstered = 1
+	if(user)
+		to_chat(user,"<span class='notice'> You unloop [nozzle.name] off the hook on the [name].</span>")
+	update_icon()
+	user.update_inv_back()
+	//detach_nozzle()
 
 /obj/item/weapon/ork/burnapack/examine(mob/user)
 	..()
@@ -66,30 +77,28 @@
 		return
 
 /obj/item/weapon/ork/burnapack/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/gun/flamernozzle/))
-		attach_nozzle(mynozzle)
+	if(istype(W, /obj/item/weapon/gun/flamernozzle))
+		attach_nozzle(user, W)
 		return
 
-/obj/item/weapon/ork/burnapack/proc/attach_nozzle(var/mob/user)
-	if(!mynozzle)
-		mynozzle = new(src)
-	mynozzle.forceMove(src)
+/obj/item/weapon/ork/burnapack/proc/attach_nozzle(var/mob/user, var/obj/item/weapon/gun/flamernozzle/nozzle)
+	if(!nozzle)
+		nozzle = new(src)
+	nozzle.forceMove(src)
 	heldorholstered = 0
 	if(user)
-		to_chat(user, "<span class='notice'> You loop [mynozzle.name] to a hook on the [name].</span>")
+		to_chat(user, "<span class='notice'> You loop [nozzle.name] to a hook on the [name].</span>")
 	update_icon()
-	user.update_inv_back()
 
 /obj/item/weapon/ork/burnapack/proc/detach_nozzle(var/mob/user)
-	if(!mynozzle)
+	if(!nozzle)
 		to_chat(user, "Your pack seems to have no nozzle, FUCK.")
 		return
-	user.put_in_hands(mynozzle)
+	user.put_in_hands(nozzle)
 	heldorholstered = 1
 	if(user)
-		to_chat(user,"<span class='notice'> You unloop [mynozzle.name] off the hook on the [name].</span>")
+		to_chat(user,"<span class='notice'> You unloop [nozzle.name] off the hook on the [name].</span>")
 	update_icon()
-	user.update_inv_back()
 
 /obj/item/weapon/gun/flamernozzle
 	name = "Burna Pack Nozzle"
@@ -106,7 +115,7 @@
 
 /obj/item/weapon/gun/flamernozzle/dropped(mob/user)
 	if(my_pack)
-		my_pack.attach_nozzle(user)
+		my_pack.attach_nozzle(user,src)
 	else
 		qdel(src)
 
