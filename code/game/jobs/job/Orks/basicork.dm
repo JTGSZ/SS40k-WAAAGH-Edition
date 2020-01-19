@@ -19,6 +19,7 @@
 
 	outfit_name = "Basic Ork"
 	associated_job = /datum/job/basicork
+	no_backpack = TRUE // We handle it in snowflakes.
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
@@ -45,8 +46,17 @@
 				"Kommando" = /obj/item/clothing/under/ork/pants,
 				"Burna Boy" = /obj/item/clothing/under/ork/pants,
 				"Storm Boy" = /obj/item/clothing/under/ork/pants,
-			),
+				),
+			
 			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
+		
+			slot_back_str = list(
+				"Slugga Boy" = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+				"Shoota Boy" = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+				"Kommando"	= /obj/item/weapon/storage/backpack/ork/brownbackpack,
+				"Burna Boy"	= /obj/item/weapon/ork/burnapack,
+				"Storm Boy"	= /obj/item/ork/jumppack,
+				),
 		)
 	)
 

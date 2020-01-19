@@ -9,11 +9,13 @@
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
 	species_fit = list("Ork")
-	var/usetime // Whats the total usetime of the pack.
+	var/usetime // cooldown holder for verb actions
 	var/wallcrashiterations = 4 // How many times are we going to destroy everything before we stop.
 	var/highinair = 0 //Am I flying, like real high?, If I am flying and the user pulls me off they will die.
 	var/stuntime = 5 //How much do I stun on collision.
 	var/knockdowntime = 5 // How much do I knockdown on collision.
+	var/leapduration = 5 SECONDS //How long we stay in the air
+
 	//We have a var called highflying on the mob now.
 
 /obj/item/ork/jumppack/unequipped(mob/living/carbon/human/user, var/from_slot = null)
@@ -25,33 +27,37 @@
 		user.visible_message("<span class='danger'> [user] takes their jumppack off and meets the ground!</span>")
 		user.Stun(stuntime)
 		user.Knockdown(knockdowntime)
-		hoveranimland()
+		animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
+		animate(user, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
+		animate(user)
+		if(user.lying)
+			user.pixel_y -= 6 * PIXEL_MULTIPLIER
 
-/obj/item/ork/jumppack/proc/hoverleap(var/mob/user) // We are flying, but its more like hovering.
+/obj/item/ork/jumppack/proc/hoverleap(mob/user) // We are flying, but its more like hovering.
 	if(user.flying)
 		return
 	if(user.highflying)
 		return
 	to_chat(user, "<span class='warning'>You begin hovering deftly off the ground!</span>")
 	user.flying = 1 //We are now hovering along with an animation afterwards
-	hoveranimleap()
-
-/obj/item/ork/jumppack/proc/hoverland(var/mob/user) // And then we stop hovering.
-	to_chat(user, "<span class='warning'>You stop hovering deftly off the ground!</span>")
-	user.flying = 0	
-	hoveranimland()
-
-/obj/item/ork/jumppack/proc/hoveranimleap(var/mob/user)
 	animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
 
-/obj/item/ork/jumppack/proc/hoveranimland(var/mob/user)
+/obj/item/ork/jumppack/proc/hoverland(mob/user) // And then we stop hovering.
+	if(user.highflying)
+		to_chat(user, "<span class='warning'>You can't hover and jump at the same time.</span>")
+		user.flying = 0
+	else
+		to_chat(user, "<span class='warning'>You stop hovering deftly off the ground!</span>")
+		user.flying = 0
+	
+	//Animation will occur regardless because we are going to land.
 	animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
 	animate(user, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
 	animate(user)
 	if(user.lying)
 		user.pixel_y -= 6 * PIXEL_MULTIPLIER
 
-/obj/item/ork/jumppack/proc/flyleap(var/mob/living/user, duration, enteranim = "liquify", exitanim = "reappear", smoke = 1) //We fly high into the air
+/obj/item/ork/jumppack/proc/flyleap(var/mob/living/user, leapduration, smoke = 1) //We fly high into the air
 	//Yeah, this code is copy and pasted from ethereal jaunt mostly
 	//ethereal_jaunt(user, duration, enteranim, exitanim, smoke) //Reference line
 
@@ -60,7 +66,7 @@
 		return
 	user.unlock_from()
 	//Begin moving with an animation
-	anim(location = mobloc, a_icon = 'icons/mob/mob.dmi', flick_anim = enteranim, direction = user.dir, name = user.name,lay = user.layer+1,plane = user.plane)
+	anim(location = mobloc, a_icon = 'icons/mob/mob.dmi', flick_anim = "liquify", direction = user.dir, name = user.name,lay = user.layer+1,plane = user.plane)
 	if(smoke)
 		user.ExtinguishMob()
 		var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
@@ -74,14 +80,17 @@
 	user.candrop = 0
 	user.alphas["etheral_jaunt"] = 125 //Spoopy mode to know you are flying
 	user.handle_alpha()
-	user.delayNextAttack(duration+25)
-	user.click_delayer.setDelay(duration+25)
+	user.delayNextAttack(leapduration+25)
+	user.click_delayer.setDelay(leapduration+25)
 	user.highflying = 1 //INTO THE AIR
-	
-	sleep(duration)
-	flyland()
 
-/obj/item/ork/jumppack/proc/flyland(var/mob/living/user, duration, enteranim = "liquify", exitanim = "reappear", smoke = 1) //We land from high in the air
+	if(user.flying)
+		hoverland()
+
+	sleep(leapduration)
+	flyland(user)
+
+/obj/item/ork/jumppack/proc/flyland(var/mob/living/user, smoke = 1) //We land from high in the air
 	//Begin landing
 	var/mobloc = get_turf(user)
 	if(smoke)
@@ -89,15 +98,14 @@
 		S.time_to_live = 20 //2 seconds instead of full 10
 	user.delayNextMove(25)
 	user.dir = SOUTH
+
 	sleep(20)
-	anim(location = mobloc, a_icon = 'icons/mob/mob.dmi', flick_anim = exitanim, direction = user.dir, name = user.name,lay = user.layer+1,plane = user.plane)
+	anim(location = mobloc, a_icon = 'icons/mob/mob.dmi', flick_anim = "reappear", direction = user.dir, name = user.name,lay = user.layer+1,plane = user.plane)
 	sleep(5)
 
 	//Forcemove him onto the tile and make him visible and vulnerable
 	user.forceMove(mobloc)
 	user.invisibility = 0
-	for(var/obj/abstract/screen/movable/spell_master/SM in user.spell_masters)
-		SM.silence_spells(0)
 	user.flags &= ~INVULNERABLE
 	user.setDensity(TRUE)
 	user.candrop = 1
@@ -121,7 +129,7 @@
 		flyland(user)
 		return
 	if(world.time < usetime + 120)
-		to_chat(user,"<span class='warning'> The Jetpack is still charging!</span>")
+		to_chat(user,"<span class='warning'> The jumppack is still charging!</span>")
 		return
 	if(!istype(user.loc, /turf/unsimulated/outside))
 		user.visible_message("<span class='danger'> [user] shoots into the air and hits their head on the ceiling!</span>")
@@ -130,13 +138,9 @@
 		user.take_organ_damage(15, 0)
 		return
 	to_chat(user, "<span class='warning'>You take off and jump high off the ground!</span>")
-	flyleap(user) // We leap into the air.
-	sleep(50)
-	if(user.highflying)
-		to_chat(user, "<span class='warning'> You fall back down towards the ground.</span>")
-		flyland(user)
-		return
-
+	flyleap(user, leapduration) // We leap into the air.
+	usetime = world.time
+	
 /obj/item/ork/jumppack/verb/hover()
 	set name = "Hover"
 	set category = "Jumppack"
@@ -159,8 +163,8 @@
 	else
 		hoverland(user)
 
-/obj/item/ork/jumppack/verb/activatejetpack()
-	set name = "Jetpack (short burst)"
+/obj/item/ork/jumppack/verb/activatejumppack()
+	set name = "Jumppack (short burst)"
 	set category = "Jumppack"
 	set desc = "Fly forward in a short potentially explosive burst."
 	set src in usr
@@ -173,7 +177,7 @@
 		if(user.highflying) 
 			return
 	if(world.time < usetime + 60)
-		to_chat(user, "<span class='warning'> The Jetpack is still charging!</span>")
+		to_chat(user, "<span class='warning'> The jumppack is still charging!</span>")
 		return
 	else
 		for (var/i = 1 to wallcrashiterations) //We just loop this way.

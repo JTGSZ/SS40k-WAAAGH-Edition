@@ -56,20 +56,21 @@
 		if("sandwater3")
 			src.ChangeTurf(/turf/unsimulated/outside/water/shallow)
 
-	var/Coastalneighbors //How many coastalneighbors we have next to us.
+	//var/Coastalneighbors //How many coastalneighbors we have next to us.
 	var/Deepwatercounter //How many turfs of deep water are around us
 	for(var/turf/unsimulated/outside/water/deep/NONO in orange(1,src))
 		Deepwatercounter++
 
-	for(var/turf/unsimulated/outside/smoothingcoastline/CHANGE in orange(1,src))
-		Coastalneighbors++
+	//for(var/turf/unsimulated/outside/smoothingcoastline/CHANGE in orange(1,src))
+		//Coastalneighbors++
 
-		CHANGE.relativewall()
-		CHANGE.relativewall_neighbours()
-		CHANGE.coastaldiags()
+		//CHANGE.relativewall()
+		//CHANGE.relativewall_neighbours()
+		//CHANGE.coastaldiags()
 
-	if((Deepwatercounter >= 2) && (!Coastalneighbors >= 2)) //If we see 2 or more deep water turfs around us.
+	if(Deepwatercounter >= 2) //If we see 2 or more deep water turfs around us.
 		src.ChangeTurf(/turf/unsimulated/outside/water/shallow) //And we do not have 2 or more coastal neighbors around us.
+	
 		for(var/turf/unsimulated/outside/smoothingcoastline/CHANGE in orange(1,src))
 			CHANGE.relativewall() //We only run once anyways, might as well be thorough.
 			CHANGE.relativewall_neighbours()
