@@ -4,6 +4,7 @@
 	dynamic_lighting = 0
 	luminosity = 1
 	floragen = FALSE
+	footprints = FALSE
 
 /turf/unsimulated/outside/water/deep
 	name = "WATER DEEP"

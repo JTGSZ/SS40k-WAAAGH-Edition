@@ -56,8 +56,10 @@
 /obj/item/weapon/ork/burnapack/update_icon()
 	if(nozzleout) //updates icon stating whether we have the nozzle on or off.
 		icon_state = "orkburnapack_nozzleout"
+		item_state = "orkburnapack_nozzleout"
 	else
 		icon_state = "orkburnapack_nozzlein"
+		item_state = "orkburnapack_nozzlein"
 
 /obj/item/weapon/ork/burnapack/attackby(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/weapon/gun/flamernozzle))
