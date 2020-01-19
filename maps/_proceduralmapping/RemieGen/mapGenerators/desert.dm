@@ -1,2 +1,3 @@
 /datum/mapGenerator/desert
-	modules = list(/datum/mapGeneratorModule/sparsetreesngrass)
+	modules = list(/datum/mapGeneratorModule/sparsetreesngrass, \
+					/datum/mapGeneratorModule/rocksanddunes) 
