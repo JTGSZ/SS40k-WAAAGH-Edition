@@ -236,8 +236,12 @@
 	eyes_s.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 
 	var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-	if(hair_style)
+	if(hair_style && !current_species.name == "Ork")
 		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
+		hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
+		eyes_s.Blend(hair_s, ICON_OVERLAY)
+	if(current_species.name == "Ork")
+		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "bald_s") //If we are null we are bald
 		hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 		eyes_s.Blend(hair_s, ICON_OVERLAY)
 
@@ -333,7 +337,7 @@
 					clothes_s.Blend(new /icon(feet_dmi, "noble-boots"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "black"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "commissarcap"), ICON_OVERLAY)
-					clothes_s.Blend(new /icon(suit_dmi, "comissarcoat"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon(suit_dmi, "commissarcoat"), ICON_OVERLAY) 
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-sec","securitypack","courierbagsec")
 				if(IGSERGEANT)
 					clothes_s = new /icon(uniform_dmi, "guardsman_under_s")

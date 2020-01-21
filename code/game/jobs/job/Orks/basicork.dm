@@ -7,7 +7,7 @@
 	spawn_positions = 3
 	wage_payout = 0
 	supervisors = "da boss"
-	selection_color = "#bb0016"
+	selection_color = "#e23408ab"
 	species_whitelist = list("Ork") //Orks are whitelisted to orks
 	access = list()
 	minimal_access = list()
