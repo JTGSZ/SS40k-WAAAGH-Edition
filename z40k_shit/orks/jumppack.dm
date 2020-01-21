@@ -15,16 +15,30 @@
 	var/stuntime = 5 //How much do I stun on collision.
 	var/knockdowntime = 5 // How much do I knockdown on collision.
 	var/leapduration = 5 SECONDS //How long we stay in the air
+	var/landinganim = FALSE //Are we partway through the landing anim deciding whether we gib or not on unequip.
 
-	//We have a var called highflying on the mob now.
+	//We have a var called highflying on the mob now for big jumps
+
+	var/burning = FALSE //We are BURNING or not.
+
+/obj/item/ork/jumppack/update_icon() //Right here is where we will apply the jumppack overlay.
+	if(burning) //FLAME ON
+		item_state = "orkjumppack"
+	else
+		item_state = "orkjumppack" //FLAME OFF
 
 /obj/item/ork/jumppack/unequipped(mob/living/carbon/human/user, var/from_slot = null)
-	if(user.highflying)
-		user.visible_message("<span class='danger'> [user] takes their jumppack off in the air and learns about gravity!</span>")
+
+	burning = FALSE //We are not staying lit pal.
+	update_icon()
+
+	if(user.highflying && !landinganim) //If we are highflying and not partway in the landing animation.
+		user.visible_message("<span class='danger'> [user] learns that gravity does exist!</span>")
 		animate(user, pixel_y = 0, time = 10, loop = 0, QUAD_EASING) //Our fun animation
 		sleep(10) //10 ticks until we meet our end
 		user.gib() //And we die
-	if(user.flying)
+	
+	if(user.flying) //The case where we take the jetpack off while hovering.
 		user.flying = 0
 		user.visible_message("<span class='danger'> [user] takes their jumppack off and meets the ground!</span>")
 		user.Stun(stuntime)
@@ -34,6 +48,11 @@
 		animate(user)
 		if(user.lying)
 			user.pixel_y -= 6 * PIXEL_MULTIPLIER
+	
+	if(landinganim) //If we are in the landing animation
+		user.Stun(stuntime) //You get stunned
+		user.Knockdown(knockdowntime) //And knocked down idiot
+		user.visible_message("<span class='danger'> [user] learns that elevation does exist!</span>")
 
 /obj/item/ork/jumppack/proc/hoverleap(mob/user) // We are flying, but its more like hovering.
 	if(user.flying)
@@ -42,15 +61,13 @@
 		return
 	to_chat(user, "<span class='warning'>You begin hovering deftly off the ground!</span>")
 	user.flying = 1 //We are now hovering along with an animation afterwards
+	burning = TRUE
+	update_icon() //Loop is 1 on the below animate.
 	animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
 
 /obj/item/ork/jumppack/proc/hoverland(mob/user) // And then we stop hovering.
-	if(user.highflying)
-		to_chat(user, "<span class='warning'>You can't hover and jump at the same time.</span>")
-		user.flying = 0
-	else
-		to_chat(user, "<span class='warning'>You stop hovering deftly off the ground!</span>")
-		user.flying = 0
+	to_chat(user, "<span class='warning'>You stop hovering!</span>")
+	user.flying = 0
 	
 	//Animation will occur regardless because we are going to land.
 	animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
@@ -59,9 +76,15 @@
 	if(user.lying)
 		user.pixel_y -= 6 * PIXEL_MULTIPLIER
 
+	burning = FALSE
+	update_icon()
+
 /obj/item/ork/jumppack/proc/flyleap(var/mob/living/user, leapduration, smoke = 1) //We fly high into the air
 	//Yeah, this code is copy and pasted from ethereal jaunt mostly
 	//ethereal_jaunt(user, duration, enteranim, exitanim, smoke) //Reference line
+
+	burning = TRUE
+	update_icon()
 
 	if(user.incorporeal_move == INCORPOREAL_ETHEREAL) //they're already jaunting, we have another fix for this but this is sane
 		return
@@ -84,15 +107,20 @@
 	user.click_delayer.setDelay(leapduration+25)
 	user.highflying = 1 //INTO THE AIR
 
-	if(user.flying)
-		hoverland()
-
 	sleep(leapduration)
 	
-	if(user && user.stat != DEAD) //If our dumb ass didn't take off the jetpack midair
+	if(user.stat != DEAD) //If our dumb ass didn't take off the jetpack midair
 		flyland(user) //we now land
+	else //We somehow died in the air
+		burning = FALSE
+		update_icon()
+		user.visible_message("<span class='danger'> A corpse suddenly makes its grand entrance!</span>")
+		animate(user, pixel_y = 0, time = 10, loop = 0, QUAD_EASING) //Our fun animation
+		sleep(10) //10 ticks until we meet our end
+		user.gib() //And the corpse gibs
 
 /obj/item/ork/jumppack/proc/flyland(var/mob/living/user, smoke = 1) //We land from high in the air
+	
 	//Begin landing
 	var/mobloc = get_turf(user)
 	//user.delayNextMove(25)
@@ -106,10 +134,19 @@
 	user.flags &= ~INVULNERABLE
 	user.candrop = 1
 	user.incorporeal_move = INCORPOREAL_DEACTIVATE
-
-	sleep(20) //We should have 20 ticks before footprints start up again
+	sleep(5)
+	landinganim = TRUE //We partway in the landing animation, so we don't gib if we take the jumppack off
+	sleep(15) //We should have 15 ticks before footprints start up again aka 20 total
 	user.setDensity(TRUE) // We also aren't dense until the anim is done too.
 	user.highflying = 0 //BACK DOWN AGAIN
+
+	if(user.flying) //If we were flying, we end this now.
+		user.flying = 0
+
+	landinganim = FALSE //We are also done with the landing animation.
+	burning = FALSE
+	update_icon()
+	animate(user) //We also end any animations we are in if we were flying.
 
 /obj/item/ork/jumppack/verb/flight()
 	set name = "Vertical Leap"
@@ -177,58 +214,39 @@
 		to_chat(user, "<span class='warning'> The jumppack is still charging!</span>")
 		return
 	else
-		for (var/i = 1 to wallcrashiterations) //We just loop this way.
-			spawn(0)
-				var/mob/B = usr
-				var/movementdirection = B.dir
-				var/range = 1
-				var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
-				S.time_to_live = 20 //2 seconds instead of full 10
-				update_icon()
-				playsound(loc, 'sound/effects/jump_pack1.ogg', 75, 0)
-				for(var/turf/simulated/wall/M in range(range, src.loc))									//Cool-Aid man 'OH YEAH!!!'
-					if (istype(M, /turf/simulated/wall) && !istype(M, /turf/simulated/wall/r_wall))
-						var/randomizer = pick('sound/effects/wallsmash1.ogg','sound/effects/wallsmash2.ogg', 'sound/effects/wallsmash3.ogg')
-						playsound(loc, randomizer, 75, 0)
-						qdel(M)
-					if (istype(M, /turf/simulated/wall/r_wall))
-						M.ex_act(1)
-				for(var/obj/structure/grille/M in range(range, src.loc))
-					qdel(M)
-				for(var/obj/structure/window/M in range(range, src.loc))
-					qdel(M)
-				for(var/turf/simulated/floor/M in range(range, src.loc))
-					M.burn_tile()
-				for(var/obj/machinery/door/M in range(range, src.loc))
-					qdel(M)
-				for(var/mob/living/carbon/human/M in orange(range, src.loc))
-					M.Stun(stuntime)
-					M.Knockdown(knockdowntime)
+		burning = TRUE
+		update_icon()
+		playsound(loc, 'z40k_shit/sounds/Jump_Pack1.ogg', 75, 0)
 
-				B.Move(get_step(usr,movementdirection), movementdirection)
-				sleep(1)
-				for(var/turf/simulated/wall/M in range(range, src.loc))
-					if (istype(M, /turf/simulated/wall) && !istype(M, /turf/simulated/wall/r_wall))
-						var/randomizer = pick('sound/effects/wallsmash1.ogg','sound/effects/wallsmash2.ogg', 'sound/effects/wallsmash3.ogg')
-						playsound(loc, randomizer, 75, 0)
-						qdel(M)
-					if (istype(M, /turf/simulated/wall/r_wall))
-						M.ex_act(1)
-				for(var/obj/structure/grille/M in range(range, src.loc))
+		var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
+		S.time_to_live = 20 //2 seconds instead of full 10
+
+		for(var/i = 1 to wallcrashiterations) //We just loop this way.
+			var/movementdirection = user.dir
+			var/range = 1
+			user.Move(get_step(usr,movementdirection), movementdirection)
+			for(var/turf/simulated/wall/M in range(range, src.loc))									//Cool-Aid man 'OH YEAH!!!'
+				if(istype(M, /turf/simulated/wall) && !istype(M, /turf/simulated/wall/r_wall))
+					var/randomizer = pick('z40k_shit/sounds/wallsmash1.ogg','z40k_shit/sounds/wallsmash2.ogg', 'z40k_shit/sounds/wallsmash3.ogg')
+					playsound(loc, randomizer, 75, 0)
 					qdel(M)
-				for(var/obj/structure/window/M in range(range, src.loc))
-					qdel(M)
-				for(var/turf/simulated/floor/M in range(range, src.loc))
-					M.burn_tile()
-				for(var/obj/machinery/door/M in range(range, src.loc))
-					qdel(M)
-				for(var/mob/living/carbon/human/M in orange(range, src.loc))
-					M.Stun(stuntime)
-					M.Knockdown(knockdowntime)
-				B.Move(get_step(user,movementdirection), movementdirection)	
-				B.Move(get_step(user,movementdirection), movementdirection)	
-				sleep(3)
-				playsound(loc, 'sound/effects/jump_pack3.ogg', 75, 0)
-				B.Move(get_step(user,movementdirection), movementdirection)	
+				if(istype(M, /turf/simulated/wall/r_wall))
+					M.ex_act(1)
+			for(var/obj/structure/M in range(range, src.loc))
+				qdel(M)
+			for(var/turf/simulated/floor/M in range(range, src.loc))
+				M.burn_tile()
+			for(var/obj/machinery/M in range(range, src.loc))
+				qdel(M)
+			for(var/mob/living/carbon/human/M in orange(range, src.loc))
+				M.Stun(stuntime)
+				M.Knockdown(knockdowntime)
+			playsound(loc, 'z40k_shit/sounds/Jump_Pack2.ogg', 75, 0)
+			user.Move(get_step(usr,movementdirection), movementdirection)
+			sleep(2)
+
+		sleep(3)
+		playsound(loc, 'z40k_shit/sounds/Jump_Pack3.ogg', 75, 0) //We end our shit
+		user.Move(get_step(user,user.dir), user.dir)
 	usetime = world.time
 

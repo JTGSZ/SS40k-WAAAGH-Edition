@@ -5,7 +5,7 @@
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "chainsword"
 	item_state = "chainsword"
-	hitsound = 'sound/weapons/chainsword_swing.ogg'
+	hitsound = 'z40k_shit/sounds/chainsword_swing.ogg'
 	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT

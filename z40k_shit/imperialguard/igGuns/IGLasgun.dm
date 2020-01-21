@@ -19,6 +19,7 @@
 	item_state = "lasgun"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
+	fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 	projectile_type = /obj/item/projectile/beam/lowpower
 	charge_cost = 75
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.

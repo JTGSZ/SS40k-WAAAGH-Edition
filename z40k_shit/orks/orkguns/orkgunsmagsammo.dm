@@ -81,7 +81,7 @@
 	caliber = list(ORKSCRAPBULLET = 1)
 	ammo_type = "/obj/item/ammo_casing/orkbullet"
 	mag_type = "/obj/item/ammo_storage/magazine/sluggamag"
-	fire_sound = 'sound/weapons/slugga_1.ogg'
+	fire_sound = 'z40k_shit/sounds/slugga_1.ogg'
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
