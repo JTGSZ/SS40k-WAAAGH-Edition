@@ -19,7 +19,7 @@
 	desc = "If you see this object, say something on discord."
 	icon_state = "bayonet"
 	item_state = "bayonet"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
 	siemens_coefficient = 1
 	sharpness = 1.5
 	w_class = W_CLASS_SMALL
@@ -41,10 +41,10 @@
 /obj/item/weapon/attachment/bayonet //Bayonet
 	name = "bayonet"
 	desc = "A bayonet made to be attached to a lasgun."
-	icon = 'icons/obj/IGstuff/IGequipment.dmi'
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "bayonet"
 	item_state = "bayonet"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
 	force = 10.0
 	throwforce = 10.0
 	throw_speed = 3

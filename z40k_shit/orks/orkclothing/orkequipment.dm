@@ -5,30 +5,30 @@
 
 //Heres all of the parents.
 /obj/item/clothing/gloves/ork //Parent of the children afterwards, inherits from these paths.
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi' //Object Icon Path, what appears when dropped.
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi' //Object Icon Path, what appears when dropped.
 	species_restricted = list("Ork") //Only orks can wear ork stuff for now at least.
 	species_fit = list("Ork") //We insure it checks to fit for the species icon.
 /obj/item/clothing/head/ork
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_restricted = list("Ork")
 	species_fit = list("Ork")
 /obj/item/clothing/suit/armor/ork
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_restricted = list("Ork")
 	species_fit = list("Ork")
 /obj/item/clothing/shoes/ork
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_restricted = list("Ork")
 	species_fit = list("Ork")
 /obj/item/clothing/under/ork
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_restricted = list("Ork")
 	species_fit = list("Ork")
 /obj/item/weapon/storage/belt/ork
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_fit = list("Ork")
 /obj/item/weapon/storage/backpack/ork
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_fit = list("Ork")
 
 /* 
@@ -202,6 +202,6 @@
 /obj/item/weapon/storage/backpack/ork/brownbackpack
 	name = "Brown Backpack"
 	desc = "A brown backpack, maybe one day there will be more to it."
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	icon_state = "orkbackpack"
 	item_state = "orkbackpack"

@@ -5,8 +5,8 @@
 /obj/item/weapon/choppa
 	name = "choppa"
 	desc = "A basic choppa made for choppin shit."
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
-	icon = 'icons/obj/orkstuff/orkequipment.dmi'
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
+	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "choppa"
 	item_state = "choppa"
 	hitsound = 'sound/weapons/bloodyslice.ogg'
@@ -33,10 +33,10 @@
 /obj/item/weapon/shield/orkshield
 	name = "ork shield"
 	desc = "WAAAGH, I AIN'T GETTIN HIT BY SHIT (about 50% of the time)."
-	icon = 'icons/obj/orkstuff/orkequipment.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "nobshield"
 	item_state = "nobshield"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
 	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK

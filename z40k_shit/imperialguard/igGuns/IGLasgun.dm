@@ -6,7 +6,7 @@
 /obj/item/weapon/cell/lasgunmag //Our magazine
 	name = "lasgun mag"
 	origin_tech = Tc_POWERSTORAGE + "=8"
-	icon = 'icons/obj/IGstuff/IGequipment.dmi'
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "lasgunmag"
 	maxcharge = 4500
 	starting_materials = list(MAT_IRON = 700, MAT_GLASS = 80)
@@ -14,10 +14,10 @@
 /obj/item/weapon/gun/energy/laser/lasgun
 	name = "M-Galaxy Pattern Lasgun"
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
-	icon = 'icons/obj/IGstuff/IGequipment.dmi'
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "lasgun"
 	item_state = "lasgun"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
 	projectile_type = /obj/item/projectile/beam/lowpower
 	charge_cost = 75

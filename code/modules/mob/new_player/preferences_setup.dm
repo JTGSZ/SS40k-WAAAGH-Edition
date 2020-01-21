@@ -366,9 +366,9 @@
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
 				if(BASICORK) //SS40k EDIT
 					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
-					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
-					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('icons/mob/species/ork/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
 
 	// Observers get tourist outfit.
 	else

@@ -1,8 +1,8 @@
 /obj/item/weapon/ork/burnapack
 	name = "Burna Pack"
 	desc = "Let forth your burning spirit in a gout of flames."
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
-	icon_state = "orkburnapack"
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
+	icon_state = "orkburnapack_nozzlein"
 	item_state = "orkburnapack"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
@@ -56,15 +56,14 @@
 /obj/item/weapon/ork/burnapack/update_icon()
 	if(nozzleout) //updates icon stating whether we have the nozzle on or off.
 		icon_state = "orkburnapack_nozzleout"
-		item_state = "orkburnapack_nozzleout"
 	else
 		icon_state = "orkburnapack_nozzlein"
-		item_state = "orkburnapack_nozzlein"
 
 /obj/item/weapon/ork/burnapack/attackby(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/weapon/gun/flamernozzle))
 		user.drop_item(A)
 		nozzleout = FALSE
+		update_icon()
 
 /obj/item/weapon/ork/burnapack/unequipped(mob/user)
 	if(nozzleout)
@@ -72,6 +71,7 @@
 		if(FN)
 			user.drop_item(FN)
 			nozzleout = FALSE
+			update_icon()
 
 /obj/item/weapon/ork/burnapack/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity)
@@ -97,10 +97,11 @@
 	name = "Burna Pack Nozzle"
 	desc = "The shooty end of a flamethrower"
 	icon = 'icons/obj/flamethrower.dmi'
-	icon_state = "flamethrowerbase"
-	item_state = "flamethrower_0"
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/burnanozzle.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/burnanozzle.dmi')
+	icon_state = "burnanozzle_off"
+	item_state = "burnanozzle_off"
 	var/obj/item/weapon/ork/burnapack/my_pack
-	var/currently_lit = 0
+	var/currently_lit = FALSE //Are we ignited or not?
 	throw_range = 0
 	throw_speed = 1
 
@@ -113,13 +114,23 @@
 		my_pack.nozzleout = FALSE
 		src.forceMove(my_pack)
 		my_pack.update_icon()
+		currently_lit = FALSE
+		update_icon()
 	else
 		qdel(src)
+
+/obj/item/weapon/gun/flamernozzle/update_icon()
+	if(currently_lit)
+		icon_state = "burnanozzle_on"
+	else
+		icon_state = "burnanozzle_off"
 
 /obj/item/weapon/gun/flamernozzle/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()
 	if(isturf(hit_atom))
 		src.forceMove(my_pack)
+		currently_lit = FALSE
+		update_icon()
 
 	if(my_pack)
 		my_pack.nozzleout = FALSE
@@ -128,10 +139,12 @@
 /obj/item/weapon/gun/flamernozzle/attack_self(var/mob/user) //If we click this, we ignite it.
 	if(!currently_lit)
 		to_chat(user, "<span class='notice'> You ignite the nozzle end.")
-		currently_lit = 1
+		currently_lit = TRUE
+		update_icon()	
 	else
-		currently_lit = 0
+		currently_lit = FALSE
 		to_chat(user, "<span class='notice'> You unignite the nozzle end.")
+		update_icon()
 	..()
 
 /obj/item/weapon/gun/flamernozzle/verb/light_flame() //we also have a verb to turn the igniter on
@@ -141,9 +154,11 @@
 	set src in usr
 
 	if(!currently_lit)
-		currently_lit = 1
+		currently_lit = TRUE
+		update_icon()
 	else
-		currently_lit = 0
+		currently_lit = FALSE
+		update_icon()
 
 /obj/item/weapon/gun/flamernozzle/process_chambered()
 	if(in_chamber)

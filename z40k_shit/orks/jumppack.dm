@@ -3,7 +3,7 @@
 /obj/item/ork/jumppack
 	name = "Jumppack"
 	desc = "A missile, it still works enough to launch you with it for the most part."
-	icon = 'icons/obj/orkstuff/orkarmorandclothesOBJ.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	icon_state = "orkjumppack"
 	item_state = "orkjumppack"
 	slot_flags = SLOT_BACK

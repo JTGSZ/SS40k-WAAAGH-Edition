@@ -1,8 +1,8 @@
 /obj/item/weapon/chainsword
 	name = "Chainsword"
 	desc = "A chainsword, that can probably saw through a great many things."
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
-	icon = 'icons/obj/IGstuff/IGequipment.dmi'
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "chainsword"
 	item_state = "chainsword"
 	hitsound = 'sound/weapons/chainsword_swing.ogg'
@@ -24,10 +24,10 @@
 /obj/item/weapon/shield/IGshield
 	name = "metal shield"
 	desc = "A piece metal that should be as unwavering as the person holding it."
-	icon = 'icons/obj/IGstuff/IGequipment.dmi'
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "shieldimp"
 	item_state = "shieldimp"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/IGequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/IGequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
 	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
@@ -72,8 +72,8 @@
 	name = "Eviscerator"
 	desc = "A oversized chainsword. This one has a exterminator attached to it too."
 	slot_flags = SLOT_BACK
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/eviscerator.dmi', "right_hand" = 'icons/mob/in-hand/right/eviscerator.dmi')
-	icon_state = "eviscerator"
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/eviscerator.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/eviscerator.dmi')
+	icon_state = "eviscerator" 
 	item_state = "eviscerator"
 	throwforce = 35
 	force = 50

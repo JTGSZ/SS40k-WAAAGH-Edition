@@ -13,7 +13,7 @@
 /obj/item/ammo_storage/box/piles
 	name = "A pile of something you shouldn't see"
 	desc = "Someone fucked up."
-	icon = 'icons/obj/orkstuff/orkbulletpilesandmags.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
 	icon_state = "sluggapile"
 	max_ammo = 0
 	pile = 1
@@ -21,7 +21,7 @@
 /obj/item/ammo_storage/box/piles/sluggabulletpile
 	name = "A pile of live slugga bullets"
 	desc = "Its a pile of bullets alright."
-	icon = 'icons/obj/orkstuff/orkbulletpilesandmags.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
 	icon_state = "sluggapile"
 	ammo_type = "/obj/item/ammo_casing/orkbullet"
 	max_ammo = 30
@@ -30,7 +30,7 @@
 /obj/item/ammo_storage/box/piles/buckshotpile
 	name = "A pile of unspent buckshot"
 	desc = "Its a pile of buckshot alright."
-	icon = 'icons/obj/orkstuff/orkbulletpilesandmags.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
 	icon_state = "buckshotpile"
 	ammo_type = "/obj/item/ammo_casing/shotgun/buckshot"
 	max_ammo = 12
@@ -38,7 +38,7 @@
 
 /obj/item/ammo_storage/magazine/sluggamag
 	name = "Slugga Mag"
-	icon = 'icons/obj/orkstuff/orkbulletpilesandmags.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
 	icon_state = "sluggamag"
 	desc = "A magazine for a slugga"
 	origin_tech = Tc_COMBAT + "=2"
@@ -49,7 +49,7 @@
 
 /obj/item/ammo_storage/magazine/shottamag
 	name = "Shotta Mag"
-	icon = 'icons/obj/orkstuff/orkbulletpilesandmags.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
 	icon_state = "shottamag"
 	desc = "Why pump when you can just dump.... Up to 5 shots"
 	origin_tech = Tc_COMBAT + "=2"
@@ -62,7 +62,7 @@
 /obj/item/weapon/taperoll
 	name = "Tape" //Perhaps one day.
 	desc = "This is some incredible Ork technology right here."
-	icon = 'icons/obj/orkstuff/orkequipment.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "tape"
 	item_state = "tape"
 	w_class = W_CLASS_SMALL
@@ -70,10 +70,10 @@
 /obj/item/weapon/gun/projectile/automatic/slugga
 	name = "\improper Slugga"
 	desc = "What dis?"
-	icon = 'icons/obj/orkstuff/orkequipment.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "slugga"
 	item_state = "slugga"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
 	origin_tech = Tc_COMBAT + "=5;" + Tc_MATERIALS + "=2"
 	w_class = W_CLASS_MEDIUM
 	max_shells = 25
@@ -98,10 +98,10 @@
 /obj/item/weapon/gun/projectile/shotgun/shotta
 	name = "shotta"
 	desc = "A crude shotgun, what more is there to say?"
-	icon = 'icons/obj/orkstuff/orkequipment.dmi'
+	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "shotta"
 	item_state = "slugga" //Lame but I can't be assed to spend time on this atm.
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/orkequipment_left.dmi', "right_hand" = 'icons/mob/in-hand/right/orkequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
 	origin_tech = Tc_COMBAT + "=6;" + Tc_MATERIALS + "=3"
 	ammo_type = "/obj/item/ammo_casing/shotgun"
 	mag_type = "/obj/item/ammo_storage/magazine/shottamag"

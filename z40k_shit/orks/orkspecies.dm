@@ -33,18 +33,18 @@
 		"eyes" =     /datum/organ/internal/eyes
 	)
 
-	uniform_icons 		= 'icons/mob/species/ork/orkgearMOB.dmi'
+	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	fat_uniform_icons   = 'icons/mob/uniform_fat.dmi'
-	gloves_icons        = 'icons/mob/species/ork/orkgearMOB.dmi'
+	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	glasses_icons       = 'icons/mob/eyes.dmi'
 //	ears_icons          = 'icons/mob/ears.dmi'
-	shoes_icons         = 'icons/mob/species/ork/orkgearMOB.dmi'
-	head_icons          = 'icons/mob/species/ork/orkgearMOB.dmi'
-	belt_icons          = 'icons/mob/species/ork/orkgearMOB.dmi'
-	wear_suit_icons     = 'icons/mob/species/ork/orkgearMOB.dmi'
+	shoes_icons         = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	head_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	fat_wear_suit_icons = 'icons/mob/suit_fat.dmi'
 //	wear_mask_icons     = 'icons/mob/mask.dmi'
-	back_icons          = 'icons/mob/species/ork/orkgearMOB.dmi'
+	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	id_icons            = 'icons/mob/ids.dmi'
 
 /datum/species/ork/gib(mob/living/carbon/human/H)
