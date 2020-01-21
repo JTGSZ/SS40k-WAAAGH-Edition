@@ -21,7 +21,9 @@
 /obj/item/ork/jumppack/unequipped(mob/living/carbon/human/user, var/from_slot = null)
 	if(user.highflying)
 		user.visible_message("<span class='danger'> [user] takes their jumppack off in the air and learns about gravity!</span>")
-		user.gib()
+		animate(user, pixel_y = 0, time = 10, loop = 0, QUAD_EASING) //Our fun animation
+		sleep(10) //10 ticks until we meet our end
+		user.gib() //And we die
 	if(user.flying)
 		user.flying = 0
 		user.visible_message("<span class='danger'> [user] takes their jumppack off and meets the ground!</span>")
@@ -61,25 +63,23 @@
 	//Yeah, this code is copy and pasted from ethereal jaunt mostly
 	//ethereal_jaunt(user, duration, enteranim, exitanim, smoke) //Reference line
 
-	var/mobloc = get_turf(user)
 	if(user.incorporeal_move == INCORPOREAL_ETHEREAL) //they're already jaunting, we have another fix for this but this is sane
 		return
 	user.unlock_from()
 	//Begin moving with an animation
-	anim(location = mobloc, a_icon = 'icons/mob/mob.dmi', flick_anim = "liquify", direction = user.dir, name = user.name,lay = user.layer+1,plane = user.plane)
+	animate(user, pixel_y = 300, time = 20, loop = 0, QUAD_EASING)
+
 	if(smoke)
 		user.ExtinguishMob()
 		var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 		S.time_to_live = 20 //2 seconds instead of full 10
 
-	//Turn on jaunt incorporeal movement, make him invincible and invisible
+	//Turn on jaunt incorporeal movement, make him invincible, they can't see him over the screen anyways.
 	user.incorporeal_move = INCORPOREAL_ETHEREAL
 	user.invisibility = INVISIBILITY_MAXIMUM
 	user.flags |= INVULNERABLE
 	user.setDensity(FALSE)
 	user.candrop = 0
-	user.alphas["etheral_jaunt"] = 125 //Spoopy mode to know you are flying
-	user.handle_alpha()
 	user.delayNextAttack(leapduration+25)
 	user.click_delayer.setDelay(leapduration+25)
 	user.highflying = 1 //INTO THE AIR
@@ -88,30 +88,27 @@
 		hoverland()
 
 	sleep(leapduration)
-	flyland(user)
+	
+	if(user && user.stat != DEAD) //If our dumb ass didn't take off the jetpack midair
+		flyland(user) //we now land
 
 /obj/item/ork/jumppack/proc/flyland(var/mob/living/user, smoke = 1) //We land from high in the air
 	//Begin landing
 	var/mobloc = get_turf(user)
-	if(smoke)
-		var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
-		S.time_to_live = 20 //2 seconds instead of full 10
-	user.delayNextMove(25)
+	//user.delayNextMove(25)
 	user.dir = SOUTH
 
-	sleep(20)
-	anim(location = mobloc, a_icon = 'icons/mob/mob.dmi', flick_anim = "reappear", direction = user.dir, name = user.name,lay = user.layer+1,plane = user.plane)
-	sleep(5)
+	animate(user, pixel_y = 0, time = 20, loop = 0, QUAD_EASING)
 
 	//Forcemove him onto the tile and make him visible and vulnerable
 	user.forceMove(mobloc)
 	user.invisibility = 0
 	user.flags &= ~INVULNERABLE
-	user.setDensity(TRUE)
 	user.candrop = 1
 	user.incorporeal_move = INCORPOREAL_DEACTIVATE
-	user.alphas -= "etheral_jaunt"
-	user.handle_alpha()
+
+	sleep(20) //We should have 20 ticks before footprints start up again
+	user.setDensity(TRUE) // We also aren't dense until the anim is done too.
 	user.highflying = 0 //BACK DOWN AGAIN
 
 /obj/item/ork/jumppack/verb/flight()

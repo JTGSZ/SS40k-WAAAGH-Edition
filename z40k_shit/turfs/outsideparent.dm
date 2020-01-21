@@ -72,7 +72,7 @@
 	..()
 	if(istype(A,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
-		if(footprint_parent && !H.flying)
+		if(footprint_parent && !H.flying && !H.highflying)
 			if(!H.locked_to && !H.lying) //Our human is walking or at least standing upright, create footprints
 				footprint_parent.AddfootprintGoing(H.get_footprint_type(), H.dir)
 			else //Our human is down on his ass or in a vehicle, create tracks
@@ -82,7 +82,7 @@
 	..()
 	if(istype(A,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
-		if(footprint_parent && !H.flying)
+		if(footprint_parent && !H.flying && !H.highflying)
 			if(!H.locked_to && !H.lying) //Our human is walking or at least standing upright, create footprints
 				footprint_parent.AddfootprintComing(H.get_footprint_type(), H.dir)
 			else //Our human is down on his ass or in a vehicle, create tracks
