@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	wage_payout = 65
 	supervisors = "the Emperor"
-	selection_color = "#efff14"
+	selection_color = "#E0D68B"
 	access = list()
 	minimal_access = list()
 	minimal_player_age = 7

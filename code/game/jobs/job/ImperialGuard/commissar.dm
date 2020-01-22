@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Regiment General"
-	selection_color = "#efff14"
+	selection_color = "#E0D68B"
 	req_admin_notify = 1
 	wage_payout = 80
 	access = list() 

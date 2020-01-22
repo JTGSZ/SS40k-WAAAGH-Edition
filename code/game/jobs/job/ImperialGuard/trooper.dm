@@ -8,7 +8,7 @@
 	spawn_positions = 50
 	wage_payout = 45
 	supervisors = "Commissar and your Platoon Sergeant."
-	selection_color = "#00d13fff"
+	selection_color = "#A6EAA9"
 	idtype = /obj/item/weapon/card/id/security
 	access = list()
 	minimal_access = list()

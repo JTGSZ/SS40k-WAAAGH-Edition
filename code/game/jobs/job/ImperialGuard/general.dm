@@ -6,7 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the emperor, and the imperium of man"
-	selection_color = "#017423ff"
+	selection_color = "#78DB7D"
 	idtype = /obj/item/weapon/card/id/gold
 	req_admin_notify = 1
 	access = list() 			//See get_access()

@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	wage_payout = 65
 	supervisors = "the head of security"
-	selection_color = "#00bd39ff"
+	selection_color = "#A6EAA9"
 	access = list()
 	minimal_access = list()
 	minimal_player_age = 7

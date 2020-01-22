@@ -5,7 +5,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 0
-	spawn_positions = 1
+	spawn_positions = 0
 	selection_color = "#ccffcc"
 	supervisors = "your laws"
 	req_admin_notify = 2
@@ -24,7 +24,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 0
-	spawn_positions = 2
+	spawn_positions = 0
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
 	no_id = 1
@@ -43,7 +43,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 0
-	spawn_positions = 2
+	spawn_positions = 0
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
 	no_id = 1
