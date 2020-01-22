@@ -10,6 +10,7 @@
 
 	can_border_transition = FALSE
 	floragen = TRUE
+	footprint_color = "#BC8F4B" 
 
 
 /turf/unsimulated/outside/sand/New()

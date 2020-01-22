@@ -2,8 +2,8 @@
 	name = "Burna Pack"
 	desc = "Let forth your burning spirit in a gout of flames."
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	icon_state = "orkburnapack_nozzlein"
-	item_state = "orkburnapack"
+	icon_state = "orkburnapack_in"
+	item_state = "orkburnapack_in"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
 	species_fit = list("Ork")
@@ -54,10 +54,17 @@
 	to_chat(user, "<span class='info'> Has [max_fuel] unit\s of fuel remaining.</span>")
 
 /obj/item/weapon/ork/burnapack/update_icon()
-	if(nozzleout) //updates icon stating whether we have the nozzle on or off.
-		icon_state = "orkburnapack_nozzleout"
-	else
-		icon_state = "orkburnapack_nozzlein"
+	var/mob/living/carbon/human/H = loc
+
+	if(istype(loc,/mob/living/carbon/human))
+		if(nozzleout) //updates icon stating whether we have the nozzle on or off.
+			icon_state = "orkburnapack_out"
+			item_state = "orkburnapack_out"
+			H.update_inv_back()
+		else
+			icon_state = "orkburnapack_in"
+			item_state = "orkburnapack_in"
+			H.update_inv_back()
 
 /obj/item/weapon/ork/burnapack/attackby(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/weapon/gun/flamernozzle))
@@ -96,8 +103,8 @@
 /obj/item/weapon/gun/flamernozzle
 	name = "Burna Pack Nozzle"
 	desc = "The shooty end of a flamethrower"
-	icon = 'icons/obj/flamethrower.dmi'
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/burnanozzle.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/burnanozzle.dmi')
+	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/64x64burnanozzle.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/64x64burnanozzle.dmi')
 	icon_state = "burnanozzle_off"
 	item_state = "burnanozzle_off"
 	var/obj/item/weapon/ork/burnapack/my_pack
@@ -120,10 +127,17 @@
 		qdel(src)
 
 /obj/item/weapon/gun/flamernozzle/update_icon()
-	if(currently_lit)
-		icon_state = "burnanozzle_on"
-	else
-		icon_state = "burnanozzle_off"
+	var/mob/living/carbon/human/H = loc
+
+	if(istype(loc,/mob/living/carbon/human))
+		if(currently_lit)
+			icon_state = "burnanozzle_on"
+			item_state = "burnanozzle_on"
+			H.update_inv_hands()
+		else
+			icon_state = "burnanozzle_off"
+			item_state = "burnanozzle_off"
+			H.update_inv_hands()
 
 /obj/item/weapon/gun/flamernozzle/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()

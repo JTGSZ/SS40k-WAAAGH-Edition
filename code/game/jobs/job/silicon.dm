@@ -10,6 +10,8 @@
 	supervisors = "your laws"
 	req_admin_notify = 2
 	minimal_player_age = 30
+	must_be_map_enabled = TRUE
+
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -29,6 +31,7 @@
 	selection_color = "#ddffdd"
 	no_id = 1
 	minimal_player_age = 10
+	must_be_map_enabled = TRUE
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -47,6 +50,7 @@
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
 	no_id = 1
+	must_be_map_enabled = TRUE
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

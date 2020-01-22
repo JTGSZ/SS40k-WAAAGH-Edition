@@ -4,8 +4,8 @@
 	name = "Jumppack"
 	desc = "A missile, it still works enough to launch you with it for the most part."
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	icon_state = "orkjumppack"
-	item_state = "orkjumppack"
+	icon_state = "orkjumppack_off"
+	item_state = "orkjumppack_off"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
 	species_fit = list("Ork")
@@ -22,10 +22,17 @@
 	var/burning = FALSE //We are BURNING or not.
 
 /obj/item/ork/jumppack/update_icon() //Right here is where we will apply the jumppack overlay.
-	if(burning) //FLAME ON
-		item_state = "orkjumppack"
-	else
-		item_state = "orkjumppack" //FLAME OFF
+	var/mob/living/carbon/human/H = loc
+
+	if(istype(loc,/mob/living/carbon/human)) //Needs to always update its own overlay, but only update mob overlays if it's actually on a mob.
+		if(burning) //FLAME ON
+			icon_state = "orkjumppack_on"
+			item_state = "orkjumppack_on"
+			H.update_inv_back()
+		else
+			item_state = "orkjumppack_off" //FLAME OFF
+			icon_state = "orkjumppack_off"
+			H.update_inv_back()
 
 /obj/item/ork/jumppack/unequipped(mob/living/carbon/human/user, var/from_slot = null)
 
@@ -43,6 +50,7 @@
 		user.visible_message("<span class='danger'> [user] takes their jumppack off and meets the ground!</span>")
 		user.Stun(stuntime)
 		user.Knockdown(knockdowntime)
+		user.drop_item(src)
 		animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
 		animate(user, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
 		animate(user)
@@ -248,5 +256,7 @@
 		sleep(3)
 		playsound(loc, 'z40k_shit/sounds/Jump_Pack3.ogg', 75, 0) //We end our shit
 		user.Move(get_step(user,user.dir), user.dir)
+		burning = FALSE
+		update_icon()
 	usetime = world.time
 
