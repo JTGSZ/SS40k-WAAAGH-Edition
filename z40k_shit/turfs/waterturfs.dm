@@ -1,6 +1,6 @@
 /turf/unsimulated/outside/water
 	name = "Waterparent"
-	icon = 'z40k_shit/icons/turfs/water.dmi'
+	icon = 'z40k_shit/icons/turfs/coastal2.dmi'
 	dynamic_lighting = 0
 	luminosity = 1
 	floragen = FALSE

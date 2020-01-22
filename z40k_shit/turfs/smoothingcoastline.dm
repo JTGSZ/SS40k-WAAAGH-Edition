@@ -1,6 +1,6 @@
 /turf/unsimulated/outside/smoothingcoastline
 	name = "coastline"
-	icon = 'z40k_shit/icons/turfs/water.dmi'
+	icon = 'z40k_shit/icons/turfs/coastal2.dmi'
 	icon_state = "sandwater_t_S"
 	dynamic_lighting = 0
 	luminosity = 1
@@ -15,7 +15,7 @@
 
 /turf/unsimulated/outside/smoothingcoastline/New(loc)
 	..(loc)
-	icon = 'z40k_shit/icons/turfs/water.dmi'
+	icon = 'z40k_shit/icons/turfs/coastal2.dmi'
 
 	if(ticker && ticker.current_state >= GAME_STATE_PLAYING)
 		initialize()
