@@ -59,11 +59,9 @@
 	if(istype(loc,/mob/living/carbon/human))
 		if(nozzleout) //updates icon stating whether we have the nozzle on or off.
 			icon_state = "orkburnapack_out"
-			item_state = "orkburnapack_out"
 			H.update_inv_back()
 		else
 			icon_state = "orkburnapack_in"
-			item_state = "orkburnapack_in"
 			H.update_inv_back()
 
 /obj/item/weapon/ork/burnapack/attackby(var/obj/item/A, mob/user)

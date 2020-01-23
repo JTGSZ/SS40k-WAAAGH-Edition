@@ -27,11 +27,9 @@
 	if(istype(loc,/mob/living/carbon/human)) //Needs to always update its own overlay, but only update mob overlays if it's actually on a mob.
 		if(burning) //FLAME ON
 			icon_state = "orkjumppack_on"
-			item_state = "orkjumppack_on"
 			H.update_inv_back()
 		else
-			item_state = "orkjumppack_off" //FLAME OFF
-			icon_state = "orkjumppack_off"
+			icon_state = "orkjumppack_off"//FLAME OFF
 			H.update_inv_back()
 
 /obj/item/ork/jumppack/unequipped(mob/living/carbon/human/user, var/from_slot = null)
@@ -60,6 +58,7 @@
 	if(landinganim) //If we are in the landing animation
 		user.Stun(stuntime) //You get stunned
 		user.Knockdown(knockdowntime) //And knocked down idiot
+		user.drop_item(src)
 		user.visible_message("<span class='danger'> [user] learns that elevation does exist!</span>")
 
 /obj/item/ork/jumppack/proc/hoverleap(mob/user) // We are flying, but its more like hovering.
