@@ -236,12 +236,13 @@
 	eyes_s.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 
 	var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-	if(hair_style && !current_species.name == "Ork")
+	to_chat(world, "[hair_style]")
+
+	//if(current_species.name == "Ork")
+	//	hair_style = hair/bald
+
+	if(hair_style)
 		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-		hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
-		eyes_s.Blend(hair_s, ICON_OVERLAY)
-	if(current_species.name == "Ork")
-		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "bald_s") //If we are null we are bald
 		hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 		eyes_s.Blend(hair_s, ICON_OVERLAY)
 

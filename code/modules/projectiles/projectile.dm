@@ -394,15 +394,7 @@ var/list/impact_master = list()
 		var/matrix/projectile_matrix = turn(matrix(),target_angle+45)
 		transform = projectile_matrix
 		icon_state = "[initial(icon_state)]_pixel"
-		/*
-		//If the icon has not been added yet
-		if( !("[icon_state]_angle[target_angle]" in bullet_master) )
-			var/icon/I = new(icon,"[icon_state]_pixel") //Generate it.
-			if(!lock_angle)
-				I.Turn(target_angle+45)
-			bullet_master["[icon_state]_angle[target_angle]"] = I //And cache it!
-		src.icon = bullet_master["[icon_state]_angle[target_angle]"]
-		*/
+
 	return 1
 
 
