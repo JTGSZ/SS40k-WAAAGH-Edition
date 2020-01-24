@@ -41,7 +41,7 @@
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/general,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/commanderarmor,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/preacherrobe,
 		),
 	)
 	items_to_collect = list(

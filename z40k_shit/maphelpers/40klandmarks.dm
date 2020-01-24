@@ -34,6 +34,10 @@
 	name = "Trooper"
 	landmark_override = TRUE
 
+/obj/effect/landmark/start/primaris_psyker
+	name = "Primaris Psyker"
+	landmark_override = TRUE
+
 //Orks
 /obj/effect/landmark/start/basicOrk
 	name = "Slugga Boy"

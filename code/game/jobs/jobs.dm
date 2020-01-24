@@ -8,7 +8,8 @@ var/const/IGTROOPER			=(1<<4)
 var/const/AI				=(1<<9)
 var/const/CYBORG			=(1<<10)
 var/const/MOMMI				=(1<<11)
-var/const/BASICORK 			=(1<<13) 
+var/const/BASICORK 			=(1<<13)
+var/const/PRIMARISPSYKER	=(1<<14)
 
 
 var/const/MEDSCI			=(1<<1)
