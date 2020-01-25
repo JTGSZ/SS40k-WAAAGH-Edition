@@ -109,6 +109,7 @@
 	var/currently_lit = FALSE //Are we ignited or not?
 	throw_range = 0
 	throw_speed = 1
+	fire_sound = null
 
 /obj/item/weapon/gun/flamernozzle/New()
 	if(istype(loc, /obj/item/weapon/ork/burnapack))
@@ -178,6 +179,7 @@
 	if(currently_lit)
 		if(my_pack.max_fuel > 0)
 			my_pack.max_fuel-= 50
+			playsound(src, 'z40k_shit/sounds/flamer.ogg', 60, 1)
 			in_chamber = new/obj/item/projectile/fire_breath/shuttle_exhaust(src)
 			return 1
 		else

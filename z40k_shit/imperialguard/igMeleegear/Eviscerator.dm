@@ -2,7 +2,7 @@
 /*
  * Eviscerator
  */
-/obj/item/projectile/fire_breath/eviscerator //The fire projectile we will use, cap it to 3 turfs.
+/obj/item/projectile/fire_breath/eviscerator //The fire projectile we will use, cap it to 4 turfs.
 	fire_blast_type = /obj/effect/fire_blast/no_spread
 	max_range = 4
 
@@ -23,13 +23,92 @@
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK //it's a really sharp blade m'kay
 	w_class = W_CLASS_LARGE
 	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND
-	mech_flags = MECH_SCAN_FAIL
-	origin_tech = Tc_MAGNETS + "=4;" + Tc_COMBAT + "=5"
+	hitsound = 'z40k_shit/sounds/chainsword_evishit.ogg'
+	fire_sound = null
+	var/revvin_on = FALSE //Are we currently on?
+	var/idle_loop = 0 //Our holder for process() ticks and the idle sound firing
+	var/max_fuel = 500 //The max amount of fuel this can hold
+	var/start_fueled = 1 // Do we start fueled
+
+/obj/item/weapon/gun/eviscerator/New() //We need to get our own process loop started for sounds
+	..()
+	processing_objects.Add(src)
+	
+	create_reagents(max_fuel)
+	
+	if(start_fueled)
+		reagents.add_reagent(FUEL, max_fuel)
+
+/obj/item/weapon/gun/eviscerator/Destroy()
+	processing_objects.Remove(src)
+	..()
+
+/obj/item/weapon/gun/eviscerator/process()
+	if(revvin_on)
+		idle_loop++
+	
+	if(idle_loop >= 3)
+		idle_loop = 0
+		playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
+
+/obj/item/weapon/gun/eviscerator/examine(mob/user)
+	..()
+	to_chat(user, "<span class='info'> Has [max_fuel] unit\s of fuel remaining.</span>")
+
+/obj/item/weapon/gun/eviscerator/afterattack(obj/O as obj, mob/user as mob, proximity)
+	if(!proximity)
+		return
+	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1)
+		O.reagents.trans_to(src, max_fuel)
+		to_chat(user, "<span class='notice'> Pack refueled</span>")
+		playsound(src, 'sound/effects/refill.ogg', 50, 1, -6)
+		return
 
 /obj/item/weapon/gun/eviscerator/IsShield()
 	return 1
 
+/obj/item/weapon/gun/eviscerator/attack_self(var/mob/user) //If we click this, we ignite it.
+	if(revvin_on)
+		revvin_on = FALSE
+		update_icon()
+	else
+		revvin_on = TRUE
+		update_icon()
+	..()
+
+/obj/item/weapon/gun/eviscerator/unequipped(mob/user)
+	if(revvin_on)
+		revvin_on = FALSE
+		update_icon()
+
+/obj/item/weapon/gun/eviscerator/dropped(mob/user)
+	if(revvin_on)
+		revvin_on = FALSE
+		update_icon()
+
 /obj/item/weapon/gun/eviscerator/process_chambered()
-	in_chamber = new/obj/item/projectile/fire_breath/eviscerator(src)
-	return 1
+	if(in_chamber)
+		return 1
+	if(revvin_on)
+		if(max_fuel > 0)
+			max_fuel-= 50
+			playsound(src, 'sound/weapons/flamethrower.ogg', 50, 1)
+			in_chamber = new /obj/item/projectile/fire_breath/eviscerator(src)
+			return 1
+		else
+			return
+	return 0
+
 	
+/obj/item/weapon/gun/eviscerator/update_icon()
+	var/mob/living/carbon/human/H = loc
+
+	if(istype(loc,/mob/living/carbon/human))
+		if(revvin_on)
+			icon_state = "eviscerator_on"
+			item_state = "eviscerator_on"
+			H.update_inv_hands()
+		else
+			icon_state = "eviscerator_off"
+			icon_state = "eviscerator_off"
+			H.update_inv_hands()

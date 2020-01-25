@@ -12,7 +12,7 @@
 	max_shells = 5
 	load_method = 2
 	slot_flags = 0
-	gun_flags = EMPTYCASINGS
+	gun_flags = EMPTYCASINGS 
 
 /obj/item/weapon/gun/projectile/shotgun/shotta/update_icon()
 	..()

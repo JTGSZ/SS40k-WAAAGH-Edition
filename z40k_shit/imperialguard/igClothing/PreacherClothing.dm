@@ -34,6 +34,52 @@
 	else if(!robe)
 		qdel(src)
 
+/obj/item/clothing/suit/armor/iguard/preacherrobe/proc/togglehood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+	if(usr.incapacitated())
+		return
+	else
+		var/mob/living/carbon/human/user = usr
+		if(!istype(user))
+			return
+		if(user.get_item_by_slot(slot_wear_suit) != src)
+			to_chat(user, "You have to put the coat on first.")
+			return
+		if(!is_hooded && !user.get_item_by_slot(slot_head) && hood.mob_can_equip(user,slot_head))
+			to_chat(user, "You put the hood up.")
+			hoodup(user)
+		else if(user.get_item_by_slot(slot_head) == hood)
+			hooddown(user)
+			to_chat(user, "You put the hood down.")
+		else
+			to_chat(user, "You try to put your hood up, but there is something in the way.")
+			return
+		user.update_inv_wear_suit()
 
+/obj/item/clothing/suit/armor/iguard/preacherrobe/attack_self()
+	togglehood()
 
-/obj/item/clothing/suit/storage/wintercoat
+/obj/item/clothing/suit/armor/iguard/preacherrobe/proc/hoodup(var/mob/living/carbon/human/user)
+	user.equip_to_slot(hood, slot_head)
+	icon_state = "[initial(icon_state)]_t"
+	is_hooded = HAS_HOOD
+	user.update_inv_wear_suit()
+
+/obj/item/clothing/suit/armor/iguard/preacherrobe/proc/hooddown(var/mob/living/carbon/human/user,var/unequip = 1)
+	icon_state = "[initial(icon_state)]"
+	if(unequip)
+		user.u_equip(user.head,0)
+	is_hooded = NO_HOOD
+	user.update_inv_wear_suit()
+
+/obj/item/clothing/suit/armor/iguard/preacherrobe/unequipped(var/mob/living/carbon/human/user)
+	if(hood && istype(user) && user.get_item_by_slot(slot_head) == hood)
+		hooddown(user)
+
+/obj/item/clothing/head/iguard/preacherhood/pickup(var/mob/living/carbon/human/user)
+	if(robe && istype(robe) && user.get_item_by_slot(slot_wear_suit) == robe)
+		robe.hooddown(user,unequip = 0)
+		user.drop_from_inventory(src)
+		forceMove(robe)
