@@ -23,6 +23,7 @@
 	ammo_type = "/obj/item/ammo_casing/orkbullet"
 	mag_type = "/obj/item/ammo_storage/magazine/sluggamag"
 	fire_sound = 'z40k_shit/sounds/slugga_1.ogg'
+	recoil = 16
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 	var/projectiles = 45
@@ -30,11 +31,14 @@
 	var/cooldown = 0
 	var/iconticker = 0
 	var/state = 0
-	var/basicbullets = 0 //Basic bullet types
+	var/basicbullets = 1 //Basic bullet types counting ourselves.
 	var/laserbeams = 0 //Laser bullet types
 	var/shotgunpellets = 0 //Shotgun bullet types
 	var/taped = 1
-	
+
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/isHandgun()
+	return FALSE //No Kustom Shoota Akimbo for us.
+
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
 	..()
 	if(!isork(user))
@@ -43,9 +47,6 @@
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/examine(mob/user)
 	..()
-	if(stored_magazine)
-		var/ammocounter = getAmmo()
-		to_chat(user, "<span class='info'> [name] Has [ammocounter] bullet\s remaining.</span>")
 	if(basicbullets)
 		to_chat(user, "<span class='info'> There are currently [basicbullets] normal ballistics attached.</span>")
 	if(laserbeams)
@@ -139,7 +140,7 @@
 			var/atom/originaltarget = target //Our original target
 			var/turf/targloc
 			cooldown = 1
-			fire_volume = 5 // I plan on making this scale based on the amount of guns, its sound vol.
+			fire_volume = clamp((3 * state), 20, 100) //Ouch my ears... well up to 90% vol anyways.
 			if(basicbullets >= 1)
 				projectile_type = "/obj/item/projectile/bullet/orkscrapbullet"
 				for(var/i=1 to min(projectiles,basicbullets))

@@ -6,6 +6,7 @@
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "psykerstaff"
 	item_state = "psykerstaff"
+	slot_flags = SLOT_BACK
 	flags = FPRINT
 	siemens_coefficient = 1
 	force = 35

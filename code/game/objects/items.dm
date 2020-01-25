@@ -368,14 +368,15 @@
 	if(!M)
 		return CANNOT_EQUIP
 
-	if(wielded)
-		if(!disable_warning)
-			if(flags & MUSTTWOHAND)
-				M.show_message("\The [src] is too cumbersome to carry in anything other than your hands.")
-			else
-				M.show_message("You have to unwield \the [wielded.wielding] first.")
-		return CANNOT_EQUIP
-
+	if(wielded) 
+		if(!slot_back) //We allow them to equip it to the backslot if its a 2hander but nothing else.
+			if(!disable_warning)
+				if(flags & MUSTTWOHAND)
+					M.show_message("\The [src] is too cumbersome to carry in anything other than your hands.")
+				else
+					M.show_message("You have to unwield \the [wielded.wielding] first.")
+			return CANNOT_EQUIP
+		
 	if(cant_drop > 0)
 		if(!disable_warning)
 			to_chat(M, "<span class='danger'>It's stuck to your hands!</span>")
@@ -434,7 +435,7 @@
 			if(slot_back)
 				if( !(slot_flags & SLOT_BACK) )
 					return CANNOT_EQUIP
-				if(H.back)
+				if(H.back) //MARKED
 					if(automatic)
 						if(H.check_for_open_slot(src))
 							return CANNOT_EQUIP
@@ -442,6 +443,7 @@
 						return CAN_EQUIP_BUT_SLOT_TAKEN
 					else
 						return CANNOT_EQUIP
+				src.unwield(H)
 				return CAN_EQUIP
 			if(slot_wear_suit)
 				if( !(slot_flags & SLOT_OCLOTHING) )
@@ -932,7 +934,7 @@
 		unwield(user)
 		return
 
-/obj/item/proc/unwield(mob/user)
+/obj/item/proc/unwield(mob/user) //MARKED
 	if(flags & MUSTTWOHAND && src in user)
 		user.drop_from_inventory(src)
 	if(istype(wielded))

@@ -42,8 +42,9 @@
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/commanderarmor,
-		),
+		)
 	)
+	
 	items_to_collect = list(
 	)
 

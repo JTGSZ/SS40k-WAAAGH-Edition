@@ -61,6 +61,9 @@
 	var/pda_type = null
 	var/id_type = null
 
+	var/slot_l_hand = null
+	var/slot_r_hand = null
+
 	// For job-slot combinations that require a bit more work than just equipping a string
 	// Formatting  : 
 	/*
@@ -108,8 +111,16 @@
 			continue
 		slot = text2num(slot)
 		H.equip_to_slot_or_del(new obj_type(H), slot, TRUE)
+	
+	if(no_backpack)
+		return
+	else
+		equip_backbag(H, species)
 
-	equip_backbag(H, species)
+	if(slot_r_hand) // So we can put things into hands or something easily.
+		H.put_in_hand(GRASP_RIGHT_HAND, new slot_r_hand(H))
+	if(slot_l_hand)
+		H.put_in_hand(GRASP_LEFT_HAND, new slot_l_hand(H))
 
 	for (var/imp_type in implant_types)
 		var/obj/item/weapon/implant/I = new imp_type(H)
@@ -128,9 +139,7 @@
 /datum/outfit/proc/equip_backbag(var/mob/living/carbon/human/H, var/species)
 	// -- Backbag
 	var/obj/item/chosen_backpack = null
-	if(no_backpack)
-		return
-	else if(use_pref_bag)
+	if (use_pref_bag)
 		var/backbag_string = num2text(H.backbag)
 		chosen_backpack = backpack_types[backbag_string]
 	else
@@ -151,34 +160,31 @@
 		else
 			H.equip_or_collect(new H.species.survival_gear(H.back), slot_in_backpack)
 
-	// -- No backbag, let's improvise -- unless you have no backpack tagged.
+	// -- No backbag, let's improvise
 	
 	else
-		if(no_backpack)
-			return
-		else
-			var/obj/item/weapon/storage/box/survival/pack
-			if (equip_survival_gear.len)
-				if (ispath(equip_survival_gear[species]))
-					pack = new equip_survival_gear(H)
-					H.put_in_hand(GRASP_RIGHT_HAND, pack)
-			else
-				pack = new H.species.survival_gear(H)
+		var/obj/item/weapon/storage/box/survival/pack
+		if (equip_survival_gear.len)
+			if (ispath(equip_survival_gear[species]))
+				pack = new equip_survival_gear(H)
 				H.put_in_hand(GRASP_RIGHT_HAND, pack)
-			for (var/item in items_to_collect)
-				if (items_to_collect[item] == "Surival Box" && pack)
-					new item(pack)
-				else
-					if (!isnum(items_to_collect[item])) // Not a number : it's a slot
-						var/item_slot = text2num(items_to_collect[item])
-						if (item_slot)
-							H.equip_or_collect(new item(get_turf(H)), item_slot)
-						else
-							new item(get_turf(H))
+		else
+			pack = new H.species.survival_gear(H)
+			H.put_in_hand(GRASP_RIGHT_HAND, pack)
+		for (var/item in items_to_collect)
+			if (items_to_collect[item] == "Surival Box" && pack)
+				new item(pack)
+			else
+				if (!isnum(items_to_collect[item])) // Not a number : it's a slot
+					var/item_slot = text2num(items_to_collect[item])
+					if (item_slot)
+						H.equip_or_collect(new item(get_turf(H)), item_slot)
 					else
-						var/hand_slot = items_to_collect[item]
-						if (hand_slot) // ie, if it's an actual number
-							H.put_in_hand(hand_slot, new item)
+						new item(get_turf(H))
+				else
+					var/hand_slot = items_to_collect[item]
+					if (hand_slot) // ie, if it's an actual number
+						H.put_in_hand(hand_slot, new item)
 
 /datum/outfit/proc/species_final_equip(var/mob/living/carbon/human/H)
 	if (H.species)
@@ -196,7 +202,7 @@
 	C.rank = rank
 	C.assignment = H.mind.role_alt_title
 	C.name = "[C.registered_name]'s ID Card ([C.assignment])" 
-	H.equip_or_collect(C, slot_wear_id)
+	H.equip_or_collect(C, slot_wear_id) 
 		
 	if (pda_type)
 		var/obj/item/device/pda/pda = new pda_type

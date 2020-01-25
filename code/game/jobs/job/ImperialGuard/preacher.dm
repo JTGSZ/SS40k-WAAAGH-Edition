@@ -20,13 +20,14 @@
 
 	outfit_name = "Preacher"
 	associated_job = /datum/job/preacher
+	no_backpack = TRUE
 
-	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_norm,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger,
-	)
+	//backpack_types = list(
+	//	BACKPACK_STRING = /obj/item/weapon/storage/backpack,
+	//	SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_norm,
+	//	SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
+	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger,
+	//)
 
 	items_to_spawn = list(
 		"Default" = list(
@@ -36,10 +37,8 @@
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_l_store_str = /obj/item/weapon/nullrod,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/preacherrobe,
-		),
-	)
-	items_to_collect = list(
-		/obj/item/weapon/gun/eviscerator = GRASP_LEFT_HAND,
+			slot_back_str = /obj/item/weapon/gun/eviscerator,
+		)
 	)
 
 	implant_types = list(

@@ -236,10 +236,6 @@
 	eyes_s.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 
 	var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-	to_chat(world, "[hair_style]")
-
-	//if(current_species.name == "Ork")
-	//	hair_style = hair/bald
 
 	if(hair_style)
 		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")

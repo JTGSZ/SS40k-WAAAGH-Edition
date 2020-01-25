@@ -10,9 +10,10 @@
 	name = "Eviscerator"
 	desc = "A oversized chainsword. This one has a exterminator attached to it too."
 	slot_flags = SLOT_BACK
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/64x64eviscerator.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/64x64eviscerator.dmi')
-	icon_state = "eviscerator" 
-	item_state = "eviscerator"
+	icon_state = "eviscerator_off" 
+	item_state = "eviscerator_off"
 	throwforce = 35
 	force = 50
 	armor_penetration = 100
