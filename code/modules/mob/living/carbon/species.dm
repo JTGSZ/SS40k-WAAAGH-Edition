@@ -295,7 +295,7 @@ var/global/list/whitelisted_species = list("Human")
 		"[slot_w_uniform]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_s_store]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_legcuffed]"	=	list("pixel_x" = 0, "pixel_y" = 0)
-		)
+		) //Gloves now covers inhands and gloves. - JTGSZ
 	return offsets
 
 /datum/species/proc/conditional_whitelist()

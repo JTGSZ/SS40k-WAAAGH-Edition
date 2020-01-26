@@ -1234,6 +1234,15 @@ var/global/list/damage_icon_parts = list()
 		O.pixel_x += offsets["x"]
 		O.pixel_y += offsets["y"]
 
+
+		//Heres where we add the hand offsets. shitty 40k EDIT by JTGSZ.
+		//Well, we can adjust height and where they go left and right, Its good enough.
+		//Because the way I see it, I'd need to define each hand as a fucking slot.
+		//And probably redo this proc, as I can't exactly understand whats entering index
+		//To split it, and some things might have special entries that are handled in there.
+		O.pixel_x += species.inventory_offsets["[slot_gloves]"]["pixel_x"] * PIXEL_MULTIPLIER
+		O.pixel_y += species.inventory_offsets["[slot_gloves]"]["pixel_y"] * PIXEL_MULTIPLIER
+
 		if(I.dynamic_overlay && I.dynamic_overlay["[HAND_LAYER]-[index]"])
 			var/image/dyn_overlay = I.dynamic_overlay["[HAND_LAYER]-[index]"]
 			O.overlays.Add(dyn_overlay)

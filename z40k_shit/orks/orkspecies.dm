@@ -47,6 +47,26 @@
 	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	id_icons            = 'icons/mob/ids.dmi'
 
+
+/datum/species/ork/get_inventory_offsets()	//This is what you override if you want to give your species unique inventory offsets.
+	var/static/list/offsets = list(
+		"[slot_back]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_wear_mask]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_handcuffed]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_belt]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_wear_id]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_ears]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_glasses]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_gloves]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_head]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_shoes]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_wear_suit]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_w_uniform]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_s_store]"	=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_legcuffed]"	=	list("pixel_x" = 0, "pixel_y" = 0)
+		) //Hands covers inhands and gloves. - JTGSZ
+	return offsets
+
 /datum/species/ork/gib(mob/living/carbon/human/H)
 	..()
 	H.default_gib()
