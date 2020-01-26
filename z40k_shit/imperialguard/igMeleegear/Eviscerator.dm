@@ -28,7 +28,8 @@
 	var/revvin_on = FALSE //Are we currently on?
 	var/idle_loop = 0 //Our holder for process() ticks and the idle sound firing
 	var/max_fuel = 500 //The max amount of fuel this can hold
-	var/start_fueled = 1 // Do we start fueled
+	var/start_fueled = TRUE // Do we start fueled
+	var/firstrev = FALSE //To handle the first rev noise and not allow spam of it.
 
 /obj/item/weapon/gun/eviscerator/New() //We need to get our own process loop started for sounds
 	..()
@@ -47,9 +48,11 @@
 	if(revvin_on)
 		idle_loop++
 	
-	if(idle_loop >= 3)
+	if(idle_loop >= 2)
 		idle_loop = 0
 		playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
+		if(!firstrev)
+			firstrev = TRUE
 
 /obj/item/weapon/gun/eviscerator/examine(mob/user)
 	..()
@@ -71,6 +74,9 @@
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
+		if(firstrev)
+			firstrev = FALSE
+			playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
 	else
 		revvin_on = TRUE
 		update_icon()
@@ -83,23 +89,21 @@
 
 /obj/item/weapon/gun/eviscerator/dropped(mob/user)
 	if(revvin_on)
+		src.unwield(user)
 		revvin_on = FALSE
 		update_icon()
 
 /obj/item/weapon/gun/eviscerator/process_chambered()
-	if(in_chamber)
-		return 1
 	if(revvin_on)
 		if(max_fuel > 0)
-			max_fuel-= 50
+			max_fuel -= 50
 			playsound(src, 'sound/weapons/flamethrower.ogg', 50, 1)
-			in_chamber = new /obj/item/projectile/fire_breath/eviscerator(src)
+			in_chamber = new/obj/item/projectile/fire_breath/eviscerator(src)
+			Fire(targloc, user, params, struggle)
 			return 1
-		else
-			return
-	return 0
+		
 
-	
+
 /obj/item/weapon/gun/eviscerator/update_icon()
 	var/mob/living/carbon/human/H = loc
 
@@ -110,5 +114,5 @@
 			H.update_inv_hands()
 		else
 			icon_state = "eviscerator_off"
-			icon_state = "eviscerator_off"
+			item_state = "eviscerator_off"
 			H.update_inv_hands()
