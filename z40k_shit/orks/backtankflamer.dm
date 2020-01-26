@@ -98,6 +98,9 @@
 		to_chat(user,"<span class='notice'> You pull the nozzle off the pack.</span>")
 		update_icon()
 
+/obj/item/weapon/ork/burnapack/proc/get_fuel()
+	return reagents.get_reagent_amount(FUEL)
+
 /obj/item/weapon/gun/flamernozzle
 	name = "Burna Pack Nozzle"
 	desc = "The shooty end of a flamethrower"
@@ -177,8 +180,8 @@
 	if(in_chamber)
 		return 1
 	if(currently_lit)
-		if(my_pack.max_fuel > 0)
-			my_pack.max_fuel-= 50
+		if(my_pack.get_fuel() > 0)
+			my_pack.reagents.remove_reagent(FUEL, 50)
 			playsound(src, 'z40k_shit/sounds/flamer.ogg', 60, 1)
 			in_chamber = new/obj/item/projectile/fire_breath/shuttle_exhaust(src)
 			return 1

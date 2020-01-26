@@ -37,7 +37,7 @@
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_l_store_str = /obj/item/weapon/nullrod,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/preacherrobe,
-			slot_back_str = /obj/item/weapon/gun/eviscerator,
+			slot_back_str = /obj/item/weapon/gun/projectile/complexweapon/eviscerator,
 		)
 	)
 

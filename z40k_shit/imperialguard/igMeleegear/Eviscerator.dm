@@ -6,7 +6,7 @@
 	fire_blast_type = /obj/effect/fire_blast/no_spread
 	max_range = 4
 
-/obj/item/weapon/gun/eviscerator
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator
 	name = "Eviscerator"
 	desc = "A oversized chainsword. This one has a exterminator attached to it too."
 	slot_flags = SLOT_BACK
@@ -29,9 +29,18 @@
 	var/idle_loop = 0 //Our holder for process() ticks and the idle sound firing
 	var/max_fuel = 500 //The max amount of fuel this can hold
 	var/start_fueled = TRUE // Do we start fueled
-	var/firstrev = FALSE //To handle the first rev noise and not allow spam of it.
+	var/firstrev = TRUE //To handle the first rev noise and not allow spam of it.
+	fire_sound = null
+	ejectshell = 0
+	caliber = null
+	ammo_type = null
+	fire_sound = null
+	conventional_firearm = 0
+	silenced = 1
+	recoil = 0
 
-/obj/item/weapon/gun/eviscerator/New() //We need to get our own process loop started for sounds
+
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/New() //We need to get our own process loop started for sounds
 	..()
 	processing_objects.Add(src)
 	
@@ -40,25 +49,25 @@
 	if(start_fueled)
 		reagents.add_reagent(FUEL, max_fuel)
 
-/obj/item/weapon/gun/eviscerator/Destroy()
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/Destroy()
 	processing_objects.Remove(src)
 	..()
 
-/obj/item/weapon/gun/eviscerator/process()
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/process()
 	if(revvin_on)
 		idle_loop++
 	
-	if(idle_loop >= 2)
+	if(idle_loop >= 1)
 		idle_loop = 0
 		playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
 		if(!firstrev)
 			firstrev = TRUE
 
-/obj/item/weapon/gun/eviscerator/examine(mob/user)
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/examine(mob/user)
 	..()
 	to_chat(user, "<span class='info'> Has [max_fuel] unit\s of fuel remaining.</span>")
 
-/obj/item/weapon/gun/eviscerator/afterattack(obj/O as obj, mob/user as mob, proximity)
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1)
@@ -67,44 +76,59 @@
 		playsound(src, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 
-/obj/item/weapon/gun/eviscerator/IsShield()
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/IsShield()
 	return 1
 
-/obj/item/weapon/gun/eviscerator/attack_self(var/mob/user) //If we click this, we ignite it.
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/attack_self(var/mob/user) //If we click this, we ignite it.
 	if(revvin_on)
 		revvin_on = FALSE
+		update_icon()
+	else
+		revvin_on = TRUE
 		update_icon()
 		if(firstrev)
 			firstrev = FALSE
 			playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
-	else
-		revvin_on = TRUE
-		update_icon()
 	..()
 
-/obj/item/weapon/gun/eviscerator/unequipped(mob/user)
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/unequipped(mob/user)
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
 
-/obj/item/weapon/gun/eviscerator/dropped(mob/user)
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/dropped(mob/user)
+	..()
 	if(revvin_on)
-		src.unwield(user)
 		revvin_on = FALSE
 		update_icon()
 
-/obj/item/weapon/gun/eviscerator/process_chambered()
-	if(revvin_on)
-		if(max_fuel > 0)
-			max_fuel -= 50
-			playsound(src, 'sound/weapons/flamethrower.ogg', 50, 1)
-			in_chamber = new/obj/item/projectile/fire_breath/eviscerator(src)
-			Fire(targloc, user, params, struggle)
-			return 1
-		
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/proc/get_fuel()
+	return reagents.get_reagent_amount(FUEL)
 
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/afterattack(atom/target, mob/user, flag)
 
-/obj/item/weapon/gun/eviscerator/update_icon()
+	if(!revvin_on)
+		return
+	
+	if(!can_Fire(user, 1))
+		return
+
+	var/obj/item/projectile/fire_breath/eviscerator/B = new(null)
+	in_chamber = B
+
+	if(get_fuel() <= 0) 
+		user.visible_message("<span class='danger'>\The [src] hisses.</span>")
+		to_chat(user, "<span class='warning'>It sounds like the tank is empty.</span>")
+		qdel(B)
+		in_chamber = null
+		return
+
+	if(Fire(target,user))
+		user.visible_message("<span class='danger'>[user] shoots a jet of gas from \his [src.name]!</span>","<span class='danger'>You shoot a jet of gas from your [src.name]!</span>")
+		reagents.remove_reagent(FUEL, 50)
+		playsound(user, 'sound/weapons/flamethrower.ogg', 50, 1)
+
+/obj/item/weapon/gun/projectile/complexweapon/eviscerator/update_icon()
 	var/mob/living/carbon/human/H = loc
 
 	if(istype(loc,/mob/living/carbon/human))
