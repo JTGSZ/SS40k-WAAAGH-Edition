@@ -3,7 +3,7 @@
 /*
 	EXAMPLE LIST/LISTS FOR ATTACHMENT HANDLING
 												*/
-/obj/item/weapon/gun/energy/laser/lasgun
+/obj/item/weapon/gun/energy/complexweapon/lasgun
 	var/list/attachments = list()
 
 //Attachment flags are in the EARLY LOAD folder
@@ -76,7 +76,7 @@
 	DEBUGGING ATTACKBY - Used for debugging of course.
 						*/
 
-///obj/item/weapon/gun/energy/laser/lasgun/attackby(var/obj/item/A, var/mob/user) //Loading
+///obj/item/weapon/gun/energy/complexweapon/lasgun/attackby(var/obj/item/A, var/mob/user) //Loading
 //	if(istype(A, /obj/item/weapon/attachment))
 //		var/obj/item/weapon/attachment/ATCH = A
 //		GunAttachment(ATCH, user)
@@ -85,7 +85,7 @@
 	THE VERB TO HANDLE REMOVAL OF ATTACHMENTS
 												*/
 
-/obj/item/weapon/gun/energy/laser/lasgun/verb/remove_attachment() 
+/obj/item/weapon/gun/energy/complexweapon/lasgun/verb/remove_attachment() 
 	set name = "Remove Attachment"
 	set category = "Object"
 	set desc = "Remove an attachment from your gun."
@@ -109,7 +109,7 @@
 /*
 	THE GUN ATTACHMENT PROC, OCCURS ON ATTACKBY
 												*/
-/obj/item/weapon/gun/energy/laser/lasgun/proc/GunAttachment(var/obj/item/weapon/attachment/ATCH, var/mob/user)
+/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/GunAttachment(var/obj/item/weapon/attachment/ATCH, var/mob/user)
 	var/obj/item/weapon/attachment/A = ATCH
 	var/iteration = 0
 	
@@ -140,7 +140,7 @@
 						*/
 //How I should handle it..
 //One thing of note is that we will always enter and always exit if attachment is occurring.
-/obj/item/weapon/gun/energy/laser/lasgun/proc/AttachmentEffect(var/obj/item/weapon/attachment/ATCH, var/mob/user, var/onORoff, var/specialhandler)
+/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/AttachmentEffect(var/obj/item/weapon/attachment/ATCH, var/mob/user, var/onORoff, var/specialhandler)
 
 	if(specialhandler) //If we have special handling (Which means I intend to handle it on the object)
 		return //We just return

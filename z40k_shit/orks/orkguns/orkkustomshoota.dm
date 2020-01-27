@@ -67,10 +67,10 @@
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
 		if(istype(I, /obj/item/weapon/gun/projectile/automatic/kustomshoota) || \
-			istype(I, /obj/item/weapon/gun/projectile/automatic/slugga))
+			istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/slugga))
 			basicbullets++
 			state++
-		if(istype(I, /obj/item/weapon/gun/energy/laser/lasgun))
+		if(istype(I, /obj/item/weapon/gun/energy/complexweapon/lasgun))
 			laserbeams++
 			state++
 		if(istype(I, /obj/item/weapon/gun/projectile/shotgun))

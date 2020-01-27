@@ -38,12 +38,12 @@
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_sergeant_armor,
-			slot_s_store_str = /obj/item/weapon/gun/energy/laser/lasgun,
+			slot_s_store_str = /obj/item/weapon/gun/energy/complexweapon/lasgun,
 		),
 	)
 
 	items_to_collect = list(
-		/obj/item/weapon/chainsword = GRASP_LEFT_HAND,
+		/obj/item/weapon/complexweapon/chainsword = GRASP_LEFT_HAND,
 	)
 
 	implant_types = list(

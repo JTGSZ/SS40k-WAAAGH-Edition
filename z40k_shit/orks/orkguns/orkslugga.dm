@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic/slugga
+/obj/item/weapon/gun/projectile/automatic/complexweapon/slugga
 	name = "\improper Slugga"
 	desc = "What dis?"
 	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
@@ -16,11 +16,11 @@
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
-/obj/item/weapon/gun/projectile/automatic/slugga/update_icon()
+/obj/item/weapon/gun/projectile/automatic/complexweapon/slugga/update_icon()
 	..() //Yeah Sorry, just basic shit here man, this is the only commented section you are getting lol.
 	icon_state = "slugga[stored_magazine ? "" : "-e"]"
 
-/obj/item/weapon/gun/projectile/automatic/slugga/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/automatic/complexweapon/slugga/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
 	..()
 	if(!isork(user))
 		to_chat(user, "What even is this? How does it work? Does it work?")

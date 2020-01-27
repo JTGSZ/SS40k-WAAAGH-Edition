@@ -1,5 +1,5 @@
 
-/obj/item/weapon/gun/projectile/shotgun/shotta
+/obj/item/weapon/gun/projectile/shotgun/complexweapon/shotta
 	name = "shotta"
 	desc = "A crude shotgun, what more is there to say?"
 	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
@@ -14,6 +14,6 @@
 	slot_flags = 0
 	gun_flags = EMPTYCASINGS 
 
-/obj/item/weapon/gun/projectile/shotgun/shotta/update_icon()
+/obj/item/weapon/gun/projectile/shotgun/complexweapon/shotta/update_icon()
 	..()
 	icon_state = "shotta[stored_magazine ? "" : "-e"]"

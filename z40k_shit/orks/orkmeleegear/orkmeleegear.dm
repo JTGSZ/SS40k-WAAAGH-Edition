@@ -2,7 +2,7 @@
 
 //choppa - a basic ork sword
 //choppa1 = a basic ork axe
-/obj/item/weapon/choppa
+/obj/item/weapon/complexweapon/choppa
 	name = "choppa"
 	desc = "A basic choppa made for choppin shit."
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
@@ -22,7 +22,7 @@
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
 	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "slamdunks")
 
-/obj/item/weapon/choppa/New()
+/obj/item/weapon/complexweapon/choppa/New()
 	. = ..()
 	var/rngicon
 	rngicon = pick("choppa","choppa1")
@@ -30,7 +30,7 @@
 	item_state = rngicon
 	
 
-/obj/item/weapon/shield/orkshield
+/obj/item/weapon/shield/complexweapon/orkshield
 	name = "ork shield"
 	desc = "WAAAGH, I AIN'T GETTIN HIT BY SHIT (about 50% of the time)."
 	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
@@ -51,14 +51,14 @@
 	attack_verb = list("shoves", "bashes")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 
-/obj/item/weapon/shield/orkshield/suicide_act(mob/user)
+/obj/item/weapon/shield/complexweapon/orkshield/suicide_act(mob/user)
 	to_chat(viewers(user), "<span class='danger'>[user] is smashing \his face into the [src.name]! It looks like \he's  trying to commit suicide!</span>")
 	return (SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/shield/orkshield/IsShield()
+/obj/item/weapon/shield/complexweapon/orkshield/IsShield()
 	return 1
 
-/obj/item/weapon/shield/orkshield/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/shield/complexweapon/orkshield/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")

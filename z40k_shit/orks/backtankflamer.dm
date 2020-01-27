@@ -14,7 +14,7 @@
 /obj/item/weapon/ork/burnapack/New()
 	. = ..()
 
-	new /obj/item/weapon/gun/flamernozzle(src) //Make me a nozzle cunt
+	new /obj/item/weapon/gun/complexweapon/flamernozzle(src) //Make me a nozzle cunt
 
 	create_reagents(max_fuel)
 	if(start_fueled)
@@ -65,14 +65,14 @@
 			H.update_inv_back()
 
 /obj/item/weapon/ork/burnapack/attackby(var/obj/item/A, mob/user)
-	if(istype(A, /obj/item/weapon/gun/flamernozzle))
+	if(istype(A, /obj/item/weapon/gun/complexweapon/flamernozzle))
 		user.drop_item(A)
 		nozzleout = FALSE
 		update_icon()
 
 /obj/item/weapon/ork/burnapack/unequipped(mob/user)
 	if(nozzleout)
-		var/obj/item/weapon/gun/flamernozzle/FN = locate(/obj/item/weapon/gun/flamernozzle) in user.held_items
+		var/obj/item/weapon/gun/complexweapon/flamernozzle/FN = locate(/obj/item/weapon/gun/complexweapon/flamernozzle) in user.held_items
 		if(FN)
 			user.drop_item(FN)
 			nozzleout = FALSE
@@ -88,7 +88,7 @@
 		return
 
 /obj/item/weapon/ork/burnapack/proc/detach_nozzle(mob/user)
-	var/obj/item/weapon/gun/flamernozzle/FN = locate() in src.contents
+	var/obj/item/weapon/gun/complexweapon/flamernozzle/FN = locate() in src.contents
 	if(!FN)
 		to_chat(user, "Your pack seems to have no nozzle on it, FUCK.")
 		return
@@ -101,7 +101,7 @@
 /obj/item/weapon/ork/burnapack/proc/get_fuel()
 	return reagents.get_reagent_amount(FUEL)
 
-/obj/item/weapon/gun/flamernozzle
+/obj/item/weapon/gun/complexweapon/flamernozzle
 	name = "Burna Pack Nozzle"
 	desc = "The shooty end of a flamethrower"
 	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
@@ -114,11 +114,11 @@
 	throw_speed = 1
 	fire_sound = null
 
-/obj/item/weapon/gun/flamernozzle/New()
+/obj/item/weapon/gun/complexweapon/flamernozzle/New()
 	if(istype(loc, /obj/item/weapon/ork/burnapack))
 		my_pack = loc
 
-/obj/item/weapon/gun/flamernozzle/dropped(mob/user) //If we drop this, we return to pack.
+/obj/item/weapon/gun/complexweapon/flamernozzle/dropped(mob/user) //If we drop this, we return to pack.
 	if(my_pack)
 		my_pack.nozzleout = FALSE
 		src.forceMove(my_pack)
@@ -128,7 +128,7 @@
 	else
 		qdel(src)
 
-/obj/item/weapon/gun/flamernozzle/update_icon()
+/obj/item/weapon/gun/complexweapon/flamernozzle/update_icon()
 	var/mob/living/carbon/human/H = loc
 
 	if(istype(loc,/mob/living/carbon/human))
@@ -141,7 +141,7 @@
 			item_state = "burnanozzle_off"
 			H.update_inv_hands()
 
-/obj/item/weapon/gun/flamernozzle/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
+/obj/item/weapon/gun/complexweapon/flamernozzle/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()
 	if(isturf(hit_atom))
 		src.forceMove(my_pack)
@@ -152,7 +152,7 @@
 		my_pack.nozzleout = FALSE
 		my_pack.update_icon()
 
-/obj/item/weapon/gun/flamernozzle/attack_self(var/mob/user) //If we click this, we ignite it.
+/obj/item/weapon/gun/complexweapon/flamernozzle/attack_self(var/mob/user) //If we click this, we ignite it.
 	if(!currently_lit)
 		to_chat(user, "<span class='notice'> You ignite the nozzle end.")
 		currently_lit = TRUE
@@ -163,7 +163,7 @@
 		update_icon()
 	..()
 
-/obj/item/weapon/gun/flamernozzle/verb/light_flame() //we also have a verb to turn the igniter on
+/obj/item/weapon/gun/complexweapon/flamernozzle/verb/light_flame() //we also have a verb to turn the igniter on
 	set name = "Igniter Toggle"
 	set desc = "Turns the igniter on, along with all that entails"
 	set category = "Object"
@@ -176,7 +176,7 @@
 		currently_lit = FALSE
 		update_icon()
 
-/obj/item/weapon/gun/flamernozzle/process_chambered()
+/obj/item/weapon/gun/complexweapon/flamernozzle/process_chambered()
 	if(in_chamber)
 		return 1
 	if(currently_lit)

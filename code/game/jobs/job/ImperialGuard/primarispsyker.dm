@@ -37,7 +37,7 @@
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_head_str = /obj/item/clothing/head/iguard/primarispsykertop,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/primarispsykerrobe,
-			slot_back_str = /obj/item/weapon/psykerstaff,
+			slot_back_str = /obj/item/weapon/complexweapon/psykerstaff,
 		)
 	)
 
