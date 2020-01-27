@@ -4,6 +4,7 @@
  */
 /obj/item/projectile/fire_breath/eviscerator //The fire projectile we will use, cap it to 4 turfs.
 	fire_blast_type = /obj/effect/fire_blast/no_spread
+	fire_sound = null
 	max_range = 4
 
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator
@@ -67,15 +68,6 @@
 	..()
 	to_chat(user, "<span class='info'> Has [max_fuel] unit\s of fuel remaining.</span>")
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(!proximity)
-		return
-	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1)
-		O.reagents.trans_to(src, max_fuel)
-		to_chat(user, "<span class='notice'> Pack refueled</span>")
-		playsound(src, 'sound/effects/refill.ogg', 50, 1, -6)
-		return
-
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator/IsShield()
 	return 1
 
@@ -89,7 +81,6 @@
 		if(firstrev)
 			firstrev = FALSE
 			playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
-	..()
 
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator/unequipped(mob/user)
 	if(revvin_on)
@@ -97,15 +88,32 @@
 		update_icon()
 
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator/dropped(mob/user)
-	..()
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
+	..()
 
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator/proc/get_fuel()
 	return reagents.get_reagent_amount(FUEL)
 
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator/afterattack(atom/target, mob/user, flag)
+
+	if (istype(target, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,target) <= 1 && !src.revvin_on)
+		if(target.reagents.trans_to(src, max_fuel))
+			to_chat(user, "<span class='notice'>Exterminator refueled.</span>")
+			playsound(src, 'sound/effects/refill.ogg', 50, 1, -6)
+		else if(!target.reagents)
+			to_chat(user, "<span class='notice'>\The [target] is empty.</span>")
+		else
+			to_chat(user, "<span class='notice'>\The [src] is already full.</span>")
+		return
+	else if (istype(target, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,target) <= 1 && src.revvin_on)
+		message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
+		log_game("[key_name(user)] triggered a fueltank explosion.")
+		to_chat(user, "<span class='warning'>That was stupid of you.</span>")
+		var/obj/structure/reagent_dispensers/fueltank/tank = target
+		tank.explode()
+		return
 
 	if(!revvin_on)
 		return
