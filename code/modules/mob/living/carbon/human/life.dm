@@ -121,6 +121,8 @@ var/global/list/organ_damage_overlays = list(
 	blinded = null
 	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
 
+	inertial_speed = null //sets the inertial speed to indicate that you are not in motion. JTGSZ MARKED
+
 	//TODO: seperate this out
 	//Update the current life tick, can be used to e.g. only do something every 4 ticks
 	life_tick++

@@ -68,7 +68,7 @@
 
 	if(click_delayer.blocked())
 		return
-	click_delayer.setDelay(1)
+	click_delayer.setDelay(1) 
 
 	if(client && client.buildmode)
 		build_click(src, client.buildmode, params, A)

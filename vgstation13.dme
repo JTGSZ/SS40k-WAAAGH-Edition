@@ -2631,6 +2631,7 @@
 #include "z40k_shit\orks\orkmeleegear\orkmeleegear.dm"
 #include "z40k_shit\systems\actionbuttons.dm"
 #include "z40k_shit\systems\attachment_system.dm"
+#include "z40k_shit\systems\complexcombat.dm"
 #include "z40k_shit\turfs\footprintholder.dm"
 #include "z40k_shit\turfs\gentest.dm"
 #include "z40k_shit\turfs\outsideparent.dm"

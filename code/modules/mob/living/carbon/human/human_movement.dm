@@ -11,6 +11,10 @@
 /mob/living/carbon/human/base_movement_tally()
 	. = ..()
 
+	if(inertial_speed == null) //JTGSZ MARKED
+		inertial_speed = 0
+	inertial_speed += 1 //Track if they have recently moved and at what speed.
+
 	if(flying)
 		return // Calculate none of the following because we're technically on a vehicle
 	if(reagents.has_any_reagents(HYPERZINES))

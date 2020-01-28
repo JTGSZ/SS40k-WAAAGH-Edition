@@ -208,6 +208,11 @@ emp_act
 		return FALSE
 	var/hit_area = affecting.display_name
 
+	var/obj/item/weapon/D = src.get_active_hand()
+	if(D && D.complex_block) //JTGSZ MARKED
+		if(D.handle_block(I, user, src)) //If we successfully parry and return TRUE due to this
+			return FALSE  //We just stop this here
+
 	if(istype(I.attack_verb, /list) && I.attack_verb.len && !(I.flags & NO_ATTACK_MSG))
 		visible_message("<span class='danger'>\The [user] [pick(I.attack_verb)] \the [src] in \the [hit_area] with \the [I]!</span>", \
 			"<span class='userdanger'>\The [user] [pick(I.attack_verb)] you in \the [hit_area] with \the [I]!</span>")

@@ -8,7 +8,7 @@
 	item_state = "tape"
 	w_class = W_CLASS_SMALL
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota
 	name = "\improper Slugga"
 	desc = "What dis?"
 	icon = 'z40k_shit/icons/obj/orks/kustomgun.dmi'
@@ -36,16 +36,16 @@
 	var/shotgunpellets = 0 //Shotgun bullet types
 	var/taped = 1
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/isHandgun()
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/isHandgun()
 	return FALSE //No Kustom Shoota Akimbo for us.
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
 	..()
 	if(!isork(user))
 		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
 		return
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/examine(mob/user)
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/examine(mob/user)
 	..()
 	if(basicbullets)
 		to_chat(user, "<span class='info'> There are currently [basicbullets] normal ballistics attached.</span>")
@@ -54,7 +54,7 @@
 	if(shotgunpellets)
 		to_chat(user, "<span class='info'> There are currently [shotgunpellets] shotguns attached.</span>")
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/attackby(obj/item/I as obj, mob/user as mob)
 	if(state > 29)
 		to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
 		return
@@ -66,7 +66,7 @@
 		playsound(loc, 'z40k_shit/sounds/tape.ogg', 50, 0)
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
-		if(istype(I, /obj/item/weapon/gun/projectile/automatic/kustomshoota) || \
+		if(istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota) || \
 			istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/slugga))
 			basicbullets++
 			state++
@@ -84,7 +84,7 @@
 
 	..()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/update_icon()
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/update_icon()
 	..()
 	switch(state)
 		if(0 to 2)
@@ -120,7 +120,7 @@
 	icon_state = "slugga[iconticker][stored_magazine ? "" : "-e"]"
 	return
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params, struggle = FALSE)
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params, struggle = FALSE)
 	if(!cooldown)
 		makethepainstop(target, user, params, struggle)
 		return
@@ -128,7 +128,7 @@
 	else if(cooldown)
 		return
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/proc/makethepainstop(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
+/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/proc/makethepainstop(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
 	if(!isork(user))
 		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
 		return
