@@ -140,8 +140,8 @@ Burnapack Flamernozzle
 			if(src.force >= 10) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
 				if(prob((parryprob - I.force)+probmod) && parryingDIR == assaultDIR && !target.lying) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
 					user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-					return TRUE
-				else if(src.force >= 10 && prob((parryprob - I.force)+probmod)/6)
+					return TRUE //If we are attacked from the direction we parry
+				else if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
 					user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
 					return TRUE
 				else
