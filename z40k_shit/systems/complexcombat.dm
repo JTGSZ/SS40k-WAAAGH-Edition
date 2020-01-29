@@ -132,25 +132,26 @@ Burnapack Flamernozzle
 //Obv our object is src
 //user.dir target.dir
 /obj/item/weapon/proc/handle_block(var/obj/item/I, var/mob/living/user, var/mob/living/target, var/probmod = 0)
-	if(can_parry)
-		if(src.force >= 10) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
-			if(prob((parryprob - I.force)+probmod) && !target.lying) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
-				user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-				parryingDIR = FALSE
-				return TRUE
-			else
-				to_chat(target, "<span class = 'danger'> You fail to block the [I]!</span>")
-		else if(src.force >= 10 && prob((parryprob - I.force)+probmod)/2)
-			user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-			return TRUE
-		else if(src.force >= 10 && prob((parryprob - I.force)+probmod)/6)
-			user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-			return TRUE
+	if(can_parry) //Can we even parry?
+		if(parrying) //ARE we parrying? Now we need to get some direction calculations
+			var/assaultDIR = get_dir(target,user) //The direction we are being attacked from
+			var/sideDIR1 = turn(assaultDIR,90) //Side from parryingDIR
+			var/sideDIR2 = turn(assaultDIR,-90) //Otherside of parryingDIR
+			if(src.force >= 10) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
+				if(prob((parryprob - I.force)+probmod) && parryingDIR == assaultDIR && !target.lying) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
+					user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
+					return TRUE
+				else if(src.force >= 10 && prob((parryprob - I.force)+probmod)/6)
+					user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
+					return TRUE
+				else
+					to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+					return FALSE
 	return FALSE //basically if it returns true to the segment in human_defense.dm Line 211 we do stuff here.
 	//Instead of over there
 
 /obj/item/weapon/proc/handle_ctrlclick(var/mob/living/user, var/mob/living/target)
-	parryingDIR = get_dir(user, target)
+	parryingDIR = get_dir(user, target) //EG we click north and now we have NORTH
 	if(can_parry) //Can we parry?
 		if(!parryingCD) //Are we off CD
 			to_chat(user,"<span class='danger'>You prepare to parry a blow from the [parryingDIR].</span>")
