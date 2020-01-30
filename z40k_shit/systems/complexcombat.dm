@@ -51,6 +51,8 @@ Eviscerator
 
 /obj/item/weapon/gun/projectile/complexweapon
 	complex_click = TRUE
+	can_parry = TRUE
+	complex_block = TRUE
 	var/stance = "defensive"
 
 /obj/item/weapon/gun/projectile/complexweapon/verb/switchstance() //We toggle stances here.
@@ -135,30 +137,57 @@ Burnapack Flamernozzle
 	if(can_parry) //Can we even parry?
 		if(parrying) //ARE we parrying? Now we need to get some direction calculations
 			var/assaultDIR = get_dir(target,user) //The direction we are being attacked from
-			var/sideDIR1 = turn(assaultDIR,90) //Side from parryingDIR
-			var/sideDIR2 = turn(assaultDIR,-90) //Otherside of parryingDIR
-			if(src.force >= 10) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
-				if(prob((parryprob - I.force)+probmod) && parryingDIR == assaultDIR && !target.lying) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
-					user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-					return TRUE //If we are attacked from the direction we parry
-				else if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
-					user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-					return TRUE
-				else
-					to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-					return FALSE
+			if(src.force >= 10 && !target.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
+				if(parryingDIR == assaultDIR)
+					if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
+						user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
+						return TRUE //If we are attacked from the direction we parry
+					else
+						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+						return FALSE
+				if((assaultDIR == turn(parryingDIR,90)) || (assaultDIR == turn(parryingDIR,-90)))
+					if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
+						user.visible_message("<span class ='danger'>[target] has parried [user]'s side attack!</span>")
+						return TRUE
+					else
+						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+						return FALSE
+			else
+				to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+				return FALSE
 	return FALSE //basically if it returns true to the segment in human_defense.dm Line 211 we do stuff here.
 	//Instead of over there
 
-/obj/item/weapon/proc/handle_ctrlclick(var/mob/living/user, var/mob/living/target)
+/obj/item/weapon/proc/handle_ctrlclick(var/mob/living/user, var/atom/target)
 	parryingDIR = get_dir(user, target) //EG we click north and now we have NORTH
+	var/showndirection = ""
+	switch(parryingDIR)
+		if(1)
+			showndirection = "North"
+		if(2)
+			showndirection = "South"
+		if(4)
+			showndirection = "East"
+		if(5)
+			showndirection = "Northeast"
+		if(6)
+			showndirection = "Southeast"
+		if(8)
+			showndirection = "West"
+		if(9)
+			showndirection = "Northwest"
+		if(10)
+			showndirection = "Southwest"
+	
 	if(can_parry) //Can we parry?
 		if(!parryingCD) //Are we off CD
-			to_chat(user,"<span class='danger'>You prepare to parry a blow from the [parryingDIR].</span>")
+			to_chat(user,"<span class='danger'>You prepare to parry blows from the [showndirection].</span>")
 			parryingCD = TRUE //Then we enter CD and prepare
 			parrying = TRUE
 			spawn(parryduration*10) 
-				parryingCD = FALSE
+				parryingCD = FALSE //Cooldown is off
+			spawn(parryduration*5)
+				parrying = FALSE //And we should stop parrying in half the time
 			user.click_delayer.setDelay(2)
 
 //Mob Var holder/parent entry
