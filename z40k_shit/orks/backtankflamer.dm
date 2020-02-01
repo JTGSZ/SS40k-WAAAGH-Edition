@@ -6,7 +6,7 @@
 	item_state = "orkburnapack_in"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
-	species_fit = list("Ork")
+	species_fit = list("Ork", "Ork Nob")
 	var/nozzleout = FALSE //Is the nozzle on it or off of it
 	var/max_fuel = 1500 //The max amount of fuel this can hold
 	var/start_fueled = 1 // Do we start fueled

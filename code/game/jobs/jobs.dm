@@ -10,6 +10,7 @@ var/const/CYBORG			=(1<<10)
 var/const/MOMMI				=(1<<11)
 var/const/BASICORK 			=(1<<13)
 var/const/PRIMARISPSYKER	=(1<<14)
+var/const/ORKNOB			=(1<<15)
 
 
 var/const/MEDSCI			=(1<<1)

@@ -4,7 +4,7 @@
  * Right now just handles lying down, but could handle other cases later.
  * IMPORTANT: Multiple animate() calls do not stack well, so try to do them all at once if you can.
  */
-/mob/living/carbon/update_transform()
+/mob/living/carbon/update_transform() //JTGSZ MARKED
 	if(lying != lying_prev)
 		var/matrix/final_transform = matrix()
 		var/final_pixel_y = pixel_y

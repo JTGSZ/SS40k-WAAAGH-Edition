@@ -112,9 +112,7 @@
 		slot = text2num(slot)
 		H.equip_to_slot_or_del(new obj_type(H), slot, TRUE)
 	
-	if(no_backpack)
-		return
-	else
+	if(!no_backpack)
 		equip_backbag(H, species)
 
 	if(slot_r_hand) // So we can put things into hands or something easily.

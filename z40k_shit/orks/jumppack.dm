@@ -8,7 +8,7 @@
 	item_state = "orkjumppack_off"
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
-	species_fit = list("Ork")
+	species_fit = list("Ork", "Ork Nob")
 	var/usetime // cooldown holder for verb actions
 	var/wallcrashiterations = 4 // How many times are we going to destroy everything before we stop.
 	var/highinair = 0 //Am I flying, like real high?, If I am flying and the user pulls me off they will die.

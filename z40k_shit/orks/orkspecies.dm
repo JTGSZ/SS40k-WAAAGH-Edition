@@ -9,12 +9,12 @@
 
 	eyes = "ork_eyes_s"
 
-	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | IS_WHITELISTED | NO_SCAN | NO_SKIN
+	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN | IS_WHITELISTED
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
 
 	// Both must be set or it's only a 45% chance of manifesting.
-	default_mutations=list(M_STRONG | M_RUN | M_LOUD)
-	default_block_names=list("STRONGBLOCK","LOUDBLOCK","INCREASERUNBLOCK")
+	default_mutations = list(M_RUN | M_LOUD)
+	default_block_names = list("STRONGBLOCK","LOUDBLOCK","INCREASERUNBLOCK")
 
 	cold_level_1 = -1  // Cold damage level 1 below this point.
 	cold_level_2 = -1  // Cold damage level 2 below this point.
@@ -24,6 +24,7 @@
 	heat_level_2 = 480
 	heat_level_3 = 1100
 
+	spells = list(/spell/waaagh1)
 	has_mutant_race = 0
 
 	has_organ = list(
@@ -64,9 +65,91 @@
 		"[slot_w_uniform]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_s_store]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_legcuffed]"	=	list("pixel_x" = 0, "pixel_y" = 0)
-		) //Hands covers inhands and gloves. - JTGSZ
+		) //gloves covers inhands and gloves. - JTGSZ
 	return offsets
 
 /datum/species/ork/gib(mob/living/carbon/human/H)
 	..()
 	H.default_gib()
+
+//This below segment normally belongs in human.dm
+/mob/living/carbon/human/ork/New(var/new_loc, delay_ready_dna = 0)
+	..(new_loc, "Ork")
+	my_appearance.h_style = "Bald"
+	regenerate_icons()
+
+/datum/species/ork/nob
+	name = "Ork Nob"
+	icobase = 'icons/mob/human_races/r_ork.dmi'
+	deform = 'icons/mob/human_races/r_def_ork.dmi'
+	known_languages = list(LANGUAGE_CATBEAST,LANGUAGE_HUMAN)
+
+	primitive = /mob/living/carbon/monkey
+	gender = MALE //they are all male, my man.
+
+	eyes = "ork_eyes_s"
+
+	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN
+	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
+
+	// Both must be set or it's only a 45% chance of manifesting.
+	default_mutations=list(M_RUN | M_LOUD)
+	default_block_names=list("STRONGBLOCK","LOUDBLOCK","INCREASERUNBLOCK")
+
+	cold_level_1 = -1  // Cold damage level 1 below this point.
+	cold_level_2 = -1  // Cold damage level 2 below this point.
+	cold_level_3 = -1  // Cold damage level 3 below this point.
+
+	heat_level_1 = 420
+	heat_level_2 = 480
+	heat_level_3 = 1100
+
+	spells = list(/spell/waaagh1)
+	has_mutant_race = 0
+
+	brute_mod = 0.7	// brute multiplier
+	burn_mod = 0.5 // burn multiplier
+	tox_mod	= 0.8	// toxin multiplier
+
+	has_organ = list(
+		"heart" =    /datum/organ/internal/heart,
+		"lungs" =    /datum/organ/internal/lungs,
+		"brain" =    /datum/organ/internal/brain,
+		"eyes" =     /datum/organ/internal/eyes
+	)
+
+	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+//	fat_uniform_icons   = 'icons/mob/uniform_fat.dmi'
+	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+//	glasses_icons       = 'icons/mob/eyes.dmi'
+//	ears_icons          = 'icons/mob/ears.dmi'
+	shoes_icons         = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	head_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+//	fat_wear_suit_icons = 'icons/mob/suit_fat.dmi'
+//	wear_mask_icons     = 'icons/mob/mask.dmi'
+	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+//	id_icons            = 'icons/mob/ids.dmi'
+
+/mob/living/carbon/human/ork/nob/New(var/new_loc, delay_ready_dna = 0)
+	..(new_loc, "Ork Nob")
+	my_appearance.h_style = "Bald"
+	regenerate_icons()
+
+/mob/living/carbon/human/ork/nob/update_transform()
+	..()
+	var/matrix/M = matrix() //Matrix
+	M.Scale(1.1,1.1) //Scale it
+	src.transform = M //Apply it
+
+/datum/species/ork/nob/handle_post_spawn(var/mob/living/carbon/human/H)
+	if(myhuman != H)
+		return
+	H.appearance_flags |= PIXEL_SCALE //Anti Aliasing
+	var/matrix/M = matrix() //Matrix
+	M.Scale(1.1,1.1) //Scale it
+	H.transform = M //Apply it
+	H.maxHealth += 100
+	H.health += 100
+	H.update_icon()

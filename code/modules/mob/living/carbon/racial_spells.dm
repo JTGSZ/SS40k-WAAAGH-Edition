@@ -9,7 +9,7 @@
 	hud_state = "racial_dark"
 	spell_flags = INCLUDEUSER
 	charge_type = Sp_GRADUAL
-	charge_max = 600
+	charge_max = 600 
 	minimum_charge = 100
 	range = SELFCAST
 	cast_sound = 'sound/misc/grue_growl.ogg'

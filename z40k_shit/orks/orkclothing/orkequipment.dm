@@ -6,30 +6,30 @@
 //Heres all of the parents.
 /obj/item/clothing/gloves/ork //Parent of the children afterwards, inherits from these paths.
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi' //Object Icon Path, what appears when dropped.
-	species_restricted = list("Ork") //Only orks can wear ork stuff for now at least.
-	species_fit = list("Ork") //We insure it checks to fit for the species icon.
+	species_restricted = list("Ork", "Ork Nob") //Only orks can wear ork stuff for now at least.
+	species_fit = list("Ork", "Ork Nob") //We insure it checks to fit for the species icon.
 /obj/item/clothing/head/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	species_restricted = list("Ork")
-	species_fit = list("Ork")
+	species_restricted = list("Ork", "Ork Nob")
+	species_fit = list("Ork", "Ork Nob") 
 /obj/item/clothing/suit/armor/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	species_restricted = list("Ork")
-	species_fit = list("Ork")
+	species_restricted = list("Ork", "Ork Nob")
+	species_fit = list("Ork", "Ork Nob") 
 /obj/item/clothing/shoes/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	species_restricted = list("Ork")
-	species_fit = list("Ork")
+	species_restricted = list("Ork", "Ork Nob")
+	species_fit = list("Ork", "Ork Nob") 
 /obj/item/clothing/under/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	species_restricted = list("Ork")
-	species_fit = list("Ork")
+	species_restricted = list("Ork", "Ork Nob")
+	species_fit = list("Ork", "Ork Nob") 
 /obj/item/weapon/storage/belt/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	species_fit = list("Ork")
+	species_fit = list("Ork", "Ork Nob") 
 /obj/item/weapon/storage/backpack/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
-	species_fit = list("Ork")
+	species_fit = list("Ork", "Ork Nob") 
 
 /* 
 	Gloves
