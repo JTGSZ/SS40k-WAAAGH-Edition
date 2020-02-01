@@ -590,6 +590,7 @@
 #include "code\game\jobs\job\ImperialGuard\primarispsyker.dm"
 #include "code\game\jobs\job\ImperialGuard\sergeant.dm"
 #include "code\game\jobs\job\ImperialGuard\trooper.dm"
+#include "code\game\jobs\job\Orks\basicboss.dm"
 #include "code\game\jobs\job\Orks\basicnob.dm"
 #include "code\game\jobs\job\Orks\basicork.dm"
 #include "code\game\jobs\job_objectives\_TODO.dm"
