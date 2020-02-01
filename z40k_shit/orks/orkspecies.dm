@@ -118,7 +118,7 @@
 		"eyes" =     /datum/organ/internal/eyes
 	)
 
-	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearNOBMOB.dmi'
 //	fat_uniform_icons   = 'icons/mob/uniform_fat.dmi'
 	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	glasses_icons       = 'icons/mob/eyes.dmi'
@@ -126,7 +126,7 @@
 	shoes_icons         = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 	head_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
-	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearNOBMOB.dmi'
 //	fat_wear_suit_icons = 'icons/mob/suit_fat.dmi'
 //	wear_mask_icons     = 'icons/mob/mask.dmi'
 	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
@@ -134,10 +134,10 @@
 
 /datum/species/ork/nob/get_inventory_offsets()	//This is what you override if you want to give your species unique inventory offsets.
 	var/static/list/offsets = list(
-		"[slot_back]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_back]"		=	list("pixel_x" = 0, "pixel_y" = 3),
 		"[slot_wear_mask]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_handcuffed]"	=	list("pixel_x" = 0, "pixel_y" = 0),
-		"[slot_belt]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_belt]"		=	list("pixel_x" = 0, "pixel_y" = 2),
 		"[slot_wear_id]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_ears]"		=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_glasses]"	=	list("pixel_x" = 0, "pixel_y" = 0),
@@ -207,15 +207,15 @@
 		"eyes" =     /datum/organ/internal/eyes
 	)
 
-	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
 //	fat_uniform_icons   = 'icons/mob/uniform_fat.dmi'
-	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
 //	glasses_icons       = 'icons/mob/eyes.dmi'
 //	ears_icons          = 'icons/mob/ears.dmi'
 	shoes_icons         = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
-	head_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
-	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
-	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
+	head_icons          = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
+	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
+	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
 //	fat_wear_suit_icons = 'icons/mob/suit_fat.dmi'
 //	wear_mask_icons     = 'icons/mob/mask.dmi'
 	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
@@ -223,7 +223,7 @@
 
 /datum/species/ork/warboss/get_inventory_offsets()	//This is what you override if you want to give your species unique inventory offsets.
 	var/static/list/offsets = list(
-		"[slot_back]"		=	list("pixel_x" = 0, "pixel_y" = 0),
+		"[slot_back]"		=	list("pixel_x" = 0, "pixel_y" = 5),
 		"[slot_wear_mask]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_handcuffed]"	=	list("pixel_x" = 0, "pixel_y" = 0),
 		"[slot_belt]"		=	list("pixel_x" = 0, "pixel_y" = 0),
