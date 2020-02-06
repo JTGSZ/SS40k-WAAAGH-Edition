@@ -31,7 +31,7 @@
 		"Default" = list(
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
 		),
-		/datum/species/ork = list( 
+		/datum/species/ork/warboss = list( 
 			slot_w_uniform_str = /obj/item/clothing/under/ork/warboss/pants,
 			slot_shoes_str = /obj/item/clothing/shoes/ork/bossboots,
 			slot_gloves_str = /obj/item/clothing/gloves/ork/warboss/armorbracers,
@@ -42,9 +42,9 @@
 		)
 	)
 
-//datum/outfit/orkwarboss/pre_equip(var/mob/living/carbon/human/H)
-//	H.set_species("Ork Warboss")
+/datum/outfit/orkwarboss/pre_equip(var/mob/living/carbon/human/H)
+	H.set_species("Ork Warboss")
 
 /datum/outfit/orkwarboss/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("WAAAAAAAAGH!")
-	H.set_species("Ork Warboss")
+//	H.set_species("Ork Warboss")

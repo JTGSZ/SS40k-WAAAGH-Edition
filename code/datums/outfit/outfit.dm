@@ -8,6 +8,7 @@
 	  "Default" is the list of items for humans.
 	- use_pref_bag: if we use the backpack he has in prefs, or if we give him a standard backpack.
 	- no_backpack: If we don't give them a backpack + survival gear.
+	- no_id: If we don't give them a ID
 	- equip_survival_gear: if we give him the basic survival gear.
 	- items_to_collect: items to put in the backbag
 		The associative key is for when to put it if we have no backbag.
@@ -50,6 +51,7 @@
 
 	var/use_pref_bag = TRUE
 	var/no_backpack = FALSE
+	var/no_id = TRUE
 	var/give_disabilities_equipment = TRUE
 	var/list/equip_survival_gear = list()
 
@@ -193,24 +195,23 @@
 		CRASH("Outfit [outfit_name] has no associated job, and the proc to spawn the ID is not overriden.")
 	var/datum/job/concrete_job = new associated_job
 
-	var/obj/item/weapon/card/id/C
-	C = new id_type(H)
-	C.access = concrete_job.get_access()
-	C.registered_name = H.real_name
-	C.rank = rank
-	C.assignment = H.mind.role_alt_title
-	C.name = "[C.registered_name]'s ID Card ([C.assignment])" 
-	H.equip_or_collect(C, slot_wear_id) 
-		
-	if (pda_type)
-		var/obj/item/device/pda/pda = new pda_type
-		pda.owner = H.real_name
-		pda.ownjob = C.assignment
-		pda.name = "PDA-[H.real_name] ([pda.ownjob])"
-		H.equip_or_collect(pda, pda_slot)
-
-	if(H.mind && H.mind.initial_account) //40K REVISIT - This just silences the runtime.
-		C.associated_account_number = H.mind.initial_account.account_number
+	if(!no_id)
+		var/obj/item/weapon/card/id/C
+		C = new id_type(H)
+		C.access = concrete_job.get_access()
+		C.registered_name = H.real_name
+		C.rank = rank
+		C.assignment = H.mind.role_alt_title
+		C.name = "[C.registered_name]'s ID Card ([C.assignment])" 
+		H.equip_or_collect(C, slot_wear_id) 
+		if(pda_type)
+			var/obj/item/device/pda/pda = new pda_type
+			pda.owner = H.real_name
+			pda.ownjob = C.assignment
+			pda.name = "PDA-[H.real_name] ([pda.ownjob])"
+			H.equip_or_collect(pda, pda_slot)
+		if(H.mind && H.mind.initial_account) //40K REVISIT - This just silences the runtime.
+			C.associated_account_number = H.mind.initial_account.account_number
 
 /datum/outfit/proc/post_equip(var/mob/living/carbon/human/H)
 	return // Empty

@@ -73,7 +73,7 @@
 	H.default_gib()
 
 //This below segment normally belongs in human.dm
-/mob/living/carbon/human/ork/New(var/new_loc, delay_ready_dna = 0)
+/mob/living/carbon/human/ork/basicork/New(var/new_loc, delay_ready_dna = 0)
 	..(new_loc, "Ork")
 	my_appearance.h_style = "Bald"
 	regenerate_icons()
@@ -240,12 +240,12 @@
 		) //gloves covers inhands and gloves. - JTGSZ
 	return offsets
 
-/mob/living/carbon/human/ork/nob/New(var/new_loc, delay_ready_dna = 0)
+/mob/living/carbon/human/ork/warboss/New(var/new_loc, delay_ready_dna = 0)
 	..(new_loc, "Ork Warboss")
 	my_appearance.h_style = "Bald"
 	regenerate_icons()
 
-/datum/species/ork/nob/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/ork/warboss/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(myhuman != H)
 		return
 	H.maxHealth += 200
