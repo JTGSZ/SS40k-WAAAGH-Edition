@@ -87,7 +87,7 @@
 	primitive = /mob/living/carbon/monkey
 	gender = MALE //they are all male, my man.
 
-	eyes = "ork_eyes_s"
+	eyes = "bald_s"
 
 	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
@@ -176,7 +176,7 @@
 	primitive = /mob/living/carbon/monkey
 	gender = MALE //they are all male, my man.
 
-	eyes = "ork_eyes_s"
+	eyes = "bald_s"
 
 	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
@@ -207,15 +207,15 @@
 		"eyes" =     /datum/organ/internal/eyes
 	)
 
-	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
+	uniform_icons 		= 'z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi'
 //	fat_uniform_icons   = 'icons/mob/uniform_fat.dmi'
-	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
+	gloves_icons        = 'z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi'
 //	glasses_icons       = 'icons/mob/eyes.dmi'
 //	ears_icons          = 'icons/mob/ears.dmi'
 	shoes_icons         = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
-	head_icons          = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
-	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
-	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearBOSSMOB.dmi'
+	head_icons          = 'z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi'
+	belt_icons          = 'z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi'
+	wear_suit_icons     = 'z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi'
 //	fat_wear_suit_icons = 'icons/mob/suit_fat.dmi'
 //	wear_mask_icons     = 'icons/mob/mask.dmi'
 	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'

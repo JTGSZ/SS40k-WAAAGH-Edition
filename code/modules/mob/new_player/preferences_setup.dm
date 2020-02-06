@@ -194,6 +194,15 @@
 					icobase = 'icons/mob/human_races/grey/r_greylight.dmi'
 				else
 					icobase = 'icons/mob/human_races/grey/r_grey.dmi'
+		else if(current_species.name == "Ork")
+			if(job_engsec_high)
+				switch(job_engsec_high)
+					if(ORKWARBOSS)
+						icobase = 'icons/mob/human_races/r_orkboss.dmi'
+					if(ORKNOB)
+						icobase = 'icons/mob/human_races/r_orknob.dmi'
+					else
+						icobase = 'icons/mob/human_races/r_ork.dmi'
 		else
 			icobase = current_species.icobase
 	else
@@ -376,6 +385,19 @@
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
+				if(ORKNOB)
+					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
+				if(ORKWARBOSS)
+					clothes_s = new/icon(uniform_dmi, "warboss_uniform1_s")
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warbosshelmet1"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_shoes"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_armor1"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_belt"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_gloves"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
+
 
 	// Observers get tourist outfit.
 	else

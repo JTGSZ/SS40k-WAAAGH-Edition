@@ -38,7 +38,9 @@
 		)
 	)
 
-/datum/outfit/orknob/post_equip(var/mob/living/carbon/human/H)
+/datum/outfit/orknob/pre_equip(var/mob/living/carbon/human/H)
 	H.set_species("Ork Nob")
+
+/datum/outfit/orknob/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("WAAAAAAAAGH!")
 

@@ -44,5 +44,5 @@
 	still_recharging_msg = "<span class='notice'>You're still regaining your strength.</span>"
 
 /spell/waaagh1/cast(list/targets, mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+//	if(ishuman(user))
+//		var/mob/living/carbon/human/H = user
