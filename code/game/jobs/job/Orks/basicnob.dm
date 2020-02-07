@@ -31,7 +31,7 @@
 		"Default" = list(
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
 		),
-		/datum/species/ork = list( 
+		/datum/species/ork/nob = list( 
 			slot_w_uniform_str = /obj/item/clothing/under/ork/pants,
 			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
 			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack,

@@ -72,7 +72,7 @@
 	//PlayerSet()
 	CHECK_TICK
 	if(!endgame_exits.len)
-		message_admins("<span class='warning'><font size=7>SOMEBODY DIDNT PUT ENDGAME EXITS FOR THIS FUCKING MAP: [map.nameLong]</span></font>")
+		message_admins("<span class='warning'>SOMEBODY DIDNT PUT ENDGAME EXITS FOR THIS FUCKING MAP: [map.nameLong]</span>")
 	else
 		new /obj/machinery/singularity/narsie/large/exit(pick(endgame_exits))
 

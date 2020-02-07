@@ -163,6 +163,7 @@
 
 
 /proc/stats_server_alert_new_file()
-	world.Export("http://stats.ss13.moe/alert_new_file")
+	return
+	//world.Export("http://stats.ss13.moe/alert_new_file")
 
 #undef STAT_TIMESTAMP_FORMAT

@@ -7,7 +7,7 @@
 	primitive = /mob/living/carbon/monkey
 	gender = MALE //they are all male, my man.
 
-	eyes = "ork_eyes_s"
+	eyes = "bald_s"
 
 	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN | IS_WHITELISTED
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
