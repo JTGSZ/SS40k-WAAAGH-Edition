@@ -52,6 +52,7 @@
 
 /obj/groundtank/New()
 	. = ..()
+	processing_objects.Add(src)
 	if(!tank_overlays)
 		tank_overlays = new/list(2)
 		tank_overlays[DAMAGE] = image(icon, icon_state="pod_damage")
@@ -68,6 +69,7 @@
 
 
 /obj/groundtank/Destroy()
+	processing_objects.Remove(src)
 	if(occupants.len)
 		for(var/mob/living/L in occupants)
 			move_outside(L)
