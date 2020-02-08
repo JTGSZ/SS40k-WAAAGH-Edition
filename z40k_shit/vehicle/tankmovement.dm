@@ -16,16 +16,10 @@
 		loc.Entered(src, oldloc)
 
 /obj/groundtank
-	var/fmomentum = 0
-	var/bmomentum = 0
-	var/momentumcap = 5
-	var/helddir
+	var/velocity = 0
 
 /obj/groundtank/process() // We are on ssobj dw
-	if(fmomentum)
-		fmomentum--
-	if(bmomentum)
-		bmomentum--
+
 
 /obj/groundtank/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
@@ -37,47 +31,22 @@
 	switch(direction)
 		if(NORTH)
 			Move(get_step(src,src.dir), src.dir) //How we move
-			if(!bmomentum && fmomentum < momentumcap)
-				fmomentum++
-			//wemovin(direction)
+			if(velocity =< 70) //Limited to 70 forward velocity
+				velocity++
+
 		if(SOUTH)
 			Move(get_step(src,turn(src.dir, -180)), src.dir)
-			if(!fmomentum && bmomentum < momentumcap)
-				bmomentum++
-			//wemovin(direction)
+			if(velocity >= -50) //Limited to negative 50 reverse velocity
+				velocity--
+
 		if(EAST)
 			src.dir = turn(src.dir, 90) //Tank controls
-			if(src.dir == NORTH)
-				helddir = "North"
-			if(src.dir == SOUTH)
-				helddir = "South"
-			if(src.dir == EAST)
-				helddir = "East"
-			if(src.dir == WEST)
-				helddir = "West"
 		if(WEST)
 			src.dir = turn(src.dir, -90) //Technically its reversed too
-			if(src.dir == NORTH)
-				helddir = "North"
-			if(src.dir == SOUTH)
-				helddir = "South"
-			if(src.dir == EAST)
-				helddir = "East"
-			if(src.dir == WEST)
-				helddir = "West"
+
 
 		//Move(get_step(src,direction), direction) //How we move
 	move_delayer.delayNext(round(movement_delay,world.tick_lag)) //Delay
-
-/obj/groundtank/proc/wemovin(direction)
-	
-	if(fmomentum)
-		for(var/i=1 to fmomentum)
-			move_delayer.delayNext(round(movement_delay,world.tick_lag))
-	if(bmomentum)
-		for(var/i=1 to bmomentum)
-			move_delayer.delayNext(round(movement_delay,world.tick_lag))
-	
 
 
 /obj/groundtank/proc/change_speed() //This delays each movement
