@@ -16,7 +16,7 @@
 		loc.Entered(src, oldloc)
 
 /obj/groundtank
-	var/velocity = 0
+	var/acceleration = 0
 
 /obj/groundtank/process() // We are on ssobj dw
 
@@ -31,13 +31,13 @@
 	switch(direction)
 		if(NORTH)
 			Move(get_step(src,src.dir), src.dir) //How we move
-			if(velocity =< 70) //Limited to 70 forward velocity
-				velocity++
+			if(acceleration <= 70) //Limited to 70 forward velocity
+				acceleration++
 
 		if(SOUTH)
 			Move(get_step(src,turn(src.dir, -180)), src.dir)
-			if(velocity >= -50) //Limited to negative 50 reverse velocity
-				velocity--
+			if(acceleration >= -50) //Limited to negative 50 reverse velocity
+				acceleration--
 
 		if(EAST)
 			src.dir = turn(src.dir, 90) //Tank controls

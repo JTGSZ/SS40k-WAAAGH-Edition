@@ -684,7 +684,7 @@
 	if(O.is_wrench(user))
 		if (water_level == 0)
 			to_chat(user, "<span class='notice'>Now disassembling \the [src].</span>")
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			O.playtoolsound(loc, 50)
 			if(do_after(user,50, target = src))
 				destroy(1)
 		else
@@ -806,7 +806,7 @@
 	else
 		return 0
 
-/obj/machinery/power/conduction_plate/wrenchAnchor(var/mob/user)
+/obj/machinery/power/conduction_plate/wrenchAnchor(var/mob/user, var/obj/item/I)
 	. = ..()
 	if(!.)
 		return
