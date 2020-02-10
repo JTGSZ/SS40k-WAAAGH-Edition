@@ -12,7 +12,7 @@
 /obj/groundtank
 	name = "\improper groundtank"
 	desc = "A ground tank meant for ground travel."
-	icon = 'icons/48x48/pods.dmi'
+	icon = 'z40k_shit/icons/lemanruss.dmi'
 	density = 1 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
@@ -34,14 +34,15 @@
 	light_power = 2
 	light_range = GROUNDTANK_LIGHTS_RANGE_OFF
 	appearance_flags = LONG_GLIDE
-
+	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	
-	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this pod
+	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
+	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
 	var/list/actions_types = list( //Actions to create and hold for the pilot
 		/datum/action/groundtank/pilot/toggle_passengers,
 		/datum/action/groundtank/pilot/toggle_passenger_weaponry,
-		/datum/action/groundtank/pilot/change_speed,
 		/datum/action/groundtank/pilot/toggle_lights,
+		/datum/action/groundtank/pilot/toggle_engine,
 		)
 	var/list/actions_types_pilot = list(/datum/action/groundtank/fire_weapons) //Actions to create when a pilot boards, deleted upon leaving
 	var/list/actions_types_passenger = list(/datum/action/groundtank/fire_weapons) //Actions to create when a passenger boards, deleted upon leaving
@@ -52,16 +53,15 @@
 
 /obj/groundtank/New()
 	. = ..()
-	processing_objects.Add(src)
 	if(!tank_overlays)
 		tank_overlays = new/list(2)
-		tank_overlays[DAMAGE] = image(icon, icon_state="pod_damage")
-		tank_overlays[FIRE] = image(icon, icon_state="pod_fire")
+		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
 	bound_width = 2*WORLD_ICON_SIZE
 	bound_height = 2*WORLD_ICON_SIZE
 	dir = EAST
 	battery = new /obj/item/weapon/cell/high()
-	pr_lights_battery_use = new /datum/global_iterator/pod_lights_use_charge(list(src))
+	pr_lights_battery_use = new /datum/global_iterator/vehicle_lights_use_charge(list(src))
 	ES = new(src)
 	for(var/path in actions_types)
 		var/datum/action/A = new path(src)
@@ -69,7 +69,6 @@
 
 
 /obj/groundtank/Destroy()
-	processing_objects.Remove(src)
 	if(occupants.len)
 		for(var/mob/living/L in occupants)
 			move_outside(L)
@@ -92,8 +91,8 @@
 /obj/groundtank/proc/update_icons()
 	if(!tank_overlays)
 		tank_overlays = new/list(2)
-		tank_overlays[DAMAGE] = image(icon, icon_state="pod_damage")
-		tank_overlays[FIRE] = image(icon, icon_state="pod_fire")
+		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
 
 	if(health <= round(initial(health)/2))
 		overlays += tank_overlays[DAMAGE]
@@ -179,7 +178,7 @@
 		if(!hatch_open)
 			return ..()
 		if(battery)
-			to_chat(user, "<span class='notice'>The pod already has a battery.</span>")
+			to_chat(user, "<span class='notice'>The [src] already has a battery.</span>")
 			return
 		if(user.drop_item(W, src))
 			battery = W
@@ -188,14 +187,14 @@
 		if(!hatch_open)
 			return ..()
 		if(!ES)
-			to_chat(user, "<span class='warning'>The pod has no equipment datum, yell at pomf</span>")
+			to_chat(user, "<span class='warning'>The [src] has no equipment datum, yell at pomf</span>")
 			return
 		if(istype(W, /obj/item/device/groundtank_equipment/weaponry))
 			if(!ES.weapons_allowed)
-				to_chat(user, "<span class='notice'>The pod model does not allow for weapons to be installed.</span>")
+				to_chat(user, "<span class='notice'>The [src] model does not allow for weapons to be installed.</span>")
 				return
 			if(ES.weapon_system)
-				to_chat(user, "<span class='notice'>The pod already has a weapon system, remove it first.</span>")
+				to_chat(user, "<span class='notice'>The [src] already has a weapon system, remove it first.</span>")
 				return
 			else
 				if(user.drop_item(W, src))
@@ -213,7 +212,7 @@
 	if(!hatch_open)
 		return ..()
 	if(!ES || !istype(ES))
-		to_chat(user, "<span class='warning'>The pod has no equipment datum, or is the wrong type, yell at pomf.</span>")
+		to_chat(user, "<span class='warning'>The [src] has no equipment datum, or is the wrong type, yell at pomf.</span>")
 		return
 	var/list/possible = list()
 	if(battery)
@@ -225,7 +224,7 @@
 	switch(input(user, "Remove which equipment?", null, null) as null|anything in possible)
 		if("Energy Cell")
 			if(user.put_in_any_hand_if_possible(battery))
-				to_chat(user, "<span class='notice'>You remove \the [battery] from the space pod</span>")
+				to_chat(user, "<span class='notice'>You remove \the [battery] from the [src]</span>")
 				battery = null
 		if("Weapon System")
 			SPE = ES.weapon_system
@@ -237,30 +236,9 @@
 			else
 				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
-/obj/groundtank/civilian
-	icon_state = "pod_civ"
-	desc = "A sleek civilian space pod."
-
-/obj/groundtank/random
-	icon_state = "pod_civ"
-
-// placeholder
-/obj/groundtank/random/New()
-	..()
-	icon_state = pick("pod_civ", "pod_black", "pod_mil", "pod_synd", "pod_gold", "pod_industrial")
-	switch(icon_state)
-		if("pod_civ")
-			desc = "A sleek civilian space pod."
-		if("pod_black")
-			desc = "A plain black space pod without any distinctive markings."
-		if("pod_mil")
-			desc = "A dark grey space pod bearing the Nanotrasen military insignia."
-		if("pod_synd")
-			desc = "A menacing military space pod with \"Fuck NT\" stenciled onto the side."
-		if("pod_gold")
-			desc = "A civilian space pod with a gold body. It must have cost somebody a pretty penny."
-		if("pod_industrial")
-			desc = "A space pod with signs of wear on the plating. A spaceproof sticker designates it for performing industrial tasks."
+/obj/groundtank/leman_russ
+	icon_state = "chassis"
+	desc = "Its a LEMAN RUSS."
 
 /obj/groundtank/MouseDropTo(mob/M, mob/user)
 	if(M != user)
@@ -293,7 +271,7 @@
 
 /obj/groundtank/verb/attempt_move_inside()
 	set category = "groundtank"
-	set name = "Enter / Exit Pod"
+	set name = "Enter / Exit Vehicle"
 	set src in oview(1)
 
 	if(occupants.Find(usr))
@@ -310,14 +288,14 @@
 	if(do_after(usr, src, 4 SECONDS))
 		var/list/passengers = get_passengers()
 		if(!get_pilot() || passengers.len < passenger_limit)
-			move_into_pod(usr)
+			move_into_vehicle(usr)
 		else
 			to_chat(usr, "<span class = 'warning'>Not enough room inside \the [src].</span>")
 	else
 		to_chat(usr, "You stop entering \the [src].")
 	return
 
-/datum/global_iterator/pod_lights_use_charge
+/datum/global_iterator/vehicle_lights_use_charge
 	delay = 10
 
 	process(var/obj/groundtank/groundtank)
@@ -340,7 +318,7 @@
 /obj/groundtank/acidable()
 	return 0
 
-/obj/groundtank/proc/move_into_pod(var/mob/living/L)
+/obj/groundtank/proc/move_into_vehicle(var/mob/living/L)
 	if(L && L.client && L in range(1))
 		L.reset_view(src)
 		L.stop_pulling()

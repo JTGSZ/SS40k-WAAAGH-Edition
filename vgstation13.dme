@@ -2654,6 +2654,7 @@
 #include "z40k_shit\turfs\weatherholder.dm"
 #include "z40k_shit\turfs\desertbiome\base_sand.dm"
 #include "z40k_shit\turfs\spawnturfs\spawn_template_turfs.dm"
+#include "z40k_shit\vehicle\leman_russ.dm"
 #include "z40k_shit\vehicle\tankactions.dm"
 #include "z40k_shit\vehicle\tankbase.dm"
 #include "z40k_shit\vehicle\tankequipment.dm"

@@ -42,7 +42,7 @@
 
 /datum/action/groundtank/pilot/toggle_passenger_weaponry
 	name = "Toggle Passenger Weaponry"
-	button_icon_state = "weapons_on"
+	button_icon_state = "weapons_off"
 
 /datum/action/groundtank/pilot/toggle_passenger_weaponry/Trigger()
 	..()
@@ -63,15 +63,6 @@
 		to_chat(owner, "<span class = 'warning'>How did you get control of this button?</span>")
 		qdel(src)
 		return
-
-/datum/action/groundtank/pilot/change_speed
-	name = "Change speed"
-	button_icon_state = "change_speed"
-
-/datum/action/groundtank/pilot/change_speed/Trigger()
-	..()
-	var/obj/groundtank/S = target
-	S.change_speed()
 
 /datum/action/groundtank/pilot/toggle_lights
 	name = "Toggle lights"
