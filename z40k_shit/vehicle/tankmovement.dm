@@ -11,6 +11,7 @@
 	var/engine_cooldown = FALSE //To stop people from starting it on and off rapidly
 	var/enginemaster_sleep_time = 1 //How long the enginemaster sleeps at the end of its loop.
 	var/movement_delay = 3 //Speed of turning
+	var/movement_warning_oncd = FALSE
 
 /obj/groundtank/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
@@ -18,8 +19,14 @@
 	if(move_delayer.blocked()) //If we are blocked from moving by move_delayer, return false. Delay
 		return 0
 	if(!engine_toggle)
-		to_chat(user, "<span class='notice'> You mash the pedals and move the controls in the unpowered tank.</span>")
-		return 0
+		if(!movement_warning_oncd)
+			to_chat(user, "<span class='notice'> You mash the pedals and move the controls in the unpowered [src].</span>")
+			movement_warning_oncd = TRUE
+			spawn(20)
+				movement_warning_oncd = FALSE
+			return 0
+		else
+			return 0
 
 	set_glide_size(DELAY2GLIDESIZE(movement_delay))
 	switch(direction)
