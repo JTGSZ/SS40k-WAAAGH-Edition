@@ -35,7 +35,8 @@
 	light_range = GROUNDTANK_LIGHTS_RANGE_OFF
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
-	
+	var/obj/groundturret/GT //Our primary turret
+
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
 	var/list/actions_types = list( //Actions to create and hold for the pilot
@@ -66,6 +67,13 @@
 	for(var/path in actions_types)
 		var/datum/action/A = new path(src)
 		actions.Add(A)
+	
+	new /obj/groundturret(src.loc)
+	
+	if(istype(loc,/obj/groundturret))
+		GT = loc
+	
+	lock_atom(GT, /datum/locking_category/groundtank)
 
 
 /obj/groundtank/Destroy()
@@ -86,6 +94,8 @@
 	qdel(tank_overlays[DAMAGE])
 	qdel(tank_overlays[FIRE])
 	tank_overlays = null
+	qdel(GT)
+	GT = null
 	..()
 
 /obj/groundtank/proc/update_icons()
@@ -236,10 +246,6 @@
 			else
 				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
-/obj/groundtank/leman_russ
-	icon_state = "chassis"
-	desc = "Its a LEMAN RUSS."
-
 /obj/groundtank/MouseDropTo(mob/M, mob/user)
 	if(M != user)
 		return
@@ -330,6 +336,11 @@
 /obj/groundtank/proc/get_pilot()
 	if(occupants.len)
 		return occupants[1]
+	return 0
+
+/obj/groundtank/proc/get_maingunner()
+	if(occupants.len)
+		return occupants[2]
 	return 0
 
 /obj/groundtank/proc/has_passengers()

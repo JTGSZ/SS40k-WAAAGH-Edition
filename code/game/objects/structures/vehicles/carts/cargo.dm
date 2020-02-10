@@ -46,7 +46,7 @@
 		return FALSE
 
 	if(C.locked_to || C.is_locking() || C.anchored)
-		return FALSE
+		return FALSE 
 
 	if(get_dist(C, src) > 1 || is_locking(/datum/locking_category/cargocart))
 		return FALSE

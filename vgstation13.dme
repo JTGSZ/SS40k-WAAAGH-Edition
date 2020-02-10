@@ -2659,4 +2659,6 @@
 #include "z40k_shit\vehicle\tankbase.dm"
 #include "z40k_shit\vehicle\tankequipment.dm"
 #include "z40k_shit\vehicle\tankmovement.dm"
+#include "z40k_shit\vehicle\tankturret.dm"
+#include "z40k_shit\vehicle\tankturretlocking.dm"
 // END_INCLUDE
