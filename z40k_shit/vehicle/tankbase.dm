@@ -35,7 +35,7 @@
 	light_range = GROUNDTANK_LIGHTS_RANGE_OFF
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
-	var/obj/groundturret/GT //Our primary turret
+	var/obj/groundturret/GT
 
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
@@ -68,13 +68,8 @@
 		var/datum/action/A = new path(src)
 		actions.Add(A)
 	
-	new /obj/groundturret(src.loc)
-	
-	if(istype(loc,/obj/groundturret))
-		GT = loc
-	
-	lock_atom(GT, /datum/locking_category/groundtank)
-
+	GT = new /obj/groundturret(src.loc)
+	lock_atom(GT)
 
 /obj/groundtank/Destroy()
 	if(occupants.len)
@@ -96,6 +91,7 @@
 	tank_overlays = null
 	qdel(GT)
 	GT = null
+	
 	..()
 
 /obj/groundtank/proc/update_icons()

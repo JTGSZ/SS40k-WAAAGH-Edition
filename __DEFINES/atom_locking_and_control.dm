@@ -8,6 +8,7 @@
 
 // Flags for atom.lockflags
 #define DENSE_WHEN_LOCKED            1
+#define NO_DIR_FOLLOW                2
 
 
 /* Atom Control */

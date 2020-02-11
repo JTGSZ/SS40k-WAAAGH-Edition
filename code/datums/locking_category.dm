@@ -35,7 +35,9 @@
 		AM.layer = layer_override
 
 	update_lock(AM)
-	AM.change_dir(owner.dir, owner)
+
+	if(!(AM.lockflags & NO_DIR_FOLLOW))
+		AM.change_dir(owner.dir, owner)
 
 /datum/locking_category/proc/update_locks()
 	for(var/atom/A in locked)

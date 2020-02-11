@@ -8,6 +8,7 @@
 	density = 0 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
+	lockflags = NO_DIR_FOLLOW
 
 /obj/groundturret/New()
 	. = ..()

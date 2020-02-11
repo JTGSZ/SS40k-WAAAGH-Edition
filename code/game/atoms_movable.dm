@@ -244,9 +244,9 @@
 	return found
 
 //The reason behind change_dir()
-/atom/movable/proc/update_dir()
+/atom/movable/proc/update_dir() 
 	for(var/atom/movable/AM in locked_atoms)
-		if(dir != AM.dir)
+		if((dir != AM.dir) && (!(AM.lockflags & NO_DIR_FOLLOW)))
 			AM.change_dir(dir, src)
 
 //Like forceMove(), but for dirs!
