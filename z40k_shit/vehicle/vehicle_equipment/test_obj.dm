@@ -1,3 +1,31 @@
+/datum/action/groundturret/pilot/toggle_testweapon
+	name = "Toggle Testweapon"
+	button_icon_state = "engine_off"
+	var/attached_part = /obj/item/device/vehicle_equipment/weaponry/testgun //Weapon tied to action
+
+/datum/action/groundturret/pilot/toggle_testweapon/Trigger()
+	..()
+	var/obj/groundturret/S = target
+	S.toggle_testcaseweapon(attached_part)
+	if(S.weapon_toggle)
+		button_icon_state = "engine_on"
+	else
+		button_icon_state = "engine_off"
+	UpdateButtonIcon()
+
+/obj/groundturret/proc/toggle_testcaseweapon(var/attached_part)
+	if(usr!=get_pilot())
+		return
+
+	if(weapon_toggle)
+		selected = null
+		weapon_toggle = FALSE
+	else
+		selected = attached_part
+		weapon_toggle = TRUE
+	
+	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [weapon_toggle?"switched on":"switched off"].</span>")
+	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 
 /obj/item/device/vehicle_equipment/weaponry/testgun
 	name = "\improper test ballistics system"
@@ -7,6 +35,7 @@
 	shot_cost = 0
 	shots_per = 20
 	var/projectiles_per_shot = 2
+	var/tied_action = /datum/action/groundturret/pilot/toggle_testweapon //Action tied to weapon
 	
 /obj/item/device/vehicle_equipment/weaponry/testgun/action(atom/target)
 	if(my_atom.next_firetime > world.time)

@@ -11,7 +11,27 @@
 	var/verb_name = "What the fuck?"
 	var/verb_desc = "How did you get this?"
 
-/obj/item/device/vehicle_equipment/weaponry/proc/fire_weapon_system()
+/obj/item/device/vehicle_equipment/weaponry/proc/action(atom/target)
+	return //Basically when you click with the switch toggled on, it performs this proc.
+
+/datum/groundtank/equipment
+	var/obj/groundtank/my_atom
+	var/movement_charge = 2
+	var/weapons_allowed = 1
+	var/obj/item/device/vehicle_equipment/weaponry/weapon_system // weapons system
+	//var/obj/item/device/vehicle_equipment/engine/engine_system // engine system
+	//var/obj/item/device/vehicle_equipment/shield/shield_system // shielding system
+
+/datum/groundtank/equipment/New(var/obj/groundtank/SP)
+	..()
+	if(istype(SP))
+		my_atom = SP
+
+/obj/item/device/vehicle_equipment
+	name = "equipment"
+	var/obj/groundtank/my_atom
+	
+/*obj/item/device/vehicle_equipment/weaponry/proc/fire_weapon_system()
 	var/obj/groundtank/S = src
 	var/obj/item/device/vehicle_equipment/weaponry/SPE = S.ES.weapon_system
 	set category = "groundtank"
@@ -75,21 +95,5 @@
 			projtwo.dumbfire(dir)
 		sleep(1)
 	my_atom.next_firetime = world.time + fire_delay
+*/
 
-/datum/groundtank/equipment
-	var/obj/groundtank/my_atom
-	var/movement_charge = 2
-	var/weapons_allowed = 1
-	var/obj/item/device/vehicle_equipment/weaponry/weapon_system // weapons system
-	//var/obj/item/device/vehicle_equipment/engine/engine_system // engine system
-	//var/obj/item/device/vehicle_equipment/shield/shield_system // shielding system
-	var/obj/item/device/vehicle_equipment/locking/locking_system // locking system
-
-/datum/groundtank/equipment/New(var/obj/groundtank/SP)
-	..()
-	if(istype(SP))
-		my_atom = SP
-
-/obj/item/device/vehicle_equipment
-	name = "equipment"
-	var/obj/groundtank/my_atom

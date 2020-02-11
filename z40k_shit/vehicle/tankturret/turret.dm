@@ -15,17 +15,21 @@
 	var/hatch_open = 0
 	var/list/occupants = list()
 	var/list/actions_types = list()
-	var/list/actions_types_pilot = list(/datum/action/groundtank/fire_weapons) //Actions to create when a pilot boards, deleted upon leaving
+	var/list/actions_types_pilot = list() //Actions to create when a pilot boards, deleted upon leaving
 	var/list/actions = list()
-	var/list/equipment = list() //So we can track what equipment we have in us.
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	var/health = 400
 	var/maxHealth = 400
 	var/movement_delay = 2
+	
 	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
+	var/weapon_toggle = FALSE //Do we have a weapon toggled?
+	var/list/attached_equipment = list()
 
 /obj/groundturret/New()
 	. = ..()
+	bound_width = 2*WORLD_ICON_SIZE
+	bound_height = 2*WORLD_ICON_SIZE
 	ES = new(src)
 	for(var/path in actions_types)
 		var/datum/action/A = new path(src)
@@ -151,6 +155,10 @@
 				verbs -= typesof(/obj/item/device/vehicle_equipment/weaponry/proc)
 			else
 				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
+
+
+
+
 
 
 /obj/groundturret/verb/attempt_move_inside()

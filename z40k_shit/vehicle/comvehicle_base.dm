@@ -47,7 +47,7 @@
 		/datum/action/groundtank/pilot/toggle_engine,
 		)
 	var/list/actions_types_pilot = list(/datum/action/groundtank/fire_weapons) //Actions to create when a pilot boards, deleted upon leaving
-	var/list/actions_types_passenger = list(/datum/action/groundtank/fire_weapons) //Actions to create when a passenger boards, deleted upon leaving
+	var/list/actions_types_passenger = list() //Actions to create when a passenger boards, deleted upon leaving
 	var/list/actions = list()
 
 /obj/groundtank/get_cell()
