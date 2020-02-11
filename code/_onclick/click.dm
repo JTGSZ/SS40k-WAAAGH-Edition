@@ -112,6 +112,14 @@
 		var/obj/mecha/M = loc
 		return M.click_action(A,src)
 
+	if(istype(loc,/obj/groundtank))
+		var/obj/groundtank/M = loc
+		return M.click_action_control(A,src)
+
+	if(istype(loc,/obj/groundturret))
+		var/obj/groundturret/M = loc
+		return M.click_action_control(A,src)
+
 	if(restrained())
 		RestrainedClickOn(A)
 		return

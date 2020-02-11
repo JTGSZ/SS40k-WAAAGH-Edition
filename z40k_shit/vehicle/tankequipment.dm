@@ -118,8 +118,8 @@
 	var/obj/groundtank/S = src
 	var/obj/item/device/groundtank_equipment/weaponry/SPE = S.ES.weapon_system
 	set category = "groundtank"
-	//set name = SPE.verb_name
-	//set desc = SPE.verb_desc
+	set name = SPE.verb_name
+	set desc = SPE.verb_desc
 	set src = usr.loc
 
 	var/list/passengers = S.get_passengers()

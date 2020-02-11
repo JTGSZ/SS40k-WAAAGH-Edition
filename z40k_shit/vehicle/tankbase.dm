@@ -36,6 +36,7 @@
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	var/obj/groundturret/GT
+	var/obj/item/device/groundtank_equipment/weaponry/selected //The selected Weapon
 
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
@@ -91,7 +92,7 @@
 	tank_overlays = null
 	qdel(GT)
 	GT = null
-	
+
 	..()
 
 /obj/groundtank/proc/update_icons()
@@ -241,35 +242,6 @@
 				verbs -= typesof(/obj/item/device/groundtank_equipment/weaponry/proc)
 			else
 				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
-
-/obj/groundtank/MouseDropTo(mob/M, mob/user)
-	if(M != user)
-		return
-	if(!Adjacent(M) || !Adjacent(user))
-		return
-	attempt_move_inside(M, user)
-
-/obj/groundtank/MouseDropFrom(atom/over)
-	if(!usr || !over)
-		return
-	if(!Adjacent(usr) || !Adjacent(over))
-		return
-	var/turf/T = get_turf(over)
-	if(!occupants.Find(usr))
-		var/mob/pilot = get_pilot()
-		visible_message("<span class='notice'>[usr] start pulling [pilot.name] out of \the [src].</span>")
-		if(do_after(usr, src, 4 SECONDS))
-			move_outside(pilot, T)
-		return
-	if(!Adjacent(T) || T.density)
-		return
-	for(var/atom/movable/A in T.contents)
-		if(A.density)
-			if((A == src) || istype(A, /mob))
-				continue
-			return
-	if(occupants.Find(usr))
-		move_outside(usr,T)
 
 /obj/groundtank/verb/attempt_move_inside()
 	set category = "groundtank"
