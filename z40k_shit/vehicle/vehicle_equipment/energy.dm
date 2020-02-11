@@ -1,4 +1,4 @@
-/obj/item/device/groundtank_equipment/weaponry/taser
+/obj/item/device/vehicle_equipment/weaponry/taser
 	name = "\improper taser system"
 	desc = "A weak taser system for space pods, fires electrodes that shock upon impact."
 	icon_state = "pod_taser"
@@ -8,7 +8,7 @@
 	verb_name = "Fire Taser System"
 	verb_desc = "Fire ze tasers!"
 
-/obj/item/device/groundtank_equipment/weaponry/taser/burst
+/obj/item/device/vehicle_equipment/weaponry/taser/burst
 	name = "\improper burst taser system"
 	desc = "A weak taser system for space pods, this one fires 3 at a time."
 	icon_state = "pod_b_taser"
@@ -18,7 +18,7 @@
 	verb_name = "Fire Burst Taser System"
 	verb_desc = "Fire ze tasers!"
 
-/obj/item/device/groundtank_equipment/weaponry/laser
+/obj/item/device/vehicle_equipment/weaponry/laser
 	name = "\improper laser system"
 	desc = "A weak laser system for space pods, fires concentrated bursts of energy"
 	icon_state = "pod_w_laser"

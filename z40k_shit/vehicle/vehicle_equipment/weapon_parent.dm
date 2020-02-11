@@ -1,4 +1,4 @@
-/obj/item/device/groundtank_equipment/weaponry
+/obj/item/device/vehicle_equipment/weaponry
 	name = "pod weapon"
 	desc = "You shouldn't be seeing this"
 	icon = 'icons/pods/ship.dmi'
@@ -11,9 +11,9 @@
 	var/verb_name = "What the fuck?"
 	var/verb_desc = "How did you get this?"
 
-/obj/item/device/groundtank_equipment/weaponry/proc/fire_weapon_system()
+/obj/item/device/vehicle_equipment/weaponry/proc/fire_weapon_system()
 	var/obj/groundtank/S = src
-	var/obj/item/device/groundtank_equipment/weaponry/SPE = S.ES.weapon_system
+	var/obj/item/device/vehicle_equipment/weaponry/SPE = S.ES.weapon_system
 	set category = "groundtank"
 	set name = SPE.verb_name
 	set desc = SPE.verb_desc
@@ -25,7 +25,7 @@
 		return
 	SPE.fire_weapons()
 
-/obj/item/device/groundtank_equipment/weaponry/proc/fire_weapons()
+/obj/item/device/vehicle_equipment/weaponry/proc/fire_weapons()
 	if(my_atom.next_firetime > world.time)
 		to_chat(usr, "<span class='warning'>Your weapons are recharging.</span>")
 		return
@@ -33,7 +33,7 @@
 	var/turf/secondloc
 	if(!my_atom.ES || !my_atom.ES.weapon_system)
 		to_chat(usr, "<span class='warning'>Missing equipment or weapons.</span>")
-		my_atom.verbs -= /obj/item/device/groundtank_equipment/weaponry/proc/fire_weapon_system
+		my_atom.verbs -= /obj/item/device/vehicle_equipment/weaponry/proc/fire_weapon_system
 		return
 	if(!my_atom.battery.use(shot_cost))
 		to_chat(usr, "<span class='warning'>\The [my_atom]'s cell is too low on charge!</span>")
@@ -80,16 +80,16 @@
 	var/obj/groundtank/my_atom
 	var/movement_charge = 2
 	var/weapons_allowed = 1
-	var/obj/item/device/groundtank_equipment/weaponry/weapon_system // weapons system
-	//var/obj/item/device/groundtank_equipment/engine/engine_system // engine system
-	//var/obj/item/device/groundtank_equipment/shield/shield_system // shielding system
-	var/obj/item/device/groundtank_equipment/locking/locking_system // locking system
+	var/obj/item/device/vehicle_equipment/weaponry/weapon_system // weapons system
+	//var/obj/item/device/vehicle_equipment/engine/engine_system // engine system
+	//var/obj/item/device/vehicle_equipment/shield/shield_system // shielding system
+	var/obj/item/device/vehicle_equipment/locking/locking_system // locking system
 
 /datum/groundtank/equipment/New(var/obj/groundtank/SP)
 	..()
 	if(istype(SP))
 		my_atom = SP
 
-/obj/item/device/groundtank_equipment
+/obj/item/device/vehicle_equipment
 	name = "equipment"
 	var/obj/groundtank/my_atom

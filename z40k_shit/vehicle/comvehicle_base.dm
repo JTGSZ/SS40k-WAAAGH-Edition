@@ -36,7 +36,7 @@
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	var/obj/groundturret/GT
-	var/obj/item/device/groundtank_equipment/weaponry/selected //The selected Weapon
+	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
 
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
@@ -190,13 +190,13 @@
 		if(user.drop_item(W, src))
 			battery = W
 			return
-	if(istype(W, /obj/item/device/groundtank_equipment))
+	if(istype(W, /obj/item/device/vehicle_equipment))
 		if(!hatch_open)
 			return ..()
 		if(!ES)
 			to_chat(user, "<span class='warning'>The [src] has no equipment datum, yell at pomf</span>")
 			return
-		if(istype(W, /obj/item/device/groundtank_equipment/weaponry))
+		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(!ES.weapons_allowed)
 				to_chat(user, "<span class='notice'>The [src] model does not allow for weapons to be installed.</span>")
 				return
@@ -227,7 +227,7 @@
 	if(ES.weapon_system)
 		possible.Add("Weapon System")
 	
-	var/obj/item/device/groundtank_equipment/SPE
+	var/obj/item/device/vehicle_equipment/SPE
 	switch(input(user, "Remove which equipment?", null, null) as null|anything in possible)
 		if("Energy Cell")
 			if(user.put_in_any_hand_if_possible(battery))
@@ -239,7 +239,7 @@
 				to_chat(user, "<span class='notice'>You remove \the [SPE] from the equipment system.</span>")
 				SPE.my_atom = null
 				ES.weapon_system = null
-				verbs -= typesof(/obj/item/device/groundtank_equipment/weaponry/proc)
+				verbs -= typesof(/obj/item/device/vehicle_equipment/weaponry/proc)
 			else
 				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 

@@ -22,7 +22,7 @@
 	var/health = 400
 	var/maxHealth = 400
 	var/movement_delay = 2
-	var/obj/item/device/groundtank_equipment/weaponry/selected //The selected Weapon
+	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
 
 /obj/groundturret/New()
 	. = ..()
@@ -108,13 +108,13 @@
 			to_chat(user, "<span class='notice'>You patch up \the [src].</span>")
 			adjust_health(-rand(15,30))
 			return
-	if(istype(W, /obj/item/device/groundtank_equipment))
+	if(istype(W, /obj/item/device/vehicle_equipment))
 		if(!hatch_open)
 			return ..()
 		if(!ES)
 			to_chat(user, "<span class='warning'>The [W] has no equipment datum, yell at pomf</span>")
 			return
-		if(istype(W, /obj/item/device/groundtank_equipment/weaponry))
+		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(ES.weapon_system)
 				to_chat(user, "<span class='notice'>The [src] already has a weapon system, remove it first.</span>")
 				return
@@ -140,7 +140,7 @@
 	if(ES.weapon_system)
 		possible.Add("Weapon System")
 	
-	var/obj/item/device/groundtank_equipment/SPE
+	var/obj/item/device/vehicle_equipment/SPE
 	switch(input(user, "Remove which equipment?", null, null) as null|anything in possible)
 		if("Weapon System")
 			SPE = ES.weapon_system
@@ -148,7 +148,7 @@
 				to_chat(user, "<span class='notice'>You remove \the [SPE] from the equipment system.</span>")
 				SPE.my_atom = null
 				ES.weapon_system = null
-				verbs -= typesof(/obj/item/device/groundtank_equipment/weaponry/proc)
+				verbs -= typesof(/obj/item/device/vehicle_equipment/weaponry/proc)
 			else
 				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
