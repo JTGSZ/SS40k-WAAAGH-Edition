@@ -1,6 +1,31 @@
+/obj/item/device/groundtank_equipment/weaponry
+	name = "pod weapon"
+	desc = "You shouldn't be seeing this"
+	icon = 'icons/pods/ship.dmi'
+	icon_state = "blank"
+	var/projectile_type
+	var/shot_cost = 0
+	var/shots_per = 1
+	var/fire_sound
+	var/fire_delay = 10
+	var/verb_name = "What the fuck?"
+	var/verb_desc = "How did you get this?"
+
+/obj/item/device/groundtank_equipment/weaponry/proc/fire_weapon_system()
+	var/obj/groundtank/S = src
+	var/obj/item/device/groundtank_equipment/weaponry/SPE = S.ES.weapon_system
+	set category = "groundtank"
+	set name = SPE.verb_name
+	set desc = SPE.verb_desc
+	set src = usr.loc
+
+	var/list/passengers = S.get_passengers()
+	if(passengers.Find(usr) && !S.passenger_fire)
+		to_chat(usr, "<span class = 'warning'>Passenger gunner system disabled.</span>")
+		return
+	SPE.fire_weapons()
+
 /obj/item/device/groundtank_equipment/weaponry/proc/fire_weapons()
-
-
 	if(my_atom.next_firetime > world.time)
 		to_chat(usr, "<span class='warning'>Your weapons are recharging.</span>")
 		return
@@ -68,62 +93,3 @@
 /obj/item/device/groundtank_equipment
 	name = "equipment"
 	var/obj/groundtank/my_atom
-// base item for groundtank weapons
-
-/obj/item/device/groundtank_equipment/weaponry
-	name = "pod weapon"
-	desc = "You shouldn't be seeing this"
-	icon = 'icons/pods/ship.dmi'
-	icon_state = "blank"
-	var/projectile_type
-	var/shot_cost = 0
-	var/shots_per = 1
-	var/fire_sound
-	var/fire_delay = 10
-	var/verb_name = "What the fuck?"
-	var/verb_desc = "How did you get this?"
-
-/obj/item/device/groundtank_equipment/weaponry/taser
-	name = "\improper taser system"
-	desc = "A weak taser system for space pods, fires electrodes that shock upon impact."
-	icon_state = "pod_taser"
-	projectile_type = /obj/item/projectile/energy/electrode
-	shot_cost = 10
-	fire_sound = "sound/weapons/Taser.ogg"
-	verb_name = "Fire Taser System"
-	verb_desc = "Fire ze tasers!"
-
-/obj/item/device/groundtank_equipment/weaponry/taser/burst
-	name = "\improper burst taser system"
-	desc = "A weak taser system for space pods, this one fires 3 at a time."
-	icon_state = "pod_b_taser"
-	shot_cost = 35
-	shots_per = 3
-	fire_delay = 20
-	verb_name = "Fire Burst Taser System"
-	verb_desc = "Fire ze tasers!"
-
-/obj/item/device/groundtank_equipment/weaponry/laser
-	name = "\improper laser system"
-	desc = "A weak laser system for space pods, fires concentrated bursts of energy"
-	icon_state = "pod_w_laser"
-	projectile_type = /obj/item/projectile/beam
-	shot_cost = 150
-	fire_sound = 'sound/weapons/Laser.ogg'
-	fire_delay = 15
-	verb_name = "Fire Laser System"
-	verb_desc = "Fire ze lasers!"
-
-/obj/item/device/groundtank_equipment/weaponry/proc/fire_weapon_system()
-	var/obj/groundtank/S = src
-	var/obj/item/device/groundtank_equipment/weaponry/SPE = S.ES.weapon_system
-	set category = "groundtank"
-	set name = SPE.verb_name
-	set desc = SPE.verb_desc
-	set src = usr.loc
-
-	var/list/passengers = S.get_passengers()
-	if(passengers.Find(usr) && !S.passenger_fire)
-		to_chat(usr, "<span class = 'warning'>Passenger gunner system disabled.</span>")
-		return
-	SPE.fire_weapons()
