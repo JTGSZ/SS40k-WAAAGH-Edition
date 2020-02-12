@@ -39,10 +39,10 @@
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
 	var/list/actions_types = list( //Actions to create and hold for the pilot
-		/datum/action/complex_vehicle_equipment/pilot/toggle_passengers,
-		/datum/action/complex_vehicle_equipment/pilot/toggle_passenger_weaponry,
-		/datum/action/complex_vehicle_equipment/pilot/toggle_lights,
-		/datum/action/complex_vehicle_equipment/pilot/toggle_engine,
+		/datum/action/complex_vehicle_equipment/toggle_passengers,
+		/datum/action/complex_vehicle_equipment/toggle_passenger_weaponry,
+		/datum/action/complex_vehicle_equipment/toggle_lights,
+		/datum/action/complex_vehicle_equipment/toggle_engine,
 		)
 	var/list/actions_types_pilot = list() //Actions to create when a pilot boards, deleted upon leaving
 	var/list/actions_types_passenger = list() //Actions to create when a passenger boards, deleted upon leaving
@@ -319,7 +319,7 @@
 		var/pilot = get_pilot()
 		if(user == pilot) //They're the pilot
 			for(var/datum/action/S in actions)
-				if(istype (S, /datum/action/complex_vehicle_equipment/pilot)) //Keep these
+				if(istype (S, /datum/action/complex_vehicle_equipment)) //Keep these
 					S.Remove(user)
 				else if(S.owner == user) //Remove these
 					qdel(S)
@@ -339,7 +339,7 @@
 				if(S.owner == new_pilot) //Remove these
 					qdel(S)
 					actions.Remove(S)
-			for(var/datum/action/complex_vehicle_equipment/pilot/P in actions)
+			for(var/datum/action/complex_vehicle_equipment/P in actions)
 				P.Grant(new_pilot)
 			for(var/path in actions_types_pilot)
 				var/datum/action/A = new path(src)
@@ -348,7 +348,7 @@
 	else if(status == STATUS_ADD)
 		occupants.Add(user)
 		if(user == get_pilot()) //They're the new pilot
-			for(var/datum/action/complex_vehicle_equipment/pilot/P in actions)
+			for(var/datum/action/complex_vehicle_equipment/P in actions)
 				P.Grant(user)
 			for(var/path in actions_types_pilot)
 				var/datum/action/A = new path(src)

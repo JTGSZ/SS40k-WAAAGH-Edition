@@ -1,22 +1,10 @@
-/datum/action/complex_vehicle_equipment
-	icon_icon = 'icons/pods/button_icons.dmi'
-	background_icon_state = "bg_pod"
-
-/datum/action/complex_vehicle_equipment/Trigger()
-	..()
-	var/obj/groundtank/S = target
-	if(!istype(S))
-		qdel(src)
-		return
-
-/datum/action/complex_vehicle_equipment/pilot //Subtype for space pod pilots only
 
 //Toggle Passenger Allowance
-/datum/action/complex_vehicle_equipment/pilot/toggle_passengers
+/datum/action/complex_vehicle_equipment/toggle_passengers
 	name = "Toggle Passenger Allowance"
 	button_icon_state = "lock_open"
 
-/datum/action/complex_vehicle_equipment/pilot/toggle_passengers/Trigger()
+/datum/action/complex_vehicle_equipment/toggle_passengers/Trigger()
 	..()
 	var/obj/groundtank/S = target
 	S.toggle_passengers()
@@ -27,11 +15,11 @@
 	UpdateButtonIcon()
 
 //Toggle Passenger Weaponry
-/datum/action/complex_vehicle_equipment/pilot/toggle_passenger_weaponry
+/datum/action/complex_vehicle_equipment/toggle_passenger_weaponry
 	name = "Toggle Passenger Weaponry"
 	button_icon_state = "weapons_off"
 
-/datum/action/complex_vehicle_equipment/pilot/toggle_passenger_weaponry/Trigger()
+/datum/action/complex_vehicle_equipment/toggle_passenger_weaponry/Trigger()
 	..()
 	var/obj/groundtank/S = target
 	S.toggle_passenger_guns()
@@ -53,11 +41,11 @@
 
 
 //Toggle Lights
-/datum/action/complex_vehicle_equipment/pilot/toggle_lights
+/datum/action/complex_vehicle_equipment/toggle_lights
 	name = "Toggle lights"
 	button_icon_state = "toggle_lights"
 
-/datum/action/complex_vehicle_equipment/pilot/toggle_lights/Trigger()
+/datum/action/complex_vehicle_equipment/toggle_lights/Trigger()
 	..()
 	var/obj/groundtank/S = target
 	S.toggle_lights()

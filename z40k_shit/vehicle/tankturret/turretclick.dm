@@ -18,7 +18,7 @@
 		if(!target)
 			return
 	if(get_dist(src, target)>1)
-		if(selected_equipment.len)
-			for(var/obj/item/device/vehicle_equipment/weaponry/COCK in selected_equipment)
+		if(ES.equipment_systems.len)
+			for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
 				COCK.action(target)
 				sleep(1)

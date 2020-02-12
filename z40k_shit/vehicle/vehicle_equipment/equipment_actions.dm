@@ -5,14 +5,14 @@
 /datum/action/complex_vehicle_equipment/Trigger()
 	..()
 
-/datum/action/complex_vehicle_equipment/pilot //Subtype for space pod pilots only
+/datum/action/complex_vehicle_equipment //Subtype for space pod pilots only
 
 //Toggle Engine
-/datum/action/complex_vehicle_equipment/pilot/toggle_engine
+/datum/action/complex_vehicle_equipment/toggle_engine
 	name = "Toggle Engine"
 	button_icon_state = "engine_off"
 
-/datum/action/complex_vehicle_equipment/pilot/toggle_engine/Trigger()
+/datum/action/complex_vehicle_equipment/toggle_engine/Trigger()
 	..()
 	var/obj/groundtank/S = target
 	S.toggle_engine_yeah()
