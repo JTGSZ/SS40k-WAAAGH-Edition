@@ -32,15 +32,10 @@
 	desc = "for testing"
 	icon_state = "pod_w_laser"
 	projectile_type = /obj/item/projectile/bullet/weakbullet
-	shot_cost = 0
-	shots_per = 20
-	var/projectiles_per_shot = 2
-	var/tied_action = /datum/action/groundturret/pilot/toggle_testweapon //Action tied to weapon
+	projectiles_per_shot = 2
+	tied_action = /datum/action/groundturret/pilot/toggle_testweapon //Action tied to weapon
 	
 /obj/item/device/vehicle_equipment/weaponry/testgun/action(atom/target)
-	if(my_atom.next_firetime > world.time)
-		to_chat(usr, "<span class='warning'>Your weapons are recharging.</span>")
-		return
 	var/originaltarget = target
 	var/turf/targloc = get_turf(target)
 	spawn(0)

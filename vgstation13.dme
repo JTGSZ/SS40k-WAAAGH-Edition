@@ -2663,6 +2663,7 @@
 #include "z40k_shit\vehicle\tankturret\turretclick.dm"
 #include "z40k_shit\vehicle\tankturret\turretlocking.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\energy.dm"
+#include "z40k_shit\vehicle\vehicle_equipment\equipment_parent.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\test_obj.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\weapon_parent.dm"
 #include "z40k_shit\vehicle\vehicle_types\leman_russ.dm"

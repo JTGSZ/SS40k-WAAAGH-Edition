@@ -22,7 +22,7 @@
 	var/passenger_limit = 1 //Upper limit for how many passengers are allowed
 	var/passengers_allowed = 1 //If the pilot allows people to jump in the side seats.
 	var/list/occupants = list()
-	var/datum/groundtank/equipment/ES
+
 	var/obj/item/weapon/cell/battery
 	var/datum/global_iterator/pr_lights_battery_use //passive battery use for the lights
 	var/hatch_open = 0
@@ -35,9 +35,7 @@
 	light_range = GROUNDTANK_LIGHTS_RANGE_OFF
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
-	var/obj/groundturret/GT
-	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
-
+	
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
 	var/list/actions_types = list( //Actions to create and hold for the pilot
@@ -46,9 +44,14 @@
 		/datum/action/groundtank/pilot/toggle_lights,
 		/datum/action/groundtank/pilot/toggle_engine,
 		)
-	var/list/actions_types_pilot = list(/datum/action/groundtank/fire_weapons) //Actions to create when a pilot boards, deleted upon leaving
+	var/list/actions_types_pilot = list() //Actions to create when a pilot boards, deleted upon leaving
 	var/list/actions_types_passenger = list() //Actions to create when a passenger boards, deleted upon leaving
 	var/list/actions = list()
+
+	var/obj/groundturret/GT
+	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
+	var/weapon_toggle = FALSE //Do we have a weapon toggled?
+	var/list/attached_equipment = list()
 
 /obj/groundtank/get_cell()
 	return battery
@@ -64,7 +67,7 @@
 	dir = EAST
 	battery = new /obj/item/weapon/cell/high()
 	pr_lights_battery_use = new /datum/global_iterator/vehicle_lights_use_charge(list(src))
-	ES = new(src)
+	
 	for(var/path in actions_types)
 		var/datum/action/A = new path(src)
 		actions.Add(A)
@@ -83,13 +86,12 @@
 			qdel(A)
 	qdel(pr_lights_battery_use)
 	pr_lights_battery_use = null
-	qdel(ES)
-	ES = null
 	qdel(battery)
 	battery = null
 	qdel(tank_overlays[DAMAGE])
 	qdel(tank_overlays[FIRE])
 	tank_overlays = null
+	
 	qdel(GT)
 	GT = null
 
@@ -166,11 +168,8 @@
 		if(hatch_open && contents.len)
 			var/anyitem = 0
 			for(var/atom/movable/AM in contents)
-				if(istype(AM,/obj/item))
-					if(AM == battery)
-						continue //don't eject this particular item!
-					anyitem++
-					AM.forceMove(get_turf(user))
+				anyitem++
+				AM.forceMove(get_turf(user))
 			if(anyitem)
 				visible_message("<span class='warning'>With a clatter, [anyitem > 1 ? "some items land" : "an item lands"] at the feet of [user].</span>")
 		return
@@ -180,35 +179,15 @@
 			to_chat(user, "<span class='notice'>You patch up \the [src].</span>")
 			adjust_health(-rand(15,30))
 			return
-
-	if(istype(W, /obj/item/weapon/cell))
-		if(!hatch_open)
-			return ..()
-		if(battery)
-			to_chat(user, "<span class='notice'>The [src] already has a battery.</span>")
-			return
-		if(user.drop_item(W, src))
-			battery = W
-			return
 	if(istype(W, /obj/item/device/vehicle_equipment))
 		if(!hatch_open)
 			return ..()
-		if(!ES)
-			to_chat(user, "<span class='warning'>The [src] has no equipment datum, yell at pomf</span>")
-			return
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
-			if(!ES.weapons_allowed)
-				to_chat(user, "<span class='notice'>The [src] model does not allow for weapons to be installed.</span>")
+			if(user.drop_item(W, src))
+				to_chat(user, "<span class='notice'>You insert \the [W] into the equipment system.</span>")
+				attached_equipment += W
 				return
-			if(ES.weapon_system)
-				to_chat(user, "<span class='notice'>The [src] already has a weapon system, remove it first.</span>")
-				return
-			else
-				if(user.drop_item(W, src))
-					to_chat(user, "<span class='notice'>You insert \the [W] into the equipment system.</span>")
-					ES.weapon_system = W
-					ES.weapon_system.my_atom = src
-					return
+	
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
 		adjust_health(W.force)
@@ -218,30 +197,20 @@
 /obj/groundtank/attack_hand(mob/user as mob)
 	if(!hatch_open)
 		return ..()
-	if(!ES || !istype(ES))
-		to_chat(user, "<span class='warning'>The [src] has no equipment datum, or is the wrong type, yell at pomf.</span>")
+	if(!attached_equipment.len)
+		to_chat(user, "<span class='warning'>The [src] has no vehicle parts in it, and the hatch is open.</span>")
 		return
-	var/list/possible = list()
-	if(battery)
-		possible.Add("Energy Cell")
-	if(ES.weapon_system)
-		possible.Add("Weapon System")
 	
-	var/obj/item/device/vehicle_equipment/SPE
-	switch(input(user, "Remove which equipment?", null, null) as null|anything in possible)
-		if("Energy Cell")
-			if(user.put_in_any_hand_if_possible(battery))
-				to_chat(user, "<span class='notice'>You remove \the [battery] from the [src]</span>")
-				battery = null
-		if("Weapon System")
-			SPE = ES.weapon_system
-			if(user.put_in_any_hand_if_possible(SPE))
-				to_chat(user, "<span class='notice'>You remove \the [SPE] from the equipment system.</span>")
-				SPE.my_atom = null
-				ES.weapon_system = null
-				verbs -= typesof(/obj/item/device/vehicle_equipment/weaponry/proc)
-			else
-				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
+	var/PEEPEE = input(user,"Remove which equipment?", "", "Cancel") as null|anything in attached_equipment
+	if(PEEPEE != "Cancel")
+		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
+		if(user.put_in_any_hand_if_possible(SCREE))
+			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
+			if(SCREE.tied_action)
+				weapon_toggle = FALSE
+				actions_types_pilot -= SCREE.tied_action
+		else
+			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
 /obj/groundtank/verb/attempt_move_inside()
 	set category = "groundtank"

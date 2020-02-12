@@ -11,7 +11,6 @@
 	opacity = 0
 	anchored = 1
 	lockflags = NO_DIR_FOLLOW
-	var/datum/groundtank/equipment/ES //So we can mount objects that give us actions.
 	var/hatch_open = 0
 	var/list/occupants = list()
 	var/list/actions_types = list()
@@ -30,7 +29,7 @@
 	. = ..()
 	bound_width = 2*WORLD_ICON_SIZE
 	bound_height = 2*WORLD_ICON_SIZE
-	ES = new(src)
+
 	for(var/path in actions_types)
 		var/datum/action/A = new path(src)
 		actions.Add(A)
@@ -45,8 +44,6 @@
 		for(var/datum/action/A in actions)
 			actions.Remove(A)
 			qdel(A)
-	qdel(ES)
-	ES = null
 
 /obj/groundturret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
@@ -98,13 +95,6 @@
 	if(iscrowbar(W))
 		hatch_open = !hatch_open
 		to_chat(user, "<span class='notice'>You [hatch_open ? "open" : "close"] the maintenance hatch.</span>")
-		if(hatch_open && contents.len)
-			var/anyitem = 0
-			for(var/atom/movable/AM in contents)
-				anyitem++
-				AM.forceMove(get_turf(user))
-			if(anyitem)
-				visible_message("<span class='warning'>With a clatter, [anyitem > 1 ? "some items land" : "an item lands"] at the feet of [user].</span>")
 		return
 	if(health < maxHealth && iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
@@ -113,57 +103,51 @@
 			adjust_health(-rand(15,30))
 			return
 	if(istype(W, /obj/item/device/vehicle_equipment))
+		var/obj/item/device/vehicle_equipment/VE = W
 		if(!hatch_open)
 			return ..()
-		if(!ES)
-			to_chat(user, "<span class='warning'>The [W] has no equipment datum, yell at pomf</span>")
-			return
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
-			if(ES.weapon_system)
-				to_chat(user, "<span class='notice'>The [src] already has a weapon system, remove it first.</span>")
+			if(user.drop_item(W, src))
+				to_chat(user, "<span class='notice'>You insert \the [W] into the equipment system.</span>")
+				attached_equipment += W
+				actions_types_pilot += VE.tied_action
+				
+				var/pilot = get_pilot()
+				if(pilot)
+					refresh_actions(pilot)
+				
 				return
-			else
-				if(user.drop_item(W, src))
-					to_chat(user, "<span class='notice'>You insert \the [W] into the equipment system.</span>")
-					ES.weapon_system = W
-					ES.weapon_system.my_atom = src
-					return
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
 		adjust_health(W.force)
 		W.on_attack(src, user)
 
-
 /obj/groundturret/attack_hand(mob/user as mob)
+
 	if(!hatch_open)
 		return ..()
-	if(!ES || !istype(ES))
-		to_chat(user, "<span class='warning'>The [src] has no equipment datum, or is the wrong type, yell at pomf.</span>")
+	if(!attached_equipment.len)
+		to_chat(user, "<span class='warning'>The [src] has no vehicle parts in it, and the hatch is open.</span>")
 		return
-	var/list/possible = list()
-	if(ES.weapon_system)
-		possible.Add("Weapon System")
 	
-	var/obj/item/device/vehicle_equipment/SPE
-	switch(input(user, "Remove which equipment?", null, null) as null|anything in possible)
-		if("Weapon System")
-			SPE = ES.weapon_system
-			if(user.put_in_any_hand_if_possible(SPE))
-				to_chat(user, "<span class='notice'>You remove \the [SPE] from the equipment system.</span>")
-				SPE.my_atom = null
-				ES.weapon_system = null
-				verbs -= typesof(/obj/item/device/vehicle_equipment/weaponry/proc)
-			else
-				to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
-
-
-
-
-
+	var/PEEPEE = input(user,"Remove which equipment?", "", "Cancel") as null|anything in attached_equipment
+	if(PEEPEE != "Cancel")
+		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
+		if(user.put_in_any_hand_if_possible(SCREE))
+			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
+			if(SCREE.tied_action)
+				weapon_toggle = FALSE
+				actions_types_pilot -= SCREE.tied_action
+				
+				var/pilot = get_pilot()
+				if(pilot)
+					refresh_actions(pilot)
+		else
+			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
 /obj/groundturret/verb/attempt_move_inside()
-	set category = "groundtank"
-	set name = "Enter / Exit Vehicle"
+	set category = "groundturret"
+	set name = "Enter / Exit Turret"
 	set src in oview(1)
 
 	if(occupants.Find(usr))
@@ -200,13 +184,13 @@
 		var/pilot = get_pilot()
 		if(user == pilot) //They're the pilot
 			for(var/datum/action/S in actions)
-				if(istype (S, /datum/action/groundtank/pilot)) //Keep these
+				if(istype (S, /datum/action/groundturret/pilot)) //Keep these
 					S.Remove(user)
 				else if(S.owner == user) //Remove these
 					qdel(S)
 					actions.Remove(S)
 		else //They're a passenger
-			for(var/datum/action/groundtank/S in actions)
+			for(var/datum/action/groundturret/S in actions)
 				if(S.owner == user) //Remove these
 					qdel(S)
 					actions.Remove(S)
@@ -216,11 +200,11 @@
 			if(!new_pilot)
 				return
 			to_chat(new_pilot, "<span class = 'notice'>You are now the gunner of \the [src].</span>")
-			for(var/datum/action/groundtank/S in actions)
+			for(var/datum/action/groundturret/S in actions)
 				if(S.owner == new_pilot) //Remove these
 					qdel(S)
 					actions.Remove(S)
-			for(var/datum/action/groundtank/pilot/P in actions)
+			for(var/datum/action/groundturret/pilot/P in actions)
 				P.Grant(new_pilot)
 			for(var/path in actions_types_pilot)
 				var/datum/action/A = new path(src)
@@ -229,7 +213,7 @@
 	else if(status == STATUS_ADD)
 		occupants.Add(user)
 		if(user == get_pilot()) //They're the new pilot
-			for(var/datum/action/groundtank/pilot/P in actions)
+			for(var/datum/action/groundturret/pilot/P in actions)
 				P.Grant(user)
 			for(var/path in actions_types_pilot)
 				var/datum/action/A = new path(src)
@@ -240,6 +224,13 @@
 	if(occupants.len)
 		return occupants[1]
 	return 0
+
+/obj/groundturret/proc/refresh_actions(var/mob/occupant)
+	adjust_occupants(occupant, STATUS_REMOVE)
+	
+	sleep(1)
+	
+	adjust_occupants(occupant, STATUS_ADD)
 
 /obj/groundturret/proc/move_outside(var/mob/occupant, var/turf/exit_turf)
 	if(!exit_turf)
