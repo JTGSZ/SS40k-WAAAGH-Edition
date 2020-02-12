@@ -18,5 +18,7 @@
 		if(!target)
 			return
 	if(get_dist(src, target)>1)
-		if(selected)
-			selected.action(target)
+		if(selected_equipment.len)
+			for(var/obj/item/device/vehicle_equipment/weaponry/COCK in selected_equipment)
+				COCK.action(target)
+				sleep(1)

@@ -9,6 +9,5 @@
 	var/projectiles_per_shot = 2 //How many projectiles come out
 	tied_action = null //Action tied to this piece of equipment.
 
-/obj/item/device/vehicle_equipment/weaponry/proc/action(atom/target)
+/obj/item/device/vehicle_equipment/weaponry/action(atom/target)
 	return //Basically when you click with the switch toggled on, it performs this proc.
-

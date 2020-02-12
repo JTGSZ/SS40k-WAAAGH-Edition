@@ -13,15 +13,16 @@
 	lockflags = NO_DIR_FOLLOW
 	var/hatch_open = 0
 	var/list/occupants = list()
-	var/list/actions_types = list()
+	var/list/actions_types = list() //Actions that automatically go with the vehicle
 	var/list/actions_types_pilot = list() //Actions to create when a pilot boards, deleted upon leaving
-	var/list/actions = list()
+	var/list/actions = list() //The list that holds all the actions.
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	var/health = 400
 	var/maxHealth = 400
 	var/movement_delay = 2
 	
-	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
+	var/list/selected_equipment = list()
+	//var/obj/item/device/vehicle_equipment/selected //The selected Weapon
 	var/weapon_toggle = FALSE //Do we have a weapon toggled?
 	var/list/attached_equipment = list()
 
@@ -184,13 +185,13 @@
 		var/pilot = get_pilot()
 		if(user == pilot) //They're the pilot
 			for(var/datum/action/S in actions)
-				if(istype (S, /datum/action/groundturret/pilot)) //Keep these
+				if(istype (S, /datum/action/complex_vehicle_equipment/pilot)) //Keep these
 					S.Remove(user)
 				else if(S.owner == user) //Remove these
 					qdel(S)
 					actions.Remove(S)
 		else //They're a passenger
-			for(var/datum/action/groundturret/S in actions)
+			for(var/datum/action/complex_vehicle_equipment/S in actions)
 				if(S.owner == user) //Remove these
 					qdel(S)
 					actions.Remove(S)
@@ -200,11 +201,11 @@
 			if(!new_pilot)
 				return
 			to_chat(new_pilot, "<span class = 'notice'>You are now the gunner of \the [src].</span>")
-			for(var/datum/action/groundturret/S in actions)
+			for(var/datum/action/complex_vehicle_equipment/S in actions)
 				if(S.owner == new_pilot) //Remove these
 					qdel(S)
 					actions.Remove(S)
-			for(var/datum/action/groundturret/pilot/P in actions)
+			for(var/datum/action/complex_vehicle_equipment/pilot/P in actions)
 				P.Grant(new_pilot)
 			for(var/path in actions_types_pilot)
 				var/datum/action/A = new path(src)
@@ -213,7 +214,7 @@
 	else if(status == STATUS_ADD)
 		occupants.Add(user)
 		if(user == get_pilot()) //They're the new pilot
-			for(var/datum/action/groundturret/pilot/P in actions)
+			for(var/datum/action/complex_vehicle_equipment/pilot/P in actions)
 				P.Grant(user)
 			for(var/path in actions_types_pilot)
 				var/datum/action/A = new path(src)
@@ -227,8 +228,6 @@
 
 /obj/groundturret/proc/refresh_actions(var/mob/occupant)
 	adjust_occupants(occupant, STATUS_REMOVE)
-	
-	sleep(1)
 	
 	adjust_occupants(occupant, STATUS_ADD)
 
