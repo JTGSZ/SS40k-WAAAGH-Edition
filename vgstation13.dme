@@ -2666,6 +2666,5 @@
 #include "z40k_shit\vehicle\vehicle_equipment\equipment_actions.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\equipment_datum.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\test_obj.dm"
-#include "z40k_shit\vehicle\vehicle_equipment\weapon_parent.dm"
 #include "z40k_shit\vehicle\vehicle_types\leman_russ.dm"
 // END_INCLUDE

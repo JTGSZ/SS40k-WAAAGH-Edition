@@ -1,5 +1,3 @@
-#define STATUS_REMOVE 1
-#define STATUS_ADD 2
 
 //The turrets another object, ayep.
 /obj/groundturret
@@ -22,6 +20,7 @@
 
 /obj/groundturret/New()
 	. = ..()
+	dir = EAST
 	bound_width = 2*WORLD_ICON_SIZE
 	bound_height = 2*WORLD_ICON_SIZE
 
@@ -100,7 +99,7 @@
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
-				ES.make_it_end(src, W, TRUE)
+				ES.make_it_end(src, W, TRUE, user)
 				return
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
@@ -120,7 +119,7 @@
 		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
-			ES.make_it_end(src, SCREE, FALSE)
+			ES.make_it_end(src, SCREE, FALSE, user)
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
@@ -198,5 +197,3 @@
 	tight_fuckable_dickhole(user, FALSE)
 	user.forceMove(exit_turf)
 
-#undef STATUS_REMOVE
-#undef STATUS_ADD

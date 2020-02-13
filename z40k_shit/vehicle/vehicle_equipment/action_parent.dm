@@ -5,8 +5,13 @@
 
 /datum/action/complex_vehicle_equipment/Trigger()
 	..()
-	var/obj/groundtank/S = target
+	var/obj/S = target
 	if(!istype(S))
 		qdel(src)
 		return
+
+/datum/action/complex_vehicle_equipment/New(var/obj/groundtank/Target)
+	..()
+	Target.ES.action_storage += src //On New() we add ourselves to a equipment datums held actions
+
 

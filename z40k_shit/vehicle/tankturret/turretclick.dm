@@ -20,5 +20,6 @@
 	if(get_dist(src, target)>1)
 		if(ES.equipment_systems.len)
 			for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
-				COCK.action(target)
-				sleep(1)
+				if(COCK.systems_online)
+					COCK.action(target)
+					sleep(1)

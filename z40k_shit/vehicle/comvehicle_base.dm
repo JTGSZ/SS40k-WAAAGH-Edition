@@ -6,9 +6,6 @@
 #define GROUNDTANK_LIGHTS_RANGE_ON 8
 #define GROUNDTANK_LIGHTS_RANGE_OFF 3 //one tile beyond the groundtank itself, "cockpit glow"
 
-#define STATUS_REMOVE 1
-#define STATUS_ADD 2
-
 /obj/groundtank
 	name = "\improper groundtank"
 	desc = "A ground tank meant for ground travel."
@@ -26,7 +23,6 @@
 	var/obj/item/weapon/cell/battery
 	var/datum/global_iterator/pr_lights_battery_use //passive battery use for the lights
 	var/hatch_open = 0
-	var/next_firetime = 0
 	var/list/tank_overlays
 	var/health = 400
 	var/maxHealth = 400
@@ -38,21 +34,21 @@
 	
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
-	var/list/actions_types = list( //Actions to create and hold for the pilot
+
+	var/obj/groundturret/GT
+	
+	var/list/chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/toggle_passengers,
 		/datum/action/complex_vehicle_equipment/toggle_passenger_weaponry,
 		/datum/action/complex_vehicle_equipment/toggle_lights,
 		/datum/action/complex_vehicle_equipment/toggle_engine,
-		)
-	var/list/actions_types_pilot = list() //Actions to create when a pilot boards, deleted upon leaving
-	var/list/actions_types_passenger = list() //Actions to create when a passenger boards, deleted upon leaving
-	var/list/actions = list()
+		) //These are actions innate to the object, basically a reference list for what to add on.
+	
+	var/list/vehicle_held_actions = list() //This is a list of what we currently have avaliable.
+	//To chat these are basically New'd into the src
 
-	var/obj/groundturret/GT
-	var/obj/item/device/vehicle_equipment/weaponry/selected //The selected Weapon
-	var/weapon_toggle = FALSE //Do we have a weapon toggled?
-	var/list/attached_equipment = list()
-
+	var/datum/comvehicle/equipment/ES //Our equipment controller.
+	
 /obj/groundtank/get_cell()
 	return battery
 
@@ -68,10 +64,11 @@
 	battery = new /obj/item/weapon/cell/high()
 	pr_lights_battery_use = new /datum/global_iterator/vehicle_lights_use_charge(list(src))
 	
-	for(var/path in actions_types)
-		var/datum/action/A = new path(src)
-		actions.Add(A)
+	ES = new(src) //New equipment system in US
 	
+	for(var/path in chassis_actions) //Mark 1
+		new path(src) //We create the actions inside of this object. They should add themselve to held actions.
+
 	GT = new /obj/groundturret(src.loc)
 	lock_atom(GT)
 
@@ -80,10 +77,7 @@
 		for(var/mob/living/L in occupants)
 			move_outside(L)
 			L.gib()
-	if(actions.len)
-		for(var/datum/action/A in actions)
-			actions.Remove(A)
-			qdel(A)
+
 	qdel(pr_lights_battery_use)
 	pr_lights_battery_use = null
 	qdel(battery)
@@ -165,13 +159,6 @@
 	if(iscrowbar(W))
 		hatch_open = !hatch_open
 		to_chat(user, "<span class='notice'>You [hatch_open ? "open" : "close"] the maintenance hatch.</span>")
-		if(hatch_open && contents.len)
-			var/anyitem = 0
-			for(var/atom/movable/AM in contents)
-				anyitem++
-				AM.forceMove(get_turf(user))
-			if(anyitem)
-				visible_message("<span class='warning'>With a clatter, [anyitem > 1 ? "some items land" : "an item lands"] at the feet of [user].</span>")
 		return
 	if(health < maxHealth && iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
@@ -184,10 +171,9 @@
 			return ..()
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
-				to_chat(user, "<span class='notice'>You insert \the [W] into the equipment system.</span>")
-				attached_equipment += W
+				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
+				ES.make_it_end(src, W, TRUE, get_pilot())
 				return
-	
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
 		adjust_health(W.force)
@@ -197,18 +183,15 @@
 /obj/groundtank/attack_hand(mob/user as mob)
 	if(!hatch_open)
 		return ..()
-	if(!attached_equipment.len)
+	if(!ES.equipment_systems.len)
 		to_chat(user, "<span class='warning'>The [src] has no vehicle parts in it, and the hatch is open.</span>")
 		return
-	
-	var/PEEPEE = input(user,"Remove which equipment?", "", "Cancel") as null|anything in attached_equipment
+	var/PEEPEE = input(user,"Remove which equipment?", "", "Cancel") as null|anything in ES.equipment_systems
 	if(PEEPEE != "Cancel")
 		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
-			if(SCREE.tied_action)
-				weapon_toggle = FALSE
-				actions_types_pilot -= SCREE.tied_action
+			ES.make_it_end(src, SCREE, FALSE, get_pilot())
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
@@ -261,12 +244,12 @@
 /obj/groundtank/acidable()
 	return 0
 
-/obj/groundtank/proc/move_into_vehicle(var/mob/living/L)
-	if(L && L.client && L in range(1))
-		L.reset_view(src)
-		L.stop_pulling()
-		L.forceMove(src)
-		adjust_occupants(L, STATUS_ADD)
+/obj/groundtank/proc/move_into_vehicle(var/mob/living/user)
+	if(user && user.client && user in range(1))
+		user.reset_view(src)
+		user.stop_pulling()
+		user.forceMove(src)
+		tight_fuckable_dickhole(user, TRUE)
 		return 1
 	return 0
 
@@ -308,57 +291,39 @@
 					target_turf = get_edge_target_turf(T, opposite_dirs[dir])
 					L.throw_at(target_turf,100,3)
 
-/obj/groundtank/proc/move_outside(var/mob/occupant, var/turf/exit_turf)
+/obj/groundtank/proc/move_outside(var/mob/user, var/turf/exit_turf)
 	if(!exit_turf)
 		exit_turf = get_turf(src)
-	adjust_occupants(occupant, STATUS_REMOVE)
-	occupant.forceMove(exit_turf)
+	tight_fuckable_dickhole(user, FALSE)
+	user.forceMove(exit_turf)
 
-/obj/groundtank/proc/adjust_occupants(var/mob/user, var/status)
-	if(status == STATUS_REMOVE)
-		var/pilot = get_pilot()
-		if(user == pilot) //They're the pilot
-			for(var/datum/action/S in actions)
-				if(istype (S, /datum/action/complex_vehicle_equipment)) //Keep these
-					S.Remove(user)
-				else if(S.owner == user) //Remove these
-					qdel(S)
-					actions.Remove(S)
-		else //They're a passenger
-			for(var/datum/action/complex_vehicle_equipment/S in actions)
-				if(S.owner == user) //Remove these
-					qdel(S)
-					actions.Remove(S)
-		occupants.Remove(user)
-		if(get_pilot() && pilot != get_pilot()) //NEW PILOT
+/obj/groundtank/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
+	var/pilot = get_pilot()
+	if(GIVIESorTAKIES) //GIVIES
+		occupants.Add(user) //WE GIVIES OCCUPANTS the USER
+		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage) //Our datum action holder
+			if(actions.pilot_only && get_pilot() != user) //IF THE ACTION IS PILOT ONLY AND USER IS NOT PILOT
+				actions.Remove(user)
+			actions.Grant(user) //We grant the user all the actions on ES.actions_storage
+
+		if(get_pilot() && pilot != get_pilot()) //NEW PILOT - Occurs if someone gets out and theres a passenger
 			var/mob/living/new_pilot = get_pilot()
 			if(!new_pilot)
-				return
-			to_chat(new_pilot, "<span class = 'notice'>You are now the pilot of \the [src].</span>")
-			for(var/datum/action/complex_vehicle_equipment/S in actions)
-				if(S.owner == new_pilot) //Remove these
-					qdel(S)
-					actions.Remove(S)
-			for(var/datum/action/complex_vehicle_equipment/P in actions)
-				P.Grant(new_pilot)
-			for(var/path in actions_types_pilot)
-				var/datum/action/A = new path(src)
-				actions.Add(A)
-				A.Grant(new_pilot)
-	else if(status == STATUS_ADD)
-		occupants.Add(user)
-		if(user == get_pilot()) //They're the new pilot
-			for(var/datum/action/complex_vehicle_equipment/P in actions)
-				P.Grant(user)
-			for(var/path in actions_types_pilot)
-				var/datum/action/A = new path(src)
-				actions.Add(A)
-				A.Grant(user)
-		else //They're a new passenger
-			for(var/path in actions_types_passenger)
-				var/datum/action/A = new path(src)
-				actions.Add(A)
-				A.Grant(user)
+				return	
+			to_chat(new_pilot, "<span class = 'notice'>You are now the driver of \the [src].</span>")
+			for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
+				actions.Grant(new_pilot)
+	
+	else //TAKIES
+		occupants.Remove(user) //WE TAKIES the user OUT of OCCUPANTS
+		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
+			actions.Remove(user) //They just left we take ALL the shit.
+
+/obj/groundtank/proc/refresh_actions(var/mob/user)
+	for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
+		actions.Remove(user)
+
+	
 
 /obj/groundtank/proc/toggle_passenger_guns()
 	if(usr!=get_pilot())
@@ -373,6 +338,3 @@
 #undef GROUNDTANK_LIGHTS_CONSUMPTION
 #undef GROUNDTANK_LIGHTS_RANGE_ON
 #undef GROUNDTANK_LIGHTS_RANGE_OFF
-
-#undef STATUS_REMOVE
-#undef STATUS_ADD

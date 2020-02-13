@@ -5,29 +5,41 @@
 	var/list/action_storage = list() //Container of all the actions we currently have.
 
 	//Eh fuck this shit, we jus gonna ork kustom shoota this shit up.
-	var/ballistics = 0
-	var/missiles = 0
-	var/explosives = 0
+	var/testgun = 0
 
 /datum/comvehicle/equipment/New(var/obj/CV)
 	..()
 	if(istype(CV))
 		my_atom = CV
 
-/datum/comvehicle/equipment/proc/make_it_end(var/massa, var/obj/item/device/vehicle_equipment/bitch, var/slide_in)
+/datum/comvehicle/equipment/proc/weapon_toggle(var/obj/item/device/vehicle_equipment/bitch, var/toggle_switch)
+	for(bitch in equipment_systems)
+		if(toggle_switch)
+			if(!bitch.systems_online)
+				bitch.systems_online = TRUE
+				break
+			else
+				bitch.systems_online = FALSE
+				break
+
+//user, object, attach or detach
+/datum/comvehicle/equipment/proc/make_it_end(var/obj/groundtank/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
 	if(slide_in)
-		bitch.my_atom = massa
+		bitch.my_atom = massa_obj
 		equipment_systems += bitch
 		
-		if(bitch.tied_action)
-			action_storage += bitch.tied_action
+		if(bitch.tied_action && massa_man)
+			new bitch.tied_action(massa_obj)
+			massa_obj.tight_fuckable_dickhole(massa_man, TRUE)
+	
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
 		
-		if(bitch.tied_action)
+		if(bitch.tied_action in action_storage)
 			action_storage -= bitch.tied_action
-		
+			if(massa_man)
+				massa_obj.tight_fuckable_dickhole(massa_man, TRUE)
 
 /obj/item/device/vehicle_equipment
 	name = "equipment"
@@ -36,4 +48,18 @@
 	var/systems_online = FALSE //So we can check whether they are online or not.
 	
 /obj/item/device/vehicle_equipment/proc/action(atom/target)
+	return //Basically when you click with the switch toggled on, it performs this proc.
+
+/obj/item/device/vehicle_equipment/weaponry
+	name = "pod weapon"
+	desc = "You shouldn't be seeing this"
+	icon = 'icons/pods/ship.dmi'
+	icon_state = "blank"
+	var/projectile_type
+	var/fire_sound = 'z40k_shit/sounds/slugga_1.ogg'
+	var/fire_delay = 10
+	var/projectiles_per_shot = 2 //How many projectiles come out
+	tied_action = null //Action tied to this piece of equipment.
+
+/obj/item/device/vehicle_equipment/weaponry/action(atom/target)
 	return //Basically when you click with the switch toggled on, it performs this proc.

@@ -1,11 +1,3 @@
-/datum/action/complex_vehicle_equipment
-	icon_icon = 'icons/pods/button_icons.dmi'
-	background_icon_state = "bg_pod"
-
-/datum/action/complex_vehicle_equipment/Trigger()
-	..()
-
-/datum/action/complex_vehicle_equipment //Subtype for space pod pilots only
 
 //Toggle Engine
 /datum/action/complex_vehicle_equipment/toggle_engine

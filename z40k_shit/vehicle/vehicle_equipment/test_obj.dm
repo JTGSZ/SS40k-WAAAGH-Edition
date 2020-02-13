@@ -2,27 +2,27 @@
 	name = "Toggle Testweapon"
 	button_icon_state = "engine_off"
 	var/attached_part = /obj/item/device/vehicle_equipment/weaponry/testgun //Weapon tied to action
+	var/weapon_toggle = FALSE
 
 /datum/action/complex_vehicle_equipment/toggle_testweapon/Trigger()
 	..()
 	var/obj/groundturret/S = target
-	S.toggle_testcaseweapon(attached_part)
-//	if(S.weapon_toggle)
-//		button_icon_state = "engine_on"
-//	else
-//		button_icon_state = "engine_off"
+	S.toggle_testcaseweapon(weapon_toggle)
+	if(weapon_toggle)
+		weapon_toggle = TRUE
+		S.ES.weapon_toggle(attached_part, TRUE)
+		button_icon_state = "engine_on"
+	else
+		weapon_toggle = FALSE
+		S.ES.weapon_toggle(attached_part, FALSE)
+		button_icon_state = "engine_off"
 	UpdateButtonIcon()
 
-/obj/groundturret/proc/toggle_testcaseweapon(var/attached_part)
+/obj/groundturret/proc/toggle_testcaseweapon(var/OnOrOff)
 	if(usr!=get_pilot())
 		return
 
-//	if(weapon_toggle)
-//		weapon_toggle = FALSE
-//	else
-//		weapon_toggle = TRUE
-	
-//	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [weapon_toggle?"switched on":"switched off"].</span>")
+	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [OnOrOff?"switched on":"switched off"].</span>")
 	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 
 /obj/item/device/vehicle_equipment/weaponry/testgun

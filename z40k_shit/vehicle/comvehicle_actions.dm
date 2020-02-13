@@ -29,8 +29,6 @@
 		button_icon_state = "weapons_off"
 	UpdateButtonIcon()
 
-/datum/action/complex_vehicle_equipment/passenger //Subtype for passengers only
-
 /datum/action/complex_vehicle_equipment/passenger/Trigger()
 	..()
 	var/obj/groundtank/S = target
