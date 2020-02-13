@@ -24,22 +24,26 @@
 
 //user, object, attach or detach
 /datum/comvehicle/equipment/proc/make_it_end(var/obj/groundtank/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
+	to_chat(world, "equipment handler params are [massa_obj], [bitch], [slide_in], [massa_man]")
+
+	to_chat(world, "bitch.tied_action is [bitch.tied_action]")
+
 	if(slide_in)
 		bitch.my_atom = massa_obj
 		equipment_systems += bitch
 		
-		if(bitch.tied_action && massa_man)
-			new bitch.tied_action(massa_obj)
-			massa_obj.tight_fuckable_dickhole(massa_man, TRUE)
+		new bitch.tied_action(massa_obj)
+		massa_obj.tight_fuckable_dickhole(massa_man, TRUE)
 	
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
 		
-		if(bitch.tied_action in action_storage)
-			action_storage -= bitch.tied_action
-			if(massa_man)
-				massa_obj.tight_fuckable_dickhole(massa_man, TRUE)
+		var/ocean_of_semen = locate(bitch.tied_action) in action_storage
+		to_chat(world, "ocean of semen has returned [ocean_of_semen]")
+		if(ocean_of_semen)
+			action_storage -= ocean_of_semen
+			massa_obj.tight_fuckable_dickhole(massa_man, FALSE)
 
 /obj/item/device/vehicle_equipment
 	name = "equipment"

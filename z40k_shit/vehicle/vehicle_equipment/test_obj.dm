@@ -25,6 +25,13 @@
 	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [OnOrOff?"switched on":"switched off"].</span>")
 	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 
+/obj/groundtank/proc/toggle_testcaseweapon(var/OnOrOff)
+	if(usr!=get_pilot())
+		return
+
+	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [OnOrOff?"switched on":"switched off"].</span>")
+	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
+
 /obj/item/device/vehicle_equipment/weaponry/testgun
 	name = "\improper test ballistics system"
 	desc = "for testing"
