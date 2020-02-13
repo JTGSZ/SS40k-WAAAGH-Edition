@@ -547,7 +547,7 @@
 	var/turf/T_mob = get_turf(src)
 	if((R.z == T_mob.z) && (get_dist(R,T_mob) <= (R.consume_range+10)) && !(R in view(T_mob)))
 		if(!riftimage)
-			riftimage = image('icons/obj/rift.dmi',T_mob,"rift", SUPER_PORTAL_LAYER, 1)
+			riftimage = image('z40k_shit/icons/cleanup_time.dmi',T_mob,"error", SUPER_PORTAL_LAYER, 1)
 			riftimage.plane = LIGHTING_PLANE
 			riftimage.mouse_opacity = 0
 

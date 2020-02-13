@@ -63,9 +63,6 @@
 	return null
 
 /turf/unsimulated/wall/splashscreen/New()
-	if(SNOW_THEME)
-		icon = 'icons/snowstation.gif' // not in the splashworks file so it doesn't appear in other cases
-		return
 	var/path = "icons/splashworks/"
 	var/list/filenames = flist(path)
 	for(var/filename in filenames)
