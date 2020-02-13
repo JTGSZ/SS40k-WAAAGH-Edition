@@ -6,7 +6,7 @@
 
 /datum/action/complex_vehicle_equipment/toggle_passengers/Trigger()
 	..()
-	var/obj/groundtank/S = target
+	var/obj/complex_vehicle/S = target
 	S.toggle_passengers()
 	if(S.passengers_allowed)
 		button_icon_state = "lock_open"
@@ -21,7 +21,7 @@
 
 /datum/action/complex_vehicle_equipment/toggle_passenger_weaponry/Trigger()
 	..()
-	var/obj/groundtank/S = target
+	var/obj/complex_vehicle/S = target
 	S.toggle_passenger_guns()
 	if(S.passenger_fire)
 		button_icon_state = "weapons_on"
@@ -31,7 +31,7 @@
 
 /datum/action/complex_vehicle_equipment/passenger/Trigger()
 	..()
-	var/obj/groundtank/S = target
+	var/obj/complex_vehicle/S = target
 	if(!S || !S.occupants.Find(owner))
 		to_chat(owner, "<span class = 'warning'>How did you get control of this button?</span>")
 		qdel(src)
@@ -45,6 +45,6 @@
 
 /datum/action/complex_vehicle_equipment/toggle_lights/Trigger()
 	..()
-	var/obj/groundtank/S = target
+	var/obj/complex_vehicle/S = target
 	S.toggle_lights()
 	

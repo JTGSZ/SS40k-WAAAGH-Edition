@@ -1,12 +1,12 @@
 
-/obj/groundtank/MouseDropTo(mob/M, mob/user)
+/obj/complex_vehicle/MouseDropTo(mob/M, mob/user)
 	if(M != user)
 		return
 	if(!Adjacent(M) || !Adjacent(user))
 		return
 	attempt_move_inside(M, user)
 
-/obj/groundtank/MouseDropFrom(atom/over)
+/obj/complex_vehicle/MouseDropFrom(atom/over)
 	if(!usr || !over)
 		return
 	if(!Adjacent(usr) || !Adjacent(over))
@@ -28,7 +28,7 @@
 	if(occupants.Find(usr))
 		move_outside(usr,T)
 
-/obj/groundtank/proc/click_action_control(atom/target,mob/user)
+/obj/complex_vehicle/proc/click_action_control(atom/target,mob/user)
 	if(user != get_pilot()) //If user is not pilot return false
 		return
 	if(user.stat)

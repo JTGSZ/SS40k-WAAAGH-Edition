@@ -6,7 +6,7 @@
 
 /datum/action/complex_vehicle_equipment/toggle_engine/Trigger()
 	..()
-	var/obj/groundtank/S = target
+	var/obj/complex_vehicle/S = target
 	S.toggle_engine_yeah()
 	if(S.engine_toggle)
 		button_icon_state = "engine_on"
@@ -14,7 +14,7 @@
 		button_icon_state = "engine_off"
 	UpdateButtonIcon()
 
-/obj/groundtank/proc/toggle_engine_yeah()
+/obj/complex_vehicle/proc/toggle_engine_yeah()
 	if(usr!=get_pilot())
 		return
 	

@@ -10,7 +10,7 @@
 		qdel(src)
 		return
 
-/datum/action/complex_vehicle_equipment/New(var/obj/groundtank/Target)
+/datum/action/complex_vehicle_equipment/New(var/obj/complex_vehicle/Target)
 	..()
 	Target.ES.action_storage += src //On New() we add ourselves to a equipment datums held actions
 

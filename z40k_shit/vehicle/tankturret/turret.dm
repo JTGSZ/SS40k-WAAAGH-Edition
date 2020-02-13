@@ -1,24 +1,24 @@
 
 //The turrets another object, ayep.
-/obj/groundturret
-	name = "\improper groundturret"
-	desc = "A turret attached to a tank."
+/obj/complex_vehicle/complex_turret
+	name = "\improper turret"
+	desc = "A turret attached to a vehicle."
 	icon = 'z40k_shit/icons/lemanruss.dmi'
 	icon_state = "turret"
 	density = 0 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
 	lockflags = NO_DIR_FOLLOW
-	var/hatch_open = 0
-	var/list/occupants = list()
-	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
-	var/health = 400
-	var/maxHealth = 400
-	var/movement_delay = 2
-	var/list/chassis_actions = list() //These are actions innate to the object.
-	var/datum/comvehicle/equipment/ES //Our equipment controller.
+	hatch_open = 0
+	occupants = list()
+	datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
+	health = 400
+	maxHealth = 400
+	movement_delay = 2
+	list/chassis_actions = list() //These are actions innate to the object.
+	datum/comvehicle/equipment/ES //Our equipment controller.
 
-/obj/groundturret/New()
+/obj/complex_vehicle/complex_turret/New()
 	. = ..()
 	dir = EAST
 	bound_width = 2*WORLD_ICON_SIZE
@@ -26,7 +26,7 @@
 
 	ES = new(src) //New equipment system in US
 
-/obj/groundturret/Destroy()
+/obj/complex_vehicle/complex_turret/Destroy()
 	. = ..()
 
 	qdel(ES) //We qdel it i guess
@@ -36,7 +36,7 @@
 			move_outside(L)
 			L.gib()
 
-/obj/groundturret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
+/obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
 		return 0 //Stop hogging the wheel!
 	if(move_delayer.blocked()) //If we are blocked from moving by move_delayer, return false. Delay
@@ -55,34 +55,10 @@
 
 	move_delayer.delayNext(round(3,world.tick_lag)) //Delay
 
-/obj/groundturret/proc/adjust_health(var/damage)
-	var/oldhealth = health
-	health = clamp(health-damage,0, maxHealth)
-	var/percentage = (health / initial(health)) * 100
-	var/mob/pilot = get_pilot()
-	if(pilot && oldhealth > health && percentage <= 25 && percentage > 0)
-		pilot.playsound_local(pilot, 'sound/effects/engine_alert2.ogg', 50, 0, 0, 0, 0)
-	if(pilot && oldhealth > health && !health)
-		var/mob/living/L = pilot
-		L.playsound_local(L, 'sound/effects/engine_alert1.ogg', 50, 0, 0, 0, 0)
-	if(health <= 0)
-		spawn(0)
-			var/mob/living/L = get_pilot()
-			if(L)
+/obj/complex_vehicle/complex_turret/update_icons()
+	return
 
-				to_chat(L, "<big><span class='warning'>Critical damage to the vessel detected, core explosion imminent!</span></big>")
-			for(var/i = 10, i >= 0; --i)
-				if(L)
-					to_chat(L, "<span class='warning'>[i]</span>")
-				if(i == 0)
-					explosion(loc, 2, 4, 8)
-				sleep(10)
-
-	update_icons()
-
-/obj/groundturret/proc/update_icons()
-
-/obj/groundturret/attackby(obj/item/W, mob/user)
+/obj/complex_vehicle/complex_turret/attackby(obj/item/W, mob/user)
 	if(iscrowbar(W))
 		hatch_open = !hatch_open
 		to_chat(user, "<span class='notice'>You [hatch_open ? "open" : "close"] the maintenance hatch.</span>")
@@ -106,7 +82,7 @@
 		adjust_health(W.force)
 		W.on_attack(src, user)
 
-/obj/groundturret/attack_hand(mob/user as mob)
+/obj/complex_vehicle/complex_turret/attack_hand(mob/user as mob)
 
 	if(!hatch_open)
 		return ..()
@@ -123,9 +99,8 @@
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
-/obj/groundturret/verb/attempt_move_inside()
+/obj/complex_vehicle/complex_turret/attempt_move_inside()
 	set category = "groundturret"
-	set name = "Enter / Exit Turret"
 	set src in oview(1)
 
 	if(occupants.Find(usr))
@@ -148,52 +123,23 @@
 		to_chat(usr, "You stop entering \the [src].")
 	return
 
-/obj/groundturret/proc/move_into_vehicle(var/mob/living/user)
-	if(user && user.client && user in range(1))
-		user.reset_view(src)
-		user.stop_pulling()
-		user.forceMove(src)
-		tight_fuckable_dickhole(user, TRUE)
-		return 1
-	return 0
 
-/obj/groundturret/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
-	var/pilot = get_pilot()
-	if(GIVIESorTAKIES) //GIVIES
-		occupants.Add(user) //WE GIVIES OCCUPANTS the USER
-		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage) //Our datum action holder
-			if(actions.pilot_only && get_pilot() != user) //IF THE ACTION IS PILOT ONLY AND USER IS NOT PILOT
-				actions.Remove(user)
-			actions.Grant(user) //We grant the user all the actions on ES.actions_storage
-		for(var/datum/action/complex_vehicle_equipment/actions in chassis_actions)
-			actions.Grant(user)
-
-		if(get_pilot() && pilot != get_pilot()) //NEW PILOT - Occurs if someone gets out and theres a passenger
-			var/mob/living/new_pilot = get_pilot()
-			if(!new_pilot)
-				return	
-			
-			to_chat(new_pilot, "<span class = 'notice'>You are now the driver of \the [src].</span>")
-			for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
-				actions.Grant(new_pilot)
-			for(var/datum/action/complex_vehicle_equipment/actions in chassis_actions)
-				actions.Grant(new_pilot)
-	
-	else //TAKIES
-		occupants.Remove(user) //WE TAKIES the user OUT of OCCUPANTS
-		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
-			actions.Remove(user) //They just left we take ALL the shit.
-		for(var/datum/action/complex_vehicle_equipment/actions in chassis_actions) //We take the chassis actions off too
-			actions.Remove(user)
-
-/obj/groundturret/proc/get_pilot()
-	if(occupants.len)
-		return occupants[1]
-	return 0
-
-/obj/groundturret/proc/move_outside(var/mob/user, var/turf/exit_turf)
-	if(!exit_turf)
-		exit_turf = get_turf(src)
-	tight_fuckable_dickhole(user, FALSE)
-	user.forceMove(exit_turf)
-
+//Click Action
+/obj/complex_vehicle/complex_turret/click_action_control(atom/target,mob/user)
+	if(user != get_pilot()) //If user is not pilot return false
+		return
+	if(user.stat)
+		return
+	if(src == target)
+		return
+	var/dir_to_target = get_dir(src,target)
+	if(dir_to_target && !(dir_to_target & src.dir))//wrong direction
+		return
+		if(!target)
+			return
+	if(get_dist(src, target)>1)
+		if(ES.equipment_systems.len)
+			for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
+				if(COCK.systems_online)
+					COCK.action(target)
+					sleep(1)

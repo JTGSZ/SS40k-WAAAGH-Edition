@@ -6,7 +6,7 @@
 
 /datum/action/complex_vehicle_equipment/toggle_testweapon/Trigger()
 	..()
-	var/obj/groundturret/S = target
+	var/obj/complex_vehicle/S = target
 	S.toggle_testcaseweapon(weapon_toggle)
 	if(weapon_toggle)
 		weapon_toggle = TRUE
@@ -18,14 +18,7 @@
 		button_icon_state = "engine_off"
 	UpdateButtonIcon()
 
-/obj/groundturret/proc/toggle_testcaseweapon(var/OnOrOff)
-	if(usr!=get_pilot())
-		return
-
-	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [OnOrOff?"switched on":"switched off"].</span>")
-	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
-
-/obj/groundtank/proc/toggle_testcaseweapon(var/OnOrOff)
+/obj/complex_vehicle/proc/toggle_testcaseweapon(var/OnOrOff)
 	if(usr!=get_pilot())
 		return
 

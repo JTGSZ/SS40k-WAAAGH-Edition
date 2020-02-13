@@ -2,12 +2,12 @@
 #define DAMAGE			1
 #define FIRE			2
 
-#define GROUNDTANK_LIGHTS_CONSUMPTION 2 //battery consumption per second with lights on
-#define GROUNDTANK_LIGHTS_RANGE_ON 8
-#define GROUNDTANK_LIGHTS_RANGE_OFF 3 //one tile beyond the groundtank itself, "cockpit glow"
+#define COMPLEX_VEHICLE_LIGHTS_CONSUMPTION 2 //battery consumption per second with lights on
+#define COMPLEX_VEHICLE_LIGHTS_RANGE_ON 8
+#define COMPLEX_VEHICLE_LIGHTS_RANGE_OFF 3 //one tile beyond the complex_vehicle itself, "cockpit glow"
 
-/obj/groundtank
-	name = "\improper groundtank"
+/obj/complex_vehicle
+	name = "\improper complex_vehicle"
 	desc = "A ground tank meant for ground travel."
 	icon = 'z40k_shit/icons/lemanruss.dmi'
 	density = 1 //Dense. To raise the heat.
@@ -16,6 +16,7 @@
 	layer = ABOVE_DOOR_LAYER
 	infra_luminosity = 15
 	internal_gravity = 1 // Can move in 0-gravity
+	
 	var/passenger_limit = 1 //Upper limit for how many passengers are allowed
 	var/passengers_allowed = 1 //If the pilot allows people to jump in the side seats.
 	var/list/occupants = list()
@@ -28,14 +29,14 @@
 	var/maxHealth = 400
 	var/lights_enabled = FALSE
 	light_power = 2
-	light_range = GROUNDTANK_LIGHTS_RANGE_OFF
+	light_range = COMPLEX_VEHICLE_LIGHTS_RANGE_OFF
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
 
-	var/obj/groundturret/GT
+	var/obj/complex_vehicle/complex_turret/GT
 	
 	var/list/chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/toggle_passengers,
@@ -49,10 +50,10 @@
 
 	var/datum/comvehicle/equipment/ES //Our equipment controller.
 	
-/obj/groundtank/get_cell()
+/obj/complex_vehicle/get_cell()
 	return battery
 
-/obj/groundtank/New()
+/obj/complex_vehicle/New()
 	. = ..()
 	if(!tank_overlays)
 		tank_overlays = new/list(2)
@@ -69,10 +70,10 @@
 	for(var/path in chassis_actions) //Mark 1
 		new path(src) //We create the actions inside of this object. They should add themselve to held actions.
 
-	GT = new /obj/groundturret(src.loc)
+	GT = new /obj/complex_vehicle/complex_turret(src.loc)
 	lock_atom(GT)
 
-/obj/groundtank/Destroy()
+/obj/complex_vehicle/Destroy()
 	if(occupants.len)
 		for(var/mob/living/L in occupants)
 			move_outside(L)
@@ -91,7 +92,7 @@
 
 	..()
 
-/obj/groundtank/proc/update_icons()
+/obj/complex_vehicle/proc/update_icons()
 	if(!tank_overlays)
 		tank_overlays = new/list(2)
 		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
@@ -106,11 +107,11 @@
 	else
 		overlays -= tank_overlays[DAMAGE]
 
-/obj/groundtank/bullet_act(var/obj/item/projectile/P)
+/obj/complex_vehicle/bullet_act(var/obj/item/projectile/P)
 	if(P.damage && !P.nodamage)
 		adjust_health(P.damage)
 
-/obj/groundtank/proc/adjust_health(var/damage)
+/obj/complex_vehicle/proc/adjust_health(var/damage)
 	var/oldhealth = health
 	health = clamp(health-damage,0, maxHealth)
 	var/percentage = (health / initial(health)) * 100
@@ -135,7 +136,7 @@
 
 	update_icons()
 
-/obj/groundtank/ex_act(severity)
+/obj/complex_vehicle/ex_act(severity)
 	switch(severity)
 		if(1)
 			if(has_passengers())
@@ -155,7 +156,7 @@
 			if(prob(40))
 				adjust_health(50)
 
-/obj/groundtank/attackby(obj/item/W, mob/user)
+/obj/complex_vehicle/attackby(obj/item/W, mob/user)
 	if(iscrowbar(W))
 		hatch_open = !hatch_open
 		to_chat(user, "<span class='notice'>You [hatch_open ? "open" : "close"] the maintenance hatch.</span>")
@@ -180,7 +181,7 @@
 		W.on_attack(src, user)
 
 
-/obj/groundtank/attack_hand(mob/user as mob)
+/obj/complex_vehicle/attack_hand(mob/user as mob)
 	if(!hatch_open)
 		return ..()
 	if(!ES.equipment_systems.len)
@@ -195,8 +196,8 @@
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
-/obj/groundtank/verb/attempt_move_inside()
-	set category = "groundtank"
+/obj/complex_vehicle/verb/attempt_move_inside()
+	set category = "complex_vehicle"
 	set name = "Enter / Exit Vehicle"
 	set src in oview(1)
 
@@ -224,27 +225,27 @@
 /datum/global_iterator/vehicle_lights_use_charge
 	delay = 10
 
-	process(var/obj/groundtank/groundtank)
-		if(groundtank.battery && groundtank.lights_enabled)
-			if(groundtank.battery.charge > 0)
-				groundtank.battery.use(GROUNDTANK_LIGHTS_CONSUMPTION)
+	process(var/obj/complex_vehicle/complex_vehicle)
+		if(complex_vehicle.battery && complex_vehicle.lights_enabled)
+			if(complex_vehicle.battery.charge > 0)
+				complex_vehicle.battery.use(COMPLEX_VEHICLE_LIGHTS_CONSUMPTION)
 			else
-				groundtank.toggle_lights()
+				complex_vehicle.toggle_lights()
 		return
 
-/obj/groundtank/proc/toggle_lights()
+/obj/complex_vehicle/proc/toggle_lights()
 	if(lights_enabled)
-		set_light(GROUNDTANK_LIGHTS_RANGE_OFF)
+		set_light(COMPLEX_VEHICLE_LIGHTS_RANGE_OFF)
 		to_chat(usr, "<span class='notice'>Lights disabled.</span>")
 	else
-		set_light(GROUNDTANK_LIGHTS_RANGE_ON)
+		set_light(COMPLEX_VEHICLE_LIGHTS_RANGE_ON)
 		to_chat(usr, "<span class='notice'>Lights enabled.</span>")
 	lights_enabled = !lights_enabled
 
-/obj/groundtank/acidable()
+/obj/complex_vehicle/acidable()
 	return 0
 
-/obj/groundtank/proc/move_into_vehicle(var/mob/living/user)
+/obj/complex_vehicle/proc/move_into_vehicle(var/mob/living/user)
 	if(user && user.client && user in range(1))
 		user.reset_view(src)
 		user.stop_pulling()
@@ -253,28 +254,28 @@
 		return 1
 	return 0
 
-/obj/groundtank/proc/get_pilot()
+/obj/complex_vehicle/proc/get_pilot()
 	if(occupants.len)
 		return occupants[1]
 	return 0
 
-/obj/groundtank/proc/get_maingunner()
+/obj/complex_vehicle/proc/get_maingunner()
 	if(occupants.len)
 		return occupants[2]
 	return 0
 
-/obj/groundtank/proc/has_passengers()
+/obj/complex_vehicle/proc/has_passengers()
 	if(occupants.len > 1)
 		return occupants.len-1
 	return 0
 
-/obj/groundtank/proc/get_passengers()
+/obj/complex_vehicle/proc/get_passengers()
 	var/list/L = list()
 	if(occupants.len > 1)
 		L = occupants.Copy(2)
 	return L
 
-/obj/groundtank/proc/toggle_passengers()
+/obj/complex_vehicle/proc/toggle_passengers()
 	if(usr!=get_pilot())
 		return
 	src.passengers_allowed = !passengers_allowed
@@ -291,13 +292,13 @@
 					target_turf = get_edge_target_turf(T, opposite_dirs[dir])
 					L.throw_at(target_turf,100,3)
 
-/obj/groundtank/proc/move_outside(var/mob/user, var/turf/exit_turf)
+/obj/complex_vehicle/proc/move_outside(var/mob/user, var/turf/exit_turf)
 	if(!exit_turf)
 		exit_turf = get_turf(src)
 	tight_fuckable_dickhole(user, FALSE)
 	user.forceMove(exit_turf)
 
-/obj/groundtank/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
+/obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
 	var/pilot = get_pilot()
 	if(GIVIESorTAKIES) //GIVIES
 		occupants.Add(user) //WE GIVIES OCCUPANTS the USER
@@ -319,22 +320,22 @@
 		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
 			actions.Remove(user) //They just left we take ALL the shit.
 
-/obj/groundtank/proc/refresh_actions(var/mob/user)
+/obj/complex_vehicle/proc/refresh_actions(var/mob/user)
 	for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
 		actions.Remove(user)
 
 	
 
-/obj/groundtank/proc/toggle_passenger_guns()
+/obj/complex_vehicle/proc/toggle_passenger_guns()
 	if(usr!=get_pilot())
 		return
 	src.passenger_fire = !passenger_fire
-	to_chat(src.get_pilot(), "<span class='notice'>Now [passenger_fire?"allowing passengers to fire groundtank weaponry":"disallowing passengers to fire groundtank weaponry"].</span>")
+	to_chat(src.get_pilot(), "<span class='notice'>Now [passenger_fire?"allowing passengers to fire complex_vehicle weaponry":"disallowing passengers to fire complex_vehicle weaponry"].</span>")
 	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 
 #undef DAMAGE
 #undef FIRE
 
-#undef GROUNDTANK_LIGHTS_CONSUMPTION
-#undef GROUNDTANK_LIGHTS_RANGE_ON
-#undef GROUNDTANK_LIGHTS_RANGE_OFF
+#undef COMPLEX_VEHICLE_LIGHTS_CONSUMPTION
+#undef COMPLEX_VEHICLE_LIGHTS_RANGE_ON
+#undef COMPLEX_VEHICLE_LIGHTS_RANGE_OFF

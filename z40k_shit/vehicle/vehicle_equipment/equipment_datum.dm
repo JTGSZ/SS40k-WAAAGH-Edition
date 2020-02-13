@@ -23,7 +23,7 @@
 				break
 
 //user, object, attach or detach
-/datum/comvehicle/equipment/proc/make_it_end(var/obj/groundtank/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
+/datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
 	to_chat(world, "equipment handler params are [massa_obj], [bitch], [slide_in], [massa_man]")
 
 	to_chat(world, "bitch.tied_action is [bitch.tied_action]")

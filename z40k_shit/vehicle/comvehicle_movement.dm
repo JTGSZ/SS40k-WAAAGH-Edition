@@ -1,19 +1,19 @@
 
 
-/obj/groundtank/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
+/obj/complex_vehicle/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
 	var/oldloc = loc
 	. = ..()
 	if(Dir && (oldloc != NewLoc))
 		loc.Entered(src, oldloc)
 
-/obj/groundtank
+/obj/complex_vehicle
 	var/acceleration = 500 //Scale of 0 to 1000
 	var/engine_cooldown = FALSE //To stop people from starting it on and off rapidly
 	var/enginemaster_sleep_time = 1 //How long the enginemaster sleeps at the end of its loop.
 	var/movement_delay = 3 //Speed of turning
 	var/movement_warning_oncd = FALSE
 
-/obj/groundtank/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
+/obj/complex_vehicle/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
 		return 0 //Stop hogging the wheel!
 	if(move_delayer.blocked()) //If we are blocked from moving by move_delayer, return false. Delay
@@ -59,12 +59,12 @@
 //This loop will basically check to make sure theres someone in the tank.
 //We will time based on world time between each action.
 
-/obj/groundtank/proc/trigger_engine()
+/obj/complex_vehicle/proc/trigger_engine()
 	while(engine_toggle)
 		enginemove()
 		sleep(enginemaster_sleep_time)
 
-/obj/groundtank/proc/enginemove()
+/obj/complex_vehicle/proc/enginemove()
 	if(acceleration >= 400) //If we are moving forward
 		Move(get_step(src,src.dir), src.dir)
 		acceleration -= 5
@@ -72,7 +72,7 @@
 		Move(get_step(src,turn(src.dir, -180)), src.dir)
 		acceleration += 5
 
-/obj/groundtank/proc/accelerationscale()
+/obj/complex_vehicle/proc/accelerationscale()
 	switch(acceleration)
 		if(0 to 100) //Max reverse
 			enginemaster_sleep_time = 3 //Delay between each movement loop
