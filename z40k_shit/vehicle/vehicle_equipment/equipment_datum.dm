@@ -33,8 +33,10 @@
 		equipment_systems += bitch
 		
 		new bitch.tied_action(massa_obj)
-		massa_obj.tight_fuckable_dickhole(massa_man, TRUE)
-	
+		var/datum/action/ASS = bitch.tied_action
+		if(massa_man)
+			to_chat(world, "ASS is [ASS]")
+			ASS.Grant(massa_man)
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
@@ -43,7 +45,10 @@
 		to_chat(world, "ocean of semen has returned [ocean_of_semen]")
 		if(ocean_of_semen)
 			action_storage -= ocean_of_semen
-			massa_obj.tight_fuckable_dickhole(massa_man, FALSE)
+			var/datum/action/ARSE = ocean_of_semen
+			to_chat(world, "ARSE is [ARSE]")
+			if(massa_man)
+				ARSE.Remove(massa_man)
 
 /obj/item/device/vehicle_equipment
 	name = "equipment"
