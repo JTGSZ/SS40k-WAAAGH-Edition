@@ -457,12 +457,6 @@ var/list/ai_list = list()
 			else
 				to_chat(src, "<span class='notice'>Unable to locate the holopad.</span>")
 
-	#ifndef DISABLE_VOX
-	if(href_list["say_word"])
-		play_vox_word(href_list["say_word"], vox_voice, null, src)
-		return
-	#endif
-
 	if(href_list["track"])
 		var/mob/target = locate(href_list["track"]) in mob_list
 		var/mob/living/silicon/ai/A = locate(href_list["track2"]) in mob_list
@@ -493,27 +487,6 @@ var/list/ai_list = list()
 		if(A && target)
 			A.open_nearest_door(target)
 		return
-
-	#ifndef DISABLE_VOX
-	// set_voice=(fem|mas) - Sets VOX voicepack.
-	if(href_list["set_voice"])
-		// Never trust the client.
-		if(!(href_list["set_voice"] in VOX_AVAILABLE_VOICES))
-			to_chat(usr, "<span class='notice'>You chose a voice that is not available to AIs on this station. Command ignored.</span>")
-			return
-
-		vox_voice = href_list["set_voice"]
-		to_chat(usr, "VOX voice set to [vox_voice].")
-		make_announcement()
-		return
-
-	// play_announcement=word1+word2... - Plays an announcement to the station.
-	if(href_list["play_announcement"])
-		//to_chat(usr, "Received play_announcement=[href_list["play_announcement"]]")
-		if(announcement_checks())
-			play_announcement(href_list["play_announcement"])
-		return
-	#endif
 
 /mob/living/silicon/ai/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)

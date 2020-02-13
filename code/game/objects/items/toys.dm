@@ -1049,19 +1049,6 @@
 	desc = "If you experience a tingling sensation in your hands, please stop playing with your pygmy slime immediately."
 	icon_state = "minislime"
 
-/obj/item/toy/gasha/AI/attack_self(mob/user as mob)
-	if(cooldown < world.time - 8)
-		playsound(user, 'sound/vox/_doop.wav', 20, 1)
-		cooldown = world.time
-
-/obj/item/toy/gasha/AI/attack_hand(mob/user as mob)
-	if(loc == user)
-		if(cooldown < world.time - 8)
-			playsound(user, 'sound/vox/_doop.wav', 20, 1)
-			cooldown = world.time
-			return
-	..()
-
 /obj/item/toy/gasha/AI
 	name = "Mini AI"
 	desc = "Does not open doors."

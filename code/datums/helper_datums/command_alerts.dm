@@ -29,15 +29,6 @@
 
 	..()
 
-	var/list/vox_sentence=list(
-	'sound/AI/outbreak_before.ogg',
-	outbreak_level_words[level],
-	'sound/AI/outbreak_after.ogg',
-	)
-
-	for(var/word in vox_sentence)
-		play_vox_sound(word,STATION_Z,null)
-
 /datum/command_alert/biohazard_alert/minor
 	level_max = 4
 	level_min = 2

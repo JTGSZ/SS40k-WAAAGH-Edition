@@ -490,11 +490,6 @@
 				var/mob/living/silicon/ai/AI = usr
 				AI.ai_alerts()
 
-		if("Announcement")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.make_announcement()
-
 		if("Call Emergency Shuttle")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr

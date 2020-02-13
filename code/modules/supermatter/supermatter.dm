@@ -183,14 +183,12 @@
 	if(damage > warning_point) // while the core is still damaged and it's still worth noting its status
 
 		var/list/audio_sounds = list('sound/AI/supermatter_integrity_before.ogg')
-		var/play_alert = 0
-		var/audio_offset = 0
 		var/current_zlevel = L.z
 		if((world.timeofday - lastwarning) / 10 >= WARNING_DELAY)
 			var/warning=""
 			var/offset = 0
 
-			audio_sounds += vox_num2list(stability)
+
 			audio_sounds += list('sound/AI/supermatter_integrity_after.ogg')
 
 			// Damage still low.
@@ -203,7 +201,6 @@
 					offset=0
 					audio_sounds += list('sound/AI/supermatter_delam.ogg')
 					//audio_offset = 100
-				play_alert = (damage > audio_warning_point)
 			else
 				warning = "[short_name] hyperstructure returning to safe operating levels. Instability: [stability]%"
 			var/datum/speech/speech = radio.create_speech(warning, frequency=COMMON_FREQ, transmitter=radio)
@@ -214,11 +211,6 @@
 			returnToPool(speech)
 
 			lastwarning = world.timeofday - offset
-
-		if(play_alert && (world.timeofday - lastaudiowarning) / 10 >= AUDIO_WARNING_DELAY)
-			for(var/sf in audio_sounds)
-				play_vox_sound(sf,current_zlevel,null)
-			lastaudiowarning = world.timeofday - audio_offset
 
 		if(damage > explosion_point)
 			for(var/mob/living/mob in living_mob_list)

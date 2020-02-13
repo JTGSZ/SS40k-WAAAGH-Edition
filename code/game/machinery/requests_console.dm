@@ -53,7 +53,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/message = "";
 	var/dpt = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
-	var/announceSound = 'sound/vox/_bloop.wav'
+	var/announceSound = 'sound/machines/twobeep.ogg'
 	luminosity = 0
 
 /obj/machinery/requests_console/power_change()
