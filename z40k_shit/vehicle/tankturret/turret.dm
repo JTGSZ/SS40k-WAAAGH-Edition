@@ -3,8 +3,8 @@
 /obj/complex_vehicle/complex_turret
 	name = "\improper turret"
 	desc = "A turret attached to a vehicle."
-	icon = 'z40k_shit/icons/lemanruss.dmi'
-	icon_state = "turret"
+	icon = 'z40k_shit/icons/Leman_Russ_128x128.dmi'
+	icon_state = "turret_punisher"
 	density = 0 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
@@ -15,11 +15,10 @@
 	health = 400
 	maxHealth = 400
 	movement_delay = 2
-	list/chassis_actions = list() //These are actions innate to the object.
+	chassis_actions = list() //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
 
 /obj/complex_vehicle/complex_turret/New()
-	. = ..()
 	dir = EAST
 	bound_width = 2*WORLD_ICON_SIZE
 	bound_height = 2*WORLD_ICON_SIZE
@@ -27,8 +26,6 @@
 	ES = new(src) //New equipment system in US
 
 /obj/complex_vehicle/complex_turret/Destroy()
-	. = ..()
-
 	qdel(ES) //We qdel it i guess
 
 	if(occupants.len)
@@ -71,7 +68,7 @@
 			return
 	if(istype(W, /obj/item/device/vehicle_equipment))
 		if(!hatch_open)
-			return ..()
+			return
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
@@ -83,9 +80,8 @@
 		W.on_attack(src, user)
 
 /obj/complex_vehicle/complex_turret/attack_hand(mob/user as mob)
-
 	if(!hatch_open)
-		return ..()
+		return
 	if(!ES.equipment_systems.len)
 		to_chat(user, "<span class='warning'>The [src] has no vehicle parts in it, and the hatch is open.</span>")
 		return
@@ -140,6 +136,6 @@
 	if(get_dist(src, target)>1)
 		if(ES.equipment_systems.len)
 			for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
-				if(COCK.systems_online)
+				if(COCK.weapon_online)
 					COCK.action(target)
 					sleep(1)

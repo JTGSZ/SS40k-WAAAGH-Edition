@@ -2,6 +2,7 @@
 	icon_icon = 'icons/pods/button_icons.dmi'
 	background_icon_state = "bg_pod"
 	var/pilot_only = FALSE //Is this restricted to the pilot/driver only?
+	var/id = 0//We should inherit the ID from the object that gave us life.
 
 /datum/action/complex_vehicle_equipment/Trigger()
 	..()

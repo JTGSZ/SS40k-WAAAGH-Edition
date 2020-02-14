@@ -7,24 +7,31 @@
 /datum/action/complex_vehicle_equipment/toggle_testweapon/Trigger()
 	..()
 	var/obj/complex_vehicle/S = target
-	S.toggle_testcaseweapon(weapon_toggle)
+	
+	weapon_toggle = !weapon_toggle
+	
 	if(weapon_toggle)
-		weapon_toggle = TRUE
-		S.ES.weapon_toggle(attached_part, TRUE)
 		button_icon_state = "engine_on"
 	else
-		weapon_toggle = FALSE
-		S.ES.weapon_toggle(attached_part, FALSE)
 		button_icon_state = "engine_off"
 	UpdateButtonIcon()
+	S.toggle_weapon(weapon_toggle, attached_part, id)
 
-/obj/complex_vehicle/proc/toggle_testcaseweapon(var/OnOrOff)
+/obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/testgun/mygun, var/datum/action/complex_vehicle_equipment/actionid)
 	if(usr!=get_pilot())
 		return
-
-	to_chat(src.get_pilot(), "<span class='notice'>Weapon Toggle [OnOrOff?"switched on":"switched off"].</span>")
-	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
-
+		
+	for(mygun in ES.equipment_systems)
+		if(mygun.id == actionid)
+			if(weapon_toggle)
+				mygun.weapon_online = TRUE
+				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched off.</span>")
+				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
+			else
+				mygun.weapon_online = FALSE
+				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched on.</span>")
+				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
+	
 /obj/item/device/vehicle_equipment/weaponry/testgun
 	name = "\improper test ballistics system"
 	desc = "for testing"
@@ -32,8 +39,13 @@
 	projectile_type = /obj/item/projectile/bullet/weakbullet
 	projectiles_per_shot = 2
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_testweapon //Action tied to weapon
-	
+	weapon_online = FALSE
+
+/obj/item/device/vehicle_equipment/weaponry/testgun/New()
+	..()
+
 /obj/item/device/vehicle_equipment/weaponry/testgun/action(atom/target)
+	to_chat(world, "We are firing the testgun action and weapon online is [weapon_online]")
 	var/originaltarget = target
 	var/turf/targloc = get_turf(target)
 	for(var/i=1 to min(1, projectiles_per_shot))

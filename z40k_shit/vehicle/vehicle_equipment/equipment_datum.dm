@@ -4,39 +4,24 @@
 	var/list/equipment_systems = list() //Container of all the equipment we currently have.
 	var/list/action_storage = list() //Container of all the actions we currently have.
 
-	//Eh fuck this shit, we jus gonna ork kustom shoota this shit up.
-	var/testgun = 0
-
 /datum/comvehicle/equipment/New(var/obj/CV)
 	..()
 	if(istype(CV))
 		my_atom = CV
 
-/datum/comvehicle/equipment/proc/weapon_toggle(var/obj/item/device/vehicle_equipment/bitch, var/toggle_switch)
-	for(bitch in equipment_systems)
-		if(toggle_switch)
-			if(!bitch.systems_online)
-				bitch.systems_online = TRUE
-				break
-			else
-				bitch.systems_online = FALSE
-				break
-
 //user, object, attach or detach
 /datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
-	to_chat(world, "equipment handler params are [massa_obj], [bitch], [slide_in], [massa_man]")
-
-	to_chat(world, "bitch.tied_action is [bitch.tied_action]")
-
 	if(slide_in)
 		bitch.my_atom = massa_obj
-		equipment_systems += bitch
-		
-		new bitch.tied_action(massa_obj)
-		var/datum/action/ASS = bitch.tied_action
+		equipment_systems += bitch	
+		var/datum/action/complex_vehicle_equipment/dicks = new bitch.tied_action(massa_obj)
+
+		spawn(1)
+			dicks.id = bitch.id //The actions ID is now the objects ID, tying them together.
+	
 		if(massa_man)
-			to_chat(world, "ASS is [ASS]")
-			ASS.Grant(massa_man)
+			to_chat(world, "Action is [dicks]")
+			dicks.Grant(massa_man)
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
@@ -54,13 +39,16 @@
 	name = "equipment"
 	var/tied_action //The action button tied to the object
 	var/obj/my_atom //OH MY ATOM
-	var/systems_online = FALSE //So we can check whether they are online or not.
+	var/id
 	
+/obj/item/device/vehicle_equipment/New()
+	id = rand(1, 10000)
+
 /obj/item/device/vehicle_equipment/proc/action(atom/target)
 	return //Basically when you click with the switch toggled on, it performs this proc.
 
 /obj/item/device/vehicle_equipment/weaponry
-	name = "pod weapon"
+	name = "weapon parent"
 	desc = "You shouldn't be seeing this"
 	icon = 'icons/pods/ship.dmi'
 	icon_state = "blank"
@@ -69,6 +57,10 @@
 	var/fire_delay = 10
 	var/projectiles_per_shot = 2 //How many projectiles come out
 	tied_action = null //Action tied to this piece of equipment.
+	var/weapon_online = FALSE
+
+/obj/item/device/vehicle_equipment/weaponry/New()
+	..()
 
 /obj/item/device/vehicle_equipment/weaponry/action(atom/target)
 	return //Basically when you click with the switch toggled on, it performs this proc.

@@ -9,7 +9,7 @@
 /obj/complex_vehicle
 	name = "\improper complex_vehicle"
 	desc = "A ground tank meant for ground travel."
-	icon = 'z40k_shit/icons/lemanruss.dmi'
+	icon = 'z40k_shit/icons/Leman_Russ_128x128.dmi'
 	density = 1 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
