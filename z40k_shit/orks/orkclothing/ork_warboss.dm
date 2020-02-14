@@ -57,7 +57,7 @@
 	icon_state = "warboss_helmet"
 	item_state = "warboss_helmet"
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 40, bio = 10, rad = 0)
-	body_parts_covered = FULL_HEAD
+	body_parts_covered = FULL_HEAD|HIDEHEADHAIR
 	siemens_coefficient = 1
 
 /*
