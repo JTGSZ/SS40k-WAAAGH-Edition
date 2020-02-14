@@ -3,7 +3,7 @@
 	name = "preacher robe"
 	desc = "An armored coat reinforced with ceramic plates and pauldrons to provide additional protection whilst still offering maximum mobility and flexibility. Issued only to the imperium's finest."
 	icon_state = "preacher_robe" //Check: Its there
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|MASKHEADHAIR
 	heat_conductivity = SPACESUIT_HEAT_CONDUCTIVITY
 	armor = list(melee = 65, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)
 	var/is_hooded = 0

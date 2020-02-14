@@ -5,7 +5,7 @@
 	icon_state = "commissarcap" //Check: Its there
 	item_state = "commissarcap" //Check: Its there
 	armor = list(melee = 75, bullet = 50, laser = 20,energy = 30, bomb = 35, bio = 100, rad = 95)
-	body_parts_covered = HEAD|EARS|EYES
+	body_parts_covered = HEAD|EARS|EYES|MASKHEADHAIR
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 
 /obj/item/clothing/under/iguard/commissar

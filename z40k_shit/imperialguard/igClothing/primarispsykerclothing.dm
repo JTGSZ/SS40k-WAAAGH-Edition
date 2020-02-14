@@ -12,5 +12,5 @@
 	name = "Flashy Hood"
 	desc = "It makes someone look quite mysterious."
 	icon_state = "psyker_hat" //Check: its there
-	body_parts_covered = HEAD|EARS|EYES|HIDEFACE
+	body_parts_covered = HEAD|EARS|EYES|HIDEFACE|HIDEHAIR
 

@@ -15,6 +15,6 @@
 	icon_state = "valhalla" //Check: its there
 	item_state = "valhalla" //Check: its there
 	armor = list(melee = 75, bullet = 50, laser = 20,energy = 30, bomb = 35, bio = 100, rad = 95)
-	body_parts_covered = HEAD|EARS|EYES
+	body_parts_covered = HEAD|EARS|EYES|MASKHEADHAIR
 	heat_conductivity = SPACESUIT_HEAT_CONDUCTIVITY
 	

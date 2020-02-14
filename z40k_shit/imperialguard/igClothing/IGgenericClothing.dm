@@ -8,6 +8,7 @@
 	icon_state = "ig" //Check: Its there
 	item_state = "ig" //Check: Its there
 	siemens_coefficient = 0.7
+	body_parts_covered = FACE
 	w_class = W_CLASS_SMALL
 	can_flip = 0
 	canstage = 0
@@ -19,6 +20,7 @@
 	icon_state = "stormm" //Check: Its there
 	item_state = "stormm" //Check: Its there
 	siemens_coefficient = 0.7
+	body_parts_covered = FACE
 	w_class = W_CLASS_SMALL
 	can_flip = 0
 	canstage = 0

@@ -21,7 +21,7 @@
 	icon_state = "krieghelm" //Check: Its there
 	item_state = "krieghelm" //Check: Its there
 	armor = list(melee = 55, bullet = 30, laser = 50,energy = 10, bomb = 25, bio = 90, rad = 90)
-	body_parts_covered = HEAD|EARS|EYES
+	body_parts_covered = HEAD|EARS|EYES|HIDEHAIR
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 
 	
