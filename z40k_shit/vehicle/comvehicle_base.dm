@@ -8,7 +8,7 @@
 /obj/complex_vehicle
 	name = "\improper complex_vehicle"
 	desc = "A ground tank meant for ground travel."
-	icon = 'z40k_shit/icons/Leman_Russ_128x128.dmi'
+	icon = 'z40k_shit/icons/complex_vehicle/Leman_Russ_128x128.dmi'
 	density = 1 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
@@ -32,8 +32,9 @@
 	
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 
+	var/mainturret = /obj/complex_vehicle/complex_turret
 	var/obj/complex_vehicle/complex_turret/GT
-	
+
 	var/list/chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/toggle_passengers,
 		/datum/action/complex_vehicle_equipment/toggle_lights,
@@ -61,7 +62,7 @@
 	for(var/path in chassis_actions) //Mark 1
 		new path(src) //We create the actions inside of this object. They should add themselve to held actions.
 
-	GT = new /obj/complex_vehicle/complex_turret(src.loc)
+	GT = new mainturret(src.loc)
 	lock_atom(GT)
 
 /obj/complex_vehicle/Destroy()
@@ -273,6 +274,5 @@
 #undef DAMAGE
 #undef FIRE
 
-#undef COMPLEX_VEHICLE_LIGHTS_CONSUMPTION
 #undef COMPLEX_VEHICLE_LIGHTS_RANGE_ON
 #undef COMPLEX_VEHICLE_LIGHTS_RANGE_OFF

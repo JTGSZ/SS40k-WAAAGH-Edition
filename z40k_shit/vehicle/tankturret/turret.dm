@@ -3,7 +3,7 @@
 /obj/complex_vehicle/complex_turret
 	name = "\improper turret"
 	desc = "A turret attached to a vehicle."
-	icon = 'z40k_shit/icons/Leman_Russ_128x128.dmi'
+	icon = 'z40k_shit/icons/complex_vehicle/Leman_Russ_128x128.dmi'
 	icon_state = "turret_punisher"
 	density = 0 //Dense. To raise the heat.
 	opacity = 0
