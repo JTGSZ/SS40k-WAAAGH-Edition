@@ -2,7 +2,6 @@
 #define DAMAGE			1
 #define FIRE			2
 
-#define COMPLEX_VEHICLE_LIGHTS_CONSUMPTION 2 //battery consumption per second with lights on
 #define COMPLEX_VEHICLE_LIGHTS_RANGE_ON 8
 #define COMPLEX_VEHICLE_LIGHTS_RANGE_OFF 3 //one tile beyond the complex_vehicle itself, "cockpit glow"
 
@@ -21,8 +20,6 @@
 	var/passengers_allowed = 1 //If the pilot allows people to jump in the side seats.
 	var/list/occupants = list()
 
-	var/obj/item/weapon/cell/battery
-	var/datum/global_iterator/pr_lights_battery_use //passive battery use for the lights
 	var/hatch_open = 0
 	var/list/tank_overlays
 	var/health = 400
@@ -34,15 +31,14 @@
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
-	var/passenger_fire = 0 //Whether or not a passenger can fire weapons attached to this vehicle
 
 	var/obj/complex_vehicle/complex_turret/GT
 	
 	var/list/chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/toggle_passengers,
-		/datum/action/complex_vehicle_equipment/toggle_passenger_weaponry,
 		/datum/action/complex_vehicle_equipment/toggle_lights,
 		/datum/action/complex_vehicle_equipment/toggle_engine,
+		/datum/action/complex_vehicle_equipment/enter_and_exit,
 		) //These are actions innate to the object, basically a reference list for what to add on.
 	
 	var/list/vehicle_held_actions = list() //This is a list of what we currently have avaliable.
@@ -50,9 +46,6 @@
 
 	var/datum/comvehicle/equipment/ES //Our equipment controller.
 	
-/obj/complex_vehicle/get_cell()
-	return battery
-
 /obj/complex_vehicle/New()
 	. = ..()
 	if(!tank_overlays)
@@ -62,9 +55,7 @@
 	bound_width = 2*WORLD_ICON_SIZE
 	bound_height = 2*WORLD_ICON_SIZE
 	dir = EAST
-	battery = new /obj/item/weapon/cell/high()
-	pr_lights_battery_use = new /datum/global_iterator/vehicle_lights_use_charge(list(src))
-	
+
 	ES = new(src) //New equipment system in US
 	
 	for(var/path in chassis_actions) //Mark 1
@@ -79,10 +70,6 @@
 			move_outside(L)
 			L.gib()
 
-	qdel(pr_lights_battery_use)
-	pr_lights_battery_use = null
-	qdel(battery)
-	battery = null
 	qdel(tank_overlays[DAMAGE])
 	qdel(tank_overlays[FIRE])
 	tank_overlays = null
@@ -196,43 +183,6 @@
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
-/obj/complex_vehicle/verb/attempt_move_inside()
-	set category = "complex_vehicle"
-	set name = "Enter / Exit Vehicle"
-	set src in oview(1)
-
-	if(occupants.Find(usr))
-		move_outside(usr, get_turf(src))
-		return
-
-	if(usr.incapacitated() || usr.lying) //are you cuffed, dying, lying, stunned or other
-		return
-	if (!ishigherbeing(usr))
-		return
-
-	visible_message("<span class='notice'>[usr] starts to climb into \the [src].</span>")
-
-	if(do_after(usr, src, 4 SECONDS))
-		var/list/passengers = get_passengers()
-		if(!get_pilot() || passengers.len < passenger_limit)
-			move_into_vehicle(usr)
-		else
-			to_chat(usr, "<span class = 'warning'>Not enough room inside \the [src].</span>")
-	else
-		to_chat(usr, "You stop entering \the [src].")
-	return
-
-/datum/global_iterator/vehicle_lights_use_charge
-	delay = 10
-
-	process(var/obj/complex_vehicle/complex_vehicle)
-		if(complex_vehicle.battery && complex_vehicle.lights_enabled)
-			if(complex_vehicle.battery.charge > 0)
-				complex_vehicle.battery.use(COMPLEX_VEHICLE_LIGHTS_CONSUMPTION)
-			else
-				complex_vehicle.toggle_lights()
-		return
-
 /obj/complex_vehicle/proc/toggle_lights()
 	if(lights_enabled)
 		set_light(COMPLEX_VEHICLE_LIGHTS_RANGE_OFF)
@@ -319,19 +269,6 @@
 		occupants.Remove(user) //WE TAKIES the user OUT of OCCUPANTS
 		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
 			actions.Remove(user) //They just left we take ALL the shit.
-
-/obj/complex_vehicle/proc/refresh_actions(var/mob/user)
-	for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
-		actions.Remove(user)
-
-	
-
-/obj/complex_vehicle/proc/toggle_passenger_guns()
-	if(usr!=get_pilot())
-		return
-	src.passenger_fire = !passenger_fire
-	to_chat(src.get_pilot(), "<span class='notice'>Now [passenger_fire?"allowing passengers to fire complex_vehicle weaponry":"disallowing passengers to fire complex_vehicle weaponry"].</span>")
-	playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 
 #undef DAMAGE
 #undef FIRE

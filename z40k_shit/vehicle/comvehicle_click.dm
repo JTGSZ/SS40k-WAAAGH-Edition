@@ -4,7 +4,7 @@
 		return
 	if(!Adjacent(M) || !Adjacent(user))
 		return
-	attempt_move_inside(M, user)
+	attempt_move_inandout(M, user)
 
 /obj/complex_vehicle/MouseDropFrom(atom/over)
 	if(!usr || !over)

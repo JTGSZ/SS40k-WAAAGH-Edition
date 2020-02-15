@@ -15,7 +15,9 @@
 	health = 400
 	maxHealth = 400
 	movement_delay = 2
-	chassis_actions = list() //These are actions innate to the object.
+	chassis_actions = list(
+		/datum/action/complex_vehicle_equipment/enter_and_exit,
+		) //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
 
 /obj/complex_vehicle/complex_turret/New()
@@ -72,7 +74,7 @@
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
-				ES.make_it_end(src, W, TRUE, user)
+				ES.make_it_end(src, W, TRUE, get_pilot())
 				return
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
@@ -91,34 +93,9 @@
 		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
-			ES.make_it_end(src, SCREE, FALSE, user)
+			ES.make_it_end(src, SCREE, FALSE, get_pilot())
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
-
-/obj/complex_vehicle/complex_turret/attempt_move_inside()
-	set category = "groundturret"
-	set src in oview(1)
-
-	if(occupants.Find(usr))
-		move_outside(usr, get_turf(src))
-		return
-
-	if(usr.incapacitated() || usr.lying) //are you cuffed, dying, lying, stunned or other
-		return
-	if (!ishigherbeing(usr))
-		return
-
-	visible_message("<span class='notice'>[usr] starts to climb into \the [src].</span>")
-
-	if(do_after(usr, src, 4 SECONDS))
-		if(!get_pilot())
-			move_into_vehicle(usr)
-		else
-			to_chat(usr, "<span class = 'warning'>Not enough room inside \the [src].</span>")
-	else
-		to_chat(usr, "You stop entering \the [src].")
-	return
-
 
 //Click Action
 /obj/complex_vehicle/complex_turret/click_action_control(atom/target,mob/user)

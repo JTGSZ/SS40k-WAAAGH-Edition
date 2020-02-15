@@ -1,6 +1,6 @@
 /datum/action/complex_vehicle_equipment/toggle_testweapon
 	name = "Toggle Testweapon"
-	button_icon_state = "engine_off"
+	button_icon_state = "weapon_off"
 	var/attached_part = /obj/item/device/vehicle_equipment/weaponry/testgun //Weapon tied to action
 	var/weapon_toggle = FALSE
 
@@ -11,9 +11,9 @@
 	weapon_toggle = !weapon_toggle
 	
 	if(weapon_toggle)
-		button_icon_state = "engine_on"
+		button_icon_state = "weapon_on"
 	else
-		button_icon_state = "engine_off"
+		button_icon_state = "weapon_off"
 	UpdateButtonIcon()
 	S.toggle_weapon(weapon_toggle, attached_part, id)
 
