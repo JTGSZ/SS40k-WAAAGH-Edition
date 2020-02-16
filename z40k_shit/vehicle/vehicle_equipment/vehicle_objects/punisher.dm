@@ -22,9 +22,10 @@
 	if(next_firetime > world.time)
 		return
 	var/turf/targloc = get_turf(target) //Target location is the turf of the target
-	var/olddir //Basically a holder outside the for loop
+	var/olddir //Basically a holder outside the for loop, so we break if they turn.
 	var/changedloc_variant = get_turf(my_atom) // A holder for height
 	var/obj/complex_vehicle/DICKMASTER = my_atom
+	var/passthru_holder = null
 
 	for(var/i=1 to projectiles_per_shot) //For 1 to minimum 1 to protections per shot
 		var/turf/curloc = get_turf(my_atom) //Our current location is gotten from our source turf
@@ -58,11 +59,10 @@
 			break //We break
 		playsound(src, pick(fire_sound), 50, 1)
 		var/obj/item/projectile/A = new projectile_type(changedloc_variant)
-		if(istype(my_atom, /obj/complex_vehicle/complex_turret))
-			var/obj/complex_vehicle/complex_turret/CT = my_atom
-			A.vehicle = CT.my_boy
-		else
-			A.vehicle = my_atom
+		if(!passthru_holder)
+			for(var/obj/complex_vehicle/complex_chassis/CT in oview(1, my_atom))
+				passthru_holder = CT
+		A.vehicle = passthru_holder
 		A.firer = usr
 		A.original = target
 		A.current = changedloc_variant
