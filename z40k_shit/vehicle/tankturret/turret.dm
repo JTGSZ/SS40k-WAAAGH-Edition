@@ -22,12 +22,12 @@
 		/datum/action/complex_vehicle_equipment/enter_and_exit,
 		) //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
-	var/obj/complex_vehicle/MY_BOY
+	var/obj/complex_vehicle/complex_chassis/my_boy
 
 /obj/complex_vehicle/complex_turret/New()
 	..()
 	if(istype(loc, /obj/complex_vehicle/complex_chassis))
-		GT = loc
+		my_boy = loc
 
 /obj/complex_vehicle/complex_turret/Destroy()
 	..()

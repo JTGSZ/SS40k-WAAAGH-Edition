@@ -56,6 +56,7 @@
 	var/weapon_online = FALSE
 	var/next_firetime = 0 //Basically Holds our cooldown
 	var/list/fire_sound = list('z40k_shit/sounds/slugga_1.ogg')
+	var/projectile_max = 45
 
 /obj/item/device/vehicle_equipment/weaponry/New()
 	..()

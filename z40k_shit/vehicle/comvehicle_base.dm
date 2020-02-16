@@ -276,6 +276,22 @@
 		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
 			actions.Remove(user) //They just left we take ALL the shit.
 
+/obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/mygun, var/datum/action/complex_vehicle_equipment/actionid)
+	if(usr!=get_pilot())
+		return
+		
+	for(mygun in ES.equipment_systems)
+		if(mygun.id == actionid)
+			if(weapon_toggle)
+				mygun.weapon_online = TRUE
+				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched off.</span>")
+				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
+			else
+				mygun.weapon_online = FALSE
+				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched on.</span>")
+				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
+
+
 #undef DAMAGE
 #undef FIRE
 
