@@ -24,12 +24,13 @@ var/list/impact_master = list()
 	var/bumped = 0		//Prevents it from hitting more than one guy at once
 	var/def_zone = ""	//Aiming at
 	var/mob/firer = null//Who shot it
+	var/atom/vehicle = null //ignore this too
 	var/silenced = 0	//Attack message
 	var/yo = null
 	var/xo = null
 	var/turf/current = null
 	var/obj/shot_from = null // the object which shot us
-	var/atom/original = null // the original target clicked
+	var/atom/original = null // the original target clicked 
 	var/turf/starting = null // the projectile's starting turf
 	var/list/permutated = list() // we've passed through these atoms, don't try to hit them again
 
@@ -187,6 +188,11 @@ var/list/impact_master = list()
 	if((A == firer) && !reflected)
 		loc = A.loc
 		return 0 //cannot shoot yourself, unless an ablative armor sent back the projectile
+
+	if(vehicle)
+		if((A == vehicle) && !reflected)
+			loc = A.loc
+			return 0
 
 	if(bumped)
 		return 0

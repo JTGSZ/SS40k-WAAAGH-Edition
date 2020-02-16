@@ -20,18 +20,15 @@
 			dicks.id = bitch.id //The actions ID is now the objects ID, tying them together.
 	
 		if(massa_man)
-			to_chat(world, "Action is [dicks]")
 			dicks.Grant(massa_man)
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
 		
 		var/ocean_of_semen = locate(bitch.tied_action) in action_storage
-		to_chat(world, "ocean of semen has returned [ocean_of_semen]")
 		if(ocean_of_semen)
 			action_storage -= ocean_of_semen
 			var/datum/action/ARSE = ocean_of_semen
-			to_chat(world, "ARSE is [ARSE]")
 			if(massa_man)
 				ARSE.Remove(massa_man)
 
@@ -53,11 +50,12 @@
 	icon = 'icons/pods/ship.dmi'
 	icon_state = "blank"
 	var/projectile_type
-	var/fire_sound = 'z40k_shit/sounds/slugga_1.ogg'
-	var/fire_delay = 10
+	var/fire_delay = 10 //Delay on when next action can be done.
 	var/projectiles_per_shot = 2 //How many projectiles come out
 	tied_action = null //Action tied to this piece of equipment.
 	var/weapon_online = FALSE
+	var/next_firetime = 0 //Basically Holds our cooldown
+	var/list/fire_sound = list('z40k_shit/sounds/slugga_1.ogg')
 
 /obj/item/device/vehicle_equipment/weaponry/New()
 	..()

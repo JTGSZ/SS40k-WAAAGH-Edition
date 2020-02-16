@@ -1,12 +1,16 @@
+/obj/complex_vehicle/complex_chassis
+	name = "I'm just a parent"
+	desc = "Please don't spawn me"
+
 //Base vehicle
-/obj/complex_vehicle/leman_russ
+/obj/complex_vehicle/complex_chassis/leman_russ
 	name = "Leman Russ"
 	icon_state = "lemanruss"
 	desc = "Its a LEMAN RUSS."
 	mainturret = /obj/complex_vehicle/complex_turret/demolisher/
 
 //Punisher
-/obj/complex_vehicle/leman_russ/punisher
+/obj/complex_vehicle/complex_chassis/leman_russ/punisher
 	mainturret = /obj/complex_vehicle/complex_turret/punisher/
 
 /obj/complex_vehicle/complex_turret/punisher
@@ -14,7 +18,7 @@
 	icon_state = "turret_punisher"
 
 //Demolisher
-/obj/complex_vehicle/leman_russ/demolisher
+/obj/complex_vehicle/complex_chassis/leman_russ/demolisher
 	mainturret = /obj/complex_vehicle/complex_turret/demolisher
 
 /obj/complex_vehicle/complex_turret/demolisher
@@ -22,7 +26,7 @@
 	icon_state = "turret_demolisher"
 
 //Battlecannon
-/obj/complex_vehicle/leman_russ/battlecannon
+/obj/complex_vehicle/complex_chassis/leman_russ/battlecannon
 	mainturret = /obj/complex_vehicle/complex_turret/battlecannon
 
 /obj/complex_vehicle/complex_turret/battlecannon

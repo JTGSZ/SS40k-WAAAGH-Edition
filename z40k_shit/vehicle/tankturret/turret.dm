@@ -12,28 +12,27 @@
 	hatch_open = 0
 	occupants = list()
 	datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
+	layer = VEHICLE_TURRET_LAYER
 	health = 400
+	vehicle_width = 3 //We use this for action calculations
+	vehicle_height = 3 //Basically its so it knows where the projectiles should appear.
 	maxHealth = 400
 	movement_delay = 2
 	chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/enter_and_exit,
 		) //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
+	var/obj/complex_vehicle/MY_BOY
 
 /obj/complex_vehicle/complex_turret/New()
-	dir = EAST
-	bound_width = 2*WORLD_ICON_SIZE
-	bound_height = 2*WORLD_ICON_SIZE
-
-	ES = new(src) //New equipment system in US
+	..()
+	if(istype(loc, /obj/complex_vehicle/complex_chassis))
+		GT = loc
 
 /obj/complex_vehicle/complex_turret/Destroy()
-	qdel(ES) //We qdel it i guess
+	..()
 
-	if(occupants.len)
-		for(var/mob/living/L in occupants)
-			move_outside(L)
-			L.gib()
+/obj/complex_vehicle/complex_turret/initialize()
 
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false

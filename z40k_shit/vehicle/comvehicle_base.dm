@@ -12,10 +12,11 @@
 	density = 1 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
-	layer = ABOVE_DOOR_LAYER
 	infra_luminosity = 15
 	internal_gravity = 1 // Can move in 0-gravity
-	
+	layer = VEHICLE_LAYER
+	plane = ABOVE_HUMAN_PLANE
+
 	var/passenger_limit = 1 //Upper limit for how many passengers are allowed
 	var/passengers_allowed = 1 //If the pilot allows people to jump in the side seats.
 	var/list/occupants = list()
@@ -32,8 +33,10 @@
 	
 	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
 
-	var/mainturret = /obj/complex_vehicle/complex_turret
-	var/obj/complex_vehicle/complex_turret/GT
+	var/mainturret = /obj/complex_vehicle/complex_turret //What turret comes attached to us
+	var/vehicle_width = 3 //We use this for action calculations
+	var/vehicle_height = 3 //Basically its so it knows where the projectiles should appear.
+	var/obj/complex_vehicle/GT
 
 	var/list/chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/toggle_passengers,
@@ -42,10 +45,7 @@
 		/datum/action/complex_vehicle_equipment/enter_and_exit,
 		) //These are actions innate to the object, basically a reference list for what to add on.
 	
-	var/list/vehicle_held_actions = list() //This is a list of what we currently have avaliable.
-	//To chat these are basically New'd into the src
-
-	var/datum/comvehicle/equipment/ES //Our equipment controller.
+	var/datum/comvehicle/equipment/ES //Our equipment controller and action holder.
 	
 /obj/complex_vehicle/New()
 	. = ..()
@@ -53,8 +53,8 @@
 		tank_overlays = new/list(2)
 		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
 		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
-	bound_width = 2*WORLD_ICON_SIZE
-	bound_height = 2*WORLD_ICON_SIZE
+	bound_width = vehicle_width*WORLD_ICON_SIZE
+	bound_height = vehicle_height*WORLD_ICON_SIZE
 	dir = EAST
 
 	ES = new(src) //New equipment system in US
@@ -62,6 +62,11 @@
 	for(var/path in chassis_actions) //Mark 1
 		new path(src) //We create the actions inside of this object. They should add themselve to held actions.
 
+	if(ticker && ticker.current_state >= GAME_STATE_PREGAME)
+		initialize() //We perform a coastal cleanse now that we are here.
+
+/obj/complex_vehicle/initialize()
+	..()
 	GT = new mainturret(src.loc)
 	lock_atom(GT)
 
@@ -75,8 +80,8 @@
 	qdel(tank_overlays[FIRE])
 	tank_overlays = null
 	
+	unlock_atom(GT)
 	qdel(GT)
-	GT = null
 
 	..()
 

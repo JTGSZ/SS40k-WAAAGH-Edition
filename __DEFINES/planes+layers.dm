@@ -168,6 +168,7 @@ What is the naming convention for planes or layers?
 
 	#define SHADOW_LAYER			0
 	#define VEHICLE_LAYER 			0
+	#define VEHICLE_TURRET_LAYER	0.5
 	#define CHAIR_ARMREST_LAYER 	0
 	#define WINDOOR_LAYER 			1
 	#define OPEN_CURTAIN_LAYER		2

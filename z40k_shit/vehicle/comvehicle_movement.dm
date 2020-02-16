@@ -46,6 +46,19 @@
 		if(WEST)
 			src.dir = turn(src.dir, -90) //Technically its reversed too
 
+	switch(src.dir)
+		if(NORTH)
+			GT.pixel_x = -14
+			pixel_x = 0
+		if(SOUTH)
+			GT.pixel_x = -14
+			pixel_x = 0
+		if(EAST)
+			GT.pixel_x = 0
+			pixel_x = 0
+		if(WEST)
+			GT.pixel_x = -32
+			pixel_x = -32
 	
 	to_chat(user,"We are currently at [acceleration] acceleration")
 	to_chat(user,"And we are currently at [movement_delay] movement_delay")

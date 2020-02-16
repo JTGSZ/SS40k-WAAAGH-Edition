@@ -1,50 +1,24 @@
-/datum/action/complex_vehicle_equipment/toggle_testweapon
-	name = "Toggle Testweapon"
-	button_icon_state = "weapons_off"
-	var/attached_part = /obj/item/device/vehicle_equipment/weaponry/testgun //Weapon tied to action
-	var/weapon_toggle = FALSE
 
-/datum/action/complex_vehicle_equipment/toggle_testweapon/Trigger()
-	..()
-	var/obj/complex_vehicle/S = target
-	
-	weapon_toggle = !weapon_toggle
-	
-	if(weapon_toggle)
-		button_icon_state = "weapons_on"
-	else
-		button_icon_state = "weapons_off"
-	UpdateButtonIcon()
-	S.toggle_weapon(weapon_toggle, attached_part, id)
-
-/obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/testgun/mygun, var/datum/action/complex_vehicle_equipment/actionid)
-	if(usr!=get_pilot())
-		return
-		
-	for(mygun in ES.equipment_systems)
-		if(mygun.id == actionid)
-			if(weapon_toggle)
-				mygun.weapon_online = TRUE
-				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched off.</span>")
-				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
-			else
-				mygun.weapon_online = FALSE
-				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched on.</span>")
-				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
-	
-/obj/item/device/vehicle_equipment/weaponry/testgun
-	name = "\improper test ballistics system"
+/obj/item/device/vehicle_equipment/weaponry/punisher
+	name = "Punisher Cannon"
 	desc = "for testing"
 	icon_state = "pod_w_laser"
 	projectile_type = /obj/item/projectile/bullet/weakbullet
-	projectiles_per_shot = 2
-	tied_action = /datum/action/complex_vehicle_equipment/toggle_testweapon //Action tied to weapon
+	projectiles_per_shot = 5
+	tied_action = /datum/action/complex_vehicle_equipment/toggle_punisher //Action tied to weapon
 	weapon_online = FALSE
+	fire_delay = 1 //Delay on when next action can be done.
+	fire_sound = list('z40k_shit/sounds/punisher1.wav',
+					'z40k_shit/sounds/punisher2.wav',
+					'z40k_shit/sounds/punisher3.wav',
+					'z40k_shit/sounds/punisher4.wav'
+					)
+	
 
-/obj/item/device/vehicle_equipment/weaponry/testgun/New()
+/obj/item/device/vehicle_equipment/weaponry/punisher/New()
 	..()
 
-/obj/item/device/vehicle_equipment/weaponry/testgun/action(atom/target)
+/obj/item/device/vehicle_equipment/weaponry/punisher/action(atom/target)
 	if(next_firetime > world.time)
 		return
 	var/turf/targloc = get_turf(target) //Target location is the turf of the target
@@ -76,7 +50,7 @@
 			if (targloc == curloc)
 				continue 
 			olddir = dir
-			playsound(src, fire_sound, 50, 1)
+			playsound(src, pick(fire_sound), 50, 1)
 			var/obj/item/projectile/A = new projectile_type(changedloc_variant)
 			A.vehicle = my_atom
 			A.firer = usr
@@ -91,3 +65,4 @@
 	
 	next_firetime = world.time + fire_delay
 	return
+
