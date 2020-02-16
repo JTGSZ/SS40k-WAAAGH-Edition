@@ -1,10 +1,10 @@
-/obj/item/device/vehicle_equipment/weaponry/demolisher
-	name = "Demolisher Cannon"
+/obj/item/device/vehicle_equipment/weaponry/battlecannon
+	name = "Battle Cannon"
 	desc = "for testing"
 	icon_state = "pod_w_laser"
 	projectile_type = /obj/item/projectile/rocket
 	projectiles_per_shot = 1
-	tied_action = /datum/action/complex_vehicle_equipment/toggle_demolisher //Action tied to weapon
+	tied_action = /datum/action/complex_vehicle_equipment/toggle_battlecannon //Action tied to weapon
 	weapon_online = FALSE
 	fire_delay = 1 //Delay on when next action can be done.
 	fire_sound = list('z40k_shit/sounds/Demolisher1.ogg',
@@ -13,10 +13,10 @@
 					)
 	
 
-/obj/item/device/vehicle_equipment/weaponry/demolisher/New()
+/obj/item/device/vehicle_equipment/weaponry/battlecannon/New()
 	..()
 
-/obj/item/device/vehicle_equipment/weaponry/demolisher/action(atom/target)
+/obj/item/device/vehicle_equipment/weaponry/battlecannon/action(atom/target)
 	if(next_firetime > world.time)
 		return
 	var/turf/targloc = get_turf(target) //Target location is the turf of the target

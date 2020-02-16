@@ -23,8 +23,8 @@
 
 	var/hatch_open = 0
 	var/list/tank_overlays
-	var/health = 400
-	var/maxHealth = 400
+	var/health = 5000
+	var/maxHealth = 5000
 	var/lights_enabled = FALSE
 	light_power = 2
 	light_range = COMPLEX_VEHICLE_LIGHTS_RANGE_OFF

@@ -8,10 +8,10 @@
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_punisher //Action tied to weapon
 	weapon_online = FALSE
 	fire_delay = 1 //Delay on when next action can be done.
-	fire_sound = list('z40k_shit/sounds/punisher1.wav',
-					'z40k_shit/sounds/punisher2.wav',
-					'z40k_shit/sounds/punisher3.wav',
-					'z40k_shit/sounds/punisher4.wav'
+	fire_sound = list('z40k_shit/sounds/punisher1.ogg',
+					'z40k_shit/sounds/punisher2.ogg',
+					'z40k_shit/sounds/punisher3.ogg',
+					'z40k_shit/sounds/punisher4.ogg'
 					)
 	
 

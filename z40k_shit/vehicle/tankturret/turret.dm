@@ -13,10 +13,10 @@
 	occupants = list()
 	datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	layer = VEHICLE_TURRET_LAYER
-	health = 400
 	vehicle_width = 3 //We use this for action calculations
 	vehicle_height = 3 //Basically its so it knows where the projectiles should appear.
-	maxHealth = 400
+	maxHealth = 2500
+	health = 2500
 	movement_delay = 2
 	chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/enter_and_exit,

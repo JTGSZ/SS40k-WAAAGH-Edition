@@ -31,6 +31,13 @@
 /obj/complex_vehicle/complex_turret/demolisher
 	name = "Demolisher Turret"
 	icon_state = "turret_demolisher"
+	var/obj/complex_vehicle/complex_turret/DEMO
+
+/obj/complex_vehicle/complex_turret/demolisher/New()
+	..()
+	DEMO = new /obj/item/device/vehicle_equipment/weaponry/demolisher(src.loc)
+	DEMO.forceMove(src)
+	ES.make_it_end(src, DEMO,TRUE,get_pilot())
 
 //Battlecannon
 /obj/complex_vehicle/complex_chassis/leman_russ/battlecannon
@@ -39,3 +46,10 @@
 /obj/complex_vehicle/complex_turret/battlecannon
 	name = "Battlecannon Turret"
 	icon_state = "turret_battlecannon"
+	var/obj/complex_vehicle/complex_turret/BATC
+
+/obj/complex_vehicle/complex_turret/battlecannon/New()
+	..()
+	BATC = new /obj/item/device/vehicle_equipment/weaponry/battlecannon
+	BATC.forceMove(src)
+	ES.make_it_end(src,BATC,TRUE,get_pilot())
