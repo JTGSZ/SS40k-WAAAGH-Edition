@@ -46,6 +46,7 @@
 		) //These are actions innate to the object, basically a reference list for what to add on.
 	
 	var/datum/comvehicle/equipment/ES //Our equipment controller and action holder.
+	var/pilot_zoom = FALSE //Mostly so we don't fuck this up and let zoomed out people go scott free
 	
 /obj/complex_vehicle/New()
 	. = ..()
@@ -252,6 +253,11 @@
 	if(!exit_turf)
 		exit_turf = get_turf(src)
 	tight_fuckable_dickhole(user, FALSE)
+	if(pilot_zoom && user == get_pilot())
+		user.regenerate_icons()
+		var/client/C = user.client
+		C.changeView(C.view - 7)
+		pilot_zoom = FALSE
 	user.forceMove(exit_turf)
 
 /obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)

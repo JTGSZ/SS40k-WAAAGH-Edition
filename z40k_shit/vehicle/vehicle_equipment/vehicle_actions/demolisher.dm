@@ -1,8 +1,9 @@
 /datum/action/complex_vehicle_equipment/toggle_demolisher
 	name = "Toggle Weapon"
 	button_icon_state = "weapons_off"
-	var/attached_part = /obj/item/device/vehicle_equipment/weaponry/demolisher //Weapon tied to action
-	var/weapon_toggle = FALSE
+	attached_part = /obj/item/device/vehicle_equipment/weaponry/demolisher //Weapon tied to action
+	weapon_toggle = FALSE
+	pilot_only = TRUE
 
 /datum/action/complex_vehicle_equipment/toggle_demolisher/Trigger()
 	..()

@@ -10,6 +10,10 @@
 
 /obj/complex_vehicle/proc/attempt_move_inandout(var/mob/user)
 	if(occupants.Find(user))
+		if(pilot_zoom && user == get_pilot())
+			user.regenerate_icons()
+			var/client/C = user.client
+			C.changeView(C.view - 7)
 		move_outside(user, get_turf(src))
 		return
 

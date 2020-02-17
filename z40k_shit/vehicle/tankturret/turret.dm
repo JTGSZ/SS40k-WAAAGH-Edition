@@ -20,6 +20,7 @@
 	movement_delay = 2
 	chassis_actions = list(
 		/datum/action/complex_vehicle_equipment/enter_and_exit,
+		/datum/action/complex_vehicle_equipment/zoom,
 		) //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
 	var/obj/complex_vehicle/complex_chassis/my_boy

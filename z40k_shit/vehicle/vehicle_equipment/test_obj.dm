@@ -1,8 +1,8 @@
 /datum/action/complex_vehicle_equipment/toggle_testweapon
 	name = "Toggle Testweapon"
 	button_icon_state = "weapons_off"
-	var/attached_part = /obj/item/device/vehicle_equipment/weaponry/testgun //Weapon tied to action
-	var/weapon_toggle = FALSE
+	attached_part = /obj/item/device/vehicle_equipment/weaponry/testgun //Weapon tied to action
+	weapon_toggle = FALSE
 
 /datum/action/complex_vehicle_equipment/toggle_testweapon/Trigger()
 	..()

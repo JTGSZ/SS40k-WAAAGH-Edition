@@ -2669,6 +2669,7 @@
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_actions\punisher.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_actions\toggle_engine.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_actions\toggle_lights.dm"
+#include "z40k_shit\vehicle\vehicle_equipment\vehicle_actions\zoom_out.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\battlecannon.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\demolisher.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\energy.dm"
