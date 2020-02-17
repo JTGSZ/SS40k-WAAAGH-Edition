@@ -1,37 +1,25 @@
-/obj/item/projectile/tankshell/battlecannon
+/obj/item/projectile/bullet/heavybolter
 	name = "battlecannon Cannon Shell"
 	desc = "This is going to hurt"
 	icon = 'z40k_shit/icons/obj/projectiles.dmi'
-	icon_state = "battlecannon"
-	damage = 110
-	stun = 10
-	weaken = 10
-	exdev 	= 1
-	exheavy = 2
-	exlight = 4
-	exflash = 5
-	kill_count = 40
+	icon_state = "hbolter"
+	damage = 40
 
-
-/obj/item/device/vehicle_equipment/weaponry/battlecannon
-	name = "Battle Cannon"
+/obj/item/device/vehicle_equipment/weaponry/heavybolter
+	name = "Heavy Bolter"
 	desc = "for testing"
 	icon_state = "pod_w_laser"
-	projectile_type = /obj/item/projectile/tankshell/battlecannon
-	projectiles_per_shot = 1
-	tied_action = /datum/action/complex_vehicle_equipment/toggle_battlecannon //Action tied to weapon
+	projectile_type = /obj/item/projectile/bullet/heavybolter
+	projectiles_per_shot = 3
+	tied_action = /datum/action/complex_vehicle_equipment/toggle_heavybolter //Action tied to weapon
 	weapon_online = FALSE
-	fire_delay = 30 //Delay on when next action can be done.
-	fire_sound = list('z40k_shit/sounds/Demolisher1.ogg',
-					'z40k_shit/sounds/Demolisher2.ogg',
-					'z40k_shit/sounds/Demolisher3.ogg'
-					)
-	
+	fire_delay = 3 //Delay on when next action can be done.
+	fire_sound = list('z40k_shit/sounds/HeavyBolter3.ogg')
 
-/obj/item/device/vehicle_equipment/weaponry/battlecannon/New()
+/obj/item/device/vehicle_equipment/weaponry/heavybolter/New()
 	..()
 
-/obj/item/device/vehicle_equipment/weaponry/battlecannon/action(atom/target)
+/obj/item/device/vehicle_equipment/weaponry/heavybolter/action(atom/target)
 	if(next_firetime > world.time)
 		return
 	var/turf/targloc = get_turf(target) //Target location is the turf of the target

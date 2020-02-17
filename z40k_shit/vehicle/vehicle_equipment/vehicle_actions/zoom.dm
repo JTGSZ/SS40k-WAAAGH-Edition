@@ -24,11 +24,11 @@
 		if(user && user.client) 
 			usr.regenerate_icons()
 			var/client/C = user.client
-			C.changeView(C.view + 7)
+			C.changeView(C.view + vehicle_zoom)
 			pilot_zoom = TRUE
 	else
 		if(user && user.client) 
 			user.regenerate_icons()
 			var/client/C = user.client
-			C.changeView(C.view - 7)
+			C.changeView(C.view - vehicle_zoom)
 			pilot_zoom = FALSE

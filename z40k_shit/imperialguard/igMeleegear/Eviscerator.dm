@@ -60,7 +60,7 @@
 	
 	if(idle_loop >= 1)
 		idle_loop = 0
-		playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
+		playsound(src,'z40k_shit/sounds/Chainsword_Idle.ogg',50)
 		if(!firstrev)
 			firstrev = TRUE
 
@@ -80,7 +80,7 @@
 		update_icon()
 		if(firstrev)
 			firstrev = FALSE
-			playsound(src,'z40k_shit/sounds/Chainsword_Idle.wav',50)
+			playsound(src,'z40k_shit/sounds/Chainsword_Idle.ogg',50)
 
 /obj/item/weapon/gun/projectile/complexweapon/eviscerator/unequipped(mob/user)
 	if(revvin_on)

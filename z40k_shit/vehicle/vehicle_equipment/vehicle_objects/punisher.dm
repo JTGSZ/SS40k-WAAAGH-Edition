@@ -1,9 +1,14 @@
+/obj/item/projectile/bullet/punisherbullet
+	name = "punisher gatling bullet"
+	icon = 'z40k_shit/icons/obj/projectiles.dmi'
+	icon_state = "punisher"
+	damage = 40
 
 /obj/item/device/vehicle_equipment/weaponry/punisher
-	name = "Punisher Cannon"
+	name = "Punisher Gatling Cannon"
 	desc = "for testing"
 	icon_state = "pod_w_laser"
-	projectile_type = /obj/item/projectile/bullet/weakbullet
+	projectile_type = /obj/item/projectile/bullet/punisherbullet
 	projectiles_per_shot = 5
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_punisher //Action tied to weapon
 	weapon_online = FALSE

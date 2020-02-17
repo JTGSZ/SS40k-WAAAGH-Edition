@@ -1,12 +1,26 @@
+/obj/item/projectile/tankshell/demolisher
+	name = "Demolisher Cannon Shell"
+	desc = "This is going to hurt"
+	icon = 'z40k_shit/icons/obj/projectiles.dmi'
+	icon_state = "demolisher"
+	damage = 110
+	stun = 10
+	weaken = 10
+	exdev 	= 1
+	exheavy = 3
+	exlight = 6
+	exflash = 10
+	kill_count = 10
+
 /obj/item/device/vehicle_equipment/weaponry/demolisher
 	name = "Demolisher Cannon"
 	desc = "for testing"
 	icon_state = "pod_w_laser"
-	projectile_type = /obj/item/projectile/rocket
+	projectile_type = /obj/item/projectile/tankshell/demolisher
 	projectiles_per_shot = 1
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_demolisher //Action tied to weapon
 	weapon_online = FALSE
-	fire_delay = 1 //Delay on when next action can be done.
+	fire_delay = 40 //Delay on when next action can be done.
 	fire_sound = list('z40k_shit/sounds/Demolisher1.ogg',
 					'z40k_shit/sounds/Demolisher2.ogg',
 					'z40k_shit/sounds/Demolisher3.ogg'

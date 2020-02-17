@@ -47,6 +47,7 @@
 	
 	var/datum/comvehicle/equipment/ES //Our equipment controller and action holder.
 	var/pilot_zoom = FALSE //Mostly so we don't fuck this up and let zoomed out people go scott free
+	var/vehicle_zoom = 7 //So we can control how much vehicles zoom in and out without extra action code.
 	
 /obj/complex_vehicle/New()
 	. = ..()
@@ -256,7 +257,7 @@
 	if(pilot_zoom && user == get_pilot())
 		user.regenerate_icons()
 		var/client/C = user.client
-		C.changeView(C.view - 7)
+		C.changeView(C.view - vehicle_zoom)
 		pilot_zoom = FALSE
 	user.forceMove(exit_turf)
 
