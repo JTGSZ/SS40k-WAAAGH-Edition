@@ -3,6 +3,7 @@
 	icon = 'z40k_shit/icons/obj/projectiles.dmi'
 	icon_state = "punisher"
 	damage = 40
+	kill_count = 20
 
 /obj/item/device/vehicle_equipment/weaponry/punisher
 	name = "Punisher Gatling Cannon"
@@ -62,7 +63,7 @@
 			continue
 		if(dir != olddir) //If old direction is not the same as our current direction
 			break //We break
-		playsound(src, pick(fire_sound), 50, 1)
+		playsound(src, pick(fire_sound), 50, 1, 12)
 		var/obj/item/projectile/A = new projectile_type(changedloc_variant)
 		if(!passthru_holder)
 			for(var/obj/complex_vehicle/complex_chassis/CT in oview(1, my_atom))
