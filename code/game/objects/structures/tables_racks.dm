@@ -15,7 +15,7 @@
 	name = "table"
 	desc = "A square piece of metal standing on four metal legs. It cannot move."
 	icon = 'icons/obj/structures.dmi'
-	icon_state = "table"
+	icon_state = "table" 
 	density = 1
 	anchored = 1.0
 	layer = TABLE_LAYER
@@ -703,7 +703,7 @@
 	throwpass = 1	//You can throw objects over this, despite its density.
 	layer = TABLE_LAYER //So items are always layered over it
 	var/parts = /obj/item/weapon/rack_parts
-	var/offset_step = 0
+	var/offset_step = 0 
 	var/health = 20
 
 /obj/structure/rack/proc/destroy(var/dropParts = TRUE)

@@ -22,9 +22,9 @@
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_battlecannon //Action tied to weapon
 	weapon_online = FALSE
 	fire_delay = 30 //Delay on when next action can be done.
-	fire_sound = list('z40k_shit/sounds/Demolisher1.ogg',
-					'z40k_shit/sounds/Demolisher2.ogg',
-					'z40k_shit/sounds/Demolisher3.ogg'
+	fire_sound = list('z40k_shit/sounds/BattleCannon0.ogg',
+					'z40k_shit/sounds/BattleCannon1.ogg',
+					'z40k_shit/sounds/BattleCannon2.ogg'
 					)
 	
 
