@@ -2658,6 +2658,7 @@
 #include "z40k_shit\turfs\spawnturfs\spawn_template_turfs.dm"
 #include "z40k_shit\vehicle\comvehicle_base.dm"
 #include "z40k_shit\vehicle\comvehicle_click.dm"
+#include "z40k_shit\vehicle\comvehicle_damage.dm"
 #include "z40k_shit\vehicle\comvehicle_lock.dm"
 #include "z40k_shit\vehicle\comvehicle_movement.dm"
 #include "z40k_shit\vehicle\tankturret\turret.dm"

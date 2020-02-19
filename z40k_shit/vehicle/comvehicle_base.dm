@@ -48,6 +48,7 @@
 	var/datum/comvehicle/equipment/ES //Our equipment controller and action holder.
 	var/pilot_zoom = FALSE //Mostly so we don't fuck this up and let zoomed out people go scott free
 	var/vehicle_zoom //So we can control how much vehicles zoom in and out without extra action code.
+	var/dozer_blade = FALSE //Do we got a dozerblade on our vehicle?
 	
 /obj/complex_vehicle/New()
 	. = ..()
@@ -101,56 +102,6 @@
 			overlays -= tank_overlays[FIRE]
 	else
 		overlays -= tank_overlays[DAMAGE]
-
-/obj/complex_vehicle/bullet_act(var/obj/item/projectile/P)
-	if(P.damage && !P.nodamage)
-		if(P.damage >= 41)
-			adjust_health(P.damage)
-		else
-			adjust_health(5)
-
-/obj/complex_vehicle/proc/adjust_health(var/damage)
-	var/oldhealth = health
-	health = clamp(health-damage,0, maxHealth)
-	var/percentage = (health / initial(health)) * 100
-	var/mob/pilot = get_pilot()
-	if(pilot && oldhealth > health && percentage <= 25 && percentage > 0)
-		pilot.playsound_local(pilot, 'sound/effects/engine_alert2.ogg', 50, 0, 0, 0, 0)
-	if(pilot && oldhealth > health && !health)
-		var/mob/living/L = pilot
-		L.playsound_local(L, 'sound/effects/engine_alert1.ogg', 50, 0, 0, 0, 0)
-	if(health <= 0)
-		spawn(0)
-			var/mob/living/L = get_pilot()
-			if(L)
-				to_chat(L, "<big><span class='warning'>Critical damage to the vessel detected, core explosion imminent!</span></big>")
-			for(var/i = 10, i >= 0; --i)
-				if(L)
-					to_chat(L, "<span class='warning'>[i]</span>")
-				if(i == 0)
-					if(has_passengers())
-						for(var/mob/living/GAYS in get_passengers())
-							move_outside(GAYS, get_turf(src))
-							to_chat(GAYS, "<span class='warning'>You are forcefully thrown from \the [src]!</span>")
-					var/mob/living/carbon/human/H = get_pilot()
-					if(H)
-						move_outside(H, get_turf(src))
-						to_chat(H, "<span class='warning'>You are forcefully thrown from \the [src]!</span>")
-					explosion(loc, 2, 4, 8)
-					qdel(src)
-				sleep(10)
-
-	update_icons()
-
-/obj/complex_vehicle/ex_act(severity)
-	switch(severity)
-		if(1)
-			adjust_health(1000)
-		if(2)
-			adjust_health(100)
-		if(3)
-			if(prob(40))
-				adjust_health(50)
 
 /obj/complex_vehicle/attackby(obj/item/W, mob/user)
 	if(iscrowbar(W))
