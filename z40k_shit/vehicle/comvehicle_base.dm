@@ -47,7 +47,7 @@
 	
 	var/datum/comvehicle/equipment/ES //Our equipment controller and action holder.
 	var/pilot_zoom = FALSE //Mostly so we don't fuck this up and let zoomed out people go scott free
-	var/vehicle_zoom = 7 //So we can control how much vehicles zoom in and out without extra action code.
+	var/vehicle_zoom //So we can control how much vehicles zoom in and out without extra action code.
 	
 /obj/complex_vehicle/New()
 	. = ..()

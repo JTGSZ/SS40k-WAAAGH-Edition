@@ -9,17 +9,7 @@ var/adjusted_wage_gain = 0
 	if(roundstart_enable_wages)
 		wages_enabled = 1
 	WageLoop()
-
-/datum/command_alert/wages
-	name = "wage payout"
-	message = "Payroll has been processed. All eligible accounts have received their paycheck as a direct deposit."
-	noalert = 1
-
-/datum/command_alert/wage_reduction
-	name = "wage reduction"
-	message = "Payroll has been processed. Financial mismanagement has resulted in a average wage reduction. All eligible accounts have received the remainder of their paycheck as a direct deposit."
-	noalert = 1
-
+ 
 /proc/wagePayout()
 	requested_payroll_amount = 0
 	for(var/datum/money_account/Acc in all_money_accounts)
@@ -45,11 +35,6 @@ var/adjusted_wage_gain = 0
 				T.time = worldtime2text()
 				T.source_terminal = "Nanotrasen Payroll Server"
 				Acc.transaction_log.Add(T)
-
-	if(payroll_reduction_modifier == 1)
-		command_alert(/datum/command_alert/wages)
-	else
-		command_alert(/datum/command_alert/wage_reduction)
 
 /proc/WageLoop()
 	set waitfor = 0
