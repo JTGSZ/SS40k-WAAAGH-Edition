@@ -10,7 +10,7 @@
 	var/turf/end
 	var/wire_type = /obj/structure/barbed_wire
 	var/icon_base
-	var/spool_amount = 20
+	var/spool_amount = 50
 
 /obj/item/barbed_wire_handler/attack_self(var/mob/living/user)
 	..()
@@ -147,16 +147,25 @@
 		if(prob(50))
 			user.visible_message("<span class='warning'>[user] destroys [src]!</span>")
 			qdel(src)
-		else
-			user.visible_message("<span class='warning'>[user] gets caught in [src]!</span>")
-			user.adjustBruteLoss(15)
+		else if(prob(10))
+			user.visible_message("<span class='warning'>[user] gets caught in [src] and trips!</span>")
+			user.Knockdown(3)
 			return 0
+		else
+			user.visible_message("<span class='warning'>[user] gets caught in [src] but doesn't fall!</span>")
+			user.adjustBruteLoss(15)
+			return !density
 	else
-		user.adjustBruteLoss(15)
-		user.Knockdown(5)
-		user.Stun(5)
-		user.visible_message("<span class='warning'>[user] gets caught in [src]!</span>")
-		
+		if(prob(50))
+			user.adjustBruteLoss(15)
+			user.Knockdown(5)
+			user.Stun(5)
+			user.visible_message("<span class='warning'>[user] gets caught in [src] and trips!</span>")
+			return 0
+		else
+			user.adjustBruteLoss(15)
+			user.visible_message("<span class='warning'>[user] gets caught in [src] but doesn't trip!</span>")
+			return !density
 	
 /obj/structure/barbed_wire/attackby(var/obj/item/weapon/W, var/mob/living/user)
 	if(W)
