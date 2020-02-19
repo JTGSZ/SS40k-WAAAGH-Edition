@@ -2643,6 +2643,7 @@
 #include "z40k_shit\orks\orkguns\orkshotgun.dm"
 #include "z40k_shit\orks\orkguns\orkslugga.dm"
 #include "z40k_shit\orks\orkmeleegear\orkmeleegear.dm"
+#include "z40k_shit\structure\barbedwire.dm"
 #include "z40k_shit\structure\barricades.dm"
 #include "z40k_shit\systems\actionbuttons.dm"
 #include "z40k_shit\systems\attachment_system.dm"

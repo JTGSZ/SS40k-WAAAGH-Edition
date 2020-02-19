@@ -20,7 +20,12 @@
 /obj/item/weapon/nubarricade_parts/attack_self(mob/user)
 	if(do_after(user, src, 10)) //Takes a while because it is a barricade f*g
 		var/obj/structure/nubarricade/metal/BR = new /obj/structure/nubarricade/metal(user.loc)
+
 		BR.dir = user.dir
+		switch(user.dir)
+			if(NORTH)
+				BR.plane = OBJ_PLANE
+				BR.layer = SIDE_WINDOW_LAYER
 		user.drop_item(src, force_drop = 1)
 		qdel(src)
 
@@ -42,15 +47,14 @@
 /obj/structure/nubarricadee/metal/New()
 	..()
 
-/obj/structure/nubarricade/metal/Destroy(var/dropParts = TRUE)
+/obj/structure/nubarricade/metal/Destroy()
 	..()
-	if(parts && dropParts)
-		new parts(loc)
-	setDensity(FALSE)
 
 /obj/structure/nubarricade/metal/proc/healthcheck(var/mob/M, var/sound = 1)
 	if(health <= 0)
 		visible_message("<span class='warning'>[src] breaks down!</span>")
+		new parts(loc)
+		setDensity(FALSE)
 		qdel(src)
 
 /obj/structure/nubarricade/metal/attack_hand(mob/user as mob)
@@ -82,6 +86,8 @@
 			user.visible_message("<span class='warning'>[user] finishes turning \the [src] back into parts.</span>", \
 			"<span class='notice'>You finish turning \the [src] back into parts.</span>")
 			busy = 0
+			new parts(loc)
+			setDensity(FALSE)
 			qdel(src)
 			return
 		else
@@ -103,7 +109,7 @@
 		return (check_cover(mover,target))
 	if(ismob(mover))
 		var/mob/M = mover
-		if(M.flying)
+		if(M.flying || M.highflying)
 			return 1
 	if(get_dir(loc, target) == dir || get_dir(loc, mover) == dir)
 		return !density
@@ -132,6 +138,8 @@
 			return 0
 		else
 			visible_message("<span class='warning'>[src] breaks down!</span>")
+			new parts(loc)
+			setDensity(FALSE)
 			qdel(src)
 			return 1
 	return 1

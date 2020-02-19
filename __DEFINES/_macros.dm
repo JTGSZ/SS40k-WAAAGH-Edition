@@ -35,6 +35,8 @@
 #define ismuton(A) (ishuman(A) && istype(A:species, /datum/species/muton))
 
 #define isork(A) (ishuman(A) && istype(A:species, /datum/species/ork))
+#define isorknob(A) (ishuman(A) && istype(A:species, /datum/species/ork/nob))
+#define isorkwarboss(A) (ishuman(A) && istype(A:species, /datum/species/ork/warboss)) 
 
 #define isgolem(A) (ishuman(A) && istype(A:species, /datum/species/golem))
 
