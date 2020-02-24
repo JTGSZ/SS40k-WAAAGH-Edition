@@ -1,6 +1,7 @@
-"a" = (/turf/space,/area)
+"a" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "s" = (/obj/effect/landmark/start/inquisitor,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "v" = (/obj/effect/landmark/start/commissar,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"y" = (/obj/effect/landmark/start/primaris_psyker,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "z" = (/obj/effect/landmark/start/preacher,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "T" = (/turf/simulated/wall/r_wall,/area/vault/warhammergen/cadianspawn)
 "U" = (/obj/effect/landmark/start/IG_Cadian_Trooper,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -17,14 +18,14 @@ aTWWWWWWWWWWWWWWWWTa
 aTWWVWWWUWWWWWWWWWTa
 aWWWWWWWWWWWWWWWWWWa
 aWWWWWWWWWWWWWWWWWWa
-aWWWWWWWWWWWWWWWWWWa
+aWWWWWWWWWUWWWWWWWWa
 aWWWvWWWZWWWWWWWWWWa
 aWWWWWWWWWWWWWWWWWWa
-aWWWWWWWWWWWWWWWWWWa
+aWWWWWWWWWWUWWWWWWWa
 aWWWsWWWzWWWWWWWWWWa
 aWWWWWWWWWWWWWWWWWWa
 aTWWWWWWWWWWWWWWWWTa
-aTWWWWWWWWWWWWWWWWTa
+aTWWWWWWyWWWWWWWWWTa
 aTWWWWWWWWWWWWWWWWTa
 aTWWWWWWWWWWWWWWWWTa
 aTTTTTWWWWWWWWTTTTTa

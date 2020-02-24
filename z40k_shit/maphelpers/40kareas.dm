@@ -49,9 +49,20 @@
 	icon_state = "cadian_spawn"
 	requires_power = 0
 
+/area/vault/warhammergen/ig_loot_area
+	name = "ig loot area"
+	icon_state = "ig_loot_area"
+	requires_power = 0
+	
+//---------------------------
 /area/vault/warhammergen/orkspawn
 	name = "ork spawn"
 	icon_state = "ork_spawn"
+	requires_power = 0
+
+/area/vault/warhammergen/ork_loot_area
+	name = "ork loot area"
+	icon_state = "ork_loot_area"
 	requires_power = 0
 
 //-------Miscallaneous Areas-------//
