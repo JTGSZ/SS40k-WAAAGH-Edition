@@ -679,7 +679,7 @@ var/datum/controller/gameticker/ticker
 
 /datum/controller/gameticker/proc/get_all_heads()
 	var/list/heads = list()
-	for(var/mob/player in mob_list)
+	for(var/mob/player in mob_list) 
 		if(player.mind && (player.mind.assigned_role in command_positions))
 			heads += player.mind
 	return heads

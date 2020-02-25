@@ -5,7 +5,6 @@
 	id = IMPERIALGUARDSMEN
 	special_role = IMPERIALGUARDSMEN
 	required_pref = IMPERIALGUARDSMEN
-	disallow_job = TRUE
 	logo_state = "vox-logo"
 
 //All these procs run after the setup and they have the shit appended to the player fully
@@ -13,9 +12,6 @@
 	.=..()
 	if(!.)
 		return
-
-/datum/role/imperial_guard/chief_vox
-	logo_state = "vox-logo"
 
 //Just whats in the stat panel if they have the mind
 /datum/role/imperial_guard/StatPanel()
