@@ -56,6 +56,11 @@
 	pda_slot = slot_l_store
 	id_type = /obj/item/weapon/card/id/gold
 
-/datum/outfit/IG_trooper_sergeant/post_equip(var/mob/living/carbon/human/H)
-	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ] <br/> <b>Security:</b> [SEC_FREQ] <br/> <b>Medical:</b> [MED_FREQ] <br/> <b>Science:</b> [SCI_FREQ] <br/> <b>Engineering:</b> [ENG_FREQ] <br/> <b>Service:</b> [SER_FREQ] <b>Cargo:</b> [SUP_FREQ]<br/>")
+/datum/outfit/general/post_equip(var/mob/living/carbon/human/H)
 	to_chat(world, "<b>[H.real_name] is the General!</b>")
+
+/datum/outfit/general/handle_faction(var/mob/living/M)
+	to_chat(world,"We have fired.")
+	var/datum/role/imperial_guard/new_general = new
+	new_general.AssignToRole(M.mind,TRUE)
+	to_chat(world,"We have fired and [M] is the human and [new_general] is the datum.")

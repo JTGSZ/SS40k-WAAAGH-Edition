@@ -135,6 +135,9 @@
 	post_equip(H) // Accessories, IDs, etc.
 	give_disabilities_equipment(H)
 	H.update_icons()
+	//Handle faction shit here
+	spawn(5)
+		handle_faction(H)
 
 /datum/outfit/proc/equip_backbag(var/mob/living/carbon/human/H, var/species)
 	// -- Backbag
@@ -218,6 +221,9 @@
 
 /datum/outfit/proc/special_equip(var/title, var/slot, var/mob/living/carbon/human/H)
 	return
+
+/datum/outfit/proc/handle_faction(var/mob/living/carbon/human/H)
+	return 1
 
 // -- Work in progress !!
 /datum/outfit/proc/give_disabilities_equipment(var/mob/living/carbon/human/H)

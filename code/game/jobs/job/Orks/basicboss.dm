@@ -47,4 +47,7 @@
 
 /datum/outfit/orkwarboss/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("WAAAAAAAAGH!")
-//	H.set_species("Ork Warboss")
+
+/datum/outfit/orkwarboss/handle_faction(var/mob/living/carbon/human/H)
+	var/datum/role/ork_raider/new_boss = new
+	new_boss.AssignToRole(H.mind,TRUE)

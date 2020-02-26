@@ -4,14 +4,10 @@
 	name = IMPERIALGUARDSMEN
 	id = IMPERIALGUARDSMEN
 	special_role = IMPERIALGUARDSMEN
-	required_pref = IMPERIALGUARDSMEN
 	logo_state = "vox-logo"
 
 //All these procs run after the setup and they have the shit appended to the player fully
 /datum/role/imperial_guard/OnPostSetup()
-	.=..()
-	if(!.)
-		return
 
 //Just whats in the stat panel if they have the mind
 /datum/role/imperial_guard/StatPanel()

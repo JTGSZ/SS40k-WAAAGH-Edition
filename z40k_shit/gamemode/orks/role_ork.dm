@@ -4,7 +4,6 @@
 	name = ORKRAIDER
 	id = ORKRAIDER
 	special_role = ORKRAIDER
-	required_pref = ORKRAIDER
 	logo_state = "vox-logo"
 
 //All these procs run after the setup and they have the shit appended to the player fully
@@ -18,6 +17,6 @@
 	var/datum/faction/ork_raiders/orkraider = faction
 	if (!istype(orkraider))
 		return
-	var/dat = "Raid time left: <b>[num2text((orkraider.time_left /(2*60)))]:[add_zero(num2text(orkraider.time_left/2 % 60), 2)]</b>"
+	var/dat = "Raid time left: [num2text((orkraider.time_left /(2*60)))]:[add_zero(num2text(orkraider.time_left/2 % 60), 2)]"
 	return dat
 	
