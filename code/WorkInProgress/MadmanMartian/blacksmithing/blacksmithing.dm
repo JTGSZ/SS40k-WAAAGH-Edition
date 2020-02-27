@@ -118,6 +118,13 @@
 			result.recycle(S.mats)
 			qdel(result)
 			qdel(src)
+			return
+	if(istype(A,/obj/item/weapon/hammer))
+		strikes+=max(1, round(A.quality/2))
+	else if(istype(A,/obj/item/weapon/storage/toolbox))
+		strikes+=0.25
+	if(strikes == strikes_required)
+		to_chat(user, "<span class = 'notice'>\The [src] seems to have taken shape nicely.</span>")
 
 
 /obj/item/smithing_placeholder/proc/quench(obj/O, mob/user)
