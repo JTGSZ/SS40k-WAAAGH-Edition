@@ -45,5 +45,10 @@
 	pda_slot = slot_l_store
 	id_type = /obj/item/weapon/card/id
 
-/datum/outfit/inquisitor/post_equip(var/mob/living/carbon/human/H)
+/datum/outfit/primarispsyker/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Fuck you")
+
+/datum/outfit/primarispsyker/handle_faction(var/mob/living/M)
+	var/datum/role/imperial_guard/new_trooper = new
+	new_trooper.AssignToRole(M.mind,TRUE)
+	new_trooper.mind_storage(M.mind)

@@ -55,3 +55,8 @@
 
 /datum/outfit/IG_trooper_sergeant/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <br/> <b>Security:</b> [SEC_FREQ]<br/>")
+
+/datum/outfit/IG_trooper_sergeant/handle_faction(var/mob/living/M)
+	var/datum/role/imperial_guard/new_trooper = new
+	new_trooper.AssignToRole(M.mind,TRUE)
+	new_trooper.mind_storage(M.mind)

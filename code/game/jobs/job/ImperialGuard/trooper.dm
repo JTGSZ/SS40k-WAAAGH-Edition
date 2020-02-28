@@ -52,11 +52,12 @@
 	pda_slot = slot_belt
 	id_type = /obj/item/weapon/card/id/security
 
-/datum/outfit/IG_trooper/post_equip(var/mob/living/carbon/human/H)
+/datum/outfit/IG_cadian_trooper/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <b>Security:</b> [SEC_FREQ]<br/>")
+	
 
-/datum/outfit/IG_trooper/handle_faction(var/mob/living/M)
-	to_chat(world,"We have fired.")
+/datum/outfit/IG_cadian_trooper/handle_faction(var/mob/living/M)
 	var/datum/role/imperial_guard/new_trooper = new
 	new_trooper.AssignToRole(M.mind,TRUE)
-	to_chat(world,"We have fired and [M] is the human and [new_trooper] is the datum.")
+	new_trooper.mind_storage(M.mind)
+

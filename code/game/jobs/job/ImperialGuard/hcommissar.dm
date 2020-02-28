@@ -60,3 +60,8 @@
 
 /datum/outfit/commissar/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ]<br/> <b>Security:</b> [SEC_FREQ]<br/>")
+
+/datum/outfit/commissar/handle_faction(var/mob/living/M)
+	var/datum/role/imperial_guard/new_trooper = new
+	new_trooper.AssignToRole(M.mind,TRUE)
+	new_trooper.mind_storage(M.mind)

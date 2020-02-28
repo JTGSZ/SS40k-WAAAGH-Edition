@@ -114,6 +114,11 @@
 /datum/outfit/basicork/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("WAAAAAAAAGH!")
 
+/datum/outfit/basicork/handle_faction(var/mob/living/carbon/human/H)
+	var/datum/role/ork_raider/new_boy = new
+	new_boy.AssignToRole(H.mind,TRUE)
+	new_boy.mind_storage(M.mind)
+
 //gloves
 //obj/item/clothing/gloves/ork/clothgloves 
 //hats

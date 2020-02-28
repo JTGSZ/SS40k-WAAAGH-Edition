@@ -10,7 +10,7 @@
 	logo_state = "ig-logo"
 	hud_icons = list("vox-logo")
 
-	var/time_left = (30 MINUTES)/10
+	var/time_left = (1 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 
@@ -44,12 +44,6 @@
 
 /datum/faction/imperial_guard/OnPostSetup()
 	..()
-	for(var/datum/role/imperial_guard/IG in members)
-		var/datum/mind/synd_mind = IG.antag
-		mind_storage(synd_mind.current)
-
-/datum/faction/imperial_guard/proc/mind_storage(var/mob/living/carbon/human/guardsmen)
-	guardsmen.store_memory("The priority items are: [english_list(macguffin_items)]")
 
 /datum/faction/imperial_guard/process()
 	if(completed)

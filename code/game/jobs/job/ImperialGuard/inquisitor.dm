@@ -53,3 +53,8 @@
 
 /datum/outfit/inquisitor/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <b>Security:</b> [SEC_FREQ]<br/>")
+
+/datum/outfit/inquisitor/handle_faction(var/mob/living/M)
+	var/datum/role/imperial_guard/new_trooper = new
+	new_trooper.AssignToRole(M.mind,TRUE)
+	new_trooper.mind_storage(M.mind)

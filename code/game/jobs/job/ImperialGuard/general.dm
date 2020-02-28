@@ -60,7 +60,6 @@
 	to_chat(world, "<b>[H.real_name] is the General!</b>")
 
 /datum/outfit/general/handle_faction(var/mob/living/M)
-	to_chat(world,"We have fired.")
-	var/datum/role/imperial_guard/new_general = new
+	var/datum/role/imperial_guard/new_general = new 
 	new_general.AssignToRole(M.mind,TRUE)
-	to_chat(world,"We have fired and [M] is the human and [new_general] is the datum.")
+	new_general.mind_storage(M.mind)

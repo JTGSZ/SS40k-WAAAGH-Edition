@@ -1,6 +1,6 @@
 /datum/faction/ork_raiders
-	name = "Imperial Guard"
-	desc = "Doing their best as humanity to survive as humanity under humanity."
+	name = "Ork Raiders"
+	desc = "Doing as Orks usually do."
 	ID = ORKS
 	required_pref = ORKRAIDER
 	initial_role = ORKRAIDER
