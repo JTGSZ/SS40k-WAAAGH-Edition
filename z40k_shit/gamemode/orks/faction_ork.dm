@@ -20,18 +20,18 @@
 	var/got_items = 0
 
 	//Our point total
-	var/total_points = 0
+var/ork_total_points = 0
 
 /datum/faction/ork_raiders/forgeObjectives()
 
 
 /datum/faction/ork_raiders/GetScoreboard()
 	. = ..()
-	. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
+	//. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
 	if (time_left < 0)
 		. += "<br/> <span class='danger'>The raid has ended.</span>"
 	. += "<br/> The orks looted <b>[got_items]</b> items."
-	. += "<br/> Total points: <b>[total_points]</b>. <br/>"
+	. += "<br/> Total points: <b>[ork_total_points]</b>. <br/>"
 	. += results
 
 /datum/faction/ork_raiders/AdminPanelEntry()
@@ -60,15 +60,22 @@
 		var/area/points_area = locate(/area/vault/warhammergen/ork_loot_area)
 		for(var/obj/O in points_area)
 			if(is_type_in_list(O, macguffin_items))
-				total_points += 500
+				ork_total_points += 500
 				got_items++
 
 		for(var/mob/player in mob_list)
 			if(player.stat == DEAD)
 				if(player.mind.assigned_role == "General")
-					total_points += 1000
+					ork_total_points += 1000
 				if(player.mind.assigned_role == "Commissar")
-					total_points += 250
+					ork_total_points += 250
+
+		if(ig_total_points <= ork_total_points)
+			stage(FACTION_VICTORY)
+			results = "WE KRUMPED DA 'UMIES."
+		else
+			stage(FACTION_DEFEATED)
+			results = "THE 'UMIES KRUMPED US."
 			
 /datum/faction/ork_raiders/proc/generate_string()
 	var/list/our_stars = list()

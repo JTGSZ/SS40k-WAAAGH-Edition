@@ -10,7 +10,7 @@
 	logo_state = "ig-logo"
 	hud_icons = list("vox-logo")
 
-	var/time_left = (1 MINUTES)/10
+	var/time_left = (30 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 
@@ -23,19 +23,19 @@
 	var/death_tally = 0
 
 	//Our point total
-	var/total_points = 0
+var/ig_total_points = 0
 
 /datum/faction/imperial_guard/forgeObjectives()
 
 
 /datum/faction/imperial_guard/GetScoreboard()
 	. = ..()
-	. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
+	//. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
 	if (time_left < 0)
 		. += "<br/> <span class='danger'>The raid has ended.</span>"
 	. += "<br/> The imperial guard killed <b>[death_tally] orks.</b>."
 	. += "<br/> The imperial guard secured <b>[got_items]</b> items."
-	. += "<br/> Total points: <b>[total_points]</b>. <br/>"
+	. += "<br/> Total points: <b>[ig_total_points]</b>. <br/>"
 	. += results
 
 /datum/faction/imperial_guard/AdminPanelEntry()
@@ -58,18 +58,25 @@
 		var/area/points_area = locate(/area/vault/warhammergen/ig_loot_area)
 		for(var/obj/O in points_area)
 			if(is_type_in_list(O, macguffin_items))
-				total_points += 500
+				ig_total_points += 500
 				got_items++
 
 		for(var/mob/player in mob_list)
 			if(isork(player))
 				if(player.stat == DEAD)
-					total_points += 5
+					ig_total_points += 5
 					death_tally++
 					if(player.mind.assigned_role == "Ork Warboss")
-						total_points += 1000
+						ig_total_points += 1000
 					if(player.mind.assigned_role == "Ork Nob")
-						total_points += 250
+						ig_total_points += 250
+		
+		if(ig_total_points >= ork_total_points)
+			stage(FACTION_VICTORY)
+			results = "The imperial guard has beaten the orks."
+		else
+			stage(FACTION_DEFEATED)
+			results = "The imperial guard has been beaten by the orks."
 			
 /datum/faction/imperial_guard/proc/generate_string()
 	var/list/our_stars = list()
@@ -77,3 +84,7 @@
 		our_stars += "[lad.antag.key] as [lad.antag.name]"
 	return english_list(our_stars)
 
+/datum/faction/imperial_guard/check_win()
+	if(stage >= FACTION_VICTORY)
+		return 1
+	return 0
