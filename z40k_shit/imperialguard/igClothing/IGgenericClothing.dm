@@ -42,9 +42,9 @@
 
 /obj/item/clothing/shoes/iguard/IG_cadian_boots
 	name = "Imperial Flak Boots"
-	desc = "Footwear of the Imperial Guard, they look uncomfortable"
-	icon_state = "imperialboots" //Check: Its there
-	item_state = "imperialboots" //Check: Its fine
+	desc = "Footwear of the Imperial Guard, they look aight"
+	icon_state = "flakboots" //Check: Its there
+	item_state = "flakboots" //Check: Its fine
 	body_parts_covered = LEGS|FEET
 	armor = list(melee = 15, bullet = 15, laser = 15,energy = 15, bomb = 15, bio = 0, rad = 0)
 

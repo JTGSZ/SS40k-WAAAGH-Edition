@@ -34,10 +34,9 @@
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
-			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_sergeant_helmet,
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_sergeant_armor,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_armor,
 			slot_s_store_str = /obj/item/weapon/gun/energy/complexweapon/lasgun,
 		),
 	)
