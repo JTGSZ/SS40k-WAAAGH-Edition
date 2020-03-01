@@ -35,12 +35,11 @@
 	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/com,
 	//)
 
-	items_to_spawn = list(
+	items_to_spawn = list( 
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/heads/captain,
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/general,
-			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
-			slot_gloves_str = /obj/item/clothing/gloves/black,
+			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
+			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/commanderarmor,
 		)
 	)
