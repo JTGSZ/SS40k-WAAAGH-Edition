@@ -13,14 +13,18 @@
 /datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
 	if(slide_in)
 		bitch.my_atom = massa_obj
-		equipment_systems += bitch	
-		var/datum/action/complex_vehicle_equipment/dicks = new bitch.tied_action(massa_obj)
+		equipment_systems += bitch
+		if(bitch.tied_action)
+			var/datum/action/complex_vehicle_equipment/dicks = new bitch.tied_action(massa_obj)
 
-		spawn(1)
-			dicks.id = bitch.id //The actions ID is now the objects ID, tying them together.
+			spawn(1)
+				dicks.id = bitch.id //The actions ID is now the objects ID, tying them together.
 	
-		if(massa_man)
-			dicks.Grant(massa_man)
+			if(massa_man)
+				dicks.Grant(massa_man)
+		
+		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade))
+			dozer_blade = TRUE
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
@@ -31,6 +35,9 @@
 			var/datum/action/ARSE = ocean_of_semen
 			if(massa_man)
 				ARSE.Remove(massa_man)
+		
+		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade))
+			dozer_blade = FALSE
 
 /obj/item/device/vehicle_equipment
 	name = "equipment"
