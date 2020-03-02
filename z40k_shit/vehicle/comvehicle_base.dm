@@ -51,6 +51,8 @@
 	var/vehicle_zoom //So we can control how much vehicles zoom in and out without extra action code.
 	var/dozer_blade = FALSE //Do we got a dozerblade on our vehicle?
 	
+	var/vehicle_broken_husk = FALSE //Are we completely broken to leave a husk?
+
 /obj/complex_vehicle/New()
 	. = ..()
 	handle_new_overlays()
@@ -84,7 +86,13 @@
 		for(var/mob/living/L in occupants)
 			move_outside(L)
 			L.gib()
-
+	
+	if(ES.equipment_systems)
+		for(var/obj/item/device/vehicle_equipment/bitch in ES.equipment_systems)
+			bitch.forceMove(src.loc)
+			bitch.throw_at(get_turf(pick(orange(7,src))))
+		
+	
 	qdel(tank_overlays[DAMAGE])
 	qdel(tank_overlays[FIRE])
 	tank_overlays = null
@@ -93,6 +101,16 @@
 	qdel(GT)
 
 	..()
+
+//Mostly so we leave a husk instead of destroying the vehicle completely
+/obj/complex_vehicle/proc/break_this_shit()
+	
+	if(ES.equipment_systems)
+		for(var/obj/item/device/vehicle_equipment/bitch in ES.equipment_systems)
+			bitch.forceMove(src.loc)
+			bitch.throw_at(get_turf(pick(orange(7,src))))
+
+	vehicle_broken_husk = TRUE
 
 /obj/complex_vehicle/update_icon()
 	if(!tank_overlays)

@@ -18,7 +18,7 @@
 		return 0 //Stop hogging the wheel!
 	if(move_delayer.blocked()) //If we are blocked from moving by move_delayer, return false. Delay
 		return 0
-	if(!engine_toggle)
+	if(!engine_toggle || vehicle_broken_husk)
 		if(!movement_warning_oncd)
 			to_chat(user, "<span class='notice'> You mash the pedals and move the controls in the unpowered [src].</span>")
 			movement_warning_oncd = TRUE
@@ -78,6 +78,8 @@
 		sleep(enginemaster_sleep_time)
 
 /obj/complex_vehicle/proc/enginemove()
+	if(vehicle_broken_husk)
+		return
 	if(acceleration >= 400) //If we are moving forward
 		Move(get_step(src,src.dir), src.dir)
 		acceleration -= 5

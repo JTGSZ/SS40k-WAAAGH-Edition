@@ -1,3 +1,4 @@
+
 /obj/complex_vehicle/to_bump(var/atom/A)
 	..()
 	var/randomizer = pick('z40k_shit/sounds/wallsmash1.ogg','z40k_shit/sounds/wallsmash2.ogg', 'z40k_shit/sounds/wallsmash3.ogg')
@@ -83,6 +84,8 @@
 		playsound(loc,'z40k_shit/sounds/squash.ogg',75,1)
 
 /obj/complex_vehicle/bullet_act(var/obj/item/projectile/P)
+	if(vehicle_broken_husk)
+		return
 	if(P.damage && !P.nodamage)
 		if(P.damage >= 41)
 			adjust_health(P.damage)
@@ -90,6 +93,8 @@
 			adjust_health(5)
 
 /obj/complex_vehicle/proc/adjust_health(var/damage)
+	if(vehicle_broken_husk)
+		return
 	var/oldhealth = health
 	health = clamp(health-damage,0, maxHealth)
 	var/percentage = (health / initial(health)) * 100
@@ -111,18 +116,22 @@
 					if(has_passengers())
 						for(var/mob/living/GAYS in get_passengers())
 							move_outside(GAYS, get_turf(src))
+							GAYS.throw_at(get_turf(pick(orange(5,src))))
 							to_chat(GAYS, "<span class='warning'>You are forcefully thrown from \the [src]!</span>")
 					var/mob/living/carbon/human/H = get_pilot()
 					if(H)
 						move_outside(H, get_turf(src))
+						H.throw_at(get_turf(pick(orange(5,src))))
 						to_chat(H, "<span class='warning'>You are forcefully thrown from \the [src]!</span>")
 					explosion(loc, 2, 4, 8)
-					qdel(src)
+					break_this_shit()
 				sleep(10)
 
 	update_icon()
 
 /obj/complex_vehicle/ex_act(severity)
+	if(vehicle_broken_husk)
+		return
 	switch(severity)
 		if(1)
 			adjust_health(1000)
@@ -131,3 +140,4 @@
 		if(3)
 			if(prob(40))
 				adjust_health(50)
+				

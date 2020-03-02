@@ -29,6 +29,8 @@
 		move_outside(usr,T)
 
 /obj/complex_vehicle/proc/click_action_control(atom/target,mob/user)
+	if(vehicle_broken_husk)
+		return
 	if(user != get_pilot()) //If user is not pilot return false
 		return
 	if(user.stat)

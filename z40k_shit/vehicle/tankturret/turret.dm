@@ -33,11 +33,11 @@
 		my_boy = loc
 
 /obj/complex_vehicle/handle_new_overlays()
-	if(!tank_overlays)
-		tank_overlays = new/list(3)
-		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
-		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
-		tank_overlays[BATTLECANNON] = image(icon,icon_state)
+//	if(!tank_overlays)
+//		tank_overlays = new/list(3)
+//		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+//		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+//		tank_overlays[BATTLECANNON] = image(icon,icon_state)
 
 
 /obj/complex_vehicle/complex_turret/Destroy()

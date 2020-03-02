@@ -18,7 +18,15 @@
 	if(usr!=get_pilot())
 		return
 	
+	if(vehicle_broken_husk)
+		to_chat(src.get_pilot(), "<span class='notice'> The engine makes a little noise but ultimately does nothing.</span>")
+		playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
+		return
+	
 	src.engine_toggle = !engine_toggle
+	
+	if(vehicle_broken_husk)
+		engine_toggle = FALSE
 	
 	if(engine_toggle) //If Engine toggle is true, and we are not on cooldown
 		if(!engine_cooldown) //if engine cooldown is false
