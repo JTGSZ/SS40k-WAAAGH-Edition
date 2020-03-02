@@ -129,6 +129,7 @@
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
 				ES.make_it_end(src, W, TRUE, get_pilot())
+				update_icon()
 				return
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
@@ -148,6 +149,7 @@
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
 			ES.make_it_end(src, SCREE, FALSE, get_pilot())
+			update_icon()
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 

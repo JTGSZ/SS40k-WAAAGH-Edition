@@ -24,7 +24,7 @@
 				dicks.Grant(massa_man)
 		
 		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade))
-			dozer_blade = TRUE
+			massa_obj.dozer_blade = TRUE
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
@@ -37,7 +37,7 @@
 				ARSE.Remove(massa_man)
 		
 		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade))
-			dozer_blade = FALSE
+			massa_obj.dozer_blade = FALSE
 
 /obj/item/device/vehicle_equipment
 	name = "equipment"
@@ -54,8 +54,7 @@
 /obj/item/device/vehicle_equipment/weaponry
 	name = "weapon parent"
 	desc = "You shouldn't be seeing this"
-	icon = 'icons/pods/ship.dmi'
-	icon_state = "blank"
+	icon = 'z40k_shit/icons/complex_vehicle/vehicle_equipment.dmi'
 	var/projectile_type
 	var/fire_delay = 10 //Delay on when next action can be done.
 	var/projectiles_per_shot = 2 //How many projectiles come out

@@ -15,7 +15,7 @@
 /obj/item/device/vehicle_equipment/weaponry/demolisher
 	name = "Demolisher Cannon"
 	desc = "for testing"
-	icon_state = "pod_w_laser"
+	icon_state = "demolisher_cannon"
 	projectile_type = /obj/item/projectile/tankshell/demolisher
 	projectiles_per_shot = 1
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_demolisher //Action tied to weapon

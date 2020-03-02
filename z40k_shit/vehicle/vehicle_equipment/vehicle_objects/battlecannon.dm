@@ -16,7 +16,7 @@
 /obj/item/device/vehicle_equipment/weaponry/battlecannon
 	name = "Battle Cannon"
 	desc = "for testing"
-	icon_state = "pod_w_laser"
+	icon_state = "battle_cannon"
 	projectile_type = /obj/item/projectile/tankshell/battlecannon
 	projectiles_per_shot = 1
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_battlecannon //Action tied to weapon
