@@ -65,7 +65,6 @@
 				changedloc_variant = get_step(changedloc_variant, WEST)
 				changedloc_variant = get_step(changedloc_variant, NORTH)
 		if(!targloc || !curloc)
-		if(!targloc || !curloc)
 			continue
 		if(targloc == curloc)
 			continue

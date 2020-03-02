@@ -1,6 +1,7 @@
 // honk
 #define DAMAGE			1
 #define FIRE			2
+#define DOZERBLADE		3
 
 #define COMPLEX_VEHICLE_LIGHTS_RANGE_ON 8
 #define COMPLEX_VEHICLE_LIGHTS_RANGE_OFF 3 //one tile beyond the complex_vehicle itself, "cockpit glow"
@@ -53,9 +54,10 @@
 /obj/complex_vehicle/New()
 	. = ..()
 	if(!tank_overlays)
-		tank_overlays = new/list(2)
+		tank_overlays = new/list(3)
 		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
 		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+		tank_overlays[DOZERBLADE] = image(icon,icon_state="dozer_blade")
 	bound_width = vehicle_width*WORLD_ICON_SIZE
 	bound_height = vehicle_height*WORLD_ICON_SIZE
 	dir = EAST
@@ -88,11 +90,12 @@
 
 	..()
 
-/obj/complex_vehicle/proc/update_icon()
+/obj/complex_vehicle/update_icon()
 	if(!tank_overlays)
-		tank_overlays = new/list(2)
+		tank_overlays = new/list(3)
 		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
 		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+		tank_overlays[DOZERBLADE] = image(icon, icon_state="chassis_dozerblade")
 
 	if(health <= round(initial(health)/2))
 		overlays += tank_overlays[DAMAGE]
@@ -102,6 +105,11 @@
 			overlays -= tank_overlays[FIRE]
 	else
 		overlays -= tank_overlays[DAMAGE]
+
+	if(dozer_blade)
+		overlays += tank_overlays[DOZERBLADE]
+	else
+		overlays -= tank_overlays[DOZERBLADE]
 
 /obj/complex_vehicle/attackby(obj/item/W, mob/user)
 	if(iscrowbar(W))
@@ -253,6 +261,7 @@
 
 #undef DAMAGE
 #undef FIRE
+#undef DOZERBLADE
 
 #undef COMPLEX_VEHICLE_LIGHTS_RANGE_ON
 #undef COMPLEX_VEHICLE_LIGHTS_RANGE_OFF
