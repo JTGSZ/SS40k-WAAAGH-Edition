@@ -2686,7 +2686,6 @@
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_actions\zoom.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\battlecannon.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\demolisher.dm"
-#include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\energy.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\heavybolter.dm"
 #include "z40k_shit\vehicle\vehicle_equipment\vehicle_objects\punisher.dm"
 #include "z40k_shit\vehicle\vehicle_types\leman_russ.dm"

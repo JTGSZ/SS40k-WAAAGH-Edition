@@ -120,7 +120,7 @@
 					qdel(src)
 				sleep(10)
 
-	update_icons()
+	update_icon()
 
 /obj/complex_vehicle/ex_act(severity)
 	switch(severity)

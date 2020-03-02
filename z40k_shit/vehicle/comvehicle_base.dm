@@ -88,7 +88,7 @@
 
 	..()
 
-/obj/complex_vehicle/proc/update_icons()
+/obj/complex_vehicle/proc/update_icon()
 	if(!tank_overlays)
 		tank_overlays = new/list(2)
 		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")

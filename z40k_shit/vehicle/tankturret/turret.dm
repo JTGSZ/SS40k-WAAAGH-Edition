@@ -54,7 +54,7 @@
 
 	move_delayer.delayNext(round(3,world.tick_lag)) //Delay
 
-/obj/complex_vehicle/complex_turret/update_icons()
+/obj/complex_vehicle/complex_turret/update_icon()
 	return
 
 /obj/complex_vehicle/complex_turret/attackby(obj/item/W, mob/user)
