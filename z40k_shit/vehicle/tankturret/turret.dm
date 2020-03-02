@@ -24,6 +24,7 @@
 		) //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
 	var/obj/complex_vehicle/complex_chassis/my_boy
+	vehicle_broken_husk = FALSE
 	
 	var/slots_used = 0 //Basically a counter for how many slots we have used.
 
@@ -47,6 +48,8 @@
 	return
 
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
+	if(vehicle_broken_husk)
+		return
 	if(user != get_pilot()) //If user is not pilot return false
 		return 0 //Stop hogging the wheel!
 	if(move_delayer.blocked()) //If we are blocked from moving by move_delayer, return false. Delay
@@ -112,6 +115,8 @@
 
 //Click Action
 /obj/complex_vehicle/complex_turret/click_action_control(atom/target,mob/user)
+	if(vehicle_broken_husk)
+		return
 	if(user != get_pilot()) //If user is not pilot return false
 		return
 	if(user.stat)
