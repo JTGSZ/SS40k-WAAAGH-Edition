@@ -53,11 +53,7 @@
 	
 /obj/complex_vehicle/New()
 	. = ..()
-	if(!tank_overlays)
-		tank_overlays = new/list(3)
-		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
-		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
-		tank_overlays[DOZERBLADE] = image(icon,icon_state="dozer_blade")
+	handle_new_overlays()
 	bound_width = vehicle_width*WORLD_ICON_SIZE
 	bound_height = vehicle_height*WORLD_ICON_SIZE
 	dir = EAST
@@ -68,7 +64,15 @@
 		new path(src) //We create the actions inside of this object. They should add themselve to held actions.
 
 	if(ticker && ticker.current_state >= GAME_STATE_PREGAME)
-		initialize() //We perform a coastal cleanse now that we are here.
+		initialize()
+
+
+/obj/complex_vehicle/proc/handle_new_overlays()
+	if(!tank_overlays)
+		tank_overlays = new/list(3)
+		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+		tank_overlays[DOZERBLADE] = image(icon,icon_state="dozer_blade")
 
 /obj/complex_vehicle/initialize()
 	..()

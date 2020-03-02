@@ -24,16 +24,27 @@
 		) //These are actions innate to the object.
 	datum/comvehicle/equipment/ES //Our equipment controller.
 	var/obj/complex_vehicle/complex_chassis/my_boy
+	
+	var/slots_used = 0 //Basically a counter for how many slots we have used.
 
 /obj/complex_vehicle/complex_turret/New()
 	..()
 	if(istype(loc, /obj/complex_vehicle/complex_chassis))
 		my_boy = loc
 
+/obj/complex_vehicle/handle_new_overlays()
+	if(!tank_overlays)
+		tank_overlays = new/list(3)
+		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+		tank_overlays[BATTLECANNON] = image(icon,icon_state)
+
+
 /obj/complex_vehicle/complex_turret/Destroy()
 	..()
 
-/obj/complex_vehicle/complex_turret/initialize()
+/obj/complex_vehicle/complex_turret/update_icon()
+	return
 
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
@@ -75,6 +86,7 @@
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
 				ES.make_it_end(src, W, TRUE, get_pilot())
+				update_icon()
 				return
 	if(W.force)
 		visible_message("<span class = 'warning'>\The [user] hits \the [src] with \the [W]</span>")
@@ -94,6 +106,7 @@
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
 			ES.make_it_end(src, SCREE, FALSE, get_pilot())
+			update_icon()
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
 
