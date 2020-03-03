@@ -8,7 +8,7 @@
 /obj/item/device/vehicle_equipment/weaponry/heavybolter
 	name = "Heavy Bolter"
 	desc = "for testing"
-	icon_state = "pod_w_laser"
+	icon_state = "hbolter_cannon"
 	projectile_type = /obj/item/projectile/bullet/heavybolter
 	projectiles_per_shot = 3
 	tied_action = /datum/action/complex_vehicle_equipment/toggle_heavybolter //Action tied to weapon
