@@ -98,19 +98,6 @@
 	landmarks_list -= src
 	..()
 
-/obj/effect/landmark/start
-	name = "start"
-	icon = 'icons/mob/screen1.dmi'
-	icon_state = "x"
-	anchored = 1.0
-
-/obj/effect/landmark/start/New()
-	..()
-	tag = "start*[name]"
-	invisibility = 101
-
-	return 1
-
 /obj/effect/narration
 	name = "narrator"
 	icon_state = "megaphone"

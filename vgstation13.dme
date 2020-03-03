@@ -2633,7 +2633,6 @@
 #include "z40k_shit\imperialguard\igMeleegear\IGmeleegear.dm"
 #include "z40k_shit\imperialguard\igMeleegear\PsykerStaff.dm"
 #include "z40k_shit\maphelpers\40kareas.dm"
-#include "z40k_shit\maphelpers\40kjectielandmarks.dm"
 #include "z40k_shit\maphelpers\40klandmarks.dm"
 #include "z40k_shit\orks\backtankflamer.dm"
 #include "z40k_shit\orks\jumppack.dm"
