@@ -9,7 +9,7 @@
 	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
-	force = 35
+	force = 40
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 7

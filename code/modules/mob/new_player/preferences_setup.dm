@@ -343,7 +343,6 @@
 				if(COMMISSAR)
 					clothes_s = new /icon(uniform_dmi, "commissar_s")
 					clothes_s.Blend(new /icon(feet_dmi, "noble-boots"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "black"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "commissarcap"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "commissarcoat"), ICON_OVERLAY) 
 					clothes_s=blend_backpack(clothes_s,backbag,"satchel-sec","securitypack","courierbagsec")

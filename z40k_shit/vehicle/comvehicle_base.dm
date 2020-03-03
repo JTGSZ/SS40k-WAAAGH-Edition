@@ -95,6 +95,7 @@
 	
 	qdel(tank_overlays[DAMAGE])
 	qdel(tank_overlays[FIRE])
+	qdel(tank_overlays[DOZERBLADE])
 	tank_overlays = null
 	
 	unlock_atom(GT)

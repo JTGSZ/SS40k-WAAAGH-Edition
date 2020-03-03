@@ -25,7 +25,7 @@
 
 /obj/item/mounted/frame/trophy_mount/update_icon()
 	overlays.Cut()
-	if(!held_item)
+	if(!held_item) 
 		name = initial(name)
 		desc = initial(desc)
 	else

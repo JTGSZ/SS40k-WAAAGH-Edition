@@ -48,9 +48,9 @@
 	..()
 
 /obj/complex_vehicle/complex_turret/update_icon()
-	overlays.Cut()
-	if(ES.equipment_systems)
-		for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
+//	overlays.Cut()
+//	if(ES.equipment_systems)
+//		for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
 			
 
 

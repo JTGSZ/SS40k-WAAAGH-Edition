@@ -1,8 +1,0 @@
-diff a/code/modules/clothing/suits/wiz_robe.dm b/code/modules/clothing/suits/wiz_robe.dm	(rejected hunks)
-@@ -241,4 +242,4 @@
- 	name = "sinterklaas mitre"
- 	desc = "Strange-looking red head-wear that most certainly belongs to a real saint."
- 	icon_state = "sinterklaasmitre"
--	siemens_coefficient = 0.8
-\ No newline at end of file
-+	siemens_coefficient = 0.8
