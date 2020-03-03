@@ -13,8 +13,8 @@
 	LEMAN RUSS PUNISHER
 						*/
 /obj/complex_vehicle/complex_chassis/leman_russ/punisher
-	name = "Leman Russ Punisher Variant"
-	desc = "A Leman Russ made for spitting bullets"
+	name = "Leman Russ"
+	desc = "Its a Leman Russ."
 	mainturret = /obj/complex_vehicle/complex_turret/punisher/
 	var/obj/item/device/vehicle_equipment/weaponry/heavybolter/HBOLT
 	
@@ -28,7 +28,7 @@
 /obj/complex_vehicle/complex_turret/punisher
 	name = "Punisher Turret"
 	desc = "The holder of a gatling gun"
-	icon_state = "turret_punisher"
+	icon_state = "turret_empty"
 	vehicle_zoom = 8
 	var/obj/complex_vehicle/complex_turret/PUN
 
@@ -42,8 +42,8 @@
 	LEMAN RUSS DEMOLISHER
 							*/
 /obj/complex_vehicle/complex_chassis/leman_russ/demolisher
-	name = "Leman Russ Demolisher Variant"
-	desc = "A Leman Russ made for large explosions"
+	name = "Leman Russ"
+	desc = "Its a Leman Russ."
 	mainturret = /obj/complex_vehicle/complex_turret/demolisher
 	var/obj/item/device/vehicle_equipment/weaponry/heavybolter/HBOLT
 
@@ -56,7 +56,7 @@
 /obj/complex_vehicle/complex_turret/demolisher
 	name = "Demolisher Turret"
 	desc = "The holder of a large barrel"
-	icon_state = "turret_demolisher"
+	icon_state = "turret_empty"
 	vehicle_zoom = 7
 	var/obj/complex_vehicle/complex_turret/DEMO
 
@@ -70,8 +70,8 @@
 	LEMAN RUSS BATTLECANNON
 							*/
 /obj/complex_vehicle/complex_chassis/leman_russ/battlecannon
-	name = "Leman Russ Battlecannon Variant"
-	desc = "A Leman Russ good for all occassions"
+	name = "Leman Russ"
+	desc = "Its a Leman Russ."
 	mainturret = /obj/complex_vehicle/complex_turret/battlecannon
 	var/obj/item/device/vehicle_equipment/weaponry/heavybolter/HBOLT
 
@@ -84,7 +84,7 @@
 /obj/complex_vehicle/complex_turret/battlecannon
 	name = "Battlecannon Turret"
 	desc = "The turret that holds the battle cannon."
-	icon_state = "turret_battlecannon"
+	icon_state = "turret_empty"
 	vehicle_zoom = 10
 	var/obj/complex_vehicle/complex_turret/BATC
 

@@ -26,7 +26,10 @@
 	var/obj/complex_vehicle/complex_chassis/my_boy
 	vehicle_broken_husk = FALSE
 	
-	var/slots_used = 0 //Basically a counter for how many slots we have used.
+	//A var for turret position 1
+	var/position_1
+	//A var for turret position 2
+	var/position_2
 
 /obj/complex_vehicle/complex_turret/New()
 	..()
@@ -45,7 +48,12 @@
 	..()
 
 /obj/complex_vehicle/complex_turret/update_icon()
-	return
+	overlays.Cut()
+	if(ES.equipment_systems)
+		for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
+			
+
+
 
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(vehicle_broken_husk)

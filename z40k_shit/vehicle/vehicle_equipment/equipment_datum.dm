@@ -25,6 +25,9 @@
 		
 		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade))
 			massa_obj.dozer_blade = TRUE
+		
+		update_icon()
+	
 	else
 		bitch.my_atom = null
 		equipment_systems -= bitch
@@ -38,6 +41,8 @@
 		
 		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade))
 			massa_obj.dozer_blade = FALSE
+		
+		update_icon()
 
 /obj/item/device/vehicle_equipment
 	name = "equipment"

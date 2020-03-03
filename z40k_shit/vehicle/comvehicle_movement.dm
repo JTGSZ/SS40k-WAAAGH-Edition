@@ -46,6 +46,7 @@
 		if(WEST)
 			src.dir = turn(src.dir, -90) //Technically its reversed too
 
+	//This tries to keep us relatively centered
 	switch(src.dir)
 		if(NORTH)
 			GT.pixel_x = -14
@@ -65,7 +66,6 @@
 
 	accelerationscale()
 
-		//Move(get_step(src,direction), direction) //How we move
 	move_delayer.delayNext(round(movement_delay,world.tick_lag)) //Delay
 
 //Basically the plan is that while they have the switch on we will run this loop.

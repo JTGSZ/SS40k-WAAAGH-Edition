@@ -26,7 +26,6 @@
 					'z40k_shit/sounds/BattleCannon1.ogg',
 					'z40k_shit/sounds/BattleCannon2.ogg'
 					)
-	
 
 /obj/item/device/vehicle_equipment/weaponry/battlecannon/New()
 	..()
