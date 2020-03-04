@@ -16,6 +16,7 @@
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_restricted = list("Ork", "Ork Nob")
 	species_fit = list("Ork", "Ork Nob") 
+	allowed = list(/obj/item/weapon)
 /obj/item/clothing/shoes/ork
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
 	species_restricted = list("Ork", "Ork Nob", "Ork Warboss")

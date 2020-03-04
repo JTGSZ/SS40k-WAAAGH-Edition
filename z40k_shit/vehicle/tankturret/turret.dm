@@ -31,10 +31,15 @@
 	//A var for turret position 2
 	var/position_2
 
+
 /obj/complex_vehicle/complex_turret/New()
 	..()
 	if(istype(loc, /obj/complex_vehicle/complex_chassis))
 		my_boy = loc
+
+//We will spawn a turret on our turret if we supercall in here.
+/obj/complex_vehicle/complex_turret/initialize()
+	return
 
 /obj/complex_vehicle/handle_new_overlays()
 //	if(!tank_overlays)

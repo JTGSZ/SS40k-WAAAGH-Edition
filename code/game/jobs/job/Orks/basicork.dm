@@ -60,35 +60,7 @@
 		)
 	)
 
-/*	special_snowflakes = list(
-		/datum/species/ork = list(
-			"Slugga Boy" = list(slot_w_uniform_str, 
-								slot_wear_suit_str, 
-								slot_head_str, 
-								slot_gloves_str, 
-								slot_belt_str)
-			,"Shoota Boy" = list(slot_w_uniform_str, 
-								slot_wear_suit_str, 
-								slot_head_str, 
-								slot_gloves_str, 
-								slot_belt_str)
-			,"Kommando" = list(slot_w_uniform_str, 
-								slot_wear_suit_str, 
-								slot_head_str, 
-								slot_gloves_str, 
-								slot_belt_str)
-			,"Burna Boy" = list(slot_w_uniform_str, 
-								slot_wear_suit_str, 
-								slot_head_str, 
-								slot_gloves_str, 
-								slot_belt_str)
-			,"Storm Boy" = list(slot_w_uniform_str, 
-								slot_wear_suit_str, 
-								slot_head_str, 
-								slot_gloves_str, 
-								slot_belt_str)
-		),
-	)
+
 
 // Handles the randomly generated equipment on basic boyz, ja? 
 
@@ -103,7 +75,7 @@
 					if(prob(50))
 						H.equip_or_collect(new /obj/item/clothing/under/ork/pantsandshirt(H), slot_w_uniform)
 					else
-						H.equip_or_collect(new /obj/item/clothing/under/ork/leatherpantsandshirt(H), slot_w_uniform)*/
+						H.equip_or_collect(new /obj/item/clothing/under/ork/leatherpantsandshirt(H), slot_w_uniform)
 //				if(slot_head_str) //Head
 //				if(slot_wear_suit_str) //suit
 //				if(slot_shoes_str) //Shoes
@@ -119,28 +91,3 @@
 	new_boy.AssignToRole(H.mind,TRUE)
 	new_boy.mind_storage(M.mind)
 
-//gloves
-//obj/item/clothing/gloves/ork/clothgloves 
-//hats
-//obj/item/clothing/head/ork/milcap
-//obj/item/clothing/head/ork/armorhelmet
-//obj/item/clothing/head/ork/redbandana
-//obj/item/clothing/head/ork/bucket
-//suits
-//obj/item/clothing/suit/armor/ork/samuraiorkarmor
-//obj/item/clothing/suit/armor/ork/leatherbikervest
-//obj/item/clothing/suit/armor/ork/rwallplate
-//obj/item/clothing/suit/armor/ork/ironplate
-//uniforms
-//obj/item/clothing/under/ork/pants
-//obj/item/clothing/under/ork/pantsandshirt
-//obj/item/clothing/under/ork/leatherpantsandshirt
-//shoes
-//obj/item/clothing/shoes/ork/orkboots
-//Belts
-//obj/item/weapon/storage/belt/ork/basicbelt
-//obj/item/weapon/storage/belt/ork/basicbelt/stikkbombs
-//obj/item/weapon/storage/belt/ork/armorbelt
-//backpacks
-//obj/item/weapon/storage/backpack/ork/brownbackpack
-//obj/item/weapon/ork/burnapack
