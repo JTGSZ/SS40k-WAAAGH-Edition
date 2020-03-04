@@ -2628,6 +2628,8 @@
 #include "z40k_shit\imperialguard\igClothing\PreacherClothing.dm"
 #include "z40k_shit\imperialguard\igClothing\primarispsykerclothing.dm"
 #include "z40k_shit\imperialguard\igClothing\valhallanclothing.dm"
+#include "z40k_shit\imperialguard\igGuns\boltammoNmags.dm"
+#include "z40k_shit\imperialguard\igGuns\boltpistol.dm"
 #include "z40k_shit\imperialguard\igGuns\IGLasgun.dm"
 #include "z40k_shit\imperialguard\igMeleegear\Eviscerator.dm"
 #include "z40k_shit\imperialguard\igMeleegear\IGmeleegear.dm"
