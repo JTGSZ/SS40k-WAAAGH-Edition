@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol
 	name = "\improper Boltpistol"
 	desc = "A boltpistol"
-	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "boltpistol"
 	item_state = "boltpistol"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IG_guns_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IG_guns_right.dmi')

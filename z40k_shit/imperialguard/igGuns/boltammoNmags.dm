@@ -18,7 +18,7 @@
 	icon_state = "boltpistolmag"
 	desc = "16 Shots, thats all you get."
 	origin_tech = Tc_COMBAT + "=2"
-	ammo_type = "/obj/item/ammo_casing/shotgun/buckshot" //For some reason it won't take the children, bitchass.
+	ammo_type = "/obj/item/ammo_casing/bolter" //For some reason it won't take the children, bitchass.
 	max_ammo = 16
 	multiple_sprites = 1
 	sprite_modulo = 16
