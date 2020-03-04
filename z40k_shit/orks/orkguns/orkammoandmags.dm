@@ -39,7 +39,8 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_storage/magazine/sluggamag
-	name = "Slugga Mag"
+	name = "Magazine"
+	desc = "Fits more than you think."
 	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
 	icon_state = "sluggamag"
 	desc = "A magazine for a slugga"
@@ -61,3 +62,12 @@
 	sprite_modulo = 5
 	exact = 0
 
+/obj/item/ammo_storage/magazine/kustom_shoota_belt
+	name = "kustom shoota Belt"
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
+	icon_state = "ammobelt"
+	desc = "A ammobelt for feeding into a kustom shoota"
+	ammo_type = "/obj/item/ammo_casing/orkbullet"
+	max_ammo = 30
+	sprite_modulo = 2
+	multiple_sprites = TRUE
