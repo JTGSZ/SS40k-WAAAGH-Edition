@@ -63,7 +63,7 @@
 /obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/examine(mob/user)
 	..()
 	if(basicbullets)
-		to_chat(user, "<span class='info'> There are currently [basicbullets] normal ballistics attached.</span>")
+		to_chat(user, "<span class='info'> There are currently [basicbullets] ballistics attached.</span>")
 	if(laserbeams)
 		to_chat(user, "<span class='info'> There are currently [laserbeams] laser guns attached.</span>")
 	if(shotgunpellets)
