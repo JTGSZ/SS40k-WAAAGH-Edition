@@ -1,4 +1,12 @@
-
+/obj/item/ammo_storage/magazine/kustom_shoota_belt
+	name = "kustom shoota Belt"
+	icon = 'z40k_shit/icons/obj/orks/orkbulletpilesandmags.dmi'
+	icon_state = "ammobelt"
+	desc = "A ammobelt for feeding into a kustom shoota"
+	ammo_type = "/obj/item/ammo_casing/orkbullet"
+	max_ammo = 30
+	sprite_modulo = 2
+	multiple_sprites = TRUE
 
 /obj/item/weapon/taperoll
 	name = "Tape" //Perhaps one day.
@@ -21,7 +29,7 @@
 	burst_count = 5
 	caliber = list(ORKSCRAPBULLET = 1)
 	ammo_type = "/obj/item/ammo_casing/orkbullet"
-	mag_type = "/obj/item/ammo_storage/magazine/sluggamag"
+	mag_type = "/obj/item/ammo_storage/magazine/kustom_shoota_belt"
 	fire_sound = 'z40k_shit/sounds/slugga_1.ogg'
 	recoil = 16
 	load_method = 2
