@@ -50,6 +50,9 @@ var/global/list/whitelisted_species = list("Human")
 	var/mutantrace											// Safeguard due to old code.
 	var/myhuman												// mob reference
 
+	//STATLINES: See Statlines.dm || human.dm: Line 1174 for where we transition onto the mob.
+	var/base_strength = 3
+
 	var/breath_type = GAS_OXYGEN   // Non-oxygen gas breathed, if any.
 	var/survival_gear = /obj/item/weapon/storage/box/survival // For spawnin'.
 

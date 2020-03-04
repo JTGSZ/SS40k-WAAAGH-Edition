@@ -13,6 +13,7 @@
 #include "__40kEARLYLoad\ATCHDEF.dm"
 #include "__40kEARLYLoad\PROJCALIBER.dm"
 #include "__40kEARLYLoad\role_datums.dm"
+#include "__40kEARLYLoad\STATLINE_NUM.dm"
 #include "__DEFINES\__compile_options.dm"
 #include "__DEFINES\_macros.dm"
 #include "__DEFINES\accessories.dm"

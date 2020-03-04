@@ -173,10 +173,11 @@
 		mag = 0
 
 	var/bayonet = FALSE
+	var/scope = FALSE
 	for(var/obj/item/weapon/attachment/ATCH in attachments)
-		if(istype(ATCH,/obj/item/weapon/attachment/bayonet))
+		if(istype(ATCH, /obj/item/weapon/attachment/bayonet))
 			bayonet = TRUE
-		if(istype(ATCH,/obj/item/weapon/attachment/scope))
+		if(istype(ATCH, /obj/item/weapon/attachment/scope))
 			scope = TRUE
 
 	if(charge_states)

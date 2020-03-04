@@ -1155,7 +1155,7 @@
 		//if(src.species.language)	src.remove_language(species.language)
 		if(src.species.abilities)
 			src.verbs -= species.abilities
-		if(species.spells)
+		if(species.spells) 
 			for(var/spell/spell in spell_list)
 				if(spell.type in species.spells)
 					remove_spell(spell)
@@ -1170,6 +1170,10 @@
 
 	if(S.gender)
 		gender = S.gender
+
+	//STATLINES: See statlines.dm
+	if(species.base_strength) //For now all we have is strength
+		stat_strength = species.base_strength
 
 	for(var/L in species.known_languages)
 		add_language(L)
