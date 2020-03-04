@@ -84,7 +84,7 @@
 		to_chat(user, "<span class='notice'>The bullet appears to be already spent.</span>")
 		return
 	if(istype(A,/obj/item/ammo_storage/box/piles/buckshotpile))
-		var/PP = new /obj/item/ammo_storage/box/piles/sluggabulletpile(src.loc)
+		var/PP = new /obj/item/ammo_storage/box/piles/sluggabulletpile(src.loc)	
 		qdel(A)
 		user.put_in_any_hand_if_possible(PP) //pp hands lol
 

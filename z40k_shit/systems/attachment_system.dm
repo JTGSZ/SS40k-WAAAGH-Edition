@@ -54,6 +54,18 @@
 	atch_total_limit = 1 //How many of these we can have on one gun.
 	atch_effect_flags = MELEE_DMG | MELEE_SOUNDSWAP
 
+/obj/item/weapon/attachment/scope
+	name = "scope"
+	desc = "A scope made for scoping out shit."
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
+	icon_state = "bayonet"
+	item_state = "bayonet"
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
+	force = 10.0
+	throwforce = 10.0
+	throw_speed = 3
+	throw_range = 7
+
 /obj/item/weapon/attachment/bayonet/attackby(obj/item/weapon/W, mob/user)
 	..()
 	if(user.is_in_modules(src))

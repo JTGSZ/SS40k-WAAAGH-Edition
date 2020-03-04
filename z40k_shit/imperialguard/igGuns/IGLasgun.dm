@@ -15,9 +15,9 @@
 	name = "M-Galaxy Pattern Lasgun"
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
-	icon_state = "lasgun"
-	item_state = "lasgun"
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IG_guns_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IG_guns_right.dmi')
+	icon_state = "lasgun100-nby-nscp"
+	item_state = "lasgun" //We jsut auto change neways
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IG_lasgun_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IG_lasgun_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
 	fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 	projectile_type = /obj/item/projectile/beam/lowpower
@@ -173,12 +173,18 @@
 		mag = 0
 
 	var/bayonet = FALSE
-	for(var/obj/item/weapon/attachment/bayonet/ATCH in attachments)
-		if(ATCH)
+	for(var/obj/item/weapon/attachment/ATCH in attachments)
+		if(istype(ATCH,/obj/item/weapon/attachment/bayonet))
 			bayonet = TRUE
+		if(istype(ATCH,/obj/item/weapon/attachment/scope))
+			scope = TRUE
 
 	if(charge_states)
-		icon_state = "[initial(icon_state)][ratio][mag ? "-mg" : "-nmg"][bayonet ? "-by" : "-nby"]"
+		icon_state = "lasgun[ratio][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"][mag ? "" : "-e"]"
+	
+	
+	item_state = "lasgun[wielded ? "-unwielded" : "wielded"][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"]"
+
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/proc/LoadMag(var/obj/item/weapon/cell/AM, var/mob/user)
 	if(istype(AM, /obj/item/weapon/cell) && !power_supply)
