@@ -82,7 +82,8 @@
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
 		if(istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota) || \
-			istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/slugga))
+			istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/slugga) || \
+			istype(I,/obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol))
 			basicbullets++
 			totalguncount++
 		if(istype(I, /obj/item/weapon/gun/energy/complexweapon/lasgun))
