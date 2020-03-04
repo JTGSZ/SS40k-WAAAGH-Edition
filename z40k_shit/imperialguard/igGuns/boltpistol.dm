@@ -4,7 +4,7 @@
 	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "boltpistol"
 	item_state = "boltpistol"
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IG_guns_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IG_guns_right.dmi')
 	origin_tech = Tc_COMBAT + "=5;" + Tc_MATERIALS + "=2"
 	w_class = W_CLASS_MEDIUM
 	max_shells = 16

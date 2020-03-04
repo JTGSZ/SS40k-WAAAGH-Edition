@@ -17,7 +17,7 @@
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "lasgun"
 	item_state = "lasgun"
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IG_guns_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IG_guns_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
 	fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 	projectile_type = /obj/item/projectile/beam/lowpower

@@ -29,13 +29,6 @@
 	IG UNIFORMS
 				*/
 
-/obj/item/clothing/under/iguard/generic_imperial //We are not using this one. But it can stay.
-	name = "Imperial Jumpsuit"
-	desc = "Imperial guard jumpsuit"
-	icon_state = "imperial" //Check: Its there
-	_color = "imperial" //Check: Its there
-	has_sensor = 2
-
 /*
 	IG SHOES AND BOOTS
 						*/

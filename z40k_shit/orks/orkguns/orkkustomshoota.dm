@@ -14,7 +14,7 @@
 	icon = 'z40k_shit/icons/obj/orks/kustomgun.dmi'
 	icon_state = "slugga"
 	item_state = "slugga"
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/ork_guns_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/ork_guns_right.dmi')
 	origin_tech = Tc_COMBAT + "=5;" + Tc_MATERIALS + "=2"
 	w_class = W_CLASS_MEDIUM
 	max_shells = 25

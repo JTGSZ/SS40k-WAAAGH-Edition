@@ -58,5 +58,5 @@
 	desc = "A standard issue uniform given to Guardsmen of the Imperial Guard."
 	icon_state = "guardsman_under" //Check: its there
 	item_state = "guardsman_under"//Check: Its fine
-	_color = "imperial"
+	_color = "guardsman_under"
 	has_sensor = 2 //Imperial guards cannot disable sensors, for good or for ill.
