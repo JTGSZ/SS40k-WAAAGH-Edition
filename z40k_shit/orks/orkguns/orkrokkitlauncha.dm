@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha
 	name = "rokkit launcha"
 	desc = "Ranged explosions, science marches on."
-	fire_sound = 'sound/weapons/rocket.ogg'
+	fire_sound = 'z40k_shit/sounds/RokkitLauncha1.ogg'
 	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
 	icon_state = "rokkit_launcha"
 	item_state = "rokkit_launcha"
