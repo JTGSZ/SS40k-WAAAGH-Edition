@@ -6,4 +6,4 @@ Applicable Work is (NOT) code/art done by people who are not the holder of the g
 
 All other work is licensed as GPL3.
 
-Feel free to ask for permission for a relicense on stuff. (I'll most likely do it.)
+Feel free to ask for permission for a relicense on stuff to MIT. (I'll most likely do it.)

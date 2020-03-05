@@ -2652,6 +2652,7 @@
 #include "z40k_shit\orks\orkclothing\orkpathparents.dm"
 #include "z40k_shit\orks\orkguns\orkammoandmags.dm"
 #include "z40k_shit\orks\orkguns\orkkustomshoota.dm"
+#include "z40k_shit\orks\orkguns\orkrokkitlauncha.dm"
 #include "z40k_shit\orks\orkguns\orkshoota.dm"
 #include "z40k_shit\orks\orkguns\orkshotgun.dm"
 #include "z40k_shit\orks\orkguns\orkslugga.dm"
