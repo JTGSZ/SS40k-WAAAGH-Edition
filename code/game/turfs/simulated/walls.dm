@@ -4,6 +4,8 @@
 	icon = 'icons/turf/walls.dmi'
 	var/mineral = "metal"
 	var/rotting = 0
+	var/health = 500 //40k EDIT - Walls Have Health now
+	
 	opacity = 1
 	density = 1
 	blocks_air = 1
@@ -40,6 +42,19 @@
 		to_chat(user, "<span class='danger'>It's doused in thermite!</span>")
 	if(src.engraving)
 		to_chat(user, src.engraving)
+
+	if(health <= (health/2))
+		to_chat(user, "Seems to be pretty damaged.")
+	if(health <= (health/4))
+		to_chat(user, "<span class='danger'>It's falling apart!</span>")
+
+/turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
+	if(Proj.damage)
+		src.health -= Proj.damage/2
+	if(health <= 0)
+		visible_message("<span class='warning'>[src] breaks down!</span>")
+		src.ex_act(2)
+	..()
 
 /turf/simulated/wall/dismantle_wall(devastated = 0, explode = 0)
 	if(mineral == "metal")

@@ -2,6 +2,7 @@
 	icon_state = "girder"
 	anchored = 1
 	density = 1
+	var/health = 100 //40k EDIT - WALL HEALTH - JTGSZ
 	var/state = 0
 	var/material = /obj/item/stack/sheet/metal
 	var/construction_length = 40
@@ -322,10 +323,16 @@
 		qdel(src)
 
 /obj/structure/girder/bullet_act(var/obj/item/projectile/Proj)
+	
+	if(Proj.damage)
+		src.health -= Proj.damage/2
+	if(health <= 0)
+		visible_message("<span class='warning'>[src] breaks down!</span>")
+		src.ex_act(2)
+	
 	if(Proj.destroy)
 		src.ex_act(2)
 	..()
-	return 0
 
 /obj/structure/girder/ex_act(severity)
 	switch(severity)

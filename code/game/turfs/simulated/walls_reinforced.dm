@@ -14,6 +14,7 @@
 
 	walltype = "rwall"
 	hardness = 90
+	health = 2000
 
 	explosion_block = 2
 	girder_type = /obj/structure/girder/reinforced
