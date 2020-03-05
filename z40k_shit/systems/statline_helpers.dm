@@ -8,12 +8,51 @@
 /*
 	STRENGTH
 			*/
-//basically we return TRUE or FALSE when called
-/mob/proc/strength_check()
+/*
+Basically we return TRUE or FALSE when called, this proc is a appended check.
+// We go from a scale of 1 to 24.
+----Variables----
+stat_strength - Contained on the mob itself, dynamic built strength. Starting at species core strength.
+base_strength - Contained on the species datum, starting core strength. Transferred to stat strength.
+
+stat_strength_check(var/difficulty) - a check of the dynamic strength stat. Which can be raised.
+base_strength_check(var/difficulty) - a check of the latent species strength. 
+						Used to check for strong body icon template.
+
+*/
+/mob/proc/stat_strength_check()
 	return FALSE
 
-/mob/living/carbon/human/strength_check(var/difficulty)
+/mob/proc/base_strength_check()
+	return FALSE
+
+/mob/living/stat_strength_check()
+	return FALSE
+
+/mob/proc/base_strength_check()
+	return FALSE
+
+/mob/living/carbon/stat_strength_check()
+	return FALSE
+
+//--------------------------------------------------------//
+/mob/living/carbon/human/stat_strength_check(var/difficulty)
 	if(!stat_strength) //We have no strength
+		return FALSE
+
+	if(stat_strength > difficulty)
+		return TRUE
+	else
+		return FALSE
+
+//--------------------------------------------------------//
+/mob/living/carbon/human/base_strength_check(var/difficulty)
+	if(!species.base_strength)
+		return FALSE
+
+	if(species.base_strength >= difficulty)
+		return TRUE
+	else
 		return FALSE
 
 //TODO: More Stats, More Integrations.
