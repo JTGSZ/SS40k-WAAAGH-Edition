@@ -113,10 +113,14 @@
 
 //Mostly so we leave a husk instead of destroying the vehicle completely
 /obj/complex_vehicle/proc/break_this_shit()
-	
+	var/origin = get_turf(src) // A holder for height
+
 	if(ES.equipment_systems)
+		for(var/q=1 to vehicle_width+1)
+			origin = get_step(origin,EAST)
+		
 		for(var/obj/item/device/vehicle_equipment/bitch in ES.equipment_systems)
-			bitch.forceMove(src.loc)
+			bitch.forceMove(origin)
 			bitch.throw_at(get_turf(pick(orange(7,src))))
 
 	vehicle_broken_husk = TRUE
@@ -133,10 +137,11 @@
 		tank_overlays[HBOLTER] = image(icon,icon_state="chassis_hbolter")
 
 /obj/complex_vehicle/proc/handle_weapon_overlays()
-	if(ES.equipment_systems.len)
-		for(var/obj/item/device/vehicle_equipment/weaponry/FIRSTPICK in ES.equipment_systems)
-			chosen_weapon_overlay = FIRSTPICK
-			break
+	overlays.Cut()
+	
+	for(var/obj/item/device/vehicle_equipment/weaponry/FIRSTPICK in ES.equipment_systems)
+		chosen_weapon_overlay = FIRSTPICK
+		break
 
 	if(chosen_weapon_overlay)
 		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/demolisher))
@@ -179,7 +184,7 @@
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
-				ES.make_it_end(get_pilot(),src,W,TRUE)
+				ES.make_it_end(src,W,TRUE,get_pilot())
 				update_icon()
 				return
 	if(W.force)
@@ -199,7 +204,7 @@
 		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
-			ES.make_it_end(get_pilot(),src,SCREE,FALSE)
+			ES.make_it_end(src,SCREE,FALSE,get_pilot())
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")

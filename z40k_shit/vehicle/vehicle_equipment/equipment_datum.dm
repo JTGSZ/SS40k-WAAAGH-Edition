@@ -18,12 +18,12 @@
 		my_atom = CV
 /*
 Proc call vars. - Attachment Master
- (1) master user	-	Must be a mob. Usually get_pilot()
- (2) master object	-	Must be source object... or at least a object.
- (3) attached equipment		-	Must be of the type. /obj/item/device/vehicle_equipment ...Unless you add all the vars.
- (4) attach or detach	-	Basically either TRUE or FALSE
+ (1) master object	-	Must be source object... or at least a object.
+ (2) attached equipment		-	Must be of the type. /obj/item/device/vehicle_equipment ...Unless you add all the vars.
+ (3) attach or detach	-	Basically either TRUE or FALSE
+ (4) master user	-	Must be a mob. Usually get_pilot()
 */
-/datum/comvehicle/equipment/proc/make_it_end(var/massa_man, var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in)
+/datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
 	//Make room for the entry bitch.
 	if(slide_in)
 		bitch.my_atom = massa_obj //My bitches atom is the massa object.
@@ -52,7 +52,8 @@ Proc call vars. - Attachment Master
 		
 		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade)) //Dozerblade
 			massa_obj.dozer_blade = FALSE
-		
+
+	massa_obj.handle_weapon_overlays()
 
 /*
 	VEHICLE EQUIPMENT PARENT
