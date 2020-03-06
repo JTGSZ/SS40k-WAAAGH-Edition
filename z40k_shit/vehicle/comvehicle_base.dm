@@ -268,6 +268,8 @@
 					target_turf = get_edge_target_turf(T, opposite_dirs[dir])
 					L.throw_at(target_turf,100,3)
 
+
+
 /obj/complex_vehicle/proc/move_outside(var/mob/user, var/turf/exit_turf)
 	if(!exit_turf)
 		exit_turf = get_turf(src)
@@ -278,6 +280,9 @@
 		C.changeView(C.view - vehicle_zoom)
 		pilot_zoom = FALSE
 	user.forceMove(exit_turf)
+
+
+
 
 /obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
 	var/pilot = get_pilot()
@@ -301,10 +306,12 @@
 		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
 			actions.Remove(user) //They just left we take ALL the shit.
 
+
+
+
 /obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/mygun, var/datum/action/complex_vehicle_equipment/actionid)
 	if(usr!=get_pilot())
 		return
-		
 	for(mygun in ES.equipment_systems)
 		if(mygun.id == actionid)
 			if(weapon_toggle)
