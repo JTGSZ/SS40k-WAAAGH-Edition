@@ -23,7 +23,7 @@
 	..()
 	HBOLT = new /obj/item/device/vehicle_equipment/weaponry/heavybolter(src.loc)
 	HBOLT.forceMove(src)
-	ES.make_it_end(src, HBOLT, TRUE, get_pilot())
+	ES.make_it_end(get_pilot(),src,HBOLT,TRUE)
 
 /obj/complex_vehicle/complex_turret/punisher
 	name = "Punisher Turret"
@@ -36,7 +36,7 @@
 	..()
 	PUN = new /obj/item/device/vehicle_equipment/weaponry/punisher(src.loc)
 	PUN.forceMove(src)
-	ES.make_it_end(src, PUN, TRUE, get_pilot())
+	ES.make_it_end(get_pilot(),src,PUN,TRUE)
 
 /*
 	LEMAN RUSS DEMOLISHER
@@ -51,7 +51,7 @@
 	..()
 	HBOLT = new /obj/item/device/vehicle_equipment/weaponry/heavybolter(src.loc)
 	HBOLT.forceMove(src)
-	ES.make_it_end(src, HBOLT, TRUE, get_pilot())
+	ES.make_it_end(get_pilot(),src,HBOLT,TRUE)
 
 /obj/complex_vehicle/complex_turret/demolisher
 	name = "Demolisher Turret"
@@ -64,7 +64,7 @@
 	..()
 	DEMO = new /obj/item/device/vehicle_equipment/weaponry/demolisher(src.loc)
 	DEMO.forceMove(src)
-	ES.make_it_end(src, DEMO,TRUE,get_pilot())
+	ES.make_it_end(get_pilot(),src,DEMO,TRUE)
 
 /*
 	LEMAN RUSS BATTLECANNON
@@ -79,7 +79,7 @@
 	..()
 	HBOLT = new /obj/item/device/vehicle_equipment/weaponry/heavybolter(src.loc)
 	HBOLT.forceMove(src)
-	ES.make_it_end(src, HBOLT, TRUE, get_pilot())
+	ES.make_it_end(get_pilot(),src,HBOLT,TRUE)
 
 /obj/complex_vehicle/complex_turret/battlecannon
 	name = "Battlecannon Turret"
@@ -92,4 +92,4 @@
 	..()
 	BATC = new /obj/item/device/vehicle_equipment/weaponry/battlecannon
 	BATC.forceMove(src)
-	ES.make_it_end(src,BATC,TRUE,get_pilot())
+	ES.make_it_end(get_pilot(),src,BATC,TRUE)

@@ -3,6 +3,12 @@
 #define FIRE			2
 #define DOZERBLADE		3
 
+//I am so not fucking fixing this
+#define BATTLECANNON	4
+#define DEMOLISHER		5
+#define PUNISHER		6
+#define HBOLTER			7
+
 #define COMPLEX_VEHICLE_LIGHTS_RANGE_ON 8
 #define COMPLEX_VEHICLE_LIGHTS_RANGE_OFF 3 //one tile beyond the complex_vehicle itself, "cockpit glow"
 
@@ -50,8 +56,14 @@
 	var/pilot_zoom = FALSE //Mostly so we don't fuck this up and let zoomed out people go scott free
 	var/vehicle_zoom //So we can control how much vehicles zoom in and out without extra action code.
 	var/dozer_blade = FALSE //Do we got a dozerblade on our vehicle?
+
+	var/chosen_weapon_overlay //My laziness knows no bounds. Fuck cleaning up the icons again.
 	
 	var/vehicle_broken_husk = FALSE //Are we completely broken to leave a husk?
+
+//Visible Slots - I'm sure theres a better way to do this. But we can optimize later
+	//What is in position 1, or Is there a position 1.
+	var/position_1 = null
 
 /obj/complex_vehicle/New()
 	. = ..()
@@ -67,14 +79,6 @@
 
 	if(ticker && ticker.current_state >= GAME_STATE_PREGAME)
 		initialize()
-
-
-/obj/complex_vehicle/proc/handle_new_overlays()
-	if(!tank_overlays)
-		tank_overlays = new/list(3)
-		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
-		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
-		tank_overlays[DOZERBLADE] = image(icon,icon_state="dozer_blade")
 
 /obj/complex_vehicle/initialize()
 	..()
@@ -96,6 +100,10 @@
 	qdel(tank_overlays[DAMAGE])
 	qdel(tank_overlays[FIRE])
 	qdel(tank_overlays[DOZERBLADE])
+	qdel(tank_overlays[DEMOLISHER])
+	qdel(tank_overlays[BATTLECANNON])
+	qdel(tank_overlays[PUNISHER])
+	qdel(tank_overlays[HBOLTER])
 	tank_overlays = null
 	
 	unlock_atom(GT)
@@ -113,13 +121,38 @@
 
 	vehicle_broken_husk = TRUE
 
-/obj/complex_vehicle/update_icon()
+/obj/complex_vehicle/proc/handle_new_overlays()
 	if(!tank_overlays)
-		tank_overlays = new/list(3)
+		tank_overlays = new/list(7)
 		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
 		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
-		tank_overlays[DOZERBLADE] = image(icon, icon_state="chassis_dozerblade")
+		tank_overlays[DOZERBLADE] = image(icon,icon_state="dozer_blade")
+		tank_overlays[DEMOLISHER] = image(icon,icon_state="chassis_demolisher")
+		tank_overlays[BATTLECANNON] = image(icon,icon_state="chassis_battlecannon")
+		tank_overlays[PUNISHER] = image(icon,icon_state="chassis_punisher")
+		tank_overlays[HBOLTER] = image(icon,icon_state="chassis_hbolter")
 
+/obj/complex_vehicle/proc/handle_weapon_overlays()
+	if(ES.equipment_systems.len)
+		for(var/obj/item/device/vehicle_equipment/weaponry/FIRSTPICK in ES.equipment_systems)
+			chosen_weapon_overlay = FIRSTPICK
+			break
+
+	if(chosen_weapon_overlay)
+		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/demolisher))
+			overlays += tank_overlays[DEMOLISHER]
+		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/battlecannon))
+			overlays += tank_overlays[BATTLECANNON]
+		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/punisher))
+			overlays += tank_overlays[PUNISHER]
+	
+	if(dozer_blade)
+		overlays += tank_overlays[DOZERBLADE]
+	else
+		overlays -= tank_overlays[DOZERBLADE]
+
+/obj/complex_vehicle/update_icon()
+	
 	if(health <= round(initial(health)/2))
 		overlays += tank_overlays[DAMAGE]
 		if(health <= round(initial(health)/4))
@@ -128,11 +161,6 @@
 			overlays -= tank_overlays[FIRE]
 	else
 		overlays -= tank_overlays[DAMAGE]
-
-	if(dozer_blade)
-		overlays += tank_overlays[DOZERBLADE]
-	else
-		overlays -= tank_overlays[DOZERBLADE]
 
 /obj/complex_vehicle/attackby(obj/item/W, mob/user)
 	if(iscrowbar(W))
@@ -151,7 +179,7 @@
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
-				ES.make_it_end(src, W, TRUE, get_pilot())
+				ES.make_it_end(get_pilot(),src,W,TRUE)
 				update_icon()
 				return
 	if(W.force)
@@ -171,7 +199,7 @@
 		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
-			ES.make_it_end(src, SCREE, FALSE, get_pilot())
+			ES.make_it_end(get_pilot(),src,SCREE,FALSE)
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
@@ -287,6 +315,11 @@
 #undef DAMAGE
 #undef FIRE
 #undef DOZERBLADE
+
+#undef BATTLECANNON	
+#undef DEMOLISHER		
+#undef PUNISHER		
+#undef HBOLTER			
 
 #undef COMPLEX_VEHICLE_LIGHTS_RANGE_ON
 #undef COMPLEX_VEHICLE_LIGHTS_RANGE_OFF

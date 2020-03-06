@@ -1,9 +1,18 @@
+
+/*
+	Projectile		---------------------------------------
+				*/
+
 /obj/item/projectile/bullet/heavybolter
-	name = "battlecannon Cannon Shell"
+	name = "heavy bolt round"
 	desc = "This is going to hurt"
 	icon = 'z40k_shit/icons/obj/projectiles.dmi'
 	icon_state = "hbolter"
 	damage = 45
+
+/*
+	Equipment Segment		--------------------------------------
+						*/
 
 /obj/item/device/vehicle_equipment/weaponry/heavybolter
 	name = "Heavy Bolter"

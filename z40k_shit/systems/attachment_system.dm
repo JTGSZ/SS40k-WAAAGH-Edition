@@ -17,6 +17,7 @@
 /obj/item/weapon/attachment
 	name = "the great ancestor"
 	desc = "If you see this object, say something on discord."
+	icon = 'z40k_shit/icons/obj/gun_attachments.dmi'
 	icon_state = "bayonet"
 	item_state = "bayonet"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
@@ -58,8 +59,8 @@
 	name = "scope"
 	desc = "A scope made for scoping out shit."
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
-	icon_state = "bayonet"
-	item_state = "bayonet"
+	icon_state = "scope"
+	item_state = "scope"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
 	force = 10.0
 	throwforce = 10.0

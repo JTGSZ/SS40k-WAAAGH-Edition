@@ -1,3 +1,8 @@
+
+/*
+	Projectile		---------------------------------------
+				*/
+
 /obj/item/projectile/tankshell/demolisher
 	name = "Demolisher Cannon Shell"
 	desc = "This is going to hurt"
@@ -11,6 +16,10 @@
 	exlight = 6
 	exflash = 10
 	kill_count = 10
+
+/*
+	Equipment Segment		--------------------------------------
+						*/
 
 /obj/item/device/vehicle_equipment/weaponry/demolisher
 	name = "Demolisher Cannon"

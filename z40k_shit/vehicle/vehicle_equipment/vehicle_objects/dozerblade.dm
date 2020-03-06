@@ -1,3 +1,6 @@
+/*
+	Equipment Segment		--------------------------------------
+						*/
 
 /obj/item/device/vehicle_equipment/dozer_blade
 	name = "dozer blade"

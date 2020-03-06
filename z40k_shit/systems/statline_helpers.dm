@@ -6,12 +6,23 @@
 //It also helps me do some inhand objects that are large with awkward positions.
 //Its mostly stat_strength because theres too many vars in the codebase that are already named strength.
 /*
+	DESIGN AS OF 3/5/2020
+							*/
+/*
+	Range - 1 to 24
+	Starting Species Cap - 12
+
+----Stats Currently Active--- 
+	Strength
+
+*/
+
+/*
 	STRENGTH
 			*/
 /*
 Basically we return TRUE or FALSE when called, this proc is a appended check.
-// We go from a scale of 1 to 24.
-----Variables----
+---Variables----
 stat_strength - Contained on the mob itself, dynamic built strength. Starting at species core strength.
 base_strength - Contained on the species datum, starting core strength. Transferred to stat strength.
 
@@ -29,7 +40,7 @@ base_strength_check(var/difficulty) - a check of the latent species strength.
 /mob/living/stat_strength_check()
 	return FALSE
 
-/mob/proc/base_strength_check()
+/mob/living/base_strength_check()
 	return FALSE
 
 /mob/living/carbon/stat_strength_check()

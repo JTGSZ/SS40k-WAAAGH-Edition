@@ -1,9 +1,18 @@
+
+/*
+	Projectile		---------------------------------------
+				*/
+
 /obj/item/projectile/bullet/punisherbullet
 	name = "punisher gatling bullet"
 	icon = 'z40k_shit/icons/obj/projectiles.dmi'
 	icon_state = "punisher"
 	damage = 40
 	kill_count = 20
+
+/*
+	Equipment Segment		--------------------------------------
+						*/
 
 /obj/item/device/vehicle_equipment/weaponry/punisher
 	name = "Punisher Gatling Cannon"

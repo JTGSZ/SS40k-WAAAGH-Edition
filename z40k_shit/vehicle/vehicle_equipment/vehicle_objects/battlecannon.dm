@@ -1,3 +1,8 @@
+
+/*
+	Projectile		---------------------------------------
+				*/
+
 /obj/item/projectile/tankshell/battlecannon
 	name = "battlecannon Cannon Shell"
 	desc = "This is going to hurt"
@@ -12,6 +17,9 @@
 	exflash = 5
 	kill_count = 40
 
+/*
+	Equipment Segment		--------------------------------------
+						*/
 
 /obj/item/device/vehicle_equipment/weaponry/battlecannon
 	name = "Battle Cannon"

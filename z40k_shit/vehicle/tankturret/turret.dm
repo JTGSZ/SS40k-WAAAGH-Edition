@@ -1,3 +1,11 @@
+#define DAMAGE			1
+#define FIRE			2
+
+//I am so not fucking fixing this
+#define BATTLECANNON	3
+#define DEMOLISHER		4
+#define PUNISHER		5
+#define HBOLTER			6
 
 //The turrets another object, ayep.
 /obj/complex_vehicle/complex_turret
@@ -26,11 +34,10 @@
 	var/obj/complex_vehicle/complex_chassis/my_boy
 	vehicle_broken_husk = FALSE
 	
-	//A var for turret position 1
-	var/position_1
-	//A var for turret position 2
-	var/position_2
 
+//Visible Slots - I'm sure theres a better way to do this. But we can optimize later
+	//What is in position 1, or Is there a position 1.
+	position_1 = null
 
 /obj/complex_vehicle/complex_turret/New()
 	..()
@@ -42,23 +49,27 @@
 	return
 
 /obj/complex_vehicle/handle_new_overlays()
-//	if(!tank_overlays)
-//		tank_overlays = new/list(3)
-//		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
-//		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
-//		tank_overlays[BATTLECANNON] = image(icon,icon_state)
-
+	if(!tank_overlays)
+		tank_overlays = new/list(6)
+		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+		tank_overlays[DEMOLISHER] = image(icon,icon_state="chassis_demolisher")
+		tank_overlays[BATTLECANNON] = image(icon,icon_state="chassis_battlecannon")
+		tank_overlays[PUNISHER] = image(icon,icon_state="chassis_punisher")
+		tank_overlays[HBOLTER] = image(icon,icon_state="chassis_hbolter")
 
 /obj/complex_vehicle/complex_turret/Destroy()
 	..()
 
 /obj/complex_vehicle/complex_turret/update_icon()
-//	overlays.Cut()
-//	if(ES.equipment_systems)
-//		for(var/obj/item/device/vehicle_equipment/weaponry/COCK in ES.equipment_systems)
-			
-
-
+	if(!tank_overlays)
+		tank_overlays = new/list(6)
+		tank_overlays[DAMAGE] = image(icon, icon_state="chassis_damage")
+		tank_overlays[FIRE] = image(icon, icon_state="chassis_fire")
+		tank_overlays[DEMOLISHER] = image(icon,icon_state="chassis_demolisher")
+		tank_overlays[BATTLECANNON] = image(icon,icon_state="chassis_battlecannon")
+		tank_overlays[PUNISHER] = image(icon,icon_state="chassis_punisher")
+		tank_overlays[HBOLTER] = image(icon,icon_state="chassis_hbolter")
 
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(vehicle_broken_husk)
@@ -101,7 +112,7 @@
 		if(istype(W, /obj/item/device/vehicle_equipment/weaponry))
 			if(user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You insert the [W] into [src].</span>")
-				ES.make_it_end(src, W, TRUE, get_pilot())
+				ES.make_it_end(get_pilot(),src,W,TRUE)
 				update_icon()
 				return
 	if(W.force)
@@ -121,7 +132,7 @@
 		var/obj/item/device/vehicle_equipment/SCREE = PEEPEE
 		if(user.put_in_any_hand_if_possible(SCREE))
 			to_chat(user, "<span class='notice'>You remove \the [SCREE] from the equipment system, and turn any systems off.</span>")
-			ES.make_it_end(src, SCREE, FALSE, get_pilot())
+			ES.make_it_end(get_pilot(),src,SCREE,FALSE)
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>You need an open hand to do that.</span>")
@@ -147,3 +158,11 @@
 				if(COCK.weapon_online)
 					COCK.action(target)
 					sleep(1)
+
+
+#undef DAMAGE
+#undef FIRE
+#undef BATTLECANNON	
+#undef DEMOLISHER		
+#undef PUNISHER		
+#undef HBOLTER	

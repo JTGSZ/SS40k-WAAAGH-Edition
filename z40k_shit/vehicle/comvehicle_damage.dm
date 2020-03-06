@@ -86,6 +86,8 @@
 /obj/complex_vehicle/bullet_act(var/obj/item/projectile/P)
 	if(vehicle_broken_husk)
 		return
+	if(health <= 0)
+		return
 	if(P.damage && !P.nodamage)
 		if(P.damage >= 41)
 			adjust_health(P.damage)
