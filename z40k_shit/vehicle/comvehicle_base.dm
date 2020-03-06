@@ -38,8 +38,6 @@
 	appearance_flags = LONG_GLIDE
 	var/datum/delay_controller/move_delayer = new(0.1, ARBITRARILY_LARGE_NUMBER) //See setup.dm, 12
 	
-	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
-
 	var/mainturret = /obj/complex_vehicle/complex_turret //What turret comes attached to us
 	var/vehicle_width = 3 //We use this for action calculations
 	var/vehicle_height = 3 //Basically its so it knows where the projectiles should appear.
@@ -60,6 +58,14 @@
 	var/chosen_weapon_overlay //My laziness knows no bounds. Fuck cleaning up the icons again.
 	
 	var/vehicle_broken_husk = FALSE //Are we completely broken to leave a husk?
+
+	// ENGINE MASTER
+	var/engine_toggle = 0 //Whether the engine is on or off and our while loop is on.
+	var/acceleration = 500 //Scale of 0 to 1000
+	var/engine_cooldown = FALSE //To stop people from starting it on and off rapidly
+	var/enginemaster_sleep_time = 1 //How long the enginemaster sleeps at the end of its loop.
+	var/movement_delay = 3 //Speed of turning
+	var/movement_warning_oncd = FALSE
 
 //Visible Slots - I'm sure theres a better way to do this. But we can optimize later
 	//What is in position 1, or Is there a position 1.
@@ -120,9 +126,14 @@
 			origin = get_step(origin,EAST)
 		
 		for(var/obj/item/device/vehicle_equipment/bitch in ES.equipment_systems)
+			
 			bitch.forceMove(origin)
-			bitch.throw_at(get_turf(pick(orange(7,src))))
+			ES.make_it_end(src,bitch,FALSE,get_pilot())
+			
+			spawn(1)
+				bitch.throw_at(get_turf(pick(orange(7,src))), 7, 20)
 
+	handle_weapon_overlays()
 	vehicle_broken_husk = TRUE
 
 /obj/complex_vehicle/proc/handle_new_overlays()
@@ -139,6 +150,13 @@
 /obj/complex_vehicle/proc/handle_weapon_overlays()
 	overlays.Cut()
 	
+	chosen_weapon_overlay = null
+	
+	if(dozer_blade)
+		overlays += tank_overlays[DOZERBLADE]
+	else
+		overlays -= tank_overlays[DOZERBLADE]
+
 	for(var/obj/item/device/vehicle_equipment/weaponry/FIRSTPICK in ES.equipment_systems)
 		chosen_weapon_overlay = FIRSTPICK
 		break
@@ -152,14 +170,10 @@
 			overlays += tank_overlays[PUNISHER]
 		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/heavybolter))
 			overlays += tank_overlays[HBOLTER]
-	
-	if(dozer_blade)
-		overlays += tank_overlays[DOZERBLADE]
 	else
-		overlays -= tank_overlays[DOZERBLADE]
+		return FALSE
 
 /obj/complex_vehicle/update_icon()
-	
 	if(health <= round(initial(health)/2))
 		overlays += tank_overlays[DAMAGE]
 		if(health <= round(initial(health)/4))
@@ -270,8 +284,6 @@
 					target_turf = get_edge_target_turf(T, opposite_dirs[dir])
 					L.throw_at(target_turf,100,3)
 
-
-
 /obj/complex_vehicle/proc/move_outside(var/mob/user, var/turf/exit_turf)
 	if(!exit_turf)
 		exit_turf = get_turf(src)
@@ -282,9 +294,6 @@
 		C.changeView(C.view - vehicle_zoom)
 		pilot_zoom = FALSE
 	user.forceMove(exit_turf)
-
-
-
 
 /obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
 	var/pilot = get_pilot()
@@ -307,9 +316,6 @@
 		occupants.Remove(user) //WE TAKIES the user OUT of OCCUPANTS
 		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
 			actions.Remove(user) //They just left we take ALL the shit.
-
-
-
 
 /obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/mygun, var/datum/action/complex_vehicle_equipment/actionid)
 	if(usr!=get_pilot())

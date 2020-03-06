@@ -6,13 +6,6 @@
 	if(Dir && (oldloc != NewLoc))
 		loc.Entered(src, oldloc)
 
-/obj/complex_vehicle
-	var/acceleration = 500 //Scale of 0 to 1000
-	var/engine_cooldown = FALSE //To stop people from starting it on and off rapidly
-	var/enginemaster_sleep_time = 1 //How long the enginemaster sleeps at the end of its loop.
-	var/movement_delay = 3 //Speed of turning
-	var/movement_warning_oncd = FALSE
-
 /obj/complex_vehicle/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(user != get_pilot()) //If user is not pilot return false
 		return 0 //Stop hogging the wheel!

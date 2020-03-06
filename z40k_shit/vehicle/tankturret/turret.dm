@@ -61,6 +61,8 @@
 /obj/complex_vehicle/complex_turret/handle_weapon_overlays()
 	overlays.Cut()
 	
+	chosen_weapon_overlay = null
+	
 	for(var/obj/item/device/vehicle_equipment/weaponry/FIRSTPICK in ES.equipment_systems)
 		chosen_weapon_overlay = FIRSTPICK
 		break
@@ -74,7 +76,12 @@
 			overlays += tank_overlays[PUNISHER]
 		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/heavybolter))
 			overlays += tank_overlays[HBOLTER]
+	else
+		return FALSE
 	
+/obj/complex_vehicle/complex_turret/update_icon()
+	..()
+
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(vehicle_broken_husk)
 		return
@@ -95,9 +102,6 @@
 			src.dir = turn(src.dir, 90) //Tank controls
 
 	move_delayer.delayNext(round(3,world.tick_lag)) //Delay
-
-/obj/complex_vehicle/complex_turret/update_icon()
-	return
 
 /obj/complex_vehicle/complex_turret/attackby(obj/item/W, mob/user)
 	if(iscrowbar(W))
