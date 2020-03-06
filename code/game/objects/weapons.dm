@@ -6,3 +6,7 @@
 	spawn(0)
 		..()
 	return
+
+/obj/item/weapon/New()
+	ATCHSYS = new(src)
+	..()

@@ -1,7 +1,4 @@
-//TODO: Move some of the verbs into action buttons down the road lol.
-
-
-/datum/action/item_action/warhams
+/datum/action/item_action/warhams/attachment
 	icon_icon = 'z40k_shit/icons/generic_action_buttons.dmi' //The symbol file
 	button_icon_state = "default" // The button symbol state
 	button_icon = 'z40k_shit/icons/generic_action_buttons.dmi' //background button file

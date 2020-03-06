@@ -131,15 +131,16 @@
 	
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/attackby(var/obj/item/A as obj, mob/user as mob) //Loading
+	if(A.is_screwdriver(user))
+		to_chat(user, "<span class='notice'>You adjust and repair the [src].</span>")
+		degradation_state = 10
+		setprojtype()
 	if(istype(A, /obj/item/weapon/cell))
 		var/obj/item/weapon/cell/AM = A
 		if(!power_supply)
 			LoadMag(AM, user)
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
-	if(istype(A, /obj/item/weapon/attachment))
-		var/obj/item/weapon/attachment/ATCH = A
-		GunAttachment(ATCH, user)
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
 	if(target)
@@ -175,7 +176,7 @@
 
 	var/bayonet = FALSE
 	var/scope = FALSE
-	for(var/obj/item/weapon/attachment/ATCH in attachments)
+	for(var/obj/item/weapon/attachment/ATCH in ATCHSYS.attachments)
 		if(istype(ATCH, /obj/item/weapon/attachment/bayonet))
 			bayonet = TRUE
 		if(istype(ATCH, /obj/item/weapon/attachment/scope))

@@ -11,4 +11,4 @@
 #define MELEE_DMG 1 //Do we add melee damage on?
 #define MELEE_SOUNDSWAP 2 //Does the melee dmg soundswap occur?
 #define GUN_FIRESOUNDSWAP 4 //Are we a gun with a fire sound that can be swapped?
-#define ZOOM_ACTION 8 //Do we gain a zoom?
+#define TOGGLE_ACTION 8 //Do we gain a zoom?

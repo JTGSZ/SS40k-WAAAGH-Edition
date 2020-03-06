@@ -129,6 +129,8 @@ Burnapack Flamernozzle
 	
 	//Armor busters
 	var/piercingpower = 0 //How much armor a piercing strike ignores on hit
+	
+	var/datum/attachment_system/ATCHSYS //Our equipment controller and action holder.
 
 //Params - I is the object that hits us, param 2 is the person attacking, param 3 is the person who is parrying aka us.
 //Obv our object is src
