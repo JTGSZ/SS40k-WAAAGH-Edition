@@ -8,10 +8,10 @@
 	..()
 	var/obj/complex_vehicle/S = target
 	S.zoom_action()
-	if(S.engine_toggle)
-		button_icon_state = "engine_on"
+	if(S.pilot_zoom)
+		button_icon_state = "zoom"
 	else
-		button_icon_state = "engine_off"
+		button_icon_state = "unzoom"
 	UpdateButtonIcon()
 
 /obj/complex_vehicle/proc/zoom_action()

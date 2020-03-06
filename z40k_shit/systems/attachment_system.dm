@@ -165,7 +165,7 @@
 			src.hitsound = ATCH.hitsound
 		if(ATCH.atch_effect_flags & GUN_FIRESOUNDSWAP) //Swap gunfire noises
 			src.fire_sound = ATCH.fire_sound
-		if(ATCH.atch_effect_flags & VERB_OBJ) //Add the verb to the source object
+		if(ATCH.atch_effect_flags & ZOOM_ACTION) //Add the verb to the source object
 			src.verbs += ATCH.atch_verb
 
 	if(!onORoff) //If we are going off
@@ -175,5 +175,5 @@
 			src.hitsound = initial(src.hitsound)
 		if(ATCH.atch_effect_flags & GUN_FIRESOUNDSWAP) //Set fire_sound to initial sound.
 			src.fire_sound = initial(src.fire_sound)
-		if(ATCH.atch_effect_flags & VERB_OBJ) //Remove verb from source object.
-			src.verbs -= ATCH.atch_verb
+		if(ATCH.atch_effect_flags & ZOOM_ACTION) //Remove verb from source object.
+			src.scoped = TRUE

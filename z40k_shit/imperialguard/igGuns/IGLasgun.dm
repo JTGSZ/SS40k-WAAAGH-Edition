@@ -26,6 +26,7 @@
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
 	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
+	var/scoped = FALSE //Are we zoomed in?
 	defective = 1
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/examine(mob/user)

@@ -324,11 +324,11 @@
 		if(mygun.id == actionid)
 			if(weapon_toggle)
 				mygun.weapon_online = TRUE
-				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched off.</span>")
+				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched on.</span>")
 				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 			else
 				mygun.weapon_online = FALSE
-				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched on.</span>")
+				to_chat(src.get_pilot(), "<span class='notice'>[mygun.name] switched off.</span>")
 				playsound(src, 'sound/items/flashlight_on.ogg', 50, 1)
 
 
