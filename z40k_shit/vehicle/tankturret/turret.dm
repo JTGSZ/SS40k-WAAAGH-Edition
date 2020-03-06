@@ -72,6 +72,8 @@
 			overlays += tank_overlays[BATTLECANNON]
 		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/punisher))
 			overlays += tank_overlays[PUNISHER]
+		if(istype(chosen_weapon_overlay, /obj/item/device/vehicle_equipment/weaponry/heavybolter))
+			overlays += tank_overlays[HBOLTER]
 	
 /obj/complex_vehicle/complex_turret/relaymove(mob/user, direction) //Relaymove basically sends the user and the direction when we hit the buttons
 	if(vehicle_broken_husk)

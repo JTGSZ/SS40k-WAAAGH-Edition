@@ -44,24 +44,30 @@
 		switch(dir) //We enter a switch based on the direction
 			if(NORTH) //If its north
 				changedloc_variant = get_turf(my_atom)
-				for(var/p=1 to DICKMASTER.vehicle_height+1) //Our actual object will always be in the bottom left corner
+				for(var/p=1 to DICKMASTER.vehicle_height) //Our actual object will always be in the bottom left corner
 					changedloc_variant = get_step(changedloc_variant, NORTH) //Then we get the turf to the north of that one
 				changedloc_variant = get_step(changedloc_variant, EAST)
+				if(my_atom.acceleration >= 600)
+					changedloc_variant = get_step(changedloc_variant,NORTH)
 			if(SOUTH)
 				changedloc_variant = get_turf(my_atom)
 				changedloc_variant = get_step(changedloc_variant, SOUTH)
-				changedloc_variant = get_step(changedloc_variant, SOUTH)
 				changedloc_variant = get_step(changedloc_variant, EAST)
+				if(my_atom.acceleration >= 600)
+					changedloc_variant = get_step(changedloc_variant,SOUTH)
 			if(EAST)
 				changedloc_variant = get_turf(my_atom)
-				for(var/q=1 to DICKMASTER.vehicle_width+1)
+				for(var/q=1 to DICKMASTER.vehicle_width)
 					changedloc_variant = get_step(changedloc_variant, EAST)
 				changedloc_variant = get_step(changedloc_variant, NORTH)
+				if(my_atom.acceleration >= 600)
+					changedloc_variant = get_step(changedloc_variant,EAST)
 			if(WEST)
 				changedloc_variant = get_turf(my_atom)
 				changedloc_variant = get_step(changedloc_variant, WEST)
-				changedloc_variant = get_step(changedloc_variant, WEST)
 				changedloc_variant = get_step(changedloc_variant, NORTH)
+				if(my_atom.acceleration >= 600)
+					changedloc_variant = get_step(changedloc_variant,WEST)
 		if(!targloc || !curloc)
 			continue
 		if(targloc == curloc)

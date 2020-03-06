@@ -86,6 +86,8 @@
 	if(acceleration <= 300) //If we are in reverse
 		Move(get_step(src,turn(src.dir, -180)), src.dir)
 		acceleration += 5
+	
+	GT.acceleration = acceleration
 
 /obj/complex_vehicle/proc/accelerationscale()
 	switch(acceleration)
@@ -112,4 +114,4 @@
 			movement_delay = 2
 		if(900 to 1000)
 			enginemaster_sleep_time = 1
-			movement_delay = 1
+			movement_delay = 2
