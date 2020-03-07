@@ -20,10 +20,10 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/fire_sound //Holder for firesound path on attachments, mostly for the flag.
 	attack_verb = list("slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
+	var/my_atom //Basically a holder for what object we are attached to at the moment.
 	
 	//---------ATTACHMENT CONTROL VARIABLES---------//
 	var/atch_total_limit = 0 //0 is infinity, basically how many of an attachment you can have.
 	var/atch_effect_flags = 0 //FLAGS go here to determine how the effects system handles something.
 	var/atch_possible = TRUE //Can we even attach this to the other object?
 	var/tied_action //The action we will attach to the object
-	

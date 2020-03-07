@@ -10,4 +10,4 @@
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
-
+	tied_action = /datum/action/item_action/warhams/attachment/scope_zoom

@@ -7,6 +7,3 @@
 		..()
 	return
 
-/obj/item/weapon/New()
-	ATCHSYS = new(src)
-	..()

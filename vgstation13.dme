@@ -2664,6 +2664,7 @@
 #include "z40k_shit\systems\statline_helpers.dm"
 #include "z40k_shit\systems\attachment_system\master_control.dm"
 #include "z40k_shit\systems\attachment_system\attachment_actions\atch_action_parent.dm"
+#include "z40k_shit\systems\attachment_system\attachment_actions\scope_zoom.dm"
 #include "z40k_shit\systems\attachment_system\attachments\atch_parent.dm"
 #include "z40k_shit\systems\attachment_system\attachments\bayonet.dm"
 #include "z40k_shit\systems\attachment_system\attachments\scope.dm"

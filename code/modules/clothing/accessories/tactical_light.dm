@@ -6,7 +6,7 @@
 	var/obj/item/device/flashlight/tactical/source_light
 	ignoreinteract = TRUE
 
-/obj/item/clothing/accessory/taclight/New()
+/obj/item/clothing/accessory/taclight/New() 
 	..()
 	if (!source_light)
 		source_light = new /obj/item/device/flashlight/tactical/
