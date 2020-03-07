@@ -1,3 +1,4 @@
+
 /*
  * Outfit datums
  * For equipping characters with special provisions for race and so on
@@ -63,8 +64,8 @@
 	var/pda_type = null
 	var/id_type = null
 
-	var/slot_l_hand = null
-	var/slot_r_hand = null
+	//var/slot_l_hand = null
+	//var/slot_r_hand = null
 
 	// For job-slot combinations that require a bit more work than just equipping a string
 	// Formatting  : 
@@ -87,42 +88,51 @@
 	return
 
 /datum/outfit/proc/equip(var/mob/living/carbon/human/H)
-	if (!H || !H.mind)
+	if(!H || !H.mind)
 		return
 	
 	pre_equip(H)
-	var/species = H.species.type
-	var/list/L = items_to_spawn[species]
-	if (!L) // Couldn't find the particular species
+	var/species = H.species.type //Species is the species type of the human we have inputted in.
+	var/list/L = items_to_spawn[species] //the list of L is the items to spawn + species key
+	if(!L) // Couldn't find the particular species
 		species = "Default"
 		L = items_to_spawn["Default"]
 
-	for (var/slot in L)
+	for(var/slot in L) //For var/slot in items to spawn Species Key
 
 		var/list/snowflake_items = special_snowflakes[species]
 
-		if (snowflake_items && (slot in snowflake_items[H.mind.role_alt_title])) // ex: special_snowflakes["Vox"]["Emergency responder"].
+		if(snowflake_items && (slot in snowflake_items[H.mind.role_alt_title])) // ex: special_snowflakes["Vox"]["Emergency responder"].
 			special_equip(H.mind.role_alt_title, slot, 	H)
 			continue
-
-		var/obj_type = L[slot]
-		if (islist(obj_type)) // Special objects for alt-titles.
+	
+		var/obj_type = L[slot] //Obj type is species tied key list and then the slot key
+		if(islist(obj_type)) // Special objects for alt-titles, if the obj type is another list.
 			var/list/L2 = obj_type
 			obj_type = L2[H.mind.role_alt_title]
-		if (!obj_type)
+			if(islist(obj_type))
+				obj_type = pick(obj_type)
+		if(!obj_type)
 			continue
 		slot = text2num(slot)
-		H.equip_to_slot_or_del(new obj_type(H), slot, TRUE)
+		if(slot == 19)
+			H.put_in_hand(GRASP_LEFT_HAND, new obj_type(H))
+		else if(slot == 20)
+			H.put_in_hand(GRASP_RIGHT_HAND, new obj_type(H))
+		else
+			H.equip_to_slot_or_del(new obj_type(H), slot, TRUE)
 	
 	if(!no_backpack)
 		equip_backbag(H, species)
 
-	if(slot_r_hand) // So we can put things into hands or something easily.
+
+	/*if(slot_r_hand) // So we can put things into hands or something easily.
 		H.put_in_hand(GRASP_RIGHT_HAND, new slot_r_hand(H))
 	if(slot_l_hand)
 		H.put_in_hand(GRASP_LEFT_HAND, new slot_l_hand(H))
-
-	for (var/imp_type in implant_types)
+	*/
+	
+	for(var/imp_type in implant_types)
 		var/obj/item/weapon/implant/I = new imp_type(H)
 		I.imp_in = H
 		I.implanted = 1
@@ -136,13 +146,13 @@
 	give_disabilities_equipment(H)
 	H.update_icons()
 	//Handle faction shit here
-	spawn(5)
+	spawn(4 SECONDS)
 		handle_faction(H)
 
 /datum/outfit/proc/equip_backbag(var/mob/living/carbon/human/H, var/species)
 	// -- Backbag
 	var/obj/item/chosen_backpack = null
-	if (use_pref_bag)
+	if(use_pref_bag)
 		var/backbag_string = num2text(H.backbag)
 		chosen_backpack = backpack_types[backbag_string]
 	else
@@ -150,14 +160,14 @@
 
 	// -- The (wo)man has a backpack, let's put stuff in them
 
-	if (chosen_backpack)
+	if(chosen_backpack)
 		H.equip_to_slot_or_del(new chosen_backpack(H), slot_back, 1)
-		for (var/item in items_to_collect)
+		for(var/item in items_to_collect)
 			var/item_type = item
 			if (islist(item)) // For alt-titles.
 				item_type = item[H.mind.role_alt_title]
 			H.equip_or_collect(new item_type(H.back), slot_in_backpack)
-		if (equip_survival_gear.len)
+		if(equip_survival_gear.len)
 			if (ispath(equip_survival_gear[species]))
 				H.equip_or_collect(new equip_survival_gear(H.back), slot_in_backpack)
 		else
@@ -167,34 +177,34 @@
 	
 	else
 		var/obj/item/weapon/storage/box/survival/pack
-		if (equip_survival_gear.len)
-			if (ispath(equip_survival_gear[species]))
+		if(equip_survival_gear.len)
+			if(ispath(equip_survival_gear[species]))
 				pack = new equip_survival_gear(H)
 				H.put_in_hand(GRASP_RIGHT_HAND, pack)
 		else
 			pack = new H.species.survival_gear(H)
 			H.put_in_hand(GRASP_RIGHT_HAND, pack)
-		for (var/item in items_to_collect)
-			if (items_to_collect[item] == "Surival Box" && pack)
+		for(var/item in items_to_collect)
+			if(items_to_collect[item] == "Surival Box" && pack)
 				new item(pack)
 			else
-				if (!isnum(items_to_collect[item])) // Not a number : it's a slot
+				if(!isnum(items_to_collect[item])) // Not a number : it's a slot
 					var/item_slot = text2num(items_to_collect[item])
-					if (item_slot)
+					if(item_slot)
 						H.equip_or_collect(new item(get_turf(H)), item_slot)
 					else
 						new item(get_turf(H))
 				else
 					var/hand_slot = items_to_collect[item]
-					if (hand_slot) // ie, if it's an actual number
+					if(hand_slot) // ie, if it's an actual number
 						H.put_in_hand(hand_slot, new item)
 
 /datum/outfit/proc/species_final_equip(var/mob/living/carbon/human/H)
-	if (H.species)
+	if(H.species)
 		H.species.final_equip(H)
 
 /datum/outfit/proc/spawn_id(var/mob/living/carbon/human/H, rank)
-	if (!associated_job)
+	if(!associated_job)
 		CRASH("Outfit [outfit_name] has no associated job, and the proc to spawn the ID is not overriden.")
 	var/datum/job/concrete_job = new associated_job
 

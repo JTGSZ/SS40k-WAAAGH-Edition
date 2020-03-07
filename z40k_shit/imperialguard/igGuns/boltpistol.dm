@@ -18,4 +18,4 @@
 
 /obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol/update_icon()
 	..() //Yeah Sorry, just basic shit here man, this is the only commented section you are getting lol.
-	icon_state = "boltpistolmag[stored_magazine ? "" : "-e"]"
+	icon_state = "boltpistol[stored_magazine ? "" : "-e"]"

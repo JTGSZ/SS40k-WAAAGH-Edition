@@ -42,11 +42,8 @@
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/comissarcoat,
 			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol,
+			slot_l_hand = /obj/item/weapon/complexweapon/chainsword
 		),
-	)
-
-	items_to_collect = list(
-		/obj/item/weapon/complexweapon/chainsword = GRASP_LEFT_HAND
 	)
 
 	implant_types = list(

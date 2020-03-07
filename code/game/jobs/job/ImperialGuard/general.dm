@@ -44,9 +44,6 @@
 		)
 	)
 	
-	items_to_collect = list(
-	)
-
 	implant_types = list(
 		/obj/item/weapon/implant/loyalty/,
 	)

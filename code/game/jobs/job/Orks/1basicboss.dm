@@ -3,8 +3,8 @@
 	flag = ORKWARBOSS
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 3
+	total_positions = 1
+	spawn_positions = 1
 	wage_payout = 0
 	supervisors = "YA SELF"
 	selection_color = "#FFB5B5"
@@ -39,6 +39,7 @@
 			slot_head_str = /obj/item/clothing/head/ork/warboss/bossarmorhelmet,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/ork/warboss/platearmor,
 			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+			slot_r_hand = /obj/item/weapon/complexweapon/boss_choppa
 		)
 	)
 
@@ -51,5 +52,5 @@
 /datum/outfit/orkwarboss/handle_faction(var/mob/living/carbon/human/H)
 	var/datum/role/ork_raider/new_boss = new
 	new_boss.AssignToRole(H.mind,TRUE)
-	new_boss.mind_storage(M.mind)
+	new_boss.mind_storage(H.mind)
 

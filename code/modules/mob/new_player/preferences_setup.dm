@@ -398,7 +398,11 @@
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_armor1"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_belt"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearWARBOSSMOB.dmi', "warboss_gloves"), ICON_OVERLAY)
-
+				if(ORKTANKBUSTA)
+					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhat1"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "rokkit_launcha"), ICON_OVERLAY)
 
 	// Observers get tourist outfit.
 	else
