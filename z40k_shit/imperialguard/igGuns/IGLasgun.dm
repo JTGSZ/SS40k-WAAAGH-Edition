@@ -11,6 +11,10 @@
 	maxcharge = 4500
 	starting_materials = list(MAT_IRON = 700, MAT_GLASS = 80)
 
+/*
+	LASGUN OBJECT
+					*/
+
 /obj/item/weapon/gun/energy/complexweapon/lasgun
 	name = "M-Galaxy Pattern Lasgun"
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
@@ -30,13 +34,6 @@
 	actions_types = (/datum/action/item_action/warhams/adjust_power)
 	defective = 1
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/examine(mob/user)
-	..()
-	switch(gunheat)
-		if(60 to 120)
-			to_chat(user, "The [src] is pretty hot.")
-		if(121 to 151)
-			to_chat(user, "<span class='warning'>The [src] is VERY hot.</span>")
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/New()
 	..()
@@ -47,6 +44,20 @@
 	processing_objects.Remove(src)
 	..()
 
+/*
+	LASGUN EXAMINE
+					*/
+/obj/item/weapon/gun/energy/complexweapon/lasgun/examine(mob/user)
+	..()
+	switch(gunheat)
+		if(60 to 120)
+			to_chat(user, "The [src] is pretty hot.")
+		if(121 to 151)
+			to_chat(user, "<span class='warning'>The [src] is VERY hot.</span>")
+
+/*
+	RENAME GUN
+				*/
 /obj/item/weapon/gun/energy/complexweapon/lasgun/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
 	set category = "Object"
@@ -63,6 +74,9 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
+/*
+	LASGUN POWER ADJUSTMENT ACTION AND PROC HANDLING
+													*/
 /datum/action/item_action/warhams/adjust_power //This adjusts the strength of the lasgun shot.
 	name = "Adjust Power"
 	button_icon_state = "power_setting"
@@ -112,6 +126,10 @@
 	if(gunheat > 0) //If we are greater than 0
 		gunheat -= 5 //We go down by 5 a tick.
 
+/*
+	FIRINg PROCS
+				*/
+
 /obj/item/weapon/gun/energy/complexweapon/lasgun/process_chambered()
 	if(in_chamber)
 		return 1
@@ -130,8 +148,16 @@
 			gunheat += 30
 	in_chamber = new projectile_type(src)
 	return 1
-	
 
+/obj/item/weapon/gun/energy/complexweapon/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+	var/atom/newtarget = target
+	if(!wielded)
+		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
+	..(newtarget,user,params,reflex,struggle)
+
+/*
+	ITEM INTERACTIONS
+					*/
 /obj/item/weapon/gun/energy/complexweapon/lasgun/attackby(var/obj/item/A as obj, mob/user as mob) //Loading
 	if(A.is_screwdriver(user))
 		to_chat(user, "<span class='notice'>You adjust and repair the [src].</span>")
@@ -157,6 +183,10 @@
 	if(!wielded)
 		wield(user)
 		src.update_wield(user)
+
+/*
+	ICON HANDLING
+					*/
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/update_icon() // welp
 	var/ratio = 0
@@ -196,6 +226,11 @@
 	item_state = "lasgun[wielded ? "-unwielded" : "wielded"][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"]"
 
 
+
+/*
+	MAGAZINE HANDLING
+						*/
+
 /obj/item/weapon/gun/energy/complexweapon/lasgun/proc/LoadMag(var/obj/item/weapon/cell/AM, var/mob/user)
 	if(istype(AM, /obj/item/weapon/cell) && !power_supply)
 		if(user)
@@ -222,6 +257,9 @@
 		return 1
 	return 0
 
+/*
+	LASGUN DEGRADATION SYSTEM
+								*/
 
 //In the failure check we will account for heat failures, along with weapon degradation.
 /obj/item/weapon/gun/energy/complexweapon/lasgun/failure_check(var/mob/living/carbon/human/M)
