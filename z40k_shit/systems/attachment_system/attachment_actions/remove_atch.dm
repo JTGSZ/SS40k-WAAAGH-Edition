@@ -1,21 +1,19 @@
-/obj/item/weapon/gun/energy/complexweapon/lasgun/verb/remove_attachment() 
-	set name = "Remove Attachment"
-	set category = "Object"
-	set desc = "Remove an attachment from your gun."
+			
+/datum/action/item_action/warhams/attachment/remove_atch
+	name = "Un-attach Attachment"
+	button_icon_state = "unattach"
 
-	var/mob/M = usr
-	if(!M.mind)
-		return
+/datum/action/item_action/warhams/attachment/remove_atch/Trigger()
+	my_atom.remove_atch(owner)
 
-	if(!attachments.len)
-		to_chat(M, "<span class='notice'> [src] appears to be devoid of anything attached to it.</span>")
+/obj/item/weapon/proc/remove_atch(var/mob/user)
+	if(!ATCHSYS.attachments.len)
+		to_chat(user, "<span class='notice'> [src] appears to be devoid of anything attached to it.</span>")
 		return
-	else if(attachments.len)
-		var/remove_acc = input(M,"Which attachment do you want to remove?", "", "Cancel") as null|anything in attachments
+	else if(ATCHSYS.attachments.len)
+		var/remove_acc = input(M,"Which attachment do you want to remove?", "", "Cancel") as null|anything in ATCHSYS.attachments
 		if(remove_acc != "Cancel")
 			var/obj/item/weapon/attachment/ATCH = remove_acc
-			M.put_in_hands(ATCH) //We remove the accessory picked from contents
-			attachments -= ATCH
-			AttachmentEffect(ATCH,M,0,0) //We are removing object, user/M did it, it is false, no special handling
+			ATCHSYS.attachment_handler(ATCH,FALSE,user)
+			user.put_in_hands(ATCH) //We remove the accessory picked from contents
 			return
-			

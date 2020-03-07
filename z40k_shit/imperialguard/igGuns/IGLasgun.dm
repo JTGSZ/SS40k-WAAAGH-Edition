@@ -27,6 +27,7 @@
 	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
 	var/scoped = FALSE //Are we zoomed in?
+	actions_types = (/datum/action/item_action/warhams/adjust_power)
 	defective = 1
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/examine(mob/user)
@@ -62,16 +63,16 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/verb/adjust_power() //This adjusts the strength of the lasgun shot.
-	set name = "Adjust Power Setting"
-	set category = "Object"
-	set desc = "Click to adjust the lasgun shot strength."
+/datum/action/item_action/warhams/adjust_power //This adjusts the strength of the lasgun shot.
+	name = "Adjust Power"
+	button_icon_state = "power_setting"
 
-	var/mob/M = usr
-	if(!M.mind)
-		return 0
+/datum/action/item_action/warhams/adjust_power/Trigger()
+	var/obj/item/weapon/gun/energy/complexweapon/lasgun/LSG = target
+	LSG.adjust_power(owner)
 
-	var/chargestrength = input(usr, "Adjust Power Settings (Warning: Mishandling can result in misfires)", "Lasgun Power Setting") in list("Low Power","Medium Power","Maximum Power")
+/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/adjust_power(var/mob/user)
+	var/chargestrength = input(user, "Adjust Power Settings (Warning: Mishandling can result in misfires)", "Lasgun Power Setting") in list("Low Power","Medium Power","Maximum Power")
 	if(chargestrength)
 		if(chargestrength == "Low Power")
 			src.lasgun_shot_strength = 1 //We set strength
