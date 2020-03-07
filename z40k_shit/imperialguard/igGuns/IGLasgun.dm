@@ -26,7 +26,7 @@
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
 	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
-	var/scoped = FALSE //Are we zoomed in?
+	flags = FPRINT | TWOHANDABLE
 	actions_types = (/datum/action/item_action/warhams/adjust_power)
 	defective = 1
 
@@ -68,6 +68,7 @@
 	button_icon_state = "power_setting"
 
 /datum/action/item_action/warhams/adjust_power/Trigger()
+	..()
 	var/obj/item/weapon/gun/energy/complexweapon/lasgun/LSG = target
 	LSG.adjust_power(owner)
 
@@ -143,14 +144,19 @@
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_hand(mob/user)
 	if(target)
 		return ..()
 	if(power_supply) 
 		RemoveMag(user)
 	else
 		to_chat(user, "<span class='warning'>There's no magazine loaded in \the [src]!</span>")
-	
+
+
+/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+	if(!wielded)
+		wield(user)
+		src.update_wield(user)
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/update_icon() // welp
 	var/ratio = 0
