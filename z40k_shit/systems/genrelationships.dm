@@ -61,6 +61,8 @@
 
 		spawn(5 SECONDS)
 			print_to_mind()
+	else
+		return 0
 
 
 /datum/relationships/proc/create_relationship(var/mob/living/carbon/human/mob1, var/mob/living/carbon/human/mob2)
