@@ -19,7 +19,6 @@
 	var/list/tier_upper_nobles = list()
 	var/list/tier_highest = list()
 
-
 	for(var/mob/living/carbon/human/H in player_list)
 
 		players += H
@@ -59,14 +58,17 @@
 			if(prob(probability))
 				create_relationship(H,HH)
 
+	spawn(5 SECONDS)
+		print_to_mind()
+
 
 /datum/relationships/proc/create_relationship(var/mob/living/carbon/human/mob1, var/mob/living/carbon/human/mob2)
-	var/mob1_age = mob1.age
-	var/mob2_age = mob2.age
-	var/difference = abs(mob1_age - mob2_age)
+	var/mob1_age = mob1.age //Mob 1's age
+	var/mob2_age = mob2.age //Mob 2's age
+	var/difference = abs(mob1_age - mob2_age) //difference is absolute number of m1 age minus m2 age
 
-	if(difference <= 15)
-		if(mob1_age >= 16 && mob2_age >= 16)
+	if(difference <= 15) //if 15 is greater than or equal to the difference
+		if(mob1_age >= 16 && mob2_age >= 16) //if mob1's age is greater than or equal to 16 and mob 2's age is greater than or equal to 16
 			if(prob(50))
 				return add_relationship(mob1, mob2, "mates")
 			else if(prob(30))
@@ -90,7 +92,7 @@
 
 	var/list/ref = list()
 
-	switch (relationship)
+	switch(relationship)
 		if("mates")
 			ref = relationships_mates
 		if("siblings")
@@ -119,13 +121,18 @@
 				if(mob1_gender == MALE && mob2_gender == FEMALE)
 					mob1.relationships[mob2.real_name] = "Wife"
 					mob2.relationships[mob1.real_name] = "Husband"
+					mob1.real_name = "[mob1.first_name]" + " " + "[mob2.last_name]"
 				else
 					mob1.relationships[mob2.real_name] = "Husband"
 					mob2.relationships[mob1.real_name] = "Wife"
+					mob2.real_name = "[mob2.first_name]" + " " + "[mob1.last_name]"		
 				return 1
+	
 		if("siblings") //ONII CHAN
 			mob1.relationships[mob2.real_name] = mob2_gender == FEMALE ? "Sister" : "Brother"
 			mob2.relationships[mob1.real_name] = mob1_gender == FEMALE ? "Sister" : "Brother"
+			if(prob(20))
+				mob1.real_name = "[mob1.first_name]" + " " + "[mob2.last_name]"
 			return 1
 		if("cousins")
 			mob1.relationships[mob2.real_name] = "Cousin"
@@ -138,4 +145,11 @@
 		if("parent/child")
 			mob1.relationships[mob2.real_name] = mob2_gender == FEMALE ? "Daughter" : "Son"
 			mob2.relationships[mob1.real_name] = mob1_gender == FEMALE ? "Mother" : "Father"
+			mob1.real_name = "[mob1.first_name]" + " " + "[mob2.last_name]"
 			return 1
+
+/datum/relationships/proc/print_to_mind()
+	for(var/mob/living/carbon/human/H in players)
+		for(var/mob/living/carbon/human/HH in H.relationships)
+			to_chat(H.mind, "[HH.real_name] is your [H.relationships[HH.real_name]].")
+			H.store_memory("[HH.real_name] is your [H.relationships[HH.real_name]].")
