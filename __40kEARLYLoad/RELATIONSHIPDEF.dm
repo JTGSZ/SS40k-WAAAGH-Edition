@@ -6,7 +6,6 @@
 #define HUMAN_UNCOMMON 4
 #define HUMAN_COMMON 5
 
-#define TIER_XENO_ONE 6
-#define TIER_XENO_TWO 7
-#define TIER_XENO_THREE 8
+#define XENO_NO_RELATIONS 6
+
 //you can be related to anyone with a tier the same as yours, sometimes someone with +-1 yours.

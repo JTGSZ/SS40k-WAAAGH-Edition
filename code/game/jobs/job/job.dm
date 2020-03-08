@@ -15,6 +15,9 @@
 	//Players will be allowed to spawn in as jobs that are set to "Station"
 	var/faction = "None"
 
+	//Handles how often they will be added to the relationship generation system.
+	var/relationship_chance
+
 	//How many players can be this job
 	var/total_positions = 0
 	var/xtra_positions = 0

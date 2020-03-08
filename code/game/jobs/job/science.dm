@@ -23,6 +23,8 @@
 	pdaslot=slot_belt
 	pdatype=/obj/item/device/pda/heads/rd
 
+	relationship_chance = HUMAN_COMMON
+
 /datum/job/rd/equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return 0

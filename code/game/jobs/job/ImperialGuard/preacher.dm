@@ -16,6 +16,8 @@
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/preacher
 
+	relationship_chance = HUMAN_SOMEWHAT_RARE
+
 /datum/outfit/preacher
 
 	outfit_name = "Preacher"

@@ -18,6 +18,7 @@
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/general
 
+	relationship_chance = HUMAN_SUPER_RARE
 
 /datum/job/general/get_access()
 	return get_all_accesses()

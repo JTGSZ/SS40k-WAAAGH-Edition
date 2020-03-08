@@ -14,6 +14,8 @@
 	landmark_job_override = TRUE
 	outfit_datum = /datum/outfit/orkwarboss
 
+	relationship_chance = XENO_NO_RELATIONS
+
 /datum/outfit/orkwarboss
 
 	outfit_name = "Ork Warboss"

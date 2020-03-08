@@ -16,6 +16,8 @@
 
 	outfit_datum = /datum/outfit/assistant
 
+	relationship_chance = HUMAN_COMMON
+
 /datum/job/assistant/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.put_in_hands(new /obj/item/weapon/storage/toolbox/mechanical(get_turf(H)))

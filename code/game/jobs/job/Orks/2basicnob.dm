@@ -15,6 +15,8 @@
 	alt_titles = list("Ork Nob")
 	outfit_datum = /datum/outfit/orknob
 
+	relationship_chance = XENO_NO_RELATIONS
+
 /datum/outfit/orknob
 
 	outfit_name = "Ork Nob"

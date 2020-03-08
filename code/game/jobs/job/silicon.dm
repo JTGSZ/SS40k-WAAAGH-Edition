@@ -12,7 +12,8 @@
 	minimal_player_age = 30
 	must_be_map_enabled = TRUE
 
-
+	relationship_chance = XENO_NO_RELATIONS
+	
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
 			return 0
@@ -33,6 +34,8 @@
 	minimal_player_age = 10
 	must_be_map_enabled = TRUE
 
+	relationship_chance = XENO_NO_RELATIONS
+
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
 			return 0
@@ -51,6 +54,8 @@
 	selection_color = "#ddffdd"
 	no_id = 1
 	must_be_map_enabled = TRUE
+
+	relationship_chance = XENO_NO_RELATIONS
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

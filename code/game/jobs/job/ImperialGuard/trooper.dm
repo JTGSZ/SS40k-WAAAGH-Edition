@@ -17,6 +17,8 @@
 	species_whitelist = list("Human")
 	landmark_job_override = TRUE
 
+	relationship_chance = HUMAN_COMMON
+
 //--------------Trooper Outfit Datum----------------//
 /datum/outfit/IG_cadian_trooper
 

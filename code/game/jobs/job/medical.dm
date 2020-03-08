@@ -13,6 +13,8 @@
 	alt_titles = list("Emergency Physician", "Nurse", "Surgeon")
 	outfit_datum = /datum/outfit/doctor
 
+	relationship_chance = HUMAN_COMMON
+
 /datum/job/doctor/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.equip_or_collect(new /obj/item/weapon/storage/belt/medical(H.back), slot_in_backpack)

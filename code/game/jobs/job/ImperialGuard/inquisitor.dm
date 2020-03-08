@@ -16,6 +16,8 @@
 	species_whitelist = list("Human")
 	landmark_job_override = TRUE
 
+	relationship_chance = HUMAN_NO_RELATIONS
+
 //-------------Inquisitor Outfit Datums--------------//
 /datum/outfit/inquisitor
 

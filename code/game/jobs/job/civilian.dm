@@ -15,6 +15,8 @@
 	pdaslot=slot_belt
 	pdatype=/obj/item/device/pda/bar
 
+	relationship_chance = HUMAN_COMMON
+
 /datum/job/bartender/equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return 0
@@ -79,6 +81,8 @@
 	pdaslot=slot_belt
 	pdatype=/obj/item/device/pda/chef
 
+	relationship_chance = HUMAN_COMMON
+
 /datum/job/chef/equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return 0
@@ -127,6 +131,8 @@
 
 	pdaslot=slot_belt
 	pdatype=/obj/item/device/pda/clown
+
+	relationship_chance = HUMAN_COMMON
 
 /datum/job/clown/equip(var/mob/living/carbon/human/H)
 	if(!H)
@@ -193,6 +199,8 @@
 
 	pdaslot=slot_belt
 	pdatype=/obj/item/device/pda/mime
+
+	relationship_chance = HUMAN_COMMON
 
 /datum/job/mime/equip(var/mob/living/carbon/human/H)
 	if(!H)
@@ -283,6 +291,8 @@
 
 	pdaslot=slot_belt
 	pdatype=/obj/item/device/pda/janitor
+
+	relationship_chance = HUMAN_COMMON
 
 /datum/job/janitor/equip(var/mob/living/carbon/human/H)
 	if(!H)

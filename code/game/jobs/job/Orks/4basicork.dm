@@ -15,6 +15,8 @@
 	alt_titles = list("Slugga Boy", "Shoota Boy", "Kommando", "Burna Boy", "Storm Boy")
 	outfit_datum = /datum/outfit/basicork
 
+	relationship_chance = XENO_NO_RELATIONS
+
 /datum/outfit/basicork
 
 	outfit_name = "Basic Ork"

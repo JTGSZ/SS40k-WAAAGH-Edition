@@ -19,6 +19,8 @@
 
 	outfit_datum = /datum/outfit/commissar
 
+	relationship_chance = HUMAN_NO_RELATIONS
+
 //-------------Commissar Outfit Datum--------------//
 /datum/outfit/commissar
 

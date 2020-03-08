@@ -27,6 +27,7 @@
 
 	no_headset = 1
 
+	relationship_chance = XENO_NO_RELATIONS
 	//Both Restricted: Revolution, Revsquad
 	//Merchant Restricted: Double Agent, Vampire, Cult
 
