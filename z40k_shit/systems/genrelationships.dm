@@ -48,7 +48,7 @@
 
 /datum/relationships/proc/form_relationships(var/list/list1, var/list/list2, var/common = 1)
 	var/probability = 0
-	if(!players.len)
+	if(players.len)
 		if(common)
 			probability = 100/players.len/2
 		else
