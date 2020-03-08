@@ -82,6 +82,8 @@
 	var/stuttering = null	//Carbon
 	var/slurring = null		//Carbon
 	var/real_name = null
+	var/first_name = null
+	var/last_name = null
 	var/flavor_text = ""
 	var/med_record = ""
 	var/sec_record = ""

@@ -260,12 +260,24 @@ var/global/list/whitelisted_species = list("Human")
 
 /datum/species/proc/handle_environment(var/datum/gas_mixture/environment, var/mob/living/carbon/human/host)
 
-// Used for species-specific names (Vox, etc)
+// Used for species-specific names (Vox, etc) 
 /datum/species/proc/makeName(var/gender,var/mob/living/carbon/C=null)
 	if(gender==FEMALE)
 		return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
 	else
 		return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+
+/datum/species/proc/makeFirstName(var/gender,var/mob/living/carbon/C=null)
+	if(gender==FEMALE)
+		return capitalize(pick(first_names_female))
+	else
+		return capitalize(pick(first_names_male))
+
+/datum/species/proc/makeLastName(var/gender,var/mob/living/carbon/C=null)
+	if(gender==FEMALE)
+		return capitalize(pick(last_names))
+	else
+		return capitalize(pick(last_names))
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return

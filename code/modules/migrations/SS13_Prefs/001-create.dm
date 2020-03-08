@@ -9,6 +9,8 @@
 	`player_ckey`			TEXT NOT NULL,
 	`player_slot`			INTEGER NOT NULL,
 	`ooc_notes`				TEXT,
+	`first_name`			TEXT,
+	`last_name`				TEXT,
 	`real_name`				TEXT,
 	`random_name`			INTEGER,
 	`gender`				TEXT,

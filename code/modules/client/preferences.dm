@@ -116,7 +116,11 @@ var/const/MAX_SAVE_SLOTS = 8
 	var/stumble = 0						//whether the player pauses after their first step
 	var/hear_voicesound = 0				//Whether the player hears noises when somebody speaks.
 	//character preferences
-	var/real_name						//our character's name
+
+	var/first_name						//Our chararcters first name 40k EDIT
+	var/last_name						//Our characters last name 40k EDIT
+	var/real_name						//our character's real name
+	
 	var/be_random_name = 0				//whether we are a random name every round
 	var/be_random_body = 0				//whether we'll have a random body every round
 	var/gender = MALE					//gender of character (well duh)
@@ -233,7 +237,9 @@ var/const/MAX_SAVE_SLOTS = 8
 			while(!SS_READY(SShumans))
 				sleep(1)
 			randomize_appearance_for()
-			real_name = random_name(gender, species)
+			first_name = random_first_name(gender, species)
+			last_name = random_last_name(gender, species)
+			real_name = "[first_name]" + " " + "[last_name]"
 			save_character_sqlite(theckey, C, default_slot)
 			saveloaded = 1
 
@@ -252,7 +258,9 @@ var/const/MAX_SAVE_SLOTS = 8
 		attempts++
 	if(attempts >= 5)//failsafe so people don't get locked out of the round forever
 		randomize_appearance_for()
-		real_name = random_name(gender, species)
+		first_name = random_first_name(gender, species)
+		last_name = random_last_name(gender, species)
+		real_name = "[first_name]" + " " + "[last_name]"
 		log_debug("Player [theckey] FAILED to load save 5 times and has been randomized.")
 		log_admin("Player [theckey] FAILED to load save 5 times and has been randomized.")
 		if(theclient)
@@ -269,7 +277,8 @@ var/const/MAX_SAVE_SLOTS = 8
 	<table width='100%'><tr><td width='75%' valign='top'>
 	<a href='?_src_=prefs;preference=name;task=random'>Random Name</a>
 	<a href='?_src_=prefs;preference=name'>Always Random Name: [be_random_name ? "Yes" : "No"]</a><br>
-	<b>Name:</b> <a href='?_src_=prefs;preference=name;task=input'>[real_name]</a><BR>
+	<b>Given Name:</b> <a href='?_src_=prefs;preference=first_name;task=input'>[first_name]</a>
+	<b>Surname: </b> <a href='?_src_=prefs;preference=last_name;task=input'>[last_name]</a><BR>
 	<b>Gender:</b> <a href='?_src_=prefs;preference=gender'>[gender == MALE ? "Male" : "Female"]</a><BR>
 	<b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>
 	</td><td valign='center'>
@@ -1081,8 +1090,10 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 	switch(href_list["task"])
 		if("random")
 			switch(href_list["preference"])
-				if("name")
-					real_name = random_name(gender,species)
+				if("first_name")
+					first_name = random_first_name(gender, species)
+				if("last_name")
+					last_name = random_last_name(gender, species)
 				if("age")
 					age = rand(AGE_MIN, AGE_MAX)
 				if("hair")
@@ -1114,10 +1125,18 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 					randomize_appearance_for()	//no params needed
 		if("input")
 			switch(href_list["preference"])
-				if("name")
-					var/new_name = reject_bad_name( input(user, "Choose your character's name:", "Character Preference")  as text|null )
+				if("first_name")
+					var/new_name = reject_bad_name( input(user, "Choose your character's first name:", "Character Preference")  as text|null )
 					if(new_name)
-						real_name = new_name
+						first_name = new_name
+						real_name = "[first_name]" + " " + "[last_name]"
+					else
+						to_chat(user, "<span class='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
+				if("last_name")
+					var/new_name = reject_bad_name( input(user, "Choose your character's last name:", "Character Preference")  as text|null )
+					if(new_name)
+						last_name = new_name
+						real_name = "[first_name]" + " " + "[last_name]"
 					else
 						to_chat(user, "<span class='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
 				if("next_hair_style")
@@ -1361,7 +1380,9 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 				if("p_speed")
 					parallax_speed = min(max(input(user, "Enter a number between 0 and 5 included (default=2)","Parallax Speed Preferences",parallax_speed),0),5)
 
-				if("name")
+				if("first_name")
+					be_random_name = !be_random_name
+				if("last_name")
 					be_random_name = !be_random_name
 
 				if("all")
@@ -1542,18 +1563,21 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 	ShowChoices(user)
 	return 1
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = 0)
+/datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = 0) //marked
 	if(be_random_name)
-		real_name = random_name(gender,species)
-	if(config.humans_need_surnames && species == "Human")
-		var/firstspace = findtext(real_name, " ")
-		var/name_length = length(real_name)
-		if(!firstspace)	//we need a surname
-			real_name += " [pick(last_names)]"
-		else if(firstspace == name_length)
-			real_name += "[pick(last_names)]"
+		first_name = random_first_name(gender, species)
+		last_name = random_last_name(gender, species)
+		real_name = "[first_name]" + " " + "[last_name]"
+
+	real_name = "[first_name]" + " " + "[last_name]" //Real name is first name + space + last name
+
+	if(!last_name)
+		real_name = "[first_name]"
+		last_name = first_name
 
 	character.real_name = real_name
+	character.last_name = last_name
+	character.first_name = first_name
 	character.name = character.real_name
 	character.flavor_text = flavor_text
 	if(character.dna)
@@ -1652,7 +1676,7 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 	var/database/query/q = new
 	var/list/name_list[MAX_SAVE_SLOTS]
 
-	q.Add("select real_name, player_slot from players where player_ckey=?", user.ckey)
+	q.Add("SELECT first_name, player_slot FROM players WHERE player_ckey=?", user.ckey)
 	if(q.Execute(db))
 		while(q.NextRow())
 			name_list[q.GetColumn(2)] = q.GetColumn(1)

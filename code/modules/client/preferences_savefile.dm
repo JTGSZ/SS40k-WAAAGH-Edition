@@ -324,7 +324,9 @@ SELECT
     players.player_ckey,
     players.player_slot,
     players.ooc_notes,
-    players.real_name,
+    players.first_name,
+	players.last_name,
+	players.real_name,
     players.random_name,
     players.random_body,
     players.gender,
@@ -415,6 +417,8 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		player_alt_list2[job] = title // we assign the alt_titles here to specific job titles and hope everything works.
 
 	metadata 			= preference_list["ooc_notes"]
+	first_name			= preference_list["first_name"]
+	last_name			= preference_list["last_name"]
 	real_name 			= preference_list["real_name"]
 	be_random_name 		= text2num(preference_list["random_name"])
 	be_random_body 		= text2num(preference_list["random_body"])
@@ -487,8 +491,13 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		nanotrasen_relation = initial(nanotrasen_relation)
 	if(isnull(bank_security))
 		bank_security = initial(bank_security)
+	if(!first_name)
+		first_name = random_first_name(gender, species)
+	if(!last_name)
+		last_name = random_last_name(gender,species)
 	if(!real_name)
-		real_name = random_name(gender,species)
+		real_name = "first_name" + " " + "last_name"
+
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	be_random_body	= sanitize_integer(be_random_body, 0, 1, initial(be_random_body))
 	gender			= sanitize_gender(gender)
@@ -550,7 +559,7 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		src.organ_data = list()
 
 	if(user)
-		to_chat(user, "Successfully loaded [real_name].")
+		to_chat(user, "Successfully loaded [first_name] [last_name].")
 
 	return 1
 
@@ -563,6 +572,8 @@ AND players.player_slot = ? ;"}, ckey, slot)
 
 	//Character
 	S["OOC_Notes"]			>> metadata
+	S["first_name"]			>> first_name
+	S["last_name"]			>> last_name
 	S["real_name"]			>> real_name
 	S["name_is_always_random"] >> be_random_name
 	S["body_is_always_random"] >> be_random_body
@@ -627,8 +638,14 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		nanotrasen_relation = initial(nanotrasen_relation)
 	if(isnull(bank_security))
 		bank_security = initial(bank_security)
+
+	if(!first_name)
+		first_name = random_first_name(gender, species)
+	if(!last_name)
+		last_name = random_last_name(gender,species)
 	if(!real_name)
-		real_name = random_name(gender,species)
+		real_name = "first_name" + " " + "last_name"
+	
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	be_random_body	= sanitize_integer(be_random_body, 0, 1, initial(be_random_body))
 	gender			= sanitize_gender(gender)
@@ -750,17 +767,17 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	check.Add("SELECT player_ckey FROM players WHERE player_ckey = ? AND player_slot = ?", ckey, slot)
 	if(check.Execute(db))
 		if(!check.NextRow())
-			q.Add("INSERT INTO players (player_ckey,player_slot,ooc_notes,real_name, random_name,    gender, age, species, language, flavor_text, med_record, sec_record, gen_record, player_alt_titles, disabilities, nanotrasen_relation, bank_security, random_body)\
-			                    VALUES (?,          ?,          ?,        ?,         ?,              ?,      ?,   ?,       ?,        ?,           ?,          ?,          ?,          ?,                 ?,            ?,                   ?,             ?)",
-			                            ckey,       slot,       metadata, real_name, be_random_name, gender, age, species, language, flavor_text, med_record, sec_record, gen_record, altTitles,         disabilities, nanotrasen_relation, bank_security, be_random_body)
+			q.Add("INSERT INTO players (player_ckey,player_slot,ooc_notes,first_name,last_name,real_name, random_name,    gender, age, species, language, flavor_text, med_record, sec_record, gen_record, player_alt_titles, disabilities, nanotrasen_relation, bank_security, random_body)\
+			                    VALUES (?,          ?,          ?,        ?,         ?,        ?,         ?,              ?,      ?,   ?,       ?,        ?,           ?,          ?,          ?,          ?,                 ?,            ?,                   ?,             ?)",
+			                            ckey,       slot,       metadata, first_name,last_name,real_name, be_random_name, gender, age, species, language, flavor_text, med_record, sec_record, gen_record, altTitles,         disabilities, nanotrasen_relation, bank_security, be_random_body)
 			if(!q.Execute(db))
 				message_admins("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				WARNING("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				return 0
 			to_chat(user, "Created Character")
 		else
-			q.Add("UPDATE players SET ooc_notes=?,real_name=?,random_name=?,  gender=?,age=?,species=?,language=?,flavor_text=?,med_record=?,sec_record=?,gen_record=?,player_alt_titles=?,disabilities=?,nanotrasen_relation=?,bank_security=?,random_body=?   WHERE player_ckey = ? AND player_slot = ?",\
-									  metadata,   real_name,  be_random_name, gender,  age,  species,  language,  flavor_text,  med_record,  sec_record,  gen_record,  altTitles,          disabilities,  nanotrasen_relation,  bank_security,  be_random_body,       ckey,               slot)
+			q.Add("UPDATE players SET ooc_notes=?,first_name=?,last_name=?,real_name=?,random_name=?,  gender=?,age=?,species=?,language=?,flavor_text=?,med_record=?,sec_record=?,gen_record=?,player_alt_titles=?,disabilities=?,nanotrasen_relation=?,bank_security=?,random_body=?   WHERE player_ckey = ? AND player_slot = ?",\
+									  metadata,   first_name,  last_name,  real_name,  be_random_name, gender,  age,  species,  language,  flavor_text,  med_record,  sec_record,  gen_record,  altTitles,          disabilities,  nanotrasen_relation,  bank_security,  be_random_body,       ckey,               slot)
 			if(!q.Execute(db))
 				message_admins("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				WARNING("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
@@ -875,6 +892,8 @@ AND players.player_slot = ? ;"}, ckey, slot)
 
 	//Character + misc
 	S["OOC_Notes"]             << metadata
+	S["first_name"]				<< first_name
+	S["last_name"]				<< last_name
 	S["real_name"]             << real_name
 	S["name_is_always_random"] << be_random_name
 	S["body_is_always_random"] << be_random_body

@@ -38,7 +38,7 @@
 
 		return f_style
 
-proc/random_name(gender, speciesName = "Human")
+/proc/random_name(gender, speciesName = "Human")
 	var/datum/species/S = all_species[speciesName]
 	if(S)
 		return S.makeName(gender)
@@ -46,6 +46,21 @@ proc/random_name(gender, speciesName = "Human")
 		var/datum/species/human/H = new
 		return H.makeName(gender)
 
+/proc/random_first_name(gender, speciesName = "Human")
+	var/datum/species/S = all_species[speciesName]
+	if(S)
+		return S.makeFirstName(gender)
+	else
+		var/datum/species/human/H = new
+		return H.makeFirstName(gender)
+
+/proc/random_last_name(gender, speciesName = "Human")
+	var/datum/species/S = all_species[speciesName]
+	if(S)
+		return S.makeLastName(gender)
+	else
+		var/datum/species/human/H = new
+		return H.makeLastName(gender)
 
 
 proc/random_skin_tone(species = "Human")

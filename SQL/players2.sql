@@ -6,6 +6,8 @@ CREATE TABLE players (
     player_slot         INTEGER NOT NULL,
     ooc_notes           TEXT,
     real_name           TEXT,
+    first_name          TEXT,
+    last_name           TEXT,
     random_name         INTEGER,
     random_body         INTEGER,
     gender              TEXT,

@@ -54,7 +54,6 @@
 	var/list/modes = list()				// allowed modes
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities = list()		// relative probability of each mode
-	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
@@ -459,9 +458,6 @@
 
 				if("socket_talk")
 					socket_talk = text2num(value)
-
-				if("humans_need_surnames")
-					humans_need_surnames = 1
 
 				if("tor_ban")
 					ToRban = 1

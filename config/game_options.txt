@@ -86,4 +86,4 @@ EMAG_RECHARGE_TICKS 0
 HARDCORE_MODE 0
 
 # Whether when people talk, some voice noises are played
-# HUMANS_SPEAK
+ HUMANS_SPEAK
