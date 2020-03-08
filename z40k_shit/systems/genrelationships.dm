@@ -116,7 +116,12 @@
 	switch (relationship) // just in case we mistyped
 		if("mates")
 			if(mob1_gender == mob2_gender)
-				return 0
+				if(prob(10)) //Sorry, theres gays but no gay marriage in this universe.
+					mob1.relationships[mob2.real_name] = "Lover"
+					mob2.relationships[mob1.real_name] = "Lover"
+					return 1
+				else
+					return 0
 			else
 				if(mob1_gender == MALE && mob2_gender == FEMALE)
 					mob1.relationships[mob2.real_name] = "Wife"
@@ -129,10 +134,14 @@
 				return 1
 	
 		if("siblings") //ONII CHAN
-			mob1.relationships[mob2.real_name] = mob2_gender == FEMALE ? "Sister" : "Brother"
-			mob2.relationships[mob1.real_name] = mob1_gender == FEMALE ? "Sister" : "Brother"
-			if(prob(20))
-				mob1.real_name = "[mob1.first_name]" + " " + "[mob2.last_name]"
+			if(prob(5))
+				mob1.relationships[mob2.real_name] = mob2_gender == FEMALE ? "Girlfriend" : "Boyfriend"
+				mob2.relationships[mob1.real_name] = mob1_gender == FEMALE ? "Girlfriend" : "Boyfriend"
+			else
+				mob1.relationships[mob2.real_name] = mob2_gender == FEMALE ? "Sister" : "Brother"
+				mob2.relationships[mob1.real_name] = mob1_gender == FEMALE ? "Sister" : "Brother"
+				if(prob(20))
+					mob1.real_name = "[mob1.first_name]" + " " + "[mob2.last_name]"
 			return 1
 		if("cousins")
 			mob1.relationships[mob2.real_name] = "Cousin"
