@@ -1131,14 +1131,14 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 						first_name = new_name
 						real_name = "[first_name]" + " " + "[last_name]"
 					else
-						to_chat(user, "<span class='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
+						to_chat(user, "<span class='red'>Invalid name. Your name should be at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
 				if("last_name")
 					var/new_name = reject_bad_name( input(user, "Choose your character's last name:", "Character Preference")  as text|null )
 					if(new_name)
 						last_name = new_name
 						real_name = "[first_name]" + " " + "[last_name]"
 					else
-						to_chat(user, "<span class='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
+						to_chat(user, "<span class='red'>Invalid name. Your name should be at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
 				if("next_hair_style")
 					h_style = next_list_item(h_style, valid_sprite_accessories(hair_styles_list, null, species)) //gender intentionally left null so speshul snowflakes can cross-hairdress
 				if("previous_hair_style")
@@ -1676,7 +1676,7 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 	var/database/query/q = new
 	var/list/name_list[MAX_SAVE_SLOTS]
 
-	q.Add("SELECT first_name, player_slot FROM players WHERE player_ckey=?", user.ckey)
+	q.Add("SELECT real_name, player_slot FROM players WHERE player_ckey=?", user.ckey)
 	if(q.Execute(db))
 		while(q.NextRow())
 			name_list[q.GetColumn(2)] = q.GetColumn(1)

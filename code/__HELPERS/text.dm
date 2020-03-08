@@ -147,7 +147,7 @@ forLineInText(text)
 	if(!t_in || length(t_in) > max_length)
 		return //Rejects the input if it is null or if it is longer then the max length allowed
 
-	var/number_of_alphanumeric	= 0
+//	var/number_of_alphanumeric	= 0
 	var/last_char_group			= 0
 	var/t_out = ""
 
@@ -157,7 +157,7 @@ forLineInText(text)
 			// A  .. Z
 			if(65 to 90)			//Uppercase Letters
 				t_out += ascii2text(ascii_char)
-				number_of_alphanumeric++
+			//	number_of_alphanumeric++
 				last_char_group = 4
 
 			// a  .. z
@@ -166,7 +166,7 @@ forLineInText(text)
 					t_out += ascii2text(ascii_char-32)	//Force uppercase first character
 				else
 					t_out += ascii2text(ascii_char)
-				number_of_alphanumeric++
+			//	number_of_alphanumeric++
 				last_char_group = 4
 
 			// 0  .. 9
@@ -176,7 +176,7 @@ forLineInText(text)
 				if(!allow_numbers)
 					continue
 				t_out += ascii2text(ascii_char)
-				number_of_alphanumeric++
+			//	number_of_alphanumeric++
 				last_char_group = 3
 
 			// '  -  .
@@ -204,8 +204,8 @@ forLineInText(text)
 			else
 				return
 
-	if(number_of_alphanumeric < 2)
-		return		//protects against tiny names like "A" and also names like "' ' ' ' ' ' ' '"
+	//if(number_of_alphanumeric < 2)
+	//	return		//protects against tiny names like "A" and also names like "' ' ' ' ' ' ' '"
 
 	if(last_char_group == 1)
 		t_out = copytext(t_out,1,length(t_out))	//removes the last character (in this case a space)

@@ -48,18 +48,19 @@
 
 /datum/relationships/proc/form_relationships(var/list/list1, var/list/list2, var/common = 1)
 	var/probability = 0
-	if(common)
-		probability = 100/players.len/2
-	else
-		probability = 100/players.len/4
+	if(!players.len)
+		if(common)
+			probability = 100/players.len/2
+		else
+			probability = 100/players.len/4
 
-	for(var/mob/living/carbon/human/H in players)
-		for(var/mob/living/carbon/human/HH in players)
-			if(prob(probability))
-				create_relationship(H,HH)
+		for(var/mob/living/carbon/human/H in players)
+			for(var/mob/living/carbon/human/HH in players)
+				if(prob(probability))
+					create_relationship(H,HH)
 
-	spawn(5 SECONDS)
-		print_to_mind()
+		spawn(5 SECONDS)
+			print_to_mind()
 
 
 /datum/relationships/proc/create_relationship(var/mob/living/carbon/human/mob1, var/mob/living/carbon/human/mob2)
