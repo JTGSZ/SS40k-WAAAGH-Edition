@@ -2,13 +2,12 @@
 /datum/action/item_action/warhams/attachment/scope_zoom
 	name = "Zoom"
 	button_icon_state = "zoom"
-	var/obj/item/weapon/attachment/scope/ownerscope
 
 /datum/action/item_action/warhams/attachment/scope_zoom/Trigger()
 	..()
-	var/obj/item/weapon/S = target
+	var/obj/item/weapon/gun/S = target
 	
-	ownerscope.attack_self(owner)
+	my_atom.attack_self(owner)
 	if(S.currently_zoomed)
 		button_icon_state = "zoom"
 	else
@@ -17,15 +16,15 @@
 
 /obj/item/weapon/attachment/scope/attack_self(var/mob/user)
 
-	if(!currently_zoomed)
+	if(!my_atom.currently_zoomed)
 		if(user && user.client) 
 			usr.regenerate_icons()
 			var/client/C = user.client
 			C.changeView(C.view + 7)
-			currently_zoomed = TRUE
+			my_atom.currently_zoomed = TRUE
 	else
 		if(user && user.client) 
 			user.regenerate_icons()
 			var/client/C = user.client
 			C.changeView(C.view - 7)
-			currently_zoomed = FALSE
+			my_atom.currently_zoomed = FALSE

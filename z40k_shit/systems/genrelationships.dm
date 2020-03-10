@@ -14,10 +14,10 @@
 
 /datum/relationships/proc/make_relationships()
 
-	var/list/tier_peasants = list()
-	var/list/tier_lesser_nobles = list()
-	var/list/tier_upper_nobles = list()
-	var/list/tier_highest = list()
+	var/list/tier_common = list()
+	var/list/tier_uncommon = list()
+	var/list/tier_somewhat_rare = list()
+	var/list/tier_super_rare = list()
 
 	for(var/mob/living/carbon/human/H in player_list)
 
@@ -28,23 +28,23 @@
 		//tiers include women and children
 		switch(muh_job.relationship_chance)
 			if(HUMAN_COMMON)
-				tier_peasants += H
+				tier_common += H
 			if(HUMAN_UNCOMMON)
-				tier_lesser_nobles += H
+				tier_uncommon += H
 			if(HUMAN_SOMEWHAT_RARE)
-				tier_upper_nobles += H
+				tier_somewhat_rare += H
 			if(HUMAN_SUPER_RARE)
-				tier_highest += H
+				tier_super_rare += H
 
 	//form common relationships
-	form_relationships(tier_peasants, tier_peasants, 1)
-	form_relationships(tier_lesser_nobles, tier_lesser_nobles, 1)
-	form_relationships(tier_upper_nobles, tier_upper_nobles, 1)
-	form_relationships(tier_highest, tier_highest, 1)
+	form_relationships(tier_common, tier_common, 1)
+	form_relationships(tier_uncommon, tier_uncommon, 1)
+	form_relationships(tier_somewhat_rare, tier_somewhat_rare, 1)
+	form_relationships(tier_super_rare, tier_super_rare, 1)
 	//form uncommon relationships
-	form_relationships(tier_peasants, tier_lesser_nobles, 0)
-	form_relationships(tier_lesser_nobles, tier_upper_nobles, 0)
-	form_relationships(tier_upper_nobles, tier_highest, 0)
+	form_relationships(tier_common, tier_uncommon, 0)
+	form_relationships(tier_uncommon, tier_somewhat_rare, 0)
+	form_relationships(tier_somewhat_rare, tier_super_rare, 0)
 
 /datum/relationships/proc/form_relationships(var/list/list1, var/list/list2, var/common = 1)
 	var/probability = 0
@@ -54,8 +54,8 @@
 		else
 			probability = 100/players.len/4
 
-		for(var/mob/living/carbon/human/H in players)
-			for(var/mob/living/carbon/human/HH in players)
+		for(var/mob/living/carbon/human/H in list1) //Formerly players in both lists
+			for(var/mob/living/carbon/human/HH in list2)
 				if(prob(probability))
 					create_relationship(H,HH)
 

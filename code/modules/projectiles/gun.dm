@@ -53,6 +53,7 @@
 	var/conventional_firearm = 1	//Used to determine whether, when examined, an /obj/item/weapon/gun/projectile will display the amount of rounds remaining.
 	var/jammed = 0
 
+	var/currently_zoomed = FALSE //40k EDIT - MARKED - JTGSZ
 	var/projectile_color = null
 
 	var/pai_safety = TRUE	//To allow the pAI to activate or deactivate firing capability
@@ -408,6 +409,12 @@
 		return TRUE
 
 /obj/item/weapon/gun/attackby(var/obj/item/A, mob/user)
+	if(istype(A,/obj/item/weapon/attachment))
+		if(user.drop_item(A, src))
+			to_chat(user, "<span class='notice'>You insert the [A] into [src].</span>")
+			ATCHSYS.attachment_handler(A,TRUE,user)
+			update_icon()
+			return
 	if(istype(A, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/G = A
 		if(isHandgun() && G.isHandgun())

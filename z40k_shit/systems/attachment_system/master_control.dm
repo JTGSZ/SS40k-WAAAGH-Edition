@@ -7,17 +7,10 @@
 
 //Within is the attachment system, mostly because all of the additional text was confusing me.
 //See: tactical_light.dm
-/obj/item/weapon
-	var/currently_zoomed = FALSE
 
-/obj/item/weapon/New()
+/obj/item/weapon/gun/New()
 	ATCHSYS = new(src)
 	..()
-
-/obj/item/weapon/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if(istype(W,/obj/item/weapon/attachment))
-		ATCHSYS.attachment_handler(W,TRUE,user)
 
 /datum/attachment_system
 	var/obj/item/weapon/gun/my_atom //Holder for what spawned our asses
@@ -40,9 +33,9 @@
 		attachments += ATCH
 		if(ATCH.tied_action)
 			action_storage += ATCH.tied_action
-			new ATCH.tied_action(my_atom)
+			var/datum/action/item_action/warhams/ass = new ATCH.tied_action(my_atom)
+			ass.my_atom = ATCH
 		ATCH.my_atom = my_atom
-
 
 		if(ATCH.atch_effect_flags & MELEE_DMG) //We add force on from attachment
 			my_atom.force += ATCH.force
@@ -63,6 +56,7 @@
 				if(istype(A, ATCH.tied_action))
 					qdel(A)
 		
+		attachments -= ATCH
 		ATCH.my_atom = null
 
 		if(ATCH.atch_effect_flags & MELEE_DMG) //We remove force from attachment
