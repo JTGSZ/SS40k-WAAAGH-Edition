@@ -76,7 +76,7 @@
 		M.Targeted(src)
 
 //HE MOVED, SHOOT HIM!
-/obj/item/weapon/gun/proc/TargetActed(var/mob/living/T)
+/obj/item/weapon/gun/proc/TargetActed(var/mob/living/T) 
 	var/mob/living/M = loc
 	if(M == T)
 		return

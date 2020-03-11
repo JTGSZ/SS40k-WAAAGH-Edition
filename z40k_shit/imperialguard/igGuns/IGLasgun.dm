@@ -82,7 +82,6 @@
 	button_icon_state = "power_setting"
 
 /datum/action/item_action/warhams/adjust_power/Trigger()
-
 	var/obj/item/weapon/gun/energy/complexweapon/lasgun/LSG = target
 	LSG.adjust_power(owner)
 
@@ -127,7 +126,7 @@
 		gunheat -= 5 //We go down by 5 a tick.
 
 /*
-	FIRINg PROCS
+	FIRING PROCS
 				*/
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/process_chambered()
@@ -170,16 +169,26 @@
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
-	if(user.get_active_hand() != src)
+/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_hand(mob/user as mob)
+	if(user.get_inactive_hand() == src)
+		to_chat(world,"WE ARE IN THE REMOVE MAG ZONE")
 		RemoveMag(user)
 	else
+		..()
+
+/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+	to_chat(world,"[user.get_active_hand()] IS OUR ACTIVE HAND FUCKFACE")
+	if(user.get_active_hand() == src)
+		to_chat(world,"WE ARE IN THE WIELD ZONE")
 		if(!wielded)
 			wield(user)
 			src.update_wield(user)
 		else
 			unwield(user)
 			src.update_wield(user)
+//	if(user.get_inactive_hand() == src)
+//		to_chat(world,"WE ARE IN THE REMOVE MAG ZONE")
+//		RemoveMag(user)
 
 /*
 	ICON HANDLING
