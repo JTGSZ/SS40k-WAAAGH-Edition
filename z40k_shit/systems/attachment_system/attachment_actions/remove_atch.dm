@@ -4,7 +4,6 @@
 	button_icon_state = "unattach"
 
 /datum/action/item_action/warhams/attachment/remove_atch/Trigger()
-	..()
 	var/obj/item/weapon/S = target
 	S.remove_atch(owner)
 
@@ -12,7 +11,7 @@
 	if(!ATCHSYS.attachments.len)
 		to_chat(user, "<span class='notice'> [src] appears to be devoid of anything attached to it.</span>")
 		return
-	else if(ATCHSYS.attachments.len)
+	else
 		var/remove_acc = input(M,"Which attachment do you want to remove?", "", "Cancel") as null|anything in ATCHSYS.attachments
 		if(remove_acc != "Cancel")
 			var/obj/item/weapon/attachment/ATCH = remove_acc

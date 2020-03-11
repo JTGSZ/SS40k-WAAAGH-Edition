@@ -4,9 +4,7 @@
 	button_icon_state = "zoom"
 
 /datum/action/item_action/warhams/attachment/scope_zoom/Trigger()
-	..()
 	var/obj/item/weapon/gun/S = target
-	
 	my_atom.attack_self(owner)
 	if(S.currently_zoomed)
 		button_icon_state = "zoom"

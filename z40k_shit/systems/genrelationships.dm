@@ -22,8 +22,9 @@
 	for(var/mob/living/carbon/human/H in player_list)
 
 		players += H
-
-		var/datum/job/muh_job = H.mind.assigned_role
+		var/job_string = H.mind.assigned_role
+		var/datum/job/muh_job = job_master.GetJob(job_string)
+		//ar/datum/job/muh_job = H.mind.assigned_role
 
 		//tiers include women and children
 		switch(muh_job.relationship_chance)
