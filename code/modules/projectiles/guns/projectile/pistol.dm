@@ -81,11 +81,11 @@
 	mag_type = "/obj/item/ammo_storage/magazine/mc9mm"
 	load_method = 2
 
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
 /obj/item/weapon/gun/projectile/pistol/update_icon()
 	..()
-	icon_state = "[initial(icon_state)][silenced ? "-silencer" : ""][chambered ? "" : "-e"]"
+	icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
 	return
 
 /obj/item/weapon/gun/projectile/handgun //mime fingergun
@@ -125,11 +125,11 @@
 	fire_sound = 'sound/weapons/semiauto.ogg'
 	load_method = 2
 	recoil = 2
-	gun_flags = SILENCECOMP | EMPTYCASINGS
+	gun_flags = EMPTYCASINGS
 
 /obj/item/weapon/gun/projectile/NTUSP/update_icon()
 	..()
-	icon_state = "secguncomp[silenced ? "-s" : ""][chambered ? "" : "-e"]"
+	icon_state = "secguncomp[chambered ? "" : "-e"]"
 
 /obj/item/weapon/gun/projectile/NTUSP/fancy
 	desc = "The NT USP is a relatively rare sidearm, produced by a NanoTrasen subsidiary. Uses .45 rounds.<br><span class='notice'>This one has a sweet pearl finish!</span>"
@@ -138,7 +138,7 @@
 
 /obj/item/weapon/gun/projectile/NTUSP/fancy/update_icon()
 	..()
-	icon_state = "secguncompfancy[silenced ? "-s" : ""][chambered ? "" : "-e"]"
+	icon_state = "secguncompfancy[chambered ? "" : "-e"]"
 
 
 
@@ -155,11 +155,11 @@
 	origin_tech = Tc_COMBAT + "=3"
 	fire_sound = 'sound/weapons/semiauto.ogg'
 	load_method = 2
-	gun_flags = SILENCECOMP | EMPTYCASINGS
+	gun_flags = EMPTYCASINGS
 
 /obj/item/weapon/gun/projectile/glock/update_icon()
 	..()
-	icon_state = "secglock[chambered ? "" : "-e"][silenced ? "-s" : ""][stored_magazine ? "" : "-m"]"
+	icon_state = "secglock[chambered ? "" : "-e"][stored_magazine ? "" : "-m"]"
 
 /obj/item/weapon/gun/projectile/glock/fancy
 	desc = "The NT Glock is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .380AUTO rounds.<br><span class='notice'>This one has a sweet platinum-plated slide, and tritium night sights for maint crawling!</span>"

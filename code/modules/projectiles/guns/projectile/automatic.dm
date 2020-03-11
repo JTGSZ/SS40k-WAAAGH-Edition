@@ -112,7 +112,7 @@
 	item_state = "micro-uzi"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/guninhands_left.dmi', "right_hand" = 'icons/mob/in-hand/right/guninhands_right.dmi')
 	origin_tech = Tc_COMBAT + "=5;" + Tc_MATERIALS + "=2;" + Tc_SYNDICATE + "=8"
-	gun_flags = EMPTYCASINGS | SILENCECOMP
+	gun_flags = EMPTYCASINGS
 	w_class = W_CLASS_SMALL
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	mag_type = "/obj/item/ammo_storage/magazine/microuzi9"
@@ -122,7 +122,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/microuzi/update_icon()
 	..()
-	icon_state = "micro-uzi[silenced ? "-silencer" : ""][stored_magazine ? "" : "-e"]"
+	icon_state = "micro-uzi[stored_magazine ? "" : "-e"]"
 
 
 /obj/item/weapon/gun/projectile/automatic/c20r

@@ -101,13 +101,12 @@
 	origin_tech = Tc_COMBAT + "=2;" + Tc_MATERIALS + "=2"
 	caliber = list(NAGANTREVOLVER = 1)
 	ammo_type = "/obj/item/ammo_casing/c762x38r"
-	gun_flags = SILENCECOMP
 	fire_sound = 'sound/weapons/nagant.ogg'
 	recoil = 3
 	
 /obj/item/weapon/gun/projectile/nagant/update_icon()
 	..()
-	icon_state = "[initial(icon_state)][silenced ? "-silencer" : ""]"
+	icon_state = "[initial(icon_state)]"
 	return
 
 

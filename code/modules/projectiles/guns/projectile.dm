@@ -160,18 +160,18 @@
 		return 1
 
 
-/obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/gun_part/silencer) && src.gun_flags &SILENCECOMP)
-		if(!user.is_holding_item(src))	//if we're not in his hands
-			to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
-			return
+/obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob) 
+	//if(istype(A, /obj/item/gun_part/silencer) && src.gun_flags &SILENCECOMP)
+	//	if(!user.is_holding_item(src))	//if we're not in his hands
+	//		to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
+	//		return
 
-		if(user.drop_item(A, src)) //put the silencer into the gun
-			to_chat(user, "<span class='notice'>You screw [A] onto [src].</span>")
-			silenced = A	//dodgy?
-			w_class = W_CLASS_MEDIUM
-			update_icon()
-			return 1
+		//if(user.drop_item(A, src)) //put the silencer into the gun
+		//	to_chat(user, "<span class='notice'>You screw [A] onto [src].</span>")
+		//	silenced = A	//dodgy?
+		//	w_class = W_CLASS_MEDIUM
+		//	update_icon()
+		//	return 1
 
 	var/num_loaded = 0
 	if(istype(A, /obj/item/ammo_storage/magazine))
@@ -230,9 +230,6 @@
 			to_chat(user, "<span class='notice'>You unload \the [AC] from \the [src]!</span>")
 			update_icon()
 			return
-		if(silenced)
-			RemoveAttach(usr)
-			return
 	else
 		to_chat(user, "<span class='warning'>Nothing loaded in \the [src]!</span>")
 
@@ -252,12 +249,6 @@
 	..()
 	if(conventional_firearm)
 		to_chat(user, "<span class='info'>Has [getAmmo()] round\s remaining.</span>")
-//		if(in_chamber && !loaded.len)
-//			to_chat(usr, "However, it has a chambered round.")
-//		if(in_chamber && loaded.len)
-//			to_chat(usr, "It also has a chambered round." {R})
-	if(istype(silenced, /obj/item/gun_part/silencer))
-		to_chat(user, "<span class='warning'>It has a supressor attached to the barrel.</span>")
 
 /obj/item/weapon/gun/projectile/proc/getAmmo()
 	var/bullets = 0
@@ -280,24 +271,3 @@
 		return 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/proc/RemoveAttach(var/mob/user)
-	to_chat(user, "<span class='notice'>You unscrew [silenced] from [src].</span>")
-	user.put_in_hands(silenced)
-	silenced = 0
-	w_class = W_CLASS_SMALL
-	update_icon()
-
-/obj/item/weapon/gun/projectile/verb/RemoveAttachments()
-	set name = "Remove Attachments"
-	set category = "Object"
-	set src in usr
-	if(!usr.is_holding_item(src))
-		to_chat(usr, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
-		return
-	if(usr.incapacitated())
-		to_chat(usr, "<span class='rose'>You can't do this!</span>")
-		return
-	if(silenced)
-		RemoveAttach(usr)
-	else
-		to_chat(usr, "<span class='rose'>There are no attachments to remove!</span>")

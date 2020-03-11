@@ -171,24 +171,18 @@
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
-		to_chat(world,"WE ARE IN THE REMOVE MAG ZONE")
 		RemoveMag(user)
 	else
 		..()
 
 /obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
-	to_chat(world,"[user.get_active_hand()] IS OUR ACTIVE HAND FUCKFACE")
 	if(user.get_active_hand() == src)
-		to_chat(world,"WE ARE IN THE WIELD ZONE")
 		if(!wielded)
 			wield(user)
 			src.update_wield(user)
 		else
 			unwield(user)
 			src.update_wield(user)
-//	if(user.get_inactive_hand() == src)
-//		to_chat(world,"WE ARE IN THE REMOVE MAG ZONE")
-//		RemoveMag(user)
 
 /*
 	ICON HANDLING
