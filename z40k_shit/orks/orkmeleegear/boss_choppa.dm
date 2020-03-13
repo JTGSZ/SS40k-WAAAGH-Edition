@@ -1,4 +1,4 @@
-/obj/item/weapon/complexweapon/boss_choppa
+/obj/item/weapon/boss_choppa
 	name = "large choppa"
 	desc = "It seems to be a hammer, made from scrap.."
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/64x64huge_choppa_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/64x64huge_choppa_right.dmi')

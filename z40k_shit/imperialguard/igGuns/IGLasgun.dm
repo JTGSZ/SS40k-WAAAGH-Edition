@@ -15,7 +15,7 @@
 	LASGUN OBJECT
 					*/
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun
+/obj/item/weapon/gun/energy/lasgun
 	name = "M-Galaxy Pattern Lasgun"
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
@@ -35,19 +35,19 @@
 	defective = 1
 
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/New()
+/obj/item/weapon/gun/energy/lasgun/New()
 	..()
 	processing_objects.Add(src)
 	update_icon()
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/Destroy()
+/obj/item/weapon/gun/energy/lasgun/Destroy()
 	processing_objects.Remove(src)
 	..()
 
 /*
 	LASGUN EXAMINE
 					*/
-/obj/item/weapon/gun/energy/complexweapon/lasgun/examine(mob/user)
+/obj/item/weapon/gun/energy/lasgun/examine(mob/user)
 	..()
 	switch(gunheat)
 		if(60 to 120)
@@ -58,7 +58,7 @@
 /*
 	RENAME GUN
 				*/
-/obj/item/weapon/gun/energy/complexweapon/lasgun/verb/rename_gun() //I could add possession here later for funs.
+/obj/item/weapon/gun/energy/lasgun/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun."
@@ -82,10 +82,10 @@
 	button_icon_state = "power_setting"
 
 /datum/action/item_action/warhams/adjust_power/Trigger()
-	var/obj/item/weapon/gun/energy/complexweapon/lasgun/LSG = target
+	var/obj/item/weapon/gun/energy/lasgun/LSG = target
 	LSG.adjust_power(owner)
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/adjust_power(var/mob/user)
+/obj/item/weapon/gun/energy/lasgun/proc/adjust_power(var/mob/user)
 	var/chargestrength = input(user, "Adjust Power Settings (Warning: Mishandling can result in misfires)", "Lasgun Power Setting") in list("Low Power","Medium Power","Maximum Power")
 	if(chargestrength)
 		if(chargestrength == "Low Power")
@@ -99,7 +99,7 @@
 			src.charge_cost = 300 //15 shots
 		src.setprojtype() //The verb calls this, we can add arguments later once we know what we need.
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/setprojtype() // Yep
+/obj/item/weapon/gun/energy/lasgun/proc/setprojtype() // Yep
 //This proc/verb set can be made into a generic on guns later with a actual list of choices.
 	if(lasgun_shot_strength == 1) //So forgive me if its kinda ass
 		switch(degradation_state)
@@ -121,7 +121,7 @@
 				projectile_type = /obj/item/projectile/beam/maxpower
 	in_chamber = null
 		
-/obj/item/weapon/gun/energy/complexweapon/lasgun/process() //In process we handle heat
+/obj/item/weapon/gun/energy/lasgun/process() //In process we handle heat
 	if(gunheat > 0) //If we are greater than 0
 		gunheat -= 5 //We go down by 5 a tick.
 
@@ -129,7 +129,7 @@
 	FIRING PROCS
 				*/
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/process_chambered()
+/obj/item/weapon/gun/energy/lasgun/process_chambered()
 	if(in_chamber)
 		return 1
 	if(!power_supply)
@@ -148,7 +148,7 @@
 	in_chamber = new projectile_type(src)
 	return 1
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/energy/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	var/atom/newtarget = target
 	if(!wielded)
 		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
@@ -157,7 +157,7 @@
 /*
 	ITEM INTERACTIONS
 					*/
-/obj/item/weapon/gun/energy/complexweapon/lasgun/attackby(var/obj/item/A as obj, mob/user as mob) //Loading
+/obj/item/weapon/gun/energy/lasgun/attackby(var/obj/item/A as obj, mob/user as mob) //Loading
 	if(A.is_screwdriver(user))
 		to_chat(user, "<span class='notice'>You adjust and repair the [src].</span>")
 		degradation_state = 10
@@ -169,13 +169,13 @@
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_hand(mob/user as mob)
+/obj/item/weapon/gun/energy/lasgun/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
 		RemoveMag(user)
 	else
 		..()
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+/obj/item/weapon/gun/energy/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
 	if(user.get_active_hand() == src)
 		if(!wielded)
 			wield(user)
@@ -188,7 +188,7 @@
 	ICON HANDLING
 					*/
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/update_icon() // welp
+/obj/item/weapon/gun/energy/lasgun/update_icon() // welp
 	var/ratio = 0
 
 	if(power_supply && power_supply.maxcharge > 0) //If the gun has a power cell, calculate how much % power is left in it
@@ -231,7 +231,7 @@
 	MAGAZINE HANDLING
 						*/
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/LoadMag(var/obj/item/weapon/cell/AM, var/mob/user)
+/obj/item/weapon/gun/energy/lasgun/proc/LoadMag(var/obj/item/weapon/cell/AM, var/mob/user)
 	if(istype(AM, /obj/item/weapon/cell) && !power_supply)
 		if(user)
 			if(user.drop_item(AM, src))
@@ -245,7 +245,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/RemoveMag(var/mob/user)
+/obj/item/weapon/gun/energy/lasgun/proc/RemoveMag(var/mob/user)
 	if(power_supply)
 		power_supply.forceMove(get_turf(src.loc))
 		if(user)
@@ -262,7 +262,7 @@
 								*/
 
 //In the failure check we will account for heat failures, along with weapon degradation.
-/obj/item/weapon/gun/energy/complexweapon/lasgun/failure_check(var/mob/living/carbon/human/M)
+/obj/item/weapon/gun/energy/lasgun/failure_check(var/mob/living/carbon/human/M)
 	if(istext(projectile_type))
 		projectile_type = text2path(projectile_type)
 	switch(projectile_type)
@@ -327,7 +327,7 @@
 	return ..()
 
 //Right here is where the beam change occurs.
-/obj/item/weapon/gun/energy/complexweapon/lasgun/proc/degradegun(var/mob/living/carbon/human/M)
+/obj/item/weapon/gun/energy/lasgun/proc/degradegun(var/mob/living/carbon/human/M)
 	if(degradation_state > 0)
 		degradation_state--
 		fire_delay +=3

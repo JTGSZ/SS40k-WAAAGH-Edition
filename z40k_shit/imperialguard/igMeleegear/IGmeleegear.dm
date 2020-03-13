@@ -1,4 +1,4 @@
-/obj/item/weapon/complexweapon/chainsword
+/obj/item/weapon/chainsword
 	name = "Chainsword"
 	desc = "A chainsword, that can probably saw through a great many things."
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
@@ -18,10 +18,10 @@
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | SERRATED_BLADE | CHOPWOOD | CUT_AIRLOCK
 	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "saws")
 
-/obj/item/weapon/complexweapon/chainsword/New()
+/obj/item/weapon/chainsword/New()
 	. = ..()
 
-/obj/item/weapon/shield/complexweapon/IGshield
+/obj/item/weapon/shield/IGshield
 	name = "metal shield"
 	desc = "A piece metal that should be as unwavering as the person holding it."
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
@@ -42,14 +42,14 @@
 	attack_verb = list("shoves", "bashes")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 
-/obj/item/weapon/shield/complexweapon/IGshield/suicide_act(mob/user)
+/obj/item/weapon/shield/IGshield/suicide_act(mob/user)
 	to_chat(viewers(user), "<span class='danger'>[user] is smashing \his face into the [src.name]! It looks like \he's  trying to commit suicide!</span>")
 	return (SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/shield/complexweapon/IGshield/IsShield()
+/obj/item/weapon/shield/IGshield/IsShield()
 	return 1
 
-/obj/item/weapon/shield/complexweapon/IGshield/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/shield/IGshield/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")

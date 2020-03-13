@@ -7,7 +7,7 @@
 	fire_sound = null
 	max_range = 4
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator
+/obj/item/weapon/gun/projectile/eviscerator
 	name = "Eviscerator"
 	desc = "A oversized chainsword. This one has a exterminator attached to it too."
 	slot_flags = SLOT_BACK
@@ -41,7 +41,7 @@
 	recoil = 0
 
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/New() //We need to get our own process loop started for sounds
+/obj/item/weapon/gun/projectile/eviscerator/New() //We need to get our own process loop started for sounds
 	..()
 	processing_objects.Add(src)
 	
@@ -50,11 +50,11 @@
 	if(start_fueled)
 		reagents.add_reagent(FUEL, max_fuel)
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/Destroy()
+/obj/item/weapon/gun/projectile/eviscerator/Destroy()
 	processing_objects.Remove(src)
 	..()
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/process()
+/obj/item/weapon/gun/projectile/eviscerator/process()
 	if(revvin_on)
 		idle_loop++
 	
@@ -64,14 +64,14 @@
 		if(!firstrev)
 			firstrev = TRUE
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/examine(mob/user)
+/obj/item/weapon/gun/projectile/eviscerator/examine(mob/user)
 	..()
 	to_chat(user, "<span class='info'> Has [max_fuel] unit\s of fuel remaining.</span>")
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/IsShield()
+/obj/item/weapon/gun/projectile/eviscerator/IsShield()
 	return 1
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/attack_self(var/mob/user) //If we click this, we ignite it.
+/obj/item/weapon/gun/projectile/eviscerator/attack_self(var/mob/user) //If we click this, we ignite it.
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
@@ -82,21 +82,21 @@
 			firstrev = FALSE
 			playsound(src,'z40k_shit/sounds/Chainsword_Idle.ogg',50)
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/unequipped(mob/user)
+/obj/item/weapon/gun/projectile/eviscerator/unequipped(mob/user)
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/dropped(mob/user)
+/obj/item/weapon/gun/projectile/eviscerator/dropped(mob/user)
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
 	..()
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/proc/get_fuel()
+/obj/item/weapon/gun/projectile/eviscerator/proc/get_fuel()
 	return reagents.get_reagent_amount(FUEL)
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/afterattack(atom/target, mob/user, flag)
+/obj/item/weapon/gun/projectile/eviscerator/afterattack(atom/target, mob/user, flag)
 
 	if (istype(target, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,target) <= 1 && !src.revvin_on)
 		if(target.reagents.trans_to(src, max_fuel))
@@ -136,7 +136,7 @@
 		reagents.remove_reagent(FUEL, 50)
 		playsound(user, 'sound/weapons/flamethrower.ogg', 50, 1)
 
-/obj/item/weapon/gun/projectile/complexweapon/eviscerator/update_icon()
+/obj/item/weapon/gun/projectile/eviscerator/update_icon()
 	var/mob/living/carbon/human/H = loc
 
 	if(istype(loc,/mob/living/carbon/human))

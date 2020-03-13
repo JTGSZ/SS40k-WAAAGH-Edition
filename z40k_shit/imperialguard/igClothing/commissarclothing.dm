@@ -22,8 +22,8 @@
 	item_state = "commissarcoat" //Check: Its there
 	armor = list(melee = 50, bullet = 50, laser = 50, energy = 50, bomb = 50, bio = 50, rad = 50)
 	body_parts_covered = FULL_TORSO
-	allowed = list(/obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol,
-					/obj/item/weapon/complexweapon/chainsword
+	allowed = list(/obj/item/weapon/gun/projectile/automatic/boltpistol,
+					/obj/item/weapon/chainsword
 					)
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 	

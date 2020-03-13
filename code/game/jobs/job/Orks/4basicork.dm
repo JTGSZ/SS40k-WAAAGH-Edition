@@ -97,18 +97,18 @@
 				"Storm Boy"	= /obj/item/ork/jumppack,
 			),
 			slot_r_hand = list(
-				"Slugga Boy" = list(/obj/item/weapon/gun/projectile/automatic/complexweapon/slugga,
-									/obj/item/weapon/complexweapon/choppa,
-									/obj/item/weapon/shield/complexweapon/orkshield),
-				"Shoota Boy" = /obj/item/weapon/gun/projectile/automatic/complexweapon/shoota,
-				"Kommando" = /obj/item/weapon/gun/projectile/shotgun/complexweapon/shotta,
-				"Storm Boy" = /obj/item/weapon/complexweapon/choppa
+				"Slugga Boy" = list(/obj/item/weapon/gun/projectile/automatic/slugga,
+									/obj/item/weapon/choppa,
+									/obj/item/weapon/shield/orkshield),
+				"Shoota Boy" = /obj/item/weapon/gun/projectile/automatic/shoota,
+				"Kommando" = /obj/item/weapon/gun/projectile/shotgun/shotta,
+				"Storm Boy" = /obj/item/weapon/choppa
 			),
 			slot_l_hand = list(
-				"Slugga Boy" = list(/obj/item/weapon/complexweapon/choppa,
-									/obj/item/weapon/shield/complexweapon/orkshield,
-									/obj/item/weapon/gun/projectile/automatic/complexweapon/slugga),
-				"Kommando" = /obj/item/weapon/complexweapon/choppa
+				"Slugga Boy" = list(/obj/item/weapon/choppa,
+									/obj/item/weapon/shield/orkshield,
+									/obj/item/weapon/gun/projectile/automatic/slugga),
+				"Kommando" = /obj/item/weapon/choppa
 			)
 		)
 	)

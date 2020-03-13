@@ -43,8 +43,8 @@
 			slot_head_str = /obj/item/clothing/head/iguard/commissarcap,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/comissarcoat,
-			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol,
-			slot_l_hand = /obj/item/weapon/complexweapon/chainsword
+			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/boltpistol,
+			slot_l_hand = /obj/item/weapon/chainsword
 		),
 	)
 

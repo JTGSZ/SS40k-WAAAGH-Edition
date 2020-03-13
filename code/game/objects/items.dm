@@ -347,7 +347,7 @@
 	for(var/X in actions)
 		var/datum/action/A = X
 		if(item_action_slot_check(slot, user)) //some items only give their actions buttons when in a specific slot.
-			A.Grant(user)
+			A.Grant(user) //Marked
 	return
 
 /obj/item/proc/item_action_slot_check(slot, mob/user)

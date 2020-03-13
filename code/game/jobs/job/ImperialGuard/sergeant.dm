@@ -39,8 +39,8 @@
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_armor,
-			slot_s_store_str = /obj/item/weapon/gun/energy/complexweapon/lasgun,
-			slot_r_hand = /obj/item/weapon/complexweapon/chainsword,
+			slot_s_store_str = /obj/item/weapon/gun/energy/lasgun,
+			slot_r_hand = /obj/item/weapon/chainsword,
 		),
 	)
 

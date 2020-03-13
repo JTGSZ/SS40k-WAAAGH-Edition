@@ -16,7 +16,7 @@
 	item_state = "cadia_flak_armor" //Check: Its there
 	body_parts_covered = FULL_TORSO
 	armor = list(melee = 30, bullet = 10, laser = 30,energy = 10, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/weapon/gun/energy/complexweapon/lasgun)
+	allowed = list(/obj/item/weapon/gun/energy/lasgun)
 
 /obj/item/clothing/suit/armor/iguard/IG_cadian_medic_armor
 	name = "Flak Armor"
@@ -25,7 +25,7 @@
 	item_state = "cadia_flak_armor_medic"//Check: Its there
 	body_parts_covered = FULL_TORSO
 	armor = list(melee = 25, bullet = 10, laser = 25,energy = 10, bomb = 15, bio = 25, rad = 0) //In case of... Nurgle?
-	allowed = list(/obj/item/weapon/gun/energy/complexweapon/lasgun)
+	allowed = list(/obj/item/weapon/gun/energy/lasgun)
 
 /obj/item/clothing/head/iguard/stormtrooper
 	name = "Flak Armor"

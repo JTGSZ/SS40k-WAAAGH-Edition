@@ -1,5 +1,5 @@
 
-/obj/item/weapon/complexweapon/psykerstaff
+/obj/item/weapon/psykerstaff
 	name = "Psyker Staff"
 	desc = "A staff that is important for a great many things to certain people."
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/64x64PsykerStaff.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/64x64PsykerStaff.dmi')
@@ -18,6 +18,6 @@
 	sharpness_flags = CUT_AIRLOCK
 	attack_verb = list("attacks", "bludgeons",  "slams")
 
-/obj/item/weapon/complexweapon/psykerstaff/New()
+/obj/item/weapon/psykerstaff/New()
 	. = ..()
 

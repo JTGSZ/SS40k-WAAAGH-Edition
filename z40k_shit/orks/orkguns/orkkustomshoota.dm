@@ -7,7 +7,7 @@
 	item_state = "tape"
 	w_class = W_CLASS_SMALL
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota
+/obj/item/weapon/gun/projectile/automatic/kustomshoota
 	name = "\improper Kustom Shoota"
 	desc = "A long but well defined shoota, ready for modifications."
 	icon = 'z40k_shit/icons/obj/orks/kustomgun.dmi'
@@ -34,7 +34,7 @@
 	var/shotgunpellets = 0 //Shotgun bullet types
 	var/taped = 1
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/verb/rename_gun() //I could add possession here later for funs.
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun."
@@ -50,16 +50,16 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/isHandgun()
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/isHandgun()
 	return FALSE //No Kustom Shoota Akimbo for us.
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
 	..()
 	if(!isork(user))
 		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
 		return
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/examine(mob/user)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/examine(mob/user)
 	..()
 	if(basicbullets)
 		to_chat(user, "<span class='info'> There are currently [basicbullets] ballistics attached.</span>")
@@ -68,7 +68,7 @@
 	if(shotgunpellets)
 		to_chat(user, "<span class='info'> There are currently [shotgunpellets] shotguns attached.</span>")
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/attackby(obj/item/I as obj, mob/user as mob)
 	if(totalguncount > 29)
 		to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
 		return
@@ -80,12 +80,12 @@
 		playsound(loc, 'z40k_shit/sounds/tape.ogg', 50, 0)
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
-		if(istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota) || \
-			istype(I, /obj/item/weapon/gun/projectile/automatic/complexweapon/slugga) || \
-			istype(I,/obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol))
+		if(istype(I, /obj/item/weapon/gun/projectile/automatic/kustomshoota) || \
+			istype(I, /obj/item/weapon/gun/projectile/automatic/slugga) || \
+			istype(I,/obj/item/weapon/gun/projectile/automatic/boltpistol))
 			basicbullets++
 			totalguncount++
-		if(istype(I, /obj/item/weapon/gun/energy/complexweapon/lasgun))
+		if(istype(I, /obj/item/weapon/gun/energy/lasgun))
 			laserbeams++
 			totalguncount++
 		if(istype(I, /obj/item/weapon/gun/projectile/shotgun))
@@ -99,7 +99,7 @@
 
 	..()
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/update_icon()
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/update_icon()
 	..()
 	item_state = "kustom_shoota[wielded ? "-unwielded" : "-wielded"][shotgunpellets ? "-nsg" : "-sg"][laserbeams ? "-nlsg" : "-lsg"]"
 	icon_state = "kustom_shoota[wielded ? "-unwielded" : "-wielded"][shotgunpellets ? "-nsg" : "-sg"][laserbeams ? "-nlsg" : "-lsg"][stored_magazine ? "" : "-e"]"
@@ -108,7 +108,7 @@
 	//icon_state = "slugga[iconticker][stored_magazine ? "" : "-e"]"
 	return
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params, struggle = FALSE)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params, struggle = FALSE)
 	if(!cooldown)
 		makethepainstop(target, user, params, struggle)
 		return
@@ -116,7 +116,7 @@
 	else if(cooldown)
 		return
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/kustomshoota/proc/makethepainstop(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/proc/makethepainstop(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
 	if(!isork(user))
 		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
 		return

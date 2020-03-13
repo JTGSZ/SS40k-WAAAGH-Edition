@@ -41,7 +41,7 @@
 			slot_head_str = /obj/item/clothing/head/ork/warboss/bossarmorhelmet,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/ork/warboss/platearmor,
 			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-			slot_r_hand = /obj/item/weapon/complexweapon/boss_choppa
+			slot_r_hand = /obj/item/weapon/boss_choppa
 		)
 	)
 

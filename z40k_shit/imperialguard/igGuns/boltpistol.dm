@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol
+/obj/item/weapon/gun/projectile/automatic/boltpistol
 	name = "\improper Boltpistol"
 	desc = "A boltpistol"
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
@@ -16,6 +16,6 @@
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
-/obj/item/weapon/gun/projectile/automatic/complexweapon/boltpistol/update_icon()
+/obj/item/weapon/gun/projectile/automatic/boltpistol/update_icon()
 	..() //Yeah Sorry, just basic shit here man, this is the only commented section you are getting lol.
 	icon_state = "boltpistol[stored_magazine ? "" : "-e"]"
