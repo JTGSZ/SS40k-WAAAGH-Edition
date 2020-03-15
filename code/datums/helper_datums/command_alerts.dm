@@ -245,7 +245,7 @@
 	message = {"
 There's been a galaxy-wide electromagnetic pulse.  All of our systems are heavily damaged and many personnel are dead or dying. We are seeing increasing indications of the universe itself beginning to unravel.
 
-[station_name()], you are the only facility nearby a bluespace rift, which is near your research outpost.  You are hereby directed to enter the rift using all means necessary, quite possibly as the last humans alive.
+[station_name()], you are the only facility nearby a bluespace rift, which is near your outpost.  You are hereby directed to enter the rift using all means necessary, quite possibly as the last humans alive.
 
 You have five minutes before the universe collapses. Good l\[\[###!!!-
 
