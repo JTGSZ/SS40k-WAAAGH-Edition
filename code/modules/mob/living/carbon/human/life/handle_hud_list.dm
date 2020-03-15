@@ -115,28 +115,4 @@
 		hud_list[IMPLOYAL_HUD] = holder2
 		hud_list[IMPCHEM_HUD] = holder3
 
-	/*if(hud_updateflag & 1 << SPECIALROLE_HUD)
-		var/image/holder = hud_list[SPECIALROLE_HUD]
-		holder.icon_state = "hudblank"
-
-		if(mind)
-			switch(mind.special_role)
-				if("traitor","Syndicate")
-					holder.icon_state = "hudsyndicate"
-				if("Revolutionary")
-					holder.icon_state = "hudrevolutionary"
-				if("Head Revolutionary")
-					holder.icon_state = "hudheadrevolutionary"
-				if("Cultist")
-					holder.icon_state = "hudcultist"
-				if("Changeling")
-					holder.icon_state = "hudchangeling"
-				if("Wizard","Fake Wizard")
-					holder.icon_state = "hudwizard"
-				if("Death Commando")
-					holder.icon_state = "huddeathsquad"
-				if("Vampire") // TODO: Check this
-					holder.icon_state = "hudvampire"
-
-			hud_list[SPECIALROLE_HUD] = holder*/
 	hud_updateflag = 0

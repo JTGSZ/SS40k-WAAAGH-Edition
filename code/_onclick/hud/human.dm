@@ -1,6 +1,6 @@
 /datum/hud/proc/human_hud(var/ui_style='icons/mob/screen1_White.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255)
 
-
+//JTGSZ MARKED
 	src.adding = list()
 	src.other = list()
 	src.hotkeybuttons = list() //These can be disabled for hotkey usersx
@@ -382,7 +382,7 @@
 
 	return
 
-
+ 
 /mob/living/carbon/human/verb/toggle_hotkey_verbs()
 	set name = "toggle-hotkey-buttons"
 	set desc = "This disables or enables the user interface buttons which can be used with hotkeys."
@@ -394,3 +394,4 @@
 	else
 		client.screen -= hud_used.hotkeybuttons
 		hud_used.hotkey_ui_hidden = 1
+

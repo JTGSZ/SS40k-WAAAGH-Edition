@@ -204,7 +204,6 @@
 	cult_tattoo_display.name = "Arcane Tattoos: none"
 	cult_tattoo_display.icon_state = ""
 	cult_tattoo_display.screen_loc = ui_cult_tattoos
-	//pulse_atom(cult_tattoo_display)
 
 	if (mymob.client)
 		mymob.client.screen += list(cult_Act_display,cult_tattoo_display)

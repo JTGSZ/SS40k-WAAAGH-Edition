@@ -14,6 +14,10 @@
 
 	flags = HEAR_ALWAYS | PROXMOVE
 
+	// /vg/ 40k - MARKED - JTGSZ
+	var/word_combo_chain //The holder for the attack chain system appends.
+	var/clear_counter = 0 //The counter that dictates when it clears.
+
 	var/age = 30		//Player's age (pure fluff)
 	//var/b_type = "A+"	//Player's bloodtype //NOW HANDLED IN THEIR DNA
 

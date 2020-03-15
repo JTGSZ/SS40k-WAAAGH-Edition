@@ -54,7 +54,7 @@
 #define ui_alert3 "EAST-1:[28*PIXEL_MULTIPLIER],CENTER+2.5:[23*PIXEL_MULTIPLIER]"
 #define ui_alert4 "EAST-1:[28*PIXEL_MULTIPLIER],CENTER+1.5:[21*PIXEL_MULTIPLIER]"
 #define ui_alert5 "EAST-1:[28*PIXEL_MULTIPLIER],CENTER+0.5:[19*PIXEL_MULTIPLIER]"
-
+//JTGSZ MARKED
 //Gun buttons
 #define ui_gun1 "EAST-2:26,SOUTH+2:7" //Used as compile time value
 #define ui_gun2 "EAST-1:28, SOUTH+3:7" //Used as compile time value

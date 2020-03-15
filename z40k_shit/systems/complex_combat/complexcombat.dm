@@ -1,5 +1,17 @@
 //Within is all the beginning paths and some semblance of complex combat.
+/*Other Areas of note:
+//Inertial Speed is handled in /mob/living/carbon/human/Life() and
+								/mob/living/carbon/human/base_movement_tally()
 
+the variables in human_defines.dm starting at line 18
+	var/word_combo_chain //The holder for the attack chain system appends.
+	var/clear_counter = 0 //The counter that dictates when it clears.
+
+Basically clears out the last_attacks string holder after 6 ticks.
+Its the process loop for the word combo chain system on the mob.
+	SEE: human life.dm. Line 141
+
+*/
 /obj/item/weapon
 	//We have ctrl click specials
 	//COMPLEX CLICK SWITCH - SET THIS
@@ -7,10 +19,10 @@
 	
 	//BLOCK VARS - SET THESE
 	//Our ctrl click specials have blocking actions for defensive stance
-	var/complex_block = TRUE   //If this has complex block aka parrying or other actions
+	var/complex_block = TRUE //If this has complex block aka parrying or other actions
 	var/can_parry = TRUE //Are we capable of parrying?
 
-	//STANCE HOLDER - DO NOT SET THIS
+	//STANCE HOLDER - DO NOT SET THIS. Its basically just a string holder
 	var/stance = "defensive"
 	//Parrying Variables - DO NOT SET THESE
 	var/parryingCD = FALSE //Are we currently on CD from parrying?
@@ -19,10 +31,11 @@
 	var/parryprob = 110 //Probability
 	var/parryduration = 5 //How long we stay in a parrying move
 	
-	//Armor busters
-	var/piercingpower = 0 //How much armor a piercing strike ignores on hit
-	
-	var/datum/attachment_system/ATCHSYS //Our equipment controller and action holder.
+	//piercing strike - Adds "piercing" to the last_attacks string chain.
+	var/can_piercing = FALSE //Can we ready a piercing attack with this?
+
+	//Our equipment controller and action holder.
+	var/datum/attachment_system/ATCHSYS
 
 //Return 1 if we pass, 0 if we do not pass. See: items.dm Line 349
 /obj/item/weapon/item_action_slot_check(slot, mob/user)
@@ -35,11 +48,67 @@
 /obj/item/weapon/New()
 	var/REEE = /datum/action/item_action/warhams/basic_swap_stance
 	actions_types += REEE
+	
+	processing_objects.Add(src) //this is probably a poor idea.
+	//considering i don't know what all is in weapons that processes currently, o fuckin well.
+	..()
+
+/obj/item/weapon/Destroy()
 	..()
 
 /*
-	BASIC ACTION
+	STRING APPENDER
+					*/
+/*
+Basically the plan is to like.
+A. Create a basic appender in /obj/item/weapon/attack that everything will supercall into.
+B. Make a proc call later in this that children can overwrite.
+C. Then when the object they are using calls attack, it runs this and then runs the overwritten thing.
+Doing a special attack at the end of the proc chain based on whats in the last_attacks string holder.
+------------------Design Decisions---------------------
+Stance actions will add to the string holder.
+A specific string will be a universal buffer clear
+---------
+Todo:
+I need the proc input for the children to overwrite.
+And, I need a way to control force, effects on segments of the body.
+Along with that I need a way to handle armor piercing and such too.
+
+*/
+//See: complex_base_class.dm in AA
+/obj/item/weapon/attack(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+	if(ishuman(user) && ishuman(target))
+		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/T = target
+		if(H.inertial_speed != null && H.a_intent == "harm")
+			if(H.inertial_speed >= 5 && H.dir == T.dir && !T.lying)
+				add_logs(user, target, "backstabbed")
+				user.visible_message("<span class='danger'>[H] stabs [T] in the back with the [src.name]!</span>")
+				H.inertial_speed = null
+				T.Paralyse(5)
+				step_away(T,H,10)
+				step_away(T,H,10)
+		if(H.a_intent == I_GRAB)
+			H.word_combo_chain += "pierce"
+			H.clear_counter = 0
+		if(H.a_intent == I_DISARM)
+			H.word_combo_chain += "disarm"
+			H.clear_counter = 0
+		if(H.a_intent == I_HELP)
+			H.word_combo_chain += "hamstring"
+			H.clear_counter = 0
+		if(H.a_intent == I_HURT)
+			H.word_combo_chain += "hurt"
+			H.clear_counter = 0
+		
+		H.update_powerwords_hud()
+	..()
+
+/*
+	BASIC ACTIONS
 				*/
+
+//STANCE SWAP - BASIC
 /datum/action/item_action/warhams/basic_swap_stance
 	name = "Swap Stance"
 	background_icon_state = "bg_defensive"
@@ -58,6 +127,19 @@
 		background_icon_state = "bg_defensive"
 		button_icon_state = "defensive_1"
 		UpdateButtonIcon()
+
+//PIERCING BLOWS - BASIC
+/obj/item/weapon/verb/switchpiercing()
+	set name = "Piercing Blow"
+	set desc = "Make the next blow armor piercing. Delivering an armor piercing blow takes more time than a regular one."
+	set category = "Sword"
+
+	//piercing = !piercing
+//	if(piercing)
+//		usr << "\red You prepare to deliver a piercing blow."
+//	else
+//		usr << "\red You are no longer prepared to deliver a piercing blow."
+
 /*
 	BASIC STANCE SWAP PROC
 							*/
@@ -93,6 +175,8 @@
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				H.inertial_speed += 6
+				H.word_combo_chain += "charge"
+				H.update_powerwords_hud()
 
 /*
 	DEFENSIVE STANCE CTRLCLICK PARENT
@@ -100,7 +184,7 @@
 //Its just basic parrying
 /obj/item/weapon/proc/handle_defensive_ctrlclick(var/mob/living/user, var/atom/target)
 	parryingDIR = get_dir(user, target) //EG we click north and now we have NORTH
-	var/showndirection = ""
+	var/showndirection = "" //We do not need a living target, just any target for a direction.
 	switch(parryingDIR)
 		if(1)
 			showndirection = "North"
@@ -129,6 +213,10 @@
 			spawn(parryduration*5)
 				parrying = FALSE //And we should stop parrying in half the time
 			user.click_delayer.setDelay(2)
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				H.word_combo_chain += "parry"
+				H.update_powerwords_hud()
 
 //Params - I is the object that hits us, param 2 is the person attacking, param 3 is the person who is parrying aka us.
 //Obv our object is src
