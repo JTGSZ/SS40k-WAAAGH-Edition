@@ -43,8 +43,8 @@
 		return FALSE
 
 	var/obj/item/weapon/D = src.get_active_hand()
-	if(D && D.complex_block) //JTGSZ MARKED
-		if(D.handle_block(I, user, src)) //If we successfully parry and return TRUE due to this
+	if(D && D.complex_defense) //JTGSZ MARKED
+		if(D.handle_complex_defense(I, user, src)) //If we successfully parry and return TRUE due to this
 			return FALSE  //We just stop this here
 
 	user.do_attack_animation(src, I)
