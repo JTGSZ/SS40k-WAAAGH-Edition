@@ -25,19 +25,21 @@
 		
 		var/conversion_string //Basically this is our conversion string, we now exist.
 		conversion_string = word_combo_chain //Then we make it our word combo chain
-		//Then we regex stuff
-		if(findtext(conversion_string, "pierce")) //Basically we can get our colors on this way.
-			conversion_string = replacetext(conversion_string, "pierce", "<font color='#FFFF00'>Pierce</font>") //This one is grab
-		if(findtext(conversion_string, "disarm"))
-			conversion_string = replacetext(conversion_string, "disarm", "<font color='#0000FF'>Disarm</font>") //This one is disarm
-		if(findtext(conversion_string, "hamstring"))
-			conversion_string = replacetext(conversion_string, "hamstring", "<font color='#00FF00'>Hamstring</font>") //This one is help
-		if(findtext(conversion_string, "hurt"))
-			conversion_string = replacetext(conversion_string, "hurt", "<font color='#FF0000'>Hurt</font>") //This one is hurt
-		if(findtext(conversion_string, "charge"))
-			conversion_string = replacetext(conversion_string, "charge", "<font color='#FF9933'><b>Charge!</b></font>") //This one is hurt
-		if(findtext(conversion_string, "parry"))
-			conversion_string = replacetext(conversion_string, "parry", "<font color='#EE82EE'><b>Parry!</b></font>") //This one is hurt
+		//Then we regex stuff - Basically we can get our colors on this way.
+		if(findtext(conversion_string, "grapple")) //This one is grab
+			conversion_string = replacetext(conversion_string, "grapple", "<font color='#FFFF00'><i> Grapple </i></font>") 
+		if(findtext(conversion_string, "disarm")) //This one is disarm
+			conversion_string = replacetext(conversion_string, "disarm", "<font color='#0000FF'> Disarm </font>") 
+		if(findtext(conversion_string, "knockback")) //This one is help
+			conversion_string = replacetext(conversion_string, "knockback", "<font color='#00FF00'> Knockback </font>") 
+		if(findtext(conversion_string, "hurt")) //This one is hurt
+			conversion_string = replacetext(conversion_string, "hurt", "<font color='#FF0000'> HURT </font>") 
+		if(findtext(conversion_string, "charge")) //This one is charge action
+			conversion_string = replacetext(conversion_string, "charge", "<font color='#FF9933'><b> Charge! </b></font>") 
+		if(findtext(conversion_string, "parry")) //This one is parry action
+			conversion_string = replacetext(conversion_string, "parry", "<font color='#EE82EE'><b> Parry! </b></font>") 
+		if(findtext(conversion_string, "pierce")) //Pierce action
+			conversion_string = replacetext(conversion_string, "pierce", "<font color='#00ffea'><b><i> PIERCE! </i></b></font>") 
 
 		hud_used.powerwords_display.maptext_width = 128
 		hud_used.powerwords_display.maptext_height = 42

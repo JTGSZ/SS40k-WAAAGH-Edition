@@ -70,12 +70,25 @@ Stance actions will add to the string holder.
 A specific string will be a universal buffer clear
 ---------
 Todo:
-I need the proc input for the children to overwrite.
 And, I need a way to control force, effects on segments of the body.
 Along with that I need a way to handle armor piercing and such too.
 
 */
+/*
+Our current words are the following.
+
+	Method		    String		      Location of string append.
+|---------------|-----------------|-----------------------------------|
+Grab Intent    -   grapple 			See: complexcombat.dm Line: 101
+Disarm Intent  -   disarm			See: complexcombat.dm Line: 103
+Help Intent    -   knockback		See: complexcombat.dm Line: 107
+Hurt Intent    -   hurt				See: complexcombat.dm Line: 109
+Charge action  -   charge			See: complexcombat.dm Line: 205
+Parry action   -   parry			See: complexcombat.dm Line: 245
+
+*/
 //See: complex_base_class.dm in AA
+//See: item_attack.dm for the attack proc.
 /obj/item/weapon/attack(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
 	if(ishuman(user) && ishuman(target))
 		var/mob/living/carbon/human/H = user
@@ -89,20 +102,47 @@ Along with that I need a way to handle armor piercing and such too.
 				step_away(T,H,10)
 				step_away(T,H,10)
 		if(H.a_intent == I_GRAB)
-			H.word_combo_chain += "pierce"
+			H.word_combo_chain += "grapple"
 			H.clear_counter = 0
 		if(H.a_intent == I_DISARM)
 			H.word_combo_chain += "disarm"
 			H.clear_counter = 0
 		if(H.a_intent == I_HELP)
-			H.word_combo_chain += "hamstring"
+			H.word_combo_chain += "knockback"
 			H.clear_counter = 0
 		if(H.a_intent == I_HURT)
 			H.word_combo_chain += "hurt"
 			H.clear_counter = 0
 		
-		H.update_powerwords_hud()
+		interpret_powerwords(target, user, def_zone, originator) //We interpret the words in the word combo chain var here
+		H.update_powerwords_hud() //We update the humans powerwords hud
 	..()
+
+//We bring all the given stuff into this proc too. 
+//Everything after this better supercall if they overwrite this proc.
+//Basically theres going to be two types of lastattack finding methods.
+//String equality and findtexts.
+//The first means they need to be precise, the latter means they just need to do it.
+/obj/item/weapon/proc/interpret_powerwords(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+	//Universal Buffer Clears
+	switch(H.word_combo_chain)
+		if("chargegrappledisarmgrapple") //Charge Grapple Disarm Grapple
+			T.word_combo_chain = ""
+			T.update_powerwords_hud()
+		if("parrydisarm") //Parry Disarm
+			T.word_combo_chain = ""
+			T.update_powerwords_hud()
+		if("grappledisarm") //Grapple Disarm
+			T.word_combo_chain = ""
+			T.update_powerwords_hud()
+
+	if(findtext(H.word_combo_chain, "disarmgrappleknockback"))) //Disarm Grapple Knockback
+		H.word_combo_chain = ""
+		H.update_powerwords_hud()
+
+	return 1
 
 /*
 	BASIC ACTIONS

@@ -143,6 +143,7 @@ var/global/list/organ_damage_overlays = list(
 				clear_counter = 0
 				word_combo_chain = ""
 				update_powerwords_hud()
+			update_powerwords_hud()
 			clear_counter += 1
 
 		if(SSair.current_cycle % 4 == 2 || failed_last_breath) //First, resolve location and get a breath

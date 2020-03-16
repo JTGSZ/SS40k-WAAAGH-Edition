@@ -47,7 +47,7 @@
 /obj/item/proc/preattack(atom/target, mob/user, proximity_flag, click_parameters)
 	return
 
-obj/item/proc/get_clamped_volume()
+/obj/item/proc/get_clamped_volume()
 	if(src.force && src.w_class)
 		return clamp((src.force + src.w_class) * 4, 30, 100)// Add the item's force to its weight class and multiply by 4, then clamp the value between 30 and 100
 	else if(!src.force && src.w_class)
@@ -67,7 +67,6 @@ obj/item/proc/get_clamped_volume()
 	. = 1
 	if (!istype(M)) // not sure if this is the right thing...
 		return 0
-	//var/messagesource = M
 	if (can_operate(M, user))        //Checks if mob is lying down on table for surgery
 		if (do_surgery(M,user,I))
 			return 1
@@ -75,9 +74,6 @@ obj/item/proc/get_clamped_volume()
 	if (user.is_pacified(VIOLENCE_DEFAULT,M))
 		return 0
 
-	//if (istype(M,/mob/living/carbon/brain))
-	//	messagesource = M:container
-	/////////////////////////
 	if(originator)
 		if(ismob(originator))
 			originator.lastattacked = M
@@ -87,10 +83,6 @@ obj/item/proc/get_clamped_volume()
 		user.lastattacked = M
 		M.lastattacker = user
 		add_logs(user, M, "attacked", object=I.name, addition="(INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)])")
-
-	//spawn(1800)            // this wont work right
-	//	M.lastattacker = null
-	/////////////////////////
 
 	var/power = I.force
 	if(M_HULK in user.mutations)
