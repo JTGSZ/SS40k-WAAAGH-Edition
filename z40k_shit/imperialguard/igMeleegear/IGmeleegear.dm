@@ -61,3 +61,26 @@
 
 /obj/item/offhand //Reference this when you need to make a 2 handed weapon.
 
+/obj/item/weapon/powersword
+	name = "power sword"
+	desc = "Its a power sword."
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
+	icon_state = "powersword"
+	item_state = "powersword"
+	sharpness_flags = 0 //starts inactive
+	force = 50
+	armor_penetration = 100
+	hitsound = "sound/weapons/blade1.ogg"
+	throwforce = 5
+	throw_speed = 1
+	throw_range = 5
+	w_class = W_CLASS_SMALL
+	flags = FPRINT
+	sharpness = 1.5
+	sharpness_flags = SHARP_TIP | SHARP_BLADE | INSULATED_EDGE | HOT_EDGE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK
+	origin_tech = Tc_MAGNETS + "=3;" + Tc_SYNDICATE + "=4"
+	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
+
+/obj/item/weapon/powersword/IsShield()
+	return 1

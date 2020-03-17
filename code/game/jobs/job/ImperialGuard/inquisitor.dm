@@ -39,6 +39,7 @@
 			slot_head_str = /obj/item/clothing/head/iguard/inqhat,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/inq,
+			slot_r_hand = /obj/item/weapon/powersword
 		),
 	)
 
