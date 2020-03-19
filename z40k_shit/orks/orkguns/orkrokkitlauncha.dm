@@ -23,7 +23,7 @@
 	ammo_type = "/obj/item/ammo_casing/rocket_rpg/rokkit"
 	attack_verb = list("strikes", "hits", "bashes")
 	gun_flags = 0
-	action_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
+	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
 
 /obj/item/weapon/gun/projectile/rocketlauncher/isHandgun()
 	return FALSE

@@ -131,11 +131,11 @@ Help Intent    -   knockback		See: complexcombat.dm Line: 107
 Hurt Intent    -   hurt				See: complexcombat.dm Line: 109
 Charge action  -   charge			See: complexcombat.dm Line: 166
 Parry action   -   parry			See: complexcombat.dm Line: 206
-Pierce action  -   pierce			See: NOT DONE YET
+Pierce action  -   pierce			See: complexcombat.dm Line: 379
 Deflect action -   deflect          See: NOT DONE YET
 Block action   -   block            See: NOT DONE YET
-Saw action     -   saw              See: NOT DONE YET
-Overcharge action - overcharge		See: NOT DONE YET
+Saw action     -   saw              See: complexcombat.dm Line: 150
+Overcharge action - overcharge		See: complexcombat.dm Line: 358
 
 */
 //See: complex_base_class.dm in AA
@@ -144,6 +144,14 @@ Overcharge action - overcharge		See: NOT DONE YET
 	if(ishuman(user) && ishuman(target))
 		var/mob/living/carbon/human/H = user
 		var/mob/living/carbon/human/T = target
+		if(src.saw_execution = TRUE)
+			user.visible_message("<span class='danger'> [user] begins sawing [target] to death!")
+			if(do_after(user,src,20))
+				H.word_combo_chain += "saw"
+				for(var/datum/organ/external/E in H.organs)
+					E.droplimb(1)
+		if(src.piercing_blow = TRUE)
+			return 1
 		if(H.inertial_speed != null && H.a_intent == "harm")
 			if(H.inertial_speed >= 5 && H.dir == T.dir && !T.lying)
 				add_logs(user, target, "backstabbed")
@@ -358,9 +366,8 @@ Overcharge action - overcharge		See: NOT DONE YET
 	SAWING PROC HOLDER
 						*/
 /obj/item/weapon/proc/saw_execution(var/mob/living/carbon/human/user)
-	user.visible_message("<span class='danger'> [user] begins sawing [target] in half.")
-	if(do_after(user,src,20))
-		return
+	user.visible_message("<span class='danger'> [user] gets ready to rev it up!")
+	saw_execution = TRUE
 
 /*
 	PIERCING BLOW PROC HOLDER
