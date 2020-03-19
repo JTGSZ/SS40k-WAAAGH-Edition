@@ -24,16 +24,19 @@ Its the process loop for the word combo chain system on the mob.
 	var/can_block = FALSE //Are we capable of blocking?
 	var/can_deflect = FALSE //Are we capable of deflecting?
 
+	//Mostly a general direction
+	var/defenseDIR //So someone doesn't become Neo from the matrix.
+	//And covers all their directions at once.
+	
+	//A var that is both blocking and deflecting's CD
+	var/heavydefCD = FALSE //We will not be on both at the same time.
+	
 	//BLOCKING ACTION VARIABLES - DO NOT SET THESE
 	var/blocking = FALSE //Are we currently blocking?
-	var/blockingDIR //The direction we are blocking
-	var/blockingCD = FALSE //Are we currently on CD from blocking?
+	var/forcesoak = 60 // The amount of force we compare to for the calculation.
 	var/blocking_duration = 5 //How long we stay in a block
-	
 	//DEFLECTING ACTION VARIABLES - DO NOT SET THESE
 	var/deflecting = FALSE
-	var/deflectingCD = FALSE // Are we currently on CD from deflecting?
-	var/deflectingDIR //The direction we are parrying
 	var/deflectingprob = 50 //Probability
 	var/deflecting_duration = 2 //How long we stay in a deflect
 
@@ -42,13 +45,16 @@ Its the process loop for the word combo chain system on the mob.
 	//Parrying Variables - DO NOT SET THESE
 	var/parryingCD = FALSE //Are we currently on CD from parrying?
 	var/parrying = FALSE //Are we currently parrying?
-	var/parryingDIR //The direction we are parrying, for dir comparisons.
 	var/parryprob = 110 //Probability
 	var/parryduration = 5 //How long we stay in a parrying move
 	
+	//These are mostly active targeted actions on their own.
 	//piercing strike - Adds "piercing" to the last_attacks string chain.
-	var/can_piercing = TRUE //Are we ready to deal a piercing attack?
-	var/is_piercing = FALSE //Are we currently piercing?
+	var/piercing_blow = FALSE //Are we currently piercing?
+	//Overcharge - For plasmaguns really
+	var/overcharged = FALSE
+	//Saw_Execution - For chain weapons really.
+	var/saw_execution = FALSE
 
 	//Our equipment controller and action holder.
 	var/datum/attachment_system/ATCHSYS
@@ -61,12 +67,7 @@ Its the process loop for the word combo chain system on the mob.
 		return 0
 
 
-/obj/item/weapon/New()
-	var/REEE = /datum/action/item_action/warhams/basic_swap_stance
-	actions_types += REEE
-	
-	processing_objects.Add(src) //this is probably a poor idea.
-	//considering i don't know what all is in weapons that processes currently, o fuckin well.
+/obj/item/weapon/New() //We will grant the actions to each item individually, but store capability here.
 	..()
 
 /obj/item/weapon/Destroy()
@@ -191,9 +192,9 @@ Overcharge action - overcharge		See: NOT DONE YET
 									*/
 //Its just basic parrying
 /obj/item/weapon/proc/handle_defensive_ctrlclick(var/mob/living/user, var/atom/target)
-	parryingDIR = get_dir(user, target) //EG we click north and now we have NORTH
+	defenseDIR = get_dir(user, target) //EG we click north and now we have NORTH
 	var/showndirection = "" //We do not need a living target, just any target for a direction.
-	switch(parryingDIR)
+	switch(defenseDIR)
 		if(1)
 			showndirection = "North"
 		if(2)
@@ -226,24 +227,54 @@ Overcharge action - overcharge		See: NOT DONE YET
 				H.word_combo_chain += "parry"
 				H.update_powerwords_hud()
 
+	if()
+
+/obj/item/weapon/proc/handle_heavydef_ctrlclick(var/mob/living/user, var/mob/living/target)
+	return
+
 //Params - I is the object that hits us, param 2 is the person attacking, param 3 is the person who is parrying aka us.
 //Obv our object is src
 //user.dir target.dir //See: Combat.dm Line: 47 for where we are located.
 /obj/item/weapon/proc/handle_complex_defense(var/obj/item/I, var/mob/living/user, var/mob/living/target, var/probmod = 0)
-	if(can_block)
-	
-	if(can_parry) //Can we even parry?
+
+
+	if(can_block) //Can we even parry?
 		if(parrying) //ARE we parrying? Now we need to get some direction calculations
 			var/assaultDIR = get_dir(target,user) //The direction we are being attacked from
 			if(src.force >= 10 && !target.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
-				if(parryingDIR == assaultDIR)
+				if(defenseDIR == assaultDIR)
 					if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
 						user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
 						return TRUE //If we are attacked from the direction we parry
 					else
 						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
 						return FALSE
-				if((assaultDIR == turn(parryingDIR,90)) || (assaultDIR == turn(parryingDIR,-90)))
+				if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
+					if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
+						user.visible_message("<span class ='danger'>[target] has parried [user]'s side attack!</span>")
+						return TRUE
+					else
+						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+						return FALSE
+			else
+				to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+				return FALSE
+	return FALSE //basically if it returns true to the segment in human_defense.dm Line 211 we do stuff here.
+	//Instead of over there
+
+//---PARRYING IS LAST IN THIS CHAIN.
+	if(can_parry) //Can we even parry?
+		if(parrying) //ARE we parrying? Now we need to get some direction calculations
+			var/assaultDIR = get_dir(target,user) //The direction we are being attacked from
+			if(src.force >= 10 && !target.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
+				if(defenseDIR == assaultDIR)
+					if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
+						user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
+						return TRUE //If we are attacked from the direction we parry
+					else
+						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
+						return FALSE
+				if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
 					if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
 						user.visible_message("<span class ='danger'>[target] has parried [user]'s side attack!</span>")
 						return TRUE
@@ -259,11 +290,25 @@ Overcharge action - overcharge		See: NOT DONE YET
 /*
 	BASIC STANCE SWAP PROC
 							*/
-/obj/item/weapon/proc/switch_stance(var/mob/living/user)
+/obj/item/weapon/proc/aggr_def_switch_stance(var/mob/living/user)
 	if(stance == "aggressive")
 		stance = "defensive"
 	else
 		stance = "aggressive"
+	user.visible_message("<span class='notice'> [user] falls into [stance] stance.</span>")
+
+//Technically you can have both on one item, since the else
+//Will bring it into that one, and then if they hit it again you get the first
+//So the stances will just be ordered based on importance
+//And partially balanced in this manner.
+/*
+	SHIELD STANCE SWAP PROC
+							*/
+/obj/item/weapon/proc/defl_bloc_switch_stance(var/mob/living/user)
+	if(stance == "blocking")
+		stance = "deflective"
+	else
+		stance = "blocking"
 	user.visible_message("<span class='notice'> [user] falls into [stance] stance.</span>")
 
 //Built so you can slot in stuff other than the given charging/parrying into each item you want.
@@ -274,9 +319,9 @@ Overcharge action - overcharge		See: NOT DONE YET
 		if("aggressive")
 			handle_aggressive_ctrlclick(user, target)
 		if("deflective")
-			handle_deflecting_ctrlclick(user, target)
+			handle_heavydef_ctrlclick(user, target)
 		if("blocking")
-			handle_blocking_ctrlclick(user, target)
+			handle_heavydef_ctrlclick(user, target)
 
 //Mob Var holder/parent entry
 /mob/living/carbon/human

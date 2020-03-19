@@ -5,3 +5,7 @@
 
 /datum/action/item_action/warhams/begin_sawing/Trigger()
 	var/obj/item/weapon/S = target
+	if(!S.saw_execution)
+		S.saw_execution = TRUE
+	else
+		S.saw_execution = FALSE

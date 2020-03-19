@@ -5,3 +5,7 @@
 
 /datum/action/item_action/warhams/energy_overcharge/Trigger()
 	var/obj/item/weapon/S = target
+	if(!S.overcharged)
+		S.overcharged = TRUE
+	else
+		S.overcharged = FALSE

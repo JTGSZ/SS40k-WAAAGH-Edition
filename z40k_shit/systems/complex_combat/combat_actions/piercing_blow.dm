@@ -12,9 +12,8 @@
 
 /obj/item/weapon/proc/piercing_blow(var/mob/living/user)
 	var/mob/living/carbon/human/H = user
-	if(can_piercing)
-		user.visible_message("<span class='danger'> [user] prepares to deliver a piercing blow.</span>")
-		if(do_after(H,src,20))
-			is_piercing = TRUE
-			H.word_combo_chain += "pierce"
-			H.update_powerwords_hud()
+	user.visible_message("<span class='danger'> [user] prepares to deliver a piercing blow.</span>")
+	if(do_after(H,src,20))
+		piercing_blow = TRUE
+		H.word_combo_chain += "pierce"
+		H.update_powerwords_hud()

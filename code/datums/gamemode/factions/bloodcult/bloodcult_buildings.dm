@@ -463,10 +463,10 @@
 			if ("Remove Blade")
 				var/mob/M = get_locked(lock_type)[1]
 				if(M != user)
-					if (do_after(user,src,20))
+					if(do_after(user,src,20))
 						M.visible_message("<span class='notice'>\The [M] was freed from \the [src] by \the [user]!</span>","You were freed from \the [src] by \the [user].")
 						unlock_atom(M)
-						if (blade)
+						if(blade)
 							blade.forceMove(loc)
 							blade.attack_hand(user)
 							to_chat(user, "<span class='warning'>You remove \the [blade] from \the [src]</span>")
