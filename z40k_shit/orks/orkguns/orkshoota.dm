@@ -15,6 +15,7 @@
 	fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/gun/projectile/automatic/shoota/update_icon()
 	..() //Yeah Sorry, just basic shit here man, this is the only commented section you are getting lol.

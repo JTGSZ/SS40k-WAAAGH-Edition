@@ -1,11 +1,8 @@
 /datum/action/item_action/warhams/energy_overcharge
-	name = "Overcharge Gun"
+	name = "Overcharge"
 	background_icon_state = "bg_overcharge"
 	button_icon_state = "overcharge"
 
 /datum/action/item_action/warhams/energy_overcharge/Trigger()
 	var/obj/item/weapon/S = target
-	if(!S.overcharged)
-		S.overcharged = TRUE
-	else
-		S.overcharged = FALSE
+	S.overcharge(owner)

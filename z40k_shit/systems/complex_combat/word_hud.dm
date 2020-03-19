@@ -40,6 +40,11 @@
 			conversion_string = replacetext(conversion_string, "parry", "<font color='#EE82EE'><b> Parry! </b></font>") 
 		if(findtext(conversion_string, "pierce")) //Pierce action
 			conversion_string = replacetext(conversion_string, "pierce", "<font color='#00ffea'><b><i> PIERCE! </i></b></font>") 
+		if(findtext(conversion_string, "overcharge")) //Pierce action
+			conversion_string = replacetext(conversion_string, "overcharge", "<font color='#8602f1'><b><i> Overcharge! </i></b></font>") 
+		if(findtext(conversion_string, "saw")) //Pierce action
+			conversion_string = replacetext(conversion_string, "saw", "<font color='#ff0055'><b><i> Saw! </i></b></font>") 
+
 
 		hud_used.powerwords_display.maptext_width = 128
 		hud_used.powerwords_display.maptext_height = 42

@@ -10,6 +10,7 @@
 	var/start_fueled = 1 // Do we start fueled
 	var/my_gun //Where we store our gun ref if we link them together.
 
+//We create our reagent here
 /obj/item/weapon/iguard/ig_powerpack/New()
 	. = ..()
 
@@ -20,14 +21,16 @@
 //If someone drops a plasma gun onto us, we tie ourselves together.
 /obj/item/weapon/iguard/ig_powerpack/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/gun/ig_plasma_gun))
-		var/obj/item/weapon/gun/ig_plasma_gun/ASS = O
-		if(do_after(user,src,20))
-			to_chat(user, "<span class='warning'>You attach hose to [src] and [O]</span>")
-			ASS.my_pack = src
-			my_gun = ASS
-			ASS.update_icon()
+		if(user.is_wearing_item(src, slot_back))
+			var/obj/item/weapon/gun/ig_plasma_gun/ASS = O
+			if(do_after(user,src,20))
+				to_chat(user, "<span class='warning'>You attach hose to [src] and [O]</span>")
+				ASS.my_pack = src
+				my_gun = ASS
+				ASS.connection_type = 3
+				ASS.update_icon()
 
-//If someone pulls our powerpack off, we unlink them.
+//If someone pulls our powerpack off, we unlink them, if we exist that is.
 /obj/item/weapon/iguard/ig_powerpack/unequipped(mob/user)
 	if(my_gun)
 		var/obj/item/weapon/gun/ig_plasma_gun/ASS = locate(/obj/item/weapon/gun/ig_plasma_gun) in user.held_items
@@ -63,22 +66,34 @@
 	icon_state = "plasma_gun"
 	item_state = "plasma_gun"
 	var/obj/item/weapon/iguard/ig_powerpack/my_pack //The powerpack we are attached to if there is one. Basically a ref
+	var/obj/item/hydrogen_fuel_cell/my_cell //Our cell if we got one.
 	overcharged = FALSE //Are we overcharged or not?
 	throw_range = 0
 	throw_speed = 1
 	fire_sound = null
 	var/connection_type = 0 // 1 = No Connection, 2 = Cell connection, 3 = Ppack connection
+	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance,
+						/datum/action/item_action/warhams/energy_overcharge)
 
 /obj/item/weapon/gun/ig_plasma_gun/New()
 	..()
 
-
-/obj/item/weapon/gun/ig_plasma_gun/dropped(mob/user) //If we drop this, we return to pack.
-	if(my_pack)
-		my_pack.nozzleout = FALSE
-		src.forceMove(my_pack)
-		my_pack.update_icon()
+//If we drop this we will clear our pack reference.
+/obj/item/weapon/gun/ig_plasma_gun/dropped(mob/user) //If we drop this, we clear references
+	if(connection_type == 3) //We are linked to a pack
+		my_pack = null //We clear the reference
+		connection_type = 1 //And become connection type 1 which is NOTHING.
 		update_icon()
+
+//We CAN handle our mouse drop from this side too.
+/obj/item/weapon/gun/ig_plasma_gun/MouseDropFrom(atom/over_object,atom/src_location,atom/over_location,src_control,over_control,params)
+	if(isturf(over_location))
+		if(connection_type == 2)
+			to_chat(usr,"You remove the fuel cell from the [src]")
+			usr.drop_item(my_cell, over_location)
+
+/obj/item/weapon/gun/ig_plasma_gun/overcharge(var/mob/living/user)
+	..()
 
 /obj/item/weapon/gun/ig_plasma_gun/update_icon()
 	var/mob/living/carbon/human/H = loc
@@ -86,50 +101,64 @@
 	if(istype(loc,/mob/living/carbon/human))
 		switch(connection_type)
 			if(1) //No connection
-				icon_state = "burnanozzle_on"
-				item_state = "burnanozzle_on"
+				icon_state = "plasma_gun-e"
+				item_state = "plasma_gun-e"
 				H.update_inv_hands()
 			if(2) //Fuel Cell connection
-				icon_state = "burnanozzle_off"
-				item_state = "burnanozzle_off"
+				icon_state = "plasma_gun"
+				item_state = "plasma_gun"
 				H.update_inv_hands()
 			if(3) //Powerpack hose connection
-				icon_state = "burnanozzle_off"
-				item_state = "burnanozzle_off"
+				icon_state = "plasma_gun-ppack"
+				item_state = "plasma_gun-ppack"
 				H.update_inv_hands()
+
+/obj/item/weapon/gun/ig_plasma_gun/attackby(var/obj/item/A as obj, mob/user as mob)
+	if(istype(A, /obj/item/hydrogen_fuel_cell))
+		if(!connection_type == 3)
+			user.drop_item(A, src)
+			my_cell = A
+		else
+			to_chat(user,"The place for your fuel cell is currently occupied")
 
 /obj/item/weapon/gun/ig_plasma_gun/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()
 	if(isturf(hit_atom))
-
+		if(connection_type == 3)
+			my_pack.my_gun = null
+			my_pack = null
+			connection_type = 1
 		update_icon()
 
-	if(my_pack)
-		//my_pack.nozzleout = FALSE
-		my_pack.update_icon()
 
-/obj/item/weapon/gun/ig_plasma_gun/attack_self(var/mob/user) //If we click this, we ignite it.
+/obj/item/weapon/gun/ig_plasma_gun/attack_self(var/mob/user) 
 	..()
 
 /obj/item/weapon/gun/ig_plasma_gun/process_chambered()
 	if(in_chamber)
 		return 1
 	switch(connection_type)
-		if(1)
+		if(1) //No Connection
 			return 0
-		if(2)
-			return 0
-
-		if(3)
-			if(my_pack.get_fuel() > 0)
-				my_pack.reagents.remove_reagent(HYDROGEN, 50)
-				playsound(src, 'z40k_shit/sounds/flamer.ogg', 60, 1)
-				in_chamber = new/obj/item/projectile/fire_breath/shuttle_exhaust(src)
+		if(2) //Cell Connection
+			if(my_cell.get_fuel() > 0)
+				my_cell.reagents.remove_reagent(HYDROGEN,10)
+				in_chamber = new /obj/item/projectile/plasma(src)
 				return 1
-			else
-				return
+		if(3) //Pack Connection
+			if(my_pack.get_fuel() > 0)
+				my_pack.reagents.remove_reagent(HYDROGEN, 10)
+				in_chamber = new /obj/item/projectile/plasma(src)
+				return 1
 	return 0
 
+/obj/item/weapon/gun/energy/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+	var/atom/newtarget = target
+	..(newtarget,user,params,reflex,struggle)
+
+/*
+	Hydrogen tank lmao
+						*/
 /obj/structure/reagent_dispensers/hydrogen_tank
 	name = "hydrogen tank"
 	desc = "A tank filled with hydrogen."
@@ -140,6 +169,9 @@
 	. = ..()
 	reagents.add_reagent(HYDROGEN, 1000)
 
+/*
+	Plasma Projectile
+						*/
 /obj/item/projectile/plasma
 	name = "plasma"
 	damage_type = BRUTE
@@ -161,6 +193,27 @@
 	if(!plasgun || !istype(plasgun))
 		return
 	if(plasgun.overcharged)
-		icon_state = "spur_high"
+		icon_state = "plasma"
 		damage = 100
 		kill_count = 20
+
+
+/*
+	HYDROGEN FUEL CELL
+						*/
+/obj/item/hydrogen_fuel_cell
+	name = "Hydrogen Fuel Cell"
+	desc = "Cryogenically frozen hydrogen, fit for jamming into a plasma weapon. Good for 10 shots."
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
+	icon_state = "plas_fuel_cell"
+	var/max_fuel = 100
+	
+/obj/item/hydrogen_fuel_cell/New()
+	..()
+	src.pixel_x = rand(1,10)
+	src.pixel_y = rand(1,10)
+	create_reagents(max_fuel)
+	reagents.add_reagent(HYDROGEN, max_fuel)
+
+/obj/item/hydrogen_fuel_cell/proc/get_fuel()
+	return reagents.get_reagent_amount(HYDROGEN)

@@ -16,4 +16,6 @@
 	sharpness = 50
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK
 	attack_verb = list("attacks", "smashes",  "bludgeons", "tenderizes", "whams", "bops", "slamdunks")
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance,
+						/datum/action/item_action/warhams/heavydef_swap_stance)
 

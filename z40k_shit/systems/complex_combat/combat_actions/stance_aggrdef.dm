@@ -8,13 +8,13 @@
 
 /datum/action/item_action/warhams/basic_swap_stance/Trigger()
 	var/obj/item/weapon/S = target
-	S.switch_stance(owner)
+	S.aggr_def_switch_stance(owner)
 
 	if(S.stance == "aggressive")
 		background_icon_state = "bg_aggro"
 		button_icon_state = "aggressive"
 		UpdateButtonIcon()
-	if(S.stance == "defensive")
+	else
 		background_icon_state = "bg_defensive"
 		button_icon_state = "defensive"
 		UpdateButtonIcon()

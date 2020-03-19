@@ -17,6 +17,7 @@
 	sharpness = 1.2
 	sharpness_flags = CUT_AIRLOCK
 	attack_verb = list("attacks", "bludgeons",  "slams")
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/psykerstaff/New()
 	. = ..()

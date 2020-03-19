@@ -33,6 +33,7 @@
 	var/laserbeams = 0 //Laser bullet types
 	var/shotgunpellets = 0 //Shotgun bullet types
 	var/taped = 1
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"

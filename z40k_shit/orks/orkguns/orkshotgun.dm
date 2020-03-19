@@ -13,6 +13,7 @@
 	load_method = 2
 	slot_flags = 0
 	gun_flags = EMPTYCASINGS 
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/gun/projectile/shotgun/shotta/update_icon()
 	..()

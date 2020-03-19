@@ -17,6 +17,8 @@
 	sharpness = 1.2
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | SERRATED_BLADE | CHOPWOOD | CUT_AIRLOCK
 	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "saws")
+	actions_types = list(/datum/action/item_action/warhams/begin_sawing,
+						/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/chainsword/New()
 	. = ..()
@@ -41,6 +43,7 @@
 	origin_tech = Tc_MATERIALS + "=2"
 	attack_verb = list("shoves", "bashes")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
+	action_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
 
 /obj/item/weapon/shield/IGshield/suicide_act(mob/user)
 	to_chat(viewers(user), "<span class='danger'>[user] is smashing \his face into the [src.name]! It looks like \he's  trying to commit suicide!</span>")
@@ -81,6 +84,8 @@
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | INSULATED_EDGE | HOT_EDGE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_SYNDICATE + "=4"
 	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
+	actions_types = list(/datum/action/item_action/warhams/piercing_blow,
+						/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/powersword/IsShield()
 	return 1

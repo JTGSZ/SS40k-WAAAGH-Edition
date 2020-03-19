@@ -31,7 +31,8 @@
 	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
 	flags = FPRINT | TWOHANDABLE
-	actions_types = list(/datum/action/item_action/warhams/adjust_power)
+	actions_types = list(/datum/action/item_action/warhams/adjust_power,
+						/datum/action/item_action/warhams/basic_swap_stance)
 	defective = 1
 
 

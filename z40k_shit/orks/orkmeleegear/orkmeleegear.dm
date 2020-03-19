@@ -21,6 +21,7 @@
 	sharpness = 1.2
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
 	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "slamdunks")
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/choppa/New()
 	. = ..()
@@ -50,6 +51,7 @@
 	origin_tech = Tc_MATERIALS + "=2"
 	attack_verb = list("shoves", "bashes")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
+	action_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
 
 /obj/item/weapon/shield/orkshield/suicide_act(mob/user)
 	to_chat(viewers(user), "<span class='danger'>[user] is smashing \his face into the [src.name]! It looks like \he's  trying to commit suicide!</span>")

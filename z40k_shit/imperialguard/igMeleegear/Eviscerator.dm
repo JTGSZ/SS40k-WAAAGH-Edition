@@ -39,6 +39,8 @@
 	conventional_firearm = 0
 	silenced = 1
 	recoil = 0
+	actions_types = list(/datum/action/item_action/warhams/begin_sawing,
+						/datum/action/item_action/warhams/basic_swap_stance)
 
 
 /obj/item/weapon/gun/projectile/eviscerator/New() //We need to get our own process loop started for sounds

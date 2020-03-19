@@ -113,6 +113,7 @@
 	throw_range = 0
 	throw_speed = 1
 	fire_sound = null
+	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
 
 /obj/item/weapon/gun/flamernozzle/New()
 	if(istype(loc, /obj/item/weapon/ork/burnapack))

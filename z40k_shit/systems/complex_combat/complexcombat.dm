@@ -20,7 +20,7 @@ Its the process loop for the word combo chain system on the mob.
 	//DEFENSE STANCE VARS - SET THESE
 	//Our ctrl click specials have blocking actions for defensive stance
 	var/complex_defense = TRUE //If this has complex block aka parrying or other actions
-	var/can_parry = TRUE //Are we capable of parrying?
+	var/can_parry = FALSE //Are we capable of parrying?
 	var/can_block = FALSE //Are we capable of blocking?
 	var/can_deflect = FALSE //Are we capable of deflecting?
 
@@ -31,10 +31,30 @@ Its the process loop for the word combo chain system on the mob.
 	//A var that is both blocking and deflecting's CD
 	var/heavydefCD = FALSE //We will not be on both at the same time.
 	
+	/*
+		Blocking
+					*/
+	/*
+	Basically what blocking does is we will not allow this to fail below.
+	A certain threshhold, The stat value will be in play in this, It will be a flat val.
+	Then above the flat val if its in favor of the opponent, we enter probability.
+	We will always block frontal.
+	Small probability on the sides.
+	*/
 	//BLOCKING ACTION VARIABLES - DO NOT SET THESE
 	var/blocking = FALSE //Are we currently blocking?
 	var/forcesoak = 60 // The amount of force we compare to for the calculation.
 	var/blocking_duration = 5 //How long we stay in a block
+	
+	/*
+		Deflecting
+					*/
+	/*
+	Basically what deflecting does is we will have a humble probability to straight up.
+	Knock a weapon out of the opponents hand. 
+	We will have a higher probability on side hits.
+	Lower than sides on the frontal attack.
+	*/
 	//DEFLECTING ACTION VARIABLES - DO NOT SET THESE
 	var/deflecting = FALSE
 	var/deflectingprob = 50 //Probability
@@ -42,6 +62,15 @@ Its the process loop for the word combo chain system on the mob.
 
 	//STANCE HOLDER - DO NOT SET THIS. Its basically just a string holder
 	var/stance = "defensive"
+
+	/*
+		Parrying
+					*/
+	/*
+	Basically what parrying does is we just negate the force, with a probability modifier.
+	Frontal probability is normal
+	Side probability is lesser.
+	*/
 	//Parrying Variables - DO NOT SET THESE
 	var/parryingCD = FALSE //Are we currently on CD from parrying?
 	var/parrying = FALSE //Are we currently parrying?
@@ -227,8 +256,6 @@ Overcharge action - overcharge		See: NOT DONE YET
 				H.word_combo_chain += "parry"
 				H.update_powerwords_hud()
 
-	if()
-
 /obj/item/weapon/proc/handle_heavydef_ctrlclick(var/mob/living/user, var/mob/living/target)
 	return
 
@@ -300,7 +327,8 @@ Overcharge action - overcharge		See: NOT DONE YET
 //Technically you can have both on one item, since the else
 //Will bring it into that one, and then if they hit it again you get the first
 //So the stances will just be ordered based on importance
-//And partially balanced in this manner.
+//And partially balanced in this manner because you have the movement through them.
+//But the action button icons have to match this.
 /*
 	SHIELD STANCE SWAP PROC
 							*/
@@ -311,6 +339,43 @@ Overcharge action - overcharge		See: NOT DONE YET
 		stance = "blocking"
 	user.visible_message("<span class='notice'> [user] falls into [stance] stance.</span>")
 
+/*
+	OVERCHARGE PROC HOLDER
+							*/
+//Define per weapon.
+/obj/item/weapon/proc/overcharge(var/mob/living/carbon/human/user)
+	if(overcharged)
+		overcharged = FALSE
+		user.visible_message("<span class='notice'> [user] stops supercharging their [src].</span>")
+	else
+		overcharged = TRUE
+		user.word_combo_chain += "overcharge"
+		user.update_powerwords_hud()
+		user.visible_message("<span class='notice'> [user] begins supercharging their [src].</span>")
+	return
+
+/*
+	SAWING PROC HOLDER
+						*/
+/obj/item/weapon/proc/saw_execution(var/mob/living/carbon/human/user)
+	user.visible_message("<span class='danger'> [user] begins sawing [target] in half.")
+	if(do_after(user,src,20))
+		return
+
+/*
+	PIERCING BLOW PROC HOLDER
+								*/
+/obj/item/weapon/proc/piercing_blow(var/mob/living/carbon/human/user)
+	user.visible_message("<span class='danger'> [user] prepares to deliver a piercing blow.</span>")
+	if(do_after(user,src,20))
+		piercing_blow = TRUE
+		user.word_combo_chain += "pierce"
+		user.update_powerwords_hud()
+
+/*
+	HANDLE CTRL CLICK
+						*/
+//Actually handled at the mob level. Located in complexcombat.dm Line: 404
 //Built so you can slot in stuff other than the given charging/parrying into each item you want.
 /obj/item/weapon/proc/handle_ctrlclick(var/mob/living/user, var/atom/target)
 	switch(stance)

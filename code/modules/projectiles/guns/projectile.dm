@@ -213,7 +213,7 @@
 	if (target)
 		return ..()
 	if (loaded.len || stored_magazine)
-		if (load_method == SPEEDLOADER)
+		if(load_method == SPEEDLOADER)
 			var/obj/item/ammo_casing/AC = loaded[1]
 			loaded -= AC
 			AC.forceMove(get_turf(src)) //Eject casing onto ground.
