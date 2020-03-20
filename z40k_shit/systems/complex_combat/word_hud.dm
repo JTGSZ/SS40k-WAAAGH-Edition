@@ -33,7 +33,7 @@
 		if(findtext(conversion_string, "knockback")) //This one is help
 			conversion_string = replacetext(conversion_string, "knockback", "<font color='#00FF00'> Knockback </font>") 
 		if(findtext(conversion_string, "hurt")) //This one is hurt
-			conversion_string = replacetext(conversion_string, "hurt", "<font color='#FF0000'> HURT </font>") 
+			conversion_string = replacetext(conversion_string, "hurt", "<font color='#FF0000'> Hurt </font>") 
 		if(findtext(conversion_string, "charge")) //This one is charge action
 			conversion_string = replacetext(conversion_string, "charge", "<font color='#FF9933'><b> Charge! </b></font>") 
 		if(findtext(conversion_string, "parry")) //This one is parry action
@@ -43,7 +43,11 @@
 		if(findtext(conversion_string, "overcharge")) //Pierce action
 			conversion_string = replacetext(conversion_string, "overcharge", "<font color='#8602f1'><b><i> Overcharge! </i></b></font>") 
 		if(findtext(conversion_string, "saw")) //Pierce action
-			conversion_string = replacetext(conversion_string, "saw", "<font color='#ff0055'><b><i> Saw! </i></b></font>") 
+			conversion_string = replacetext(conversion_string, "saw", "<font color='#ff00f2'><b><i> Saw! </i></b></font>") 
+		if(findtext(conversion_string, "deflect"))
+			conversion_string = replacetext(conversion_string, "saw", "<font color='#b3ff00'><b><i> DEFLECT! </i></b></font>") 
+		if(findtext(conversion_string, "block"))
+			conversion_string = replacetext(conversion_string, "saw", "<font color='#00ffd5'><b><i> Block! </i></b></font>") 
 
 
 		hud_used.powerwords_display.maptext_width = 128

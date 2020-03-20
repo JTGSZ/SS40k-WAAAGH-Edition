@@ -22,16 +22,13 @@ Its the process loop for the word combo chain system on the mob.
 	//DEFENSE STANCE VARS - SET THESE
 	//Our ctrl click specials have blocking actions for defensive stance
 	var/complex_defense = TRUE //If this has complex block aka parrying or other actions
-	var/can_parry = FALSE //Are we capable of parrying?
-	var/can_block = FALSE //Are we capable of blocking?
-	var/can_deflect = FALSE //Are we capable of deflecting?
 
 	//Mostly a general direction
 	var/defenseDIR //So someone doesn't become Neo from the matrix.
 	//And covers all their directions at once.
 	
 	//A var that is both blocking and deflecting's CD
-	var/heavydefCD = FALSE //We will not be on both at the same time.
+	var/active_defense_CD = FALSE //We will not be on both at the same time.
 	
 	/*
 		Blocking
@@ -74,7 +71,6 @@ Its the process loop for the word combo chain system on the mob.
 	Side probability is lesser.
 	*/
 	//Parrying Variables - DO NOT SET THESE
-	var/parryingCD = FALSE //Are we currently on CD from parrying?
 	var/parrying = FALSE //Are we currently parrying?
 	var/parryprob = 110 //Probability
 	var/parryduration = 5 //How long we stay in a parrying move
@@ -175,7 +171,7 @@ Along with that I need a way to handle armor piercing and such too.
 
 */
 /*
-Our current words are the following.
+Our current words are the following. (Updated 3/20/2020 by JTGSZ)
 
 	Method		    String		      Location of string append.		Mouse Cursor
 |---------------|-----------------|-----------------------------------|-------------|
@@ -183,11 +179,11 @@ Grab Intent    -   grapple 			See: complexcombat.dm Line: 210
 Disarm Intent  -   disarm			See: complexcombat.dm Line: 213
 Help Intent    -   knockback		See: complexcombat.dm Line: 216
 Hurt Intent    -   hurt				See: complexcombat.dm Line: 219
-Charge action  -   charge			See: complexcombat.dm Line: 270
+Charge action  -   charge			See: complexcombat.dm Line: 284
 Parry action   -   parry			See: complexcombat.dm Line: 310		TRUE
 Pierce action  -   pierce			See: complexcombat.dm Line: 434
-Deflect action -   deflect          See: NOT DONE YET
-Block action   -   block            See: NOT DONE YET
+Deflect action -   deflect          See: complexcombat.dm Line: 350
+Block action   -   block            See: complexcombat.dm Line: 338
 Saw action     -   saw              See: complexcombat.dm Line: 193		TRUE
 Overcharge action - overcharge		See: complexcombat.dm Line: 406
 
@@ -200,7 +196,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 		var/mob/living/carbon/human/T = target
 		if(saw_execution == TRUE)
 			user.visible_message("<span class='danger'> [user] begins sawing [target] to death!")
-			if(do_after(user,src,20))
+			if(do_after(user,src,40))
 				H.word_combo_chain += "saw"
 				for(var/datum/organ/external/E in T.organs) //TARGETS ORGANS
 					if(do_after(user,src,5))
@@ -293,6 +289,8 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 									*/
 //Its just basic parrying
 /obj/item/weapon/proc/handle_defensive_ctrlclick(var/mob/living/user, var/atom/target)
+	if(!active_defense_CD)
+		return 0
 	defenseDIR = get_dir(user, target) //EG we click north and now we have NORTH
 	var/showndirection = "" //We do not need a living target, just any target for a direction.
 	switch(defenseDIR)
@@ -313,13 +311,13 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 		if(10)
 			showndirection = "Southwest"
 	
-	if(can_parry) //Can we parry?
-		if(!parryingCD) //Are we off CD
-			to_chat(user,"<span class='danger'>You prepare to parry blows from the [showndirection].</span>")
-			parryingCD = TRUE //Then we enter CD and prepare
+	
+	switch(stance)
+		if("defensive")
+			user.visible_message("<span class='danger'> [user] prepares to parry blows from the [showndirection].</span>", "<span class='danger'> You prepare to parry blows from the [showndirection].</span>")
 			parrying = TRUE
 			spawn(parryduration*10) 
-				parryingCD = FALSE //Cooldown is off
+				active_defense_CD = FALSE //Cooldown is off
 			spawn(parryduration*5)
 				parrying = FALSE //And we should stop parrying in half the time
 			user.click_delayer.setDelay(2)
@@ -327,65 +325,72 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 				var/mob/living/carbon/human/H = user
 				H.word_combo_chain += "parry"
 				H.update_powerwords_hud()
+		if("blocking")
+			user.visible_message("<span class='danger'> [user] Holds fast, ready to block blows from the [showndirection].</span>", "<span class='danger'> You prepare to block blows from the [showndirection].</span>")
+			blocking = TRUE
+			spawn(blocking_duration * 10)
+				active_defense_CD = FALSE
+			spawn(blocking_duration * 5)
+				blocking = FALSE
+			user.click_delayer.setDelay(2)
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				H.word_combo_chain += "block"
+				H.update_powerwords_hud()
+		if("deflective")
+			user.visible_message("<span class='danger'> [user] prepares to deflect swings from the [showndirection].</span>", "<span class='danger'> You watch for openings to deflect to the [showndirection].</span>")
+			deflecting = TRUE
+			spawn(deflecting_duration * 10)
+				active_defense_CD = FALSE
+			spawn(deflecting_duration * 5)
+				deflecting = FALSE
+			user.click_delayer.setDelay(2)
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				H.word_combo_chain += "deflect"
+				H.update_powerwords_hud()
 
-/obj/item/weapon/proc/handle_heavydef_ctrlclick(var/mob/living/user, var/mob/living/target)
-	return
+	active_defense_CD = TRUE //We enter cooldown after this.
 
 //Params - I is the object that hits us, param 2 is the person attacking, param 3 is the person who is parrying aka us.
 //Obv our object is src
 //user.dir target.dir //See: Combat.dm Line: 47 for where we are located.
-/obj/item/weapon/proc/handle_complex_defense(var/obj/item/I, var/mob/living/user, var/mob/living/target, var/probmod = 0)
+//Order of precedence, Block, Parry, Deflect. In the scenario someone does all of them at once.
+/obj/item/weapon/proc/handle_complex_defense(var/obj/item/I, var/mob/living/attacker, var/mob/living/defender, var/probmod = 0)
+	var/assaultDIR = get_dir(defender,attacker) //The direction we are being attacked from
 
-
-	if(can_block) //Can we even parry?
-		if(parrying) //ARE we parrying? Now we need to get some direction calculations
-			var/assaultDIR = get_dir(target,user) //The direction we are being attacked from
-			if(src.force >= 10 && !target.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
-				if(defenseDIR == assaultDIR)
-					if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
-						user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-						return TRUE //If we are attacked from the direction we parry
-					else
-						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-						return FALSE
-				if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
-					if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
-						user.visible_message("<span class ='danger'>[target] has parried [user]'s side attack!</span>")
-						return TRUE
-					else
-						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-						return FALSE
-			else
-				to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-				return FALSE
+	if(deflecting)
+		if(defenseDIR == assaultDIR) //If person assaulting us is the same direction we picked
+			return
+		if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90))) //If we are being attacked directly on the sides of the dir we picked
+			return
+	if(blocking)
+		if(defenseDIR == assaultDIR)
+			return
+		if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
+			return
+	//---PARRYING IS LAST IN THIS CHAIN.
+	if(parrying) //ARE we parrying? Now we need to get some direction calculations
+		if(src.force >= 10 && !defender.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
+			if(defenseDIR == assaultDIR) //If the person assaulting us is the same direction we picked.
+				if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
+					attacker.visible_message("<span class ='danger'>[defender] has parried [attacker]'s attack!</span>")
+					return TRUE //If we are attacked from the direction we parry
+				else
+					to_chat(defender, "<span class = 'danger'> You fail to parry the [I]!</span>")
+					return FALSE
+			if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
+				if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
+					attacker.visible_message("<span class ='danger'>[defender] has parried [attacker]'s side attack!</span>")
+					return TRUE
+				else
+					to_chat(defender, "<span class = 'danger'> You fail to parry the [I]!</span>")
+					return FALSE
+		else
+			to_chat(defender, "<span class = 'danger'> You fail to parry the [I]!</span>")
+			return FALSE
 	return FALSE //basically if it returns true to the segment in human_defense.dm Line 211 we do stuff here.
 	//Instead of over there
-
-//---PARRYING IS LAST IN THIS CHAIN.
-	if(can_parry) //Can we even parry?
-		if(parrying) //ARE we parrying? Now we need to get some direction calculations
-			var/assaultDIR = get_dir(target,user) //The direction we are being attacked from
-			if(src.force >= 10 && !target.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
-				if(defenseDIR == assaultDIR)
-					if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
-						user.visible_message("<span class ='danger'>[target] has parried [user]'s attack!</span>")
-						return TRUE //If we are attacked from the direction we parry
-					else
-						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-						return FALSE
-				if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
-					if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
-						user.visible_message("<span class ='danger'>[target] has parried [user]'s side attack!</span>")
-						return TRUE
-					else
-						to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-						return FALSE
-			else
-				to_chat(target, "<span class = 'danger'> You fail to parry the [I]!</span>")
-				return FALSE
-	return FALSE //basically if it returns true to the segment in human_defense.dm Line 211 we do stuff here.
-	//Instead of over there
-
 /*
 	BASIC STANCE SWAP PROC
 							*/
@@ -469,9 +474,9 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 		if("aggressive")
 			handle_aggressive_ctrlclick(user, target)
 		if("deflective")
-			handle_heavydef_ctrlclick(user, target)
+			handle_defensive_ctrlclick(user, target)
 		if("blocking")
-			handle_heavydef_ctrlclick(user, target)
+			handle_defensive_ctrlclick(user, target)
 
 //Mob Var holder/parent entry
 /mob/living/carbon/human
