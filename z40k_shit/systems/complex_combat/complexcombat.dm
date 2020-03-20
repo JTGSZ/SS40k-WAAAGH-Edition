@@ -16,7 +16,9 @@ Its the process loop for the word combo chain system on the mob.
 	//We have ctrl click specials
 	//COMPLEX CLICK SWITCH - SET THIS
 	var/complex_click = TRUE   //If control+click can be used for moves.
-	
+	//Safety so we don't leave them with a retarded cursor forever
+	var/cursor_enabled = FALSE
+
 	//DEFENSE STANCE VARS - SET THESE
 	//Our ctrl click specials have blocking actions for defensive stance
 	var/complex_defense = TRUE //If this has complex block aka parrying or other actions
@@ -95,12 +97,64 @@ Its the process loop for the word combo chain system on the mob.
 	else
 		return 0
 
-
+//What occurs when a object is first spawned.
 /obj/item/weapon/New() //We will grant the actions to each item individually, but store capability here.
 	..()
 
+//What occurs when a object is destroyed.
 /obj/item/weapon/Destroy()
 	..()
+
+/*
+	SAFETIES
+				*/
+//These are here mostly so you don't leave the user with something retarded.
+//Also they are here so you don't have to think (or try) very hard too.
+//Make sure to supercall.
+
+//What occurs when a object is dropped.
+/obj/item/weapon/dropped(mob/user)
+	..()
+	if(cursor_enabled)
+		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		cursor_enabled = FALSE
+		if(piercing_blow)
+			piercing_blow = FALSE
+		if(saw_execution)
+			saw_execution = FALSE
+
+//What occurs when a object is thrown.
+/obj/item/weapon/throw_impact(atom/hit_atom, mob/user)
+	..()
+	if(cursor_enabled)
+		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		cursor_enabled = FALSE
+		if(piercing_blow)
+			piercing_blow = FALSE
+		if(saw_execution)
+			saw_execution = FALSE
+
+//What occurs when a object is unequipped/stripped
+/obj/item/weapon/unequipped(mob/user)
+	..()
+	if(cursor_enabled)
+		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		cursor_enabled = FALSE
+		if(piercing_blow)
+			piercing_blow = FALSE
+		if(saw_execution)
+			saw_execution = FALSE
+
+//Occurs before the attack
+/obj/item/weapon/preattack(atom/target, mob/user, proximity_flag, click_parameters)
+	..()
+
+//Occurs after the attack
+/obj/item/weapon/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	..()
+	if(piercing_blow)
+		piercing_blow = FALSE
+		armor_penetration = initial(src.armor_pentration)
 
 /*
 	STRING APPENDER
@@ -123,19 +177,19 @@ Along with that I need a way to handle armor piercing and such too.
 /*
 Our current words are the following.
 
-	Method		    String		      Location of string append.
-|---------------|-----------------|-----------------------------------|
-Grab Intent    -   grapple 			See: complexcombat.dm Line: 101
-Disarm Intent  -   disarm			See: complexcombat.dm Line: 103
-Help Intent    -   knockback		See: complexcombat.dm Line: 107
-Hurt Intent    -   hurt				See: complexcombat.dm Line: 109
-Charge action  -   charge			See: complexcombat.dm Line: 166
-Parry action   -   parry			See: complexcombat.dm Line: 206
-Pierce action  -   pierce			See: complexcombat.dm Line: 379
+	Method		    String		      Location of string append.		Mouse Cursor
+|---------------|-----------------|-----------------------------------|-------------|
+Grab Intent    -   grapple 			See: complexcombat.dm Line: 210
+Disarm Intent  -   disarm			See: complexcombat.dm Line: 213
+Help Intent    -   knockback		See: complexcombat.dm Line: 216
+Hurt Intent    -   hurt				See: complexcombat.dm Line: 219
+Charge action  -   charge			See: complexcombat.dm Line: 270
+Parry action   -   parry			See: complexcombat.dm Line: 310		TRUE
+Pierce action  -   pierce			See: complexcombat.dm Line: 434
 Deflect action -   deflect          See: NOT DONE YET
 Block action   -   block            See: NOT DONE YET
-Saw action     -   saw              See: complexcombat.dm Line: 150
-Overcharge action - overcharge		See: complexcombat.dm Line: 358
+Saw action     -   saw              See: complexcombat.dm Line: 193		TRUE
+Overcharge action - overcharge		See: complexcombat.dm Line: 406
 
 */
 //See: complex_base_class.dm in AA
@@ -144,14 +198,25 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 358
 	if(ishuman(user) && ishuman(target))
 		var/mob/living/carbon/human/H = user
 		var/mob/living/carbon/human/T = target
-		if(src.saw_execution = TRUE)
+		if(saw_execution == TRUE)
 			user.visible_message("<span class='danger'> [user] begins sawing [target] to death!")
 			if(do_after(user,src,20))
 				H.word_combo_chain += "saw"
-				for(var/datum/organ/external/E in H.organs)
-					E.droplimb(1)
-		if(src.piercing_blow = TRUE)
-			return 1
+				for(var/datum/organ/external/E in T.organs) //TARGETS ORGANS
+					if(do_after(user,src,5))
+						E.droplimb(1)
+						H.health += 10 //We get 10 health per limb sawed off.
+				for(var/datum/organ/internal/I in H.organs) //A REWARD FOR SAWING UP PEOPLE IS HEALTH.
+					if(I.damage)
+						I.damage = max(0, I.damage - 5) //Heals a whooping 5 organ damage.
+						holder.remove_reagent(MEDNANOBOTS, 0.10) //Less so it doesn't vanish the nanobot supply
+					I.status &= ~ORGAN_BROKEN //What do I owe you?
+					I.status &= ~ORGAN_SPLINTED //Nothing, it's for free!
+					I.status &= ~ORGAN_BLEEDING //FOR FREE?!
+				H.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+				cursor_enabled = FALSE
+		if(piercing_blow == TRUE)
+			armor_penetration = 100 //Ending handled in afterattack
 		if(H.inertial_speed != null && H.a_intent == "harm")
 			if(H.inertial_speed >= 5 && H.dir == T.dir && !T.lying)
 				add_logs(user, target, "backstabbed")
@@ -367,7 +432,14 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 358
 						*/
 /obj/item/weapon/proc/saw_execution(var/mob/living/carbon/human/user)
 	user.visible_message("<span class='danger'> [user] gets ready to rev it up!")
+	user.client.mouse_pointer_icon = file("z40k_shit/icons/mouse_pointers/sawing_action.dmi")
+	cursor_enabled = TRUE
 	saw_execution = TRUE
+	if(saw_execution)
+		user.visible_message("<span class='danger'> [user] stops getting ready to rev it up!")
+		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		cursor_enabled = FALSE
+		saw_execution = FALSE
 
 /*
 	PIERCING BLOW PROC HOLDER
@@ -375,9 +447,16 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 358
 /obj/item/weapon/proc/piercing_blow(var/mob/living/carbon/human/user)
 	user.visible_message("<span class='danger'> [user] prepares to deliver a piercing blow.</span>")
 	if(do_after(user,src,20))
+		user.client.mouse_pointer_icon = file("z40k_shit/icons/mouse_pointers/piercing_blow.dmi")
+		cursor_enabled = TRUE
 		piercing_blow = TRUE
 		user.word_combo_chain += "pierce"
 		user.update_powerwords_hud()
+	if(piercing_blow)
+		user.visible_message("<span class='danger'> [user] stops preparing to deliver a piercing blow.</span>")
+		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		cursor_enabled = FALSE
+		piercing_blow = FALSE
 
 /*
 	HANDLE CTRL CLICK

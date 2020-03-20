@@ -1077,7 +1077,7 @@
 		return
 	cursor_enabled = !cursor_enabled
 	if(cursor_enabled)
-		if(src.occupant && src.occupant.client)
+		if(src.occupant && src.occupant.client) //Marked
 			src.occupant.client.mouse_pointer_icon = file("icons/mouse/mecha_mouse.dmi")
 	else
 		if(src.occupant && src.occupant.client)

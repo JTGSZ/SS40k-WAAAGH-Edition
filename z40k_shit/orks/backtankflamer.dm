@@ -120,6 +120,7 @@
 		my_pack = loc
 
 /obj/item/weapon/gun/flamernozzle/dropped(mob/user) //If we drop this, we return to pack.
+	..()
 	if(my_pack)
 		my_pack.nozzleout = FALSE
 		src.forceMove(my_pack)
