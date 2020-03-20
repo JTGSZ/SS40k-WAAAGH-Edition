@@ -25,6 +25,7 @@
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
 	fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 	projectile_type = /obj/item/projectile/beam/lowpower
+	force = 15
 	charge_cost = 75
 	icon_charge_multiple = 25 //Do I really need icon charge multiples for the lasgun.
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
@@ -124,7 +125,7 @@
 		
 /obj/item/weapon/gun/energy/lasgun/process() //In process we handle heat
 	if(gunheat > 0) //If we are greater than 0
-		gunheat -= 5 //We go down by 5 a tick.
+		gunheat -= 15
 
 /*
 	FIRING PROCS
@@ -145,7 +146,7 @@
 		if(2) //Medium-power
 			gunheat += 10
 		if(3) //High-power
-			gunheat += 30
+			gunheat += 25
 	in_chamber = new projectile_type(src)
 	return 1
 
@@ -184,6 +185,10 @@
 		else
 			unwield(user)
 			src.update_wield(user)
+
+/obj/item/weapon/gun/energy/lasgun/update_wield(mob/user)
+	..()
+	force = wielded ? 30 : 15
 
 /*
 	ICON HANDLING
@@ -288,9 +293,9 @@
 
 	switch(gunheat) //Heat failure, we handle this on a increasing scale of probability.
 		if(60 to 79)
-			if(prob(50))
+			if(prob(70))
 				spark(src)
-				to_chat(M, "<span class='warning'>\The [src] sparks violently.</span>")
+				to_chat(M, "<span class='warning'>\The [src] sparks violently. Its feeling a bit hot</span>")
 				return 1
 		if(80 to 120)
 			if(prob(10))

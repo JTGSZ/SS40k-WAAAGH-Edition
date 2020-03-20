@@ -116,7 +116,7 @@ Its the process loop for the word combo chain system on the mob.
 /obj/item/weapon/dropped(mob/user)
 	..()
 	if(cursor_enabled)
-		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		if(piercing_blow)
 			piercing_blow = FALSE
@@ -127,7 +127,7 @@ Its the process loop for the word combo chain system on the mob.
 /obj/item/weapon/throw_impact(atom/hit_atom, mob/user)
 	..()
 	if(cursor_enabled)
-		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		if(piercing_blow)
 			piercing_blow = FALSE
@@ -138,7 +138,7 @@ Its the process loop for the word combo chain system on the mob.
 /obj/item/weapon/unequipped(mob/user)
 	..()
 	if(cursor_enabled)
-		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		if(piercing_blow)
 			piercing_blow = FALSE
@@ -154,7 +154,7 @@ Its the process loop for the word combo chain system on the mob.
 	..()
 	if(piercing_blow)
 		piercing_blow = FALSE
-		armor_penetration = initial(src.armor_pentration)
+		armor_penetration = initial(src.armor_penetration)
 
 /*
 	STRING APPENDER
@@ -209,7 +209,6 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 				for(var/datum/organ/internal/I in H.organs) //A REWARD FOR SAWING UP PEOPLE IS HEALTH.
 					if(I.damage)
 						I.damage = max(0, I.damage - 5) //Heals a whooping 5 organ damage.
-						holder.remove_reagent(MEDNANOBOTS, 0.10) //Less so it doesn't vanish the nanobot supply
 					I.status &= ~ORGAN_BROKEN //What do I owe you?
 					I.status &= ~ORGAN_SPLINTED //Nothing, it's for free!
 					I.status &= ~ORGAN_BLEEDING //FOR FREE?!
@@ -437,7 +436,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	saw_execution = TRUE
 	if(saw_execution)
 		user.visible_message("<span class='danger'> [user] stops getting ready to rev it up!")
-		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		saw_execution = FALSE
 
@@ -454,7 +453,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 		user.update_powerwords_hud()
 	if(piercing_blow)
 		user.visible_message("<span class='danger'> [user] stops preparing to deliver a piercing blow.</span>")
-		user.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		piercing_blow = FALSE
 

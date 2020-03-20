@@ -71,12 +71,23 @@
 	throw_range = 0
 	throw_speed = 1
 	fire_sound = null
+	flags = TWOHANDABLE | MUSTTWOHAND
+	var/gunheat //GUN HEAT, because its a fucking plasgun damn.
 	var/connection_type = 0 // 1 = No Connection, 2 = Cell connection, 3 = Ppack connection
 	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance,
 						/datum/action/item_action/warhams/energy_overcharge)
 
 /obj/item/weapon/gun/ig_plasma_gun/New()
 	..()
+	processing_objects.Add(src)
+
+/obj/item/weapon/gun/ig_plasma_gun/Destroy()
+	..()
+	processing_objects.Remove(src)
+
+/obj/item/weapon/gun/ig_plasma_gun/process()
+	if(gunheat > 0) //If we are greater than 0
+		gunheat -= 15
 
 //If we drop this we will clear our pack reference.
 /obj/item/weapon/gun/ig_plasma_gun/dropped(mob/user) //If we drop this, we clear references
@@ -134,6 +145,7 @@
 /obj/item/weapon/gun/ig_plasma_gun/attack_self(var/mob/user) 
 	..()
 
+//Process chambered
 /obj/item/weapon/gun/ig_plasma_gun/process_chambered()
 	if(in_chamber)
 		return 1
@@ -152,7 +164,33 @@
 				return 1
 	return 0
 
+//Fire action
 /obj/item/weapon/gun/energy/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+
+	if(overcharged)
+		gunheat += 5
+		if(prob(15+gunheat))
+			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
+			user.adjustFireLoss(500)
+			gunheat = 0
+			for(var/turf/ITBURNS in range(1,loc))
+				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
+			
+			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
+			S.time_to_live = 20 //2 seconds instead of full 10
+	else
+		gunheat += 2
+		if(prob(5+gunheat)) //A good chance to boil alive if you spam shoot.
+			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
+			user.adjustFireLoss(500)
+			gunheat = 0
+
+			for(var/turf/ITBURNS in range(1,loc))
+				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
+			
+			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
+			S.time_to_live = 20 //2 seconds instead of full 10
+
 	var/atom/newtarget = target
 	..(newtarget,user,params,reflex,struggle)
 
