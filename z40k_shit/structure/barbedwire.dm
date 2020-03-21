@@ -138,6 +138,9 @@
 		return 1
 	return 0
 
+//You return !density when you want them to pass
+//You return false when you want them to fail.
+//You return true when you want it to just end
 /obj/structure/barbed_wire/proc/barbwire_action(mob/living/user)
 	if(isorkwarboss(user))
 		user.visible_message("<span class='warning'>[user] destroys [src]!</span>")

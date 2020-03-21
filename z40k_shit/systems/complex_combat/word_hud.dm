@@ -45,9 +45,9 @@
 		if(findtext(conversion_string, "saw")) //Pierce action
 			conversion_string = replacetext(conversion_string, "saw", "<font color='#ff00f2'><b><i> Saw! </i></b></font>") 
 		if(findtext(conversion_string, "deflect"))
-			conversion_string = replacetext(conversion_string, "saw", "<font color='#b3ff00'><b><i> DEFLECT! </i></b></font>") 
+			conversion_string = replacetext(conversion_string, "deflect", "<font color='#b3ff00'><b><i> DEFLECT! </i></b></font>") 
 		if(findtext(conversion_string, "block"))
-			conversion_string = replacetext(conversion_string, "saw", "<font color='#00ffd5'><b><i> Block! </i></b></font>") 
+			conversion_string = replacetext(conversion_string, "block", "<font color='#00ffd5'><b><i> Block! </i></b></font>") 
 
 
 		hud_used.powerwords_display.maptext_width = 128

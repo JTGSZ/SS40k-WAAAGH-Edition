@@ -52,6 +52,22 @@ var/global/list/whitelisted_species = list("Human")
 
 	//STATLINES: See Statlines.dm || human.dm: Line 1174 for where we transition onto the mob.
 	var/base_strength = 3
+	var/base_strength_natural_limit = 12
+
+	var/base_agility = 3
+	var/base_agility_natural_limit = 12
+
+	var/base_dexterity = 3
+	var/base_dexterity_natural_limit = 12
+
+	var/base_constitution = 3
+	var/base_constitution_natural_limit = 12
+
+	var/base_willpower = 3
+	var/base_willpower_natural_limit = 12
+
+	var/base_sensitivity = 25
+	var/base_sensitivity_natural_limit = 1000
 
 	var/breath_type = GAS_OXYGEN   // Non-oxygen gas breathed, if any.
 	var/survival_gear = /obj/item/weapon/storage/box/survival // For spawnin'.

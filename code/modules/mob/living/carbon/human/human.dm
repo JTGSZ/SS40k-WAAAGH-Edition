@@ -1172,9 +1172,24 @@
 		gender = S.gender
 
 	//STATLINES: See statlines.dm
-	if(species.base_strength) //For now all we have is strength
-		stat_strength = species.base_strength
-
+		attribute_strength = species.base_strength
+		attribute_strength_natural_limit = species.base_strength_natural_limit
+		
+		attribute_agility = species.base_agility
+		attribute_agility_natural_limit = species.base_agility_natural_limit
+		
+		attribute_dexterity = species.base_dexterity
+		attribute_dexterity_natural_limit = species.base_dexterity_natural_limit
+		
+		attribute_constitution = species.base_constitution
+		attribute_constitution_natural_limit = species.base_constitution_natural_limit
+		
+		attribute_willpower = species.base_willpower
+		attribute_willpower_natural_limit = species.base_willpower_natural_limit
+		
+		attribute_sensitivity = species.base_sensitivity
+		attribute_sensitivity_natural_limit = species.base_sensitivity_natural_limit
+	
 	for(var/L in species.known_languages)
 		add_language(L)
 	if(species.default_language)
