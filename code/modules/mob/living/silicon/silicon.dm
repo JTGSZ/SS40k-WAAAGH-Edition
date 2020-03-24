@@ -323,9 +323,6 @@
 	src << browse(dat, "window=checklanguage")
 	return
 
-/mob/living/silicon/dexterity_check()
-	return 1
-
 /mob/living/silicon/html_mob_check(var/typepath)
 	for(var/atom/movable/AM in html_machines)
 		if(typepath == AM.type)

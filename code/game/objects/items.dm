@@ -574,40 +574,6 @@
 					else
 						return CANNOT_EQUIP
 				return CAN_EQUIP
-			/* In case it's ever unfucked.
-			if(slot_ears)
-				if( !(slot_flags & SLOT_EARS) )
-					return CANNOT_EQUIP
-				if( (slot_flags & SLOT_TWOEARS) && H.r_ear )
-					return CANNOT_EQUIP
-				if(H.l_ear)
-					if(automatic)
-						if(H.check_for_open_slot(src))
-							return CANNOT_EQUIP
-					if(H.l_ear.canremove)
-						return CAN_EQUIP_BUT_SLOT_TAKEN
-					else
-						return CANNOT_EQUIP
-				if( w_class < W_CLASS_SMALL	)
-					return CAN_EQUIP
-				return CAN_EQUIP
-			if(slot_r_ear)
-				if( !(slot_flags & SLOT_EARS) )
-					return CANNOT_EQUIP
-				if( (slot_flags & SLOT_TWOEARS) && H.l_ear )
-					return CANNOT_EQUIP
-				if(H.r_ear)
-					if(automatic)
-						if(H.check_for_open_slot(src))
-							return CANNOT_EQUIP
-					if(H.r_ear.canremove)
-						return CAN_EQUIP_BUT_SLOT_TAKEN
-					else
-						return CANNOT_EQUIP
-				if( w_class < W_CLASS_SMALL )
-					return CAN_EQUIP
-				return CAN_EQUIP
-			*/
 			if(slot_w_uniform)
 				if( !(slot_flags & SLOT_ICLOTHING) )
 					return CANNOT_EQUIP
@@ -997,14 +963,6 @@
 		M.LAssailant = user
 
 	add_fingerprint(user)
-	//if(clumsy_check(user) && prob(50))
-	//	M = user
-		/*
-		to_chat(M, "<span class='warning'>You stab yourself in the eye.</span>")
-		M.sdisabilities |= BLIND
-		M.AdjustKnockdown(4)
-		M.adjustBruteLoss(10)
-		*/
 
 	if(istype(M, /mob/living/carbon/human))
 
@@ -1191,21 +1149,25 @@ var/global/list/image/blood_overlays = list()
 	return get_rating()
 
 /obj/item/kick_act(mob/living/carbon/human/H) //Kick items around!
-	if(anchored || w_class > W_CLASS_MEDIUM + H.get_strength())
-		H.visible_message("<span class='danger'>[H] attempts to kick \the [src]!</span>", "<span class='danger'>You attempt to kick \the [src]!</span>")
-		if(prob(70))
-			to_chat(H, "<span class='danger'>Dumb move! You strain a muscle.</span>")
-
+	if(anchored)
+		H.visible_message("<span class='danger'>[H] kicks \the [src] which is actually secured to the ground!</span>", "<span class='danger'>You kick \the [src] which is anchored retard!</span>")
+		if(H.attribute_constitution < 16)
+			to_chat(H, "<span class='danger'>IT HURTS.</span>")
 			H.apply_damage(rand(1,4), BRUTE, pick(LIMB_RIGHT_LEG, LIMB_LEFT_LEG, LIMB_RIGHT_FOOT, LIMB_LEFT_FOOT))
-		return
+			return
+		else if(H.attribute_strength >= 20)
+			H.visible_message("<span class='danger'>[H] kicks \the [src] LOOSE</span>")
+			anchored = FALSE
+		else
+			return
 
 	var/kick_dir = get_dir(H, src)
 	if(H.loc == loc)
 		kick_dir = H.dir
 
-	var/turf/T = get_edge_target_turf(loc, kick_dir)
+	var/turf/T = get_edge_target_turf(loc, kick_dir) 
 
-	var/kick_power = max((H.get_strength() * 10 - (w_class ** 2)), 1) //The range of the kick is (strength)*10. Strength ranges from 1 to 3, depending on the kicker's genes. Range is reduced by w_class^2, and can't be reduced below 1.
+	var/kick_power = max((H.attribute_strength - (w_class ** 2)), 1) //The range of the kick is (strength)*10. Strength ranges from 1 to 3, depending on the kicker's genes. Range is reduced by w_class^2, and can't be reduced below 1.
 
 	H.visible_message("<span class='danger'>[H] kicks \the [src]!</span>", "<span class='danger'>You kick \the [src]!</span>")
 
@@ -1272,10 +1234,6 @@ var/global/list/image/blood_overlays = list()
 		return
 
 	if(!restraint_apply_intent_check(user))
-		return
-
-	if(!user.dexterity_check())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	if(M.handcuffed)

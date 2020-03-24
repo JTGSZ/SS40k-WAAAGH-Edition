@@ -171,13 +171,14 @@ var/list/one_way_windows
 	H.visible_message("<span class='danger'>\The [H] kicks \the [src].</span>", \
 	"<span class='danger'>You kick \the [src].</span>")
 
-	var/damage = rand(1,7) * (H.get_strength() - reinforced) //By default, humanoids can't damage windows with kicks. Being strong or a hulk changes that
+	var/damage = rand(1,7) * (H.attribute_strength - reinforced) //By default, humanoids can't damage windows with kicks. Being strong or a hulk changes that
 	var/obj/item/clothing/shoes/S = H.shoes
 	if(istype(S))
 		damage += S.bonus_kick_damage //Unless they're wearing heavy boots
 
 	if(damage > 0)
 		health -= damage
+		H.stat_increase(ATTR_STRENGTH,25)
 		healthcheck()
 
 /obj/structure/window/Uncross(var/atom/movable/mover, var/turf/target)

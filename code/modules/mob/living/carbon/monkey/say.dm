@@ -8,12 +8,10 @@
 		return 1
 
 	if(speaking && speaking.name == LANGUAGE_GALACTIC_COMMON)
-		if(dexterity_check())
-			return 1
+		return 1
 
 	return ..()
 
 /mob/living/carbon/monkey/can_read()
-	if(dexterity_check())
-		return TRUE
+	return TRUE
 	return ..()

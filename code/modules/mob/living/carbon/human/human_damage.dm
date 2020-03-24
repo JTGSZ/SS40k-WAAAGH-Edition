@@ -116,15 +116,21 @@
 /mob/living/carbon/human/Stun(amount)
 	if(M_HULK in mutations)
 		return
+	if(attribute_constitution >= 16)
+		return
 	..()
 
 /mob/living/carbon/human/Knockdown(amount)
 	if(M_HULK in mutations)
 		return
+	if(attribute_constitution >= 16)
+		return
 	..()
 
 /mob/living/carbon/human/Paralyse(amount)
 	if(M_HULK in mutations)
+		return
+	if(attribute_constitution >= 16)
 		return
 	..()
 
@@ -379,13 +385,15 @@ This function restores all organs.
 		if(BRUTE)
 			damageoverlaytemp = 20
 			damage = damage * brute_damage_modifier
-
+			if(damage > 30)
+				stat_increase(ATTR_CONSTITUTION,50)
 			if(organ.take_damage(damage, 0, sharp, edge, used_weapon))
 				UpdateDamageIcon(1)
 		if(BURN)
 			damageoverlaytemp = 20
 			damage = damage * burn_damage_modifier
-
+			if(damage > 30)
+				stat_increase(ATTR_CONSTITUTION,50)
 			if(organ.take_damage(0, damage, sharp, edge, used_weapon))
 				UpdateDamageIcon(1)
 
@@ -396,19 +404,7 @@ This function restores all organs.
 	//Embedded projectile code.
 	if(!organ)
 		return damage
-/*/vg/ EDIT
-	if(istype(used_weapon,/obj/item/weapon))
-		var/obj/item/weapon/W = used_weapon  //Sharp objects will always embed if they do enough damage.
-		if( (damage > (10*W.w_class)) && ( (sharp && !ismob(W.loc)) || prob(damage/W.w_class) ) )
-			if(!istype(W, /obj/item/weapon/kitchen/utensil/knife/large/butch/meatcleaver))
-				organ.implants += W
-				visible_message("<span class='danger'>\The [W] sticks in the wound!</span>")
-				W.add_blood(src)
-				if(ismob(W.loc))
-					var/mob/living/H = W.loc
-					H.drop_item(W, src)
-				W.forceMove(src)
-*/
+
 	if(istype(used_weapon,/obj/item/projectile/bullet)) //We don't want to use the actual projectile item, so we spawn some shrapnel.
 		var/obj/item/projectile/bullet/P = used_weapon
 		if(prob(75) && damagetype == BRUTE && P.embed)

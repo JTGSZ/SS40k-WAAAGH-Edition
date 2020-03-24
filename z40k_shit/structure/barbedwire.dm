@@ -114,14 +114,6 @@
 	var/health = 200
 	var/icon_base
 
-///obj/structure/barbed_wire/Bumped(var/mob/living/M)
-//	var/turf/T = get_turf(src)
-////	for(var/atom/A in T) //Check to see if there's anything solid on the tape's turf (it's possible to build on it)
-//		if(A.density)
-//			return
-//	M:forceMove(T)
-
-
 //We return 1 if its going to pass, otherwise its 0 if its not gonna pass
 /obj/structure/barbed_wire/Cross(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
 	if(air_group || !height) //The mover is an airgroup
@@ -142,34 +134,49 @@
 //You return false when you want them to fail.
 //You return true when you want it to just end
 /obj/structure/barbed_wire/proc/barbwire_action(mob/living/user)
-	if(isorkwarboss(user))
-		user.visible_message("<span class='warning'>[user] destroys [src]!</span>")
+	if(user.attribute_strength >= 16 && user.attribute_constitution >= 16)
+		user.visible_message("<span class='warning'>[user] charges through [src] with their EXTREMELY muscled LITERALLY rock hard body!</span>")
 		qdel(src)
 		return 1
-	else if(isorknob(user))
-		if(prob(50))
-			user.visible_message("<span class='warning'>[user] destroys [src]!</span>")
-			qdel(src)
-		else if(prob(10))
-			user.visible_message("<span class='warning'>[user] gets caught in [src] and trips!</span>")
-			user.Knockdown(3)
-			return 0
-		else
-			user.visible_message("<span class='warning'>[user] gets caught in [src] but doesn't fall!</span>")
-			user.adjustBruteLoss(15)
-			return !density
 	else
-		if(prob(50))
-			user.adjustBruteLoss(15)
-			user.Knockdown(5)
-			user.Stun(5)
-			user.visible_message("<span class='warning'>[user] gets caught in [src] and trips!</span>")
-			return 0
-		else
-			user.adjustBruteLoss(15)
-			user.visible_message("<span class='warning'>[user] gets caught in [src] but doesn't trip!</span>")
-			return !density
-	
+		switch(user.attribute_dexterity)
+			if(1 to 6)
+				user.adjustBruteLoss(15)
+				user.Knockdown(5)
+				user.Stun(5)
+				user.visible_message("<span class='warning'>[user] gets caught in [src] and collapses!</span>")
+				user.stat_increase(ATTR_DEXTERITY,50)
+				return 0
+			if(6 to 12)
+				if(prob(20))
+					user.adjustBruteLoss(15)
+					user.visible_message("<span class='warning'>[user] gets caught in [src] but pushes through. DAMN!</span>")
+					user.stat_increase(ATTR_DEXTERITY,50)
+					return !density
+				else
+					user.adjustBruteLoss(15)
+					user.Knockdown(5)
+					user.Stun(5)
+					user.visible_message("<span class='warning'>[user] gets caught in [src] and collapses!</span>")
+					user.stat_increase(ATTR_CONSTITUTION, 25)
+					return 0
+			if(12 to 16)
+				if(prob(25))
+					user.adjustBruteLoss(15)
+					user.visible_message("<span class='warning'>[user] gets caught in [src] but pushes through. DAMN!</span>")
+					return !density
+					user.stat_increase(ATTR_CONSTITUTION, 25)
+				else if(prob(10))
+					user.visible_message("<span class='warning'>[user] gets caught in [src] and trips!</span>")
+					user.Knockdown(3)
+					return 0
+				else
+					user.visible_message("<span class='warning'>[user] carefully passes over [src]!</span>")
+					return !density
+			if(16 to 30)
+				user.visible_message("<span class='warning'>[user] gracefully dances through [src] with ease!</span>")
+				return !density
+
 /obj/structure/barbed_wire/attackby(var/obj/item/weapon/W, var/mob/living/user)
 	if(W)
 		if(!W.is_sharp())

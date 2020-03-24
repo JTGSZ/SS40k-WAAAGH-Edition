@@ -235,6 +235,7 @@ emp_act
 	if(knock_teeth) //You can't actually hit people in the mouth - this checks if the user IS targetting mouth, and if he didn't miss!
 		if((!armor) && (final_force >= 8 || I.w_class >= W_CLASS_SMALL) && (I.is_sharp() < 1))//Minimum force=8, minimum w_class=2. Sharp items can't knock out teeth. Armor prevents this completely!
 			var/chance = min(final_force * I.w_class, 40) //an item with w_class = W_CLASS_MEDIUM and force of 10 has a 30% chance of knocking a few teeth out. Chance is capped at 40%
+			chance += (user.attribute_strength/2)
 			if(prob(chance))
 				knock_out_teeth(user)
 
@@ -294,6 +295,9 @@ emp_act
 	var/amount = rand(1,3)
 	if(L)
 		if(M_HULK in L.mutations) //just like the mountain
+			amount += 8
+		
+		if(L.attribute_strength >= attribute_constitution)
 			amount += 8
 
 	var/obj/item/stack/teeth/teeth = T.spawn_result(get_turf(src), src, amount)

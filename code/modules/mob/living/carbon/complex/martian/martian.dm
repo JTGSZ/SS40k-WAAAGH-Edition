@@ -80,9 +80,6 @@
 /mob/living/carbon/complex/martian/earprot()
 	return 1
 
-/mob/living/carbon/complex/martian/dexterity_check()
-	return TRUE
-
 /mob/living/carbon/complex/martian/IsAdvancedToolUser()
 	return TRUE
 

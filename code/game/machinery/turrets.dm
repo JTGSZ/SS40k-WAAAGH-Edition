@@ -471,7 +471,7 @@
 
 //Regular Alt Click (not AI) allows users to immediately turn the turrets on or off, assuming the rest of the steps are done (notably interface unlocked)
 /obj/machinery/turretid/AltClick(mob/user)
-	if(!usr.incapacitated() && Adjacent(user) && usr.dexterity_check() && !locked)
+	if(!usr.incapacitated() && Adjacent(user) && !locked)
 		enabled = !enabled
 		usr.visible_message("<span class='warning'>[usr] [enabled ? "enables":"disables"] the turrets.</span>",
 		"<span class='notice'>You [enabled ? "enable":"disable"] the turrets.</span>")

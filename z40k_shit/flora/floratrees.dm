@@ -65,7 +65,8 @@
 
 	if(istype(W, /obj/item/weapon))
 		if(W.sharpness_flags & (CHOPWOOD|SERRATED_BLADE))
-			health -= (user.get_strength() * W.force)
+			health -= ((user.attribute_strength/2) * (W.force))
+			user.stat_increase(ATTR_STRENGTH,75)
 			playsound(loc, 'sound/effects/woodcuttingshort.ogg', 50, 1)
 		else
 			to_chat(user, "<span class='info'>\The [W] doesn't appear to be suitable to cut into \the [src]. Try something sturdier.</span>")

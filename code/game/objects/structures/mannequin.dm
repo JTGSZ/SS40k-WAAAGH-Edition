@@ -111,7 +111,7 @@
 	if(user.a_intent == I_HURT)
 		user.delayNextAttack(8)
 		user.visible_message("<span class='danger'>[user.name] punches \the [src]!</span>", "<span class='danger'>You punch \the [src]!</span>")
-		getDamage(rand(1,7) * (user.get_strength() - 1))
+		getDamage(rand(1,7) * ((user.attribute_strength/2) - 1))
 	else
 		show_inv(user)
 
@@ -119,7 +119,7 @@
 /obj/structure/mannequin/kick_act(mob/living/carbon/human/H)
 	H.visible_message("<span class='danger'>[H.name] kicks \the [src]!</span>", "<span class='danger'>You kick \the [src]!</span>")
 
-	var/damage = rand(1,7) * (H.get_strength() - 1)
+	var/damage = rand(1,7) * ((H.attribute_strength/2) - 1)
 	var/obj/item/clothing/shoes/S = H.shoes
 	if(istype(S))
 		damage += S.bonus_kick_damage
@@ -1033,7 +1033,7 @@
 		if(user.a_intent == I_HURT)
 			user.delayNextAttack(8)
 			user.visible_message("<span class='danger'>[user.name] punches \the [src]!</span>", "<span class='danger'>You punch \the [src]!</span>", "You hear glass crack.")
-			getDamage(rand(1,7) * (user.get_strength() - 1))
+			getDamage(rand(1,7) * ((user.attribute_strength/2) - 1))
 		else
 			to_chat(user,"<span class='notice'>You gently run your hands over \the [src] in appreciation of its contents.</span>")
 	else

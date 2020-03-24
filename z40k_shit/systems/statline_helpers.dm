@@ -90,124 +90,124 @@ base_strength_check(var/difficulty) - a check of the latent species strength.
 //Basically we have a minimum probability for a stat to increase as long as we are within natural limits of a species.
 //The closer we get to the maximum cap the lower the probability modifier gets.
 //After that we will swap to a static value before it unlocks a probability modifier for the next tier.
-/mob/living/carbon/human/proc/stat_increase(var/chosen_attribute)
+/mob/living/proc/stat_increase(var/chosen_attribute, var/attr_trained_value)
+	//if(stat_increase_cooldown > world.time)
+	//	return 0
 	//Probability our stat increases
 	var/increase_probability
 	//localvar to dictate we already entered a check... to cut down on checks
-	var/already_picked
-	
-
 
 	//parameter input variable
-	
-	if(chosen_attribute == attribute_strength) //Maximum cap 20
-		already_picked = TRUE
-		if(attribute_strength <= attribute_strength_natural_limit) //If our stat is lesser than the natural limit
-			if(attribute_strength <= attribute_strength_natural_limit-4) //If we are still lesser than 4 away from cap
-				increase_probability = round(1+attribute_strength_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
-			if(attribute_strength <= attribute_strength_natural_limit-10) //If we are still lesser than 10 away from cap
-				increase_probability = round(10+attribute_strength_trained_integer/50)
-		else
-			if(attribute_strength_trained_integer >= 800) //If we have trained up greater than or equal to 800
-				increase_probability = 3
-				if(attribute_strength_trained_integer >= 1000) //If we are over 1000
-					increase_probability += 2 //Add another 2
-		if(prob(increase_probability)) //If we hit the probability
-			attribute_strength += 1 //Increase our strength by 1
-			attribute_strength_trained_integer = 0 //Set strength trained integer to nothing
-			return 1 //Return true
-		else
-			return 0
-	if(chosen_attribute == attribute_agility) //Maximum cap 20
-		already_picked = TRUE
-		if(attribute_agility <= attribute_agility_natural_limit) //If our stat is lesser than the natural limit
-			if(attribute_agility <= attribute_agility_natural_limit-4) //If we are still lesser than 4 away from cap
-				increase_probability = round(1+attribute_agility_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
-			if(attribute_agility <= attribute_agility_natural_limit-10) //If we are still lesser than 10 away from cap
-				increase_probability = round(10+attribute_agility_trained_integer/50)
-		else
-			if(attribute_agility_trained_integer >= 800) //If we have trained up greater than or equal to 800
-				increase_probability = 3
-				if(attribute_agility_trained_integer >= 1000) //If we are over 1000
-					increase_probability += 2 //Add another 2
-		if(prob(increase_probability))
-			attribute_agility += 1
-			attribute_agility_trained_integer = 0
-			return 1
-		else
-			return 0
-	if(chosen_attribute == attribute_dexterity) //Maximum cap 20
-		already_picked = TRUE
-		if(attribute_dexterity <= attribute_dexterity_natural_limit) //If our stat is lesser than the natural limit
-			if(attribute_dexterity <= attribute_dexterity_natural_limit-4) //If we are still lesser than 4 away from cap
-				increase_probability = round(1+attribute_dexterity_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
-			if(attribute_dexterity <= attribute_dexterity_natural_limit-10) //If we are still lesser than 10 away from cap
-				increase_probability = round(10+attribute_dexterity_trained_integer/50)
-		else
-			if(attribute_dexterity_trained_integer >= 800) //If we have trained up greater than or equal to 800
-				increase_probability = 3
-				if(attribute_dexterity_trained_integer >= 1000) //If we are over 1000
-					increase_probability += 2 //Add another 2
-		if(prob(increase_probability))
-			attribute_dexterity += 1
-			attribute_dexterity_trained_integer = 0
-			return 1
-		else
-			return 0
-	if(chosen_attribute == attribute_constitution) //Maximum cap 20
-		already_picked = TRUE
-		if(attribute_constitution <= attribute_constitution_natural_limit) //If our stat is lesser than the natural limit
-			if(attribute_constitution <= attribute_constitution_natural_limit-4) //If we are still lesser than 4 away from cap
-				increase_probability = round(1+attribute_constitution_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
-			if(attribute_constitution <= attribute_constitution_natural_limit-10) //If we are still lesser than 10 away from cap
-				increase_probability = round(10+attribute_constitution_trained_integer/50)
-		else
-			if(attribute_constitution_trained_integer >= 800) //If we have trained up greater than or equal to 800
-				increase_probability = 3
-				if(attribute_constitution_trained_integer >= 1000) //If we are over 1000
-					increase_probability += 2 //Add another 2		
-		if(prob(increase_probability))
-			attribute_constitution += 1
-			attribute_constitution_trained_integer = 0
-			return 1
-		else
-			return 0
-	if(chosen_attribute == attribute_willpower) //Maximum cap 20
-		already_picked = TRUE
-		if(attribute_willpower <= attribute_willpower_natural_limit) //If our stat is lesser than the natural limit
-			if(attribute_willpower <= attribute_willpower_natural_limit-4) //If we are still lesser than 4 away from cap
-				increase_probability = round(1+attribute_willpower_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
-			if(attribute_willpower <= attribute_willpower_natural_limit-10) //If we are still lesser than 10 away from cap
-				increase_probability = round(10+attribute_willpower_trained_integer/50)
-		else
-			if(attribute_willpower_trained_integer >= 800) //If we have trained up greater than or equal to 800
-				increase_probability = 3
-				if(attribute_willpower_trained_integer >= 1000) //If we are over 1000
-					increase_probability += 2 //Add another 2				
-		if(prob(increase_probability))
-			attribute_willpower += 1
-			attribute_willpower_trained_integer = 0
-			return 1
-		else
-			return 0
-	if(chosen_attribute == attribute_sensitivity) //Maximum cap 1000
-		already_picked = TRUE
-		if(attribute_sensitivity <= attribute_sensitivity_natural_limit) //If our stat is lesser than the natural limit
-			if(attribute_sensitivity <= attribute_sensitivity_natural_limit-4) //If we are still lesser than 4 away from cap
-				increase_probability = round(1+attribute_sensitivity_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
-			if(attribute_sensitivity <= attribute_sensitivity_natural_limit-10) //If we are still lesser than 10 away from cap
-				increase_probability = round(10+attribute_sensitivity_trained_integer/50)
-		else
-			if(attribute_sensitivity_trained_integer >= 800) //If we have trained up greater than or equal to 800
-				increase_probability = 3
-				if(attribute_sensitivity_trained_integer >= 1000) //If we are over 1000
-					increase_probability += 2 //Add another 2					
-		if(prob(increase_probability))
-			attribute_sensitivity += 5
-			attribute_sensitivity_trained_integer = 0
-			return 1
-		else
-			return 0
+	switch(chosen_attribute)
+		if(ATTR_STRENGTH) //Maximum cap 20
+			attribute_strength_trained_integer += attr_trained_value
+			if(attribute_strength <= attribute_strength_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_strength <= attribute_strength_natural_limit-4) //If we are still lesser than 4 away from cap
+					increase_probability = round(1+attribute_strength_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
+				if(attribute_strength <= attribute_strength_natural_limit-10) //If we are still lesser than 10 away from cap
+					increase_probability = round(10+attribute_strength_trained_integer/50)
+			else
+				if(attribute_strength_trained_integer >= 800) //If we have trained up greater than or equal to 800
+					increase_probability = 2
+					if(attribute_strength_trained_integer >= 1000) //If we are over 1000
+						increase_probability += 3 //Add another 2
+			if(prob(increase_probability)) //If we hit the probability
+				attribute_strength += 1 //Increase our strength by 1
+				to_chat(src,"You feel stronger.")
+				attribute_strength_trained_integer = 0 //Set strength trained integer to nothing
+				return 1 //Return true
+			else
+				return 0
+		if(ATTR_AGILITY) //Maximum cap 20
+			attribute_agility_trained_integer += attr_trained_value
+			if(attribute_agility <= attribute_agility_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_agility <= attribute_agility_natural_limit-4) //If we are still lesser than 4 away from cap
+					increase_probability = round(1+attribute_agility_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
+				if(attribute_agility <= attribute_agility_natural_limit-10) //If we are still lesser than 10 away from cap
+					increase_probability = round(10+attribute_agility_trained_integer/50)
+			else
+				if(attribute_agility_trained_integer >= 800) //If we have trained up greater than or equal to 800
+					increase_probability = 2
+					if(attribute_agility_trained_integer >= 1000) //If we are over 1000
+						increase_probability += 3 //Add another 2
+			if(prob(increase_probability))
+				attribute_agility += 1
+				to_chat(src,"You feel a bit faster.")
+				attribute_agility_trained_integer = 0
+				return 1
+			else
+				return 0
+		if(ATTR_DEXTERITY) //Maximum cap 20
+			attribute_dexterity_trained_integer += attr_trained_value
+			if(attribute_dexterity <= attribute_dexterity_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_dexterity <= attribute_dexterity_natural_limit-4) //If we are still lesser than 4 away from cap
+					increase_probability = round(1+attribute_dexterity_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
+				if(attribute_dexterity <= attribute_dexterity_natural_limit-10) //If we are still lesser than 10 away from cap
+					increase_probability = round(10+attribute_dexterity_trained_integer/50)
+			else
+				if(attribute_dexterity_trained_integer >= 800) //If we have trained up greater than or equal to 800
+					increase_probability = 2
+					if(attribute_dexterity_trained_integer >= 1000) //If we are over 1000
+						increase_probability += 3 //Add another 2
+			if(prob(increase_probability))
+				attribute_dexterity += 1
+				to_chat(src,"Your coordination seems better.")
+				attribute_dexterity_trained_integer = 0
+				return 1
+			else
+				return 0
+		if(ATTR_CONSTITUTION) //Maximum cap 20
+			attribute_constitution_trained_integer += attr_trained_value
+			if(attribute_constitution <= attribute_constitution_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_constitution <= attribute_constitution_natural_limit-4) //If we are still lesser than 4 away from cap
+					increase_probability = round(1+attribute_constitution_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
+				if(attribute_constitution <= attribute_constitution_natural_limit-10) //If we are still lesser than 10 away from cap
+					increase_probability = round(10+attribute_constitution_trained_integer/50)
+			else
+				if(attribute_constitution_trained_integer >= 800) //If we have trained up greater than or equal to 800
+					increase_probability = 2
+					if(attribute_constitution_trained_integer >= 1000) //If we are over 1000
+						increase_probability += 3 //Add another 2		
+			if(prob(increase_probability))
+				attribute_constitution += 1
+				to_chat(src,"You feel tougher.")
+				maxHealth += 10
+				health += 10
+				attribute_constitution_trained_integer = 0
+				return 1
+			else
+				return 0
+		if(ATTR_WILLPOWER) //Maximum cap 20
+			attribute_willpower_trained_integer += attr_trained_value
+			if(attribute_willpower <= attribute_willpower_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_willpower <= attribute_willpower_natural_limit-4) //If we are still lesser than 4 away from cap
+					increase_probability = round(1+attribute_willpower_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
+				if(attribute_willpower <= attribute_willpower_natural_limit-10) //If we are still lesser than 10 away from cap
+					increase_probability = round(10+attribute_willpower_trained_integer/50)
+			else
+				if(attribute_willpower_trained_integer >= 800) //If we have trained up greater than or equal to 800
+					increase_probability = 2
+					if(attribute_willpower_trained_integer >= 1000) //If we are over 1000
+						increase_probability += 3 //Add another 2				
+			if(prob(increase_probability))
+				attribute_willpower += 1
+				to_chat(src,"You feel more willful.")
+				attribute_willpower_trained_integer = 0
+				return 1
+			else
+				return 0
+		if(ATTR_SENSITIVITY) //Maximum cap 1000
+			attribute_sensitivity_trained_integer += attr_trained_value
+			if(attribute_sensitivity <= attribute_sensitivity_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_sensitivity_trained_integer >= 800) //If we have trained up greater than or equal to 800			
+					attribute_sensitivity += 5
+					to_chat(src,"You feel more in touch with reality.")
+					attribute_sensitivity_trained_integer = 0
+					return 1
+				else
+					return 0
+			else
+				return 0
 
-/proc/probability_attribute_strength_check(var/difficulty, var/probability, var/modifier)
-	return
+	//stat_increase_cooldown = world.time + 50
+

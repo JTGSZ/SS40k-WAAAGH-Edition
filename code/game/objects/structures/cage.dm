@@ -118,7 +118,7 @@
 
 	if(cover_state == C_CLOSED)
 		var/time = 30 SECONDS
-		time -= ((user.get_strength() - 1) * 12.5) //Being strong reduces the time needed, down to 5 seconds
+		time -= (((user.attribute_strength/2) - 1) * 12.5) //Being strong reduces the time needed, down to 5 seconds
 
 		to_chat(user, "<span class='info'>You attempt to open \the [src]'s cover from inside. This will take around [(time / 10)] seconds.</span>")
 		if(do_after(user, src, time + rand(-5 SECONDS, 5 SECONDS)))
@@ -132,7 +132,7 @@
 	if(mob_is_inside(user)) //Inside the cage
 		if(door_state == C_CLOSED)
 			var/time = 180 SECONDS
-			time -= ((user.get_strength() - 1) * 60) //Being strong reduces the time needed, down to 60 seconds
+			time -= (((user.attribute_strength/2) - 1) * 60) //Being strong reduces the time needed, down to 60 seconds
 
 			to_chat(user, "<span class='info'>You attempt to open \the [src]'s door from inside. This will take around [(time / 10)] seconds.</span>")
 			if(do_after(user, src, time + rand(-5 SECONDS, 5 SECONDS)))

@@ -358,9 +358,6 @@
 			cell.reliability -= 10 / severity
 	..()
 
-/obj/item/clothing/gloves/proc/dexterity_check(mob/user) //Set wearer's dexterity to the value returned by this proc. Doesn't override death or brain damage, and should always return 1 (unless intended otherwise)
-	return 1 //Setting this to 0 will make user NOT dexterious when wearing these gloves
-
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, proximity)
 	return 0 // return 1 to cancel attack_hand()

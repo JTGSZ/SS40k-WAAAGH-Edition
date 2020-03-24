@@ -385,9 +385,6 @@ Class Procs:
 	if(!canGhostWrite(usr,src,"",ghost_flags))
 		if(usr.restrained() || usr.lying || usr.stat)
 			return 1
-		if (!usr.dexterity_check())
-			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-			return 1
 		if(!is_on_same_z(usr))
 			to_chat(usr, "<span class='warning'>WARNING: Unable to interface with \the [src.name].</span>")
 			return 1
@@ -433,14 +430,6 @@ Class Procs:
 	if(istype(user,/mob/dead/observer))
 		return 0
 
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 1
-/*
-	//distance checks are made by atom/proc/DblClick
-	if ((get_dist(src, user) > 1 || !istype(src.loc, /turf)) && !istype(user, /mob/living/silicon))
-		return 1
-*/
 	if (ishuman(user) && !ignore_brain_damage)
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
@@ -739,13 +728,13 @@ Class Procs:
 		H.apply_damage(rand(2,4), BRUTE, pick(LIMB_RIGHT_LEG, LIMB_LEFT_LEG, LIMB_RIGHT_FOOT, LIMB_LEFT_FOOT))
 
 	if(!anchored && !locked_to) //What could go wrong
-		var/strength = H.get_strength()
+		var/strength = H.attribute_strength
 		var/kick_dir = get_dir(H, src)
 
 		if(!Move(get_step(loc, kick_dir))) //The structure that we kicked is up against a wall - this hurts our foot
 			H.apply_damage(rand(2,4), BRUTE, pick(LIMB_RIGHT_LEG, LIMB_LEFT_LEG, LIMB_RIGHT_FOOT, LIMB_LEFT_FOOT))
 
-		if(strength > 1) //Strong - kick further
+		if(strength > 12) //Strong - kick further
 			spawn()
 				sleep(3)
 				for(var/i = 2 to strength)

@@ -19,13 +19,13 @@
 /obj/item/anvil/can_pickup(mob/living/M)
 	if(!..())
 		return FALSE
-	if(M.get_strength() > 2)
+	if(M.attribute_strength >= 13)
 		return TRUE
 
 /obj/item/anvil/can_be_pulled(mob/user)
 	if(istype(user, /mob/living))
 		var/mob/living/L = user
-		if(L.get_strength() >= 2)
+		if(L.attribute_strength >= 11)
 			return TRUE
 	return FALSE
 
@@ -35,7 +35,7 @@
 	return FALSE
 
 /obj/item/anvil/can_be_pushed(mob/living/user)
-	return user.get_strength() >= 2
+	return user.attribute_strength >= 10
 
 /obj/item/anvil/attackby(obj/item/W, mob/user, params)
 	if(user.drop_item(W, src.loc))

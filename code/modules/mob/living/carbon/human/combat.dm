@@ -30,6 +30,7 @@
 
 /mob/living/carbon/human/disarm_mob(mob/living/target)
 	add_logs(src, target, "disarmed", admin = (src.ckey && target.ckey) ? TRUE : FALSE) //Only add this to the server logs if both mobs were controlled by player
+	var/agi_vs_dex
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/T = target
@@ -44,18 +45,25 @@
 			visible_message("<span class='danger'>[src] places a hand over [target]'s mouth!</span>")
 			return
 
+		if(attribute_dexterity >= T.attribute_agility)
+			agi_vs_dex = (attribute_dexterity - T.attribute_agility)
+			//In the case of whether it misses or not, if its negative it adds higher probability
+			//In the case of whether we knock someone on they ass, it adds so if its negative it reduces probability.
+
 	if(target.disarmed_by(src))
 		return
 
-	if(prob(40)) //40% miss chance
+	if(prob(40 - agi_vs_dex)) //40% miss chance
 		playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 		visible_message("<span class='danger'>[src] has attempted to disarm [target]!</span>")
 		return
 
 	do_attack_animation(target, src)
 
-	if(prob(40)) //True chance of something happening per click is hit_chance*event_chance, so in this case the stun chance is actually 0.6*0.4=24%
+	if(prob(40 + agi_vs_dex)) //True chance of something happening per click is hit_chance*event_chance, so in this case the stun chance is actually 0.6*0.4=24%
 		target.apply_effect(4, WEAKEN)
+		target.stat_increase(ATTR_AGILITY,10)
+		stat_increase(ATTR_DEXTERITY,50)
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		visible_message("<span class='danger'>[src] has pushed [target]!</span>")
 		add_logs(src, target, "pushed", admin = (src.ckey && target.ckey) ? TRUE : FALSE) //Only add this to the server logs if both mobs were controlled by player
@@ -135,6 +143,10 @@
 		damage += 5
 	if(organ_has_mutation(get_active_hand_organ(), M_CLAWS) && !istype(gloves))
 		damage += 3
+		
+	if(attribute_strength)
+		damage += round(attribute_strength*1.5)
+
 	if(istype(gloves))
 		var/obj/item/clothing/gloves/G = gloves
 		damage += G.get_damage_added() //Increase damage by the gloves' damage modifier
@@ -161,6 +173,10 @@
 	base_chance += min(reagents.get_sportiness(),5)
 	if(mutations.Find(M_HULK))
 		base_chance += 12
+	
+	if(attribute_strength >= victim.attribute_constitution)
+		base_chance += 15
+
 	if(istype(gloves))
 		var/obj/item/clothing/gloves/G = gloves
 		base_chance += G.bonus_knockout
@@ -175,6 +191,10 @@
 /mob/living/carbon/human/after_unarmed_attack(mob/living/target, damage, damage_type, organ, armor)
 	var/knockout_chance = get_knockout_chance(target)
 
+	if(attribute_strength >= target.attribute_constitution)
+		knockout_chance += ((attribute_dexterity + attribute_strength) - (target.attribute_agility + target.attribute_constitution))
+		target.stat_increase(ATTR_CONSTITUTION,50)
+
 	show_combat_stat("Knockout chance: [knockout_chance]")
 	if(prob(knockout_chance))
 		visible_message("<span class='danger'>[src] has knocked down \the [target]!</span>")
@@ -184,7 +204,7 @@
 	//Hand transplants increase punch damage
 	//However, arm transplants are needed to send people flying through punches
 	var/datum/species/arm_species = get_organ_species(get_active_arm_organ())
-	if(arm_species.punch_throw_range && prob(25))
+	if(attribute_strength >= target.attribute_constitution+7)
 		target.visible_message("<span class='danger'>[target] is thrown by the force of the assault!</span>")
 		var/turf/T = get_turf(target)
 		var/turf/destination
@@ -193,6 +213,7 @@
 		else						// otherwise limit to 10 tiles
 			destination = get_ranged_target_turf(T, src.dir, arm_species.punch_throw_range)
 		target.throw_at(destination, 100, arm_species.punch_throw_speed)
+	
 
 /mob/living/carbon/human/unarmed_attacked(mob/living/attacker, damage, damage_type, zone)
 	if(ishuman(attacker) && w_uniform)
@@ -201,6 +222,8 @@
 	if(zone == "head")
 		var/chance = 0.5 * damage
 		if(attacker.mutations.Find(M_HULK))
+			chance += 50
+		if(attacker.attribute_strength >= attribute_constitution)
 			chance += 50
 		if(prob(chance))
 			knock_out_teeth(attacker)

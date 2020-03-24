@@ -189,9 +189,6 @@
 		if(1)
 			to_chat(src, "<span class='good'>The blood seeps into your small form, and you draw out the echoes of memories and personality from it, working them into your budding mind.</span>")
 
-/mob/living/carbon/monkey/diona/dexterity_check()
-	return FALSE
-
 /mob/living/carbon/monkey/diona/update_icons()
 	update_hud()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again

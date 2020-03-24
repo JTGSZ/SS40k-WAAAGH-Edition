@@ -111,7 +111,9 @@
 		var/strength = 1
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
-			strength = H.get_strength()
+			strength = H.attribute_strength/2
+			if(8 >= H.attribute_strength)
+				H.stat_increase(ATTR_STRENGTH,25)
 
 		user.visible_message("<span class='danger'>\The [user] hits \the [src]!</span>")
 		playsound(src, 'sound/effects/fence_smash.ogg', 30 * strength, 1) //Sound is louder the stronger you are

@@ -123,7 +123,7 @@ list("category" = "machinery", "name" = "MSGS", "path" = /obj/machinery/atmosphe
 /obj/machinery/power/antiquesynth/Topic(href, href_list)
 	if(..())
 		return
-	if(usr.incapacitated() || (!Adjacent(usr)&&!isAdminGhost(usr)) || !usr.dexterity_check())
+	if(usr.incapacitated() || (!Adjacent(usr)&&!isAdminGhost(usr)))
 		return
 	if(!allowed(usr) && !emagged)
 		to_chat(usr,"<span class='warning'>Access denied.</span>")

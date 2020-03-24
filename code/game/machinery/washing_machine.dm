@@ -255,7 +255,7 @@
 	update_icon()
 
 /obj/machinery/washing_machine/AltClick(mob/user)
-	if(!user.incapacitated() && Adjacent(user) && user.dexterity_check())
+	if(!user.incapacitated() && Adjacent(user))
 		start()
 		return
 	return ..()

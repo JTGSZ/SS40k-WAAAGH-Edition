@@ -130,9 +130,6 @@
 	damage_added = 3 //Add 3 damage to unarmed attacks when worn
 	force = 5 //Deal 5 damage if hit with this item in hand
 
-/obj/item/clothing/gloves/knuckles/dexterity_check()
-	return 0 //Wearing these knuckles makes you less dexterious (so, for example, you can't use computers)
-
 /obj/item/clothing/gloves/knuckles/spiked
 	name = "spiked knuckles"
 	desc = "A pair of metal knuckles embedded with dull, but nonetheless painful spikes."
@@ -322,9 +319,6 @@
 	hitsound_added = 'sound/weapons/slice.ogg'
 	attack_verb_override = "claws"
 
-/obj/item/clothing/gloves/warping_claws/dexterity_check()
-	return FALSE
-
 /obj/item/clothing/gloves/warping_claws/on_wearer_threw_item(mob/user, atom/target, atom/movable/thrown)
 	if(target && !thrown)
 		var/obj/effect/portal/tear/P1 = new (get_turf(user),5 SECONDS)
@@ -344,9 +338,6 @@
 	item_state = "rockernaut_gloves"
 	damage_added = 5
 	hitsound_added = 'sound/weapons/heavysmash.ogg'
-
-/obj/item/clothing/gloves/mining/dexterity_check()
-	return FALSE
 
 /obj/item/clothing/gloves/mining/Touch(var/atom/A, mob/user, proximity)
 	if(proximity && istype(A, /turf/unsimulated/mineral))

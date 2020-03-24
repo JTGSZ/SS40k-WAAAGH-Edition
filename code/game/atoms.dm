@@ -483,7 +483,7 @@ its easier to just keep the beam vertical.
 		. = 1
 		if(isAdminGhost(usr))
 			bug.removed(null, null, FALSE)
-		if(ishuman(usr) && !usr.incapacitated() && Adjacent(usr) && usr.dexterity_check())
+		if(ishuman(usr) && !usr.incapacitated() && Adjacent(usr))
 			bug.removed(usr)
 
 /atom/proc/relaymove()

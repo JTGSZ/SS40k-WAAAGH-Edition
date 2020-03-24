@@ -6,9 +6,6 @@
 	species_fit = list(VOX_SHAPED)
 	bonus_knockout = 12
 
-/obj/item/clothing/gloves/boxing/dexterity_check()
-	return 0 //Wearing boxing gloves makes you less dexterious (so, for example, you can't use computers)
-
 /obj/item/clothing/gloves/boxing/green
 	icon_state = "boxinggreen"
 	item_state = "boxinggreen"

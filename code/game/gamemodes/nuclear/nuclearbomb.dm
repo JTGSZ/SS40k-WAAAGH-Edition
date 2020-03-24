@@ -156,9 +156,6 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 
 	if (!usr || usr.lying || usr.isUnconscious())
 		return
-	if (!usr.dexterity_check())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 
 	if (src.deployable)
 		to_chat(usr, "<span class='notice'>You close several panels to make [src] undeployable.</span>")
@@ -172,9 +169,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 		return 1
 	if (!usr.canmove || usr.stat || usr.restrained())
 		return
-	if (!usr.dexterity_check())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 1
+
 	if (istype(src.loc, /turf))
 		usr.set_machine(src)
 		if (href_list["auth"])

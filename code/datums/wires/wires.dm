@@ -184,8 +184,6 @@ var/list/wireColours = list("red", "blue", "green", "black", "orange", "brown", 
 	playsound(holder, 'sound/machines/airlock_beep.ogg', 25, 1, -6)
 
 /datum/wires/proc/CanUse(var/mob/L)
-	if(!L.dexterity_check())
-		return 0
 	if((L.incapacitated() && !isAdminGhost(L)) || L.lying)
 		return 0
 	return 1

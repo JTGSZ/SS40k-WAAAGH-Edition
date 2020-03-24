@@ -1854,9 +1854,6 @@ mob/proc/assess_threat()
 mob/proc/on_foot()
 	return !(lying || flying || locked_to)
 
-/mob/proc/dexterity_check()
-	return 0
-
 /mob/proc/isTeleViewing(var/client_eye)
 	if(istype(client_eye,/obj/machinery/camera))
 		return 1

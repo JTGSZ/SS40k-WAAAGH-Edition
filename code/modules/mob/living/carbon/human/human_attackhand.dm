@@ -104,15 +104,24 @@
 		damage += rand(0,4)*dam_check
 		knockout += rand(0,3)
 		attack_verb = "roundhouse kicks"
+	else if(M.attribute_dexterity >= attribute_agility+3)
+		damage += rand(0,12)
+		knockout += rand(0,12)
+		attack_verb = "snap kicks"
+		stat_increase(ATTR_AGILITY,50)
 
 	if(!damage && dam_check) // So that people still think they are biting each other
 		playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 		visible_message("<span class='danger'>\The [M] attempts to kick \the [src]!</span>")
 		return 0
 
+
 	if(M_HULK in M.mutations)
 		damage +=  3
 		knockout += 3
+
+	damage += M.attribute_strength/2
+	M.stat_increase(ATTR_STRENGTH,25)
 
 	//Handle shoes
 	var/obj/item/clothing/shoes/S = M.shoes
@@ -154,7 +163,7 @@
 					throw_dir = get_dir(M, src)
 
 				var/turf/T = get_edge_target_turf(get_turf(src), throw_dir)
-				var/throw_strength = 3 * M.get_strength()
+				var/throw_strength = 3 * M.attribute_strength/2
 				throw_at(T, throw_strength, 1)
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='red'>Kicked [src.name] ([src.ckey]) for [damage] damage</font>")

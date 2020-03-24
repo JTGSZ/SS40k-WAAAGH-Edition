@@ -982,10 +982,6 @@ Thanks.
 
 				else
 					B.manual_unbuckle(L)
-		//release from kudzu
-		/*else if(istype(L.locked_to, /obj/effect/plantsegment))
-			var/obj/effect/plantsegment/K = L.locked_to
-			K.manual_unbuckle(L)*/
 
 	//Breaking out of a locker?
 	if(src.loc && (istype(src.loc, /obj/structure/closet)))
@@ -1093,7 +1089,7 @@ Thanks.
 			return
 
 	//breaking out of handcuffs
-		if(CM.handcuffed && CM.canmove)
+		/*if(CM.handcuffed && CM.canmove)
 			if(isalienadult(CM) || (M_HULK in usr.mutations))//Don't want to do a lot of logic gating here.
 				CM.visible_message("<span class='danger'>[CM] is trying to break the handcuffs!</span>",
 								   "<span class='warning'>You attempt to break your handcuffs. (This will take around five seconds and you will need to stand still).</span>")
@@ -1131,7 +1127,7 @@ Thanks.
 					else
 						CM.simple_message("<span class='warning'>Your attempt to remove \the [HC] was interrupted.</span>",
 							"<span class='warning'>Your attempt to regain control of your hands was interrupted. Damn it!</span>")
-
+		
 		else if(CM.legcuffed && CM.canmove)
 			if(isalienadult(CM) || (M_HULK in usr.mutations))//Don't want to do a lot of logic gating here.
 				CM.visible_message("<span class='danger'>[CM] is trying to break the legcuffs!</span>",
@@ -1202,7 +1198,7 @@ Thanks.
 					else
 						CM.simple_message("<span class='warning'>Your attempt to remove \the [HC] was interrupted.</span>",
 							"<span class='warning'>Your attempt to regain control of your hands was interrupted. Damn it!</span>")
-
+			*/
 /mob/living/verb/lay_down()
 	set name = "Rest"
 	set category = "IC"
@@ -1282,19 +1278,19 @@ Thanks.
 
 /mob/living/to_bump(atom/movable/AM as mob|obj)
 	spawn(0)
-		if (now_pushing || !loc || size <= SIZE_TINY)
+		if(now_pushing || !loc || size <= SIZE_TINY)
 			return //JTGSZ MARK, COMPLEX COMBAT GETS JAMMED IN HERE SOMEWHERE
 		now_pushing = 1
-		if (istype(AM, /obj/structure/bed/roller)) //no pushing rollerbeds that have people on them
+		if(istype(AM, /obj/structure/bed/roller)) //no pushing rollerbeds that have people on them
 			var/obj/structure/bed/roller/R = AM
 			for(var/mob/living/tmob in range(R, 1))
 				if(tmob.pulling == R && !(tmob.restrained()) && tmob.stat == 0 && R.density == 1)
 					to_chat(src, "<span class='warning'>[tmob] is pulling [R], you can't push past.</span>")
 					now_pushing = 0
 					return
-		if (istype(AM, /mob/living)) //no pushing people pushing rollerbeds that have people on them
+		if(istype(AM, /mob/living)) //no pushing people pushing rollerbeds that have people on them
 			var/mob/living/tmob = AM
-			for(var/obj/structure/bed/roller/R in range(tmob, 1))
+		/*	for(var/obj/structure/bed/roller/R in range(tmob, 1))
 				if(tmob.pulling == R && !(tmob.restrained()) && tmob.stat == 0 && R.density == 1)
 					to_chat(src, "<span class='warning'>[tmob] is pulling [R], you can't push past.</span>")
 					now_pushing = 0
@@ -1308,7 +1304,7 @@ Thanks.
 					to_chat(src, "<span class='warning'>[tmob] is restraining [M], you can't push past.</span>")
 					now_pushing = 0
 					return
-
+		*/
 			//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 			var/dense = 0
 			if(loc.density)
@@ -1336,8 +1332,8 @@ Thanks.
 			if(!can_move_mob(tmob, 0, 0))
 				now_pushing = 0
 				return
-			var/mob/living/carbon/human/H = null
-			if(ishuman(tmob))
+			//var/mob/living/carbon/human/H = null
+			/*if(ishuman(tmob))
 				H = tmob
 			if(H && ((M_FAT in H.mutations) || (H && H.species && H.species.anatomy_flags & IS_BULKY)))
 				var/mob/living/carbon/human/U = null
@@ -1346,10 +1342,14 @@ Thanks.
 				if(prob(40) && !(U && ((M_FAT in U.mutations) || (U && U.species && U.species.anatomy_flags & IS_BULKY))))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = 0
-					return
+					return*/
 
-			for(var/obj/item/weapon/shield/riot/R in tmob.held_items)
-				if(prob(99))
+			if(tmob.attribute_constitution > attribute_strength)
+				now_pushing = 0
+				return
+
+			for(var/obj/item/weapon/shield/R in tmob.held_items)
+				if(tmob.attribute_strength+6 >= attribute_strength)
 					now_pushing = 0
 					return
 
@@ -1362,16 +1362,16 @@ Thanks.
 		now_pushing = 0
 		spawn(0)
 			..()
-			if (!istype(AM, /atom/movable))
-				return
-			if (!now_pushing)
+			if(!istype(AM, /atom/movable))
+				return 
+			if(!now_pushing)
 				now_pushing = 1
 
-				if (!AM.anchored && AM.can_be_pushed(src))
+				if(!AM.anchored && AM.can_be_pushed(src))
 					var/t = get_dir(src, AM)
 					if(AM.flow_flags & ON_BORDER && !t)
 						t = AM.dir
-					if (istype(AM, /obj/structure/window/full))
+					if(istype(AM, /obj/structure/window/full))
 						for(var/obj/structure/window/win in get_step(AM,t))
 							now_pushing = 0
 							return
@@ -1731,19 +1731,11 @@ Thanks.
 
 		src.apply_inertia(get_dir(target, src))
 
-
-/*
-		if(istype(src.loc, /turf/space) || (src.flags & NOGRAV)) //they're in space, move em one space in the opposite direction
-			src.inertia_dir = get_dir(target, src)
-			step(src, inertia_dir)
-*/
-
-
-		var/throw_mult=1
+		var/throw_mult=1 
 		if(istype(src,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H=src
 			throw_mult = H.species.throw_mult
-			throw_mult += (H.get_strength()-1)/2 //For each level of strength above 1, add 0.5
+			throw_mult += (H.attribute_strength)/4 //For each level of strength above 1, add 0.5
 		item.throw_at(target, item.throw_range*throw_mult, item.throw_speed*throw_mult)
 		return THREW_SOMETHING
 
@@ -1863,11 +1855,15 @@ Thanks.
 	return on_foot() // Check if we have legs, gravity, etc. Checked by the children.
 
 /mob/living/proc/Slip(stun_amount, weaken_amount, slip_on_walking = 0, overlay_type, slip_with_magbooties = 0)
-	stop_pulling()
-	Stun(stun_amount)
-	Knockdown(weaken_amount)
-	score["slips"]++
-	return 1
+	if(prob(attribute_dexterity/2))
+		src.visible_message("<span class='danger'>[src.name] stumbles but manages to stabilize!</span>")
+		return 0
+	else
+		stop_pulling()
+		Stun(stun_amount) 
+		Knockdown(weaken_amount)
+		score["slips"]++
+		return 1
 
 ///////////////////////DISEASE STUFF///////////////////////////////////////////////////////////////////
 

@@ -28,16 +28,6 @@ default behaviour is:
 			return 1
 		return 0
 
-/mob/living/proc/get_strength() //Returns a mob's strength. Isn't used in damage calculations, but rather in things like cutting down trees etc.
-	var/strength = 1.0
-
-	strength += (M_HULK in src.mutations)
-	strength += (M_STRONG in src.mutations)
-	if(reagents)
-		strength += (reagents.get_sportiness() >= 5)
-
-	. = strength
-
 /mob/living/proc/feels_pain()
 	return TRUE
 

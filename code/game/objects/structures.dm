@@ -35,13 +35,13 @@ obj/structure/ex_act(severity)
 		H.apply_damage(rand(2,4), BRUTE, pick(LIMB_RIGHT_LEG, LIMB_LEFT_LEG, LIMB_RIGHT_FOOT, LIMB_LEFT_FOOT))
 
 	if(!anchored && !locked_to)
-		var/strength = H.get_strength()
+		var/strength = H.attribute_strength
 		var/kick_dir = get_dir(H, src)
 
 		if(!Move(get_step(loc, kick_dir))) //The structure that we kicked is up against a wall - this hurts our foot
 			H.apply_damage(rand(2,4), BRUTE, pick(LIMB_RIGHT_LEG, LIMB_LEFT_LEG, LIMB_RIGHT_FOOT, LIMB_LEFT_FOOT))
 
-		if(strength > 1) //Strong - kick further
+		if(strength > 12) //Strong - kick further
 			spawn()
 				sleep(3)
 				for(var/i = 2 to strength)

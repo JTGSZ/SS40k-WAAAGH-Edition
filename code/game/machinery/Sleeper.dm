@@ -466,7 +466,7 @@
 
 
 /obj/machinery/sleeper/AltClick()
-	if(!usr.incapacitated() && Adjacent(usr) && !(stat & (NOPOWER|BROKEN) && usr.dexterity_check()))
+	if(!usr.incapacitated() && Adjacent(usr) && !(stat & (NOPOWER|BROKEN)))
 		if(wakeup(usr))
 			visible_message("<span class='notice'>\The [src] pings softly: 'Initiating wake-up cycle...' </span>")
 
