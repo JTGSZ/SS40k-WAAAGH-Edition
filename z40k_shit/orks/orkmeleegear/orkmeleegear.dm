@@ -30,6 +30,18 @@
 	icon_state = rngicon
 	item_state = rngicon
 	
+/obj/item/weapon/choppa/interpret_powerwords(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("hurthurtknockbackhurt") //hurt hurt knockback hurt
+			user.visible_message("<span class='danger'>[H] lands a extra hard swing!</span>")
+			target.adjustBruteLoss(15)
+			T.word_combo_chain = ""
+			T.update_powerwords_hud()
+			
 
 /obj/item/weapon/shield/orkshield
 	name = "ork shield"
@@ -41,7 +53,7 @@
 	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
-	force = 10
+	force = 15
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4

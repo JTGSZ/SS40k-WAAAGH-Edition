@@ -23,6 +23,19 @@
 /obj/item/weapon/chainsword/New()
 	. = ..()
 
+/obj/item/weapon/chainsword/interpret_powerwords(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("hurthurtknockbackhurt") //hurt hurt knockback hurt
+			user.visible_message("<span class='danger'>[H] lands a extra hard swing!</span>")
+			target.adjustBruteLoss(15)
+			T.word_combo_chain = ""
+			T.update_powerwords_hud()
+
+
 /obj/item/weapon/shield/IGshield
 	name = "metal shield"
 	desc = "A piece metal that should be as unwavering as the person holding it."
