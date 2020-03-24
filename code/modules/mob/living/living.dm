@@ -1735,7 +1735,7 @@ Thanks.
 		if(istype(src,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H=src
 			throw_mult = H.species.throw_mult
-			throw_mult += (H.attribute_strength)/4 //For each level of strength above 1, add 0.5
+			throw_mult += H.attribute_strength/4 //For each level of strength above 1, add 0.5
 		item.throw_at(target, item.throw_range*throw_mult, item.throw_speed*throw_mult)
 		return THREW_SOMETHING
 
@@ -1883,7 +1883,7 @@ Thanks.
 /mob/living/proc/find_nearby_disease()//only tries to find Contact and Blood spread diseases. Airborne ones are handled by breath_airborne_diseases()
 	if(locked_to)//Riding a vehicle?
 		return
-	if(flying)//Flying?
+	if(flying || highflying)//Flying?
 		return
 
 	var/turf/T = get_turf(src)

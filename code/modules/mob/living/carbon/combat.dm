@@ -15,6 +15,10 @@
 	if(speed > EMBED_THROWING_SPEED) //Can't catch things going too fast unless you're a special boy
 		if((M_RUN in mutations) || (reagents && reagents.has_reagent(METHYLIN)))
 			return TRUE
+		else if(attribute_dexterity >= 18)
+			return TRUE
+		else if(attribute_agility >= 18)
+			return TRUE
 		else
 			return FALSE
 	return TRUE
@@ -24,7 +28,7 @@
 /mob/living/carbon/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone, var/originator = null)
 	if(!I || !user)
 		return FALSE
-	var/target_zone = null
+	var/target_zone = null 
 	if(def_zone)
 		target_zone = get_zone_with_miss_chance(def_zone, src)
 	else if(originator)
@@ -57,8 +61,9 @@
 		if(armor >= 100)
 			return TRUE //We still connected
 		if(!I.force)
-			return TRUE
+			return TRUE 
 	var/damage = run_armor_absorb(target_zone, I.damtype, I.force)
+	damage += user.attribute_strength
 	apply_damage(damage, I.damtype, affecting, armor , I.is_sharp(), used_weapon = I)
 
 	return TRUE

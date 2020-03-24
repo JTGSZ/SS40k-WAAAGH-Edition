@@ -65,13 +65,13 @@
 // Making this into a helper proc because of inheritance wonkyness making children of reagent_containers being nigh impossible to attack with.
 /obj/item/proc/handle_attack(obj/item/I, mob/living/M as mob, mob/living/user as mob, def_zone, var/mob/originator = null)
 	. = 1
-	if (!istype(M)) // not sure if this is the right thing...
-		return 0
-	if (can_operate(M, user))        //Checks if mob is lying down on table for surgery
-		if (do_surgery(M,user,I))
+	//if(!istype(M)) // not sure if this is the right thing...
+	//	return 0
+	if(can_operate(M, user))        //Checks if mob is lying down on table for surgery
+		if(do_surgery(M,user,I))
 			return 1
 
-	if (user.is_pacified(VIOLENCE_DEFAULT,M))
+	if(user.is_pacified(VIOLENCE_DEFAULT,M))
 		return 0
 
 	if(originator)
@@ -87,6 +87,8 @@
 	var/power = I.force
 	if(M_HULK in user.mutations)
 		power *= 2
+	
+
 
 	if(!istype(M, /mob/living/carbon/human))
 		if(istype(M, /mob/living/carbon/slime))
@@ -213,22 +215,21 @@
 			if("brute")
 				if(istype(src, /mob/living/carbon/slime))
 					M.adjustBrainLoss(power)
-
 				else
 					if(istype(M, /mob/living/carbon/monkey))
 						var/mob/living/carbon/monkey/K = M
 						power = K.defense(power,def_zone)
-					M.take_organ_damage(power)
-					if (prob(33) && I.force) // Added blood for whacking non-humans too
+					M.take_organ_damage(power - M.attribute_constitution)
+					if(prob(33) && I.force) // Added blood for whacking non-humans too
 						var/turf/location = M.loc
-						if (istype(location, /turf/simulated))
+						if(istype(location, /turf/simulated))
 							location:add_blood_floor(M)
-			if("fire")
-				if (!(M_RESIST_COLD in M.mutations))
+			if("fire") 
+				if(!(M_RESIST_COLD in M.mutations))
 					if(istype(M, /mob/living/carbon/monkey))
 						var/mob/living/carbon/monkey/K = M
 						power = K.defense(power,def_zone)
-					M.take_organ_damage(0, power)
+					M.take_organ_damage(0, power - M.attribute_constitution)
 					to_chat(M, "Aargh it burns!")
 		. = TRUE //The attack always lands
 		M.updatehealth()
@@ -236,7 +237,7 @@
 
 
 /obj/item/proc/on_attack(var/atom/attacked, var/mob/user)
-	if (!user.gcDestroyed)
+	if(!user.gcDestroyed)
 		user.do_attack_animation(attacked, src)
 		user.delayNextAttack(attack_delay)
 	if(hitsound)
