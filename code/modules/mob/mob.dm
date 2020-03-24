@@ -1669,10 +1669,6 @@ Use this proc preferably at the end of an equipment loadout
 		else
 			src.callOnFace -= .
 
-
-/mob/proc/IsAdvancedToolUser()//This might need a rename but it should replace the can this mob use things check
-	return 0
-
 /mob/proc/isGoodPickpocket() //If the mob gets bonuses when pickpocketing and such. Currently only used for humans with the Pickpocket's Gloves.
 	return 0
 

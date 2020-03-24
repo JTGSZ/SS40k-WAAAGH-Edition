@@ -142,9 +142,6 @@
 		return 0
 	if(!isliving(usr))
 		return 0
-	if(!usr.dexterity_check())
-		to_chat(usr, "<span class='warning>You don't have the dexterity to do this!</span>")
-		return 0
 
 	toggle_lantern()
 	usr.visible_message("<span class='notice'>[usr] toggles \the [lantern] hanging on \the [src] [lantern.on ? "on":"off"].</span>", \

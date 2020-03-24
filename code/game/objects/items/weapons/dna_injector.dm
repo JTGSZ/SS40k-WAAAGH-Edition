@@ -152,9 +152,6 @@
 /obj/item/weapon/dnainjector/attack(mob/M as mob, mob/user as mob)
 	if (!istype(M, /mob))
 		return
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to inject [M.name] ([M.ckey])</font>")

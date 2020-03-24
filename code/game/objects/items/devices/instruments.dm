@@ -23,9 +23,6 @@
 	..()
 
 /obj/item/device/instrument/attack_self(mob/user as mob)
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 1
 	interact(user)
 
 /obj/item/device/instrument/drum/drum_makeshift/bongos/attack_self(mob/user as mob)

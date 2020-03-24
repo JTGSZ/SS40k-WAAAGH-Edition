@@ -196,7 +196,7 @@
 	update_icon()
 
 /obj/machinery/vaporizer/AltClick(mob/user)
-	if(!user.incapacitated() && Adjacent(user) && user.dexterity_check())
+	if(!user.incapacitated() && Adjacent(user))
 		if(!collapse())
 			..()
 	else
@@ -226,7 +226,7 @@
 	unfold()
 
 /obj/item/vaporizer/AltClick(mob/user)
-	if(!user.incapacitated() && Adjacent(user) && user.dexterity_check())
+	if(!user.incapacitated() && Adjacent(user))
 		unfold()
 	else
 		..()

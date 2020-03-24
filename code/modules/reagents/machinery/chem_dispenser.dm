@@ -270,7 +270,7 @@ USE THIS CHEMISTRY DISPENSER FOR MAPS SO THEY START AT 100 ENERGY
 		return 1
 
 /obj/machinery/chem_dispenser/AltClick()
-	if(!usr.incapacitated() && Adjacent(usr) && container && !(stat & (NOPOWER|BROKEN) && usr.dexterity_check()))
+	if(!usr.incapacitated() && Adjacent(usr) && container && !(stat & (NOPOWER|BROKEN)))
 		detach()
 		return
 	return ..()

@@ -83,10 +83,6 @@
 	if(!usr || usr.isUnconscious() || usr.lying)
 		return
 
-	if(!usr.dexterity_check())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-
 	if(scan)
 		to_chat(usr, "You remove \the [scan] from \the [src].")
 		scan.forceMove(get_turf(src))
@@ -108,9 +104,6 @@
 		return ..()
 
 	//Past this point, we are for sure inserting an ID.
-	if(!user.dexterity_check()) //Since we can't remove the ID, let's not put it in, to prevent tragic ID stuckness.
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 	if(id_card.loc == src) //With telekinesis, someone can retain the reference to a card after it's put inside via TKgrab, thus attacking us with a card we already had
 		return
 

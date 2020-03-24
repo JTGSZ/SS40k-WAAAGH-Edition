@@ -122,10 +122,6 @@ var/global/automation_types=typesof(/datum/automation) - /datum/automation
 	if(user.incapacitated() || user.lying)
 		return FALSE // Lying down, or incapacitated.
 
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return FALSE
-
 	// Silicons can access shit from out of range.
 	if(istype(user, /mob/living/silicon))
 		return TRUE

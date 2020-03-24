@@ -17,10 +17,6 @@
 		to_chat(user, "<span class='warning'>\The [src] cannot be applied to [M]!</span>")
 		return 1
 
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 1
-
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/datum/organ/external/affecting = H.get_organ(user.zone_sel.selecting)

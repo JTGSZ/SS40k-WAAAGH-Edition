@@ -645,9 +645,6 @@
 	return clamp(., -2, 2)
 
 
-/mob/living/carbon/human/IsAdvancedToolUser()
-	return 1//Humans can use guns and such
-
 /mob/living/carbon/human/isGoodPickpocket()
 	var/obj/item/clothing/gloves/G = gloves
 	if(istype(G))

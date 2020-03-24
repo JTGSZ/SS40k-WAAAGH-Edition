@@ -204,9 +204,7 @@ var/global/list/loopModeNames=list(
 	attack_hand(user)
 
 /obj/machinery/media/jukebox/attack_paw(var/mob/user)
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+
 	attack_hand(user)
 
 /obj/machinery/media/jukebox/power_change()

@@ -277,7 +277,7 @@ proc/move_mining_shuttle()
 	var/current_ammo = 15
 
 /obj/item/weapon/pickaxe/plasmacutter/accelerator/afterattack(var/atom/A, var/mob/living/user, var/proximity_flag, var/click_parameters)
-	if (!user.IsAdvancedToolUser() || isMoMMI(user) || istype(user, /mob/living/carbon/monkey/diona))
+	if (isMoMMI(user) || istype(user, /mob/living/carbon/monkey/diona))
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 	if(proximity_flag)

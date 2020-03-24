@@ -236,7 +236,7 @@
 	return 1
 
 /obj/machinery/portable_atmospherics/scrubber/AltClick()
-	if(!usr.incapacitated() && Adjacent(usr) && usr.dexterity_check())
+	if(!usr.incapacitated() && Adjacent(usr))
 		eject_holding()
 		return
 	return ..()

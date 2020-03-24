@@ -360,9 +360,7 @@
 	..()
 
 /obj/structure/piano/attack_hand(mob/user)
-	if(!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 1
+
 	if(broken)
 		to_chat(user, "<span class='warning'>\The [src] is broken for good.</span>")
 		return 1

@@ -527,7 +527,7 @@
 	return
 
 /obj/machinery/microwave/CtrlClick(mob/user)
-	if(isAdminGhost(user) || (!user.incapacitated() && Adjacent(user) && user.dexterity_check() && anchored))
+	if(isAdminGhost(user) || (!user.incapacitated() && Adjacent(user) && anchored))
 		if(issilicon(user) && !attack_ai(user))
 			return ..()
 		cook() //Cook checks for power, brokenness, and contents internally
@@ -539,7 +539,7 @@
 		return ..()
 	if(!anchored)
 		return ..()
-	if(isAdminGhost(user) || (!user.incapacitated() && Adjacent(user) && user.dexterity_check()))
+	if(isAdminGhost(user) || (!user.incapacitated() && Adjacent(user)))
 		if(issilicon(user) && !attack_ai(user))
 			return ..()
 		var/list/choices = list(

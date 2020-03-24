@@ -619,9 +619,6 @@ var/global/list/alert_overlays_global = list()
 		return 0
 	if(!isturf(user.loc))
 		return 0
-	if(!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 0
 
 	var/current_turf = get_turf(src)
 	var/turf_face = get_step(current_turf,user.dir)

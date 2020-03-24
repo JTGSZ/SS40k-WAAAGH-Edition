@@ -141,7 +141,7 @@
 /obj/structure/bed/chair/vehicle/attack_hand(mob/user)
 	if(occupant && occupant == user)
 		return ..()
-	if(heldkey && !user.incapacitated() && Adjacent(user) && user.dexterity_check())
+	if(heldkey && !user.incapacitated() && Adjacent(user))
 		to_chat(user, "<span class='notice'>You remove \the [heldkey] from \the [src]'s ignition.</span>")
 		user.visible_message("<span class='notice'>\The [src]'s engine shuts off.</span>")
 		heldkey.forceMove(get_turf(user))

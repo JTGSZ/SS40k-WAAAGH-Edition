@@ -179,9 +179,6 @@
 
 /turf/simulated/wall/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	user.delayNextAttack(8)
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
 		var/obj/item/weapon/solder/S = W

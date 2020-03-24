@@ -171,9 +171,7 @@
 		return
 	if (usr.stat || usr.restrained() )
 		return
-	if (!usr.dexterity_check())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+
 
 	if (( usr.machine==src && ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon/ai)))
 

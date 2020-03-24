@@ -421,7 +421,7 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 		updateUsrDialog()
 
 /obj/machinery/chem_master/AltClick()
-	if(!usr.incapacitated() && Adjacent(usr) && container && !(stat & (NOPOWER|BROKEN) && usr.dexterity_check()))
+	if(!usr.incapacitated() && Adjacent(usr) && container && !(stat & (NOPOWER|BROKEN)))
 		detach()
 		return
 	return ..()

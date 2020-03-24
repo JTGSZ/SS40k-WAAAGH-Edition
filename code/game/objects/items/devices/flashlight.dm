@@ -58,10 +58,6 @@
 		if((clumsy_check(user) || user.getBrainLoss() >= 60) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
-		if (!user.dexterity_check())
-			to_chat(user, "<span class='notice'>You don't have the dexterity to do this!</span>")
-			return
-
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
 		if(istype(M, /mob/living/carbon/human))
 			var/obj/item/eye_protection = H.get_body_part_coverage(EYES)

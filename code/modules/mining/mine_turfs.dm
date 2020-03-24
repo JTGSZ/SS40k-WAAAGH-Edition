@@ -227,10 +227,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	if(busy)
 		return
 
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-
 	if (istype(W, /obj/item/device/core_sampler))
 		if(!geologic_data)
 			geologic_data = new/datum/geosample(src)

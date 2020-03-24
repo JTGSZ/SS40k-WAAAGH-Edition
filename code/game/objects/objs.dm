@@ -170,9 +170,7 @@ var/global/list/reagents_to_log = list(FUEL, PLASMA, PACID, SACID, AMUTATIONTOXI
 	var/mob/M = usr
 	if(!M.Adjacent(src))
 		return
-	if(!M.dexterity_check())
-		to_chat(usr, "You don't have the dexterity to do this!")
-		return
+
 	if(M.incapacitated())
 		to_chat(M, "You can't do that while you're incapacitated!")
 		return

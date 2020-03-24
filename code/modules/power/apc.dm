@@ -813,11 +813,7 @@
 		return 0
 	if(!user.client)
 		return 0
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to use this [src]!</span>")
-		nanomanager.close_user_uis(user, src)
 
-		return 0
 	if(user.restrained())
 		to_chat(user, "<span class='warning'>You must have free hands to use this [src]</span>")
 		return 0

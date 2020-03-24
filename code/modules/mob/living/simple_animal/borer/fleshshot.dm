@@ -10,10 +10,7 @@
 	fire_volume = 250
 	maxlength = 10
 	clumsy_check = 0
-	advanced_tool_user_check = 0
-	nymph_check = 0
-	hulk_check = 0
-	golem_check = 0
+
 	fire_delay = 4
 	delay_user = 0
 	var/mob/living/simple_animal/borer/parent_borer = null

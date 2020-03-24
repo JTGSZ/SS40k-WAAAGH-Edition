@@ -300,7 +300,5 @@
 		visible_message("<span class='warning'>\The [user] slashes at \the [src]!</span>")
 		playsound(src, 'sound/weapons/slash.ogg', 100, 1)
 		add_hiddenprint(user)
-	else if (!usr.dexterity_check())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 	else
 		attack_hand(user)

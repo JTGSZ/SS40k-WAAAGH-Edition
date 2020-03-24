@@ -32,11 +32,6 @@
 
 	var/clumsy_check = 1				//Whether the gun disallows clumsy users from firing it.
 	var/honor_check = 1                 // Same, but highlanders and bombermen.
-	var/advanced_tool_user_check = 1	//Whether the gun disallows users that cannot use advanced tools from firing it.
-	var/MoMMI_check = 1					//Whether the gun disallows MoMMIs from firing it.
-	var/nymph_check = 1					//Whether the gun disallows diona nymphs from firing it.
-	var/hulk_check = 1					//Whether the gun disallows hulks from firing it.
-	var/golem_check = 1					//Whether the gun disallows golems from firing it.
 
 	var/tmp/list/mob/living/target //List of who yer targeting.
 	var/tmp/lock_time = -100
@@ -121,35 +116,9 @@
 		"You hear a [istype(in_chamber, /obj/item/projectile/beam) ? "laser blast" : "gunshot"]!")
 
 /obj/item/weapon/gun/proc/can_Fire(mob/user, var/display_message = 0)
-	var/firing_dexterity = 1
-	if(advanced_tool_user_check)
-		if (!user.IsAdvancedToolUser())
-			firing_dexterity = 0
-	if(MoMMI_check)
-		if(isMoMMI(user))
-			firing_dexterity = 0
-	if(nymph_check)
-		if(istype(user, /mob/living/carbon/monkey/diona))
-			firing_dexterity = 0
-	if(!firing_dexterity)
-		if(display_message)
-			to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return 0
 
-	if(istype(user, /mob/living))
-		if(hulk_check)
-			var/mob/living/M = user
-			if (M_HULK in M.mutations)
-				if(display_message)
-					to_chat(M, "<span class='warning'>Your meaty finger is much too large for the trigger guard!</span>")
-				return 0
 	if(ishuman(user))
 		var/mob/living/carbon/human/H=user
-		if(golem_check)
-			if(isgolem(H))
-				if(display_message)
-					to_chat(user, "<span class='warning'>Your fat fingers don't fit in the trigger guard!</span>")
-				return 0
 		var/datum/organ/external/a_hand = H.get_active_hand_organ()
 		if(!a_hand.can_use_advanced_tools())
 			if(display_message)

@@ -146,9 +146,6 @@
 	return
 
 /obj/machinery/embedded_controller/attack_hand(mob/user as mob)
-	if(!user.dexterity_check())
-		to_chat(user, "You do not have the dexterity to use this.")
-		return
 	if(build<2)
 		return 1
 	src.ui_interact(user)

@@ -278,7 +278,7 @@ var/global/list/juice_items = list (
 		return ..()
 	if(!anchored)
 		return ..()
-	if(!user.incapacitated() && Adjacent(user) && user.dexterity_check())
+	if(!user.incapacitated() && Adjacent(user))
 		var/list/choices = list(
 			list("Grind", "radial_grind"),
 			list("Juice", "radial_juice"),
@@ -316,7 +316,7 @@ var/global/list/juice_items = list (
 	return TRUE
 
 /obj/machinery/reagentgrinder/CtrlClick(mob/user)
-	if(!user.incapacitated() && Adjacent(user) && user.dexterity_check() && !inuse && holdingitems.len && anchored)
+	if(!user.incapacitated() && Adjacent(user) && !inuse && holdingitems.len && anchored)
 		grind() //Checks for beaker and power/broken internally
 		return
 	return ..()

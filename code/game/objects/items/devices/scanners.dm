@@ -141,9 +141,6 @@ BREATHALYZER
 	. = ..()
 	if(.)
 		return
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 	if(last_reading)
 		to_chat(user, "<span class='bnotice'>Accessing Prior Scan Result</span>")
 		to_chat(user, last_reading)
@@ -338,10 +335,6 @@ Subject's pulse: ??? BPM"})
 	if(.)
 		return
 
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-
 	var/atom/location = is_holder_of(user, src) ? user.loc : get_turf(src) //If user isn't the holder we're either in a mech's equipment loadout or something weird so get the outside environment
 
 	if(!location) //Somehow
@@ -369,9 +362,6 @@ Subject's pulse: ??? BPM"})
 	if(!isturf(A))
 		return
 
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 	var/turf/T = A
 	var/datum/gas_mixture/environment = T.return_air()
 	to_chat(user, output_gas_scan(environment, T, 1, CELL_VOLUME))
@@ -457,9 +447,7 @@ Subject's pulse: ??? BPM"})
 		if(reagents.total_volume)
 			to_chat(user, "<span class='warning'>This device already has a blood sample!</span>")
 			return
-		if(!user.dexterity_check())
-			to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-			return
+
 		if(!C.dna)
 			return
 		if(M_HUSK in C.mutations)
@@ -477,9 +465,6 @@ Subject's pulse: ??? BPM"})
 	if(.)
 		return
 
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 	if(reagents.total_volume)
 		var/list/blood_traces = list()
 		for(var/datum/reagent/R in reagents.reagent_list)
@@ -528,9 +513,7 @@ Subject's pulse: ??? BPM"})
 /obj/item/device/reagent_scanner/preattack(atom/O, mob/user, proximity_flag)
 	if(!proximity_flag)
 		return
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+
 	if(iscryotube(O))
 		var/obj/machinery/atmospherics/unary/cryo_cell/T = O
 		if(T.occupant)
@@ -588,9 +571,6 @@ Subject's pulse: ??? BPM"})
 		to_chat(user, "<span class='notice'>You successfully set the legal limit of the breathalyzer.</span>")
 
 /obj/item/device/breathalyzer/attack(mob/living/M, mob/living/user)
-	if(!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
 
 	if(!ishuman(M))
 		return

@@ -80,9 +80,6 @@
 /mob/living/carbon/complex/martian/earprot()
 	return 1
 
-/mob/living/carbon/complex/martian/IsAdvancedToolUser()
-	return TRUE
-
 /mob/living/carbon/complex/martian/Process_Spaceslipping()
 	return 0 //No slipping
 

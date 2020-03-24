@@ -256,9 +256,7 @@
 		user.show_message("<span class='notice'>Key: Suffocation/Toxin/Burns/Brute</span>", 1)
 		user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
 		return
-	if (!user.dexterity_check())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+
 	if(!istype(M, /mob/living/silicon/robot))
 		to_chat(user, "<span class='warning'>You can't analyze non-robotic things!</span>")
 		return
