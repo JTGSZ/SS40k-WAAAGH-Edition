@@ -42,7 +42,7 @@ Its the process loop for the word combo chain system on the mob.
 	*/
 	//BLOCKING ACTION VARIABLES - DO NOT SET THESE
 	var/blocking = FALSE //Are we currently blocking?
-	var/forcesoak = 60 // The amount of force we compare to for the calculation.
+	var/forcesoak = 80 // The amount of force we compare to for the calculation.
 	var/blocking_duration = 5 //How long we stay in a block
 	
 	/*
@@ -56,7 +56,7 @@ Its the process loop for the word combo chain system on the mob.
 	*/
 	//DEFLECTING ACTION VARIABLES - DO NOT SET THESE
 	var/deflecting = FALSE
-	var/deflectingprob = 50 //Probability
+	var/deflectingprob = 25 //Probability
 	var/deflecting_duration = 2 //How long we stay in a deflect
 
 	//STANCE HOLDER - DO NOT SET THIS. Its basically just a string holder
@@ -360,34 +360,88 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	var/assaultDIR = get_dir(defender,attacker) //The direction we are being attacked from
 
 	if(deflecting)
-		if(defenseDIR == assaultDIR) //If person assaulting us is the same direction we picked
-			return
-		if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90))) //If we are being attacked directly on the sides of the dir we picked
-			return
+		if(src.force >= 10 && !defender.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
+			probmod = defender.attribute_dexterity - attacker.attribute_agility
+			if(defenseDIR == assaultDIR) //If person assaulting us is the same direction we picked
+				if(prob((deflectingprob-15)+probmod))
+					attacker.visible_message("<span class ='danger'>[defender] deflects [attacker]'s frontal attack knocking their weapon onto the ground.!</span>")
+					do_attack_animation(attacker, src)
+					playsound(loc, 'z40k_shit/sounds/deflect.ogg', 50, 1, 1)
+					attacker.drop_item()
+					defender.stat_increase(ATTR_DEXTERITY,25)
+					attacker.stat_increase(ATTR_AGILITY,40)
+					return TRUE
+				else
+					to_chat(defender, "<span class = 'danger'> You fail to deflect the [I]!</span>")
+					attacker.stat_increase(ATTR_STRENGTH,40)
+					return FALSE
+			if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90))) //If we are being attacked directly on the sides of the dir we picked
+				probmod = (defender.attribute_dexterity+defender.attribute_agility)-attacker.attribute_strength
+				if(prob((deflectingprob+10)+probmod))
+					attacker.visible_message("<span class ='danger'>[defender] deflects [attacker]'s side attack knocking their weapon onto the ground!</span>")
+					do_attack_animation(attacker, src)
+					playsound(loc, 'z40k_shit/sounds/deflect.ogg', 50, 1, 1)
+					attacker.drop_item()
+					return TRUE
+				else
+					to_chat(defender, "<span class = 'danger'> You fail to deflect the [I]!</span>")
+					attacker.stat_increase(ATTR_STRENGTH,40)
+					return FALSE
 	if(blocking)
-		if(defenseDIR == assaultDIR)
-			return
-		if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
-			return
+		if(src.force >= 10 && !defender.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
+			if(defenseDIR == assaultDIR)
+				probmod = defender.attribute_strength - attacker.attribute_strength
+				if((I.force > forcesoak)+probmod)
+					attacker.visible_message("<span class ='danger'>[defender] blocks [attacker]'s frontal attack!</span>")
+					playsound(loc, 'z40k_shit/sounds/block.ogg', 50, 1, 1)
+					do_attack_animation(attacker, src)
+					return TRUE
+					defender.stat_increase(ATTR_STRENGTH,25)
+				else
+					to_chat(defender, "<span class = 'danger'> You fail to block the [I]!</span>")
+					defender.stat_increase(ATTR_CONSTITUTION,50)
+					attacker.stat_increase(ATTR_STRENGTH,40)
+					return FALSE
+			if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
+				probmod = (defender.attribute_strength) - (attacker.attribute_strength+attacker.attribute_agility)
+				if(prob((defender.attribute_dexterity)+probmod))
+					attacker.visible_message("<span class ='danger'>[defender] blocks [attacker]'s side attack!</span>")
+					playsound(loc, 'z40k_shit/sounds/block.ogg', 50, 1, 1)
+					do_attack_animation(attacker, src)
+					return TRUE
+				else
+					to_chat(defender, "<span class = 'danger'> You fail to block the [I]!</span>")
+					attacker.stat_increase(ATTR_STRENGTH,40)
+					return FALSE
 	//---PARRYING IS LAST IN THIS CHAIN.
 	if(parrying) //ARE we parrying? Now we need to get some direction calculations
 		if(src.force >= 10 && !defender.lying) //If force is less than this level, that probably means it is some kind of inactive blade, and can't be used to parry.
 			if(defenseDIR == assaultDIR) //If the person assaulting us is the same direction we picked.
+				probmod = defender.attribute_dexterity - attacker.attribute_dexterity
 				if(prob((parryprob - I.force)+probmod)) //Not the most elegant solution but I don't want to have to track multiple different variables scattered around objects.
-					attacker.visible_message("<span class ='danger'>[defender] has parried [attacker]'s attack!</span>")
+					attacker.visible_message("<span class ='danger'>[defender] has parried [attacker]'s frontal attack!</span>")
+					defender.stat_increase(ATTR_DEXTERITY,25)
+					playsound(loc, 'z40k_shit/sounds/parry.ogg', 50, 1, 1)
+					do_attack_animation(attacker, src)
 					return TRUE //If we are attacked from the direction we parry
 				else
 					to_chat(defender, "<span class = 'danger'> You fail to parry the [I]!</span>")
 					return FALSE
 			if((assaultDIR == turn(defenseDIR,90)) || (assaultDIR == turn(defenseDIR,-90)))
+				probmod = defender.attribute_dexterity - attacker.attribute_dexterity
 				if(prob((parryprob - I.force)+probmod)/6) //If we are attacked from a side
 					attacker.visible_message("<span class ='danger'>[defender] has parried [attacker]'s side attack!</span>")
+					defender.stat_increase(ATTR_DEXTERITY,25)
+					playsound(loc, 'z40k_shit/sounds/parry.ogg', 50, 1, 1)
+					do_attack_animation(attacker, src)
 					return TRUE
 				else
 					to_chat(defender, "<span class = 'danger'> You fail to parry the [I]!</span>")
+					attacker.stat_increase(ATTR_STRENGTH,40)
 					return FALSE
 		else
 			to_chat(defender, "<span class = 'danger'> You fail to parry the [I]!</span>")
+			attacker.stat_increase(ATTR_STRENGTH,40)
 			return FALSE
 	return FALSE //basically if it returns true to the segment in human_defense.dm Line 211 we do stuff here.
 	//Instead of over there
@@ -519,3 +573,4 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 			W.handle_ctrlclick(src, A)
 			return
 	..()
+	

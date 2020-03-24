@@ -88,8 +88,6 @@
 	if(M_HULK in user.mutations)
 		power *= 2
 	
-
-
 	if(!istype(M, /mob/living/carbon/human))
 		if(istype(M, /mob/living/carbon/slime))
 			var/mob/living/carbon/slime/slime = M
