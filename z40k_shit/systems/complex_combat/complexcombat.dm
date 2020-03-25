@@ -190,11 +190,11 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 */
 //See: complex_base_class.dm in AA
 //See: item_attack.dm for the attack proc.
-/obj/item/weapon/attack(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+/obj/item/weapon/attack(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	if(ishuman(user) && ishuman(target))
 		var/mob/living/carbon/human/H = user
 		var/mob/living/carbon/human/T = target
-		if(saw_execution == TRUE)
+		if(saw_execution)
 			user.visible_message("<span class='danger'> [user] begins sawing [target] to death!")
 			if(do_after(user,src,40))
 				H.word_combo_chain += "saw"
@@ -210,8 +210,12 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 					I.status &= ~ORGAN_BLEEDING //FOR FREE?!
 				H.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
 				cursor_enabled = FALSE
-		if(piercing_blow == TRUE)
+				saw_execution = FALSE
+		if(piercing_blow)
+			user.visible_message("<span class='danger'> [user] delivers a armor piercing strike into [target]!")
 			armor_penetration = 100 //Ending handled in afterattack
+			H.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
+			piercing_blow = FALSE
 		if(H.inertial_speed != null && H.a_intent == "harm")
 			if(H.inertial_speed >= 5 && H.dir == T.dir && !T.lying)
 				add_logs(user, target, "backstabbed")
@@ -226,8 +230,12 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 		if(H.a_intent == I_DISARM)
 			H.word_combo_chain += "disarm"
 			H.clear_counter = 0
+			if(prob(2+(H.attribute_dexterity-T.attribute_agility)))
+				user.visible_message("<span class='danger'>[H] knocks the object out of [T]'s hands.'")
+				T.drop_item()
 		if(H.a_intent == I_HELP)
 			H.word_combo_chain += "knockback"
+			step_away(T,H,1)
 			H.clear_counter = 0
 		if(H.a_intent == I_HURT)
 			H.word_combo_chain += "hurt"
@@ -242,7 +250,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 //Basically theres going to be two types of lastattack finding methods.
 //String equality and findtexts.
 //The first means they need to be precise, the latter means they just need to do it.
-/obj/item/weapon/proc/interpret_powerwords(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+/obj/item/weapon/proc/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	var/mob/living/carbon/human/H = user
 	var/mob/living/carbon/human/T = target
 
@@ -289,7 +297,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 									*/
 //Its just basic parrying
 /obj/item/weapon/proc/handle_defensive_ctrlclick(var/mob/living/user, var/atom/target)
-	if(!active_defense_CD)
+	if(active_defense_CD)
 		return 0
 	defenseDIR = get_dir(user, target) //EG we click north and now we have NORTH
 	var/showndirection = "" //We do not need a living target, just any target for a direction.
@@ -489,32 +497,34 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	SAWING PROC HOLDER
 						*/
 /obj/item/weapon/proc/saw_execution(var/mob/living/carbon/human/user)
-	user.visible_message("<span class='danger'> [user] gets ready to rev it up!")
-	user.client.mouse_pointer_icon = file("z40k_shit/icons/mouse_pointers/sawing_action.dmi")
-	cursor_enabled = TRUE
-	saw_execution = TRUE
 	if(saw_execution)
 		user.visible_message("<span class='danger'> [user] stops getting ready to rev it up!")
 		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		saw_execution = FALSE
+	else
+		user.visible_message("<span class='danger'> [user] gets ready to rev it up!")
+		user.client.mouse_pointer_icon = file("z40k_shit/icons/mouse_pointers/sawing_action.dmi")
+		cursor_enabled = TRUE
+		saw_execution = TRUE
 
 /*
 	PIERCING BLOW PROC HOLDER
 								*/
 /obj/item/weapon/proc/piercing_blow(var/mob/living/carbon/human/user)
-	user.visible_message("<span class='danger'> [user] prepares to deliver a piercing blow.</span>")
-	if(do_after(user,src,20))
-		user.client.mouse_pointer_icon = file("z40k_shit/icons/mouse_pointers/piercing_blow.dmi")
-		cursor_enabled = TRUE
-		piercing_blow = TRUE
-		user.word_combo_chain += "pierce"
-		user.update_powerwords_hud()
 	if(piercing_blow)
 		user.visible_message("<span class='danger'> [user] stops preparing to deliver a piercing blow.</span>")
 		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
 		cursor_enabled = FALSE
 		piercing_blow = FALSE
+	else
+		user.visible_message("<span class='danger'> [user] prepares to deliver a piercing blow.</span>")
+		if(do_after(user,src,20))
+			user.client.mouse_pointer_icon = file("z40k_shit/icons/mouse_pointers/piercing_blow.dmi")
+			cursor_enabled = TRUE
+			piercing_blow = TRUE
+			user.word_combo_chain += "pierce"
+			user.update_powerwords_hud()
 
 /*
 	HANDLE CTRL CLICK
@@ -573,4 +583,3 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 			W.handle_ctrlclick(src, A)
 			return
 	..()
-	

@@ -20,6 +20,7 @@
 
 //If someone drops a plasma gun onto us, we tie ourselves together.
 /obj/item/weapon/iguard/ig_powerpack/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+	..()
 	if(istype(O, /obj/item/weapon/gun/ig_plasma_gun))
 		if(user.is_wearing_item(src, slot_back))
 			var/obj/item/weapon/gun/ig_plasma_gun/ASS = O
@@ -32,6 +33,7 @@
 
 //If someone pulls our powerpack off, we unlink them, if we exist that is.
 /obj/item/weapon/iguard/ig_powerpack/unequipped(mob/user)
+	..()
 	if(my_gun)
 		var/obj/item/weapon/gun/ig_plasma_gun/ASS = locate(/obj/item/weapon/gun/ig_plasma_gun) in user.held_items
 		if(ASS)
@@ -73,13 +75,14 @@
 	fire_sound = null
 	flags = TWOHANDABLE | MUSTTWOHAND
 	var/gunheat //GUN HEAT, because its a fucking plasgun damn.
-	var/connection_type = 0 // 1 = No Connection, 2 = Cell connection, 3 = Ppack connection
+	var/connection_type = 1 // 1 = No Connection, 2 = Cell connection, 3 = Ppack connection
 	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance,
 						/datum/action/item_action/warhams/energy_overcharge)
 
 /obj/item/weapon/gun/ig_plasma_gun/New()
 	..()
 	processing_objects.Add(src)
+	update_icon()
 
 /obj/item/weapon/gun/ig_plasma_gun/Destroy()
 	..()
@@ -87,10 +90,11 @@
 
 /obj/item/weapon/gun/ig_plasma_gun/process()
 	if(gunheat > 0) //If we are greater than 0
-		gunheat -= 15
+		gunheat -= 10
 
 //If we drop this we will clear our pack reference.
 /obj/item/weapon/gun/ig_plasma_gun/dropped(mob/user) //If we drop this, we clear references
+	..()
 	if(connection_type == 3) //We are linked to a pack
 		my_pack = null //We clear the reference
 		connection_type = 1 //And become connection type 1 which is NOTHING.
@@ -126,11 +130,21 @@
 
 /obj/item/weapon/gun/ig_plasma_gun/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/hydrogen_fuel_cell))
-		if(!connection_type == 3)
-			user.drop_item(A, src)
-			my_cell = A
-		else
-			to_chat(user,"The place for your fuel cell is currently occupied")
+		switch(connection_type)
+			if(1)
+				user.drop_item(A, src)
+				my_cell = A
+				connection_type = 2
+				update_icon()
+			if(2)
+				to_chat(user,"You begin replacing the fuel cell")
+				my_cell.forceMove(get_turf(src))
+				my_cell = null
+				if(do_after(user,src,40))
+					user.drop_item(A, src)
+					my_cell = A
+			if(3)
+				to_chat(user,"The place for your fuel cell is currently occupied")
 
 /obj/item/weapon/gun/ig_plasma_gun/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()
@@ -168,7 +182,7 @@
 /obj/item/weapon/gun/energy/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 
 	if(overcharged)
-		gunheat += 5
+		gunheat += 10
 		if(prob(15+gunheat))
 			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
 			user.adjustFireLoss(500)
@@ -179,7 +193,7 @@
 			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 			S.time_to_live = 20 //2 seconds instead of full 10
 	else
-		gunheat += 2
+		gunheat += 5
 		if(prob(5+gunheat)) //A good chance to boil alive if you spam shoot.
 			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
 			user.adjustFireLoss(500)

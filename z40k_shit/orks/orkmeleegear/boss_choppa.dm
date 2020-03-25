@@ -19,3 +19,19 @@
 	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance,
 						/datum/action/item_action/warhams/heavydef_swap_stance)
 
+/obj/item/weapon/boss_choppa/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	//var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("hurthurthurthurthurt")
+			user.visible_message("<span class='danger'>[H] swings and cleaves everything in front of them!")
+			H.stat_increase(ATTR_STRENGTH,25)
+			var/turf/starter = get_step(user,user.dir)
+			var/turf/sideone = get_step(starter,turn(user.dir,90))
+			var/turf/sidetwo = get_step(starter,turn(user.dir,-90))
+			for(var/turf/RAAAGH in list(starter, sideone, sidetwo))
+				for(var/mob/living/GAY in RAAAGH)
+					H.health += 10
+					GAY.attackby(src,user)

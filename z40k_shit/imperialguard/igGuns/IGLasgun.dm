@@ -46,6 +46,19 @@
 	processing_objects.Remove(src)
 	..()
 
+/obj/item/weapon/gun/energy/lasgun/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("chargeknockbackhurt")
+			user.visible_message("<span class='danger'>[H] follows up with a lunge into [T]!")
+			target.adjustBruteLoss(15)
+			T.attackby(src,user)
+			H.word_combo_chain = ""
+			H.update_powerwords_hud()
+
 /*
 	LASGUN EXAMINE
 					*/

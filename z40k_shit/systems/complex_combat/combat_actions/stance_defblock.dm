@@ -8,7 +8,7 @@
 	var/obj/item/weapon/S = target
 	S.defl_bloc_switch_stance(owner)
 
-	if(S.stance == "deflecting")
+	if(S.stance == "deflective")
 		background_icon_state = "bg_deflect"
 		button_icon_state = "deflect"
 		UpdateButtonIcon()

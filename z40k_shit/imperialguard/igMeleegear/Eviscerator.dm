@@ -42,6 +42,28 @@
 	actions_types = list(/datum/action/item_action/warhams/begin_sawing,
 						/datum/action/item_action/warhams/basic_swap_stance)
 
+/obj/item/weapon/gun/projectile/eviscerator/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("hurthurthurthurthurt")
+			user.visible_message("<span class='danger'>[H] swings and cleaves everything in front of them!")
+			H.stat_increase(ATTR_STRENGTH,25)
+			var/turf/starter = get_step(user,user.dir)
+			var/turf/sideone = get_step(starter,turn(user.dir,90))
+			var/turf/sidetwo = get_step(starter,turn(user.dir,-90))
+			for(var/turf/RAAAGH in list(starter, sideone, sidetwo))
+				for(var/mob/living/GAY in RAAAGH)
+					H.health += 10
+					GAY.attackby(src,user)
+		if("sawchargehurt")
+			user.visible_message("<span class='danger'>[H] continues their frenzy of violence!")
+			H.stat_increase(ATTR_SENSITIVITY,25)
+			T.attackby(src,user)
+			H.health += 25
+
 
 /obj/item/weapon/gun/projectile/eviscerator/New() //We need to get our own process loop started for sounds
 	..()
@@ -88,6 +110,7 @@
 	if(revvin_on)
 		revvin_on = FALSE
 		update_icon()
+	..()
 
 /obj/item/weapon/gun/projectile/eviscerator/dropped(mob/user)
 	if(revvin_on)

@@ -23,7 +23,7 @@
 /obj/item/weapon/chainsword/New()
 	. = ..()
 
-/obj/item/weapon/chainsword/interpret_powerwords(mob/living/target as mob, mob/living/user as mob, def_zone, var/originator = null)
+/obj/item/weapon/chainsword/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	..()
 	var/mob/living/carbon/human/H = user
 	var/mob/living/carbon/human/T = target
@@ -32,8 +32,23 @@
 		if("hurthurtknockbackhurt") //hurt hurt knockback hurt
 			user.visible_message("<span class='danger'>[H] lands a extra hard swing!</span>")
 			target.adjustBruteLoss(15)
-			T.word_combo_chain = ""
-			T.update_powerwords_hud()
+			H.word_combo_chain = ""
+			H.update_powerwords_hud()
+		if("hurthurthurthurthurt")
+			user.visible_message("<span class='danger'>[H] swings and cleaves everything in front of them!")
+			var/turf/starter = get_step(user,user.dir)
+			var/turf/sideone = get_step(starter,turn(user.dir,90))
+			var/turf/sidetwo = get_step(starter,turn(user.dir,-90))
+			for(var/turf/RAAAGH in list(starter, sideone, sidetwo))
+				for(var/mob/living/GAY in RAAAGH)
+					GAY.attackby(src,user)
+		if("chargeknockbackhurt")
+			user.visible_message("<span class='danger'>[H] follows up with a lunge into [T]!")
+			target.adjustBruteLoss(15)
+			T.attackby(src,user)
+			H.word_combo_chain = ""
+			H.update_powerwords_hud()
+
 
 
 /obj/item/weapon/shield/IGshield
@@ -51,6 +66,7 @@
 	throw_speed = 1
 	throw_range = 4
 	w_class = W_CLASS_LARGE
+	stance = "blocking"
 	starting_materials = list(MAT_IRON = 1000, MAT_GLASS = 7500)
 	melt_temperature = MELTPOINT_GLASS
 	origin_tech = Tc_MATERIALS + "=2"
@@ -74,6 +90,21 @@
 	else
 		..()
 
+/obj/item/weapon/shield/IGshield/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("blockknockbackknockback") //block knockback knockback
+			user.visible_message("<span class='danger'>[H] shieldbashes [T]!</span>")
+			if(T.attribute_constitution >= H.attribute_strength+3)
+				var/turf/TT = get_edge_target_turf(src, H.dir)
+				T.adjustBruteLoss(15)
+				T.throw_at(TT,1,2)
+			else
+				T.Dizzy(30)
+				T.adjustBruteLoss(15)
 
 /obj/item/offhand //Reference this when you need to make a 2 handed weapon.
 
@@ -102,3 +133,22 @@
 
 /obj/item/weapon/powersword/IsShield()
 	return 1
+
+/obj/item/weapon/powersword/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+	..()
+	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/T = target
+
+	switch(H.word_combo_chain)
+		if("piercechargehurt") //parry piercing hurt
+			user.visible_message("<span class='danger'>[H] lunges into [T] with a piercing strike!</span>")
+			target.adjustBruteLoss(15)
+			T.attackby(src,user)
+			H.word_combo_chain = ""
+			H.update_powerwords_hud()
+		if("pierceparryknockback")
+			user.visible_message("<span class='danger'>[H] retaliates with a piercing thrust with their [name] into [T].")
+			H.adjustBruteLoss(20)
+			step_away(T,H,2)
+			H.word_combo_chain = ""
+			H.update_powerwords_hud()
