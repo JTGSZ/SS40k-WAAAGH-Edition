@@ -74,7 +74,7 @@
 	throw_speed = 1
 	fire_sound = null
 	flags = TWOHANDABLE | MUSTTWOHAND
-	var/gunheat //GUN HEAT, because its a fucking plasgun damn.
+	var/gunheat = 0 //GUN HEAT, because its a fucking plasgun damn.
 	var/connection_type = 1 // 1 = No Connection, 2 = Cell connection, 3 = Ppack connection
 	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance,
 						/datum/action/item_action/warhams/energy_overcharge)
@@ -100,12 +100,12 @@
 		connection_type = 1 //And become connection type 1 which is NOTHING.
 		update_icon()
 
-//We CAN handle our mouse drop from this side too.
+/*/We CAN handle our mouse drop from this side too.
 /obj/item/weapon/gun/ig_plasma_gun/MouseDropFrom(atom/over_object,atom/src_location,atom/over_location,src_control,over_control,params)
 	if(isturf(over_location))
 		if(connection_type == 2)
 			to_chat(usr,"You remove the fuel cell from the [src]")
-			usr.drop_item(my_cell, over_location)
+			usr.drop_item(my_cell, over_location)*/
 
 /obj/item/weapon/gun/ig_plasma_gun/overcharge(var/mob/living/user)
 	..()
@@ -113,20 +113,19 @@
 /obj/item/weapon/gun/ig_plasma_gun/update_icon()
 	var/mob/living/carbon/human/H = loc
 
+	switch(connection_type)
+		if(1) //No connection
+			icon_state = "plasma_gun-e"
+			item_state = "plasma_gun-e"
+		if(2) //Fuel Cell connection
+			icon_state = "plasma_gun"
+			item_state = "plasma_gun"
+		if(3) //Powerpack hose connection
+			icon_state = "plasma_gun-ppack"
+			item_state = "plasma_gun-ppack"
+			
 	if(istype(loc,/mob/living/carbon/human))
-		switch(connection_type)
-			if(1) //No connection
-				icon_state = "plasma_gun-e"
-				item_state = "plasma_gun-e"
-				H.update_inv_hands()
-			if(2) //Fuel Cell connection
-				icon_state = "plasma_gun"
-				item_state = "plasma_gun"
-				H.update_inv_hands()
-			if(3) //Powerpack hose connection
-				icon_state = "plasma_gun-ppack"
-				item_state = "plasma_gun-ppack"
-				H.update_inv_hands()
+		H.update_inv_hands()
 
 /obj/item/weapon/gun/ig_plasma_gun/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/hydrogen_fuel_cell))
@@ -140,11 +139,13 @@
 				to_chat(user,"You begin replacing the fuel cell")
 				my_cell.forceMove(get_turf(src))
 				my_cell = null
+				connection_type = 1
 				if(do_after(user,src,40))
 					user.drop_item(A, src)
 					my_cell = A
+					connection_type = 2
 			if(3)
-				to_chat(user,"The place for your fuel cell is currently occupied")
+				to_chat(user,"The place for your fuel cell is currently occupied by a hose.")
 
 /obj/item/weapon/gun/ig_plasma_gun/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()
@@ -179,7 +180,7 @@
 	return 0
 
 //Fire action
-/obj/item/weapon/gun/energy/lasgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 
 	if(overcharged)
 		gunheat += 10
