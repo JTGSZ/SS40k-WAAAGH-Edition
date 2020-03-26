@@ -34,8 +34,6 @@
 	flags = FPRINT | TWOHANDABLE
 	actions_types = list(/datum/action/item_action/warhams/adjust_power,
 						/datum/action/item_action/warhams/basic_swap_stance)
-	defective = 1
-
 
 /obj/item/weapon/gun/energy/lasgun/New()
 	..()

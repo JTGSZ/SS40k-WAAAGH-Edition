@@ -11,7 +11,6 @@
 	w_class = W_CLASS_MEDIUM
 	fire_delay = 0
 	fire_sound = null
-	clumsy_check = 0
 	var/max_ammo = 10
 	var/current_ammo = 10
 

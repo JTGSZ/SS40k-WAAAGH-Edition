@@ -394,7 +394,7 @@ var/list/lawgiver_modes = list(
 	else
 		to_chat(user, "<span class='warning'>There's no magazine loaded in \the [src]!</span>")
 
-/obj/item/weapon/gun/lawgiver/special_check()
+/obj/item/weapon/gun/lawgiver/prefire_check()
 	if(world.time >= last_fired + fire_delay)
 		return 1
 	else
@@ -432,7 +432,7 @@ var/list/lawgiver_modes = list(
 	if(in_chamber)
 		qdel(in_chamber)
 		in_chamber = null
-	if(!special_check())
+	if(!prefire_check())
 		return
 	if(!chamber_round())
 		return click_empty(user)

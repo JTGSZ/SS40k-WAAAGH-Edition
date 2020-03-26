@@ -262,12 +262,3 @@
 			if(istype(AC))
 				bullets += 1
 	return bullets
-
-/obj/item/weapon/gun/projectile/failure_check(var/mob/living/carbon/human/M)
-	if(load_method == MAGAZINE && prob(3))
-		jammed = 1
-		M.visible_message("*click click*", "<span class='danger'>*click*</span>")
-		playsound(M, empty_sound, 100, 1)
-		return 0
-	return ..()
-

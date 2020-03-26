@@ -9,7 +9,6 @@
 	silenced = 1
 	fire_volume = 250
 	maxlength = 10
-	clumsy_check = 0
 
 	fire_delay = 4
 	delay_user = 0

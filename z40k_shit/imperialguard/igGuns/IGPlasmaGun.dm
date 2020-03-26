@@ -182,7 +182,7 @@
 //Fire action
 /obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 
-	if(overcharged)
+	if(overcharged) 
 		gunheat += 10
 		if(prob(15+gunheat))
 			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")

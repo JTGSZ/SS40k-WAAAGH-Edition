@@ -64,12 +64,6 @@
 	else
 		.=..()
 
-/obj/item/weapon/gun/projectile/automatic/failure_check(var/mob/living/carbon/human/M)
-	if(!burstfire && prob(5))
-		burstfire = 1
-		return 1
-	return ..()
-
 /obj/item/weapon/gun/projectile/automatic/lockbox
 	spawn_mag = FALSE
 

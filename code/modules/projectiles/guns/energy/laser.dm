@@ -14,7 +14,6 @@
 	name = "practice laser gun"
 	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = "/obj/item/projectile/beam/practice"
-	clumsy_check = 0
 	mech_flags = null // So it can be scanned by the Device Analyser
 
 /obj/item/weapon/gun/energy/laser/pistol

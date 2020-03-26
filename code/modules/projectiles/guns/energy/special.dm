@@ -80,7 +80,6 @@
 	charge_cost = 200
 	projectile_type = "/obj/item/projectile/change"
 	origin_tech = null
-	clumsy_check = 0
 	var/charge_tick = 0
 
 
@@ -465,7 +464,6 @@
 	projectile_type = "/obj/item/projectile/meteor"
 	charge_cost = 100
 	cell_type = "/obj/item/weapon/cell/potato"
-	clumsy_check = 0 //Admin spawn only, might as well let clowns use it.
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 

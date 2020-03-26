@@ -143,7 +143,7 @@
 	if(!revvin_on)
 		return
 	
-	if(!can_Fire(user, 1))
+	if(!prefire_check(user, 1))
 		return
 
 	var/obj/item/projectile/fire_breath/eviscerator/B = new(null)

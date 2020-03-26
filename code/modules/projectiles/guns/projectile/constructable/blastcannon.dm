@@ -103,7 +103,7 @@
 	if(!bomb)
 		return
 
-	if(!can_Fire(user, 1))
+	if(!prefire_check(user, 1))
 		return
 
 	else

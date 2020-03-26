@@ -8,7 +8,6 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/guninhands_left.dmi', "right_hand" = 'icons/mob/in-hand/right/guninhands_right.dmi')
 	origin_tech = Tc_MAGNETS + "=2"
 	mech_flags = null // So it can be scanned by the Device Analyser
-	clumsy_check = 0
 
 	var/charge_tick = 0
 	var/score = 0
@@ -73,7 +72,7 @@
     else
         makeTaser(user)
 
-/obj/item/weapon/gun/energy/tag/special_check(var/mob/living/M)
+/obj/item/weapon/gun/energy/tag/prefire_check(var/mob/living/M)
 	if(istype(get_tag_armor(M), needed_vest))
 		return 1
 	to_chat(M, "<span class='warning'>You need to be wearing your laser tag vest!</span>")

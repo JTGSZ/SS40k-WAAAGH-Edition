@@ -30,9 +30,6 @@
 	var/recoil = 0
 	var/ejectshell = 1
 
-	var/clumsy_check = 1				//Whether the gun disallows clumsy users from firing it.
-	var/honor_check = 1                 // Same, but highlanders and bombermen.
-
 	var/tmp/list/mob/living/target //List of who yer targeting.
 	var/tmp/lock_time = -100
 	var/mouthshoot = 0 ///To stop people from suiciding twice... >.>
@@ -66,10 +63,7 @@
 /obj/item/weapon/gun/proc/process_chambered()
 	return 0
 
-/obj/item/weapon/gun/proc/special_check(var/mob/M) //Placeholder for any special checks, like detective's revolver.
-	return 1
-
-/obj/item/weapon/gun/proc/failure_check(var/mob/M) //special_check, but in a different place
+/obj/item/weapon/gun/proc/failure_check(var/mob/M) //later check
 	return 1
 
 /obj/item/weapon/gun/emp_act(severity)
@@ -115,8 +109,7 @@
 		"<span class='warning'>You fire [src][reflex ? "by reflex":""]!</span>", \
 		"You hear a [istype(in_chamber, /obj/item/projectile/beam) ? "laser blast" : "gunshot"]!")
 
-/obj/item/weapon/gun/proc/can_Fire(mob/user, var/display_message = 0)
-
+/obj/item/weapon/gun/proc/prefire_check(mob/user, var/display_message = 0)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H=user
 		var/datum/organ/external/a_hand = H.get_active_hand_organ()
@@ -127,33 +120,10 @@
 	return 1
 
 /obj/item/weapon/gun/proc/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0, var/use_shooter_turf = FALSE)//TODO: go over this
-	//Exclude lasertag guns from the M_CLUMSY check.
-	var/explode = FALSE
-	var/dehand = FALSE
-	if(istype(user, /mob/living))
-		var/mob/living/M = user
-		if(clumsy_check && clumsy_check(M) && prob(50))
-			explode = TRUE
-		if(honor_check && is_honorable(M, honorable))
-			explode = TRUE
-			dehand = TRUE
-		if(explode)
-			if(dehand)
-				var/limb_index = user.is_holding_item(src)
-				var/datum/organ/external/L = M.find_organ_by_grasp_index(limb_index)
-				visible_message("<span class='sinister'>[src] blows up in [M]'s [L.display_name]!</span>")
-				L.droplimb(1)
-			else
-				to_chat(M, "<span class='danger'>[src] blows up in your face.</span>")
-				M.take_organ_damage(0,20)
-			M.drop_item(src, force_drop = 1)
-			qdel(src)
-			return
 
-	if(!can_Fire(user, 1))
+	if(!prefire_check(user, 1))
 		return
 
-	add_fingerprint(user)
 	var/atom/originaltarget = target
 
 	var/turf/curloc = user.loc
@@ -161,13 +131,6 @@
 		curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)
 	if (!istype(targloc) || !istype(curloc))
-		return
-
-	if(defective)
-		target = get_inaccuracy(originaltarget, 1+recoil)
-		targloc = get_turf(target)
-
-	if(!special_check(user))
 		return
 
 	if (!ready_to_fire())
@@ -180,9 +143,8 @@
 
 	if(!in_chamber)
 		return
-	if(defective)
-		if(!failure_check(user))
-			return
+	if(!failure_check(user)) //If the failure check returns 0 lol.
+		return
 	if(!istype(src, /obj/item/weapon/gun/energy/tag))
 		log_attack("[user.name] ([user.ckey]) fired \the [src] (proj:[in_chamber.name]) at [originaltarget] [ismob(target) ? "([originaltarget:ckey])" : ""] ([originaltarget.x],[originaltarget.y],[originaltarget.z])[struggle ? " due to being disarmed." :""]" )
 	in_chamber.firer = user
@@ -260,13 +222,6 @@
 
 	user.update_inv_hand(user.active_hand)
 
-	if(defective && recoil && prob(3))
-		var/throwturf = get_ranged_target_turf(user, pick(alldirs), 7)
-		user.drop_item()
-		user.visible_message("\The [src] jumps out of [user]'s hands!","\The [src] jumps out of your hands!")
-		throw_at(throwturf, rand(3, 6), 3)
-		return 1
-
 	return 1
 
 /obj/item/weapon/gun/proc/canbe_fired()
@@ -297,7 +252,7 @@
 			M.visible_message("<span class='notice'>[user] decided life was worth living.</span>")
 			mouthshoot = 0
 			return
-		if (process_chambered())
+		if(process_chambered())
 			user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
 			if(silenced)
 				if(fire_sound)

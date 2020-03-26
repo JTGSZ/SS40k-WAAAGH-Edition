@@ -96,7 +96,7 @@
 		to_chat(user, "<span class='warning'>There's no tank attached.</span>")
 		return
 
-	if(!can_Fire(user, 1))
+	if(!prefire_check(user, 1))
 		return
 
 	user.delayNextAttack(8)

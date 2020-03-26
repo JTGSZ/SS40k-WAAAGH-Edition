@@ -9,7 +9,6 @@
 	throw_speed = 2
 	throw_range = 10
 	force = 4.0
-	clumsy_check = 0	//It has its own clumsy interaction
 	fire_sound = 'sound/items/syringeproj.ogg'
 	var/list/syringes = new/list()
 	var/max_syringes = 1
@@ -62,20 +61,6 @@
 			syringes -= S
 			qdel(S)
 		return 1
-
-/obj/item/weapon/gun/syringe/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
-	if(clumsy_check(user))
-		if(prob(50))
-			to_chat(user, "<span class='warning'>You accidentally shoot yourself!</span>")
-			var/obj/item/weapon/reagent_containers/syringe/S = syringes[1]
-			if((!S) || (!S.reagents))
-				to_chat(user, "<span class='notice'>Thankfully, nothing happens.</span>")
-				return
-			syringes -= S
-			S.reagents.trans_to(user, S.reagents.total_volume)
-			qdel(S)
-			return
-	..()
 
 /obj/item/weapon/gun/syringe/rapidsyringe
 	name = "rapid syringe gun"
