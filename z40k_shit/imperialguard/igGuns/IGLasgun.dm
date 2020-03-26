@@ -200,6 +200,7 @@
 /obj/item/weapon/gun/energy/lasgun/update_wield(mob/user)
 	..()
 	force = wielded ? 30 : 15
+	update_icon()
 
 /*
 	ICON HANDLING
@@ -238,9 +239,7 @@
 
 	if(charge_states)
 		icon_state = "lasgun[ratio][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"][mag ? "" : "-e"]"
-	
-	
-	item_state = "lasgun[wielded ? "-unwielded" : "wielded"][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"]"
+	item_state = "lasgun[wielded ? "-unwielded" : "-wielded"][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"]"
 
 
 

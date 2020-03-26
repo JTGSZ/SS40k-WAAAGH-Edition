@@ -177,7 +177,9 @@
 				my_pack.reagents.remove_reagent(HYDROGEN, 10)
 				in_chamber = new /obj/item/projectile/plasma(src)
 				return 1
+	return 0
 
+/obj/item/weapon/gun/ig_plasma_gun/failure_check(mob/living/user)
 	if(overcharged) 
 		gunheat += 6
 		if(prob(3+gunheat))
@@ -198,8 +200,8 @@
 				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
 			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 			S.time_to_live = 20 //2 seconds instead of full 10
-
-	return 0
+		
+	return 1
 
 //Fire action
 /obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)

@@ -19,5 +19,7 @@
 	icon = 'z40k_shit/icons/obj/ig/IGarmorandclothesOBJ.dmi'
 /obj/item/weapon/storage/backpack/iguard
 	icon = 'z40k_shit/icons/obj/ig/IGarmorandclothesOBJ.dmi'
+/obj/item/clothing/mask/gas/iguard
+	icon = 'z40k_shit/icons/obj/ig/IGarmorandclothesOBJ.dmi'
 
 	
