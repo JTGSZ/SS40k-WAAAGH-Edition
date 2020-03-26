@@ -43,15 +43,11 @@
 	var/delay_user = 4	//how much to delay the user's next attack by after firing
 
 	var/conventional_firearm = 1	//Used to determine whether, when examined, an /obj/item/weapon/gun/projectile will display the amount of rounds remaining.
-	var/jammed = 0
 
 	var/currently_zoomed = FALSE //40k EDIT - MARKED - JTGSZ
 	var/projectile_color = null
 
 	var/pai_safety = TRUE	//To allow the pAI to activate or deactivate firing capability
-
-	// Tells is_honorable() which special_roles to respect.
-	var/honorable = HONORABLE_BOMBERMAN | HONORABLE_HIGHLANDER | HONORABLE_NINJA
 
 /obj/item/weapon/gun/proc/ready_to_fire()
 	if(world.time >= last_fired + fire_delay)
@@ -78,8 +74,8 @@
 		return //we're placing gun on a table or in backpack
 	if(harm_labeled >= min_harm_label)
 		to_chat(user, "<span class='warning'>A label sticks the trigger to the trigger guard!</span>")//Such a new feature, the player might not know what's wrong if it doesn't tell them.
-
 		return
+
 	if(istype(target, /obj/machinery/recharger) && istype(src, /obj/item/weapon/gun/energy))
 		return//Shouldnt flag take care of this?
 
@@ -124,29 +120,26 @@
 	if(!prefire_check(user, 1))
 		return
 
-	var/atom/originaltarget = target
-
 	var/turf/curloc = user.loc
 	if(use_shooter_turf)
 		curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)
-	if (!istype(targloc) || !istype(curloc))
+	if(!istype(targloc) || !istype(curloc))
 		return
 
-	if (!ready_to_fire())
-		if (world.time % 3) //to prevent spam
+	if(!ready_to_fire())
+		if(world.time % 3) //to prevent spam
 			to_chat(user, "<span class='warning'>[src] is not ready to fire again!")
 		return
 
-	if(!process_chambered() || jammed) //CHECK
+	if(!process_chambered()) //CHECK
 		return click_empty(user)
 
 	if(!in_chamber)
 		return
 	if(!failure_check(user)) //If the failure check returns 0 lol.
 		return
-	if(!istype(src, /obj/item/weapon/gun/energy/tag))
-		log_attack("[user.name] ([user.ckey]) fired \the [src] (proj:[in_chamber.name]) at [originaltarget] [ismob(target) ? "([originaltarget:ckey])" : ""] ([originaltarget.x],[originaltarget.y],[originaltarget.z])[struggle ? " due to being disarmed." :""]" )
+
 	in_chamber.firer = user
 
 	if(user.zone_sel)

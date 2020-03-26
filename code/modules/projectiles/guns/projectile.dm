@@ -66,24 +66,6 @@
 
 /obj/item/weapon/gun/projectile/proc/RemoveMag(var/mob/user)
 	if(stored_magazine)
-		if(jammed)
-			to_chat(usr, "<span class='notice'>You begin unjamming \the [name]...</span>")
-			if(do_after(usr,src,50))
-				jammed = 0
-				in_chamber = null
-				var/dropped_bullets
-				var/to_drop = rand(stored_magazine.max_ammo/4, stored_magazine.max_ammo/3)
-				for(var/i = 1; i<=min(to_drop, stored_magazine.stored_ammo.len); i++)
-					var/obj/item/ammo_casing/AC = stored_magazine.stored_ammo[1]
-					stored_magazine.stored_ammo -= AC
-					AC.forceMove(get_turf(user))
-					dropped_bullets++
-					stored_magazine.update_icon()
-				to_chat(usr, "<span class='notice'>You unjam the [name], and spill [dropped_bullets] bullet\s in the process.</span>")
-				chamber_round()
-				update_icon()
-				return 0
-			return 0
 		stored_magazine.forceMove(get_turf(src.loc))
 		if(user)
 			user.put_in_hands(stored_magazine)

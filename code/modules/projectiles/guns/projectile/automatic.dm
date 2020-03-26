@@ -49,7 +49,7 @@
 			..()
 			burstfiring = 1
 			shots_fired++
-			if(!user.contents.Find(src) || jammed)
+			if(!user.contents.Find(src))
 				break
 			if(defective && shots_fired > burst_count)
 				recoil = 1 + min(shots_fired - burst_count, 6)
