@@ -161,7 +161,7 @@
 	..()
 
 //Process chambered
-/obj/item/weapon/gun/ig_plasma_gun/process_chambered()
+/obj/item/weapon/gun/ig_plasma_gun/process_chambered(mob/living/user)
 	if(in_chamber)
 		return 1
 	switch(connection_type)
@@ -177,35 +177,32 @@
 				my_pack.reagents.remove_reagent(HYDROGEN, 10)
 				in_chamber = new /obj/item/projectile/plasma(src)
 				return 1
+
+	if(overcharged) 
+		gunheat += 6
+		if(prob(3+gunheat))
+			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
+			user.adjustFireLoss(500)
+			gunheat = 0
+			for(var/turf/ITBURNS in range(1,loc))
+				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
+			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
+			S.time_to_live = 20 //2 seconds instead of full 10
+	else
+		gunheat += 3
+		if(prob(1+gunheat)) //A good chance to boil alive if you spam shoot.
+			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
+			user.adjustFireLoss(500)
+			gunheat = 0
+			for(var/turf/ITBURNS in range(1,loc))
+				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
+			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
+			S.time_to_live = 20 //2 seconds instead of full 10
+
 	return 0
 
 //Fire action
 /obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
-
-	if(overcharged) 
-		gunheat += 10
-		if(prob(15+gunheat))
-			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
-			user.adjustFireLoss(500)
-			gunheat = 0
-			for(var/turf/ITBURNS in range(1,loc))
-				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
-			
-			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
-			S.time_to_live = 20 //2 seconds instead of full 10
-	else
-		gunheat += 5
-		if(prob(5+gunheat)) //A good chance to boil alive if you spam shoot.
-			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
-			user.adjustFireLoss(500)
-			gunheat = 0
-
-			for(var/turf/ITBURNS in range(1,loc))
-				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
-			
-			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
-			S.time_to_live = 20 //2 seconds instead of full 10
-
 	var/atom/newtarget = target
 	..(newtarget,user,params,reflex,struggle)
 

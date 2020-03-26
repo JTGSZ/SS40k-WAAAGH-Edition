@@ -46,7 +46,6 @@
 	..()
 	var/mob/living/carbon/human/H = user
 	var/mob/living/carbon/human/T = target
-
 	switch(H.word_combo_chain)
 		if("hurthurthurthurthurt")
 			user.visible_message("<span class='danger'>[H] swings and cleaves everything in front of them!")
@@ -64,13 +63,10 @@
 			T.attackby(src,user)
 			H.health += 25
 
-
 /obj/item/weapon/gun/projectile/eviscerator/New() //We need to get our own process loop started for sounds
 	..()
 	processing_objects.Add(src)
-	
 	create_reagents(max_fuel)
-	
 	if(start_fueled)
 		reagents.add_reagent(FUEL, max_fuel)
 
@@ -81,7 +77,6 @@
 /obj/item/weapon/gun/projectile/eviscerator/process()
 	if(revvin_on)
 		idle_loop++
-	
 	if(idle_loop >= 1)
 		idle_loop = 0
 		playsound(src,'z40k_shit/sounds/Chainsword_Idle.ogg',50)
@@ -122,7 +117,6 @@
 	return reagents.get_reagent_amount(FUEL)
 
 /obj/item/weapon/gun/projectile/eviscerator/afterattack(atom/target, mob/user, flag)
-
 	if (istype(target, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,target) <= 1 && !src.revvin_on)
 		if(target.reagents.trans_to(src, max_fuel))
 			to_chat(user, "<span class='notice'>Exterminator refueled.</span>")
@@ -139,23 +133,19 @@
 		var/obj/structure/reagent_dispensers/fueltank/tank = target
 		tank.explode()
 		return
-
 	if(!revvin_on)
 		return
-	
 	if(!prefire_check(user, 1))
 		return
 
 	var/obj/item/projectile/fire_breath/eviscerator/B = new(null)
 	in_chamber = B
-
 	if(get_fuel() <= 0) 
 		user.visible_message("<span class='danger'>\The [src] hisses.</span>")
 		to_chat(user, "<span class='warning'>It sounds like the tank is empty.</span>")
 		qdel(B)
 		in_chamber = null
 		return
-
 	if(Fire(target,user))
 		user.visible_message("<span class='danger'>[user] shoots a jet of gas from \his [src.name]!</span>","<span class='danger'>You shoot a jet of gas from your [src.name]!</span>")
 		reagents.remove_reagent(FUEL, 50)
@@ -163,7 +153,6 @@
 
 /obj/item/weapon/gun/projectile/eviscerator/update_icon()
 	var/mob/living/carbon/human/H = loc
-
 	if(istype(loc,/mob/living/carbon/human))
 		if(revvin_on)
 			icon_state = "eviscerator_on"

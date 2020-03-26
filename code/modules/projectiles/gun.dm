@@ -56,7 +56,7 @@
 	else
 		return 0
 
-/obj/item/weapon/gun/proc/process_chambered()
+/obj/item/weapon/gun/proc/process_chambered(mob/living/user)
 	return 0
 
 /obj/item/weapon/gun/proc/failure_check(var/mob/M) //later check
@@ -132,7 +132,7 @@
 			to_chat(user, "<span class='warning'>[src] is not ready to fire again!")
 		return
 
-	if(!process_chambered()) //CHECK
+	if(!process_chambered(user)) //CHECK
 		return click_empty(user)
 
 	if(!in_chamber)
