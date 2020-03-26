@@ -2,7 +2,6 @@
 /obj/item/weapon/attachment/bayonet //Bayonet
 	name = "bayonet"
 	desc = "A bayonet made to be attached to a lasgun."
-	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "bayonet"
 	item_state = "bayonet"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')

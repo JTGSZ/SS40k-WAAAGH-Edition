@@ -146,6 +146,7 @@
 					connection_type = 2
 			if(3)
 				to_chat(user,"The place for your fuel cell is currently occupied by a hose.")
+	..()
 
 /obj/item/weapon/gun/ig_plasma_gun/throw_impact(atom/hit_atom, mob/user) //If we throw this, we return to pack.
 	..()

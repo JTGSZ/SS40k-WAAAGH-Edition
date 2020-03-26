@@ -368,7 +368,7 @@
 					clothes_s=blend_backpack(clothes_s,backbag,"impbag","impbag","impbag")
 				if(IGWEPSPEC)
 					clothes_s = new /icon(uniform_dmi, "guardsman_under_s")
-					clothes_s.Blend(new /icon(feet_dmi, "cadian_wepspec_boots"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon(feet_dmi, "cadian_wepspec_boots"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "cadian_wepspec_gloves"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/mask.dmi', "cadian_wepspec_mask"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "cadian_flak_helmet"), ICON_OVERLAY)

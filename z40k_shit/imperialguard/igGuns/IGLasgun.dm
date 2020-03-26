@@ -181,6 +181,7 @@
 			LoadMag(AM, user)
 		else
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
+	..()
 
 /obj/item/weapon/gun/energy/lasgun/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
@@ -238,8 +239,8 @@
 			scope = TRUE
 
 	if(charge_states)
-		icon_state = "lasgun[ratio][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"][mag ? "" : "-e"]"
-	item_state = "lasgun[wielded ? "-unwielded" : "-wielded"][bayonet ? "-nby" : "-by"][scope ? "-nscp" : "-scp"]"
+		icon_state = "lasgun[ratio][bayonet ? "-by" : "-nby"][scope ? "-scp" : "-nscp"][mag ? "" : "-e"]"
+	item_state = "lasgun[wielded ? "-wielded" : "-unwielded"][bayonet ? "-by" : "-nby"][scope ? "-scp" : "-nscp"]"
 
 
 
