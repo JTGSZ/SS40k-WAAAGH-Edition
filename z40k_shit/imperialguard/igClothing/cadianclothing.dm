@@ -44,14 +44,6 @@
 	armor = list(melee = 30, bullet = 10, laser = 30,energy = 10, bomb = 25, bio = 0, rad = 0)
 	body_parts_covered = HEAD|EARS|EYES|MASKHEADHAIR
 
-/obj/item/clothing/head/iguard/IG_cadian_sergeant_helmet
-	name = "guardsman sergeant helmet"
-	desc = "Standard issue helmet given Sergeants. More resistant to heavy fire than the normal variant"
-	icon_state = "guardsmanleader_helmet" //Check: Its there
-	item_state = "guardsmanleader_helmet" //Check: Its fine
-	body_parts_covered = HEAD|EARS|EYES|HIDEHAIR
-	armor = list(melee = 40, bullet = 40, laser = 40,energy = 30, bomb = 35, bio = 0, rad = 0)
-
 //-----------Uniforms----------------------
 /obj/item/clothing/under/iguard/ig_guard //Basic Cadian Uniform. 
 	name = "guardsman uniform"
@@ -60,3 +52,21 @@
 	item_state = "guardsman_under"//Check: Its fine
 	_color = "guardsman_under"
 	has_sensor = 2 //Imperial guards cannot disable sensors, for good or for ill.
+
+/*
+	IMPERIAL GUARD CADIAN GLOVES
+								*/
+
+/obj/item/clothing/gloves/iguard/IG_wepspec_gloves
+	name = "Plated Black Gloves"
+	desc = "A pair of gloves with some plates near the knuckles"
+	icon_state = "cadian_wepspec_gloves"
+	item_state = "cadian_wepspec_gloves"
+	_color = "cadian_wepspec_gloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	bonus_knockout = 25
+	damage_added = 5
+	force = 7
+

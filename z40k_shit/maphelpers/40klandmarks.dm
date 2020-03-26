@@ -49,6 +49,11 @@
 	icon_state = "cadian_trooper_sgt"
 	landmark_override = TRUE
 
+/obj/effect/landmark/start/IG_Cadian_Weapon_Specialist
+	name = "Weapon Specialist"
+	icon_state = "cadian_specialist"
+	landmark_override = TRUE
+
 /obj/effect/landmark/start/IG_Cadian_Trooper
 	name = "Trooper"
 	icon_state = "cadian_trooper"

@@ -25,6 +25,17 @@
 	can_flip = 0
 	canstage = 0
 
+/obj/item/clothing/mask/gas/iguard/ig_wepspec_mask
+	name = "intimidating visor mask"
+	desc = "A mask that fits perfectly in your helmet."
+	icon_state = "cadian_wepspec_mask" //Check: Its there
+	item_state = "cadian_wepspec_mask" //Check: Its there
+	siemens_coefficient = 0.7
+	body_parts_covered = FACE
+	w_class = W_CLASS_SMALL
+	can_flip = 0
+	canstage = 0
+
 /*
 	IG UNIFORMS
 				*/
@@ -40,6 +51,14 @@
 	item_state = "flakboots" //Check: Its fine
 	body_parts_covered = LEGS|FEET
 	armor = list(melee = 15, bullet = 15, laser = 15,energy = 15, bomb = 15, bio = 0, rad = 0)
+
+/obj/item/clothing/shoes/iguard/IG_wepspec_boots
+	name = "Kneepads and boots Combo"
+	desc = "Hmmm..."
+	icon_state = "cadian_wepspec_boots" //Check: Its there
+	item_state = "cadian_wepspec_boots" //Check: Its fine
+	body_parts_covered = LEGS|FEET
+	armor = list(melee = 20, bullet = 20, laser = 20,energy = 20, bomb = 20, bio = 0, rad = 0)
 
 /*
 	Backpacks
