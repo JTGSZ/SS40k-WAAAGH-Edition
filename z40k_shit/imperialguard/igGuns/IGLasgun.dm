@@ -15,7 +15,7 @@
 	LASGUN OBJECT
 					*/
 
-/obj/item/weapon/gun/energy/lasgun
+/obj/item/weapon/gun/energy/lasgun 
 	name = "M-Galaxy Pattern Lasgun"
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
@@ -31,7 +31,7 @@
 	var/lasgun_shot_strength = 1 //For this we will use 1 to 3 to determine what state its set to.
 	var/degradation_state = 10 //We will use this to keep track of the lasgun degradation, If it hits 1 we explode or fail.
 	var/gunheat = 0 //The heat of the lasgun.
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 	actions_types = list(/datum/action/item_action/warhams/adjust_power,
 						/datum/action/item_action/warhams/basic_swap_stance)
 

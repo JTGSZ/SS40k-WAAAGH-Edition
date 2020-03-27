@@ -21,10 +21,12 @@
 	caliber = list(ORKSCRAPBULLET = 1)
 	ammo_type = "/obj/item/ammo_casing/orkbullet"
 	mag_type = "/obj/item/ammo_storage/magazine/kustom_shoota_belt"
-	fire_sound = 'z40k_shit/sounds/slugga_1.ogg'
+	fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 	recoil = 16
 	load_method = 2
+	force = 15
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	flags = TWOHANDABLE
 	var/projectiles = 45
 	var/totalguncount = 1 //We are the gun anon.
 	var/projectile_type
@@ -34,6 +36,10 @@
 	var/shotgunpellets = 0 //Shotgun bullet types
 	var/taped = 1
 	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
+
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/New()
+	..()
+	update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
@@ -55,10 +61,33 @@
 	return FALSE //No Kustom Shoota Akimbo for us.
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
-	..()
+	var/atom/newtarget = target
 	if(!isork(user))
 		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
 		return
+	if(!wielded)
+		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
+	..(newtarget,user,params,reflex,struggle)
+
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/update_wield(mob/user)
+	..()
+	force = wielded ? 30 : 15
+	update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_hand(mob/user as mob)
+	if(user.get_inactive_hand() == src)
+		RemoveMag(user)
+	else
+		..()
+
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+	if(user.get_active_hand() == src)
+		if(!wielded)
+			wield(user)
+			src.update_wield(user)
+		else
+			unwield(user)
+			src.update_wield(user)
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/examine(mob/user)
 	..()
@@ -70,6 +99,7 @@
 		to_chat(user, "<span class='info'> There are currently [shotgunpellets] shotguns attached.</span>")
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/attackby(obj/item/I as obj, mob/user as mob)
+	var/good2go = FALSE //Basically I don't really feel like doing ALL the guns atm
 	if(totalguncount > 29)
 		to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
 		return
@@ -78,6 +108,7 @@
 		return
 	if(istype(I, /obj/item/weapon/taperoll))
 		taped = 1
+		to_chat(user,"<span class='warning'> You tape the gun together.</span>")
 		playsound(loc, 'z40k_shit/sounds/tape.ogg', 50, 0)
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
@@ -86,24 +117,30 @@
 			istype(I,/obj/item/weapon/gun/projectile/automatic/boltpistol))
 			basicbullets++
 			totalguncount++
+			good2go = TRUE
 		if(istype(I, /obj/item/weapon/gun/energy/lasgun))
 			laserbeams++
 			totalguncount++
+			good2go = TRUE
 		if(istype(I, /obj/item/weapon/gun/projectile/shotgun))
 			shotgunpellets++
 			totalguncount++
-		qdel(I) //Basically this block will be executed no matter what is attached.
-		taped = 0 //A gun not accounted for in here is a bug anyways.
-		to_chat(user, "<span class='notice'> Dat [I] fits on to the [src] nicely it does. NOW you just needs some tape!</span>")
-		update_icon()
-		playsound(src, 'sound/machines/click.ogg', 25, 1)
+			good2go = TRUE
+		if(good2go)
+			qdel(I) //Basically this block will be executed no matter what is attached... ha ha mayb
+			taped = 0 //A gun not accounted for in here is a bug anyways.
+			to_chat(user, "<span class='notice'> Dat [I] fits on to the [src] nicely it does. NOW you just needs some tape!</span>")
+			update_icon()
+			playsound(src, 'sound/machines/click.ogg', 25, 1)
+		else
+			to_chat(user, "<span class='notice'> Dat [I] doesn't fit onto the [src] </span>")
 
 	..()
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/update_icon()
 	..()
-	item_state = "kustom_shoota[wielded ? "-unwielded" : "-wielded"][shotgunpellets ? "-nsg" : "-sg"][laserbeams ? "-nlsg" : "-lsg"]"
-	icon_state = "kustom_shoota[wielded ? "-unwielded" : "-wielded"][shotgunpellets ? "-nsg" : "-sg"][laserbeams ? "-nlsg" : "-lsg"][stored_magazine ? "" : "-e"]"
+	item_state = "kustom_shoota[wielded ? "-wielded" : "-unwielded"][shotgunpellets ? "-sg" : "-nsg"][laserbeams ? "-lsg" : "-nlsg"]"
+	icon_state = "kustom_shoota[shotgunpellets ? "-sg" : "-nsg"][laserbeams ? "-lsg" : "-nlsg"][stored_magazine ? "" : "-e"]"
 	
 
 	//icon_state = "slugga[iconticker][stored_magazine ? "" : "-e"]"
@@ -130,15 +167,16 @@
 			var/turf/targloc
 			cooldown = 1
 			fire_volume = clamp((3 * totalguncount), 20, 100) //Ouch my ears... well up to 90% vol anyways.
-			if(basicbullets >= 1)
+			if(basicbullets >= 0)
 				projectile_type = "/obj/item/projectile/bullet/orkscrapbullet"
 				for(var/i=1 to min(projectiles,basicbullets))
 					target = get_inaccuracy(originaltarget, 1+recoil)
 					targloc = get_turf(target)
 					if(i>1 && !in_chamber)
 						in_chamber = new projectile_type(src)
+					fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 					Fire(targloc, user, params, struggle)
-			if(laserbeams >= 1) //Laserbeam shit
+			if(laserbeams >= 0) //Laserbeam shit
 				in_chamber = null
 				projectile_type = "/obj/item/projectile/beam/medpower"
 				for(var/i=1 to min(projectiles, laserbeams))
@@ -146,9 +184,10 @@
 					targloc = get_turf(target)
 					if(i>1 && !in_chamber)
 						in_chamber = new projectile_type(src)
+					fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
-			if(shotgunpellets >= 1)
+			if(shotgunpellets >= 0)
 				in_chamber = null
 				projectile_type = "/obj/item/projectile/bullet/buckshot"
 				for(var/i=1 to min(projectiles, shotgunpellets))
@@ -156,6 +195,7 @@
 					targloc = get_turf(target)
 					if(i>1 && !in_chamber)
 						in_chamber = new projectile_type(src)
+					fire_sound = 'z40k_shit/sounds/shotta.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
 		sleep(8)

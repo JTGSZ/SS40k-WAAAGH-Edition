@@ -7,6 +7,7 @@
 	item_state = "slugga" //Lame but I can't be assed to spend time on this atm.
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/ork_guns_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/ork_guns_right.dmi')
 	origin_tech = Tc_COMBAT + "=6;" + Tc_MATERIALS + "=3"
+	fire_sound = 'z40k_shit/sounds/shotta.ogg'
 	ammo_type = "/obj/item/ammo_casing/shotgun"
 	mag_type = "/obj/item/ammo_storage/magazine/shottamag"
 	max_shells = 5
