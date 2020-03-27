@@ -169,32 +169,29 @@
 			fire_volume = clamp((3 * totalguncount), 20, 100) //Ouch my ears... well up to 90% vol anyways.
 			if(basicbullets >= 0)
 				projectile_type = "/obj/item/projectile/bullet/orkscrapbullet"
-				for(var/i=1 to min(projectiles,basicbullets))
+				for(var/i=1 to basicbullets)
 					target = get_inaccuracy(originaltarget, 1+recoil)
 					targloc = get_turf(target)
-					if(i>1 && !in_chamber)
-						in_chamber = new projectile_type(src)
+					in_chamber = new projectile_type(src)
 					fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 					Fire(targloc, user, params, struggle)
 			if(laserbeams >= 0) //Laserbeam shit
 				in_chamber = null
 				projectile_type = "/obj/item/projectile/beam/medpower"
-				for(var/i=1 to min(projectiles, laserbeams))
+				for(var/i=1 to laserbeams)
 					target = get_inaccuracy(originaltarget, 1+recoil)
 					targloc = get_turf(target)
-					if(i>1 && !in_chamber)
-						in_chamber = new projectile_type(src)
+					in_chamber = new projectile_type(src)
 					fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
 			if(shotgunpellets >= 0)
 				in_chamber = null
 				projectile_type = "/obj/item/projectile/bullet/buckshot"
-				for(var/i=1 to min(projectiles, shotgunpellets))
+				for(var/i=1 to shotgunpellets)
 					target = get_inaccuracy(originaltarget, 1+recoil)
 					targloc = get_turf(target)
-					if(i>1 && !in_chamber)
-						in_chamber = new projectile_type(src)
+					in_chamber = new projectile_type(src)
 					fire_sound = 'z40k_shit/sounds/shotta.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
