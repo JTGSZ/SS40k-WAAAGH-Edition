@@ -467,9 +467,6 @@
 				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 			return
 
-
-
-
 	if(istype(M, /mob/living/carbon/human) && H.check_body_part_coverage(EYES))
 		to_chat(H, "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>")
 		if(prob(33))
@@ -583,46 +580,11 @@
 
 	for(var/obj/item/I in carrying)
 		. += I.get_trayweight() || INFINITY
-/* previous functionality of trays,
-/obj/item/weapon/tray/prepickup(mob/user)
-	..()
 
-	if(!isturf(loc))
-		return
-
-	for(var/obj/item/I in loc)
-		if( I != src && !I.anchored && !is_type_in_list(I, list(/obj/item/clothing/under, /obj/item/clothing/suit, /obj/item/projectile, /obj/item/weapon/tray)) )
-			var/add = 0
-			if(I.w_class > W_CLASS_TINY)
-				add = 1
-			else if(I.w_class == W_CLASS_SMALL)
-				add = 3
-			else if(I.w_class > W_CLASS_MEDIUM)
-				add = 5
-			else
-				continue
-			if(calc_carry() + add >= max_carry)
-				break
-
-			I.forceMove(src)
-			carrying.Add(I)
-
-			var/image/image = image(icon = null) //image(appearance = ...) doesn't work, and neither does image().
-			image.appearance = I.appearance
-			image.layer = I.layer + 30
-			image.plane = FLOAT_PLANE
-
-			overlays += image
-			//overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer)
-*/
 /obj/item/weapon/tray/dropped(mob/user)
 	spawn() //because throwing drops items before setting their throwing var, and a lot of other zany bullshit
 		if(throwing)
 			return ..()
-		//This is so monumentally bad that I have to leave it in as a comment
-		/*var/mob/living/M
-		for(M in src.loc) //to handle hand switching
-			return*/
 		if(isturf(loc))
 			for(var/obj/structure/table/T in loc)
 				remove_items()

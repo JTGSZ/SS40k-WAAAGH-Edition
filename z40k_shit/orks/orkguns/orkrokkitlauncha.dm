@@ -15,7 +15,8 @@
 	throw_speed = 4
 	throw_range = 3
 	fire_delay = 5
-	flags = FPRINT
+	species_fit = list("Ork")
+	flags = TWOHANDABLE
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	caliber = list(ORKROKKIT = 1)
@@ -24,18 +25,72 @@
 	attack_verb = list("strikes", "hits", "bashes")
 	gun_flags = 0
 	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
+	var/ork_held = FALSE //Are we being held by a ork or a puny human.
 
-/obj/item/weapon/gun/projectile/rocketlauncher/isHandgun()
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/isHandgun()
 	return FALSE
 
-/obj/item/weapon/gun/projectile/rocketlauncher/update_icon()
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/prepickup(mob/user)
+	if(isork(user))
+		ork_held = TRUE
+		if(flags & MUSTTWOHAND)
+			flags &= ~MUSTTWOHAND
+		if(!slot_flags & SLOT_BACK)
+			slot_flags |= SLOT_BACK
+		update_icon()
+	else //bitch ass puny humans grabbin our rokkitlauncha
+		ork_held = FALSE
+		to_chat(user, "<span class='warning'> This feels a bit heavy. </span>")
+		flags |= MUSTTWOHAND
+		if(slot_flags & SLOT_BACK)
+			slot_flags &= ~SLOT_BACK
+		update_icon()
+
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_hand(mob/user as mob)
+	if(user.get_inactive_hand() == src)
+		if(loaded.len || stored_magazine)
+			var/obj/item/ammo_casing/AC = loaded[1]
+			loaded -= AC
+			to_chat(user, "<span class='notice'>You unload \the [AC] from \the [src]!</span>")
+			if(user.put_in_any_hand_if_possible(AC)))
+				return
+			else
+				AC.forceMove(get_turf(src)) //Eject casing onto ground.
+			update_icon()
+			
+	else
+		..()
+
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+	if(user.get_active_hand() == src)
+		if(!wielded)
+			wield(user)
+			src.update_wield(user)
+		else
+			unwield(user)
+			src.update_wield(user)
+
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/update_wield()
+	update_icon()
+
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+	var/atom/newtarget = target
+	if(!wielded)
+		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
+	if(!ork_held)
+		if(prob(80))
+			var/turf/lol = get_step(user,turn(user.dir,rand(0,360)))
+			newtarget = lol
+	..(newtarget,user,params,reflex,struggle)
+
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/update_icon()
 	if(!getAmmo())
 		icon_state = "rokkit_launcha-e"
-		item_state = "rokkit_launcha-e"
+		item_state = "rokkit_launcha[wielded ? "-wielded" : "-unwielded"][ork_held ? "-strpass" : "-strfail"]-e"
 	else
 		icon_state = "rokkit_launcha"
-		item_state = "rokkit_launcha"
-
+		item_state = "rokkit_launcha[wielded ? "-wielded" : "-unwielded"][ork_held ? "-strpass" : "-strfail"]"
+ 
 /obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
 	if(M == user && user.zone_sel.selecting == "mouth") //Are we trying to suicide by shooting our head off ?
 		user.visible_message("<span class='warning'>[user] tries to fit \the [src] into \his mouth but quickly reconsiders it</span>", \
