@@ -48,7 +48,6 @@
 	icon = 'icons/obj/ammo.dmi'
 	flags = FPRINT
 	siemens_coefficient = 1
-	slot_flags = SLOT_BELT
 	item_state = "syringe_kit"
 	starting_materials = list(MAT_IRON = 50000)
 	w_type = RECYK_METAL
@@ -121,7 +120,7 @@
 		if(visible_ammo == 0 && stored_ammo.len) //if there IS ammo, but we can't see it because the thing is at 0 (most sprites are like this)
 			visible_ammo += sprite_modulo //we go to the next lowest sprite state so it doesn't look empty
 		icon_state = "[initial(icon_state)]-[visible_ammo]"
-		if(pile == 1 && visible_ammo == 0)
+		if(pile == 1 && !stored_ammo.len)
 			qdel(src)
 
 /obj/item/ammo_storage/examine(mob/user) //never change descriptions, always use examine
