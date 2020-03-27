@@ -141,9 +141,9 @@
 	..()
 	item_state = "kustom_shoota[wielded ? "-wielded" : "-unwielded"][shotgunpellets ? "-sg" : "-nsg"][laserbeams ? "-lsg" : "-nlsg"]"
 	icon_state = "kustom_shoota[shotgunpellets ? "-sg" : "-nsg"][laserbeams ? "-lsg" : "-nlsg"][stored_magazine ? "" : "-e"]"
-	
-
-	//icon_state = "slugga[iconticker][stored_magazine ? "" : "-e"]"
+	var/mob/living/carbon/human/H = loc
+	if(istype(loc,/mob/living/carbon/human))
+		H.update_inv_hands()
 	return
 
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params, struggle = FALSE)

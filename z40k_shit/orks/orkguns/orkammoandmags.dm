@@ -15,10 +15,10 @@
 /obj/item/ammo_casing/orkbullet/attackby(var/atom/A, var/mob/user) //now with loading
 	..()
 	var/obj/item/ammo_casing/AC = A
-	if(!AC.BB) //We avoid the istype check by movin this up
-		to_chat(user, "<span class='notice'>The bullet appears to be already spent.</span>")
-		return
 	if(istype(A,/obj/item/ammo_casing/orkbullet))
+		if(!AC.BB) //We avoid the istype check by movin this up
+			to_chat(user, "<span class='notice'>The bullet appears to be already spent.</span>")
+			return
 		var/PP = new /obj/item/ammo_storage/box/piles/sluggabulletpile(src.loc)
 		qdel(A)
 		user.put_in_any_hand_if_possible(PP) //pp hands lol

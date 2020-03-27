@@ -142,7 +142,7 @@
 		return 1
 
 
-/obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob) 
+/obj/item/weapon/gun/projectile/attackby(var/obj/item/A, mob/user) 
 	//if(istype(A, /obj/item/gun_part/silencer) && src.gun_flags &SILENCECOMP)
 	//	if(!user.is_holding_item(src))	//if we're not in his hands
 	//		to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")

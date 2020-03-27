@@ -5,7 +5,6 @@
 	icon_state = "s-casing"
 	flags = FPRINT
 	siemens_coefficient = 1
-	slot_flags = SLOT_BELT
 	throwforce = 1
 	w_class = W_CLASS_TINY
 	var/caliber = ""							//Which kind of guns it can be loaded into

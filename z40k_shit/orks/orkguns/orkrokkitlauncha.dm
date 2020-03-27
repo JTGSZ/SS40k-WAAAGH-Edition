@@ -46,13 +46,18 @@
 			slot_flags &= ~SLOT_BACK
 		update_icon()
 
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attackby(var/obj/item/A, mob/user)
+	update_icon()
+	..()
+
 /obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
 		if(loaded.len || stored_magazine)
 			var/obj/item/ammo_casing/AC = loaded[1]
 			loaded -= AC
 			to_chat(user, "<span class='notice'>You unload \the [AC] from \the [src]!</span>")
-			if(user.put_in_any_hand_if_possible(AC)))
+			update_icon()
+			if(user.put_in_any_hand_if_possible(AC))
 				return
 			else
 				AC.forceMove(get_turf(src)) //Eject casing onto ground.
@@ -90,7 +95,10 @@
 	else
 		icon_state = "rokkit_launcha"
 		item_state = "rokkit_launcha[wielded ? "-wielded" : "-unwielded"][ork_held ? "-strpass" : "-strfail"]"
- 
+	var/mob/living/carbon/human/H = loc
+	if(istype(loc,/mob/living/carbon/human))
+		H.update_inv_hands()
+
 /obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
 	if(M == user && user.zone_sel.selecting == "mouth") //Are we trying to suicide by shooting our head off ?
 		user.visible_message("<span class='warning'>[user] tries to fit \the [src] into \his mouth but quickly reconsiders it</span>", \
