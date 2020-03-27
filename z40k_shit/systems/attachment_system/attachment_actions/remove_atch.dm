@@ -12,7 +12,7 @@
 		to_chat(user, "<span class='notice'> [src] appears to be devoid of anything attached to it.</span>")
 		return
 	else
-		var/remove_acc = input(M,"Which attachment do you want to remove?", "", "Cancel") as null|anything in ATCHSYS.attachments
+		var/remove_acc = input(user,"Which attachment do you want to remove?", "", "Cancel") as null|anything in ATCHSYS.attachments
 		if(remove_acc != "Cancel")
 			var/obj/item/weapon/attachment/ATCH = remove_acc
 			ATCHSYS.attachment_handler(ATCH,FALSE,user)

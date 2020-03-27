@@ -28,6 +28,12 @@
 	my_atom.actions_types += RAGH
 
 /datum/attachment_system/proc/attachment_handler(var/obj/item/weapon/attachment/ATCH, var/going_in, var/mob/user)
+	var/boink
+	for(ATCH in attachments to ATCH.atch_total_limit)
+		boink++
+
+	if(boink >= ATCH.atch_total_limit)
+		to_chat(user,"This object cannot fit anymore of that attachment")
 
 	if(going_in)
 		attachments += ATCH
@@ -49,6 +55,8 @@
 			my_atom.actions_types |= ATCH.tied_action
 
 	else //The inverse of going in, which is !going_in, or technically null
+		
+		ATCH.special_detachment(user)
 
 		if(ATCH.tied_action)
 			action_storage -= ATCH.tied_action

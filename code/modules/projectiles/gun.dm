@@ -45,9 +45,41 @@
 	var/conventional_firearm = 1	//Used to determine whether, when examined, an /obj/item/weapon/gun/projectile will display the amount of rounds remaining.
 
 	var/currently_zoomed = FALSE //40k EDIT - MARKED - JTGSZ
+	var/my_scope
+	
 	var/projectile_color = null
-
 	var/pai_safety = TRUE	//To allow the pAI to activate or deactivate firing capability
+
+/obj/item/weapon/gun/dropped(mob/user)
+	..()
+	if(currently_zoomed)
+		currently_zoomed = FALSE
+		for(var/obj/item/weapon/attachment/scope/ATCH in ATCHSYS.attachments)
+			if(ATCH.currently_zoomed)
+				user.regenerate_icons()
+				var/client/C = user.client
+				C.changeView(C.view - ATCH.scope_zoom_amount)
+
+
+/obj/item/weapon/gun/throw_impact(atom/hit_atom, mob/user)
+	..()
+	if(currently_zoomed)
+		currently_zoomed = FALSE
+		for(var/obj/item/weapon/attachment/scope/ATCH in ATCHSYS.attachments)
+			if(ATCH.currently_zoomed)
+				user.regenerate_icons()
+				var/client/C = user.client
+				C.changeView(C.view - ATCH.scope_zoom_amount)
+
+/obj/item/weapon/gun/unequipped(mob/user)
+	..()
+	if(currently_zoomed)
+		currently_zoomed = FALSE
+		for(var/obj/item/weapon/attachment/scope/ATCH in ATCHSYS.attachments)
+			if(ATCH.currently_zoomed)
+				user.regenerate_icons()
+				var/client/C = user.client
+				C.changeView(C.view - ATCH.scope_zoom_amount)
 
 /obj/item/weapon/gun/proc/ready_to_fire()
 	if(world.time >= last_fired + fire_delay)

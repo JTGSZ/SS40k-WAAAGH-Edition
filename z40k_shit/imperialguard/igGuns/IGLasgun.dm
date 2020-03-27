@@ -242,8 +242,6 @@
 		icon_state = "lasgun[ratio][bayonet ? "-by" : "-nby"][scope ? "-scp" : "-nscp"][mag ? "" : "-e"]"
 	item_state = "lasgun[wielded ? "-wielded" : "-unwielded"][bayonet ? "-by" : "-nby"][scope ? "-scp" : "-nscp"]"
 
-
-
 /*
 	MAGAZINE HANDLING
 						*/
