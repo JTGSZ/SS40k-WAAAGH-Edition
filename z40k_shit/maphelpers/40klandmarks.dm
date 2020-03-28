@@ -7,7 +7,6 @@
 
 /obj/effect/landmark/start/New()
 	..()
-	tag = "start*[name]"
 	invisibility = 101
 
 	return 1
