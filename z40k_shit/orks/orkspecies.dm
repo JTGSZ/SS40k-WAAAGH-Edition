@@ -27,6 +27,19 @@
 	spells = list(/spell/waaagh1)
 	has_mutant_race = 0
 
+	base_strength = 9
+	base_strength_natural_limit = 13
+	base_agility = 8
+	base_agility_natural_limit = 12
+	base_dexterity = 7
+	base_dexterity_natural_limit = 11
+	base_constitution = 9
+	base_constitution_natural_limit = 14
+	base_willpower = 5
+	base_willpower_natural_limit = 8
+	base_sensitivity = 25
+	base_sensitivity_natural_limit = 100
+
 	has_organ = list(
 		"heart" =    /datum/organ/internal/heart,
 		"lungs" =    /datum/organ/internal/lungs,
@@ -110,6 +123,20 @@
 	brute_mod = 0.8	// brute multiplier
 	burn_mod = 0.8 // burn multiplier
 	tox_mod	= 0.8	// toxin multiplier
+
+	base_strength = 11
+	base_strength_natural_limit = 16
+	base_agility = 9
+	base_agility_natural_limit = 13
+	base_dexterity = 7
+	base_dexterity_natural_limit = 11
+	base_constitution = 11
+	base_constitution_natural_limit = 17
+	base_willpower = 8
+	base_willpower_natural_limit = 12
+	base_sensitivity = 25
+	base_sensitivity_natural_limit = 100
+
 
 	has_organ = list(
 		"heart" =    /datum/organ/internal/heart,
@@ -199,6 +226,19 @@
 	brute_mod = 0.5	// brute multiplier
 	burn_mod = 0.5 // burn multiplier
 	tox_mod	= 0.5	// toxin multiplier
+
+	base_strength = 13
+	base_strength_natural_limit = 20
+	base_agility = 9
+	base_agility_natural_limit = 14
+	base_dexterity = 9
+	base_dexterity_natural_limit = 14
+	base_constitution = 13
+	base_constitution_natural_limit = 20
+	base_willpower = 11
+	base_willpower_natural_limit = 16
+	base_sensitivity = 25
+	base_sensitivity_natural_limit = 100
 
 	has_organ = list(
 		"heart" =    /datum/organ/internal/heart,
