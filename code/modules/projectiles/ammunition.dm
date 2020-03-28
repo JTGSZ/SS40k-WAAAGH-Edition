@@ -62,7 +62,6 @@
 	var/starting_ammo = -1 //-1 makes it spawn the max ammo, 0 and above makes it spawn that number
 	var/multiple_sprites = 0 //if it has multiple sprites. Please sprite more than 2 sprites if you set this to true, you fricks
 	var/sprite_modulo = 1 //the spacing of the ammo sprites. Setting this to 1 means there's a sprite for every state, 10 for every 10 states, etc.
-	var/pile = 0 //Its a pile of shit, that will qdel if it hits a ammo_count of 0 on a icon update.
 
 /obj/item/ammo_storage/New()
 	..()
@@ -91,10 +90,7 @@
 			else
 				to_chat(user, "<span class='warning'>You can't let go of \the [A]!</span>")
 				return
-
-
 			stored_ammo += AC
-
 			update_icon()
 		else if(!AC.BB)
 			to_chat(user, "<span class='notice'>You can't load a spent bullet.</span>")
@@ -119,8 +115,6 @@
 		if(visible_ammo == 0 && stored_ammo.len) //if there IS ammo, but we can't see it because the thing is at 0 (most sprites are like this)
 			visible_ammo += sprite_modulo //we go to the next lowest sprite state so it doesn't look empty
 		icon_state = "[initial(icon_state)]-[visible_ammo]"
-		if(pile == 1 && !stored_ammo.len)
-			qdel(src)
 
 /obj/item/ammo_storage/examine(mob/user) //never change descriptions, always use examine
 	..()
