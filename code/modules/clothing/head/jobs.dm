@@ -26,6 +26,7 @@
 	item_state = "caphat"
 	siemens_coefficient = 0.9
 	heat_conductivity = HELMET_HEAT_CONDUCTIVITY
+	species_fit = list(INSECT_SHAPED)
 
 //Captain: This probably shouldn't be space-worthy
 /obj/item/clothing/head/helmet/cap

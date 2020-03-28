@@ -61,7 +61,7 @@
 	light_color = LIGHT_COLOR_RED
 	actions_types = list(/datum/action/item_action/activate_siren)
 	var/spamcheck = 0
-	species_fit = list(GREY_SHAPED)
+	species_fit = list(GREY_SHAPED, INSECT_SHAPED)
 
 /obj/item/clothing/head/helmet/siren/attack_self(mob/user)
 	if(spamcheck)

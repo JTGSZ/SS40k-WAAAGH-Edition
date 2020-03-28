@@ -244,6 +244,7 @@
 	actions_types = list(/datum/action/item_action/tip_fedora)
 	desc = "A great hat ruined by being within fifty yards of you."
 	flags = FPRINT
+	species_fit = list(INSECT_SHAPED)
 
 /obj/item/clothing/head/fedora/OnMobLife(var/mob/living/carbon/human/wearer)
 	if(!istype(wearer))

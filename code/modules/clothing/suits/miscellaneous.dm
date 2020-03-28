@@ -138,6 +138,7 @@
 	item_state = "wcoat"
 	blood_overlay_type = "armor"
 	body_parts_covered = FULL_TORSO
+	species_fit = list(INSECT_SHAPED)
 
 
 /obj/item/clothing/suit/apron/overalls
@@ -157,6 +158,7 @@
 	flags = FPRINT
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/tank/emergency_nitrogen,/obj/item/toy)
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
+	species_fit = list(INSECT_SHAPED)
 
 /obj/item/clothing/suit/spaceninjafake
 	name = "space ninja suit replica"
@@ -419,6 +421,7 @@
 	icon_state = "russofurcoat"
 	allowed = list(/obj/item/weapon/gun)
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
+	species_fit = list(INSECT_SHAPED)
 
 /obj/item/clothing/suit/doshjacket
 	name = "Plasterer's Jacket"
@@ -543,6 +546,7 @@
 	slowdown = HARDSUIT_SLOWDOWN_BULKY
 	var/bearpelt = 0
 	extinguishingProb = 70
+	species_fit = list(INSECT_SHAPED)
 
 
 /obj/item/clothing/suit/spaceblanket/attackby(obj/item/W,mob/user)
@@ -561,6 +565,7 @@
 	heat_conductivity = 0
 	slowdown = HARDSUIT_SLOWDOWN_MED
 	bearpelt = 1
+	species_fit = list(INSECT_SHAPED)
 
 /obj/item/clothing/suit/storage/trader
 	name = "trader's coat"
@@ -571,7 +576,7 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
 	clothing_flags = ONESIZEFITSALL
-	species_fit = list(VOX_SHAPED)
+	species_fit = list(VOX_SHAPED, INSECT_SHAPED)
 	max_combined_w_class = 28
 	storage_slots = 14
 	actions_types = list(/datum/action/item_action/show_wares)

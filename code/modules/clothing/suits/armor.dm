@@ -191,6 +191,7 @@
 	desc = "An armored jacket used in special operations."
 	icon_state = "detective"
 	item_state = "det_suit"
+	species_fit = list(INSECT_SHAPED)
 	blood_overlay_type = "coat"
 
 /obj/item/clothing/suit/armor/det_suit
@@ -198,6 +199,7 @@
 	desc = "An armored vest with a detective's badge on it."
 	icon_state = "detective-armor"
 	item_state = "armor"
+	species_fit = list(INSECT_SHAPED)
 	blood_overlay_type = "armor"
 	clothing_flags = ONESIZEFITSALL
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
