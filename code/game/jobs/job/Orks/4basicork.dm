@@ -90,11 +90,11 @@
 				"Storm Boy" = list(/obj/item/weapon/storage/belt/ork/basicbelt)
 			),
 			slot_back_str = list(
-				"Slugga Boy" = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-				"Shoota Boy" = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-				"Kommando"	= /obj/item/weapon/storage/backpack/ork/brownbackpack,
+				"Slugga Boy" = /obj/item/weapon/storage/backpack/ork/brownbackpack/sluggakit,
+				"Shoota Boy" = /obj/item/weapon/storage/backpack/ork/brownbackpack/shootakit,
+				"Kommando"	= /obj/item/weapon/storage/backpack/ork/brownbackpack/kommandokit,
 				"Burna Boy"	= /obj/item/weapon/ork/burnapack,
-				"Storm Boy"	= /obj/item/ork/jumppack,
+				"Storm Boy"	= /obj/item/ork/jumppack, 
 			),
 			slot_r_hand = list(
 				"Slugga Boy" = list(/obj/item/weapon/gun/projectile/automatic/slugga,

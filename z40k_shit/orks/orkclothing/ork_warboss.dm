@@ -33,9 +33,31 @@
 	item_state = "warboss_belt"
 	w_class = W_CLASS_LARGE
 	storage_slots = 14
+	max_combined_w_class = 200
+	fits_max_w_class = 5
 	can_only_hold = list(
-	"/obj/item/weapon/grenade/stikkbomb")
+	"/obj/item/weapon/grenade/stikkbomb",
+	"/obj/item/ammo_casing/rocket_rpg/rokkit",
+	"/obj/item/weapon/gun/projectile/automatic/slugga",
+	"/obj/item/weapon/gun/projectile/shotgun/shotta",
+	"/obj/item/weapon/choppa",
+	"/obj/item/ammo_casing/orkbullet",
+	"/obj/item/ammo_storage/box/piles/sluggabulletpile",
+	"/obj/item/ammo_storage/box/piles/buckshotpile",
+	"/obj/item/ammo_storage/magazine/sluggamag",
+	"/obj/item/ammo_storage/magazine/shottamag",
+	"/obj/item/ammo_storage/magazine/kustom_shoota_belt")
 
+/obj/item/weapon/storage/belt/ork/warboss/New()
+	..()
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
 /*
 	Armor and Suits
 	*/
