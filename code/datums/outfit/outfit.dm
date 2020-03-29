@@ -148,6 +148,7 @@
 	//Handle faction shit here
 	spawn(4 SECONDS)
 		handle_faction(H)
+		handle_special_abilities(H)
 
 /datum/outfit/proc/equip_backbag(var/mob/living/carbon/human/H, var/species)
 	// -- Backbag
@@ -233,6 +234,9 @@
 	return
 
 /datum/outfit/proc/handle_faction(var/mob/living/carbon/human/H)
+	return 1
+
+/datum/outfit/proc/handle_special_abilities(var/mob/living/carbon/human/H)
 	return 1
 
 // -- Work in progress !!

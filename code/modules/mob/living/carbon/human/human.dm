@@ -1289,14 +1289,6 @@
 		target_zone = pick(LIMB_CHEST,LIMB_CHEST,LIMB_CHEST,"left leg","right leg","left arm", "right arm", LIMB_HEAD)
 	else if(!target_zone)
 		target_zone = user.zone_sel.selecting
-	/*switch(target_zone)
-		if(LIMB_HEAD)
-			if(head && head.flags & THICKMATERIAL)
-				. = 0
-		else
-			if(wear_suit && wear_suit.flags & THICKMATERIAL)
-				. = 0
-	*/
 	if(!. && error_msg && user)
  		// Might need re-wording.
 		to_chat(user, "<span class='alert'>There is no exposed flesh or thin material [target_zone == LIMB_HEAD ? "on their head" : "on their body"] to inject into.</span>")

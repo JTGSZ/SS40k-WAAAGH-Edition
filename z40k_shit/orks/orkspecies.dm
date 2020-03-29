@@ -12,10 +12,6 @@
 	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN | IS_WHITELISTED
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
 
-	// Both must be set or it's only a 45% chance of manifesting.
-	default_mutations = list(M_RUN | M_LOUD)
-	default_block_names = list("STRONGBLOCK","LOUDBLOCK","INCREASERUNBLOCK")
-
 	cold_level_1 = -1  // Cold damage level 1 below this point.
 	cold_level_2 = -1  // Cold damage level 2 below this point.
 	cold_level_3 = -1  // Cold damage level 3 below this point.
@@ -24,7 +20,6 @@
 	heat_level_2 = 480
 	heat_level_3 = 1100
 
-	spells = list(/spell/waaagh1)
 	has_mutant_race = 0
 
 	base_strength = 9
@@ -105,10 +100,6 @@
 	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
 
-	// Both must be set or it's only a 45% chance of manifesting.
-	default_mutations=list(M_RUN | M_LOUD)
-	default_block_names=list("STRONGBLOCK","LOUDBLOCK","INCREASERUNBLOCK")
-
 	cold_level_1 = -1  // Cold damage level 1 below this point.
 	cold_level_2 = -1  // Cold damage level 2 below this point.
 	cold_level_3 = -1  // Cold damage level 3 below this point.
@@ -117,7 +108,6 @@
 	heat_level_2 = 480
 	heat_level_3 = 1100
 
-	spells = list(/spell/waaagh1)
 	has_mutant_race = 0
 
 	brute_mod = 0.8	// brute multiplier
@@ -191,9 +181,6 @@
 	H.health += 100
 	H.update_icon()
 
-
-
-
 /datum/species/ork/warboss
 	name = "Ork Warboss"
 	icobase = 'icons/mob/human_races/r_orkboss.dmi'
@@ -208,10 +195,6 @@
 	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
 
-	// Both must be set or it's only a 45% chance of manifesting.
-	default_mutations=list(M_RUN | M_LOUD)
-	default_block_names=list("STRONGBLOCK","LOUDBLOCK","INCREASERUNBLOCK")
-
 	cold_level_1 = -1  // Cold damage level 1 below this point.
 	cold_level_2 = -1  // Cold damage level 2 below this point.
 	cold_level_3 = -1  // Cold damage level 3 below this point.
@@ -220,7 +203,6 @@
 	heat_level_2 = 480
 	heat_level_3 = 1100
 
-	spells = list(/spell/waaagh1)
 	has_mutant_race = 0
 
 	brute_mod = 0.5	// brute multiplier

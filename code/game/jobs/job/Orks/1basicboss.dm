@@ -56,3 +56,5 @@
 	new_boss.AssignToRole(H.mind,TRUE)
 	new_boss.mind_storage(H.mind)
 
+/datum/outfit/orkwarboss/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.add_spell(/spell/aoe_turf/warbosswaaagh, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)
