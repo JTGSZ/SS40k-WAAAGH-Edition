@@ -4,8 +4,8 @@
 	flag = IGWEPSPEC
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 7
+	spawn_positions = 5
 	wage_payout = 65
 	supervisors = "deez nuts"
 	selection_color = "#A6EAA9"
@@ -26,13 +26,6 @@
 	outfit_name = "IG Weapon Specialist"
 	associated_job = /datum/job/IG_weapon_specialist
 	no_backpack = TRUE
-
-	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-	)
 
 	items_to_spawn = list(
 		"Default" = list(

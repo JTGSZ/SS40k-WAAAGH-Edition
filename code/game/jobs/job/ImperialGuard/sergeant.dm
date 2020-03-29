@@ -4,8 +4,8 @@
 	flag = IGSERGEANT
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 5
+	spawn_positions = 3
 	wage_payout = 65
 	supervisors = "the head of security"
 	selection_color = "#A6EAA9"

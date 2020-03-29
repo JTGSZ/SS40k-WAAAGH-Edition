@@ -1,11 +1,11 @@
-//--------------Inquisitor---------------//
-/datum/job/primarispsyker //This will be inquisitor
+
+/datum/job/primarispsyker
 	title = "Primaris Psyker"
 	flag = PRIMARISPSYKER 
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	wage_payout = 65
 	supervisors = "the Emperor"
 	selection_color = "#E0D68B"
@@ -18,19 +18,12 @@
 
 	relationship_chance = HUMAN_NO_RELATIONS
 
-//-------------Inquisitor Outfit Datums--------------//
+
 /datum/outfit/primarispsyker
 
 	outfit_name = "Primaris Psyker"
 	associated_job = /datum/job/primarispsyker
 	no_backpack = TRUE
-
-	//backpack_types = list(
-	//	BACKPACK_STRING = /obj/item/weapon/storage/backpack,
-	//	SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_norm,
-	//	SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/sec,
-	//)
 
 	items_to_spawn = list(
 		"Default" = list(
@@ -54,3 +47,6 @@
 	var/datum/role/imperial_guard/new_trooper = new
 	new_trooper.AssignToRole(M.mind,TRUE)
 	new_trooper.mind_storage(M.mind)
+
+/datum/outfit/primarispsyker/handle_special_abilities(var/mob/living/carbon/human/H)
+	return 1

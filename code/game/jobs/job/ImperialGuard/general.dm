@@ -29,13 +29,6 @@
 	associated_job = /datum/job/general
 	no_backpack = TRUE
 
-	//backpack_types = list(
-	//	BACKPACK_STRING = /obj/item/weapon/storage/backpack/captain,
-	//	SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_cap,
-	//	SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/com,
-	//)
-
 	items_to_spawn = list( 
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/heads/captain,

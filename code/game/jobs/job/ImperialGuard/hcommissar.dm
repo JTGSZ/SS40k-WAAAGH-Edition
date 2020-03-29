@@ -1,11 +1,11 @@
 //------------Commissar---------------//
-/datum/job/commissar //Note to self: Listen to Riot City - Burn the night(2019) after Eternal Champion - Armor of Ire(2016)
+/datum/job/commissar 
 	title = "Commissar"
 	flag = COMMISSAR
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the Regiment General"
 	selection_color = "#E0D68B"
 	req_admin_notify = 1
@@ -27,14 +27,6 @@
 	outfit_name = "Commissar"
 	associated_job = /datum/job/commissar
 	no_backpack = TRUE
-
-
-	//backpack_types = list(
-	//	BACKPACK_STRING = /obj/item/weapon/storage/backpack/security,
-	//	SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_sec,
-	//	SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/sec,
-	//)
 
 	items_to_spawn = list(
 		"Default" = list(

@@ -3,8 +3,8 @@
 	flag = PREACHER
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "The Ecclesiarchy"
 	wage_payout = 25
 	selection_color = "#E0D68B"
@@ -23,13 +23,6 @@
 	outfit_name = "Preacher"
 	associated_job = /datum/job/preacher
 	no_backpack = TRUE
-
-	//backpack_types = list(
-	//	BACKPACK_STRING = /obj/item/weapon/storage/backpack,
-	//	SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_norm,
-	//	SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-	//	MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger,
-	//)
 
 	items_to_spawn = list(
 		"Default" = list(
