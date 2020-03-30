@@ -15,7 +15,10 @@
 #define ATTR_SENSITIVITY	"sensitivity"
 
 /mob/living
-	var/stat_increase_cooldown = FALSE
+	var/stat_increase_cooldown = FALSE //A optional cooldown on stat increases
+	var/casting_stress = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
+	var/chaos_tainted = FALSE //Are we currently tainted by chaos?
+
 /*
 	Strength
 				*/
@@ -57,19 +60,42 @@
 	var/attribute_constitution = 1
 	var/attribute_constitution_natural_limit = 1
 	var/attribute_constitution_trained_integer = 1
+
+/*
+	MAGIC SYSTEM SHIT
+						*/
+/*
+Basically unless you already were a psyker, you only unlock things at a certain threshold of warp sensitivity.
+|0------------500------------1000|
+Nothing	  Small prob	100% unlock
+
+Along with that there is a variable that dictates how much you can cast and how fast.
+Going too far up it increases risk of injury, unless you are casting chaos stuff.
+The integers are held on the mob.
+Willpower will dictate your strain dissipation rate.
+Chaos based stuff will cost no strain.
+
+*/
 /*
 	Willpower
 				*/
 //Willpower is basically how much resistance we have to magic shit.
 //Also how strong we can cast.
+//Dictates how many points we can put towards general psyker things.
 	var/attribute_willpower = 1
 	var/attribute_willpower_natural_limit = 1
 	var/attribute_willpower_trained_integer = 1
+	var/ticker_to_next_psyker_point = 0
+	var/psyker_points = 0
 /*
 	Sensitivity
 				*/
 //Sensitivity is basically how much LESS resistance we have to magic shit.
 //Also how strong we can cast.
+//Dictates how many points we can put towards Chaos based things.
 	var/attribute_sensitivity = 1
 	var/attribute_sensitivity_natural_limit = 1
 	var/attribute_sensitivity_trained_integer = 1
+	var/ticker_to_next_chaos_psyker_point = 0
+	var/chaos_psyker_points = 0
+	

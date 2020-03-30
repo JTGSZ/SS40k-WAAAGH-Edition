@@ -552,14 +552,13 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 //Complex Bump Attacks
 /mob/living/carbon/human/to_bump(atom/movable/AM as mob|obj)
 	if(isliving(AM))
-		var/mob/living/carbon/human/H = AM
-		if(!H.bumpattack_cooldown)
+		if(!bumpattack_cooldown)
 			var/obj/item/weapon/I = src.get_active_hand()
 			if(istype(I, /obj/item/weapon))
-				H.bumpattack_cooldown = 1
+				bumpattack_cooldown = TRUE
 				spawn(10) 
-					H.bumpattack_cooldown = 0
-				I.attack(H, src)
+					bumpattack_cooldown = FALSE
+				I.attack(AM, src)
 				return 1
 	..()
 
@@ -569,7 +568,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	var/list/modifiers = params2list(params)
 	if(modifiers["alt"]) //If you hit alt and click you can fire a gun in the offhand
 		var/obj/item/weapon/W = src.get_inactive_hand()
-		if(W && !istype(W, /obj/item/weapon/gun))
+		if(W && istype(W, /obj/item/weapon/gun))
 			if(!offhand_cooldown)
 				offhand_cooldown = 1
 				spawn(5) 

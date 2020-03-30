@@ -99,11 +99,6 @@
 		A.anchored = 0
 	var/put_in_hand = finish_building(usr, S, O)
 
-	//if (R.max_res_amount>1)
-	//	var/obj/item/stack/new_item = O
-	//	new_item.amount = R.res_amount*multiplier
-	//	//new_item.add_to_stacks(usr)
-
 	S.use(req_amount*multiplier)
 	for(var/obj/item/stack/SS in stacks_to_consume)
 		SS.use(stacks_to_consume[SS])

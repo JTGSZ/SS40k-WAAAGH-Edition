@@ -273,20 +273,6 @@
 	//NOT IN PLACE: message segments like verbs can be written as {UN|forwardmessage|backwardmessage}. This formats that in selection
 /datum/construction/reversible/fixText(message, mob/user, self = 0)
 	return ..(message, user, self)
-		/*
-		while("{UN|" in text)
-			var/start_bracket = findtext(text, "{")
-			var/this_verb = copytext(text, start_bracket, findtext(text, "}", start_bracket + 1))
-			to_chat(world, this_verb)
-			var/marker = findtext(this_verb, "|")
-			var/final_verb = ""
-			if(diff == FORWARD)
-				final_verb = copytext(this_verb, marker + 1, findtext(this_verb, "|", marker + 1))
-			else
-				final_verb = copytext(this_verb, findtext(this_verb, "|", marker + 1), findtext(text, "}", start_bracket + 1))
-			to_chat(world, final_verb)
-			replacetext(text, this_verb, final_verb)
-		*/
 
 /datum/construction/reversible/try_consume(mob/user as mob, atom/movable/used_atom, given_step, index, diff)
 	//if we've made some progress on a step, we want to drop it

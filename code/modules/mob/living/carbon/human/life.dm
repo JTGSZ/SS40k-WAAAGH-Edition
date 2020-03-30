@@ -126,7 +126,7 @@ var/global/list/organ_damage_overlays = list(
 	//TODO: seperate this out
 	//Update the current life tick, can be used to e.g. only do something every 4 ticks
 	life_tick++
-	if (life_tick % 2)
+	if(life_tick % 2)
 		crawlcounter = 1
 
 	var/datum/gas_mixture/environment = loc.return_air()
@@ -145,6 +145,9 @@ var/global/list/organ_damage_overlays = list(
 				update_powerwords_hud()
 			update_powerwords_hud()
 			clear_counter += 1
+
+		if(casting_stress >= 0)
+			casting_stress -= 5+(attribute_willpower/2)
 
 		if(SSair.current_cycle % 4 == 2 || failed_last_breath) //First, resolve location and get a breath
 			breathe() //Only try to take a breath every 4 ticks, unless suffocating
@@ -186,7 +189,7 @@ var/global/list/organ_damage_overlays = list(
 	handle_regular_status_updates()	//Optimized a bit
 	update_canmove()
 	//Update our name based on whether our face is obscured/disfigured
-	name = get_visible_name()
+	name = get_visible_name() 
 	handle_regular_hud_updates()
 	pulse = handle_pulse()
 	for(var/obj/item/weapon/grab/G in src)

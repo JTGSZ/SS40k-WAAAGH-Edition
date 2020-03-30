@@ -2,7 +2,7 @@
 /datum/action/item_action/warhams/heavydef_swap_stance
 	name = "Swap Stance"
 	background_icon_state = "bg_block"
-	button_icon_state = "defensive"
+	button_icon_state = "blocking"
 
 /datum/action/item_action/warhams/heavydef_swap_stance/Trigger()
 	var/obj/item/weapon/S = target

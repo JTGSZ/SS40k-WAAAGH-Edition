@@ -23,56 +23,6 @@
 */
 
 /*
-	STRENGTH
-			*/
-/*
-Basically we return TRUE or FALSE when called, this proc is a appended check.
----Variables----
-attribute_strength - Contained on the mob itself, dynamic built strength. Starting at species core strength.
-base_strength - Contained on the species datum, starting core strength. Transferred to stat strength.
-
-attribute_strength_check(var/difficulty) - a check of the dynamic strength stat. Which can be raised.
-base_strength_check(var/difficulty) - a check of the latent species strength. 
-						Used to check for strong body icon template.
-
-*/
-/mob/proc/basic_dyn_strength_check()
-	return FALSE
-
-/mob/proc/basic_species_strength_check()
-	return FALSE
-
-/mob/living/basic_dyn_strength_check()
-	return FALSE
-
-/mob/living/basic_species_strength_check()
-	return FALSE
-
-/mob/living/carbon/basic_dyn_strength_check()
-	return FALSE
-
-//--------------------------------------------------------//
-/mob/living/carbon/human/basic_dyn_strength_check(var/difficulty)
-	if(!attribute_strength) //We have no strength
-		return FALSE
-
-	if(attribute_strength > difficulty)
-		return TRUE
-	else
-		return FALSE
-
-//--------------------------------------------------------//
-/mob/living/carbon/human/basic_species_strength_check(var/difficulty)
-	if(!species.base_strength)
-		return FALSE
-
-	if(species.base_strength >= difficulty)
-		return TRUE
-	else
-		return FALSE
-
-
-/*
 	Relevant Species Max Table
 								*/
 /* Species		|Strength|Agility|Dexterity|Constitution|Willpower|Warp Sensitivity|Total:
@@ -193,21 +143,39 @@ base_strength_check(var/difficulty) - a check of the latent species strength.
 				attribute_willpower += 1
 				to_chat(src,"You feel more willful.")
 				attribute_willpower_trained_integer = 0
+				ticker_to_next_psyker_point += 2
+				if(ticker_to_next_psyker_point >= 6)
+					to_chat(src,"You feel like you can tap into more power.")
+					psyker_points += 1
+					ticker_to_next_psyker_point = 0
 				return 1
 			else
 				return 0
 		if(ATTR_SENSITIVITY) //Maximum cap 1000
-			attribute_sensitivity_trained_integer += attr_trained_value
-			if(attribute_sensitivity <= attribute_sensitivity_natural_limit) //If our stat is lesser than the natural limit
-				if(attribute_sensitivity_trained_integer >= 800) //If we have trained up greater than or equal to 800			
-					attribute_sensitivity += 5
-					to_chat(src,"You feel more in touch with reality.")
-					attribute_sensitivity_trained_integer = 0
-					return 1
-				else
-					return 0
+			attribute_sensitivity_trained_integer += attr_trained_value //We put trained value in
+			if(attribute_sensitivity <= attribute_sensitivity_natural_limit) //If our stat is lesser than the natural limit		
+				attribute_sensitivity += 25
+				to_chat(src,"You feel more in touch with reality.")
+				attribute_sensitivity_trained_integer = 0
+				ticker_to_next_psyker_point += 1
+				ticker_to_next_chaos_psyker_point += 1
+				if(ticker_to_next_psyker_point >= 6)
+					to_chat(src,"You feel like you can tap into more power.")
+					psyker_points += 1
+					ticker_to_next_psyker_point = 0
+				if(chaos_tainted)
+					if(ticker_to_next_chaos_psyker_point >= 3)
+						to_chat(src,"Power courses through you.")
+						chaos_psyker_points += 1
+						ticker_to_next_chaos_psyker_point = 0
+				if(attribute_sensitivity >= 500 && !chaos_tainted)
+					if(prob(attribute_sensitivity/250))
+						chaos_tainted = TRUE
+						to_chat(src,"The Gods of Chaos call to you.")
+				return 1
 			else
 				return 0
+
 
 	//stat_increase_cooldown = world.time + 50
 
