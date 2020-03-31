@@ -3,10 +3,11 @@
 /obj/item/weapon/spellbook/primaris_psyker
 	name = "psyker book"
 	desc = "A book of uhh... psyker stuff for psykers."
-	icon = 'icons/obj/library.dmi'
-	icon_state = "spellbook"
-	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/books.dmi', "right_hand" = 'icons/mob/in-hand/right/books.dmi')
-	item_state = "book"
+	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
+	icon_state = "psykerbook"
+	slot_flags = SLOT_BELT
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
+	item_state = "psykerbook"
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_TINY
