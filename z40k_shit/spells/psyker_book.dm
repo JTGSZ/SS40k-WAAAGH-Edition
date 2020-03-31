@@ -13,10 +13,10 @@
 	flags = FPRINT
 
 	all_spells = list()
-	offensive_spells = list()
-	defensive_spells = list()
-	utility_spells = list()
-	misc_spells = list()
+	var/list/biomancy_spells = list()
+	var/list/pyromancy_spells = list()
+	var/list/telekinesis_spells = list()
+	var/list/telepathy_spells = list()
 
 	//Unlike the list above, the available_artifacts list builds itself from all subtypes of /datum/spellbook_artifact
 	//available_artifacts = list()
@@ -33,9 +33,9 @@
 /obj/item/weapon/spellbook/primaris_psyker/New()
 	..()
 
-	setup_spellbook()
+	//setup_spellbook()
 
-/obj/item/weapon/spellbook/primaris_psyker/use(amount, mob/living/user)
+/obj/item/weapon/spellbook/primaris_psyker/proc/use_psykpoints(amount, mob/living/user)
 	if(!user)
 		return 0
 
@@ -57,30 +57,28 @@
 	current_spellpoints = user.psyker_points
 	to_chat(user, "We currently have [current_spellpoints]")
 
-/obj/item/weapon/spellbook/setup_spellbook()
+/obj/item/weapon/spellbook/primaris_psyker/setup_spellbook()
 
-	//for(var/psyker_spell in getAllPrimarisPsykerSpells())
-	for(var/psyker_spell in getAllWizSpells())
+	for(var/psyker_spell in getAllPrimarisPsykerSpells())
 		var/spell/S = new psyker_spell 
 		all_spells += psyker_spell
 		if(!S.holiday_required.len || (Holiday in S.holiday_required))
 			switch(S.specialization)
-				if(SSOFFENSIVE)
-					offensive_spells +=	psyker_spell
-				if(SSDEFENSIVE)
-					defensive_spells += psyker_spell
-				if(SSUTILITY)
-					utility_spells += psyker_spell
-				else
-					misc_spells += psyker_spell
-
+				if(SSBIOMANCY)
+					biomancy_spells +=	psyker_spell
+				if(SSPYROMANCY)
+					pyromancy_spells += psyker_spell
+				if(SSTELEKINESIS)
+					telekinesis_spells += psyker_spell
+				if(SSTELEPATHY)
+					telepathy_spells += psyker_spell
 
 //Menu
 #define buy_href_link(obj, price, txt) ((price > current_spellpoints) ? "Price: [price] point\s" : "<a href='?src=\ref[src];spell=[obj];buy=1'>[txt]</a>")
 #define book_background_color "#F1F1D4"
 #define book_window_size "550x600"
 
-/obj/item/weapon/spellbook/primaris_psyker/attack_self(var/mob/user)
+/obj/item/weapon/spellbook/primaris_psyker/attack_self(var/mob/living/user)
 	if(!user)
 		return
 
@@ -98,16 +96,16 @@
 	dat += "<em>This book contains a list of many useful things that you'll need in your journey.</em><br>"
 	dat += "<span style=\"color:blue\"><strong>KNOWN SPELLS:</strong></span><br><br>"
 
-	var/list/shown_spells = all_spells.Copy()
-	var/list/shown_offensive_spells = offensive_spells.Copy()
-	var/list/shown_defensive_spells = defensive_spells.Copy()
-	var/list/shown_utility_spells = utility_spells.Copy()
-	var/list/shown_misc_spells = misc_spells.Copy()
+	var/list/known_spells = all_spells.Copy() //Spells the user knows.
+	var/list/shown_biomancy_spells = biomancy_spells.Copy() //These are total lists of what spells we have avail.
+	var/list/shown_pyromancy_spells = pyromancy_spells.Copy()
+	var/list/shown_telekinesis_spells = telekinesis_spells.Copy()
+	var/list/shown_telepathy_spells = telepathy_spells.Copy()
 
 	//Draw known spells first
 	for(var/spell/spell in user.spell_list)
-		if(shown_spells.Find(spell.type)) //User knows a spell from the book
-			shown_spells.Remove(spell.type)
+		if(known_spells.Find(spell.type)) //User knows a spell from the book
+			known_spells.Remove(spell.type)
 
 			//FORMATTING
 
@@ -140,7 +138,7 @@
 				if(!max)
 					continue
 
-				upgrade_data += "<a href='?src=\ref[src];spell=\ref[spell];upgrade_type=[upgrade];upgrade_info=1'>[upgrade]</a>: [lvl]/[max] (<a href='?src=\ref[src];spell=\ref[spell];upgrade_type=[upgrade];upgrade=1'>upgrade ([spell.get_upgrade_price(upgrade)] points)</a>)  "
+				upgrade_data += "<a href='?src=\ref[src];spell=\ref[spell];upgrade_type=[upgrade];upgrade_info=1'>[upgrade]</a>: [lvl]/[max] (<a href='?src=\ref[src];spell=\ref[spell];upgrade_type=[upgrade];upgrade=1'>upgrade ([spell.get_upgrade_price(upgrade)] points)</a>)"
 
 			if(upgrade_data)
 				dat += "[upgrade_data]<br><br>"
@@ -151,27 +149,39 @@
 //<i>(Description)</i>
 //Requires robes to cast
 
-	if(shown_offensive_spells.len)
-		dat += "<span style=\"color:red\"><strong>OFFENSIVE SPELLS:</strong></span><br><br>"
-		for(var/spell_path in shown_offensive_spells)
+	if(BIOMANCY in user.spelltree_unlocked_list)
+		dat += "<span style=\"color:green\"><strong>BIOMANCY SPELLS:</strong></span><br><br>"
+		for(var/spell_path in shown_biomancy_spells)
 			dat += build_description(user, spell_path)
+	else
+		dat += "<span style=\"color:green\"><strong>UNLOCK BIOMANCY</strong></span><br>"
+		dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock=1;unlock_tree=biomancy'>Unlock Tree</a></span><br><br>"
 
-	if(shown_defensive_spells.len)
-		dat += "<span style=\"color:blue\"><strong>DEFENSIVE SPELLS:</strong></span><br><br>"
-		for(var/spell_path in shown_defensive_spells)
+	if(PYROMANCY in user.spelltree_unlocked_list)
+		dat += "<span style=\"color:red\"><strong>PYROMANCY SPELLS:</strong></span><br><br>"
+		for(var/spell_path in shown_pyromancy_spells)
 			dat += build_description(user, spell_path)
+	else
+		dat += "<span style=\"color:red\"><strong>UNLOCK PYROMANCY:</strong></span><br>"
+		dat += "<span style=\"color:red\"><a href='?src=\ref[src];unlock=1;unlock_tree=pyromancy'>Unlock Tree</a></span><br><br>"
 
-	if(shown_utility_spells.len)
-		dat += "<span style=\"color:green\"><strong>UTILITY SPELLS:</strong></span><br><br>"
-		for(var/spell_path in shown_utility_spells)
+	if(TELEKINESIS in user.spelltree_unlocked_list)
+		dat += "<span style=\"color:blue\"><strong>TELEKINESIS SPELLS:</strong></span><br><br>"
+		for(var/spell_path in shown_telekinesis_spells)
 			dat += build_description(user, spell_path)
+	else
+		dat += "<span style=\"color:blue\"><strong>UNLOCK TELEKINESIS:</strong></span><br>"
+		dat += "<span style=\"color:blue\"><a href='?src=\ref[src];unlock=1;unlock_tree=telekinesis'>Unlock Tree</a></span><br><br>"
 
-	if(shown_misc_spells.len)
-		dat += "<span style=\"color:orange\"><strong>MISCELLANEOUS SPELLS:</strong></span><br><br>"
-		for(var/spell_path in shown_misc_spells)
+	if(TELEPATHY in user.spelltree_unlocked_list)
+		dat += "<span style=\"color:purple\"><strong>TELEPATHY SPELLS:</strong></span><br><br>"
+		for(var/spell_path in shown_telepathy_spells)
 			dat += build_description(user, spell_path)
+	else
+		dat += "<span style=\"color:purple\"><strong>UNLOCK TELEPATHY</strong></span><br>"
+		dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock=1;unlock_tree=telepathy'>Unlock Tree</a></span><br><br>"
 
-	dat += "<hr><span style=\"color:purple\"><strong>ARTIFACTS AND BUNDLES<sup>*</sup></strong></span><br><small>* Non-refundable</small><br><br>"
+	dat += "<hr><span style=\"color:orange\"><strong>ARTIFACTS AND BUNDLES<sup>*</sup></strong></span><br><small>* Non-refundable</small><br><br>"
 
 	for(var/datum/spellbook_artifact/A in available_artifacts)
 		if(!A.can_buy(user))
@@ -214,17 +224,6 @@
 /obj/item/weapon/spellbook/primaris_psyker/get_spell_properties(flags, mob/user)
 	var/list/properties = list()
 
-	if(flags & NEEDSCLOTHES)
-		var/new_prop = "Requires wizard robes to cast."
-
-		//If user has the robeless spell, strike the text out
-		if(user)
-			var/is_robeless = locate(/spell/passive/noclothes) in user.spell_list
-			if(is_robeless)
-				new_prop = "<s>[new_prop]</s>"
-
-		properties.Add(new_prop)
-
 	if(flags & STATALLOWED)
 		properties.Add("Can be cast while unconscious.")
 
@@ -249,7 +248,7 @@
 		return 0
 
 /obj/item/weapon/spellbook/primaris_psyker/refund(mob/user)
-	to_chat(user, "<span class='notice'> There are no refunds. </span>")
+	to_chat(user, "<span class='notice'> There are no refunds retard. </span>")
 	return
 
 /obj/item/weapon/spellbook/primaris_psyker/Topic(href, href_list)
@@ -261,6 +260,19 @@
 		return
 
 	get_spellpoints(L)
+
+	if(href_list["unlock"])
+		if(use_psykpoints(1,L))
+			switch(href_list["unlock_tree"])
+				if(BIOMANCY)
+					L.spelltree_unlocked_list += BIOMANCY
+				if(PYROMANCY)
+					L.spelltree_unlocked_list += PYROMANCY
+				if(TELEKINESIS)
+					L.spelltree_unlocked_list += TELEKINESIS
+				if(TELEPATHY)
+					L.spelltree_unlocked_list += TELEPATHY
+			attack_self(usr)
 
 	if(href_list["refund"])
 		refund(usr)
@@ -276,7 +288,7 @@
 
 			else if(buy_type in all_spells)
 				var/spell/S = buy_type
-				if(use(initial(S.price),L))
+				if(use_psykpoints(initial(S.price),L))
 					var/spell/added = new buy_type
 					added.refund_price = added.price
 					add_spell(added, L)
@@ -286,7 +298,7 @@
 			var/datum/spellbook_artifact/SA = locate(href_list["spell"])
 
 			if(istype(SA) && (SA in available_artifacts))
-				if(SA.can_buy(usr) && use(SA.price,L))
+				if(SA.can_buy(usr) && use_psykpoints(SA.price,L))
 					SA.purchased(usr)
 					if(SA.one_use)
 						available_artifacts.Remove(SA)
@@ -299,7 +311,7 @@
 
 		if(istype(spell) && spell.can_improve(upgrade_type))
 			var/price = spell.get_upgrade_price(upgrade_type)
-			if(use(price,L))
+			if(use_psykpoints(price,L))
 				spell.refund_price += price
 				var/temp = spell.apply_upgrade(upgrade_type)
 

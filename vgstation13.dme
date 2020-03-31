@@ -13,6 +13,7 @@
 #include "__40kEARLYLoad\ATCHDEF.dm"
 #include "__40kEARLYLoad\HACKJOB.dm"
 #include "__40kEARLYLoad\PROJCALIBER.dm"
+#include "__40kEARLYLoad\PSYKER_DEF.dm"
 #include "__40kEARLYLoad\RELATIONSHIPDEF.dm"
 #include "__40kEARLYLoad\role_datums.dm"
 #include "__40kEARLYLoad\STATLINE_NUM.dm"

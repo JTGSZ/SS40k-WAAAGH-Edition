@@ -16,8 +16,11 @@
 
 /mob/living
 	var/stat_increase_cooldown = FALSE //A optional cooldown on stat increases
-	var/casting_stress = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
+	var/realtime_warp_charge = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
 	var/chaos_tainted = FALSE //Are we currently tainted by chaos?
+	var/list/spelltree_unlocked_list = list() //Spell trees that are currently unlocked.
+//These can be the following.
+
 
 /*
 	Strength
