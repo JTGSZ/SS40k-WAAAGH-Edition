@@ -19,11 +19,6 @@
 	var/list/telekinesis_spells = list()
 	var/list/telepathy_spells = list()
 
-	//Unlike the list above, the available_artifacts list builds itself from all subtypes of /datum/spellbook_artifact
-	//available_artifacts = list()
-
-	//available_potions = list() //No potions.
-
 	var/current_spellpoints = 5
 
 	op = 1
@@ -92,7 +87,7 @@
 
 	var/dat
 	dat += "<head><title>Psyker Book ([current_spellpoints] REMAINING)</title></head><body style=\"background-color:[book_background_color]\">"
-	dat += "<h1>A Psykers Catalogue Of Spells And Artifacts</h1><br>"
+	dat += "<h1>A Psykers Catalogue Of Spells</h1><br>"
 	dat += "<h2>[current_spellpoints] point\s remaining (<a href='?src=\ref[src];refund=1'>Get a refund</a>)</h2><br>"
 	dat += "<em>This book contains a list of many useful things that you'll need in your journey.</em><br>"
 	dat += "<span style=\"color:blue\"><strong>KNOWN SPELLS:</strong></span><br><br>"
@@ -181,23 +176,6 @@
 	else
 		dat += "<span style=\"color:purple\"><strong>UNLOCK TELEPATHY</strong></span><br>"
 		dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock=1;unlock_tree=telepathy'>Unlock Tree</a></span><br><br>"
-
-	dat += "<hr><span style=\"color:orange\"><strong>ARTIFACTS AND BUNDLES<sup>*</sup></strong></span><br><small>* Non-refundable</small><br><br>"
-
-	for(var/datum/spellbook_artifact/A in available_artifacts)
-		if(!A.can_buy(user))
-			continue
-
-		var/artifact_name = A.name
-		var/artifact_desc = A.desc
-		var/artifact_price = A.price
-
-		//FORMATTING:
-		//<b>Staff of Change</b> (buy for 1 point)
-		//<i>(description)</i>
-
-		dat += "<strong>[artifact_name]</strong> ([buy_href_link("\ref[A]", artifact_price, "buy for [artifact_price] point\s")])<br>"
-		dat += "<em>[artifact_desc]</em><br><br>"
 
 	dat += "</body>"
 
@@ -294,15 +272,6 @@
 					added.refund_price = added.price
 					add_spell(added, L)
 					to_chat(usr, "<span class='info'>You have learned [added.name].</span>")
-
-		else //Passed an artifact reference
-			var/datum/spellbook_artifact/SA = locate(href_list["spell"])
-
-			if(istype(SA) && (SA in available_artifacts))
-				if(SA.can_buy(usr) && use_psykpoints(SA.price,L))
-					SA.purchased(usr)
-					if(SA.one_use)
-						available_artifacts.Remove(SA)
 
 		attack_self(usr)
 
