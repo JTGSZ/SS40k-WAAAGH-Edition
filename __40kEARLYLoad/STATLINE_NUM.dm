@@ -14,6 +14,9 @@
 #define ATTR_WILLPOWER		"willpower"
 #define ATTR_SENSITIVITY	"sensitivity"
 
+/mob
+	var/warp_speed = FALSE //We are currently in WARP INDUCED SPEED INCREASE (Aka extra attacks)
+
 /mob/living
 	var/stat_increase_cooldown = FALSE //A optional cooldown on stat increases
 	var/realtime_warp_charge = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149

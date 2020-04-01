@@ -48,7 +48,8 @@
 		client.move_delayer.delayNext(delay,additive)
 
 /mob/proc/delayNextAttack(var/delay, var/additive=0)
-	attack_delayer.delayNext(delay,additive)
+	if(!warp_speed)
+		attack_delayer.delayNext(delay,additive)
 
 /mob/proc/delayNextSpecial(var/delay, var/additive=0)
 	special_delayer.delayNext(delay,additive)
