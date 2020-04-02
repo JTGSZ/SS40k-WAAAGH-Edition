@@ -12,7 +12,6 @@
 	spell_flags = STATALLOWED
 	cooldown_min = 5 MINUTES
 
-	override_base = "vamp"
 	hud_state = "vampire_screech"
 
 /spell/aoe_turf/sunburst/choose_targets(var/mob/user = usr)

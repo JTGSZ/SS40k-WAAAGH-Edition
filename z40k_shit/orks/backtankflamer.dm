@@ -185,7 +185,7 @@
 		if(my_pack.get_fuel() > 0)
 			my_pack.reagents.remove_reagent(FUEL, 50)
 			playsound(src, 'z40k_shit/sounds/flamer.ogg', 60, 1)
-			in_chamber = new/obj/item/projectile/fire_breath/shuttle_exhaust(src)
+			in_chamber = new /obj/item/projectile/fire_breath(src, P = 500, T = 700, F_Dur = 6)
 			return 1
 		else
 			return
