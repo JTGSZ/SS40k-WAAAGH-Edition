@@ -1,6 +1,6 @@
 /spell/aoe_turf/fire_shield
 	name = "Fire Shield"
-	desc = "Summon a stationary ring of flames around your current location for 10 seconds. While the ring is active, you are fully immune to fire and burns."
+	desc = "Blessing - Grants fire resistance to all those around you and brings up a flaming barrier."
 	user_type = USER_TYPE_PSYKER
 	specialization = PYROMANCY
 	school = "conjuration"
@@ -8,7 +8,6 @@
 	cooldown_min = 100
 
 	charge_type = Sp_RECHARGE
-	invocation = "E ROHA"
 	invocation_type = SpI_NONE
 	hud_state = "wiz_firering"
 

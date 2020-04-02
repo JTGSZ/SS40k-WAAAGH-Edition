@@ -2,8 +2,6 @@
 	name = "Iron Arm"
 	abbreviation = "IA"
 	desc = "A blessing... NANOMACHINES SON."
-//	panel = "Racial Abilities"
-//	override_base = "racial"
 	hud_state = "racial_waagh"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
