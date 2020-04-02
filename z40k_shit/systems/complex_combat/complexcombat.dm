@@ -194,6 +194,8 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	if(ishuman(user) && ishuman(target))
 		var/mob/living/carbon/human/H = user
 		var/mob/living/carbon/human/T = target
+		if(H.soul_blaze_melee)
+			T.soul_blaze_append()
 		if(saw_execution)
 			user.visible_message("<span class='danger'> [user] begins sawing [target] to death!")
 			if(do_after(user,src,40))

@@ -66,7 +66,7 @@
 #define USER_TYPE_ARTIFACT "artifact"
 #define USER_TYPE_VAMPIRE "vampire"
 #define USER_TYPE_MECH "mech"
-#define USER_TYPE_PRIMARIS_PSYKER "primarispsyker"
+#define USER_TYPE_PSYKER "psyker"
 
 //Spell aspect flags
 #define SPELL_FIRE 1 //Fire based spells

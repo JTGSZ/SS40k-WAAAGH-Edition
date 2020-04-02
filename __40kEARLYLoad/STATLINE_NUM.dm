@@ -16,6 +16,7 @@
 
 /mob
 	var/warp_speed = FALSE //We are currently in WARP INDUCED SPEED INCREASE (Aka extra attacks)
+	var/soul_blaze_melee = FALSE //Are we currently applying soul blaze?
 
 /mob/living
 	var/stat_increase_cooldown = FALSE //A optional cooldown on stat increases
