@@ -1,6 +1,6 @@
 /spell/aoe_turf/warp_speed	//Raaagh
 	name = "Warp Speed"
-	abbreviation = "WG"
+	abbreviation = "WSPD"
 	desc = "Blessing - Makes you move faster."
 	hud_state = "racial_waagh"
 	spell_flags = INCLUDEUSER

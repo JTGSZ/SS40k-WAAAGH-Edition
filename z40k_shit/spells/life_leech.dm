@@ -1,7 +1,7 @@
 /spell/targeted/projectile/life_leech
 	name = "Life Leech"
 	desc = "Witchfire - Drains life from things in a area and returns it to you."
-	abbreviation = "GR"
+	abbreviation = "LL"
 	user_type = USER_TYPE_WIZARD
 	specialization = BIOMANCY
 

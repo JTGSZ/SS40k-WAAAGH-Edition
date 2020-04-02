@@ -1,10 +1,9 @@
 /spell/targeted/enfeeble
 	name = "Enfeeble"
 	desc = "Malediction - Weakens the target and everyone around it."
-	abbreviation = "GR"
+	abbreviation = "ENF"
 	user_type = USER_TYPE_WIZARD
 	specialization = BIOMANCY
-
 	school = "evocation"
 	charge_max = 100
 	invocation_type = SpI_NONE

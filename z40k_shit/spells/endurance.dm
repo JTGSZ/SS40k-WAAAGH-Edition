@@ -1,6 +1,6 @@
 /spell/aoe_turf/endurance	//Raaagh
 	name = "Endurance"
-	abbreviation = "WG"
+	abbreviation = "END"
 	desc = "Blessing - Makes everyone in range tougher."
 	hud_state = "racial_waagh"
 	spell_flags = INCLUDEUSER

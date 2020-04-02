@@ -1,6 +1,6 @@
 /spell/aoe_turf/iron_arm	//Raaagh
 	name = "Iron Arm"
-	abbreviation = "WG"
+	abbreviation = "IA"
 	desc = "A blessing... NANOMACHINES SON."
 //	panel = "Racial Abilities"
 //	override_base = "racial"
