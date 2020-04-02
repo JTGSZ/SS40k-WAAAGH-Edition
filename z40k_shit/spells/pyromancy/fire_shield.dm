@@ -1,7 +1,7 @@
 /spell/aoe_turf/fire_shield
 	name = "Fire Shield"
 	desc = "Summon a stationary ring of flames around your current location for 10 seconds. While the ring is active, you are fully immune to fire and burns."
-	user_type = USER_TYPE_WIZARD
+	user_type = USER_TYPE_PSYKER
 	specialization = PYROMANCY
 	school = "conjuration"
 	charge_max = 300

@@ -2,7 +2,7 @@
 	name = "Enfeeble"
 	desc = "Malediction - Weakens the target and everyone around it."
 	abbreviation = "ENF"
-	user_type = USER_TYPE_WIZARD
+	user_type = USER_TYPE_PSYKER
 	specialization = BIOMANCY
 	school = "evocation"
 	charge_max = 100

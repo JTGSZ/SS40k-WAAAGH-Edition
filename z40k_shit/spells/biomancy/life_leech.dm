@@ -2,7 +2,7 @@
 	name = "Life Leech"
 	desc = "Witchfire - Drains life from things in a area and returns it to you."
 	abbreviation = "LL"
-	user_type = USER_TYPE_WIZARD
+	user_type = USER_TYPE_PSYKER
 	specialization = BIOMANCY
 
 	proj_type = /obj/item/projectile/spell_projectile/life_leech

@@ -3,6 +3,7 @@
 	abbreviation = "WSPD"
 	desc = "Blessing - Makes you move faster."
 	hud_state = "racial_waagh"
+	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = BIOMANCY
 	charge_type = Sp_RECHARGE
