@@ -2681,6 +2681,7 @@
 #include "z40k_shit\spells\telekinesis\psychic_maelstrom.dm"
 #include "z40k_shit\spells\telekinesis\shockwave.dm"
 #include "z40k_shit\spells\telekinesis\telekine_dome.dm"
+#include "z40k_shit\spells\telepathy\dominate.dm"
 #include "z40k_shit\structure\barbedwire.dm"
 #include "z40k_shit\structure\barricades.dm"
 #include "z40k_shit\systems\actionbuttons.dm"
