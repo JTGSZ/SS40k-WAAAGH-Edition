@@ -60,4 +60,4 @@ If the spell_projectile is seeking, it will update its target every process and 
 	return targets
 
 /spell/targeted/projectile/proc/prox_cast(var/list/targets, var/atom/movable/spell_holder)
-	return targets
+	return 1 

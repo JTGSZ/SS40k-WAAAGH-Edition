@@ -33,6 +33,8 @@
 	var/turf/top_right = locate(center.x+x2wall, center.y+y2wall, center.z)
 	var/turf/bottom_right = locate(center.x+x2wall, center.y-y2wall, center.z)
 
+
+	//TBQH: This 2nd rework is nasty, but we also solve the issue of people shooting in through the corners.
 	//Bottom left to top left, so we are west
 	for(var/turf/T in block(bottom_left, top_left))
 		var/obj/effect/telekine_dome/THEBOYS = new(T)

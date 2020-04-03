@@ -95,17 +95,25 @@
 	if(istype(A,/obj/item))
 		qdel(O)
 
+	var/obj/complex_vehicle/CV = A
+	if(istype(A,/obj/complex_vehicle))
+		CV.health -= 1000
+
 	var/turf/simulated/T = A
 	if(istype(A,/turf/simulated))
 		T.ChangeTurf(get_base_turf(src.z))
 	
-	var/mob/living/carbon/C = A
-	if(istype(A,/mob/living/carbon))
+	if(iscarbon(A))
+		var/mob/living/carbon/C = A
 		C.gib()
 
 	var/obj/structure/ST = A
 	if(istype(A, /obj/structure))
 		qdel(ST)
+
+	var/obj/machinery/MACH = A
+	if(istype(A,/obj/machinery))
+		qdel(MACH)
 
 /obj/effect/super_molten_beam/head
 	var/list/segments = list() //we recordo ur segments
