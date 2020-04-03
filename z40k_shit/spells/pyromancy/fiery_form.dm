@@ -13,6 +13,7 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 /spell/aoe_turf/fiery_form/cast(list/targets, mob/user)
+
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>Fire wreathes your form.</span>")
 		L.attribute_constitution += 10

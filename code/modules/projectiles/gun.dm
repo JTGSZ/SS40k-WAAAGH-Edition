@@ -41,6 +41,7 @@
 	var/fire_delay = 2
 	var/last_fired = 0
 	var/delay_user = 4	//how much to delay the user's next attack by after firing
+	
 
 	var/conventional_firearm = 1	//Used to determine whether, when examined, an /obj/item/weapon/gun/projectile will display the amount of rounds remaining.
 
@@ -163,6 +164,15 @@
 		if(world.time % 3) //to prevent spam
 			to_chat(user, "<span class='warning'>[src] is not ready to fire again!")
 		return
+
+	if(user.objuration_mechanicum)
+		var/mob/living/carbon/human/H = user
+		if(prob(45))
+			user.drop_item()
+			H.audible_scream()
+			H.adjustFireLossByPart(rand(1, 12), LIMB_LEFT_HAND, src)
+			H.adjustFireLossByPart(rand(1, 12), LIMB_RIGHT_HAND, src)
+			to_chat(H, "<span class='danger'>\The [src] burns your hands!.</span>")
 
 	if(!process_chambered(user)) //CHECK
 		return click_empty(user)
