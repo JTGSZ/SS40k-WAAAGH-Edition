@@ -3,6 +3,7 @@
 	desc = "Witchfire (Nova) - Erupt into a firenova."
 	abbreviation = "SBST"
 
+	specialization = PYROMANCY
 	user_type = USER_TYPE_PSYKER
 
 	charge_type = Sp_RECHARGE

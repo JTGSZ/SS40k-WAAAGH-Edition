@@ -2676,6 +2676,7 @@
 #include "z40k_shit\spells\pyromancy\spontaneous_combustion.dm"
 #include "z40k_shit\spells\pyromancy\sunburst.dm"
 #include "z40k_shit\spells\telekinesis\crush.dm"
+#include "z40k_shit\spells\telekinesis\levitation.dm"
 #include "z40k_shit\spells\telekinesis\objurationmechanicum.dm"
 #include "z40k_shit\spells\telekinesis\shockwave.dm"
 #include "z40k_shit\structure\barbedwire.dm"

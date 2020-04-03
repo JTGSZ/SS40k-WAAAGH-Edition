@@ -4,7 +4,7 @@
 	abbreviation = "SBST"
 
 	user_type = USER_TYPE_PSYKER
-
+	specialization = TELEKINESIS
 	charge_type = Sp_RECHARGE
 	charge_max = 5 MINUTES
 	invocation_type = SpI_NONE
