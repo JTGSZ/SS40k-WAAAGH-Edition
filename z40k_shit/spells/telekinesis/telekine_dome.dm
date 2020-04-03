@@ -12,22 +12,55 @@
 	override_base = "vamp"
 	hud_state = "vampire_glare"
 
-	range = 5
-	inner_radius = 4
+	range = 0
+	inner_radius = 0
 
 /spell/aoe_turf/telekine_dome/cast(var/list/targets, var/mob/living/user)
 	set waitfor = 0
-	var/list/barriers = list()
-	var/duration = user.attribute_willpower
+	//Why is this like this? Because im lazy, and we can get all the points we need.
+	//Just from knowing the range to the nearest wall from the center(not counting the center)
+	var/list/alltheboys = list()
 
-	for(var/turf/T in targets)
-		var/obj/effect/telekine_dome/PP = new(T,user)
-		barriers += PP
+	var/will_duration = user.attribute_willpower
+	var/warp_sens = round(user.attribute_sensitivity/500)
+	var/x2wall = 2 + warp_sens //width
+	var/y2wall = 2 + warp_sens//and height
+	var/turf/center = get_turf(user)
 
-	sleep(duration SECONDS)
-	for(var/obj/effect/telekine_dome/PP in barriers)
-		qdel(PP)
+	var/turf/bottom_left = locate(center.x-x2wall, center.y-y2wall, center.z)
+	var/turf/top_left = locate(center.x-x2wall, center.y+y2wall, center.z)
+	
+	var/turf/top_right = locate(center.x+x2wall, center.y+y2wall, center.z)
+	var/turf/bottom_right = locate(center.x+x2wall, center.y-y2wall, center.z)
 
+	//Bottom left to top left, so we are west
+	for(var/turf/T in block(bottom_left, top_left))
+		var/obj/effect/telekine_dome/THEBOYS = new(T)
+		THEBOYS.dir = WEST
+		alltheboys += THEBOYS
+
+	//top left to right right, so we are north
+	for(var/turf/T in block(top_left, top_right))
+		var/obj/effect/telekine_dome/THEBOYS = new(T)
+		THEBOYS.dir = NORTH
+		alltheboys += THEBOYS
+ 
+	//top right to bottom right, so we are east
+	for(var/turf/T in block(top_right, bottom_right))
+		var/obj/effect/telekine_dome/THEBOYS = new(T)
+		THEBOYS.dir = EAST
+		alltheboys += THEBOYS
+
+	//bottom right to bottom left, so we are south
+	for(var/turf/T in block(bottom_right, bottom_left))
+		var/obj/effect/telekine_dome/THEBOYS = new(T)
+		THEBOYS.dir = SOUTH
+		alltheboys += THEBOYS
+
+	sleep(will_duration SECONDS)
+	
+	for(var/obj/effect/telekine_dome/MYBOYS in alltheboys)
+		qdel(MYBOYS)
 
 /obj/effect/telekine_dome
 	name = "Psychic Wall"
@@ -42,9 +75,8 @@
 
 	var/explosion_block = 90 //making this spell marginally more useful
 
-/obj/effect/telekine_dome/New(var/turf/T,mob/user)
+/obj/effect/telekine_dome/New()
 	..()
-	dir = get_dir(user,src)
 
 /obj/effect/telekine_dome/attackby(obj/item/weapon/W, mob/user)
 	if(W.damtype == BRUTE || W.damtype == BURN)
