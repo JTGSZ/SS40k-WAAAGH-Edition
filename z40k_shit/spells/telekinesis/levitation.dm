@@ -13,17 +13,22 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 /spell/aoe_turf/levitation/cast(list/targets, mob/user)
+	set waitfor = 0
 	for(var/mob/living/L in targets)
 		var/pixel_y = L.pixel_y
 		to_chat(L, "<span class='sinister'>You begin floating off the ground.</span>")
 		L.flying = TRUE
 		animate(L, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
-		spawn(12 SECONDS)
-			animate(L, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
-			animate(L, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
-			animate(L)
-			to_chat(L, "<span class='sinister'>You stop floating.</span>")
-			L.flying = FALSE
+		
+	sleep(12 SECONDS)
+	
+	for(var/mob/living/L in targets)
+		var/pixel_y = L.pixel_y
+		animate(L, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
+		animate(L, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
+		animate(L)
+		to_chat(L, "<span class='sinister'>You stop floating.</span>")
+		L.flying = FALSE
 
 /spell/aoe_turf/levitation/choose_targets(var/mob/user = usr)
 	var/list/targets = list()
