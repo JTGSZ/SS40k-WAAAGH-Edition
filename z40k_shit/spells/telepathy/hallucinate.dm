@@ -11,7 +11,7 @@
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "bucket"
 
-/spell/targeted/enfeeble/cast(var/list/targets, mob/user)
+/spell/targeted/hallucination/cast(var/list/targets, mob/user)
 	for(var/atom/target in targets)
 		for(var/mob/living/carbon/C in view(3, target))
 			C.dizziness = 86
