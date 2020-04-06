@@ -16,5 +16,6 @@
 	for(var/atom/target in targets)
 		for(var/mob/living/carbon/C in view(3, target))
 			C.objuration_mechanicum = TRUE
+			C.vis_contents += new /obj/effect/overlay/red_downwards_lines(C,4)
 			sleep(3 SECONDS)
 			C.objuration_mechanicum = FALSE

@@ -67,8 +67,8 @@
 /obj/effect/telekine_dome
 	name = "Psychic Wall"
 	desc = "A telepathic dome's force field."
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "m_shield"
+	icon = 'z40k_shit/icons/32x32effects.dmi'
+	icon_state = "telekine_dome"
 	anchored = 1
 	opacity = 0
 	density = 1

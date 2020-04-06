@@ -27,6 +27,7 @@
 	return targets
 
 /spell/aoe_turf/shockwave/cast(var/list/targets, var/mob/user)
+	user.vis_contents += new /obj/effect/overlay/sunburst(user,10)
 	for(var/mob/living/AUGH in targets)
 		to_chat(AUGH, "<span class='danger'><font size='3'>You hit by a psychic shockwave!</font></span>")
 		AUGH.adjustBruteLoss(30)

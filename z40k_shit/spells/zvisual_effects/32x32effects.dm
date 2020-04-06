@@ -145,7 +145,7 @@
 /obj/effect/overlay/sunburst
 	name = "psychic flame"
 	icon = 'z40k_shit/icons/96x96effects.dmi'
-	icon_state = "soul_blaze"
+	icon_state = "sunburst"
 	layer = LIGHTING_LAYER
 
 /obj/effect/overlay/sunburst/New(var/mob/M,var/effect_duration)
@@ -154,6 +154,20 @@
 	spawn(effect_duration)
 		M.vis_contents -= src
 		qdel(src)
+
+/obj/effect/overlay/shockwave
+	name = "shockwave"
+	icon = 'z40k_shit/icons/96x96effects.dmi'
+	icon_state = "shockwave"
+	layer = LIGHTING_LAYER
+
+/obj/effect/overlay/shockwave/New(var/mob/M,var/effect_duration)
+	..()
+	animate(src, alpha = 0, time = effect_duration)
+	spawn(effect_duration)
+		M.vis_contents -= src
+		qdel(src)
+
 
 
 /*
