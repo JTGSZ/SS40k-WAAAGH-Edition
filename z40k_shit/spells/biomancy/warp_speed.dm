@@ -2,7 +2,7 @@
 	name = "Warp Speed"
 	abbreviation = "WSPD"
 	desc = "Blessing - Makes you move faster."
-	hud_state = "racial_waagh"
+	hud_state = "warp_speed"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = BIOMANCY

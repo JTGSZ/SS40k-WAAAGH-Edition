@@ -2,7 +2,7 @@
 	name = "Iron Arm"
 	abbreviation = "IA"
 	desc = "A blessing... NANOMACHINES SON."
-	hud_state = "racial_waagh"
+	hud_state = "iron_arm"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = BIOMANCY

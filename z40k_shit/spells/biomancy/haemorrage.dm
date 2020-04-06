@@ -11,9 +11,7 @@
 	max_targets = 1
 	invocation_type = SpI_NONE
 	cooldown_min = 200 //100 deciseconds reduction per rank
-
-	hud_state = "pumpkin"
-
+	hud_state = "haemorrhage"
 
 /spell/targeted/haemorrage/cast(var/list/targets, mob/user)
 	set waitfor = 0
