@@ -16,6 +16,7 @@
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>Your arms feel a hell of a lot stronger.</span>")
 		L.attribute_strength += 15
+		L.vis_contents += new /obj/effect/overlay/upper_blue_glow(L,12 SECONDS)
 		spawn(12 SECONDS)
 			to_chat(L, "<span class='sinister'>Warp energy fading, your strength feels weak.</span>")
 			L.attribute_strength -= 15

@@ -16,6 +16,7 @@
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>Warp Energy courses through you, increasing your constitution.</span>")
 		L.attribute_constitution += 15
+		L.vis_contents += new /obj/effect/overlay/weak_blue_circle(L,10)
 		spawn(12 SECONDS)
 			to_chat(L, "<span class='sinister'>Warp energy fading, your constitution returns to normal.</span>")
 			L.attribute_constitution -= 15
@@ -27,3 +28,4 @@
 		targets += L
 
 	return targets
+

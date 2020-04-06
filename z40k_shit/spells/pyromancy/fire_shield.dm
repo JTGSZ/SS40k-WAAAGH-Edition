@@ -86,6 +86,8 @@
 /obj/effect/fire_blast/fire_shield
 	fire_damage = 15
 	spread = 0
+	icon = 'icons/effects/fire.dmi'
+	icon_state = "1"
 
 /datum/locking_category/fire_shield
 	var/target_x_offset

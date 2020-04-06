@@ -29,7 +29,10 @@
 	var/mob/living/owner = spell_holder.shot_from
 	for(var/mob/living/M in targets)
 		M.adjustBruteLoss(leech_amount)
+		M.vis_contents += new /obj/effect/overlay/redsparkles(M,10)
+		M.vis_contents += new /obj/effect/overlay/red_downwards_lines(M,10)
 		owner.adjustBruteLoss(-leech_amount)
+		owner.vis_contents += new /obj/effect/overlay/greensparkles(owner,10)
 
 /spell/targeted/projectile/life_leech/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
 	var/list/targets = ..()

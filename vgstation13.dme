@@ -2687,6 +2687,7 @@
 #include "z40k_shit\spells\telepathy\mental_fortitude.dm"
 #include "z40k_shit\spells\telepathy\shrouding.dm"
 #include "z40k_shit\spells\telepathy\terrify.dm"
+#include "z40k_shit\spells\zvisual_effects\32x32effects.dm"
 #include "z40k_shit\structure\barbedwire.dm"
 #include "z40k_shit\structure\barricades.dm"
 #include "z40k_shit\systems\actionbuttons.dm"

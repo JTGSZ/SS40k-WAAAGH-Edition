@@ -18,11 +18,11 @@
 			C.attribute_strength -= 10
 			C.attribute_constitution -= 10
 			C.adjustBruteLoss(50)
+			C.vis_contents += new /obj/effect/overlay/weak_red_circle(C,5)
+			C.vis_contents += new /obj/effect/overlay/red_downwards_lines(C,4)
 
 			spawn(3 SECONDS)
 				C.adjustBruteLoss(-30)
 				C.attribute_strength += 10
 				C.attribute_constitution += 10
 				C.movement_speed_modifier += 0.5
-
-

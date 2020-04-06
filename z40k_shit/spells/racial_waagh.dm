@@ -17,7 +17,7 @@
 	var/healcounter
 	for(var/T in targets)
 		var/mob/living/carbon/human/H = T
-		H.vis_contents += new /obj/effect/overlay/waaghring1(H)
+		H.vis_contents += new /obj/effect/overlay/weak_green_circle(H,10)
 		H.movement_speed_modifier += 0.5
 		healcounter++
 		spawn(3 SECONDS)
@@ -26,7 +26,7 @@
 	if(healcounter >= 5)
 		for(var/T in targets)
 			var/mob/living/carbon/human/H = T
-			H.vis_contents += new /obj/effect/overlay/healsparkles(H)
+			H.vis_contents += new /obj/effect/overlay/greensparkles(H,10)
 			H.adjustBruteLoss(-15)
 			H.adjustFireLoss(-15)
 			H.adjustToxLoss(-15)
@@ -63,34 +63,6 @@
 
 	return targets
 
-/obj/effect/overlay/healsparkles
-	name = "heal sparkles"
-	icon = 'z40k_shit/icons/32x32effects.dmi'
-	icon_state = "healsparkles"
-	layer = LIGHTING_LAYER
-
-/obj/effect/overlay/healsparkles/New(var/mob/M)
-	..()
-	animate(src, alpha = 0, time = 10)
-	spawn(10)
-		M.vis_contents -= src
-		qdel(src)
-
-/obj/effect/overlay/waaghring1
-	name = "ork aura"
-	icon = 'z40k_shit/icons/32x32effects.dmi'
-	icon_state = "weak_green_circle"
-	plane = OBJ_PLANE
-	layer = ABOVE_OBJ_LAYER
-	pixel_y = -3
-
-/obj/effect/overlay/waaghring1/New(var/mob/M)
-	..()
-	animate(src, alpha = 0, time = 10)
-	spawn(3 SECONDS)
-		M.vis_contents -= src
-		qdel(src)
-
 /spell/aoe_turf/warbosswaaagh	//Raaagh
 	name = "WAAAGH!"
 	abbreviation = "WG"
@@ -109,7 +81,7 @@
 /spell/aoe_turf/warbosswaaagh/cast(list/targets, mob/user)
 	for(var/T in targets)
 		var/mob/living/carbon/human/H = T
-		H.vis_contents += new /obj/effect/overlay/waaghringboss(H)
+		H.vis_contents += new /obj/effect/overlay/strong_green_circle(H,12 SECONDS)
 		H.movement_speed_modifier += 1.0
 		H.attribute_strength += 5
 		to_chat(H,"Your body courses with power.")
@@ -132,17 +104,3 @@
 
 	return targets
 
-/obj/effect/overlay/waaghringboss
-	name = "strong aura"
-	icon = 'z40k_shit/icons/32x32effects.dmi'
-	icon_state = "strong_green_circle"
-	plane = OBJ_PLANE
-	layer = ABOVE_OBJ_LAYER
-	pixel_y = -3
-
-/obj/effect/overlay/waaghringboss/New(var/mob/M)
-	..()
-	animate(src, alpha = 0, time = 10)
-	spawn(12 SECONDS)
-		M.vis_contents -= src
-		qdel(src)

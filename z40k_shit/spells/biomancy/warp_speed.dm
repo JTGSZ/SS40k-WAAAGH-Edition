@@ -18,6 +18,7 @@
 		L.attribute_agility += 15
 		L.movement_speed_modifier += 1.0
 		L.warp_speed = TRUE
+		L.vis_contents += new /obj/effect/overlay/weak_green_circle(L,10)
 		spawn(12 SECONDS)
 			to_chat(L, "<span class='sinister'>Warp energy fading, your speed returns to normal.</span>")
 			L.warp_speed = FALSE
