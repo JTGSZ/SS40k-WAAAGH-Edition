@@ -2,7 +2,7 @@
 	name = "Endurance"
 	abbreviation = "END"
 	desc = "Blessing - Makes everyone in range tougher."
-	hud_state = "racial_waagh"
+	hud_state = "endurance"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = BIOMANCY
