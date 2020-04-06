@@ -117,17 +117,44 @@
 		M.vis_contents -= src
 		qdel(src)
 
-/obj/effect/overlay/blue_flame
+/obj/effect/overlay/purple_flame
 	name = "psychic flame"
 	icon = 'z40k_shit/icons/32x32effects.dmi'
-	icon_state = "blue_flames"
+	icon_state = "purple_flame"
 	layer = LIGHTING_LAYER
 
-/obj/effect/overlay/blue_flame/New(var/mob/M,var/effect_duration)
+/obj/effect/overlay/purple_flame/New(var/mob/M,var/effect_duration)
 	..()
 	spawn(effect_duration)
 		M.vis_contents -= src
 		qdel(src)
+
+/obj/effect/overlay/soul_blaze
+	name = "psychic flame"
+	icon = 'z40k_shit/icons/32x32effects.dmi'
+	icon_state = "soul_blaze"
+	layer = LIGHTING_LAYER
+
+/obj/effect/overlay/soul_blaze/New(var/mob/M,var/effect_duration)
+	..()
+	animate(src, alpha = 0, time = effect_duration)
+	spawn(effect_duration)
+		M.vis_contents -= src
+		qdel(src)
+
+/obj/effect/overlay/sunburst
+	name = "psychic flame"
+	icon = 'z40k_shit/icons/96x96effects.dmi'
+	icon_state = "soul_blaze"
+	layer = LIGHTING_LAYER
+
+/obj/effect/overlay/sunburst/New(var/mob/M,var/effect_duration)
+	..()
+	animate(src, alpha = 0, time = effect_duration)
+	spawn(effect_duration)
+		M.vis_contents -= src
+		qdel(src)
+
 
 /*
 	STRONG CIRCLES

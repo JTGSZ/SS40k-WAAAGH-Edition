@@ -19,7 +19,7 @@
 		L.attribute_constitution += 10
 		L.health += 20
 		L.soul_blaze_melee = TRUE
-		L.vis_contents += new /obj/effect/overlay/blue_flame(L,12 SECONDS)
+		L.vis_contents += new /obj/effect/overlay/purple_flame(L,12 SECONDS)
 		spawn(12 SECONDS)
 			to_chat(L, "<span class='sinister'>Warp energy fading, the fire dissipates.</span>")
 			L.soul_blaze_melee = FALSE

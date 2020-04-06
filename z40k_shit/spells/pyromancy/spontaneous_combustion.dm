@@ -21,6 +21,7 @@
 		if(target.stat != DEAD)
 			target.adjustFireLoss(50)
 			target.fire_stacks += 10
+			target.vis_contents += new /obj/effect/overlay/purple_flame(L,12 SECONDS)
 			spawn(3 SECONDS)
 				if(target.stat == DEAD)
 					explosion(get_turf(target), 1, 3, 6, 10)
