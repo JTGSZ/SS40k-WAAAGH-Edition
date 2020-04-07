@@ -9,7 +9,7 @@
 
 	charge_type = Sp_RECHARGE
 	invocation_type = SpI_NONE
-	hud_state = "wiz_firering"
+	hud_state = "fire_barrier"
 
 	duration = 100
 	range = 3

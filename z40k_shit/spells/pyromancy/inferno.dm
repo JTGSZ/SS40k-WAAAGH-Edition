@@ -15,7 +15,7 @@
 	var/temperature = 0 //Controls the damage + heat. normally 488.15, 1643.15 is instant death
 	var/fire_duration = 0
 
-	hud_state = "wiz_firebreath"
+	hud_state = "inferno"
 
 /spell/targeted/projectile/inferno/spawn_projectile(var/location, var/direction)
 	

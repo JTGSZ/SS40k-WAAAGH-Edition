@@ -2,7 +2,7 @@
 	name = "Fiery Form"
 	abbreviation = "FIF"
 	desc = "Blessing - Adds Soul Blaze to melee attacks, increases CON."
-	hud_state = "racial_waagh"
+	hud_state = "fiery_form"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = PYROMANCY

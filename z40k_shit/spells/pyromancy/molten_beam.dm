@@ -14,7 +14,7 @@
 	var/beam_length = 20
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
-	hud_state = "pumpkin"
+	hud_state = "molten_beam"
 
 /spell/aoe_turf/molten_beam/cast(list/targets, mob/living/user)
 	set waitfor = FALSE

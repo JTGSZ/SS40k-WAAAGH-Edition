@@ -10,10 +10,8 @@
 	range = 20
 	max_targets = 1
 	invocation_type = SpI_NONE
-	cooldown_min = 200 //100 deciseconds reduction per rank
 
-	hud_state = "pumpkin"
-
+	hud_state = "spont_combust"
 
 /spell/targeted/spontaneous_combustion/cast(var/list/targets, mob/user)
 	..()
