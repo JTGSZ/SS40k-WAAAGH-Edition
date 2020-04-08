@@ -19,7 +19,7 @@
 	charge_max = 100
 	invocation_type = SpI_NONE
 	spell_flags = WAIT_FOR_CLICK
-	hud_state = "bucket"
+	hud_state = "psychic_maelstrom"
 	cast_prox_range = 2
 
 

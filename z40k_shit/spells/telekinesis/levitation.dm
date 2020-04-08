@@ -2,7 +2,7 @@
 	name = "Levitation"
 	abbreviation = "LVT"
 	desc = "Blessing - Makes everyone in range levitate."
-	hud_state = "racial_waagh"
+	hud_state = "levitate"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = TELEKINESIS

@@ -4,7 +4,7 @@
 	//Dealing damage
 	set waitfor = 0
 	//Here would be the vis_contents append
-	vis_contents += new /obj/effect/overlay/soul_blaze(L,10)
+	vis_contents += new /obj/effect/overlay/soul_blaze(src,10)
 	sleep(3 SECONDS)
 	adjustFireLoss(40-attribute_constitution)
 

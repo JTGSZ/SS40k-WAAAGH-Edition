@@ -11,7 +11,7 @@
 	max_targets = 1
 	invocation_type = SpI_NONE
 
-	hud_state = "pumpkin"
+	hud_state = "crush"
 
 
 /spell/targeted/crush/cast(var/list/targets, mob/user)

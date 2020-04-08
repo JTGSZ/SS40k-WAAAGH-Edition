@@ -10,7 +10,7 @@
 	charge_max = 3 MINUTES
 	invocation_type = SpI_NONE
 	override_base = "vamp"
-	hud_state = "vampire_glare"
+	hud_state = "telekine_dome"
 
 	range = 0
 	inner_radius = 0

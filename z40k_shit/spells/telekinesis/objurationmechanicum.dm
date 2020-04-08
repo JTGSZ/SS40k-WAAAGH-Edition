@@ -9,7 +9,7 @@
 	invocation_type = SpI_NONE
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
-	hud_state = "bucket"
+	hud_state = "objmech"
 
 /spell/targeted/enfeeble/cast(var/list/targets, mob/user)
 	set waitfor = 0
