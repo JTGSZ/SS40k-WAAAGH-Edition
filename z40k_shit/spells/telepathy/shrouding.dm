@@ -2,7 +2,7 @@
 	name = "Shrouding"
 	abbreviation = "SHD"
 	desc = "Blessing - Shrouds area around caster in darkness"
-	hud_state = "racial_waagh"
+	hud_state = "shrouding"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = TELEPATHY
@@ -12,10 +12,11 @@
 	range = 1
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
-/spell/aoe_turf/shrouding/cast(list/targets, mob/user)
+/spell/aoe_turf/shrouding/cast(list/targets, mob/living/user)
 	set waitfor = 0
+	var/shroud_modifier = 2+round(user.attribute_sensitivity/100)
 	var/list/shrouds = list()
-	for(var/turf/T in view(4,user))
+	for(var/turf/T in view(shroud_modifier,user))
 		var/obj/effect/blinding_shroud/cock = new(T)
 		shrouds += cock
 

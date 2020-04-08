@@ -11,7 +11,7 @@
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "objmech"
 
-/spell/targeted/enfeeble/cast(var/list/targets, mob/user)
+/spell/targeted/objuration_mechanicum/cast(var/list/targets, mob/user)
 	set waitfor = 0
 	for(var/atom/target in targets)
 		for(var/mob/living/carbon/C in view(3, target))

@@ -9,9 +9,9 @@
 	invocation_type = SpI_NONE
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
-	hud_state = "bucket"
+	hud_state = "dominate"
 
-/spell/targeted/enfeeble/cast(var/list/targets, mob/user)
+/spell/targeted/dominate/cast(var/list/targets, mob/user)
 	var/list/our_victims = list()
 	var/nazty_loop = TRUE //THIS SHIT IS SICK NASTY
 	for(var/atom/target in targets)

@@ -2,7 +2,7 @@
 	name = "Invisibility"
 	abbreviation = "INV"
 	desc = "Blessing - Makes everyone in range invisible."
-	hud_state = "racial_waagh"
+	hud_state = "invisibility"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = TELEPATHY
@@ -12,7 +12,7 @@
 	range = 0
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
-/spell/aoe_turf/endurance/cast(list/targets, mob/user)
+/spell/aoe_turf/invisibility/cast(list/targets, mob/user)
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>You become invisible.</span>")
 		L.invisibility = INVISIBILITY_MAXIMUM
@@ -20,7 +20,7 @@
 			to_chat(L, "<span class='sinister'>Warp Energy fading, you return to being visible to the naked eye.</span>")
 			L.invisibility = 0
 
-/spell/aoe_turf/endurance/choose_targets(var/mob/user = usr)
+/spell/aoe_turf/invisibility/choose_targets(var/mob/user = usr)
 	var/list/targets = list()
 
 	for(var/mob/living/L in view(2, user))

@@ -2,7 +2,7 @@
 	name = "Mental Fortitude"
 	abbreviation = "MF"
 	desc = "Blessing - Fills everyone around your target with visions of glorious victory."
-	hud_state = "racial_waagh"
+	hud_state = "mental_fortitude"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
 	specialization = TELEPATHY
