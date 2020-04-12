@@ -25,7 +25,7 @@
 #define SSTELEKINESIS SPELL_SPECIALIZATION_TELEKINESIS
 #define SSTELEPATHY SPELL_SPECIALIZATION_TELEPATHY
 
-#define BIOMANCY "biomancy"
+#define BIOMANCY "biomancy" 
 #define PYROMANCY "pyromancy"
 #define TELEKINESIS "telekinesis"
 #define TELEPATHY "telepathy"

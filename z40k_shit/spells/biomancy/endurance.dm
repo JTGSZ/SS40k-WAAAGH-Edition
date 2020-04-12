@@ -5,7 +5,7 @@
 	hud_state = "endurance"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
-	specialization = BIOMANCY
+	specialization = SSBIOMANCY
 	charge_type = Sp_RECHARGE
 	charge_max = 100
 	invocation_type = SpI_NONE

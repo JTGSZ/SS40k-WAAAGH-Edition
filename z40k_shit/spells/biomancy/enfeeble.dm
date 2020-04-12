@@ -3,7 +3,7 @@
 	desc = "Malediction - Weakens the target and everyone around it."
 	abbreviation = "ENF"
 	user_type = USER_TYPE_PSYKER
-	specialization = BIOMANCY
+	specialization = SSBIOMANCY
 	school = "evocation"
 	charge_max = 100
 	invocation_type = SpI_NONE

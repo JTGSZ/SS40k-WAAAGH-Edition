@@ -3,7 +3,7 @@
 	desc = "Witchfire - Bring forth a destructive Psychic Maelstrom."
 	abbreviation = "PSYM"
 	user_type = USER_TYPE_PSYKER
-	specialization = TELEKINESIS
+	specialization = SSTELEKINESIS
 
 	proj_type = /obj/item/projectile/spell_projectile/psychic_maelstrom
 	school = "evocation"

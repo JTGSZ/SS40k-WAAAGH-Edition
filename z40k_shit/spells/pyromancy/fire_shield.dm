@@ -2,7 +2,7 @@
 	name = "Fire Shield"
 	desc = "Blessing - Grants fire resistance to all those around you and brings up a flaming barrier."
 	user_type = USER_TYPE_PSYKER
-	specialization = PYROMANCY
+	specialization = SSPYROMANCY
 	school = "conjuration"
 	charge_max = 300
 	cooldown_min = 100

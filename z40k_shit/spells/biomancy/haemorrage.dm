@@ -3,7 +3,7 @@
 	desc = "Witchfire(Profileless) - Tests the targets constitution by boiling their blood, If they fail it will spread to another."
 	abbreviation = "HMG"
 	user_type = USER_TYPE_PSYKER
-	specialization = BIOMANCY
+	specialization = SSBIOMANCY
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = WAIT_FOR_CLICK

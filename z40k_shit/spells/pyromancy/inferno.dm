@@ -2,7 +2,7 @@
 	name = "Inferno"
 	desc = "Witchfire - Shoots out a gout of flames ."
 	user_type = USER_TYPE_PSYKER
-	specialization = PYROMANCY
+	specialization = SSPYROMANCY
 
 	proj_type = /obj/item/projectile/fire_breath
 	invocation_type = SpI_NONE

@@ -5,7 +5,7 @@
 	hud_state = "fiery_form"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER
-	specialization = PYROMANCY
+	specialization = SSPYROMANCY
 	charge_type = Sp_RECHARGE
 	charge_max = 100
 	invocation_type = SpI_NONE

@@ -3,7 +3,7 @@
 	desc = "Malediction - Causes guns to malfunction and perform poorly in an area."
 	abbreviation = "OBM"
 	user_type = USER_TYPE_PSYKER
-	specialization = TELEKINESIS
+	specialization = SSTELEKINESIS
 	school = "evocation"
 	charge_max = 250
 	invocation_type = SpI_NONE

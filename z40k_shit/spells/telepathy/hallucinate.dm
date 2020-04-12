@@ -3,7 +3,7 @@
 	desc = "Malediction - Makes the target and everyone around it hallucinate."
 	abbreviation = "ENF"
 	user_type = USER_TYPE_PSYKER
-	specialization = BIOMANCY
+	specialization = SSTELEPATHY
 	school = "evocation"
 	charge_max = 100
 	invocation_type = SpI_NONE

@@ -3,7 +3,7 @@
 	desc = "Malediction - Dominates everyone around the targeted area until one fights off your will."
 	abbreviation = "DOM"
 	user_type = USER_TYPE_PSYKER
-	specialization = TELEPATHY
+	specialization = SSTELEPATHY
 	school = "evocation"
 	charge_max = 100
 	invocation_type = SpI_NONE

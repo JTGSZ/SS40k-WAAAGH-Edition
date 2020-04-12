@@ -3,7 +3,7 @@
 	desc = "Witchfire(Beam) - Set your heart ablaze!"
 	abbreviation = "GOKU"
 	user_type = USER_TYPE_PSYKER
-	specialization = PYROMANCY
+	specialization = SSPYROMANCY
 
 	charge_type = Sp_RECHARGE
 	charge_max = 10

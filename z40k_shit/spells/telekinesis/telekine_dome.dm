@@ -5,7 +5,7 @@
 
 	school = "vampire"
 	user_type = USER_TYPE_PSYKER
-	specialization = TELEKINESIS
+	specialization = SSTELEKINESIS
 	charge_type = Sp_RECHARGE
 	charge_max = 3 MINUTES
 	invocation_type = SpI_NONE

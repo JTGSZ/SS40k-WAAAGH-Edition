@@ -3,7 +3,7 @@
 	desc = "Witchfire(Profileless) - Attempts to Crush the target."
 	abbreviation = "HMG"
 	user_type = USER_TYPE_PSYKER
-	specialization = TELEKINESIS
+	specialization = SSTELEKINESIS
 	school = "transmutation"
 	charge_max = 70
 	spell_flags = WAIT_FOR_CLICK

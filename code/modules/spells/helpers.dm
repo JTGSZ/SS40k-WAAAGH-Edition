@@ -14,9 +14,9 @@
 
 /proc/getAllSpellsByType(var/type)
 	var/list/spell/spellList = list()
-	for (var/type_S in typesof(/spell))
+	for(var/type_S in typesof(/spell))
 		var/spell/S = type_S
-		if (initial(S.user_type) == type)
+		if(initial(S.user_type) == type)
 			spellList += S
 	return spellList
 
@@ -34,7 +34,7 @@
 	return getAllSpellsByType(USER_TYPE_VAMPIRE)
 /proc/getAllPrimarisPsykerSpells()
 	return getAllSpellsByType(USER_TYPE_PSYKER)
-
+ 
 /mob/proc/has_spell_with_flag(var/spell_flag)
 	for(var/spell/S in spell_list)
 		if(S.spell_aspect_flags & spell_flag)

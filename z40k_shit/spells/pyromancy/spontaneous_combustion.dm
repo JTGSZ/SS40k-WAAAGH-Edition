@@ -3,7 +3,7 @@
 	desc = "Witchfire(Profileless) - Sets the target ablaze while frying their insides, If they die shortly after they explode."
 	abbreviation = "HMG"
 	user_type = USER_TYPE_PSYKER
-	specialization = PYROMANCY
+	specialization = SSPYROMANCY
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = WAIT_FOR_CLICK
