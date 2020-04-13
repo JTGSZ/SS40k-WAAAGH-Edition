@@ -9,11 +9,13 @@
 	charge_type = Sp_RECHARGE
 	charge_max = 3 MINUTES
 	invocation_type = SpI_NONE
-	override_base = "vamp"
 	hud_state = "telekine_dome"
 
 	range = 0
 	inner_radius = 0
+
+/spell/aoe_turf/telekine_dome/choose_targets(var/mob/user = usr)
+	return list(user)
 
 /spell/aoe_turf/telekine_dome/cast(var/list/targets, var/mob/living/user)
 	set waitfor = 0

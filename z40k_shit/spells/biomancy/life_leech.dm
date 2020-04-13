@@ -15,7 +15,7 @@
 	invocation_type = SpI_NONE
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "life_leech"
-	cast_prox_range = 2
+	cast_prox_range = 3
 
 
 /spell/targeted/projectile/life_leech/cast(list/targets, mob/living/user = usr)

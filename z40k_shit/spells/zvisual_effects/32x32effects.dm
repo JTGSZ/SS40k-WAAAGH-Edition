@@ -137,6 +137,8 @@
 
 /obj/effect/overlay/soul_blaze/New(var/mob/M,var/effect_duration)
 	..()
+	pixel_x = -64
+	pixel_y = -64
 	animate(src, alpha = 0, time = effect_duration)
 	spawn(effect_duration)
 		M.vis_contents -= src
@@ -150,6 +152,8 @@
 
 /obj/effect/overlay/sunburst/New(var/mob/M,var/effect_duration)
 	..()
+	pixel_x = -64
+	pixel_y = -64
 	animate(src, alpha = 0, time = effect_duration)
 	spawn(effect_duration)
 		M.vis_contents -= src
@@ -163,6 +167,8 @@
 
 /obj/effect/overlay/shockwave/New(var/mob/M,var/effect_duration)
 	..()
+	pixel_x = -64
+	pixel_y = -64
 	animate(src, alpha = 0, time = effect_duration)
 	spawn(effect_duration)
 		M.vis_contents -= src

@@ -1,7 +1,7 @@
 /spell/aoe_turf/iron_arm	//Raaagh
 	name = "Iron Arm"
 	abbreviation = "IA"
-	desc = "A blessing... NANOMACHINES SON."
+	desc = "Blessing - Grants strength to the caster."
 	hud_state = "iron_arm"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

@@ -50,4 +50,7 @@
 	new_trooper.mind_storage(M.mind)
 
 /datum/outfit/primarispsyker/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.attribute_willpower = 11
+	H.attribute_sensitivity = 500
+	H.psyker_points = 8
 	return 1

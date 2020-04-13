@@ -16,14 +16,10 @@
 	w_class = W_CLASS_TINY
 	flags = FPRINT
 
-	var/list/owned_spells = list()
-
 	var/list/biomancy_spells = list()
 	var/list/pyromancy_spells = list()
 	var/list/telekinesis_spells = list()
 	var/list/telepathy_spells = list()
-
-	var/list/errorlist = list()
 
 	var/current_spellpoints = 5
 
@@ -41,13 +37,11 @@
 	if(!user)
 		return 0
 
-	to_chat(user,"ITS HITTIN BUDDY.")
 	get_spellpoints(user)
 	
 	if(user.psyker_points >= amount)
 		user.psyker_points -= amount
 		current_spellpoints = user.psyker_points
-		to_chat(user,"We have subtracted [amount] from [user.psyker_points]")
 	
 		return 1
  
@@ -57,10 +51,8 @@
 
 /obj/item/weapon/psychic_spellbook/proc/get_spellpoints(mob/living/user)
 	current_spellpoints = user.psyker_points
-	to_chat(user, "We currently have [current_spellpoints]")
 
 /obj/item/weapon/psychic_spellbook/proc/setup_spellbook(mob/living/user)
-	owned_spells.Cut()
 	biomancy_spells.Cut()
 	pyromancy_spells.Cut()
 	telekinesis_spells.Cut()
@@ -85,6 +77,10 @@
 	if(!user)
 		return
 
+	if(10 > user.attribute_willpower)
+		to_chat(user,"<span class='info'>You open \the [src] and realize you don't understand anything!</span>")
+		return
+
 	setup_spellbook(user)
 
 	get_spellpoints(user)
@@ -97,9 +93,17 @@
 	var/dat
 	dat += "<head><title>Psyker Book ([current_spellpoints] REMAINING)</title></head><body style=\"background-color:[book_background_color]\">"
 	dat += "<h1>A Psykers Catalogue Of Spells</h1><br>"
-	dat += "<h2>[current_spellpoints] point\s remaining (<a href='?src=\ref[src];refund=1'>Get a refund</a>)</h2><br>"
+	dat += "<h2>[current_spellpoints] point\s remaining </h2><br>"
 	dat += "<em>This book contains a list of many useful things that you'll need in your journey.</em><br>"
 	dat += "<span style=\"color:blue\"><strong>KNOWN SPELLS:</strong></span><br><br>"
+
+
+	for(var/spell/spell in user.spell_list)
+		var/spell/abstract_spell = spell
+		var/spell_name = initial(abstract_spell.name)
+		var/spell_cooldown = get_spell_cooldown_string(initial(abstract_spell.charge_max), initial(abstract_spell.charge_type))
+		dat += "<strong>[spell_name]</strong>[spell_cooldown] <br>"
+		dat += "<em>[initial(abstract_spell.desc)]</em><br>"
 
 //FORMATTING
 //<b>Fireball</b> - 10 seconds (buy for 1 spell point)
@@ -138,31 +142,6 @@
 
 	user << browse(dat, "window=spellbook;size=[book_window_size]")
 	onclose(user, "spellbook")
-
-/obj/item/weapon/psychic_spellbook/proc/build_description(var/mob/user, var/spell_path) //Building sounds more coderlike doesn't it
-	var/dat
-	var/spell/abstract_spell = spell_path
-	var/spell_name = initial(abstract_spell.name)
-	var/spell_cooldown = get_spell_cooldown_string(initial(abstract_spell.charge_max), initial(abstract_spell.charge_type))
-	dat += "<strong>[spell_name]</strong>[spell_cooldown] <br>"
-	dat += "<em>[initial(abstract_spell.desc)]</em><br>"
-	var/flags = initial(abstract_spell.spell_flags)
-	var/list/properties = get_spell_properties(flags, user)
-	var/property_data
-	for(var/P in properties)
-		property_data += "[P] "
-	if(property_data)
-		dat += "<span style=\"color:blue\">[property_data]</span><br>"
-	dat += "<br>"
-	return dat
-
-/obj/item/weapon/psychic_spellbook/proc/get_spell_properties(flags, mob/user)
-	var/list/properties = list()
-
-	if(flags & STATALLOWED)
-		properties.Add("Can be cast while unconscious.")
-
-	return properties
 
 /obj/item/weapon/psychic_spellbook/proc/get_spell_cooldown_string(charges, charge_type)
 	if(charges == 0)

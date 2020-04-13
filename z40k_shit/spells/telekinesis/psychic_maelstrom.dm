@@ -44,7 +44,7 @@
 		var/obj/effect/psychic_maelstrom/nigguh = new(T)
 		mofugga += nigguh
 
-	sleep(1 SECONDS)
+	sleep(3 SECONDS)
 	
 	for(var/obj/effect/psychic_maelstrom/muhdik in mofugga)
 		qdel(muhdik)

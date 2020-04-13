@@ -6,19 +6,18 @@
 	user_type = USER_TYPE_PSYKER
 	specialization = SSTELEKINESIS
 	charge_type = Sp_RECHARGE
-	charge_max = 5 MINUTES
+	charge_max = 30 SECONDS
 	invocation_type = SpI_NONE
-	range = 3
+	range = 2
 	spell_flags = STATALLOWED
-	cooldown_min = 5 MINUTES
 
-	hud_state = "vampire_screech"
+	hud_state = "shockwave"
 
 /spell/aoe_turf/shockwave/choose_targets(var/mob/user = usr)
 
 	var/list/targets = list()
 
-	for(var/mob/living/carbon/C in view(user, 3))
+	for(var/mob/living/carbon/C in view(user, 2))
 		if(C == user)
 			continue
 		if(ishuman(C))
@@ -27,7 +26,7 @@
 	return targets
 
 /spell/aoe_turf/shockwave/cast(var/list/targets, var/mob/user)
-	user.vis_contents += new /obj/effect/overlay/sunburst(user,10)
+	user.vis_contents += new /obj/effect/overlay/shockwave(user,15)
 	for(var/mob/living/AUGH in targets)
 		to_chat(AUGH, "<span class='danger'><font size='3'>You hit by a psychic shockwave!</font></span>")
 		AUGH.adjustBruteLoss(30)

@@ -7,11 +7,10 @@
 	user_type = USER_TYPE_PSYKER
 
 	charge_type = Sp_RECHARGE
-	charge_max = 5 MINUTES
+	charge_max = 30 SECONDS
 	invocation_type = SpI_NONE
 	range = 3
 	spell_flags = STATALLOWED
-	cooldown_min = 5 MINUTES
 
 	hud_state = "sunburst"
 
@@ -19,7 +18,7 @@
 
 	var/list/targets = list()
 
-	for(var/mob/living/carbon/C in view(user, 3))
+	for(var/mob/living/carbon/C in view(user, 2))
 		if(C == user)
 			continue
 		if(ishuman(C))
@@ -28,10 +27,11 @@
 	return targets
 
 /spell/aoe_turf/sunburst/cast(var/list/targets, var/mob/user)
-	user.vis_contents += new /obj/effect/overlay/sunburst(user,10)
+	user.vis_contents += new /obj/effect/overlay/sunburst(user,15)
 	for(var/mob/living/AUGH in targets)
 		to_chat(AUGH, "<span class='danger'><font size='3'>You are engulfed by brilliant warp flames!</font></span>")
 		AUGH.fire_stacks += 10
+		AUGH.IgniteMob()
 		AUGH.adjustFireLoss(30)
 
 
