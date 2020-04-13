@@ -14,7 +14,7 @@ var/const/PRIMARISPSYKER	=(1<<10)
 var/const/ORKNOB			=(1<<11)
 var/const/ORKWARBOSS		=(1<<12)
 var/const/ORKTANKBUSTA		=(1<<13)
-
+var/const/BASICMEK			=(1<<14)
 
 
 var/const/MEDSCI			=(1<<1)
