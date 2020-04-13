@@ -1015,6 +1015,7 @@
 			M.stuttering = 0
 			M.confused = 0
 			M.remove_jitter()
+			M.hallucination = 0
 	data++
 
 /datum/reagent/inaprovaline
