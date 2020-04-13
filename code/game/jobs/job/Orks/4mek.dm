@@ -31,7 +31,7 @@
 			),
 				slot_shoes_str = /obj/item/clothing/shoes/black,
 		),
-		/datum/species/ork/nob = list( 
+		/datum/species/ork = list( 
 			slot_w_uniform_str = list(
 				"Mek" = list(/obj/item/clothing/under/ork/pants,
 								/obj/item/clothing/under/ork/pantsandshirt,
@@ -65,3 +65,4 @@
 
 /datum/outfit/basicmek/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.add_spell(/spell/aoe_turf/waaagh1, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)
+	H.add_spell(/spell/aoe_turf/mekbuild, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)

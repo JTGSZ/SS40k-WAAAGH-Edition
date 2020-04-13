@@ -205,6 +205,8 @@
 						icobase = 'icons/mob/human_races/r_ork.dmi'
 					if(ORKTANKBUSTA)
 						icobase = 'icons/mob/human_races/r_ork.dmi'
+					if(BASICMEK)
+						icobase = 'icons/mob/human_races/r_ork.dmi'
 			else
 				icobase = 'icons/mob/human_races/r_ork.dmi'
 		else
