@@ -151,7 +151,7 @@
 		var/failed = FALSE
 		to_chat(user,"<span class='average'>Finding all the materials, You begin crafting the [title]</span>")
 
-		for(var/obj/item/theniggas in qdel_these_idiot)
+		for(var/obj/theniggas in qdel_these_idiot)
 			if(do_after(user,user,time))
 				qdel(theniggas)
 			else

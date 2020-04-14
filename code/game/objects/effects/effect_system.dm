@@ -4,8 +4,6 @@ defined, then set up when it is created with New(). Then this same system can ju
 it needs to create more trails.A beaker could have a steam_trail_follow system set up, then the steam
 would spawn and follow the beaker, even if it is carried or thrown.
 */
-
-
 /obj/effect/effect
 	name = "effect"
 	icon = 'icons/effects/effects.dmi'
@@ -28,27 +26,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/effect/water/New()
 	. = ..()
-	//var/turf/T = src.loc
-	//if (istype(T, /turf))
-	//	T.firelevel = 0 //TODO: FIX
-
 	spawn(70)
 		qdel(src)
 
 /obj/effect/effect/water/Destroy()
-	//var/turf/T = src.loc
-	//if (istype(T, /turf))
-	//	T.firelevel = 0 //TODO: FIX
-
 	..()
 
 /obj/effect/effect/water/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
-	//var/turf/T = src.loc
-	//if (istype(T, /turf))
-	//	T.firelevel = 0 //TODO: FIX
-
 	if (--life < 1)
-		//SN src = null
 		qdel(src)
 		return 0
 
@@ -137,7 +122,6 @@ steam.start() -- spawns the effect
 // to something, like the RCD, so then you can just call start() and the sparks
 // will always spawn at the items location.
 /////////////////////////////////////////////
-
 /obj/effect/effect/sparks
 	name = "sparks"
 	desc = "it's a spark what do you need to know?"
@@ -225,8 +209,6 @@ steam.start() -- spawns the effect
 // direct can be optinally added when set_up, to make the smoke always travel in one direction
 // in case you wanted a vent to always smoke north for example
 /////////////////////////////////////////////
-
-
 /obj/effect/effect/smoke
 	name = "smoke"
 	icon_state = "smoke"
@@ -245,7 +227,7 @@ steam.start() -- spawns the effect
 	spawn(time_to_live)
 		qdel(src)
 
-/obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
+/obj/effect/effect/smoke/Crossed(mob/living/carbon/M)
 	..()
 	if(istype(M))
 		affect(M)
@@ -267,7 +249,6 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 // Bad smoke
 /////////////////////////////////////////////
-
 /obj/effect/effect/smoke/bad
 	time_to_live = 200
 
@@ -297,7 +278,6 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 // Sleep smoke
 /////////////////////////////////////////////
-
 /obj/effect/effect/smoke/sleepy
 
 /obj/effect/effect/smoke/sleepy/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
@@ -305,7 +285,7 @@ steam.start() -- spawns the effect
 	for(var/mob/living/carbon/M in get_turf(src))
 		affect(M)
 
-/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M as mob )
+/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M)
 	if (!..())
 		return 0
 
@@ -319,7 +299,6 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 // Mustard Gas
 /////////////////////////////////////////////
-
 
 /obj/effect/effect/smoke/mustard
 	name = "mustard gas"
@@ -353,7 +332,6 @@ steam.start() -- spawns the effect
 		return 0
 	if (R.wear_suit)
 		return 0
-
 	R.burn_skin(2)
 	R.bodytemperature = min(60, R.bodytemperature + (30 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
@@ -404,7 +382,6 @@ steam.start() -- spawns the effect
 					qdel(smoke)
 				src.total_smoke--
 
-
 /datum/effect/effect/system/smoke_spread/bad
 	smoke_type = /obj/effect/effect/smoke/bad
 
@@ -435,7 +412,6 @@ steam.start() -- spawns the effect
 				reagents.reaction(A)
 		else
 			reagents.reaction(A)
-
 	return
 
 /obj/effect/effect/smoke/chem/affect(mob/living/carbon/M as mob )
@@ -459,8 +435,6 @@ steam.start() -- spawns the effect
 	cardinals = c
 	if(carry)
 		carry.copy_to(chemholder, carry.total_volume)
-
-
 	if(istype(loca, /turf/))
 		location = loca
 	else
@@ -470,9 +444,7 @@ steam.start() -- spawns the effect
 
 /datum/effect/effect/system/smoke_spread/chem/start()
 	var/i = 0
-
 	var/color = mix_color_from_reagents(chemholder.reagents.reagent_list)
-
 	for(i=0, i<src.number, i++)
 		if(src.total_smoke > 20)
 			return
@@ -615,22 +587,18 @@ steam.start() -- spawns the effect
 						src.oldposition = T
 						src.oldposition = get_step(oldposition, SOUTH)
 						src.oldloc = get_step(oldposition,EAST)
-						//src.oldloc = get_step(oldloc, SOUTH)
 					if(SOUTH) // More difficult, offset to the north!
 						src.oldposition = get_step(holder,NORTH)
 						src.oldposition = get_step(oldposition,NORTH)
 						src.oldloc = get_step(oldposition,EAST)
-						//src.oldloc = get_step(oldloc,NORTH)
 					if(EAST) // Just one to the north should suffice
 						src.oldposition = T
 						src.oldposition = get_step(oldposition, WEST)
 						src.oldloc = get_step(oldposition,NORTH)
-						//src.oldloc = get_step(oldloc,WEST)
 					if(WEST) // One to the east and north from there
 						src.oldposition = get_step(holder,EAST)
 						src.oldposition = get_step(oldposition,EAST)
 						src.oldloc = get_step(oldposition,NORTH)
-						//src.oldloc = get_step(oldloc,EAST)
 				if(istype(T, /turf/space))
 					var/obj/effect/effect/trails/ion/I = getFromPool(/obj/effect/effect/trails/ion,src.oldposition)
 					var/obj/effect/effect/trails/ion/II = getFromPool(/obj/effect/effect/trails/ion,src.oldloc)
@@ -652,7 +620,6 @@ steam.start() -- spawns the effect
 					src.processing = 1
 					src.start()
 			currloc = T
-
 
 /////////////////////////////////////////////
 //////// Attach a steam trail to an object (eg. a reacting beaker) that will follow it
@@ -697,8 +664,6 @@ steam.start() -- spawns the effect
 /datum/effect/effect/system/steam_trail_follow/proc/stop()
 	src.processing = 0
 	src.on = 0
-
-
 
 // Foam
 // Similar to smoke, but spreads out more
@@ -752,7 +717,6 @@ steam.start() -- spawns the effect
 	if(ccolor)
 		icon += ccolor
 	var/savedtemp
-	//playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
 	if(reagents.has_reagent(WATER))
 		var/turf/simulated/T = get_turf(src)
 		var/datum/gas_mixture/old_air = T.return_air()
@@ -791,26 +755,19 @@ steam.start() -- spawns the effect
 			reagents.reaction(A, 1, 1)
 	..()
 
-
 /obj/effect/effect/foam/process()
 	if(--amount < 0)
 		return
 
-
 	for(var/direction in cardinal)
-
-
 		var/turf/T = get_step(src,direction)
 		if(!T)
 			continue
-
 		if(!T.Enter(src))
 			continue
-
 		var/obj/effect/effect/foam/F = locate() in T
 		if(F)
 			continue
-
 		F = new(T, metal)
 		F.amount = amount
 		if(!metal)
@@ -828,7 +785,6 @@ steam.start() -- spawns the effect
 		spawn(5)
 			qdel(src)
 
-
 /obj/effect/effect/foam/Crossed(var/atom/movable/AM)
 	if(metal)
 		return
@@ -842,7 +798,6 @@ steam.start() -- spawns the effect
 		var/mob/living/carbon/M = AM
 		if (M.Slip(5, 2, 1))
 			to_chat(M, "<span class='notice'>You slipped on the foam!</span>")
-
 
 /datum/effect/effect/system/foam_spread
 	var/amount = 5				// the size of the foam spread.
@@ -902,7 +857,6 @@ steam.start() -- spawns the effect
 	var/metal = 1		// 1=aluminum, 2=iron
 
 /obj/structure/foamedmetal/proc/updateicon()
-
 	if(metal == 1)
 		icon_state = "metalfoam"
 	else
@@ -960,17 +914,12 @@ steam.start() -- spawns the effect
 		return 0
 	return !density
 
-
 /obj/structure/foamedmetal/proc/update_nearby_tiles()
-
 	if (!SS_READY(SSair))
 		return 0
-
 	var/T = loc
-
 	if (isturf(T))
 		SSair.mark_for_update(T)
-
 	return 1
 
 /obj/structure/foamedmetal/New()
@@ -990,7 +939,7 @@ steam.start() -- spawns the effect
 	can_exist_under_lattice = 1
 	plane = PLATING_PLANE
 
-/turf/simulated/floor/foamedmetal/attack_hand(mob/living/user as mob)
+/turf/simulated/floor/foamedmetal/attack_hand(mob/living/user)
 	user.delayNextAttack(10)
 	if ((M_HULK in user.mutations) || (prob(50)))
 		user.do_attack_animation(src, user)
@@ -999,7 +948,7 @@ steam.start() -- spawns the effect
 	else
 		to_chat(user, "<span class='notice'>You hit \the [src] but bounce off it.</span>")
 
-/turf/simulated/floor/foamedmetal/attackby(obj/item/C as obj, mob/living/user as mob)
+/turf/simulated/floor/foamedmetal/attackby(obj/item/C, mob/living/user)
 	if(!(locate(/obj/structure/lattice) in contents))
 		if(istype(C, /obj/item/stack/rods))
 			return
@@ -1086,20 +1035,6 @@ steam.start() -- spawns the effect
 		heavy = round(min(5, range * 0.5)) // clamps to 5 heavy range for grenades
 		light = min(7, range) // clamps to 7 light range for grenades
 		flash = range * 1.5
-		/*
-		if (round(amount/12) > 0)
-			devastation = min (MAX_EXPLOSION_RANGE, devastation + round(amount/12))
-
-		if (round(amount/6) > 0)
-			heavy = min (MAX_EXPLOSION_RANGE, heavy + round(amount/6))
-
-		if (round(amount/3) > 0)
-			light = min (MAX_EXPLOSION_RANGE, light + round(amount/3))
-
-		if (flash && flashing_factor)
-			flash += (round(amount/4) * flashing_factor)
-		*/
-
 		for(var/mob/M in viewers(8, location))
 			to_chat(M, "<span class='warning'>The solution violently explodes.</span>")
 
