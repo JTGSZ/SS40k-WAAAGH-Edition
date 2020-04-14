@@ -2729,3 +2729,57 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/pear
 		)
 	result = /obj/item/weapon/reagent_containers/food/snacks/winepear
+
+/datum/recipe/pbj
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
+		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
+		/obj/item/weapon/reagent_containers/food/snacks/grapejelly,
+		/obj/item/weapon/reagent_containers/food/snacks/peanutbutter,
+		)
+	result = /obj/item/weapon/reagent_containers/food/snacks/pbj
+
+/datum/recipe/saltednuts
+	reagents = list(SODIUMCHLORIDE = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/grown/peanut,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/peanut,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/peanut,
+		)
+	result = /obj/item/weapon/reagent_containers/food/snacks/saltednuts
+
+/datum/recipe/grapejelly
+	reagents = list (SUGAR = 5)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/grown/grapes)
+	result = /obj/item/weapon/reagent_containers/food/snacks/grapejelly
+
+/datum/recipe/peanutbutter
+	reagents = list (SODIUMCHLORIDE = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/grown/peanut,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/peanut,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/peanut,
+		)
+	result = /obj/item/weapon/reagent_containers/food/snacks/peanutbutter
+
+/datum/recipe/escargot
+	reagents = list (SODIUMCHLORIDE = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meat/snail,
+		/obj/item/clothing/head/helmet/snail_helm,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/plumphelmet,
+		/obj/item/weapon/reagent_containers/food/snacks/peanutbutter,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/escargot
+
+/datum/recipe/es_cargo
+	reagents = list (SODIUMCHLORIDE = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meat/snail,
+		/obj/item/clothing/head/helmet/snail_helm,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/garlic,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/plumphelmet,
+		/obj/item/stack/sheet/cardboard,
+		/obj/item/weapon/paper,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/es_cargo

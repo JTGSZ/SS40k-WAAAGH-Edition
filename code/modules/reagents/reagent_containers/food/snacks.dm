@@ -5947,3 +5947,103 @@ obj/item/weapon/reagent_containers/food/snacks/butterfingers_l
 	..()
 	reagents.add_reagent(NUTRIMENT, 3)
 	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/grapejelly
+	name = "jelly"
+	desc = "The choice of choosy moms."
+	icon = 'icons/obj/food2.dmi'
+	icon_state = "grapejelly"
+
+/obj/item/weapon/reagent_containers/food/snacks/grapejelly/New()
+	..()
+	reagents.add_reagent (NUTRIMENT, 2)
+	reagents.add_reagent (SUGAR, 2)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/peanutbutter
+	name = "peanut butter"
+	desc = "A jar of smashed peanuts, contains no actual butter."
+	icon = 'icons/obj/food2.dmi'
+	icon_state = "peanutbutter"
+
+/obj/item/weapon/reagent_containers/food/snacks/peanutbutter/New()
+	..()
+	reagents.add_reagent (NUTRIMENT, 3)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/saltednuts
+	name = "salted peanuts"
+	desc = "Popular in saloons."
+	icon = 'icons/obj/food2.dmi'
+	icon_state = "saltednuts"
+
+/obj/item/weapon/reagent_containers/food/snacks/saltednuts/New()
+	..()
+	reagents.add_reagent (NUTRIMENT, 2)
+	reagents.add_reagent (SODIUMCHLORIDE, 2)
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/pbj
+	name = "peanut butter and jelly sandwich"
+	desc = "A classic treat of childhood."
+	icon = 'icons/obj/food2.dmi'
+	icon_state = "pbj"
+	trash = /obj/item/trash/plate
+
+/obj/item/weapon/reagent_containers/food/snacks/pbj/New()
+	..()
+	reagents.add_reagent (NUTRIMENT, 4)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/escargot
+	icon_state = "escargot"
+	name = "cooked escargot"
+	desc = "A fine treat and an exquisite cuisine."
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/food.dmi', "right_hand" = 'icons/mob/in-hand/right/food.dmi')
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/escargot/New()
+	. = ..()
+	reagents.add_reagent(NUTRIMENT,10)
+	reagents.add_reagent(SODIUMCHLORIDE, 2)
+	reagents.add_reagent(HOLYWATER, 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/es_cargo
+	icon_state = "es_cargo_closed"
+	name = "es-cargo"
+	desc = "Je-ne-veux-pas-travailler !"
+	bitesize = 1
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/food.dmi', "right_hand" = 'icons/mob/in-hand/right/food.dmi')
+	var/open = FALSE
+
+/obj/item/weapon/reagent_containers/food/snacks/es_cargo/New()
+	. = ..()
+	reagents.add_reagent(NUTRIMENT,10)
+	reagents.add_reagent(SODIUMCHLORIDE, 2)
+	reagents.add_reagent(HOLYWATER, 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/es_cargo/can_consume(mob/living/carbon/eater, mob/user)
+	if (!open)
+		visible_message("<span class='notice'>\The [eater] cannot eat from \the [src] if it's closed, imbecile!</span>","<span class='notice'>You must first open it!</span>", drugged_message = "<span class='danger'>Oh lalala, this is not it, not it at all !</span>")
+		return FALSE
+	return ..()
+
+/obj/item/weapon/reagent_containers/food/snacks/es_cargo/attack_self(var/mob/user)
+	if (!open)
+		open = TRUE
+		icon_state = "es_cargo_opened"
+		visible_message("<span class='notice'>\The [user] opens \the [src]!</span>", drugged_message = "<span class='notice'>This smells très bon !</span>")
+		return
+	return ..()
+
+/obj/item/weapon/reagent_containers/food/snacks/es_cargo/verb/toggle_open()
+	set name = "Toggle open"
+	set category = "Object"
+	if (!open)
+		open = TRUE
+		icon_state = "es_cargo_opened"
+		visible_message("<span class='notice'>\The [usr] opens \the [src]!</span>", drugged_message = "<span class='notice'>This smells très bon !</span>")
+	else
+		open = FALSE
+		icon_state = "es_cargo_closed"
+		visible_message("<span class='notice'>\The [usr] closes \the [src]!</span>", drugged_message = "<span class='notice'>Enough for today !</span>")
