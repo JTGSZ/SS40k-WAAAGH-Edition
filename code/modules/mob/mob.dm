@@ -1210,7 +1210,6 @@ Use this proc preferably at the end of an equipment loadout
 	set name = "Examine"
 	set category = null
 
-//	if( (sdisabilities & BLIND || blinded || stat) && !istype(src,/mob/dead/observer) )
 	if(is_blind(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return
