@@ -293,7 +293,7 @@
 /obj/item/proc/talk_into(var/datum/speech/speech, var/channel=null)
 	return
 
-/obj/item/proc/moved(mob/user as mob, old_loc as turf)
+/obj/item/proc/moved(mob/user as mob, old_loc )
 	return
 
 /obj/item/proc/dropped(mob/user as mob)

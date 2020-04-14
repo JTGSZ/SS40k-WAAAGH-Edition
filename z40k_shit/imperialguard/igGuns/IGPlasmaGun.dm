@@ -50,7 +50,7 @@
 		to_chat(user, "<span class='notice'> Pack refueled</span>")
 		playsound(src, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
-
+ 
 //If we want to locate how much fuel we have, we use this proc.
 /obj/item/weapon/iguard/ig_powerpack/proc/get_fuel()
 	return reagents.get_reagent_amount(HYDROGEN)
@@ -100,13 +100,6 @@
 		connection_type = 1 //And become connection type 1 which is NOTHING.
 		update_icon()
 
-/*/We CAN handle our mouse drop from this side too.
-/obj/item/weapon/gun/ig_plasma_gun/MouseDropFrom(atom/over_object,atom/src_location,atom/over_location,src_control,over_control,params)
-	if(isturf(over_location))
-		if(connection_type == 2)
-			to_chat(usr,"You remove the fuel cell from the [src]")
-			usr.drop_item(my_cell, over_location)*/
-
 /obj/item/weapon/gun/ig_plasma_gun/overcharge(var/mob/living/user)
 	..()
 
@@ -127,7 +120,7 @@
 	if(istype(loc,/mob/living/carbon/human))
 		H.update_inv_hands()
 
-/obj/item/weapon/gun/ig_plasma_gun/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/weapon/gun/ig_plasma_gun/attackby(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/hydrogen_fuel_cell))
 		switch(connection_type)
 			if(1)

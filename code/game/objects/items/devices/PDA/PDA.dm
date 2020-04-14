@@ -2428,7 +2428,7 @@ obj/item/device/pda/AltClick()
 		note = A:info
 		to_chat(user, "<span class='notice'>Paper scanned.</span>")//concept of scanning paper copyright brainoblivion 2009
 
-/obj/item/device/pda/preattack(atom/A as mob|obj|turf|area, mob/user as mob)
+/obj/item/device/pda/preattack(atom/A , mob/user as mob)
 	switch(scanmode)
 		if(SCANMODE_REAGENT)
 			if(!A.Adjacent(user))

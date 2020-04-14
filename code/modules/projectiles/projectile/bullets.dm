@@ -255,7 +255,7 @@ obj/item/projectile/bullet/suffocationbullet
 			damage = 10
 			kill_count = 7
 
-/obj/item/projectile/spur/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/spur/to_bump(atom/A )
 
 	if(loc)
 		var/turf/T = loc
@@ -397,7 +397,7 @@ obj/item/projectile/bullet/suffocationbullet
 	..()
 	playsound(starting, 'sound/effects/bees.ogg', 75, 1)
 
-/obj/item/projectile/bullet/beegun/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/bullet/beegun/to_bump(atom/A )
 	if (!A)
 		return 0
 	if((A == firer) && !reflected)
@@ -494,7 +494,7 @@ obj/item/projectile/bullet/suffocationbullet
 		user = null
 	..()
 
-/obj/item/projectile/bullet/vial/to_bump(atom/A as mob|obj|turf|area) //to allow vials to splash onto walls
+/obj/item/projectile/bullet/vial/to_bump(atom/A ) //to allow vials to splash onto walls
 	if(!A)
 		return
 	if(vial)
@@ -763,7 +763,7 @@ obj/item/projectile/bullet/suffocationbullet
 	src.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 	..()
 
-/obj/item/projectile/bullet/liquid_blob/on_hit(atom/A as mob|obj|turf|area)
+/obj/item/projectile/bullet/liquid_blob/on_hit(atom/A )
 	if(!A)
 		return
 	..()
@@ -905,7 +905,7 @@ obj/item/projectile/bullet/suffocationbullet
 	else
 		create_reagents(capacity)
 
-/obj/item/projectile/bullet/syringe/on_hit(atom/A as mob|obj|turf|area)
+/obj/item/projectile/bullet/syringe/on_hit(atom/A )
 	if(!A)
 		return
 	..()

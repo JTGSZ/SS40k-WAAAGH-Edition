@@ -8,14 +8,14 @@
 	flag = "energy"
 	fire_sound = 'sound/weapons/ion.ogg'
 
-/obj/item/projectile/ion/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/ion/to_bump(atom/A )
 	if(!bumped && ((A != firer) || reflected))
 		empulse(get_turf(A), 1, 1)
 		qdel(src)
 		return
 	..()
 
-/obj/item/projectile/ion/small/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/ion/small/to_bump(atom/A )
 	if(!bumped && ((A != firer) || reflected))
 		empulse(get_turf(A), 0, 1)
 		qdel(src)
@@ -236,7 +236,7 @@ obj/item/projectile/kinetic/New()
 	new /obj/item/effect/kinetic_blast(target_turf)
 	..(target,blocked)
 
-/obj/item/projectile/kinetic/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/kinetic/to_bump(atom/A )
 	if(!loc)
 		return
 	if(A == firer)
@@ -288,7 +288,7 @@ obj/item/projectile/kinetic/New()
 	var/obj/item/stickybomb/sticky = null
 
 
-/obj/item/projectile/stickybomb/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/stickybomb/to_bump(atom/A )
 	if(bumped)
 		return 0
 	bumped = 1
@@ -325,7 +325,7 @@ obj/item/projectile/kinetic/New()
 			if(!(original in permutated))
 				to_bump(original)
 
-/obj/item/projectile/portalgun/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/portalgun/to_bump(atom/A )
 	if(bumped)
 		return
 	bumped = 1

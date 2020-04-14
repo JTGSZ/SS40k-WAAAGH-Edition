@@ -1027,7 +1027,7 @@ Use this proc preferably at the end of an equipment loadout
 //note: ghosts can point, this is intended
 //visible_message will handle invisibility properly
 //overriden here and in /mob/dead/observer for different point span classes and sanity checks
-/mob/verb/pointed(atom/A as turf | obj | mob in tview(src))
+/mob/verb/pointed(atom/A as turf|obj|mob in tview(src))
 	set name = "Point To"
 	set category = null
 

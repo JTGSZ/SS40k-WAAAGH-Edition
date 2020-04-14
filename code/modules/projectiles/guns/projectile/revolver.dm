@@ -183,7 +183,7 @@
 	if(getAmmo() > 0)
 		Spin()
 
-/obj/item/weapon/gun/projectile/russian/attack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj)
+/obj/item/weapon/gun/projectile/russian/attack(atom/target , mob/living/user as mob|obj)
 
 	var/obj/item/ammo_casing/AC = loaded[1]
 	if(isliving(target) && isliving(user) && target == user)
@@ -227,7 +227,7 @@
 
 	..()
 
-/obj/item/weapon/gun/projectile/russian/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/russian/Fire(atom/target , mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
 	var/obj/item/ammo_casing/AC = loaded[1]
 	if(!AC || !AC.BB)
 		user.visible_message("<span class='warning'>*click*</span>")
@@ -289,7 +289,7 @@
 /obj/item/weapon/gun/projectile/colt/AltClick(var/mob/user)
 	attack_self(user, callparent = TRUE)
 
-/obj/item/weapon/gun/projectile/colt/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag, struggle = 0)
+/obj/item/weapon/gun/projectile/colt/afterattack(atom/target , mob/living/user as mob|obj, flag, struggle = 0)
 	if(cocked)
 		..()
 		cocked = FALSE

@@ -175,7 +175,7 @@
 			var/obj/item/weapon/stock_parts/matter_bin/M = loaded_matter_bin
 			to_chat(user, "<span class='info'>The gauge on \the [src]'s [M.name] indicates that there [stored_items.len > 1 ? "are [stored_items.len] objects" : "is [stored_items.len] object"] stored inside it.</span>")
 
-/obj/item/weapon/subspacetunneler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj)
+/obj/item/weapon/subspacetunneler/afterattack(atom/target , mob/living/user as mob|obj)
 	if (target.loc == user)
 		return
 
@@ -205,7 +205,7 @@
 /obj/item/weapon/subspacetunneler/remote_attack(atom/target, mob/user, atom/movable/eye)
 	return afterattack(target, user) //Allow using the tunneler through cameras and remote view
 
-/obj/item/weapon/subspacetunneler/proc/send(turf/T as turf, mob/living/user as mob|obj)
+/obj/item/weapon/subspacetunneler/proc/send(turf/T , mob/living/user as mob|obj)
 	if(!T)
 		T = get_random_nearby_turf()
 	if(!T)

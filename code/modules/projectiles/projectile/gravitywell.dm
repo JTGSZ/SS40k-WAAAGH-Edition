@@ -14,7 +14,7 @@
 	else
 		return 0
 
-/obj/item/projectile/gravitywell/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/gravitywell/to_bump(atom/A )
 	if(loc == target)
 		spawnGravityWell()
 

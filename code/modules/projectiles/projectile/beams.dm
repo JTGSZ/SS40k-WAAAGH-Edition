@@ -533,7 +533,7 @@ var/list/beam_master = list()
 	var/spell/lightning/our_spell
 	weaken = 0
 	stun = 0
-/obj/item/projectile/beam/lightning/spell/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/beam/lightning/spell/to_bump(atom/A )
 	. = ..()
 	if(.)
 		our_spell.lastbumped = A
@@ -871,7 +871,7 @@ var/list/beam_master = list()
 		if(TT == firer.loc)
 			continue
 
-/obj/item/projectile/beam/bison/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/beam/bison/to_bump(atom/A )
 	//Heat Rays go through mobs
 	if(A == firer)
 		loc = A.loc

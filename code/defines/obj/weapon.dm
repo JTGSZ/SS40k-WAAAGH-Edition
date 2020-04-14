@@ -988,7 +988,7 @@
 	icon = midicon
 	icon_state = "1"
 
-/obj/item/weapon/lightning/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
+/obj/item/weapon/lightning/afterattack(atom/A , mob/living/user as mob|obj, flag, params)
 	var/angle = get_angle(A, user)
 //	to_chat(world, angle)
 	angle = round(angle) + 45

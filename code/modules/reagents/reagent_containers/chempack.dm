@@ -43,8 +43,8 @@
 	var/possible_fill_amounts = list(5,10,15,25,30,50,100,200,500,1000)
 	var/fill_amount = 10
 
-/obj/item/weapon/reagent_containers/chempack/equipped(M as mob, back)
-	var/mob/living/carbon/human/H = M
+/obj/item/weapon/reagent_containers/chempack/equipped(mob/user, back)
+	var/mob/living/carbon/human/H = user
 	if(H.back == src)
 		if(H.wear_mask && istype(H.wear_mask, /obj/item/clothing/mask/chemmask))
 			var/obj/item/clothing/mask/chemmask/C = H.wear_mask

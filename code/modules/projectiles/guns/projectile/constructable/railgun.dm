@@ -187,7 +187,7 @@
 	if(!rails_secure && loadedassembly)
 		to_chat(user, "<span class='warning'>\The [loadedassembly] inside \the [src] is unsecured.</span>")
 
-/obj/item/weapon/gun/projectile/railgun/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params, struggle = 0)
+/obj/item/weapon/gun/projectile/railgun/afterattack(atom/A , mob/living/user as mob|obj, flag, params, struggle = 0)
 	if (istype(A, /obj/item/weapon/storage/backpack ))
 		return
 
@@ -215,7 +215,7 @@
 
 	calculate_strength(A,user,params, "struggle" = struggle)
 
-/obj/item/weapon/gun/projectile/railgun/proc/calculate_strength(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params, struggle = 0)
+/obj/item/weapon/gun/projectile/railgun/proc/calculate_strength(atom/A , mob/living/user as mob|obj, flag, params, struggle = 0)
 	if(!loadedcapacitor || !loadedammo)
 		return
 	
@@ -273,7 +273,7 @@
 
 		update_icon()
 
-/obj/item/weapon/gun/projectile/railgun/proc/throw_ammo(atom/target as mob|obj|turf|area, mob/living/user as mob|obj)
+/obj/item/weapon/gun/projectile/railgun/proc/throw_ammo(atom/target , mob/living/user as mob|obj)
 	add_fingerprint(user)
 
 	var/turf/curloc = get_turf(user)

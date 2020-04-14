@@ -338,7 +338,7 @@
 		B.master.children.Add(B)
 	return B
 
-/obj/effect/beam/to_bump(var/atom/A as mob|obj|turf|area)
+/obj/effect/beam/to_bump(var/atom/A )
 	if(!master)
 		return
 	bumped = 1

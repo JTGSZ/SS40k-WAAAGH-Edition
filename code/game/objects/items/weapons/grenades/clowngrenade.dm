@@ -42,7 +42,7 @@
 	qdel(src)
 	return
 /*
-/obj/item/weapon/grenade/clown_grenade/proc/banana(turf/T as turf)
+/obj/item/weapon/grenade/clown_grenade/proc/banana(turf/T )
 	if(!T || !istype(T))
 		return
 	if(locate(/obj/structure/grille) in T)

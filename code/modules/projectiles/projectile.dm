@@ -182,7 +182,7 @@ var/list/impact_master = list()
 		msg_admin_attack("UNKNOWN/(no longer exists) shot UNKNOWN/(no longer exists) with a [type]. Wait what the fuck?")
 		log_attack("<font color='red'>UNKNOWN/(no longer exists) shot UNKNOWN/(no longer exists) with a [type]</font>")
 
-/obj/item/projectile/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/to_bump(atom/A )
 	if (!A)	//This was runtiming if by chance A was null.
 		return 0
 	if((A == firer) && !reflected)
@@ -637,7 +637,7 @@ var/list/impact_master = list()
 	var/ttarget = null
 	var/result = 0 //To pass the message back to the gun.
 
-/obj/item/projectile/test/to_bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/test/to_bump(atom/A )
 	if(A == firer)
 		loc = A.loc
 		return //cannot shoot yourself

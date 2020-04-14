@@ -82,7 +82,7 @@
 		to_chat(viewers(user), "<span class='danger'>[user] is smashing \himself in the head with the [src.name]! It looks like \he's commit suicide!</span>")
 		return (SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/fireaxe/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/weapon/fireaxe/afterattack(atom/A , mob/user as mob, proximity)
 	if(!proximity)
 		return
 	..()

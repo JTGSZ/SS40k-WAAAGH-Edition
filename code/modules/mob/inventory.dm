@@ -85,18 +85,6 @@
 
 	return "CENTER[x_offset ? x_offset : ""]:[WORLD_ICON_SIZE/2+x_pixel_offset],SOUTH[y_offset ? "+[y_offset]" : ""]:[5*PIXEL_MULTIPLIER+y_pixel_offset]"
 
-	/*
-	switch(index)
-		if(1)
-			return "CENTER-1:16,SOUTH:5"
-		if(2)
-			return "CENTER:16,SOUTH:5"
-		if(3)
-			return "CENTER-1:16,SOUTH+1:5"
-		if(4)
-			return "CENTER:16,SOUTH+1:5"
-	*/
-
 /mob/proc/get_direction_by_index(index)
 	if(index % 2 == GRASP_RIGHT_HAND)
 		return "right_hand"

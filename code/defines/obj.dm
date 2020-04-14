@@ -416,7 +416,7 @@ var/global/list/PDA_Manifest = list()
 	flags = FPRINT
 	siemens_coefficient = 1
 
-/obj/item/weapon/beach_ball/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+/obj/item/weapon/beach_ball/afterattack(atom/target , mob/user as mob)
 	if(user.drop_item(src))
 		src.throw_at(target, throw_range, throw_speed)
 

@@ -240,7 +240,7 @@ proc/move_mining_shuttle()
 	desc = "Re-purposed mining equipment, built to kill."
 	attack_verb = list("hits", "hammers", "impacts", "attacks")
 
-/obj/item/weapon/pickaxe/jackhammer/combat/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/weapon/pickaxe/jackhammer/combat/afterattack(atom/A , mob/user as mob, proximity)
 	user.delayNextAttack(25)
 
 /obj/item/weapon/pickaxe/gold

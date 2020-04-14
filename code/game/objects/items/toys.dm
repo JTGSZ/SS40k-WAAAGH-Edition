@@ -179,7 +179,7 @@
 		return 1
 	return
 
-/obj/item/toy/gun/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/toy/gun/afterattack(atom/target, mob/user as mob, flag)
 	if (flag)
 		return
 
@@ -236,7 +236,7 @@
 	if (bullets)
 		to_chat(user, "<span class = 'info'>It is loaded with [bullets] foam dart\s!</span>")
 
-/obj/item/toy/crossbow/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/toy/crossbow/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/toy/ammo/crossbow))
 		if(bullets <= 4)
 			if(user.drop_item(I))
@@ -248,7 +248,7 @@
 			to_chat(usr, "<span class = 'warning'>It's already fully loaded.</span>")
 
 
-/obj/item/toy/crossbow/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/toy/crossbow/afterattack(atom/target, mob/user, flag)
 	if(!isturf(target.loc) || target == user)
 		return
 	if(flag)
@@ -265,7 +265,7 @@
 		playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
 
 		for(var/i=0, i<6, i++)
-			if (D)
+			if(D)
 				if(D.loc == trg)
 					break
 				step_towards(D,trg)
@@ -299,19 +299,18 @@
 				D = null
 
 		return
-	else if (bullets == 0)
+	else if(bullets == 0)
 		user.Knockdown(5)
 		for(var/mob/O in viewers(world.view, user))
 			O.show_message(text("<span class = 'danger'>[] realizes they are out of ammo and starts scrounging for some!<span>", user), 1)
 
 
-/obj/item/toy/crossbow/attack(mob/M as mob, mob/user as mob)
+/obj/item/toy/crossbow/attack(mob/M, mob/user)
 	src.add_fingerprint(user)
 
 // ******* Check
 
-	if (src.bullets > 0 && M.lying)
-
+	if(src.bullets > 0 && M.lying)
 		for(var/mob/O in viewers(M, null))
 			if(O.client)
 				O.show_message(text("<span class = 'danger'><B>[] casually lines up a shot with []'s head and pulls the trigger!</B></span>", user, M), 1, "<span class = 'danger'>You hear the sound of foam against skull.</span>", 2)
@@ -320,9 +319,9 @@
 		playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
 		new /obj/item/toy/ammo/crossbow(M.loc)
 		src.bullets--
-	else if (M.lying && src.bullets == 0)
+	else if(M.lying && src.bullets == 0)
 		for(var/mob/O in viewers(M, null))
-			if (O.client)
+			if(O.client)
 				O.show_message(text("<span class = 'danger'><B>[] casually lines up a shot with []'s head, pulls the trigger, then realizes they are out of ammo and drops to the floor in search of some!</B></span>", user, M), 1, "<span class = 'danger'>You hear someone fall</span>", 2)
 		user.Knockdown(5)
 	return
@@ -353,27 +352,27 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
-	var/active = 0.0
+	var/active = 0
 	w_class = W_CLASS_SMALL
 	flags = FPRINT
 	attack_verb = list("attacks", "strikes", "hits")
 
-	attack_self(mob/user as mob)
-		src.active = !( src.active )
-		if (src.active)
-			to_chat(user, "<span class = 'info'>You extend the plastic blade with a quick flick of your wrist.</span>")
-			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-			src.icon_state = "swordblue"
-			src.item_state = "swordblue"
-			src.w_class = W_CLASS_LARGE
-		else
-			to_chat(user, "<span class = 'info'>You push the plastic blade back down into the handle.</span>")
-			playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-			src.icon_state = "sword0"
-			src.item_state = "sword0"
-			src.w_class = W_CLASS_SMALL
-		src.add_fingerprint(user)
-		return
+/obj/item/toy/sword/attack_self(mob/user)
+	active = !active
+	if(active)
+		to_chat(user, "<span class = 'info'>You extend the plastic blade with a quick flick of your wrist.</span>")
+		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+		icon_state = "swordblue"
+		item_state = "swordblue"
+		w_class = W_CLASS_LARGE
+	else
+		to_chat(user, "<span class = 'info'>You push the plastic blade back down into the handle.</span>")
+		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		icon_state = "sword0"
+		item_state = "sword0"
+		w_class = W_CLASS_SMALL
+	add_fingerprint(user)
+	return
 
 /obj/item/toy/katana
 	name = "replica katana"
@@ -549,10 +548,10 @@
 	create_reagents(10)
 	reagents.add_reagent(WATER, 10)
 
-/obj/item/toy/waterflower/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/toy/waterflower/attack(mob/living/carbon/human/M, mob/user)
 	return
 
-/obj/item/toy/waterflower/afterattack(atom/A as mob|obj, mob/user as mob, proximity_flag)
+/obj/item/toy/waterflower/afterattack(atom/A, mob/user, proximity_flag)
 
 	if (istype(A, /obj/item/weapon/storage/backpack ) || istype(A, /obj/structure/bed/chair/vehicle/clowncart))
 		return
@@ -612,13 +611,13 @@
 	w_class = W_CLASS_SMALL
 
 //all credit to skasi for toy mech fun ideas
-/obj/item/toy/prize/attack_self(mob/user as mob)
+/obj/item/toy/prize/attack_self(mob/user)
 	if(cooldown < world.time - 8)
 		to_chat(user, "<span class='notice'>You play with \the [src].</span>")
 		playsound(user, 'sound/mecha/mechstep.ogg', 20, 1)
 		cooldown = world.time
 
-/obj/item/toy/prize/attack_hand(mob/user as mob)
+/obj/item/toy/prize/attack_hand(mob/user)
 	if(loc == user)
 		if(cooldown < world.time - 8)
 			to_chat(user, "<span class='notice'>You play with \the [src].</span>")
@@ -703,7 +702,7 @@
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "small"
 
-/obj/item/toy/minimeteor/attack_self(mob/user as mob)
+/obj/item/toy/minimeteor/attack_self(mob/user)
 
 	playsound(user, 'sound/effects/bamf.ogg', 20, 1)
 
@@ -718,7 +717,7 @@
 
 	var/spamcheck = 0
 
-/obj/item/device/whisperphone/attack_self(mob/living/user as mob)
+/obj/item/device/whisperphone/attack_self(mob/living/user)
 	if (user.client)
 		if(user.client.prefs.muted & MUTE_IC)
 			to_chat(src, "<span class = 'warning'>You cannot speak in IC (muted).</span>")
@@ -900,13 +899,6 @@
 	desc = "This toy is not actually magical."
 	icon_state = "wiz"
 
-/*
-/obj/item/toy/gasha/bamshoot
-	name = "toy Bumshooter"
-	desc = "*fart"
-	icon_state = "bamshoot"
-*/ //No metaclub allowed ;_;
-
 /obj/item/toy/gasha/snowflake
 	name = "toy snowflake"
 	desc = "What a faggot"
@@ -1057,12 +1049,12 @@
 	desc = "May be a bad influence for cyborgs"
 	icon_state = "malfAI"
 
-/obj/item/toy/gasha/minibutt/attack_self(mob/user as mob)
+/obj/item/toy/gasha/minibutt/attack_self(mob/user)
 	if(cooldown < world.time - 8)
 		playsound(user, 'sound/misc/fart.ogg', 20, 1)
 		cooldown = world.time
 
-/obj/item/toy/gasha/minibutt/attack_hand(mob/user as mob)
+/obj/item/toy/gasha/minibutt/attack_hand(mob/user)
 	if(loc == user)
 		if(cooldown < world.time - 8)
 			playsound(user, 'sound/misc/fart.ogg', 20, 1)
@@ -1081,12 +1073,12 @@
 	icon_state = "skub"
 
 
-/obj/item/toy/gasha/fingerbox/attack_self(mob/user as mob)
+/obj/item/toy/gasha/fingerbox/attack_self(mob/user)
 	if(cooldown < world.time - 8)
 		playsound(user, 'sound/weapons/switchblade.ogg', 20, 1)
 		cooldown = world.time
 
-/obj/item/toy/gasha/fingerbox/attack_hand(mob/user as mob)
+/obj/item/toy/gasha/fingerbox/attack_hand(mob/user)
 	if(loc == user)
 		if(cooldown < world.time - 8)
 			playsound(user, 'sound/weapons/switchblade.ogg', 20, 1)
@@ -1260,7 +1252,7 @@
 	balright.overlays += balrightshine
 	balright.overlays += balrightstring
 	dynamic_overlay["[HAND_LAYER]-[GRASP_LEFT_HAND]"] = balleft
-	dynamic_overlay["[HAND_LAYER]-[GRASP_RIGHT_HAND]"] = balright
+	dynamic_overlay["[HAND_LAYER]-[GRASP_RIGHT_HAND]"] = balright 
 
 /obj/item/toy/balloon/glove
 	name = "latex glove"

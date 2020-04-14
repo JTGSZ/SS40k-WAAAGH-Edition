@@ -65,7 +65,7 @@
 		returnToPool(active)
 		active = null
 
-/obj/item/stack/tile/plasteel/proc/build(turf/S as turf)
+/obj/item/stack/tile/plasteel/proc/build(turf/S )
 	if(S.air)
 		var/datum/gas_mixture/GM = S.air
 		if(GM.pressure > HALF_ATM)
@@ -136,7 +136,7 @@
 	icon_state = "tile_rglass"
 	max_amount = 60
 
-/obj/item/stack/glass_tile/rglass/proc/build(turf/S as turf)
+/obj/item/stack/glass_tile/rglass/proc/build(turf/S )
 	var/obj/structure/lattice/L = S.canBuildCatwalk(src)
 	if(istype(L))
 		playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
@@ -155,7 +155,7 @@
 	desc = "A relatively clear reinforced plasma glass tile."
 	icon_state = "tile_plasmarglass"
 
-/obj/item/stack/glass_tile/rglass/plasma/build(turf/S as turf)
+/obj/item/stack/glass_tile/rglass/plasma/build(turf/S )
 	var/obj/structure/lattice/L = S.canBuildCatwalk(src)
 	if(istype(L))
 		playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)

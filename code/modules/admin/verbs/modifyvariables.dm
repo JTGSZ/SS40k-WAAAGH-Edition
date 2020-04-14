@@ -173,7 +173,7 @@ var/list/forbidden_varedit_object_types = list(
 					new_value = C.populate_list()
 
 			if(V_OBJECT)
-				new_value = input("Select reference:", window_title, old_value) as mob|obj|turf|area in range(8, get_turf(user))
+				new_value = input("Select reference:", window_title, old_value)  in range(8, get_turf(user))
 
 			if(V_FILE)
 				new_value = input("Pick file:", window_title) as file

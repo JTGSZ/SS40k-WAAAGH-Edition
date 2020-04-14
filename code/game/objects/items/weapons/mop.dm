@@ -21,7 +21,7 @@
 	mop_list.Remove(src)
 	..()
 
-/obj/item/weapon/mop/proc/clean(turf/simulated/A as turf)
+/obj/item/weapon/mop/proc/clean(turf/simulated/A )
 	for(var/obj/effect/O in A)
 		if(iscleanaway(O))
 			qdel(O)
