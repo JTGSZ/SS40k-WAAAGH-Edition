@@ -36,7 +36,7 @@
 	times_used = max(0,round(times_used)) //sanity
 
 
-/obj/item/device/flash/attack(mob/living/M as mob, mob/user as mob) //flash_act when?
+/obj/item/device/flash/attack(mob/living/M , mob/user ) //flash_act when?
 	var/length
 	if(!user || !M) //sanity
 		return
@@ -142,7 +142,7 @@
 /obj/item/device/flash/synthetic/make_rev_flash()
 	return 0
 
-/obj/item/device/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
+/obj/item/device/flash/attack_self(mob/living/carbon/user , flag = 0, emp = 0)
 	if(!user || !clown_check(user))
 		return
 
@@ -249,7 +249,7 @@
 	icon_state = "sflash"
 	origin_tech = Tc_MAGNETS + "=2;" + Tc_COMBAT + "=1"
 
-/obj/item/device/flash/synthetic/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/device/flash/synthetic/attack(mob/living/M , mob/user )
 	..()
 	if(!broken)
 		broken = 1
@@ -257,7 +257,7 @@
 		icon_state = "flashburnt"
 		item_state = "flashburnt"
 
-/obj/item/device/flash/synthetic/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
+/obj/item/device/flash/synthetic/attack_self(mob/living/carbon/user , flag = 0, emp = 0)
 	..()
 	if(!broken)
 		broken = 1

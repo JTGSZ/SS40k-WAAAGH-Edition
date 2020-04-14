@@ -18,7 +18,7 @@
 	to_chat(user, "It has [kit_uses] uses left for regular barricades. It can [kit_uses < 3 ? "no longer be used" : "also be used"] for full barricades.")
 
 //Basically a rip from window construction, because it's the same idea
-/obj/item/weapon/barricade_kit/attack_self(mob/user as mob)
+/obj/item/weapon/barricade_kit/attack_self(mob/user )
 	if(!user || !src)
 		return 0
 	if(!istype(user.loc, /turf))
@@ -67,7 +67,7 @@
 				qdel(src) //Use it up
 
 //Preattack to avoid bashing windows or opening airlocks when working
-/obj/item/weapon/barricade_kit/preattack(var/atom/A, mob/user as mob)
+/obj/item/weapon/barricade_kit/preattack(var/atom/A, mob/user )
 	if(istype(A, /obj/machinery/door/airlock) || istype(A, /obj/structure/window/full) || istype(A, /obj/structure/grille)) //Apply on a full window or an airlock
 		if(get_dist(user,A) > 1) //There, it's unfucked
 			return
@@ -87,6 +87,6 @@
 				qdel(src) //Get rid of it
 		return TRUE //Don't fire attack, please
 
-/obj/item/weapon/barricade_kit/attack(var/atom/A, mob/user as mob)
+/obj/item/weapon/barricade_kit/attack(var/atom/A, mob/user )
 
 	return //Don't attack with it

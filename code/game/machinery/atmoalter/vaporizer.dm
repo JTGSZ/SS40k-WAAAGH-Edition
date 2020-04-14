@@ -100,14 +100,14 @@
 	mixing_chamber.flags &= ~NOREACT
 	mixing_chamber.reagents.handle_reactions()
 
-/obj/machinery/vaporizer/attack_ai(var/mob/user as mob)
+/obj/machinery/vaporizer/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/vaporizer/attack_paw(var/mob/user as mob)
+/obj/machinery/vaporizer/attack_paw(var/mob/user )
 	return attack_hand(user)
 
-/obj/machinery/vaporizer/attack_hand(var/mob/user as mob)
+/obj/machinery/vaporizer/attack_hand(var/mob/user )
 	return ui_interact(user)
 
 /obj/machinery/vaporizer/attackby(obj/item/weapon/W, mob/living/user)

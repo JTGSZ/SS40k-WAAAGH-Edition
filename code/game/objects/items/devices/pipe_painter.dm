@@ -14,7 +14,7 @@
 	)
 	var/mode = "grey"
 
-/obj/item/device/pipe_painter/afterattack(atom/A, mob/user as mob)
+/obj/item/device/pipe_painter/afterattack(atom/A, mob/user )
 	if(!istype(A,/obj/machinery/atmospherics/pipe) || istype(A,/obj/machinery/atmospherics/unary/tank) || istype(A,/obj/machinery/atmospherics/unary/vent) || istype(A,/obj/machinery/atmospherics/pipe/simple/heat_exchanging) || istype(A,/obj/machinery/atmospherics/pipe/simple/insulated))
 		return
 	var/obj/machinery/atmospherics/pipe/P = A
@@ -25,7 +25,7 @@
 		return
 	to_chat(user, "<span class='danger'>\The [P] cannot be painted.</span>")
 
-/obj/item/device/pipe_painter/attack_self(mob/user as mob)
+/obj/item/device/pipe_painter/attack_self(mob/user )
 	mode = input("Which colour do you want to use?","Pipe painter") in modes
 
 /obj/item/device/pipe_painter/examine(mob/user)

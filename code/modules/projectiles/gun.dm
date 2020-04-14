@@ -262,7 +262,7 @@
 /obj/item/weapon/gun/proc/canbe_fired()
 	return process_chambered()
 
-/obj/item/weapon/gun/proc/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)
+/obj/item/weapon/gun/proc/can_hit(var/mob/living/target , var/mob/living/user )
 	return in_chamber.check_fire(target,user)
 
 /obj/item/weapon/gun/proc/click_empty(mob/user = null)

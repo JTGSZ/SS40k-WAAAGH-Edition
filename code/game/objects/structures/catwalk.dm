@@ -45,7 +45,7 @@
 				new /obj/structure/lattice(src.loc)
 				qdel(src)
 
-/obj/structure/catwalk/attackby(obj/item/C , mob/user as mob)
+/obj/structure/catwalk/attackby(obj/item/C , mob/user )
 	if(!C || !user)
 		return 0
 	if(C.is_screwdriver(user))

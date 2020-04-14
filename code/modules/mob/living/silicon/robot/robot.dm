@@ -508,7 +508,7 @@ var/list/cyborg_list = list()
 	return TRUE
 
 
-/mob/living/silicon/robot/cancelAlarm(var/class, area/A as area, obj/origin)
+/mob/living/silicon/robot/cancelAlarm(var/class, area/A, obj/origin)
 	var/list/L = alarms[class]
 	var/cleared = FALSE
 	for (var/I in L)
@@ -525,7 +525,7 @@ var/list/cyborg_list = list()
 	return !cleared
 
 
-/mob/living/silicon/robot/emag_act(mob/user as mob)
+/mob/living/silicon/robot/emag_act(mob/user )
 	if(user != src)
 		spark(src, 5, FALSE)
 		if(!opened)
@@ -587,7 +587,7 @@ var/list/cyborg_list = list()
 	return TRUE
 
 
-/mob/living/silicon/robot/attackby(obj/item/weapon/W , mob/user as mob)
+/mob/living/silicon/robot/attackby(obj/item/weapon/W , mob/user )
 	if(opened) // Are they trying to insert something?
 		for(var/V in components)
 			var/datum/robot_component/C = components[V]
@@ -828,7 +828,7 @@ var/list/cyborg_list = list()
 				return
 		return ..()
 
-/mob/living/silicon/robot/attack_alien(mob/living/carbon/alien/humanoid/M as mob)
+/mob/living/silicon/robot/attack_alien(mob/living/carbon/alien/humanoid/M )
 
 	switch(M.a_intent)
 		if(I_HELP)

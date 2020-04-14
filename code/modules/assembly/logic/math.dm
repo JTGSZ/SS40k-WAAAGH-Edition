@@ -38,7 +38,7 @@ var/global/list/math_circuit_operations_list = list("ADD", "SUBTRACT", "MULTIPLY
 		VALUE_VARIABLES = "null;"+VT_TEXT)
 	//"Variables": Export data about variables to text, in this format: "1&2&a1+Remaining Time&a2+Remaining Time&55", divided by ampersands. Numbers like 1, 2 are constant numbers. a1+[whatever], a2+[whatever] are pointers to assemblies
 
-/obj/item/device/assembly/math/interact(mob/user as mob)
+/obj/item/device/assembly/math/interact(mob/user )
 	var/dat = ""
 
 	dat += "<tt>Math circuit</tt> <small>\[<a href='?src=\ref[src];help=1'>?</a>\]</small><BR><BR>"

@@ -47,10 +47,10 @@
 				C.health = min(C.maxHealth, C.health + 3) //Not quite as good as artificers
 */
 
-/obj/structure/cult_legacy/pylon/attack_hand(mob/M as mob)
+/obj/structure/cult_legacy/pylon/attack_hand(mob/M )
 	attackpylon(M, 5)
 
-/obj/structure/cult_legacy/pylon/attack_animal(mob/living/simple_animal/user as mob)
+/obj/structure/cult_legacy/pylon/attack_animal(mob/living/simple_animal/user )
 	if(istype(user, /mob/living/simple_animal/construct/builder))
 		if(isbroken)
 			if(prob(20))
@@ -60,10 +60,10 @@
 				to_chat(user, "You fail to repair the pylon")
 	attackpylon(user, user.melee_damage_upper)
 
-/obj/structure/cult_legacy/pylon/attackby(obj/item/W , mob/user as mob)
+/obj/structure/cult_legacy/pylon/attackby(obj/item/W , mob/user )
 	attackpylon(user, W.force)
 
-/obj/structure/cult_legacy/pylon/proc/attackpylon(mob/user as mob, var/damage)
+/obj/structure/cult_legacy/pylon/proc/attackpylon(mob/user , var/damage)
 	if(!isbroken)
 		if(prob(1+ damage * 5))
 			to_chat(user, "You hit the pylon, and its crystal breaks apart!")
@@ -89,7 +89,7 @@
 
 
 
-/obj/structure/cult_legacy/pylon/proc/repair(mob/user as mob)
+/obj/structure/cult_legacy/pylon/proc/repair(mob/user )
 	if(isbroken)
 		to_chat(user, "You repair the pylon.")
 		isbroken = 0
@@ -104,7 +104,7 @@
 	light_range = 2
 	light_color = LIGHT_COLOR_RED
 
-/obj/structure/cult_legacy/tome/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/cult_legacy/tome/attackby(obj/item/weapon/W , mob/user )
 	user.drop_item(W, src.loc)
 	return 1
 

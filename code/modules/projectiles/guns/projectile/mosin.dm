@@ -24,7 +24,7 @@
 /obj/item/weapon/gun/projectile/mosin/isHandgun()
 	return FALSE
 
-/obj/item/weapon/gun/projectile/mosin/attack_self(mob/living/user as mob)
+/obj/item/weapon/gun/projectile/mosin/attack_self(mob/living/user )
 	if(recentpump)
 		return
 	pump(user)
@@ -44,7 +44,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/gun/projectile/mosin/proc/pump(mob/M as mob)
+/obj/item/weapon/gun/projectile/mosin/proc/pump(mob/M )
 	playsound(M, 'sound/weapons/mosinreload.ogg', 100, 1)
 	pumped = 0
 	if(current_shell)//We have a shell in the chamber
@@ -60,7 +60,7 @@
 	update_icon()	//I.E. fix the desc
 	return 1
 
-/obj/item/weapon/gun/projectile/mosin/attackby(var/obj/item/A , mob/living/user as mob)
+/obj/item/weapon/gun/projectile/mosin/attackby(var/obj/item/A , mob/living/user )
 	..()
 	if(istype(src, /obj/item/weapon/gun/projectile/mosin/obrez))
 		return

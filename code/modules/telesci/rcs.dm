@@ -20,7 +20,7 @@
 	global.cargo_telepads -= src
 	return ..()
 
-/obj/machinery/telepad_cargo/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/telepad_cargo/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 50)
 		anchored = !anchored
@@ -51,7 +51,7 @@
 	item_state = "signaler"
 	origin_tech = Tc_BLUESPACE + "=3"
 
-/obj/item/device/telepad_beacon/attack_self(mob/user as mob)
+/obj/item/device/telepad_beacon/attack_self(mob/user )
 	if(user)
 		to_chat(user, "<span class = 'caution'> Locked In</span>")
 		new /obj/machinery/telepad_cargo(user.loc)

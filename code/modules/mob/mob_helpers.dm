@@ -486,7 +486,7 @@ proc/is_blind(A)
 			return 1
 	return 0
 
-/proc/get_multitool(mob/user as mob)
+/proc/get_multitool(mob/user )
 	// Get tool
 	var/obj/item/device/multitool/P
 	if(isrobot(user) || ishuman(user))

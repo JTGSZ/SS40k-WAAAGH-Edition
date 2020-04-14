@@ -25,7 +25,7 @@
 		spawn()
 			src.teleport(user)
 
-/obj/effect/portal/attackby(obj/item/weapon/O , mob/user as mob)
+/obj/effect/portal/attackby(obj/item/weapon/O , mob/user )
 	if(O == creator)
 		to_chat(user, "<span class='warning'>You close the portal prematurely.</span>")
 		qdel(src)

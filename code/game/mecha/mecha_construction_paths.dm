@@ -145,7 +145,7 @@
 	board_step = get_forward_step(steps.len - PERIBOARD)
 	board_step[Co_KEY] = peripherals
 
-/datum/construction/reversible/mecha/spawn_result(mob/user as mob)
+/datum/construction/reversible/mecha/spawn_result(mob/user )
 	..()
 	feedback_inc("mecha_[base_icon]_created",1)
 	return

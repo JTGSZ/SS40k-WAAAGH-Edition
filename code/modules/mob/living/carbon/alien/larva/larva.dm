@@ -147,7 +147,7 @@
 // new damage icon system
 // now constructs damage icon for each organ from mask * damage field
 
-/mob/living/carbon/alien/larva/show_inv(mob/user as mob)
+/mob/living/carbon/alien/larva/show_inv(mob/user )
 	user.set_machine(src)
 	var/dat
 	if(handcuffed)

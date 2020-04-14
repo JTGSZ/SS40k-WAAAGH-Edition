@@ -249,7 +249,7 @@
 				continue
 	return TRUE //All roles true? Return true.
 
-/obj/item/clothing/before_stripped(mob/wearer as mob, mob/stripper as mob, slot)
+/obj/item/clothing/before_stripped(mob/wearer , mob/stripper , slot)
 	..()
 	if(slot == slot_w_uniform) //this will cause us to drop our belt, ID, and pockets!
 		for(var/slotID in list(slot_wear_id, slot_belt, slot_l_store, slot_r_store))
@@ -290,7 +290,7 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
-/obj/item/clothing/ears/attack_hand(mob/user as mob)
+/obj/item/clothing/ears/attack_hand(mob/user )
 	if (!user)
 		return
 
@@ -601,7 +601,7 @@
 	..()
 	sensor_mode = pick(0,1,2,3)
 
-/obj/item/clothing/under/proc/set_sensors(mob/user as mob)
+/obj/item/clothing/under/proc/set_sensors(mob/user )
 	if(user.incapacitated())
 		return
 	if(has_sensor >= 2)

@@ -7,7 +7,7 @@
 
 	light_color = LIGHT_COLOR_CYAN
 
-	attackby(var/obj/item/weapon/card/W , var/mob/user as mob)
+	attackby(var/obj/item/weapon/card/W , var/mob/user )
 		if(stat & (BROKEN|NOPOWER))
 			return
 		..()
@@ -64,7 +64,7 @@
 					src.authorized = list(  )
 		return
 
-/obj/machinery/computer/shuttle/emag(mob/user as mob)
+/obj/machinery/computer/shuttle/emag(mob/user )
 	if(!emagged)
 		new/obj/effect/effect/sparks(get_turf(src))
 		playsound(loc,"sparks",50,1)

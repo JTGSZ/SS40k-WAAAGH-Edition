@@ -246,7 +246,7 @@
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_ENGINEERING + "=3"
 	var/mode = 1;
 
-/obj/item/device/robotanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/robotanalyzer/attack(mob/living/M , mob/living/user )
 	if(( clumsy_check(user) || user.getBrainLoss() >= 60) && prob(50))
 		to_chat(user, text("<span class='warning'>You try to analyze the floor's vitals!</span>"))
 		for(var/mob/O in viewers(M, null))

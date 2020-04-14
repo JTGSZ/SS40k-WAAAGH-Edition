@@ -293,7 +293,7 @@
 			var/turf/simulated/T = mob.loc
 			T.wet(800, TURF_WET_LUBE)
 
-/obj/item/clothing/shoes/clown_shoes/slippy/dropped(mob/user as mob)
+/obj/item/clothing/shoes/clown_shoes/slippy/dropped(mob/user )
 	canremove = 1
 	..()
 

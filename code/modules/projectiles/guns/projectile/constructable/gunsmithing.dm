@@ -50,7 +50,7 @@
 				new /obj/item/weapon/gun_barrel(get_turf(src.loc))
 			qdel(src)
 
-/obj/item/weapon/cylinder_assembly/attack_self(mob/user as mob)
+/obj/item/weapon/cylinder_assembly/attack_self(mob/user )
 	..()
 	to_chat(user, "You detach the aluminum cylinders from each other.")
 	new /obj/item/weapon/aluminum_cylinder(get_turf(user.loc))
@@ -139,7 +139,7 @@
 	w_class = W_CLASS_MEDIUM
 	var/complete = 0
 
-/obj/item/weapon/large_metal_blade/attack_self(mob/user as mob)
+/obj/item/weapon/large_metal_blade/attack_self(mob/user )
 	if(complete)
 		return
 	..()
@@ -248,7 +248,7 @@
 	if(chambercount)
 		to_chat(user, "<span class='info'>There [chambercount > 1 ? "are" : "is"] [chambercount] vials loaded into \the [src].</span>")
 
-/obj/item/weapon/cylinder/attack_self(mob/user as mob)
+/obj/item/weapon/cylinder/attack_self(mob/user )
 	if(!chambers[current_chamber])
 		for(var/i = 1; i<=6; i++)
 			if(chambers[i])
@@ -394,7 +394,7 @@
 			desc = "It looks like it could be some type of gun. Something might fit into the prongs of its subspace ansible."
 			icon_state = "subspacetunneler_assembly"
 
-/obj/item/weapon/gun_assembly/attack_self(mob/user as mob)
+/obj/item/weapon/gun_assembly/attack_self(mob/user )
 	switch(state)
 		if("stock_reservoir_assembly")
 			to_chat(user, "You detach the fuel reservoir from \the [src].")
@@ -660,7 +660,7 @@
 		desc = "A wrench with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 		icon_state = "wrench"
 
-/obj/item/weapon/wrench_wired/attack_self(mob/user as mob)
+/obj/item/weapon/wrench_wired/attack_self(mob/user )
 	if(metal_assembly)
 		to_chat(user, "You remove the metal blade from \the [src].")
 		new /obj/item/weapon/wrench_wired(get_turf(src.loc))
@@ -722,7 +722,7 @@
 		desc = "A wheelchair with an unsecured barrel on it."
 		icon_state = "wheelchair_assembly"
 
-/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/buckle_mob(mob/M as mob, mob/user as mob)
+/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/buckle_mob(mob/M , mob/user )
 	return	//This isn't actually a vehicle, it's just the child of one.
 
 /obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/attack_hand()
@@ -785,7 +785,7 @@
 	icon_state = "secured_capacitor_adv_super_ultra"
 	maxcharge = 5000000000
 
-/obj/machinery/power/secured_capacitor/attack_hand(mob/user as mob)
+/obj/machinery/power/secured_capacitor/attack_hand(mob/user )
 	if(user.lying)
 		return
 	if(!charging)

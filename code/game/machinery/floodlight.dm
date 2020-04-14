@@ -40,14 +40,14 @@
 			visible_message("<span class='warning'>\The [src] shuts down!</span>")
 			return
 
-/obj/machinery/floodlight/attack_ai(mob/user as mob)
+/obj/machinery/floodlight/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/floodlight/attack_paw(mob/user as mob)
+/obj/machinery/floodlight/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/floodlight/attack_hand(mob/user as mob)
+/obj/machinery/floodlight/attack_hand(mob/user )
 	if(panel_open && cell)
 		if(ishuman(user) || isMoMMI(user)) //Allow MoMMIs to do it, too
 			user.put_in_hands(cell)
@@ -82,7 +82,7 @@
 	investigation_log(I_GHOST, "|| was switched [on ? "off" : "on"] by [key_name(ghost)][ghost.locked_to ? ", who was haunting [ghost.locked_to]" : ""]")
 	return ..()
 
-/obj/machinery/floodlight/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/floodlight/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if(istype(W, /obj/item/weapon/cell))
 		if(panel_open)

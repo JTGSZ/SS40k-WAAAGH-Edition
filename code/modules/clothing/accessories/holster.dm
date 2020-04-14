@@ -10,7 +10,7 @@
 /obj/item/clothing/accessory/holster/proc/can_holster(obj/item/weapon/gun/W)
 	return
 
-/obj/item/clothing/accessory/holster/proc/holster(obj/item/I, mob/user as mob)
+/obj/item/clothing/accessory/holster/proc/holster(obj/item/I, mob/user )
 	if(holstered)
 		to_chat(user, "<span class='warning'>There is already \a [holstered] holstered here!</span>")
 		return
@@ -31,7 +31,7 @@
 	else
 		to_chat(user, "<span class='warning'>You can't let go of \the [I]!</span>")
 
-/obj/item/clothing/accessory/holster/proc/unholster(mob/user as mob)
+/obj/item/clothing/accessory/holster/proc/unholster(mob/user )
 	if(!holstered)
 		return
 
@@ -77,7 +77,7 @@
 	else
 		H.unholster(usr)
 
-/obj/item/clothing/accessory/holster/attack_hand(mob/user as mob)
+/obj/item/clothing/accessory/holster/attack_hand(mob/user )
 	if(holstered && src.loc == user)
 		return unholster(user)
 	..(user)
@@ -88,7 +88,7 @@
 		return 1
 	return ..()
 
-/obj/item/clothing/accessory/holster/attackby(obj/item/W , mob/user as mob)
+/obj/item/clothing/accessory/holster/attackby(obj/item/W , mob/user )
 	return holster(W, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
@@ -109,7 +109,7 @@
 	if(attached_to)
 		attached_to.verbs += new/obj/item/clothing/accessory/holster/verb/holster_verb(attached_to,holster_verb_name)
 
-/obj/item/clothing/accessory/holster/on_removed(mob/user as mob)
+/obj/item/clothing/accessory/holster/on_removed(mob/user )
 	//Yes, we're calling "new" when removing a verb. I blame verbs entirely for this shit. See: http://www.byond.com/forum/?post=80230
 	if(attached_to)
 		attached_to.verbs -= new/obj/item/clothing/accessory/holster/verb/holster_verb(attached_to,holster_verb_name)

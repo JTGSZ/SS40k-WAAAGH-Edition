@@ -76,7 +76,7 @@ Feel free to do whatever with this if you think it lacks.
 
 	RefreshParts()
 
-/obj/machinery/pdapainter/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/pdapainter/attackby(var/obj/item/O , var/mob/user )
 	if(busy)
 		to_chat(user, "\The [src] is currently busy, try again later.")
 		return
@@ -96,7 +96,7 @@ Feel free to do whatever with this if you think it lacks.
 					//P.add_fingerprint(usr)
 					update_icon()
 
-/obj/machinery/pdapainter/attack_hand(mob/user as mob)
+/obj/machinery/pdapainter/attack_hand(mob/user )
 	..()
 
 	if(!ishigherbeing(user))

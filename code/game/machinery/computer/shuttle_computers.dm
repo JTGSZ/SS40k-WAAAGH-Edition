@@ -198,7 +198,7 @@
 
 	return ..()
 
-/obj/machinery/computer/shuttle_control/attack_hand(mob/user as mob)
+/obj/machinery/computer/shuttle_control/attack_hand(mob/user )
 	if(..(user))
 		return
 
@@ -583,7 +583,7 @@
 	src.req_access = shuttle.req_access
 	src.updateUsrDialog()
 
-/obj/machinery/computer/shuttle_control/emag(mob/user as mob)
+/obj/machinery/computer/shuttle_control/emag(mob/user )
 	..()
 	src.req_access = list()
 	if(user)

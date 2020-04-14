@@ -15,14 +15,14 @@
 
 	light_color = LIGHT_COLOR_RED
 
-/obj/machinery/computer/prisoner/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/prisoner/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/prisoner/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/prisoner/attack_paw(var/mob/user )
 	return
 
-/obj/machinery/computer/prisoner/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/prisoner/attack_hand(var/mob/user )
 	if(..())
 		return
 	user.set_machine(src)

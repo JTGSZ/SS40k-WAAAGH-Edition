@@ -101,10 +101,10 @@
 /obj/machinery/computer/merch
 	machine_flags = EMAGGABLE | SCREWTOGGLE | WRENCHMOVE | FIXED2WORK | MULTITOOL_MENU | PURCHASER
 
-/obj/machinery/computer/merch/attack_paw(mob/user as mob)
+/obj/machinery/computer/merch/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/computer/merch/attack_ai(mob/user as mob)
+/obj/machinery/computer/merch/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 

@@ -73,7 +73,7 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/aiupload/attackby(obj/item/weapon/O , mob/user as mob)
+/obj/machinery/computer/aiupload/attackby(obj/item/weapon/O , mob/user )
 	if(istype(O, /obj/item/weapon/aiModule))
 		if(!same_zlevel())
 			to_chat(user, "<span class='danger'>Unable to establish a connection</span>: You're too far away from the target AI!")
@@ -121,7 +121,7 @@
 	else
 		..()
 
-/obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/aiupload/attack_hand(var/mob/user )
 	if(istype(user,/mob/dead))
 		to_chat(usr, "<span class='rose'>Your ghostly hand goes right through!</span>")
 		return
@@ -194,7 +194,7 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/borgupload/attackby(var/obj/item/weapon/W , mob/user as mob)
+/obj/machinery/computer/borgupload/attackby(var/obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/aiModule))
 		if(!same_zlevel())
 			to_chat(user, "<span class='danger'>Unable to establish a connection</span>: You're too far away from the target silicon!")
@@ -248,7 +248,7 @@
 	else
 		return ..()
 
-/obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/borgupload/attack_hand(var/mob/user )
 	if(istype(user,/mob/dead))
 		to_chat(usr, "<span class='rose'>Your ghostly hand goes right through!</span>")
 		return

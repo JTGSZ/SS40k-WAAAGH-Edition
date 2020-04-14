@@ -69,15 +69,15 @@ var/runedec = 0 // Rune cap ?
 		return
 	return
 
-/obj/effect/rune_legacy/attack_animal(mob/living/simple_animal/user as mob)
+/obj/effect/rune_legacy/attack_animal(mob/living/simple_animal/user )
 	if(istype(user, /mob/living/simple_animal/construct/harvester))
 		attack_hand(user)
 
-/obj/effect/rune_legacy/attack_paw(mob/living/M as mob)
+/obj/effect/rune_legacy/attack_paw(mob/living/M )
 	if(ismonkey(M))
 		attack_hand(M)
 
-/obj/effect/rune_legacy/attack_hand(mob/living/user as mob)
+/obj/effect/rune_legacy/attack_hand(mob/living/user )
 	user.delayNextAttack(5)
 	if(!islegacycultist(user))
 		to_chat(user, "You can't mouth the arcane scratchings without fumbling over them.")
@@ -320,7 +320,7 @@ var/runedec = 0 // Rune cap ?
 	usr << browse(null, "window=tank")
 */
 
-/obj/item/weapon/tome_legacy/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/weapon/tome_legacy/attack(mob/living/M , mob/living/user )
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on him by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
 	msg_admin_attack("[user.name] ([user.ckey]) used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
@@ -348,7 +348,7 @@ var/runedec = 0 // Rune cap ?
 	to_chat(M, "<span class='warning'>You feel searing heat inside!</span>")
 
 
-/obj/item/weapon/tome_legacy/attack_self(mob/living/user as mob)
+/obj/item/weapon/tome_legacy/attack_self(mob/living/user )
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
@@ -450,7 +450,7 @@ var/runedec = 0 // Rune cap ?
 		to_chat(user, "The book seems full of illegible scribbles. Is this a joke?")
 		return
 
-/obj/item/weapon/tome_legacy/attackby(obj/item/weapon/tome_legacy/T , mob/living/user as mob)
+/obj/item/weapon/tome_legacy/attackby(obj/item/weapon/tome_legacy/T , mob/living/user )
 	if(istype(T, /obj/item/weapon/tome_legacy) && islegacycultist(user)) // sanity check to prevent a runtime error
 		switch(alert("Copy the runes from your tome?",,"Copy", "Cancel"))
 			if("Cancel")
@@ -472,7 +472,7 @@ var/runedec = 0 // Rune cap ?
 /obj/item/weapon/tome_legacy/imbued //admin tome, spawns working runes without waiting
 	w_class = W_CLASS_SMALL
 	var/cultistsonly = 1
-	attack_self(mob/user as mob)
+	attack_self(mob/user )
 		if(src.cultistsonly && !islegacycultist(usr))
 			return
 		if(!cultwords["travel"])

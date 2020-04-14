@@ -18,7 +18,7 @@
 	var/had_mind = FALSE                      // Owner had a mind at some point. (heist)
 	var/stabilized = FALSE
 
-/obj/item/organ/internal/attack_self(mob/user as mob)
+/obj/item/organ/internal/attack_self(mob/user )
 
 	// Convert it to an edible form, yum yum.
 	if(!robotic && user.a_intent == I_HELP && user.zone_sel.selecting == "mouth")

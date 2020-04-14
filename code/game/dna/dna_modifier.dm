@@ -99,7 +99,7 @@
 /obj/machinery/dna_scannernew/allow_drop()
 	return 0
 
-/obj/machinery/dna_scannernew/relaymove(mob/user as mob)
+/obj/machinery/dna_scannernew/relaymove(mob/user )
 	if(user.stat)
 		return
 	src.go_out(ejector = user)
@@ -164,7 +164,7 @@
 	src.icon_state = "scanner_1"
 	src.add_fingerprint(usr)
 
-/obj/machinery/dna_scannernew/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/machinery/dna_scannernew/MouseDropTo(atom/movable/O , mob/user )
 	if(!ismob(O)) //mobs only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -241,7 +241,7 @@
 		visible_message("[usr] removes [occupant.name] from \the [src].")
 	go_out(over_location, ejector = usr)
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item , var/mob/user as mob)
+/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item , var/mob/user )
 	if(istype(item, /obj/item/weapon/reagent_containers/glass))
 		if(item.w_class > W_CLASS_SMALL)
 			to_chat(user, "<span class='warning'>\The [item] is too big to fit.</span>")
@@ -450,7 +450,7 @@
 	L.name = src.name
 	L.color = src.color
 
-/obj/machinery/computer/scan_consolenew/attackby(obj/O , mob/user as mob)
+/obj/machinery/computer/scan_consolenew/attackby(obj/O , mob/user )
 	..()
 	if (istype(O, /obj/item/weapon/disk/data)) //INSERT SOME diskS
 		if (!disk)
@@ -521,7 +521,7 @@
 	else
 		use_power = 1
 
-/obj/machinery/computer/scan_consolenew/attack_hand(user as mob)
+/obj/machinery/computer/scan_consolenew/attack_hand(user )
 	if(!..())
 		if(!connected)
 			connected = findScanner() //lets get that machine

@@ -33,7 +33,7 @@
 /obj/machinery/atmospherics/unary/tank/ex_act()
 	punctured()
 
-/obj/machinery/atmospherics/unary/tank/proc/punctured(var/mob/user as mob)
+/obj/machinery/atmospherics/unary/tank/proc/punctured(var/mob/user )
 	var/internal_pressure = air_contents.return_pressure()
 	var/datum/gas_mixture/environment = loc.return_air()
 	var/external_pressure = environment.return_pressure()
@@ -173,7 +173,7 @@
 			network = null
 		update_icon()
 
-/obj/machinery/atmospherics/unary/tank/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/machinery/atmospherics/unary/tank/attackby(var/obj/item/weapon/W , var/mob/user )
 	if (istype(W, /obj/item/device/analyzer) && get_dist(user, src) <= 1)
 		var/obj/item/device/analyzer/analyzer = W
 		user.show_message(analyzer.output_gas_scan(air_contents, src, 0), 1)

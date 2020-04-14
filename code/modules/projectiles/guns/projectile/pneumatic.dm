@@ -51,7 +51,7 @@
 	else
 		to_chat(usr, "There's no tank in [src].")
 
-/obj/item/weapon/storage/pneumatic/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/storage/pneumatic/attackby(obj/item/W , mob/user )
 	if(!tank && istype(W,/obj/item/weapon/tank))
 		if(!user.drop_item(W, src.tank_container))
 			to_chat(user, "<span class='warning'>You can't let go of \the [W]!</span>")
@@ -92,7 +92,7 @@
 	else
 		spawn(0) Fire(target,user,params)
 
-/obj/item/weapon/storage/pneumatic/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/weapon/storage/pneumatic/attack(mob/living/M , mob/living/user , def_zone)
 	if (length(contents) > 0)
 		if(user.a_intent == I_HURT)
 			user.visible_message("<span class='danger'>\The [user] fires \the [src] point blank at [M]!</span>")

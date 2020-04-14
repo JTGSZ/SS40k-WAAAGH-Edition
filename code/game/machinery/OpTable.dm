@@ -46,10 +46,10 @@
 	if(prob(75))
 		qdel(src)
 
-/obj/machinery/optable/attack_paw(mob/user as mob)
+/obj/machinery/optable/attack_paw(mob/user )
 	attack_hand(user)
 
-/obj/machinery/optable/attack_hand(mob/user as mob)
+/obj/machinery/optable/attack_hand(mob/user )
 	if (M_HULK in usr.mutations)
 		to_chat(usr, text("<span class='notice'>You destroy the table.</span>"))
 		visible_message("<span class='warning'>[usr] destroys the operating table!</span>")
@@ -66,7 +66,7 @@
 		return 0
 
 
-/obj/machinery/optable/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/machinery/optable/MouseDropTo(atom/movable/O , mob/user )
 	if(!ismob(O)) //humans only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -113,7 +113,7 @@
 /obj/machinery/optable/process()
 	check_victim()
 
-/obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user as mob)
+/obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user )
 	if (victim)
 		to_chat(user, "<span class='bnotice'>The table is already occupied!</span>")
 
@@ -136,7 +136,7 @@
 
 	add_fingerprint(user)
 
-/obj/machinery/optable/attackby(obj/item/weapon/W , mob/living/carbon/user as mob)
+/obj/machinery/optable/attackby(obj/item/weapon/W , mob/living/carbon/user )
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 50)
 		if(do_after(user, src, 40))

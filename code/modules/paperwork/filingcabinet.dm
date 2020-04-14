@@ -33,7 +33,7 @@
 			I.forceMove(src)
 
 
-/obj/structure/filingcabinet/attackby(obj/item/P , mob/user as mob)
+/obj/structure/filingcabinet/attackby(obj/item/P , mob/user )
 	if(istype(P, /obj/item/weapon/paper) || istype(P, /obj/item/weapon/folder) || istype(P, /obj/item/weapon/photo))
 		if(user.drop_item(P, src))
 			to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
@@ -56,7 +56,7 @@
 		to_chat(user, "<span class='notice'>You can't put [P] in [src]!</span>")
 
 
-/obj/structure/filingcabinet/attack_hand(mob/user as mob)
+/obj/structure/filingcabinet/attack_hand(mob/user )
 	if(contents.len <= 0)
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		return
@@ -92,7 +92,7 @@
 	var/virgin = 1
 
 
-/obj/structure/filingcabinet/security/attack_hand(mob/user as mob)
+/obj/structure/filingcabinet/security/attack_hand(mob/user )
 	if(virgin)
 		for(var/datum/data/record/G in data_core.general)
 			var/datum/data/record/S
@@ -122,7 +122,7 @@
 /obj/structure/filingcabinet/medical
 	var/virgin = 1
 
-/obj/structure/filingcabinet/medical/attack_hand(mob/user as mob)
+/obj/structure/filingcabinet/medical/attack_hand(mob/user )
 	if(virgin)
 		for(var/datum/data/record/G in data_core.general)
 			var/datum/data/record/M

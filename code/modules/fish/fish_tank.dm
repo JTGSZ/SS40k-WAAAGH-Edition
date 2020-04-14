@@ -619,7 +619,7 @@
 		playsound(loc, 'sound/effects/Glasshit.ogg', 100, 1)
 		check_health()
 
-/obj/machinery/fishtank/attackby(var/obj/item/O, var/mob/user as mob)
+/obj/machinery/fishtank/attackby(var/obj/item/O, var/mob/user )
 	//Silicate sprayers repair damaged tanks on help intent
 	if(issilicatesprayer(O))
 		var/obj/item/device/silicate_sprayer/S = O

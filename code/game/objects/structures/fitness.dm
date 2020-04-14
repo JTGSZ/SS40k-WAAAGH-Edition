@@ -7,7 +7,7 @@
 	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
 
-/obj/structure/punching_bag/attack_hand(mob/user as mob)
+/obj/structure/punching_bag/attack_hand(mob/user )
 	flick("[icon_state]2", src)
 	playsound(loc, pick(hit_sounds), 25, 1, -1)
 
@@ -28,7 +28,7 @@
 	desc = "A bop bag in the shape of a goofy clown."
 	icon_state = "bopbag"
 
-/obj/structure/punching_bag/clown/attack_hand(mob/user as mob)
+/obj/structure/punching_bag/clown/attack_hand(mob/user )
 	..()
 	playsound(loc, 'sound/items/bikehorn.ogg', 50, 1, -1)
 
@@ -79,7 +79,7 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/weightlifter/attack_hand(mob/user as mob, params, proximity)
+/obj/structure/weightlifter/attack_hand(mob/user , params, proximity)
 	if(!proximity)
 		return
 	if(in_use)

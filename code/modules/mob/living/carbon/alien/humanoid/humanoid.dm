@@ -161,7 +161,7 @@
 /mob/living/carbon/alien/humanoid/var/co2overloadtime = null
 /mob/living/carbon/alien/humanoid/var/temperature_resistance = T0C+75
 
-/mob/living/carbon/alien/humanoid/show_inv(mob/user as mob)
+/mob/living/carbon/alien/humanoid/show_inv(mob/user )
 	user.set_machine(src)
 	var/pickpocket = user.isGoodPickpocket()
 	var/dat

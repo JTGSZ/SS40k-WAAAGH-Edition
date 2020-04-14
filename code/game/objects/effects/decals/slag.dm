@@ -67,7 +67,7 @@
 	icon_state="slaghot"
 	set_light(2)
 
-/obj/effect/decal/slag/Crossed(M as mob)
+/obj/effect/decal/slag/Crossed(M )
 	..()
 	if(!molten)
 		return
@@ -84,7 +84,7 @@
 		var/mob/living/L=M
 		L.apply_damage(125, BURN)
 
-/obj/effect/decal/slag/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/effect/decal/slag/attackby(obj/item/weapon/W , mob/user )
 	if(molten)
 		user.show_message("<span class=\"warning\">You need to wait for \the [src] to cool.</span>")
 		return

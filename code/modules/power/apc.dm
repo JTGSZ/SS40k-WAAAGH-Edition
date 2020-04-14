@@ -805,7 +805,7 @@
 	return wires.IsIndexCut(wireIndex)
 
 
-/obj/machinery/power/apc/proc/can_use(mob/user as mob, var/loud = 0) //used by attack_hand() and Topic()
+/obj/machinery/power/apc/proc/can_use(mob/user , var/loud = 0) //used by attack_hand() and Topic()
 	if(!user)
 		return 0
 	if (user.stat && !isobserver(user))

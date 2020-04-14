@@ -42,10 +42,10 @@
 
 	to_chat(user, "<span class='info'>There [be] [src.amount] [CORRECT_STACK_NAME(src)][amount == 1 ? " in" : "s in"] the stack.</span>")
 
-/obj/item/stack/attack_self(mob/user as mob)
+/obj/item/stack/attack_self(mob/user )
 	list_recipes(user)
 
-/obj/item/stack/proc/list_recipes(mob/user as mob, recipes_sublist)
+/obj/item/stack/proc/list_recipes(mob/user , recipes_sublist)
 	ASSERT(isnum(amount))
 	if(!recipes)
 		return
@@ -234,7 +234,7 @@
 
 	return (src.type == other_stack.type)
 
-/obj/item/stack/attack_hand(mob/user as mob)
+/obj/item/stack/attack_hand(mob/user )
 	if (user.get_inactive_hand() == src)
 		var/obj/item/stack/F = new src.type( user, amount=1)
 		F.copy_evidences(src)

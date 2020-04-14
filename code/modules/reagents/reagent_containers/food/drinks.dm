@@ -53,7 +53,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/bite_act(mob/user)
 	return try_consume(user)
 
-/obj/item/weapon/reagent_containers/food/drinks/attack(mob/living/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/food/drinks/attack(mob/living/M , mob/user , def_zone)
 	var/datum/reagents/R = src.reagents
 	var/fillevel = gulp_size
 
@@ -520,7 +520,7 @@
 	desc = "This is for testing reasons."
 	icon_state = "toddler"
 
-/obj/item/weapon/groans/attack_self(mob/user as mob)
+/obj/item/weapon/groans/attack_self(mob/user )
 	to_chat(user, "Now spawning groans.")
 	var/turf/T = get_turf(user.loc)
 	var/obj/item/weapon/reagent_containers/food/drinks/groans/A = new /obj/item/weapon/reagent_containers/food/drinks/groans(T)
@@ -558,7 +558,7 @@
 	src.pixel_x = rand(-10, 10) * PIXEL_MULTIPLIER
 	src.pixel_y = rand(-10, 10) * PIXEL_MULTIPLIER
 
-/obj/item/weapon/reagent_containers/food/drinks/discount_ramen/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/food/drinks/discount_ramen/attack_self(mob/user )
 	to_chat(user, "You pull the tab, you feel the drink heat up in your hands, and its horrible fumes hits your nose like a ton of bricks. You drop the soup in disgust.")
 	var/turf/T = get_turf(user.loc)
 	var/obj/item/weapon/reagent_containers/food/drinks/discount_ramen_hot/A = new /obj/item/weapon/reagent_containers/food/drinks/discount_ramen_hot(T)
@@ -1070,7 +1070,7 @@
 	melt_temperature = MELTPOINT_GLASS
 	w_type=RECYK_GLASS
 
-/obj/item/weapon/broken_bottle/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/broken_bottle/attack(mob/living/carbon/M , mob/living/carbon/user )
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 	return ..()
 
@@ -1375,7 +1375,7 @@
 	..()
 	reagents.add_reagent(GREYVODKA, 100)
 
-/obj/item/weapon/reagent_containers/food/drinks/proc/smash(mob/living/M as mob, mob/living/user as mob)
+/obj/item/weapon/reagent_containers/food/drinks/proc/smash(mob/living/M , mob/living/user )
 	if(molotov == 1) //for molotovs
 		if(lit)
 			new /obj/effect/decal/cleanable/ash(get_turf(src))
@@ -1460,7 +1460,7 @@
 //  by Hinaichigo   //
 //////////////////////
 
-/obj/item/weapon/reagent_containers/food/drinks/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/reagent_containers/food/drinks/attackby(var/obj/item/I, mob/user )
 	if(istype(I, /obj/item/weapon/reagent_containers/glass/rag) && molotov == -1)  //check if it is a molotovable drink - just beer and ale for now - other bottles require different rag overlay positions - if you can figure this out then go for it
 		to_chat(user, "<span  class='notice'>You stuff the [I] into the mouth of the [src].</span>")
 		qdel(I)

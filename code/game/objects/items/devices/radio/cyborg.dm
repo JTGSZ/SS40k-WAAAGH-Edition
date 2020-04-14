@@ -15,7 +15,7 @@
 	keyslot = initial(keyslot)
 	recalculateChannels()
 
-/obj/item/device/radio/borg/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/radio/borg/attackby(obj/item/weapon/W , mob/user )
 //	..()
 	user.set_machine(src)
 	if (!( W.is_screwdriver(user) || (istype(W, /obj/item/device/encryptionkey/ ))))
@@ -89,7 +89,7 @@
 		to_chat(usr, "Subspace Transmission is [(subspace_transmission) ? "enabled" : "disabled"]")
 	..()
 
-/obj/item/device/radio/borg/interact(mob/user as mob)
+/obj/item/device/radio/borg/interact(mob/user )
 	if(!on)
 		return
 

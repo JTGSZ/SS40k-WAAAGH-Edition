@@ -369,7 +369,7 @@ var/list/ai_list = list()
 			return
 	recall_shuttle(src)
 
-/mob/living/silicon/ai/check_eye(var/mob/user as mob)
+/mob/living/silicon/ai/check_eye(var/mob/user )
 	if(!current)
 		return null
 	user.reset_view(current)
@@ -502,7 +502,7 @@ var/list/ai_list = list()
 				if(prob(8))
 					flash_eyes(visual = TRUE, type = /obj/abstract/screen/fullscreen/flash/noise)
 
-/mob/living/silicon/ai/attack_animal(mob/living/simple_animal/M as mob)
+/mob/living/silicon/ai/attack_animal(mob/living/simple_animal/M )
 	M.unarmed_attack_mob(src)
 
 /mob/living/silicon/ai/reset_view(atom/A)
@@ -568,7 +568,7 @@ var/list/ai_list = list()
 		ai_alerts()
 	return TRUE
 
-/mob/living/silicon/ai/cancelAlarm(var/class, area/A as area, obj/origin)
+/mob/living/silicon/ai/cancelAlarm(var/class, area/A, obj/origin)
 	var/list/L = alarms[class]
 	var/cleared = FALSE
 	for (var/I in L)
@@ -808,7 +808,7 @@ var/list/ai_list = list()
 		lit_cameras |= C
 
 
-/mob/living/silicon/ai/attackby(obj/item/weapon/W , mob/user as mob)
+/mob/living/silicon/ai/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_wrench(user))
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")

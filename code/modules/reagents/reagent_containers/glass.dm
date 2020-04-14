@@ -89,7 +89,7 @@
 	if((transfer_result > 10) && (isturf(target) || istype(target, /obj/machinery/portable_atmospherics/hydroponics)))	//if we're splashing a decent amount of reagent on the floor
 		playsound(target, 'sound/effects/slosh.ogg', 25, 1)													//or in an hydro tray, then we make some noise.
 
-/obj/item/weapon/reagent_containers/glass/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		set_tiny_label(user)
 	attempt_heating(W, user)
@@ -396,7 +396,7 @@
 			to_chat(user, "<span class='notice'>Nothing left to wet [M] with!</span>")
 		return 1
 
-/obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user )
 	if(isprox(D))
 		to_chat(user, "You add \the [D] to \the [src].")
 		qdel(D)

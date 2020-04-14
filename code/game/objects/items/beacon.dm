@@ -19,7 +19,7 @@ var/global/list/obj/item/beacon/beacons = list()
 	..()
 	beacons -= src
 
-/obj/item/beacon/attack_self(mob/user as mob)
+/obj/item/beacon/attack_self(mob/user )
 	..()
 	var/newfreq = input(user, "Input a new frequency for the beacon", "Frequency", null) as num
 	if(!newfreq)
@@ -45,7 +45,7 @@ var/global/list/obj/item/beacon/beacons = list()
 	desc = "A label on it reads: <i>Activate to have a singularity beacon teleported to your location</i>."
 	origin_tech = Tc_BLUESPACE + "=1;" + Tc_SYNDICATE + "=7"
 
-/obj/item/beacon/syndicate/attack_self(mob/user as mob)
+/obj/item/beacon/syndicate/attack_self(mob/user )
 	if(user)
 		to_chat(user, "<span class='notice'>Locked In</span>")
 		new /obj/machinery/singularity_beacon/syndicate( user.loc )
@@ -75,7 +75,7 @@ var/global/list/obj/item/beacon/beacons = list()
 /obj/item/beacon/bluespace_beacon/update_icon()
 	icon_state = "floor_beacon" + "[invisibility? "f" : ""]"
 
-/obj/item/beacon/bluespace_beacon/attack_hand(mob/user as mob) //Let's not pick up the anchored item
+/obj/item/beacon/bluespace_beacon/attack_hand(mob/user ) //Let's not pick up the anchored item
 	return
 
 /obj/item/beacon/bluespace_beacon/ex_act() //It has to have SOME advantage over a normal beacon

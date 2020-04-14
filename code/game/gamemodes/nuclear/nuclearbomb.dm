@@ -35,7 +35,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 			if((M.client && M.machine == src))
 				attack_hand(M)
 
-/obj/machinery/nuclearbomb/attackby(obj/item/weapon/O , mob/user as mob)
+/obj/machinery/nuclearbomb/attackby(obj/item/weapon/O , mob/user )
 	if (src.extended)
 		if (istype(O, /obj/item/weapon/disk/nuclear))
 			usr.drop_item(O, src, force_drop = 1)
@@ -108,15 +108,15 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 				return
 	..()
 
-/obj/machinery/nuclearbomb/attack_paw(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/nuclearbomb/attack_ghost(mob/user as mob) //prevents ghosts from deploying the nuke
+/obj/machinery/nuclearbomb/attack_ghost(mob/user ) //prevents ghosts from deploying the nuke
 	if (src.extended) //if the nuke is set
 		return attack_hand(user) //continue as normal
 	return 0 //otherwise nothing
 
-/obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_hand(mob/user )
 	if (src.extended)
 		user.set_machine(src)
 		var/dat = text("<TT><B>Nuclear Fission Explosive</B><BR>\nAuth. Disk: <A href='?src=\ref[];auth=1'>[]</A><HR>", src, (src.auth ? "++++++++++" : "----------"))

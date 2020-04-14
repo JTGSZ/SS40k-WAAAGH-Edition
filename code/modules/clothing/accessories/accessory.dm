@@ -39,7 +39,7 @@
 	attached_to = C
 	attached_to.overlays += inv_overlay
 
-/obj/item/clothing/accessory/proc/on_removed(mob/user as mob)
+/obj/item/clothing/accessory/proc/on_removed(mob/user )
 	if(!attached_to)
 		return
 	to_chat(user, "<span class='notice'>You remove [src] from [attached_to].</span>")
@@ -255,14 +255,14 @@
 	_color = "holobadge-cord"
 	slot_flags = SLOT_MASK
 
-/obj/item/clothing/accessory/holobadge/attack_self(mob/user as mob)
+/obj/item/clothing/accessory/holobadge/attack_self(mob/user )
 	if(!stored_name)
 		to_chat(user, "Waving around a badge before swiping an ID would be pretty pointless.")
 		return
 	if(isliving(user))
 		user.visible_message("<span class='warning'>[user] displays their Nanotrasen Internal Security Legal Authorization Badge.\nIt reads: [stored_name], NT Security.</span>","<span class='warning'>You display your Nanotrasen Internal Security Legal Authorization Badge.\nIt reads: [stored_name], NT Security.</span>")
 
-/obj/item/clothing/accessory/holobadge/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/item/clothing/accessory/holobadge/attackby(var/obj/item/O , var/mob/user )
 
 	if (istype(O, /obj/item/weapon/card/emag))
 		if (emagged)

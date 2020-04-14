@@ -41,7 +41,7 @@
 		B += M.rating-1
 	max_seeds=4+B
 
-obj/machinery/seed_extractor/attackby(var/obj/item/O , var/mob/user as mob)
+obj/machinery/seed_extractor/attackby(var/obj/item/O , var/mob/user )
 
 	// Emptying a plant bag
 	if (istype(O,/obj/item/weapon/storage/bag/plants))
@@ -94,10 +94,10 @@ datum/seed_pile/New(var/seed, var/amount = 1)
 	src.seed = seed
 	src.amount = amount
 
-/obj/machinery/seed_extractor/attack_hand(mob/user as mob)
+/obj/machinery/seed_extractor/attack_hand(mob/user )
 	interact(user)
 
-obj/machinery/seed_extractor/interact(mob/user as mob)
+obj/machinery/seed_extractor/interact(mob/user )
 	if (stat)
 		return 0
 
@@ -288,7 +288,7 @@ obj/machinery/seed_extractor/proc/moveToStorage(var/obj/item/seeds/O )
 			return
 	piles += new /datum/seed_pile(O.seed)
 
-obj/machinery/seed_extractor/proc/hasSpaceCheck(mob/user as mob)
+obj/machinery/seed_extractor/proc/hasSpaceCheck(mob/user )
 	if(contents.len >= MAX_N_OF_ITEMS)
 		to_chat(user, "<span class='notice'>\The [src] is full.</span>")
 		return 0

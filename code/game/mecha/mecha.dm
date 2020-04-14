@@ -555,7 +555,7 @@
 	else
 		qdel(src)
 
-/obj/mecha/attack_hand(mob/living/user as mob, monkey = FALSE)
+/obj/mecha/attack_hand(mob/living/user , monkey = FALSE)
 	if(monkey)
 		src.log_message("Attack by paw. Attacker - [user].",1)
 	else
@@ -571,11 +571,11 @@
 
 	user.delayNextAttack(10)
 
-/obj/mecha/attack_paw(mob/user as mob)
+/obj/mecha/attack_paw(mob/user )
 	return src.attack_hand(user, TRUE)
 
 
-/obj/mecha/attack_alien(mob/living/user as mob)
+/obj/mecha/attack_alien(mob/living/user )
 	user.do_attack_animation(src, user)
 	src.log_message("Attack by alien. Attacker - [user].",1)
 	if(!prob(src.deflect_chance))
@@ -593,7 +593,7 @@
 
 	user.delayNextAttack(10)
 
-/obj/mecha/attack_animal(mob/living/simple_animal/user as mob)
+/obj/mecha/attack_animal(mob/living/simple_animal/user )
 	user.do_attack_animation(src, user)
 	src.log_message("Attack by simple animal. Attacker - [user].",1)
 	if(user.melee_damage_upper == 0)
@@ -688,7 +688,7 @@
 	return
 
 /*Will fix later -Sieve
-/obj/mecha/attack_blob(mob/user as mob)
+/obj/mecha/attack_blob(mob/user )
 	src.log_message("Attack by blob. Attacker - [user].",1)
 	if(!prob(src.deflect_chance))
 		src.take_damage(6)
@@ -728,7 +728,7 @@
 		src.check_for_internal_damage(list(MECHA_INT_FIRE, MECHA_INT_TEMP_CONTROL))
 	return
 
-/obj/mecha/proc/dynattackby(obj/item/weapon/W , mob/living/user as mob)
+/obj/mecha/proc/dynattackby(obj/item/weapon/W , mob/living/user )
 	user.delayNextAttack(8)
 	user.do_attack_animation(src, W)
 	src.log_message("Attacked by [W]. Attacker - [user]")
@@ -751,7 +751,7 @@
 ////// AttackBy //////
 //////////////////////
 
-/obj/mecha/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/mecha/attackby(obj/item/weapon/W , mob/user )
 
 
 	if(istype(W, /obj/item/device/mmi))
@@ -916,7 +916,7 @@
 
 
 /*
-/obj/mecha/attack_ai(var/mob/living/silicon/ai/user as mob)
+/obj/mecha/attack_ai(var/mob/living/silicon/ai/user )
 	if(!istype(user, /mob/living/silicon/ai))
 		return
 	var/output = {"<b>Assume direct control over [src]?</b>
@@ -1099,7 +1099,7 @@
 	src.log_message("Now taking air from [use_internal_tank?"internal airtank":"environment"].")
 	return
 
-/obj/mecha/MouseDropTo(mob/M as mob, mob/user as mob)
+/obj/mecha/MouseDropTo(mob/M , mob/user )
 	if(M != user)
 		return
 	move_inside(M, user)
@@ -1153,7 +1153,7 @@
 		to_chat(usr, "You stop entering the exosuit.")
 	return
 
-/obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
+/obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H )
 	if(!isnull(src.loc) && H && H.client && H in range(1))
 		H.reset_view(src)
 		H.stop_pulling()
@@ -1180,7 +1180,7 @@
 	else
 		return 0
 
-/obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc ,mob/user as mob)
+/obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc ,mob/user )
 	if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
 		to_chat(user, "Consciousness matrix not detected.")
 		return 0
@@ -1207,7 +1207,7 @@
 		to_chat(user, "You stop inserting \the [mmi_as_oc].")
 	return 0
 
-/obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc ,mob/user as mob)
+/obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc ,mob/user )
 	if(!isnull(src.loc) && mmi_as_oc && user in range(1))
 		if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
 			to_chat(user, "Consciousness matrix not detected.")

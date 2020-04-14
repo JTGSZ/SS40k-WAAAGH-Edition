@@ -55,7 +55,7 @@
 		return //Now fuck off
 	icon_state = "r_wall-[d_state]"  //You can thank me later
 
-/turf/simulated/wall/r_wall/attackby(obj/item/W , mob/user as mob)
+/turf/simulated/wall/r_wall/attackby(obj/item/W , mob/user )
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
 		var/obj/item/weapon/solder/S = W
@@ -348,7 +348,7 @@
 		return attack_hand(user)
 	return
 
-/turf/simulated/wall/r_wall/attack_construct(mob/user as mob)
+/turf/simulated/wall/r_wall/attack_construct(mob/user )
 	return 0
 
 /turf/simulated/wall/r_wall/singularity_pull(S, current_size)

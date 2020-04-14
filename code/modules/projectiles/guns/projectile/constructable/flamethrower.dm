@@ -135,7 +135,7 @@
 		src.updateUsrDialog()
 		flamethrower_window(user)
 
-/obj/item/weapon/gun/projectile/flamethrower/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/gun/projectile/flamethrower/attackby(obj/item/W , mob/user )
 	if(user.stat || user.restrained() || user.lying)
 		return
 	if(W.is_wrench(user) && !status)//Taking this apart
@@ -190,7 +190,7 @@
 	return
 
 
-/obj/item/weapon/gun/projectile/flamethrower/attack_self(mob/user as mob)
+/obj/item/weapon/gun/projectile/flamethrower/attack_self(mob/user )
 	if(user.stat || user.restrained() || user.lying)
 		return
 	window_open = 1

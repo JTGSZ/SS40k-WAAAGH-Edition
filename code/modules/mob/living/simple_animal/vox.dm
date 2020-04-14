@@ -39,7 +39,7 @@
 	gib()
 	explosion(gloc, -1, -1, 3, 5)
 
-/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O , var/mob/user )
 	user.delayNextAttack(8)
 	if(O.force)
 		if(O.force >= 25)
@@ -60,7 +60,7 @@
 			if ((M.client && !( M.blinded )))
 				M.show_message("<span class='warning'>[user] gently taps [src] with the [O]. </span>")
 
-/mob/living/simple_animal/vox/armalis/verb/fire_quill(mob/target as mob in oview())
+/mob/living/simple_animal/vox/armalis/verb/fire_quill(mob/target  in oview())
 
 
 	set name = "Fire quill"
@@ -119,7 +119,7 @@
 	set name = "Shriek"
 	set desc = "Give voice to a psychic shriek."
 
-/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O , var/mob/user )
 	if(istype(O,/obj/item/vox/armalis_armour))
 		user.drop_item(O, src, force_drop = 1)
 		armour = O

@@ -152,7 +152,7 @@
 		add_fingerprint(usr)
 	return
 
-/obj/machinery/sleeper/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/machinery/sleeper/MouseDropTo(atom/movable/O , mob/user )
 	if(!ismob(O)) //mobs only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -400,7 +400,7 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/sleeper/proc/inject_chemical(mob/living/user as mob, chemical, amount)
+/obj/machinery/sleeper/proc/inject_chemical(mob/living/user , chemical, amount)
 	if(!occupant)
 		to_chat(user, "<span class='warning'>There's no occupant in the sleeper!</span>")
 		return

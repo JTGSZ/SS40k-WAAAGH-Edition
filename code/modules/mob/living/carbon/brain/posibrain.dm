@@ -23,7 +23,7 @@
 	search_for_candidates()
 #endif
 
-/obj/item/device/mmi/posibrain/attack_self(mob/user as mob)
+/obj/item/device/mmi/posibrain/attack_self(mob/user )
 	if(brainmob && !brainmob.key && searching == 0)
 		//Start the process of searching for a new user.
 		to_chat(user, "<span class='notice'>You carefully locate the manual activation switch and start \the [src]'s boot process.</span>")
@@ -147,7 +147,7 @@
 
 	..()
 
-/obj/item/device/mmi/posibrain/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/item/device/mmi/posibrain/attackby(var/obj/item/O , var/mob/user )
 	if(try_handling_mommi_construction(O,user))
 		return
 	..()

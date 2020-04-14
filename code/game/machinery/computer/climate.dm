@@ -16,11 +16,11 @@ var/list/climatecomps = list()
 	climatecomps -= src
 	..()
 
-/obj/machinery/computer/climate/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/climate/attack_ai(var/mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/climate/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/climate/attack_hand(var/mob/user )
 	if(..())
 		return
 	user.set_machine(src)

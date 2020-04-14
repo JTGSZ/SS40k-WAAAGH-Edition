@@ -137,7 +137,7 @@ For vending packs, see vending_packs.dm*/
 	..()
 
 
-/obj/machinery/computer/supplycomp/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/supplycomp/attack_ai(var/mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
@@ -170,7 +170,7 @@ For vending packs, see vending_packs.dm*/
 		return TRUE
 	return FALSE
 
-/obj/machinery/computer/supplycomp/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/supplycomp/attack_hand(var/mob/user )
 	/*if(!check_restriction(user)) Let's allow anyone to READ the computer, but you need access to... (1) approve orders (2) send/call shuttle (3) delete requests (4) change permissions
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
 		return*/
@@ -187,7 +187,7 @@ For vending packs, see vending_packs.dm*/
 
 	onclose(user, "computer")
 
-/obj/machinery/computer/supplycomp/attackby(obj/item/I , user as mob)
+/obj/machinery/computer/supplycomp/attackby(obj/item/I , user )
 	if(istype(I,/obj/item/weapon/card/emag) && !hacked)
 		to_chat(user, "<span class='notice'>Special supplies unlocked.</span>")
 		hacked = 1
@@ -472,11 +472,11 @@ For vending packs, see vending_packs.dm*/
 /obj/machinery/computer/ordercomp/initialize()
 	reconnect_database()
 
-/obj/machinery/computer/ordercomp/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/ordercomp/attack_ai(var/mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/ordercomp/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ordercomp/attack_hand(var/mob/user )
 	if(..())
 		return
 	current_acct = get_account_info(user, linked_db)

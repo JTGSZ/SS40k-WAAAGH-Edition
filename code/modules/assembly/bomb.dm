@@ -24,7 +24,7 @@
 		overlays += bombassembly.overlays
 		overlays += image(icon = icon, icon_state = "bomb_assembly")
 
-/obj/item/device/onetankbomb/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/onetankbomb/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/device/analyzer))
 		bombtank.attackby(W, user)
 		return
@@ -58,7 +58,7 @@
 	add_fingerprint(user)
 	..()
 
-/obj/item/device/onetankbomb/attack_self(mob/user as mob) //pressing the bomb accesses its assembly
+/obj/item/device/onetankbomb/attack_self(mob/user ) //pressing the bomb accesses its assembly
 	bombassembly.attack_self(user, 1)
 	add_fingerprint(user)
 	return
@@ -81,7 +81,7 @@
 	if(bombassembly)
 		bombassembly.Crossed(AM)
 
-/obj/item/device/onetankbomb/on_found(mob/wearer, mob/finder as mob)
+/obj/item/device/onetankbomb/on_found(mob/wearer, mob/finder )
 	if(bombassembly)
 		bombassembly.on_found(wearer, finder)
 

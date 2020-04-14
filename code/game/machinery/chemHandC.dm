@@ -256,7 +256,7 @@
 
 /*
 //Unused desired temp setting. Maybe useful in the future? Not likely since who doesn't want their ice to be absolute zero?
-/obj/machinery/chemcooler/verb/settemp(mob/user as mob)
+/obj/machinery/chemcooler/verb/settemp(mob/user )
 	set src in view(1)
 	set name = "Set temperature"
 	set category = "Object"

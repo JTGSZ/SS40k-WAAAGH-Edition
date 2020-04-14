@@ -230,7 +230,7 @@
 
 
 
-/obj/item/weapon/gun/energy/staff/necro/attack(mob/living/target as mob, mob/living/user as mob)
+/obj/item/weapon/gun/energy/staff/necro/attack(mob/living/target , mob/living/user )
 	afterattack(target,user,1)
 
 #undef RAISE_TYPE_ZOMBIE
@@ -266,7 +266,7 @@
 	else if(power_supply.charge < power_supply.maxcharge)
 		power_notice = 0
 
-/obj/item/weapon/gun/energy/staff/destruction_wand/attack(atom/target , mob/living/user as mob, def_zone)
+/obj/item/weapon/gun/energy/staff/destruction_wand/attack(atom/target , mob/living/user , def_zone)
 	if(target == user && !mouthshoot)
 		if(!(power_supply.charge == charge_cost || lifekiller))
 			if(!lifekiller)
@@ -401,7 +401,7 @@
 		var/obj/item/projectile/energy/floramut/P = in_chamber
 		P.mutstrength = src.mutstrength
 
-/obj/item/weapon/gun/energy/floragun/attack_self(mob/living/user as mob)
+/obj/item/weapon/gun/energy/floragun/attack_self(mob/living/user )
 	switch(mode)
 		if(0)
 			mode = 1
@@ -431,7 +431,7 @@
 		mutstrength = input(usr, "Enter new mutation strength level (1-15):", "Somatoray Alpha Ray Threshold", mutstrength) as num
 		mutstrength = clamp(round(mutstrength), 1, 15)
 
-/obj/item/weapon/gun/energy/floragun/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/gun/energy/floragun/attackby(obj/item/weapon/W , mob/user )
 	if(isEmag(W) || issolder(W))
 		if (mode == 2)
 			to_chat(user, "The safeties are already de-activated.")
@@ -514,7 +514,7 @@ obj/item/weapon/gun/energy/staff/focus
 	projectile_type = "/obj/item/projectile/forcebolt"
 	charge_cost = 100
 
-obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
+obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user )
 	if(projectile_type == "/obj/item/projectile/forcebolt")
 		charge_cost = 250
 		to_chat(user, "<span class='warning'>The [src.name] will now strike a small area.</span>")
@@ -671,7 +671,7 @@ obj/item/weapon/gun/energy/ricochet/Fire(atom/target , mob/living/user , params,
 	..()
 	power_supply.charge = 0
 
-/obj/item/weapon/gun/energy/bison/attack_self(mob/user as mob)
+/obj/item/weapon/gun/energy/bison/attack_self(mob/user )
 	if(pumping || !power_supply)
 		return
 	pumping = 1

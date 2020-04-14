@@ -249,7 +249,7 @@
 		W.on_attack(src, user)
 
 
-/obj/spacepod/attack_hand(mob/user as mob)
+/obj/spacepod/attack_hand(mob/user )
 	if(!hatch_open)
 		return ..()
 	if(!ES || !istype(ES))

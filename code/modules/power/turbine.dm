@@ -215,7 +215,7 @@
 			if(P.id_tag == id_tag)
 				doors += P
 
-/obj/machinery/computer/turbine_computer/attackby(obj/item/I , mob/user as mob)
+/obj/machinery/computer/turbine_computer/attackby(obj/item/I , mob/user )
 	if(I.is_screwdriver(user))
 		I.playtoolsound(src, 50)
 		if(do_after(user, src, 20))
@@ -248,7 +248,7 @@
 		src.attack_hand(user)
 	return
 
-/obj/machinery/computer/turbine_computer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/turbine_computer/attack_hand(var/mob/user )
 	user.machine = src
 	var/dat
 	if(src.compressor)

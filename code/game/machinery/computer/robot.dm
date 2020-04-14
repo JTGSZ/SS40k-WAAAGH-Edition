@@ -19,16 +19,16 @@
 	light_color = LIGHT_COLOR_PINK
 
 
-/obj/machinery/computer/robotics/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/robotics/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/robotics/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/robotics/attack_paw(var/mob/user )
 
 	return src.attack_hand(user)
 	return
 
-/obj/machinery/computer/robotics/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/robotics/attack_hand(var/mob/user )
 	if(..())
 		return
 	if (src.z > 6)

@@ -28,7 +28,7 @@
 	hold.attack_hand(user)
 	return 1
 
-/obj/item/clothing/accessory/storage/attack_self(mob/user as mob)
+/obj/item/clothing/accessory/storage/attack_self(mob/user )
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	var/turf/T = get_turf(src)
 	hold.hide_from(user)
@@ -36,7 +36,7 @@
 		hold.remove_from_storage(I, T)
 	src.add_fingerprint(user)
 
-/obj/item/clothing/accessory/storage/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/clothing/accessory/storage/attackby(obj/item/weapon/W , mob/user )
 	hold.attackby(W,user)
 	return 1
 
@@ -54,7 +54,7 @@
 	var/master_item		//item it belongs to
 	internal_store = 3
 
-/obj/item/weapon/storage/internal/close(mob/user as mob)
+/obj/item/weapon/storage/internal/close(mob/user )
 	..()
 	loc = master_item
 
@@ -112,7 +112,7 @@
 	icon_state = "nr_rig"
 	_color = "nr_rig"
 
-/obj/item/clothing/accessory/storage/knifeharness/attackby(var/obj/item/O , mob/user as mob)
+/obj/item/clothing/accessory/storage/knifeharness/attackby(var/obj/item/O , mob/user )
 	..()
 	update()
 

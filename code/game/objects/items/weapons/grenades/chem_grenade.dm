@@ -21,7 +21,7 @@
 	mech_flags = null
 	det_time =0 //recycling this variable to be used by the grenade launcher's timer override function since chemnades use their assembly's timer instead.
 
-/obj/item/weapon/grenade/chem_grenade/attack_self(mob/user as mob)
+/obj/item/weapon/grenade/chem_grenade/attack_self(mob/user )
 	if(!stage || stage==1)
 		if(detonator)
 //				detonator.loc=src.loc
@@ -70,7 +70,7 @@
 		reservoir.forceMove(T)
 		reservoir = null
 
-/obj/item/weapon/grenade/chem_grenade/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/grenade/chem_grenade/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
 		var/obj/item/device/assembly_holder/det = W
 		if(istype(det.a_left,det.a_right.type) || (!isigniter(det.a_left) && !isigniter(det.a_right)))
@@ -192,7 +192,7 @@
 		detonator.on_found(wearer, AM)
 	..()
 
-/obj/item/weapon/grenade/chem_grenade/activate(mob/user as mob)
+/obj/item/weapon/grenade/chem_grenade/activate(mob/user )
 	if(active)
 		return
 
@@ -324,7 +324,7 @@ obj/item/weapon/grenade/chem_grenade/exgrenade
 	origin_tech = Tc_COMBAT + "=4;" + Tc_MATERIALS + "=3;" + Tc_ENGINEERING + "=2"
 	affected_area = 4
 
-obj/item/weapon/grenade/chem_grenade/exgrenade/attackby(obj/item/weapon/W , mob/user as mob)
+obj/item/weapon/grenade/chem_grenade/exgrenade/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
 		var/obj/item/device/assembly_holder/det = W
 		if(istype(det.a_left,det.a_right.type) || (!isigniter(det.a_left) && !isigniter(det.a_right)))

@@ -138,7 +138,7 @@
 	else
 		return ..()
 
-/obj/machinery/media/receiver/boombox/wallmount/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/media/receiver/boombox/wallmount/attackby(obj/item/weapon/W , mob/user )
 	switch(buildstage)
 		if(SYSTEMISDONE)
 			if(iscrowbar(W))

@@ -59,7 +59,7 @@
 		to_chat(user, "<span class='notice'>The labeler is almost empty.</span>")
 		label = copytext(label,1,min(chars_left, length(label) + 1))
 
-/obj/item/weapon/hand_labeler/attack_self(mob/user as mob)
+/obj/item/weapon/hand_labeler/attack_self(mob/user )
 	if(!chars_left)
 		to_chat(user, "<span class='notice'>It's empty.</span>")
 		return

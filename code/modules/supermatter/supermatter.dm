@@ -319,11 +319,11 @@
 		damage += Proj.damage * config_bullet_energy
 
 
-/obj/machinery/power/supermatter/attack_paw(mob/user as mob)
+/obj/machinery/power/supermatter/attack_paw(mob/user )
 	return attack_hand(user)
 
 
-/obj/machinery/power/supermatter/attack_robot(mob/user as mob)
+/obj/machinery/power/supermatter/attack_robot(mob/user )
 	if(Adjacent(user))
 		return attack_hand(user)
 	else
@@ -339,10 +339,10 @@
 
 	Consume(H)
 
-/obj/machinery/power/supermatter/attack_ghost(mob/user as mob)
+/obj/machinery/power/supermatter/attack_ghost(mob/user )
 	attack_ai(user)
 
-/obj/machinery/power/supermatter/attack_ai(mob/user as mob)
+/obj/machinery/power/supermatter/attack_ai(mob/user )
 	var/stability = num2text(round((damage / explosion_point) * 100))
 	to_chat(user, "<span class = \"info\">Matrix Instability: [stability]%</span>")
 	to_chat(user, "<span class = \"info\">Damage: [format_num(damage)]</span>")// idfk what units we're using.
@@ -350,7 +350,7 @@
 	to_chat(user, "<span class = \"info\">Power: [format_num(power)]J</span>")// Same
 
 
-/obj/machinery/power/supermatter/attack_hand(mob/user as mob)
+/obj/machinery/power/supermatter/attack_hand(mob/user )
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src], inducing a resonance... \his body starts to glow and bursts into flames before flashing into ash.</span>",\
 		"<span class=\"danger\">You reach out and touch \the [src]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")
@@ -362,7 +362,7 @@
 /obj/machinery/power/supermatter/proc/transfer_energy()
 	emitted_harvestable_radiation(get_turf(src), power, range = 15)
 
-/obj/machinery/power/supermatter/attackby(obj/item/weapon/W , mob/living/user as mob)
+/obj/machinery/power/supermatter/attackby(obj/item/weapon/W , mob/living/user )
 	. = ..()
 	if(.)
 		return .

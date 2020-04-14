@@ -85,7 +85,7 @@
 /*******************
 *   Item Adding
 ********************/
-/obj/machinery/microwave/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/microwave/attackby(var/obj/item/O , var/mob/user )
 	if(src.broken > 0)
 		if(src.broken == 2 && O.is_screwdriver(user)) // If it's broken and they're using a screwdriver
 			user.visible_message( \
@@ -195,10 +195,10 @@
 		return 1
 	src.updateUsrDialog()
 
-/obj/machinery/microwave/attack_paw(mob/user as mob)
+/obj/machinery/microwave/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/microwave/attack_ai(mob/user as mob)
+/obj/machinery/microwave/attack_ai(mob/user )
 	if(istype(user,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = user
 		if(HAS_MODULE_QUIRK(R, MODULE_CAN_HANDLE_FOOD))
@@ -211,7 +211,7 @@
 		user.set_machine(src)
 		interact(user)
 
-/obj/machinery/microwave/attack_hand(mob/user as mob)
+/obj/machinery/microwave/attack_hand(mob/user )
 	user.set_machine(src)
 	interact(user)
 
@@ -219,7 +219,7 @@
 *   Microwave Menu
 ********************/
 
-/obj/machinery/microwave/interact(mob/user as mob) // The microwave Menu
+/obj/machinery/microwave/interact(mob/user ) // The microwave Menu
 	var/dat = ""
 	if(src.broken > 0)
 		dat = {"<TT>Bzzzzttttt</TT>"}

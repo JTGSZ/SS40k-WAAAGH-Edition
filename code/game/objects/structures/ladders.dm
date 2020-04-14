@@ -78,7 +78,7 @@ var/list/ladders = list()
 	else	//wtf make your ladders properly assholes
 		icon_state = "ladder00"
 
-/obj/structure/ladder/attack_hand(mob/user as mob)
+/obj/structure/ladder/attack_hand(mob/user )
 	if(up && down)
 		switch( alert("Go up or down the ladder?", "Ladder", "Up", "Down", "Cancel") )
 			if("Up")
@@ -111,10 +111,10 @@ var/list/ladders = list()
 
 	add_fingerprint(user)
 
-/obj/structure/ladder/attack_paw(mob/user as mob)
+/obj/structure/ladder/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/structure/ladder/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/structure/ladder/attackby(obj/item/weapon/W, mob/user )
 	if(isrobot(user))
 		return
 

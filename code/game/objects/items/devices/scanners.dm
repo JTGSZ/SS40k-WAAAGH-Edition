@@ -102,7 +102,7 @@ BREATHALYZER
 	var/last_reading = null
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack(mob/living/M , mob/living/user )
 	if(!user.hallucinating())
 		if(last_scantime + 1 SECONDS < world.time)
 			last_reading = healthanalyze(M, user, mode, silent = FALSE)
@@ -137,7 +137,7 @@ BREATHALYZER
 			to_chat(user,"<span class='notice'>No pathogen detected on \the [src].</span>")
 
 
-/obj/item/device/healthanalyzer/attack_self(mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack_self(mob/living/user )
 	. = ..()
 	if(.)
 		return
@@ -146,7 +146,7 @@ BREATHALYZER
 		to_chat(user, last_reading)
 
 //Note : Used directly by other objects. Could benefit of OOP, maybe ?
-proc/healthanalyze(mob/living/M as mob, mob/living/user as mob, var/mode = 0, var/skip_checks = 0, var/silent = 0)
+proc/healthanalyze(mob/living/M , mob/living/user , var/mode = 0, var/skip_checks = 0, var/silent = 0)
 	var/message = ""
 	if(!skip_checks)
 		if(((M_CLUMSY in user.mutations) || user.getBrainLoss() >= 60) && prob(50))
@@ -329,7 +329,7 @@ Subject's pulse: ??? BPM"})
 	melt_temperature = MELTPOINT_PLASTIC
 	origin_tech = Tc_MAGNETS + "=1;" + Tc_ENGINEERING + "=1"
 
-/obj/item/device/analyzer/attack_self(mob/user as mob)
+/obj/item/device/analyzer/attack_self(mob/user )
 
 	. = ..()
 	if(.)
@@ -439,7 +439,7 @@ Subject's pulse: ??? BPM"})
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/mass_spectrometer/attack(mob/living/M , mob/living/user )
 	if(!M.reagents)
 		return
 	if(iscarbon(M))
@@ -460,7 +460,7 @@ Subject's pulse: ??? BPM"})
 			"<span class='notice'>You take a blood sample from [C]</span>")
 			playsound(src, 'sound/items/hypospray.ogg', 50, 1) //It uses the same thing as the hypospray, in reverse. SCIENCE!
 
-/obj/item/device/mass_spectrometer/attack_self(mob/user as mob)
+/obj/item/device/mass_spectrometer/attack_self(mob/user )
 	. = ..()
 	if(.)
 		return

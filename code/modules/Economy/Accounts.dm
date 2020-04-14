@@ -204,7 +204,7 @@ var/global/allowable_payroll_amount = DEPARTMENT_START_WAGE*8 //Station, command
 
 	..()
 
-/obj/machinery/account_database/attack_hand(mob/user as mob)
+/obj/machinery/account_database/attack_hand(mob/user )
 	. = ..()
 	if(.)
 		return

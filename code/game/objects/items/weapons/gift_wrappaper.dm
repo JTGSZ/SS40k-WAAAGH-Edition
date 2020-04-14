@@ -24,7 +24,7 @@
 	gift = target
 	update_icon()
 
-/obj/item/weapon/gift/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/gift/attackby(obj/item/W , mob/user )
 	if(istype(W, /obj/item/weapon/pen))
 		var/str = copytext(sanitize(input(user,"What should the label read? (max 52 characters)","Write a personal message!","") as message|null),1,MAX_NAME_LEN * 2)
 		if (!Adjacent(user) || user.stat)
@@ -49,7 +49,7 @@
 			icon_state = "gift-large"
 			item_state = "gift-large"
 
-/obj/item/weapon/gift/attack_self(mob/user as mob)
+/obj/item/weapon/gift/attack_self(mob/user )
 	user.drop_item(src, force_drop = 1)
 	if(gift)
 		user.put_in_active_hand(gift)
@@ -106,13 +106,13 @@
 	item_state = "gift_winter-4"
 
 
-/obj/item/weapon/winter_gift/attack_self(mob/M as mob)
+/obj/item/weapon/winter_gift/attack_self(mob/M )
 	to_chat(M, "<span class='notice'>The gift was empty!</span>")
 	M.u_equip(src,0)
 	qdel(src)
 	return
 
-/obj/item/weapon/winter_gift/regular/attack_self(mob/M as mob)
+/obj/item/weapon/winter_gift/regular/attack_self(mob/M )
 	var/gift_type = pick(
 		/obj/item/weapon/sord,
 		/obj/item/weapon/storage/wallet,
@@ -176,7 +176,7 @@
 	return
 
 //christmas and festive food
-/obj/item/weapon/winter_gift/food/attack_self(mob/M as mob)
+/obj/item/weapon/winter_gift/food/attack_self(mob/M )
 	var/gift_type = pick(
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/birthdaycake,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/buchedenoel,
@@ -192,7 +192,7 @@
 	return
 
 //warm clothes
-/obj/item/weapon/winter_gift/cloth/attack_self(mob/M as mob)
+/obj/item/weapon/winter_gift/cloth/attack_self(mob/M )
 	if(prob(30))
 		cloth_bundle()
 		to_chat(M, "<span class='notice'>You unwrapped a bundle of clothes! Looks comfy!</span>")
@@ -247,7 +247,7 @@
 			new /obj/item/device/maracas(get_turf(loc))
 
 //dangerous items
-/obj/item/weapon/winter_gift/special/attack_self(mob/M as mob)
+/obj/item/weapon/winter_gift/special/attack_self(mob/M )
 	var/gift_type = pick(
 		/obj/item/device/fuse_bomb,
 		/obj/item/weapon/card/emag,
@@ -307,12 +307,12 @@
 		AM.forceMove(get_turf(src))
 	..()
 
-/obj/structure/strange_present/relaymove(mob/user as mob)
+/obj/structure/strange_present/relaymove(mob/user )
 	if (user.stat)
 		return
 	to_chat(user, "<span class='notice'>You can't move.</span>")
 
-/obj/structure/strange_present/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/strange_present/attackby(obj/item/weapon/W , mob/user )
 	if (iswirecutter(W))
 		to_chat(user, "<span class='notice'>You cut open the present.</span>")
 
@@ -328,7 +328,7 @@
 		to_chat(user, "<span class='warning'>[src] is too tightly bound to open without wirecutters!</span>")
 		return	..()
 
-/obj/structure/strange_present/attack_hand(mob/user as mob)
+/obj/structure/strange_present/attack_hand(mob/user )
 	to_chat(user, "<span class='warning'>[src] is too tightly bound to open without wirecutters!</span>")
 	return
 

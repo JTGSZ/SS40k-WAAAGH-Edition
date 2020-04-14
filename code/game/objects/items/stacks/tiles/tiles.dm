@@ -73,7 +73,7 @@
 			return
 	S.ChangeTurf(/turf/simulated/floor/plating/airless)
 
-/obj/item/stack/tile/plasteel/attackby(obj/item/W , mob/user as mob)
+/obj/item/stack/tile/plasteel/attackby(obj/item/W , mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(amount < 4)

@@ -687,7 +687,7 @@ var/list/admin_verbs_mod = list(
 	message_admins("<span class='notice'>[key_name_admin(src)] creating an admin EMP at [epicenter.loc] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</A>).</span>")
 	feedback_add_details("admin_verb","DE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/give_spell(mob/T as mob in mob_list) // -- Urist
+/client/proc/give_spell(mob/T  in mob_list) // -- Urist
 	set category = "Fun"
 	set name = "Give Spell"
 	set desc = "Gives a spell to a mob."
@@ -701,7 +701,7 @@ var/list/admin_verbs_mod = list(
 	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] the spell [S].</span>", 1)
 
 
-/client/proc/toggle_invisible(mob/T as mob in mob_list)
+/client/proc/toggle_invisible(mob/T  in mob_list)
 	set category = "Fun"
 	set name = "Toggle invisiblity"
 	set desc = "Make a mob completely invisible."
@@ -720,7 +720,7 @@ var/list/admin_verbs_mod = list(
 	log_admin("[key_name(usr)] toggled [key_name(T)] invisibility.")
 	message_admins("<span class='notice'>[key_name_admin(usr)] toggled [key_name(T)] invisibility.</span>", 1)
 
-/client/proc/give_disease(mob/T as mob in mob_list) // -- Giacom
+/client/proc/give_disease(mob/T  in mob_list) // -- Giacom
 	set category = "Fun"
 	set name = "Give Disease"
 	set desc = "Gives a Disease to a mob."
@@ -794,7 +794,7 @@ var/list/admin_verbs_mod = list(
 		log_admin("[key_name(usr)] checked silicon laws.")
 		src.holder.output_ai_laws()
 
-/client/proc/editappear(mob/living/carbon/human/M as mob in mob_list)
+/client/proc/editappear(mob/living/carbon/human/M  in mob_list)
 	set name = "Edit Appearance"
 	set category = "Fun"
 
@@ -882,7 +882,7 @@ var/list/admin_verbs_mod = list(
 	if(text)
 		change_command_name(text)
 
-/client/proc/man_up(mob/T as mob in mob_list)
+/client/proc/man_up(mob/T  in mob_list)
 	set category = "Fun"
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."

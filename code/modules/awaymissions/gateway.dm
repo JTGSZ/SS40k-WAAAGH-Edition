@@ -81,7 +81,7 @@ obj/machinery/gateway/centerstation/process()
 		ready = 1
 
 
-/obj/machinery/gateway/centerstation/proc/toggleon(mob/user as mob)
+/obj/machinery/gateway/centerstation/proc/toggleon(mob/user )
 	if(!ready)
 		return
 	if(linked.len != 8)
@@ -110,7 +110,7 @@ obj/machinery/gateway/centerstation/process()
 	update_icon()
 
 
-/obj/machinery/gateway/centerstation/attack_hand(mob/user as mob)
+/obj/machinery/gateway/centerstation/attack_hand(mob/user )
 	if(!ready)
 		detect()
 		return
@@ -149,7 +149,7 @@ obj/machinery/gateway/centerstation/process()
 		use_power(5000)
 
 
-/obj/machinery/gateway/centerstation/attackby(obj/item/device/W , mob/user as mob)
+/obj/machinery/gateway/centerstation/attackby(obj/item/device/W , mob/user )
 	if(istype(W,/obj/item/device/multitool))
 		to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 		return
@@ -208,7 +208,7 @@ obj/machinery/gateway/centerstation/process()
 		ready = 1
 
 
-/obj/machinery/gateway/centeraway/proc/toggleon(mob/user as mob)
+/obj/machinery/gateway/centeraway/proc/toggleon(mob/user )
 	if(!ready)
 		return
 	if(linked.len != 8)
@@ -232,7 +232,7 @@ obj/machinery/gateway/centerstation/process()
 	update_icon()
 
 
-/obj/machinery/gateway/centeraway/attack_hand(mob/user as mob)
+/obj/machinery/gateway/centeraway/attack_hand(mob/user )
 	if(!ready)
 		detect()
 		return
@@ -256,7 +256,7 @@ obj/machinery/gateway/centerstation/process()
 	M.dir = SOUTH
 
 
-/obj/machinery/gateway/centeraway/attackby(obj/item/device/W , mob/user as mob)
+/obj/machinery/gateway/centeraway/attackby(obj/item/device/W , mob/user )
 	if(istype(W,/obj/item/device/multitool))
 		if(calibrated)
 			to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
@@ -266,8 +266,8 @@ obj/machinery/gateway/centerstation/process()
 			calibrated = 1
 			return
 
-/obj/machinery/gateway/centerstation/attack_ghost(mob/user as mob)
+/obj/machinery/gateway/centerstation/attack_ghost(mob/user )
 	return src.Bumped(user)
 
-/obj/machinery/gateway/centeraway/attack_ghost(mob/user as mob)
+/obj/machinery/gateway/centeraway/attack_ghost(mob/user )
 	return src.Bumped(user)

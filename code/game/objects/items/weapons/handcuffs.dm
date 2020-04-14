@@ -149,7 +149,7 @@
 	if(_color)
 		icon_state = "cuff_[_color]"
 
-/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user )
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I

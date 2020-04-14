@@ -94,7 +94,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/rcl/dropped(mob/wearer as mob)
+/obj/item/weapon/rcl/dropped(mob/wearer )
 	..()
 	active = 0
 	set_move_event(wearer)
@@ -108,7 +108,7 @@
 		user.on_moved.Remove(targetMoveKey)
 	targetMoveKey = null
 
-/obj/item/weapon/rcl/attack_self(mob/user as mob)
+/obj/item/weapon/rcl/attack_self(mob/user )
 	active = !active
 	to_chat(user, "<span class='notice'>You turn \the [src] [active ? "on" : "off"].<span>")
 	set_move_event(user)
@@ -121,7 +121,7 @@
 	if(active)
 		trigger(E.holder)
 
-/obj/item/weapon/rcl/proc/trigger(mob/user as mob)
+/obj/item/weapon/rcl/proc/trigger(mob/user )
 	if(!loaded)
 		to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
 		return

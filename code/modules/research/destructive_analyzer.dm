@@ -59,7 +59,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		return TRUE
 	return FALSE
 
-/obj/machinery/r_n_d/destructive_analyzer/attackby(var/obj/O , var/mob/user as mob)
+/obj/machinery/r_n_d/destructive_analyzer/attackby(var/obj/O , var/mob/user )
 	if(..())
 		return 1
 	if (istype(O, /obj/item) && !loaded_item && !panel_open)
@@ -93,7 +93,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 					linked_console.updateUsrDialog()
 	return 1
 
-/obj/machinery/r_n_d/destructive_analyzer/attack_hand(mob/user as mob)
+/obj/machinery/r_n_d/destructive_analyzer/attack_hand(mob/user )
 	if (..(user))
 		return
 	if (loaded_item && !panel_open && !busy)

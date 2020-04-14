@@ -28,7 +28,7 @@
 	ChangeTurf(dismantle_type)
 	update_near_walls()
 
-/turf/simulated/wall/cult/attack_construct(mob/user as mob)
+/turf/simulated/wall/cult/attack_construct(mob/user )
 	if(istype(user,/mob/living/simple_animal/construct/builder) && user.Adjacent(src))
 		dismantle_wall(1)
 		return 1

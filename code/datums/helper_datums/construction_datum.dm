@@ -37,7 +37,7 @@
 	add_max_amounts()
 	return
 
-/datum/construction/proc/next_step(mob/user as mob)
+/datum/construction/proc/next_step(mob/user )
 	steps.len--
 	if(!steps.len)
 		spawn_result(user)
@@ -45,10 +45,10 @@
 		set_desc(steps.len)
 	return
 
-/datum/construction/proc/action(atom/used_atom,mob/user as mob)
+/datum/construction/proc/action(atom/used_atom,mob/user )
 	return
 
-/datum/construction/proc/check_step(atom/used_atom,mob/user as mob) //check last step only
+/datum/construction/proc/check_step(atom/used_atom,mob/user ) //check last step only
 	var/valid_step = is_right_key(user,used_atom)
 	if(valid_step)
 		assembling = 1
@@ -59,7 +59,7 @@
 		assembling = 0
 	return 0
 
-/datum/construction/proc/is_right_key(mob/user as mob, atom/used_atom) // returns current step num if used_atom is of the right type.
+/datum/construction/proc/is_right_key(mob/user , atom/used_atom) // returns current step num if used_atom is of the right type.
 	if(assembling)
 		return 0
 	var/list/L = steps[steps.len]
@@ -101,7 +101,7 @@
 	if(Co_START_MSG in step)
 		user.visible_message(fixText(step[Co_START_MSG],user), fixText(step[Co_START_MSG],user,1))
 
-/datum/construction/proc/check_all_steps(atom/used_atom,mob/user as mob) //check all steps, remove matching one.
+/datum/construction/proc/check_all_steps(atom/used_atom,mob/user ) //check all steps, remove matching one.
 	for(var/i=1;i<=steps.len;i++)
 		var/list/L = steps[i];
 		if((islist(L[Co_KEY]) && is_type_in_list(used_atom, L[Co_KEY])) ||istype(used_atom, L[Co_KEY]))
@@ -114,7 +114,7 @@
 	return 0
 
 
-/datum/construction/proc/spawn_result(mob/user as mob)
+/datum/construction/proc/spawn_result(mob/user )
 	if(result)
 //		testing("[user] finished a [result]!")
 
@@ -129,7 +129,7 @@
 	holder.desc = step[Co_DESC]
 	return
 
-/datum/construction/proc/try_consume(mob/user as mob, atom/movable/used_atom, given_step)
+/datum/construction/proc/try_consume(mob/user , atom/movable/used_atom, given_step)
 	if(used_atom.construction_delay_mult && !used_atom.construction_delay_mult[Co_CON_SPEED])
 		to_chat(user, "<span class='warning'>This tool only works for deconstruction!</span>")//It doesn't technically have to be a tool to cause this message, but it wouldn't make sense for anything else to do so.
 
@@ -200,7 +200,7 @@
 	index = steps.len
 	return
 
-/datum/construction/reversible/proc/update_index(diff as num, mob/user as mob)
+/datum/construction/reversible/proc/update_index(diff as num, mob/user )
 	index+=diff
 	if(index==0)
 		spawn_result(user)
@@ -208,7 +208,7 @@
 		set_desc(index)
 	return
 
-/datum/construction/reversible/is_right_key(mob/user as mob,atom/used_atom) // returns index step
+/datum/construction/reversible/is_right_key(mob/user ,atom/used_atom) // returns index step
 	if(assembling)
 		return 0
 	assembling = 1
@@ -229,7 +229,7 @@
 	assembling = 0
 	return 0
 
-/datum/construction/reversible/check_step(atom/used_atom,mob/user as mob)
+/datum/construction/reversible/check_step(atom/used_atom,mob/user )
 	var/diff = is_right_key(user,used_atom)
 	if(diff)
 		assembling = 1
@@ -274,7 +274,7 @@
 /datum/construction/reversible/fixText(message, mob/user, self = 0)
 	return ..(message, user, self)
 
-/datum/construction/reversible/try_consume(mob/user as mob, atom/movable/used_atom, given_step, index, diff)
+/datum/construction/reversible/try_consume(mob/user , atom/movable/used_atom, given_step, index, diff)
 	//if we've made some progress on a step, we want to drop it
 	var/current_step = (diff == BACKWARD ? get_forward_step(index) : get_backward_step(index))
 	if(used_atom.construction_delay_mult && !used_atom.construction_delay_mult[diff == FORWARD ? Co_CON_SPEED : Co_DECON_SPEED])

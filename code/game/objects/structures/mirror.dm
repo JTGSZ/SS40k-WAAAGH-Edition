@@ -9,7 +9,7 @@
 	var/shattered = 0
 
 
-/obj/structure/mirror/attack_hand(mob/user as mob)
+/obj/structure/mirror/attack_hand(mob/user )
 	if(shattered)
 		return
 
@@ -96,7 +96,7 @@
 	..()
 
 
-/obj/structure/mirror/attackby(obj/item/I , mob/living/user as mob)
+/obj/structure/mirror/attackby(obj/item/I , mob/living/user )
 	if ((shattered) && (istype(I, /obj/item/stack/sheet/glass/glass)))
 		var/obj/item/stack/sheet/glass/glass/stack = I
 		if ((stack.amount - 2) < 0)
@@ -133,7 +133,7 @@
 			playsound(src, 'sound/effects/Glasshit.ogg', 70, 1)
 
 
-/obj/structure/mirror/attack_alien(mob/living/user as mob)
+/obj/structure/mirror/attack_alien(mob/living/user )
 	if(islarva(user))
 		return
 	user.do_attack_animation(src, user)
@@ -144,7 +144,7 @@
 	shatter()
 
 
-/obj/structure/mirror/attack_animal(mob/living/user as mob)
+/obj/structure/mirror/attack_animal(mob/living/user )
 	if(!isanimal(user))
 		return
 	var/mob/living/simple_animal/M = user
@@ -158,7 +158,7 @@
 	shatter()
 
 
-/obj/structure/mirror/attack_slime(mob/living/user as mob)
+/obj/structure/mirror/attack_slime(mob/living/user )
 	if(!isslimeadult(user))
 		return
 	user.do_attack_animation(src, user)

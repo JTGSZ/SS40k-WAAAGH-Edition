@@ -198,7 +198,7 @@
 	for(var/obj/item/toy/crayon/crayon in contents)
 		overlays += image('icons/obj/crayons.dmi',crayon.colourName)
 
-/obj/item/weapon/storage/fancy/crayons/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/storage/fancy/crayons/attackby(obj/item/W , mob/user )
 	if(istype(W,/obj/item/toy/crayon))
 		switch(W:colourName)
 			if("mime")
@@ -260,7 +260,7 @@
 		icon_state = "[initial(icon_state)]"
 		return
 
-/obj/item/weapon/storage/fancy/matchbox/attackby(obj/item/weapon/match/W , mob/user as mob)
+/obj/item/weapon/storage/fancy/matchbox/attackby(obj/item/weapon/match/W , mob/user )
 	if(istype(W, /obj/item/weapon/match) && !W.lit)
 		W.light()
 		return
@@ -332,7 +332,7 @@
 	reagents.trans_to(C, (reagents.total_volume/contents.len))
 	. = ..()
 
-/obj/item/weapon/storage/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/storage/fancy/cigarettes/attack(mob/living/carbon/M , mob/living/carbon/user )
 	if(!istype(M, /mob))
 		return
 
@@ -458,7 +458,7 @@
 	else
 		overlays += image(icon, src, "ledb")
 
-/obj/item/weapon/storage/lockbox/vials/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/storage/lockbox/vials/attackby(obj/item/weapon/W , mob/user )
 	. = ..()
 	if (istype(W,/obj/item/weapon/card))
 		playsound(src, get_sfx("card_swipe"), 60, 1, -5)
@@ -502,7 +502,7 @@
 		new /obj/item/device/flashlight/flare(src)
 	return
 
-/obj/item/weapon/storage/fancy/flares/attackby(var/obj/item/device/flashlight/flare/F, var/user as mob) //if it's on or empty, we don't want it
+/obj/item/weapon/storage/fancy/flares/attackby(var/obj/item/device/flashlight/flare/F, var/user ) //if it's on or empty, we don't want it
 	if(!istype(F))
 		return
 	if(F.on)

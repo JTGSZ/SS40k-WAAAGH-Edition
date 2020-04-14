@@ -519,7 +519,7 @@
  *	Medbot Assembly -- Can be made out of all three medkits.
  */
 
-/obj/item/weapon/storage/firstaid/attackby(var/obj/item/robot_parts/S, mob/user as mob)
+/obj/item/weapon/storage/firstaid/attackby(var/obj/item/robot_parts/S, mob/user )
 
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
 		. = ..()
@@ -546,7 +546,7 @@
 	qdel(src)
 
 
-/obj/item/weapon/firstaid_arm_assembly/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/firstaid_arm_assembly/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if(istype(W, /obj/item/weapon/pen))
 		var/t = copytext(stripped_input(user, "Enter new robot name", name, created_name),1,MAX_NAME_LEN)

@@ -5,7 +5,7 @@
 	name = "Printing Pen"
 	var/mode = 1
 
-/obj/item/weapon/pen/robopen/attack_self(mob/user as mob)
+/obj/item/weapon/pen/robopen/attack_self(mob/user )
 	playsound(src, 'sound/effects/pop.ogg', 50, 0)
 	if (mode == 1)
 		mode = 2
@@ -18,7 +18,7 @@
 // Copied over from paper's rename verb
 // see code\\modules\\\paperwork\\\paper.dm line 62
 
-/obj/item/weapon/pen/robopen/proc/RenamePaper(mob/user as mob,obj/paper )
+/obj/item/weapon/pen/robopen/proc/RenamePaper(mob/user ,obj/paper )
 	if ( !user || !paper )
 		return
 	var/n_name = input(user, "What would you like to label the paper?", "Paper Labelling", null)  as text

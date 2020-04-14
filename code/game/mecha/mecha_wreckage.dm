@@ -81,7 +81,7 @@
 			provided += pick_n_take(possible)
 	return provided
 
-/obj/effect/decal/mecha_wreckage/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/effect/decal/mecha_wreckage/attackby(obj/item/weapon/W , mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(isemptylist(welder_salvage))

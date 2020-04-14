@@ -442,7 +442,7 @@
 	icon_state = pick(poster_designs)
 	..()
 
-/obj/structure/sign/poster/stealth/relaymove(mob/user as mob)
+/obj/structure/sign/poster/stealth/relaymove(mob/user )
 	if(user.stat)
 		return
 	playsound(get_turf(src), 'sound/items/poster_ripped.ogg', 100, 1)

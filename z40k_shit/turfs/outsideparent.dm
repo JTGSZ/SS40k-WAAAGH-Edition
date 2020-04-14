@@ -32,7 +32,7 @@
 			if(prob(20))
 				new/obj/effect/decal/cleanable/soot(src)
 
-/turf/unsimulated/outside/attack_paw(user as mob)
+/turf/unsimulated/outside/attack_paw(user )
 	return src.attack_hand(user)
 
 /turf/unsimulated/outside/add_dust()
@@ -91,7 +91,7 @@
 /turf/unsimulated/outside/cultify()
 	return //It's already pretty red out in nar-sie universe.
 
-/turf/unsimulated/outside/attackby(obj/item/weapon/W , mob/user as mob)
+/turf/unsimulated/outside/attackby(obj/item/weapon/W , mob/user )
 	..()
 
 //In the future, catwalks should be the base to build in the arctic, not lattices

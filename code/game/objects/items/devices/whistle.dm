@@ -33,7 +33,7 @@
 		flick_overlay(image('icons/mob/talk.dmi', user, "hail", MOB_LAYER+1), clients_in_moblist(bystanders), 2 SECONDS)
 	nextuse = world.time + cooldown
 
-/obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
+/obj/item/device/hailer/attack_self(mob/living/carbon/user )
 	if(world.time < nextuse)
 		return
 	if(emagged && !insults)

@@ -640,7 +640,7 @@
 	var/new_design = pick(part_set)
 	build_part(new_design)
 
-/obj/machinery/r_n_d/fabricator/attack_hand(mob/user as mob)
+/obj/machinery/r_n_d/fabricator/attack_hand(mob/user )
 	if(!isAdminGhost(user) && (user.stat || user.restrained())) //allowed is later on, so we don't check it
 		return
 

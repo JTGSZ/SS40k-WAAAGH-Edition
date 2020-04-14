@@ -10,7 +10,7 @@
 	density = 1
 	layer = ABOVE_OBJ_LAYER
 
-/obj/machinery/giga_drill/attack_hand(mob/user as mob)
+/obj/machinery/giga_drill/attack_hand(mob/user )
 	if(active)
 		active = 0
 		icon_state = "gigadrill"

@@ -72,7 +72,7 @@
 			if(atm.on_fire) // For extinguishing objects on fire
 				atm.extinguish()
 
-/obj/item/stack/ore/glass/attack_self(mob/living/user as mob) //It's magic I ain't gonna explain how instant conversion with no tool works. -- Urist
+/obj/item/stack/ore/glass/attack_self(mob/living/user ) //It's magic I ain't gonna explain how instant conversion with no tool works. -- Urist
 	var/location = get_turf(user)
 	for(var/obj/item/stack/ore/glass/sandToConvert in location)
 		drop_stack(/obj/item/stack/sheet/mineral/sandstone, location, sandToConvert.amount, user)
@@ -230,7 +230,7 @@
 		M.apply_radiation((rand(10, 50)), RAD_EXTERNAL)
 	qdel(src)
 
-/obj/item/stack/ore/cerenkite/attack_hand(mob/user as mob)
+/obj/item/stack/ore/cerenkite/attack_hand(mob/user )
 	var/L = get_turf(user)
 	for(var/mob/living/carbon/human/M in viewers(L, null))
 		M.apply_radiation((rand(10, 50)), RAD_EXTERNAL)
@@ -251,7 +251,7 @@
 	..()
 	color = pick("#FF0000","#0000FF","#008000","#FFFF00")
 
-/obj/item/stack/ore/cytine/attack_hand(mob/user as mob)
+/obj/item/stack/ore/cytine/attack_hand(mob/user )
 	var/obj/item/weapon/glowstick/G = new /obj/item/weapon/glowstick(user.loc)
 	G.color = color
 	G.light_color = color
@@ -352,7 +352,7 @@
 /obj/item/stack/ore/ex_act()
 	return
 
-/obj/item/stack/ore/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/stack/ore/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/device/core_sampler))
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)
@@ -534,7 +534,7 @@
 	credits = 1000
 	siemens_coefficient = 0
 
-/obj/item/weapon/coin/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/coin/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/stack/cable_coil) )
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)

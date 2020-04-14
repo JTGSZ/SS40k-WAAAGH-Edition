@@ -285,7 +285,7 @@
 		stat |= NOPOWER
 	update_icon()
 
-/obj/machinery/atmospherics/unary/vent_pump/interact(mob/user as mob)
+/obj/machinery/atmospherics/unary/vent_pump/interact(mob/user )
 	update_multitool_menu(user)
 
 /obj/machinery/atmospherics/unary/vent_pump/multitool_menu(var/mob/user,var/obj/item/device/multitool/P)
@@ -299,7 +299,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/can_crawl_through()
 	return !welded
 
-/obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/W , var/mob/user as mob)
+/obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/W , var/mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class='notice'>Now welding the vent.</span>")

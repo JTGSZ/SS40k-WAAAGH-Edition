@@ -47,7 +47,7 @@
 				src.req_access += pick(get_all_accesses())
 	..()
 
-/obj/structure/closet/secure_closet/proc/togglelock(mob/user as mob)
+/obj/structure/closet/secure_closet/proc/togglelock(mob/user )
 	if(allowed(user))
 		locked = !locked
 		visible_message("<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>")
@@ -94,7 +94,7 @@
 			return
 		togglelock(user)
 
-/obj/structure/closet/secure_closet/relaymove(mob/user as mob)
+/obj/structure/closet/secure_closet/relaymove(mob/user )
 	if(user.stat || !isturf(src.loc))
 		return
 

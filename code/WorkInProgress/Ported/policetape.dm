@@ -61,11 +61,11 @@
 	icon_base = "atmos"
 	robot_compatibility = MODULE_CAN_LIFT_ENGITAPE
 
-/obj/item/taperoll/attack_self(mob/user as mob)
+/obj/item/taperoll/attack_self(mob/user )
 	..()
 	lay_tape(user)
 
-/obj/item/taperoll/proc/lay_tape(mob/user as mob)
+/obj/item/taperoll/proc/lay_tape(mob/user )
 	if(icon_state == "[icon_base]_start")
 		start = get_turf(src)
 		if(istype(start,/turf/space))
@@ -162,7 +162,7 @@
 			to_chat(user, "<span class='notice'>You placed \the [src].</span>")
 			return 1
 	
-/obj/item/tape/Bumped(M as mob)
+/obj/item/tape/Bumped(M )
 	if(src.allowed(M))
 		var/turf/T = get_turf(src)
 		for(var/atom/A in T) //Check to see if there's anything solid on the tape's turf (it's possible to build on it)
@@ -180,10 +180,10 @@
 	else
 		return 0
 
-/obj/item/tape/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/tape/attackby(obj/item/weapon/W , mob/user )
 	breaktape(W, user)
 
-/obj/item/tape/attack_hand(mob/user as mob)
+/obj/item/tape/attack_hand(mob/user )
 	if (user.a_intent == I_HELP && src.allowed(user))
 		if(density == 0)
 			user.visible_message("<span class='notice'>[user] pulls [src] back down.</span>")
@@ -207,7 +207,7 @@
 
 	return ..()
 
-/obj/item/tape/attack_paw(mob/user as mob)
+/obj/item/tape/attack_paw(mob/user )
 	breaktape(null,user, TRUE)
 
 /obj/item/tape/attack_animal(var/mob/living/L)
@@ -217,7 +217,7 @@
 			return
 	breaktape(null,L, TRUE)
 
-/obj/item/tape/proc/breaktape(obj/item/weapon/W , mob/user as mob, var/override = FALSE)
+/obj/item/tape/proc/breaktape(obj/item/weapon/W , mob/user , var/override = FALSE)
 	if(!override && user.a_intent == I_HELP && (!W || !W.is_sharp()) && !src.allowed(user))
 		to_chat(user, "<span class='notice'>You can't break [src] [W ? "with \the [W] " : ""]unless you use force.</span>")
 		return
@@ -288,13 +288,13 @@
 		charges_left--
 		check_charges(user)
 
-/obj/item/taperoll/syndie/lay_tape(mob/user as mob)
+/obj/item/taperoll/syndie/lay_tape(mob/user )
 	if (charges_left)
 		if (..())
 			charges_left--
 			check_charges(user)
 			
-/obj/item/taperoll/syndie/proc/check_charges(mob/user as mob)
+/obj/item/taperoll/syndie/proc/check_charges(mob/user )
 	if(!charges_left)
 		to_chat(user, "<span class = 'warning'>You are out of [src]</span>")
 		qdel(src)

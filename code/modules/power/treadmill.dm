@@ -41,7 +41,7 @@
 			calc+=SP.rating
 	power_efficiency = calc/4 //Possible results 1, 2, and 3 -- basically, what tier we have
 
-/obj/machinery/power/treadmill/examine(mob/user as mob)
+/obj/machinery/power/treadmill/examine(mob/user )
 	..()
 	to_chat(user, "<span class='info'>During the last cycle, it produced [tick_power] watts.</span>")
 
@@ -50,7 +50,7 @@
 	count_power = 0
 	add_avail(tick_power)
 
-/obj/machinery/power/treadmill/proc/powerwalk(atom/movable/AM as mob)
+/obj/machinery/power/treadmill/proc/powerwalk(atom/movable/AM )
 	if(!ismob(AM))
 		return //Can't walk on a treadmill if you aren't animated
 	if(get_turf(AM) != loc)

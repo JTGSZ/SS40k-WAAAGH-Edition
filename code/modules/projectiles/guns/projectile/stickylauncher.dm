@@ -57,7 +57,7 @@
 				if(B.live)
 					B.detonate()
 
-/obj/item/weapon/gun/stickybomb/attackby(var/obj/item/A , mob/user as mob)
+/obj/item/weapon/gun/stickybomb/attackby(var/obj/item/A , mob/user )
 	if(istype(A, /obj/item/stickybomb))
 		var/obj/item/stickybomb/B = A
 		if(B.live)

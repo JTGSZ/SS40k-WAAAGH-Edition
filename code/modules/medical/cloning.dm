@@ -154,7 +154,7 @@
 	return selected
 
 //Disk stuff.
-/obj/item/weapon/disk/data/attack_self(mob/user as mob)
+/obj/item/weapon/disk/data/attack_self(mob/user )
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
@@ -179,12 +179,12 @@
 			healthstring = "ERROR"
 		return healthstring
 
-/obj/machinery/cloning/clonepod/attack_ai(mob/user as mob)
+/obj/machinery/cloning/clonepod/attack_ai(mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
-/obj/machinery/cloning/clonepod/attack_paw(mob/user as mob)
+/obj/machinery/cloning/clonepod/attack_paw(mob/user )
 	return attack_hand(user)
-/obj/machinery/cloning/clonepod/attack_hand(mob/user as mob)
+/obj/machinery/cloning/clonepod/attack_hand(mob/user )
 	if ((isnull(occupant)) || (stat & NOPOWER))
 		return
 	if ((!isnull(occupant)) && (occupant.stat != 2))
@@ -339,7 +339,7 @@
 
 	return
 
-/obj/machinery/cloning/clonepod/emag(mob/user as mob)
+/obj/machinery/cloning/clonepod/emag(mob/user )
 	if(isnull(occupant))
 		return
 	if(user)
@@ -366,7 +366,7 @@
 	. = ..()
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/cloning/clonepod/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/cloning/clonepod/attackby(obj/item/weapon/W , mob/user )
 	. = ..()
 	if(.)
 		return .
@@ -475,7 +475,7 @@
 			qdel(occupant)
 	return
 
-/obj/machinery/cloning/clonepod/relaymove(mob/user as mob)
+/obj/machinery/cloning/clonepod/relaymove(mob/user )
 	if (user.stat)
 		return
 	go_out()

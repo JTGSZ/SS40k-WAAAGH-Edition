@@ -25,13 +25,13 @@
 	var/shots_remaining = 0
 	var/has_shot = 0
 
-/obj/item/weapon/gun/projectile/hivehand/pickup(mob/user as mob)
+/obj/item/weapon/gun/projectile/hivehand/pickup(mob/user )
 	..()
 	to_chat(user, "<span class='warning'>\The [src] latches tightly onto your arm!</span>")
 	user.update_inv_hands()
 	processing_objects.Add(src)
 
-/obj/item/weapon/gun/projectile/hivehand/dropped(mob/user as mob)
+/obj/item/weapon/gun/projectile/hivehand/dropped(mob/user )
 	..()
 	processing_objects.Remove(src)
 

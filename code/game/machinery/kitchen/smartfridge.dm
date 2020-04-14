@@ -98,7 +98,7 @@
 
 	..()
 
-/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O , var/mob/user )
 	for(var/ac_type in accepted_types)
 		if(istype(O, ac_type))
 			return 1
@@ -341,7 +341,7 @@
 	if(.)
 		update_nearby_tiles()
 
-/obj/machinery/smartfridge/attackby(var/obj/item/O , var/mob/user as mob, params)
+/obj/machinery/smartfridge/attackby(var/obj/item/O , var/mob/user , params)
 	if(..())
 		return 1
 	if(stat & NOPOWER)
@@ -364,13 +364,13 @@
 	updateUsrDialog()
 	return 1
 
-/obj/machinery/smartfridge/attack_paw(mob/user as mob)
+/obj/machinery/smartfridge/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/smartfridge/attack_ai(mob/user as mob)
+/obj/machinery/smartfridge/attack_ai(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/smartfridge/attack_hand(mob/user as mob)
+/obj/machinery/smartfridge/attack_hand(mob/user )
 	user.set_machine(src)
 	interact(user)
 
@@ -378,7 +378,7 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/interact(mob/user as mob)
+/obj/machinery/smartfridge/interact(mob/user )
 	if(stat & NOPOWER)
 		return
 

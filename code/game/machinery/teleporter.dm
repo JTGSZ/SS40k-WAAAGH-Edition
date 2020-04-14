@@ -15,7 +15,7 @@
 	. = ..()
 	id = "[rand(1000, 9999)]"
 
-/obj/machinery/computer/teleporter/attackby(I , mob/living/user as mob)
+/obj/machinery/computer/teleporter/attackby(I , mob/living/user )
 	if(..())
 		return 1
 	else if(istype(I, /obj/item/weapon/card/data/))
@@ -331,7 +331,7 @@
 	else
 		icon_state = "controller"
 
-/obj/machinery/teleport/station/attackby(var/obj/item/weapon/W, var/mob/user as mob)
+/obj/machinery/teleport/station/attackby(var/obj/item/weapon/W, var/mob/user )
 	if (..())
 		return 1
 	else

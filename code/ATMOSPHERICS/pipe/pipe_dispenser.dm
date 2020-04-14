@@ -28,7 +28,7 @@
 
 	RefreshParts()
 
-/obj/machinery/pipedispenser/attack_hand(user as mob)
+/obj/machinery/pipedispenser/attack_hand(user )
 	if(..())
 		return
 	interact(user)
@@ -134,7 +134,7 @@
 			interact(usr)
 	return
 
-/obj/machinery/pipedispenser/attackby(var/obj/item/W , var/mob/user as mob)
+/obj/machinery/pipedispenser/attackby(var/obj/item/W , var/mob/user )
 	src.add_fingerprint(usr)
 	if (istype(W, /obj/item/pipe) || istype(W, /obj/item/pipe_meter) || istype(W, /obj/item/pipe_gsensor))
 		if(user.drop_item(W, src))
@@ -205,7 +205,7 @@ Nah
 
 	qdel(pipe)
 
-/obj/machinery/pipedispenser/disposal/attack_hand(user as mob)
+/obj/machinery/pipedispenser/disposal/attack_hand(user )
 	if(..())
 		return
 

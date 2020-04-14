@@ -367,7 +367,7 @@ About the new airlock wires panel:
 	if (arePowerSystemsOn() && !(stat & (NOPOWER | BROKEN)))
 		..()
 
-/obj/machinery/door/airlock/bump_open(mob/living/user as mob) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
+/obj/machinery/door/airlock/bump_open(mob/living/user ) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
 	if(user.loc == loc)	//no bumping an airlock from within the airlock
 		return
 	if(!istype(user))
@@ -519,7 +519,7 @@ About the new airlock wires panel:
 			flick("door_deny", src)
 	return
 
-/obj/machinery/door/airlock/attack_ai(mob/user as mob)
+/obj/machinery/door/airlock/attack_ai(mob/user )
 	if(!allowed(user) && !isobserver(user))
 		return //So i heard you tried to interface with doors you have no access to
 	src.add_hiddenprint(user)
@@ -681,7 +681,7 @@ About the new airlock wires panel:
 		to_chat(user, "Airlock AI control has been blocked. <a href='?src=\ref[src]&hack=1'>Hack it.</a>")
 
 
-/obj/machinery/door/airlock/proc/hack(mob/user as mob)
+/obj/machinery/door/airlock/proc/hack(mob/user )
 
 	if(src.aiHacking==0)
 		src.aiHacking=1
@@ -1057,7 +1057,7 @@ About the new airlock wires panel:
 
 	return dat
 
-/obj/machinery/door/airlock/attack_hand(mob/user as mob)
+/obj/machinery/door/airlock/attack_hand(mob/user )
 	if(isAdminGhost(user))
 		attack_ai(user)
 		return
@@ -1134,7 +1134,7 @@ About the new airlock wires panel:
 		return 1
 	return
 
-/obj/machinery/door/airlock/attackby(obj/item/I , mob/user as mob)
+/obj/machinery/door/airlock/attackby(obj/item/I , mob/user )
 	if(isAI(user) || isobserver(user))
 		return attack_ai(user)
 
@@ -1267,7 +1267,7 @@ About the new airlock wires panel:
 	DA.update_state()
 	qdel(src)
 
-/obj/machinery/door/airlock/proc/revert(mob/user as mob, var/direction)
+/obj/machinery/door/airlock/proc/revert(mob/user , var/direction)
 	var/obj/structure/door_assembly/DA = new assembly_type(loc)
 	DA.anchored = 1
 	DA.fingerprints += src.fingerprints

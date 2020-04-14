@@ -82,7 +82,7 @@ var/global/list/obj/machinery/field_generator/field_gen_list = list()
 	return
 
 
-/obj/machinery/field_generator/attack_hand(mob/user as mob)
+/obj/machinery/field_generator/attack_hand(mob/user )
 	if(isobserver(user) && !isAdminGhost(user))
 		return 0
 

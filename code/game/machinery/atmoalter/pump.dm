@@ -98,14 +98,14 @@
 /obj/machinery/portable_atmospherics/pump/return_air()
 	return air_contents
 
-/obj/machinery/portable_atmospherics/pump/attack_ai(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/pump/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/pump/attack_paw(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/pump/attack_paw(var/mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/pump/attack_hand(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/pump/attack_hand(var/mob/user )
 	ui_interact(user)
 
 /obj/machinery/portable_atmospherics/pump/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open=NANOUI_FOCUS)

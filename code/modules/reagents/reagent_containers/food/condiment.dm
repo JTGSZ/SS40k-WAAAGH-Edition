@@ -17,16 +17,16 @@
 	possible_transfer_amounts = list(1,5,10)
 	volume = 50
 
-/obj/item/weapon/reagent_containers/food/condiment/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/reagent_containers/food/condiment/attackby(obj/item/weapon/W , mob/user )
 
 	return
 
-/obj/item/weapon/reagent_containers/food/condiment/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/food/condiment/attack_self(mob/user )
 
 	attack(user, user)
 	return
 
-/obj/item/weapon/reagent_containers/food/condiment/attack(mob/living/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/food/condiment/attack(mob/living/M , mob/user , def_zone)
 
 	var/datum/reagents/R = src.reagents
 

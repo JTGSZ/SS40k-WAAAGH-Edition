@@ -45,7 +45,7 @@
 		getFromPool(/obj/item/stack/sheet/wood, get_turf(src), 3)
 		qdel(src)
 
-/obj/structure/bookcase/attackby(obj/item/O , mob/user as mob)
+/obj/structure/bookcase/attackby(obj/item/O , mob/user )
 	if(busy) //So that you can't mess with it while deconstructing
 		return
 	if(is_type_in_list(O, valid_types))
@@ -92,7 +92,7 @@
 	name = initial(name)
 	..()
 
-/obj/structure/bookcase/attack_hand(var/mob/user as mob)
+/obj/structure/bookcase/attack_hand(var/mob/user )
 	if(contents.len)
 		var/obj/item/weapon/book/choice = input("Which book would you like to remove from \the [src]?") as null|obj in contents
 		if(choice)
@@ -104,7 +104,7 @@
 				choice.forceMove(get_turf(src))
 			update_icon()
 
-/obj/structure/bookcase/attack_ghost(mob/dead/observer/user as mob)
+/obj/structure/bookcase/attack_ghost(mob/dead/observer/user )
 	if(contents.len && in_range(user, src))
 		var/obj/item/weapon/book/choice = input("Which book would you like to read?") as null|obj in contents
 		if(choice)
@@ -243,7 +243,7 @@
 	else
 		to_chat(user, "This book is completely blank!")
 
-/obj/item/weapon/book/attack_self(var/mob/user as mob)
+/obj/item/weapon/book/attack_self(var/mob/user )
 	if(store)
 		to_chat(user, "<span class='notice'>[store] falls out of [title]!</span>")
 		store.forceMove(get_turf(src))
@@ -274,7 +274,7 @@
 	else
 		..()
 
-/obj/item/weapon/book/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/book/attackby(obj/item/weapon/W , mob/user )
 	if(!carved && W.is_sharp() && W.sharpness_flags & SHARP_BLADE)
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
 		if(do_after(user, src, 30 / W.sharpness))
@@ -408,7 +408,7 @@
 	var/obj/item/weapon/book/book	 //  Currently scanned book
 	var/mode = 0 					// 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
 
-	attack_self(mob/user as mob)
+	attack_self(mob/user )
 		mode += 1
 		if(mode > 3)
 			mode = 0

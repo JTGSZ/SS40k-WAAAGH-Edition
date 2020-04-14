@@ -19,7 +19,7 @@
 /obj/item/weapon/gun/energy/gun/isHandgun()
 	return TRUE
 
-/obj/item/weapon/gun/energy/gun/attack_self(mob/living/user as mob)
+/obj/item/weapon/gun/energy/gun/attack_self(mob/living/user )
 	switch(mode)
 		if(0)
 			mode = 1

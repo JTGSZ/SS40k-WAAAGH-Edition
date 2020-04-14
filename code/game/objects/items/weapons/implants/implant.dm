@@ -11,7 +11,7 @@
 	var/allow_reagents = 0
 	var/malfunction = 0
 
-/obj/item/weapon/implant/proc/trigger(emote, source as mob)
+/obj/item/weapon/implant/proc/trigger(emote, source )
 	return
 
 /obj/item/weapon/implant/proc/activate()
@@ -30,7 +30,7 @@
 /obj/item/weapon/implant/proc/get_data()
 	return "No information available"
 
-/obj/item/weapon/implant/proc/hear(message, source as mob)
+/obj/item/weapon/implant/proc/hear(message, source )
 	return
 
 /obj/item/weapon/implant/proc/islegal()
@@ -133,7 +133,7 @@ Implant Specifics:<BR>"}
 	if(findtext(msg, phrase))
 		activate()
 
-/obj/item/weapon/implant/explosive/trigger(emote, source as mob)
+/obj/item/weapon/implant/explosive/trigger(emote, source )
 	if(emote == "deathgasp")
 		activate()
 
@@ -154,7 +154,7 @@ Implant Specifics:<BR>"}
 
 		qdel(src)
 
-/obj/item/weapon/implant/explosive/implanted(mob/source as mob)
+/obj/item/weapon/implant/explosive/implanted(mob/source )
 	phrase = input("Choose activation phrase:") as text
 	var/list/replacechars = list("'" = "", "\"" = "", ">" = "", "<" = "", "(" = "", ")" = "")
 	phrase = sanitize_simple(phrase, replacechars)
@@ -238,7 +238,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	chemical_implants.Remove(src)
 	..()
 
-/obj/item/weapon/implant/chem/trigger(emote, source as mob)
+/obj/item/weapon/implant/chem/trigger(emote, source )
 	if(emote == "deathgasp")
 		src.activate(src.reagents.total_volume)
 	return
@@ -398,7 +398,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 <b>Integrity:</b> Implant can only be used three times before the nanobots are depleted."}
 		return dat
 
-/obj/item/weapon/implant/adrenalin/trigger(emote, mob/source as mob)
+/obj/item/weapon/implant/adrenalin/trigger(emote, mob/source )
 	if (src.uses < 1)
 		return 0
 	if (emote == "pale")
@@ -495,7 +495,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	spawn(20)
 		malfunction--
 
-/obj/item/weapon/implant/death_alarm/implanted(mob/source as mob)
+/obj/item/weapon/implant/death_alarm/implanted(mob/source )
 	mobname = source.real_name
 	processing_objects.Add(src)
 	return 1
@@ -522,7 +522,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 <b>Integrity:</b> Implant will occasionally be degraded by the body's immune system and thus will occasionally malfunction."}
 		return dat
 
-/obj/item/weapon/implant/compressed/trigger(emote, mob/source as mob)
+/obj/item/weapon/implant/compressed/trigger(emote, mob/source )
 	if (src.scanned == null)
 		return 0
 
@@ -538,7 +538,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		scanned.forceMove(t)
 	qdel (src)
 
-/obj/item/weapon/implant/compressed/implanted(mob/source as mob)
+/obj/item/weapon/implant/compressed/implanted(mob/source )
 	src.activation_emote = input("Choose activation emote:") in list("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 	if (source.mind)
 		source.mind.store_memory("Compressed matter implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", 0, 0)

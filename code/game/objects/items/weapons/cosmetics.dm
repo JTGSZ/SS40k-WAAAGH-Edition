@@ -36,7 +36,7 @@
 	..()
 
 
-/obj/item/weapon/lipstick/attack_self(mob/user as mob)
+/obj/item/weapon/lipstick/attack_self(mob/user )
 	to_chat(user, "<span class='notice'>You twist \the [src] [open ? "closed" : "open"].</span>")
 	open = !open
 	if(open)
@@ -44,7 +44,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/lipstick/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/lipstick/attack(mob/M , mob/user )
 	if(!open)
 		return
 
@@ -125,7 +125,7 @@
 		to_chat(user, "<span class='notice'>Where are the eyes on that?</span>")
 
 //you can wipe off eyeshadow with paper!
-/obj/item/weapon/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/paper/attack(mob/living/carbon/M , mob/living/carbon/user )
 	if(!ishuman(M))
 		return
 
@@ -184,7 +184,7 @@
 	dye_color.Blend(rgb(color_r, color_g, color_b), ICON_ADD)
 	overlays += dye_color
 
-/obj/item/weapon/hair_dye/attack_self(mob/user as mob)
+/obj/item/weapon/hair_dye/attack_self(mob/user )
 	var/new_color = input(user, "Choose the dye's color:", "Color Select", rgb(color_r, color_g, color_b)) as color|null
 	if(new_color)
 		color_r = hex2num(copytext(new_color, 2, 4))
@@ -192,7 +192,7 @@
 		color_b = hex2num(copytext(new_color, 6, 8))
 	update_icon()
 
-/obj/item/weapon/hair_dye/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/hair_dye/attack(mob/M , mob/user )
 	if(!istype(M, /mob))
 		return
 

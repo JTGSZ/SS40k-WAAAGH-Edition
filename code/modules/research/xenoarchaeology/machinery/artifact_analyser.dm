@@ -33,7 +33,7 @@
 	if(owned_scanner)
 		owned_scanner.owner_console = src
 
-/obj/machinery/artifact_analyser/attack_hand(var/mob/user as mob)
+/obj/machinery/artifact_analyser/attack_hand(var/mob/user )
 	if(..())
 		return
 	src.add_fingerprint(user)

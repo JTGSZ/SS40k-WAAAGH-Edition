@@ -378,7 +378,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/can_crawl_through()
 	return !welded
 
-/obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W , var/mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class='notice'>Now welding the scrubber.</span>")

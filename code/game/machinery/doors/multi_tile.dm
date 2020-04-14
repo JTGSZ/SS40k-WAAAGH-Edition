@@ -11,7 +11,7 @@
 	assembly_type = /obj/structure/door_assembly/multi_tile
 	animation_delay = 8
 
-/obj/machinery/door/airlock/multi_tile/glass/bump_open(mob/user as mob)
+/obj/machinery/door/airlock/multi_tile/glass/bump_open(mob/user )
 	if(istype(user,/mob/living/simple_animal/hostile/giant_spider))
 		return //Fuck you spiders stop leaving the salvage ship
 	..(user)

@@ -344,7 +344,7 @@ var/global/list/datum/stack_recipe/snow_recipes = list (
 	var/maxhealth = 50.0
 	materialtype = /obj/item/stack/sheet/snow
 
-/obj/structure/window/barricade/snow/attackby(obj/item/W , mob/user as mob)
+/obj/structure/window/barricade/snow/attackby(obj/item/W , mob/user )
 	if (istype(W, /obj/item/stack/sheet/snow))
 		if (src.health < src.maxhealth)
 			visible_message("<span class='warning'>[user] begins to repair the [src]!</span>")

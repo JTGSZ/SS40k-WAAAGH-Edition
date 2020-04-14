@@ -39,7 +39,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/item/weapon/paper/nano/openhelp(mob/user as mob)
+/obj/item/weapon/paper/nano/openhelp(mob/user )
 	user << browse({"<HTML><HEAD><TITLE>Pen Help</TITLE></HEAD>
 	<BODY>
 		<b><center>Valid BBcodes</center></b><br>

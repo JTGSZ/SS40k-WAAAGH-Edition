@@ -12,7 +12,7 @@
 
 	src.drawmap(usr)
 
-/obj/machinery/computer/security/proc/drawmap(var/mob/user as mob)
+/obj/machinery/computer/security/proc/drawmap(var/mob/user )
 
 
 	var/icx = round(world.maxx/16) + 1

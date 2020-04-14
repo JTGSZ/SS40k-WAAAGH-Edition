@@ -84,7 +84,7 @@ var/global/list/rnd_machines = list()
 	if (prob(50))
 		qdel(src)
 
-/obj/machinery/r_n_d/attack_hand(mob/user as mob)
+/obj/machinery/r_n_d/attack_hand(mob/user )
 	if (shocked)
 		shock(user,50)
 	if(panel_open)
@@ -142,7 +142,7 @@ var/global/list/rnd_machines = list()
 		return TRUE
 	return FALSE
 
-/obj/machinery/r_n_d/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/r_n_d/attackby(var/obj/item/O , var/mob/user )
 	if (shocked)
 		shock(user,50, O.siemens_coefficient)
 	if (busy)

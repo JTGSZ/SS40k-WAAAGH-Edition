@@ -205,7 +205,7 @@ var/list/pinpointerpinpointer_list = list()
 	pinpointable = FALSE
 
 
-/obj/item/weapon/pinpointer/nukeop/attack_self(mob/user as mob)
+/obj/item/weapon/pinpointer/nukeop/attack_self(mob/user )
 	if(!active)
 		active = TRUE
 		if(!mode)

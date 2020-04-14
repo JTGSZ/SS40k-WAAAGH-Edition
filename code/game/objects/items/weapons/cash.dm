@@ -36,7 +36,7 @@ var/global/list/moneytypes = list(
 	amount = new_amount
 	update_icon()
 
-/obj/item/weapon/spacecash/attack_hand(mob/user as mob)
+/obj/item/weapon/spacecash/attack_hand(mob/user )
 	if (user.get_inactive_hand() == src)
 		var/obj/item/weapon/spacecash/C = new src.type(user, new_amount=1)
 		C.copy_evidences(src)
@@ -120,7 +120,7 @@ var/global/list/moneytypes = list(
 		return taking
 	return 0
 
-/obj/item/weapon/spacecash/afterattack(atom/A , mob/user as mob)
+/obj/item/weapon/spacecash/afterattack(atom/A , mob/user )
 	if(istype(A, /obj/item/weapon/spacecash))
 		var/obj/item/weapon/spacecash/cash = A
 		var/collected = src.collect_from(cash)

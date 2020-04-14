@@ -22,7 +22,7 @@
 /obj/item/weapon/gun/syringe/isHandgun()
 	return FALSE
 
-/obj/item/weapon/gun/syringe/attackby(obj/item/I , mob/user as mob)
+/obj/item/weapon/gun/syringe/attackby(obj/item/I , mob/user )
 	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
 		var/obj/item/weapon/reagent_containers/syringe/S = I
 		if(S.mode != 2)//SYRINGE_BROKEN in syringes.dm
@@ -50,7 +50,7 @@
 /obj/item/weapon/gun/syringe/can_discharge()
 	return canbe_fired()
 
-/obj/item/weapon/gun/syringe/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)
+/obj/item/weapon/gun/syringe/can_hit(var/mob/living/target , var/mob/living/user )
 	return 1		//SHOOT AND LET THE GOD GUIDE IT (probably will hit a wall anyway)
 
 /obj/item/weapon/gun/syringe/process_chambered()

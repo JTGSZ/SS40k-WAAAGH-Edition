@@ -19,7 +19,7 @@
 	var/selfdestructing = 0
 	var/charges = 1
 
-/obj/machinery/syndicate_beacon/attack_hand(var/mob/user as mob)
+/obj/machinery/syndicate_beacon/attack_hand(var/mob/user )
 	user.set_machine(src)
 	var/dat = "<font color=#005500><i>Scanning [pick("retina pattern", "voice print", "fingerprints", "dna sequence")]...<br>Identity confirmed,<br></i></font>"
 	if(istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
@@ -181,11 +181,11 @@
 	else
 		visible_message("<span class='warning'>\The [src] suddenly shuts down.</span>")
 
-/obj/machinery/singularity_beacon/attack_ai(mob/user as mob)
+/obj/machinery/singularity_beacon/attack_ai(mob/user )
 	to_chat(user, "<span class='warning'>You try to interface with \the [src], but it throws a strange encrypted error message.</span>")
 	return
 
-/obj/machinery/singularity_beacon/attack_hand(var/mob/user as mob)
+/obj/machinery/singularity_beacon/attack_hand(var/mob/user )
 	user.delayNextAttack(10) //Prevent spam toggling, otherwise you can brick the cell very quickly
 	if(anchored)
 		if(!attached)

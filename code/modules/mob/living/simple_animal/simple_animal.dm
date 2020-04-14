@@ -409,7 +409,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 	Proj.on_hit(src, 0)
 	return 0
 
-/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M )
 	. = ..()
 
 	switch(M.a_intent)
@@ -443,7 +443,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 	else
 		..()
 
-/mob/living/simple_animal/attack_alien(mob/living/carbon/alien/humanoid/M as mob)
+/mob/living/simple_animal/attack_alien(mob/living/carbon/alien/humanoid/M )
 
 	switch(M.a_intent)
 
@@ -454,7 +454,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 		if(I_HURT, I_DISARM)
 			M.unarmed_attack_mob(src)
 
-/mob/living/simple_animal/attack_larva(mob/living/carbon/alien/larva/L as mob)
+/mob/living/simple_animal/attack_larva(mob/living/carbon/alien/larva/L )
 
 	switch(L.a_intent)
 		if(I_HELP)
@@ -472,7 +472,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 				L.growth = min(L.growth + damage, LARVA_GROW_TIME)
 
 
-/mob/living/simple_animal/attack_slime(mob/living/carbon/slime/M as mob)
+/mob/living/simple_animal/attack_slime(mob/living/carbon/slime/M )
 	if (!ticker)
 		to_chat(M, "You cannot attack people before the game has started.")
 		return

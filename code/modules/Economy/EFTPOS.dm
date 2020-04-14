@@ -56,7 +56,7 @@
 				linked_db = DB
 				break
 
-/obj/item/device/eftpos/attack_self(mob/user as mob)
+/obj/item/device/eftpos/attack_self(mob/user )
 	if(get_dist(src,user) <= 1)
 		var/dat = {"<b>[eftpos_name]</b><br>
 <i>This terminal is</i> [machine_id]. <i>Report this code when contacting Nanotrasen IT Support</i><br>"}
@@ -86,7 +86,7 @@
 	else
 		user << browse(null,"window=eftpos")
 
-/obj/item/device/eftpos/attackby(O , user as mob)
+/obj/item/device/eftpos/attackby(O , user )
 	if(istype(O, /obj/item/weapon/card))
 		//attempt to connect to a new db, and if that doesn't work then fail
 		if(!linked_db)

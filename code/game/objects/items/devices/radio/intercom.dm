@@ -39,16 +39,16 @@
 	processing_objects.Remove(src)
 	..()
 
-/obj/item/device/radio/intercom/attack_ai(mob/user as mob)
+/obj/item/device/radio/intercom/attack_ai(mob/user )
 	add_hiddenprint(user)
 	add_fingerprint(user)
 	spawn (0)
 		attack_self(user)
 
-/obj/item/device/radio/intercom/attack_paw(mob/user as mob)
+/obj/item/device/radio/intercom/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/item/device/radio/intercom/attack_hand(mob/user as mob)
+/obj/item/device/radio/intercom/attack_hand(mob/user )
 	add_fingerprint(user)
 	spawn (0)
 		attack_self(user)
@@ -78,7 +78,7 @@
 		return
 	..()
 
-/obj/item/device/radio/intercom/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/radio/intercom/attackby(obj/item/weapon/W , mob/user )
 	switch(buildstage)
 		if(3)
 			if(iswirecutter(W) && b_stat && wires.IsAllCut())

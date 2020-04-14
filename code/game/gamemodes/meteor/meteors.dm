@@ -280,7 +280,7 @@
 	name = "apocalytic meteor"
 	desc = "And behold, a white meteor. And on that meteor..."
 
-/obj/item/projectile/meteor/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/projectile/meteor/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/pickaxe)) //Yeah, you can totally do that
 		qdel(src)
 		return
@@ -427,7 +427,7 @@ var/list/blob_candidates = list()
 
 	add_logs(user,A,"fired \the [src] (proj:[in_chamber.name]) at ",addition="([A.x],[A.y],[A.z])")
 
-/obj/item/weapon/meteor_gun/attack_self(mob/user as mob)
+/obj/item/weapon/meteor_gun/attack_self(mob/user )
 	projectile_type = input(user, "Pick a meteor type.", "Projectile Choice") in typesof(/obj/item/projectile/meteor)
 
 

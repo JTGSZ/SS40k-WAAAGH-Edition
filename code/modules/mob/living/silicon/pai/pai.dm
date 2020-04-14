@@ -132,7 +132,7 @@
 		//	for(var/spell/P in proc_holder_list)
 		//		statpanel("[P.panel]","",P)
 
-/mob/living/silicon/pai/check_eye(var/mob/user as mob)
+/mob/living/silicon/pai/check_eye(var/mob/user )
 	if(!current)
 		return null
 	user.reset_view(current)
@@ -220,7 +220,7 @@
 
 // See software.dm for Topic()
 
-/mob/living/silicon/pai/attack_alien(mob/living/carbon/alien/humanoid/M as mob)
+/mob/living/silicon/pai/attack_alien(mob/living/carbon/alien/humanoid/M )
 	return //Pais do not do this
 
 /mob/living/silicon/pai/pointToMessage(var/pointer, var/pointed_at)
@@ -345,7 +345,7 @@
 	if (holomap_device)
 		holomap_device.update_holomap()
 
-/atom/proc/attack_pai(mob/user as mob)
+/atom/proc/attack_pai(mob/user )
 	return
 
 /mob/living/silicon/pai/teleport_to(var/atom/A)

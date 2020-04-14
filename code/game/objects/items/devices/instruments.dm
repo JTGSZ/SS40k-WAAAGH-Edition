@@ -22,13 +22,13 @@
 	song.tempo = song.sanitize_tempo(song.tempo) // tick_lag isn't set when the map is loaded
 	..()
 
-/obj/item/device/instrument/attack_self(mob/user as mob)
+/obj/item/device/instrument/attack_self(mob/user )
 	interact(user)
 
-/obj/item/device/instrument/drum/drum_makeshift/bongos/attack_self(mob/user as mob)
+/obj/item/device/instrument/drum/drum_makeshift/bongos/attack_self(mob/user )
 	interact(user)
 
-/obj/item/device/instrument/interact(mob/user as mob)
+/obj/item/device/instrument/interact(mob/user )
 	if(!user)
 		return
 
@@ -72,7 +72,7 @@
 	if(user)
 		user.update_inv_hands()
 
-/obj/item/device/instrument/guitar/attack_self(mob/user as mob)
+/obj/item/device/instrument/guitar/attack_self(mob/user )
 	if(wielded) //can only play if you're two handing it
 		return ..()
 	wield(user)

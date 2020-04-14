@@ -215,11 +215,11 @@
 		user << browse(null, "window=spaceheater")
 		user.unset_machine()
 
-/obj/machinery/space_heater/attack_hand(mob/user as mob)
+/obj/machinery/space_heater/attack_hand(mob/user )
 	src.add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/space_heater/interact(mob/user as mob)
+/obj/machinery/space_heater/interact(mob/user )
 
 	if(panel_open)
 
@@ -249,7 +249,7 @@
 		update_icon()
 	return
 
-/obj/machinery/space_heater/campfire/interact(mob/user as mob)
+/obj/machinery/space_heater/campfire/interact(mob/user )
 	if(on)
 		user.delayNextAttack(50)
 		if(do_after(user,src,50))
@@ -363,7 +363,7 @@
 		playsound(src, pick(comfyfire), (cell.charge/250)*5, 1, -1,channel = 124)
 
 
-/obj/machinery/space_heater/campfire/Crossed(mob/user as mob)
+/obj/machinery/space_heater/campfire/Crossed(mob/user )
 	if(istype(user,/mob/living/carbon) && on)
 		var/mob/living/carbon/absolutemadman = user
 		absolutemadman.adjust_fire_stacks(1)

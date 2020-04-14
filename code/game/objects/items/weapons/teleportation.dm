@@ -26,7 +26,7 @@
 	w_type = RECYK_ELECTRONIC
 	origin_tech = Tc_MAGNETS + "=1"
 
-/obj/item/weapon/locator/attack_self(mob/user as mob)
+/obj/item/weapon/locator/attack_self(mob/user )
 	user.set_machine(src)
 	var/dat
 	if (src.temp)
@@ -171,7 +171,7 @@ Frequency:
 	to_chat(user, "<span class='notice'>Alt-Click the hand tele to set portal destination. Defaults to your last choice.</span>")
 	to_chat(user, "<span class='notice'>Charge: [charge]/[HANDTELE_MAX_CHARGE] ([charge/HANDTELE_PORTAL_COST]/[HANDTELE_MAX_CHARGE/HANDTELE_PORTAL_COST])</span>")
 
-/obj/item/weapon/hand_tele/attack_self(mob/user as mob)
+/obj/item/weapon/hand_tele/attack_self(mob/user )
 	var/turf/current_location = get_turf(user)//What turf is the user on?
 	if(!current_location||current_location.z==2||current_location.z>=7)//If turf was not found or they're on z level 2 or >7 which does not currently exist.
 		to_chat(user, "<span class='notice'>\The [src] is malfunctioning.</span>")

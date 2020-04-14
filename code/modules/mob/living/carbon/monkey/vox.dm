@@ -15,7 +15,7 @@
 	var/eggcost = 250
 	languagetoadd = LANGUAGE_VOX
 
-/mob/living/carbon/monkey/vox/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/carbon/monkey/vox/attack_hand(mob/living/carbon/human/M )
 
 
 	if((M.a_intent == I_HELP) && !(locked_to) && (isturf(src.loc)) && (M.get_active_hand() == null)) //Unless their location isn't a turf!
@@ -58,7 +58,7 @@
 
 	return ..(message)
 
-/mob/living/carbon/monkey/vox/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/carbon/monkey/vox/attackby(var/obj/item/O , var/mob/user )
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/wheat)) //feedin' dem chickens
 		if(!stat && eggsleft < 8)
 			if(!user.drop_item(O))

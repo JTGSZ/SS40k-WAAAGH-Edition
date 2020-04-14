@@ -595,7 +595,7 @@
 	item_state = "darkholme"
 	_color = "darkholme"
 
-/obj/item/clothing/under/contortionist/proc/check_clothing(mob/user as mob)
+/obj/item/clothing/under/contortionist/proc/check_clothing(mob/user )
 	//Allowed to wear: glasses, shoes, gloves, pockets, mask, and jumpsuit (obviously)
 	var/list/slot_must_be_empty = list(slot_back,slot_handcuffed,slot_legcuffed,slot_belt,slot_head,slot_wear_suit)
 	for(var/slot_id in slot_must_be_empty)

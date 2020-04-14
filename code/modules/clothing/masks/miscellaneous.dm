@@ -11,7 +11,7 @@
 	body_parts_covered = MOUTH
 
 //Monkeys can not take the muzzle off of themself! Call PETA!
-/obj/item/clothing/mask/muzzle/attack_paw(mob/user as mob)
+/obj/item/clothing/mask/muzzle/attack_paw(mob/user )
 	if (src == user.wear_mask)
 		return
 	else
@@ -124,7 +124,7 @@
 /obj/item/clothing/mask/horsehead/magic
 	voicechange = 1		//NEEEEIIGHH
 
-/obj/item/clothing/mask/horsehead/magic/dropped(mob/user as mob)
+/obj/item/clothing/mask/horsehead/magic/dropped(mob/user )
 	canremove = 1
 	..()
 
@@ -239,7 +239,7 @@ obj/item/clothing/mask/joy
 	var/activated = 0
 
 
-/obj/item/clothing/mask/holopipe/proc/activate(var/mob/user as mob)
+/obj/item/clothing/mask/holopipe/proc/activate(var/mob/user )
 	if(!user.incapacitated())
 		src.activated = !src.activated
 		if(src.activated)

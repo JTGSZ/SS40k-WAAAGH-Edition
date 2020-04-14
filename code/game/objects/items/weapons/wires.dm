@@ -9,7 +9,7 @@
 		src.desc = "This is just a simple piece of regular insulated wire."
 	return
 
-/obj/item/weapon/wire/attack_self(mob/user as mob)
+/obj/item/weapon/wire/attack_self(mob/user )
 	if (src.laying)
 		src.laying = 0
 		to_chat(user, "<span class='notice'>You're done laying wire!</span>")

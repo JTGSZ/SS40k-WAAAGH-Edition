@@ -26,7 +26,7 @@
 	return 1
 
 
-/*/obj/item/weapon/grenade/afterattack(atom/target , mob/user as mob)
+/*/obj/item/weapon/grenade/afterattack(atom/target , mob/user )
 	if (istype(target, /obj/item/weapon/storage))
 		return ..() // Trying to put it in a full container
 	if (istype(target, /obj/item/weapon/gun/grenadelauncher))
@@ -54,7 +54,7 @@
 	to_chat(user, "<span class='warning'>\The [src] is set for instant detonation.</span>")
 
 
-/obj/item/weapon/grenade/attack_self(mob/user as mob)
+/obj/item/weapon/grenade/attack_self(mob/user )
 	if(!active)
 		if(clown_check(user))
 			to_chat(user, "<span class='attack'>You prime \the [name]! [det_time/10] seconds!</span>")
@@ -67,7 +67,7 @@
 	return
 
 
-/obj/item/weapon/grenade/proc/activate(mob/user as mob)
+/obj/item/weapon/grenade/proc/activate(mob/user )
 	if(active)
 		return
 
@@ -98,7 +98,7 @@
 		M.drop_from_inventory(src)
 
 
-/obj/item/weapon/grenade/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/grenade/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_screwdriver(user))
 		if(active)
 			to_chat(user, "<span class = 'warning'>It's already primed!</span>")
@@ -121,5 +121,5 @@
 	..()
 	return
 
-/obj/item/weapon/grenade/attack_paw(mob/user as mob)
+/obj/item/weapon/grenade/attack_paw(mob/user )
 	return attack_hand(user)

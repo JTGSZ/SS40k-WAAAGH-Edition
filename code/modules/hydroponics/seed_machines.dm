@@ -11,7 +11,7 @@
 	pixel_x = rand(-5,5) * PIXEL_MULTIPLIER
 	pixel_y = rand(-5,5) * PIXEL_MULTIPLIER
 
-/obj/item/weapon/disk/botany/attack_self(var/mob/user as mob)
+/obj/item/weapon/disk/botany/attack_self(var/mob/user )
 	if(genes.len)
 		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
 		if(src && user && genes && choice && choice == "Yes" && user.get_active_hand() == src)
@@ -62,13 +62,13 @@
 	if(world.time > last_action + action_time/time_coeff)
 		finished_task()
 
-/obj/machinery/botany/attack_paw(mob/user as mob)
+/obj/machinery/botany/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/botany/attack_ai(mob/user as mob)
+/obj/machinery/botany/attack_ai(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/botany/attack_hand(mob/user as mob)
+/obj/machinery/botany/attack_hand(mob/user )
 	ui_interact(user)
 
 /obj/machinery/botany/proc/finished_task()
@@ -88,7 +88,7 @@
 
 	nanomanager.update_uis(src)
 
-/obj/machinery/botany/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/botany/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/seeds))
 		if(loaded_seed)
 			to_chat(user, "There is already a seed loaded.")

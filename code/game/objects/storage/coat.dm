@@ -31,7 +31,7 @@
 	else
 		return ..()
 
-/obj/item/clothing/suit/storage/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/clothing/suit/storage/attackby(obj/item/weapon/W , mob/user )
 	hold.attackby(W,user)
 	return 1
 
@@ -49,7 +49,7 @@
 		return hold.MouseDropFrom(over_object)
 	return ..()
 
-/obj/item/clothing/suit/storage/AltClick(mob/user as mob)
+/obj/item/clothing/suit/storage/AltClick(mob/user )
 	if(user == src.loc)
 		return hold.attack_hand(user)
 	else

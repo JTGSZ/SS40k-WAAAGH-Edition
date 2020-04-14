@@ -42,11 +42,11 @@ var/list/labor_console_categories = list(
 	job_master.labor_consoles -= src
 	..()
 
-/obj/machinery/computer/labor/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/labor/attack_ai(var/mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/labor/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/labor/attack_hand(var/mob/user )
 	if(..())
 		return
 	user.set_machine(src)

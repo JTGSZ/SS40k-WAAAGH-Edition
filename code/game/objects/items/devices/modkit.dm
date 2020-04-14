@@ -22,7 +22,7 @@
 	original[2] = /obj/item/clothing/suit/space/rig
 	finished[2] = /obj/item/clothing/suit/cardborg
 
-/obj/item/device/modkit/afterattack(obj/O, mob/user as mob)
+/obj/item/device/modkit/afterattack(obj/O, mob/user )
 	if(get_dist(O,user) > 1)//For all those years you could use it at any range, what the actual fuck?
 		return
 

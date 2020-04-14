@@ -22,7 +22,7 @@
 		return
 	return ..()
 
-/obj/structure/reagent_dispensers/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/reagent_dispensers/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_wrench(user) && wrenchable())
 		return wrenchAnchor(user, W)
 
@@ -121,7 +121,7 @@
 				rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W , mob/user )
 	if (W.is_wrench(user))
 		user.visible_message("[user] wrenches [src]'s faucet [modded ? "closed" : "open"].", \
 			"You wrench [src]'s faucet [modded ? "closed" : "open"]")
@@ -242,17 +242,17 @@
 /obj/structure/reagent_dispensers/water_cooler/wrenchable()
 	return 1
 
-/obj/structure/reagent_dispensers/water_cooler/attack_hand(mob/user as mob)
+/obj/structure/reagent_dispensers/water_cooler/attack_hand(mob/user )
 	if(paper_cups > 0)
 		user.put_in_hands(new/obj/item/weapon/reagent_containers/food/drinks/sillycup())
 		to_chat(user, "You pick up an empty paper cup from \the [src]")
 		paper_cups--
 		desc = "[initial(desc)] There's [paper_cups] paper cups stored inside."
 
-/obj/structure/reagent_dispensers/water_cooler/attack_paw(mob/user as mob)
+/obj/structure/reagent_dispensers/water_cooler/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/I , mob/user as mob)
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/I , mob/user )
 	if (iswelder(I))
 		var/obj/item/weapon/weldingtool/WT = I
 		if(WT.remove_fuel(0, user))
@@ -423,7 +423,7 @@
 	for(var/atom/movable/AM in src)
 		AM.forceMove(loc)
 
-/obj/structure/reagent_dispensers/cauldron/barrel/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/reagent_dispensers/cauldron/barrel/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_wrench(user))
 		return
 	if(istype(W,/obj/item/weapon/grab))

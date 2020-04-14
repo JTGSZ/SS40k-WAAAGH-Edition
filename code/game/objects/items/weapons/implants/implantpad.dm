@@ -21,7 +21,7 @@
 	return
 
 
-/obj/item/weapon/implantpad/attack_hand(mob/user as mob)
+/obj/item/weapon/implantpad/attack_hand(mob/user )
 	if ((src.case && user.is_holding_item(src)))
 		user.put_in_active_hand(case)
 
@@ -35,7 +35,7 @@
 	return
 
 
-/obj/item/weapon/implantpad/attackby(obj/item/weapon/implantcase/C , mob/user as mob)
+/obj/item/weapon/implantpad/attackby(obj/item/weapon/implantcase/C , mob/user )
 	..()
 	if(istype(C, /obj/item/weapon/implantcase))
 		if(!( src.case ))
@@ -47,7 +47,7 @@
 	return
 
 
-/obj/item/weapon/implantpad/attack_self(mob/user as mob)
+/obj/item/weapon/implantpad/attack_self(mob/user )
 	user.set_machine(src)
 	var/dat = "<B>Implant Mini-Computer:</B><HR>"
 	if (src.case)

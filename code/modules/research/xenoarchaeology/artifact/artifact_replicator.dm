@@ -120,7 +120,7 @@
 	else
 		src.visible_message("<span class='warning'>\The [user] taps \the [src] with \the [O].</span>")
 
-/obj/machinery/replicator/attack_hand(mob/user as mob)
+/obj/machinery/replicator/attack_hand(mob/user )
 	if(..())
 		return 1
 

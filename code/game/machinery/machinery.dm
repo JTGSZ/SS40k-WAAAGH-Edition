@@ -399,7 +399,7 @@ Class Procs:
 
 	return handle_multitool_topic(href,href_list,usr)
 
-/obj/machinery/attack_ai(mob/user as mob)
+/obj/machinery/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	if(isrobot(user))
 		// For some reason attack_robot doesn't work
@@ -409,7 +409,7 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_ghost(mob/user as mob)
+/obj/machinery/attack_ghost(mob/user )
 	src.add_hiddenprint(user)
 	var/ghost_flags=0
 	if(ghost_read)
@@ -417,10 +417,10 @@ Class Procs:
 	if(canGhostRead(usr,src,ghost_flags))
 		return src.attack_ai(user)
 
-/obj/machinery/attack_paw(mob/user as mob)
+/obj/machinery/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user as mob, var/ignore_brain_damage = 0)
+/obj/machinery/attack_hand(mob/user , var/ignore_brain_damage = 0)
 	if(stat & (NOPOWER|BROKEN|MAINT))
 		return 1
 
@@ -547,7 +547,7 @@ Class Procs:
  * Handle emags.
  * @param user /mob The mob that used the emag.
  */
-/obj/machinery/proc/emag(mob/user as mob)
+/obj/machinery/proc/emag(mob/user )
 	// Disable emaggability. Note that some machines such as the Communications Computer might be emaggable multiple times.
 	machine_flags &= ~EMAGGABLE
 	new/obj/effect/effect/sparks(get_turf(src))

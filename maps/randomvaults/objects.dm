@@ -596,7 +596,7 @@
 	icon_state = "engine1"
 	light_color = LIGHT_COLOR_BLUE
 
-/obj/machinery/computer/ejectedengine/engine/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ejectedengine/engine/attack_hand(var/mob/user )
 	if(..())
 		return
 
@@ -609,7 +609,7 @@
 	icon_state = "escape"
 	light_color = LIGHT_COLOR_BLUE
 
-/obj/machinery/computer/ejectedengine/shield/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ejectedengine/shield/attack_hand(var/mob/user )
 	if(..())
 		return
 

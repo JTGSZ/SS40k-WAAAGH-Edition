@@ -441,7 +441,7 @@
 		else
 			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
 
-/obj/machinery/bot/attack_alien(var/mob/living/carbon/alien/user as mob)
+/obj/machinery/bot/attack_alien(var/mob/living/carbon/alien/user )
 	if(flags & INVULNERABLE)
 		return
 	user.do_attack_animation(src, user)
@@ -455,7 +455,7 @@
 	healthcheck()
 
 
-/obj/machinery/bot/attack_animal(var/mob/living/simple_animal/M as mob)
+/obj/machinery/bot/attack_animal(var/mob/living/simple_animal/M )
 	if(flags & INVULNERABLE)
 		return
 	if(M.melee_damage_upper == 0)
@@ -591,7 +591,7 @@
 			turn_on()
 
 
-/obj/machinery/bot/attack_ai(mob/user as mob)
+/obj/machinery/bot/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	src.attack_hand(user)
 

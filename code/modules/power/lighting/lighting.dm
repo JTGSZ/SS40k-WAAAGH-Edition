@@ -30,7 +30,7 @@
 			mode = "It's wired."
 	to_chat(user, "<span class='info'>[mode]</span>")
 
-/obj/machinery/light_construct/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/light_construct/attackby(obj/item/weapon/W , mob/user )
 	src.add_fingerprint(user)
 	if (W.is_wrench(user))
 		if (src.stage == 1)

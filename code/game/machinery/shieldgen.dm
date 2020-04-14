@@ -43,7 +43,7 @@
 
 	return 1
 
-/obj/machinery/shield/attackby(obj/item/weapon/W , mob/living/user as mob)
+/obj/machinery/shield/attackby(obj/item/weapon/W , mob/living/user )
 	if(!istype(W))
 		return
 
@@ -229,7 +229,7 @@
 	if(isAdminGhost(user))
 		src.attack_hand(user)
 
-/obj/machinery/shieldgen/attack_hand(mob/user as mob)
+/obj/machinery/shieldgen/attack_hand(mob/user )
 	if(locked)
 		to_chat(user, "The machine is locked, you are unable to use it.")
 		return
@@ -269,7 +269,7 @@
 		return FALSE
 	. = ..()
 
-/obj/machinery/shieldgen/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/shieldgen/attackby(obj/item/weapon/W , mob/user )
 	if(..())
 		return 1
 
@@ -362,7 +362,7 @@
 //		message_admins("[PN.load]", 1)
 //		use_power(250) //uses APC power
 
-/obj/machinery/shieldwallgen/attack_hand(mob/user as mob)
+/obj/machinery/shieldwallgen/attack_hand(mob/user )
 	if(!anchored)
 		to_chat(user, "<span class='warning'>The shield generator needs to be firmly secured to the floor first.</span>")
 		return 1
@@ -553,7 +553,7 @@
 	gen_primary = null
 	gen_secondary = null
 
-/obj/machinery/shieldwall/attack_hand(mob/user as mob)
+/obj/machinery/shieldwall/attack_hand(mob/user )
 	return
 
 

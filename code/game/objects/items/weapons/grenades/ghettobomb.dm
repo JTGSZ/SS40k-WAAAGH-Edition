@@ -1,7 +1,7 @@
 //improvised explosives//
 
 //iedcasing assembly crafting//
-/obj/item/weapon/reagent_containers/food/drinks/soda_cans/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/reagent_containers/food/drinks/soda_cans/attackby(var/obj/item/I, mob/user )
 	if(istype(I, /obj/item/device/assembly/igniter))
 		var/obj/item/device/assembly/igniter/G = I
 		var/obj/item/weapon/grenade/iedcasing/W = new /obj/item/weapon/grenade/iedcasing
@@ -62,7 +62,7 @@
 			return
 
 
-/obj/item/weapon/grenade/iedcasing/attackby(var/obj/item/I, mob/user as mob) //Wiring the can for ignition
+/obj/item/weapon/grenade/iedcasing/attackby(var/obj/item/I, mob/user ) //Wiring the can for ignition
 	if(istype(I, /obj/item/stack/cable_coil))
 		if(assembled == 1)
 			var/obj/item/stack/cable_coil/C = I
@@ -95,7 +95,7 @@
 			shrapnel_list.Remove(shrapnel)
 		current_shrapnel = 0
 
-/obj/item/weapon/grenade/iedcasing/attack_self(mob/user as mob) //Activating the IED
+/obj/item/weapon/grenade/iedcasing/attack_self(mob/user ) //Activating the IED
 	if(!active)
 		if(clown_check(user))
 			to_chat(user, "<span class='warning'>You light the [name]!</span>")
@@ -117,7 +117,7 @@
 					prime()
 
 
-/obj/item/weapon/grenade/iedcasing/proc/add_shrapnel(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/grenade/iedcasing/proc/add_shrapnel(var/obj/item/I, mob/user )
 
 	if(assembled == 2)
 		if((current_shrapnel + I.shrapnel_size)<= max_shrapnel )

@@ -19,7 +19,7 @@
 	flags = FPRINT
 	siemens_coefficient = 1
 
-/obj/item/mecha_parts/chassis/attackby(obj/item/W , mob/user as mob)
+/obj/item/mecha_parts/chassis/attackby(obj/item/W , mob/user )
 	if(!construct || !construct.action(W, user))
 		..()
 	return

@@ -38,7 +38,7 @@
 		name = "displaced wooden girder"
 		icon_state = "displaced_wood"
 
-/obj/structure/girder/attackby(obj/item/W , mob/user as mob)
+/obj/structure/girder/attackby(obj/item/W , mob/user )
 	if(W.is_wrench(user))
 		if(state == 0) //Normal girder or wooden girder
 			if(anchored && !istype(src, /obj/structure/girder/displaced)) //Anchored, destroy it
@@ -420,7 +420,7 @@
 /obj/structure/cultgirder/clockworkify()
 	return
 
-/obj/structure/cultgirder/attackby(obj/item/W , mob/user as mob)
+/obj/structure/cultgirder/attackby(obj/item/W , mob/user )
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 100)
 		user.visible_message("<span class='notice'>[user] starts disassembling \the [src].</span>", \
@@ -444,7 +444,7 @@
 			new /obj/effect/decal/remains/human(loc)
 			qdel(src)
 
-/obj/structure/cultgirder/attack_construct(mob/user as mob)
+/obj/structure/cultgirder/attack_construct(mob/user )
 	if(istype(user, /mob/living/simple_animal/construct/builder))
 		to_chat(user, "You start repairing the girder.")
 		if(do_after(user,src,30))

@@ -277,18 +277,18 @@
 		log_admin("[target] ([target.ckey]) has had his neck snapped by an active [src].")
 		message_admins("ALERT: <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>[target.real_name]</a> has had his neck snapped by an active [src].")
 
-/mob/living/simple_animal/scp_173/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/scp_173/attackby(var/obj/item/O , var/mob/user )
 	..()
 
 /mob/living/simple_animal/scp_173/Topic(href, href_list)
 	..()
 
-/mob/living/simple_animal/scp_173/to_bump(atom/movable/AM as mob)
+/mob/living/simple_animal/scp_173/to_bump(atom/movable/AM )
 	if(!check_los())
 		snap_neck(AM)
 	..()
 
-/mob/living/simple_animal/scp_173/Bumped(atom/movable/AM as mob, yes)
+/mob/living/simple_animal/scp_173/Bumped(atom/movable/AM , yes)
 	if(!check_los())
 		snap_neck(AM)
 

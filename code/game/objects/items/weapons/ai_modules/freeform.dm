@@ -28,7 +28,7 @@ By N3X15
 	clone.priority=priority
 	return clone
 
-/obj/item/weapon/aiModule/freeform/attack_self(var/mob/user as mob)
+/obj/item/weapon/aiModule/freeform/attack_self(var/mob/user )
 	..()
 	if(priority>0)
 		var/lawpos = allowed_priority_min

@@ -42,7 +42,7 @@
 	if(Adjacent(usr))
 		return empty_container_into()
 	return ..()
-/obj/structure/toilet/attack_hand(mob/living/user as mob)
+/obj/structure/toilet/attack_hand(mob/living/user )
 	if(swirlie)
 		swirlie.visible_message("<span class='danger'>[user] slams the toilet seat onto [swirlie.name]'s head!</span>", "<span class='userdanger'>[user] slams the toilet seat onto your head!</span>", "You hear reverberating porcelain.")
 		swirlie.apply_damage(8, BRUTE, LIMB_HEAD, used_weapon = name)
@@ -72,7 +72,7 @@
 /obj/structure/toilet/update_icon()
 	icon_state = "toilet[open][cistern]"
 
-/obj/structure/toilet/attackby(obj/item/I , mob/living/user as mob)
+/obj/structure/toilet/attackby(obj/item/I , mob/living/user )
 	if(I.is_wrench(user))
 		to_chat(user, "<span class='notice'>You [anchored ? "un":""]bolt \the [src]'s grounding lines.</span>")
 		anchored = !anchored
@@ -182,7 +182,7 @@
 		return empty_container_into()
 	return ..()
 
-/obj/structure/urinal/attackby(obj/item/I , mob/user as mob)
+/obj/structure/urinal/attackby(obj/item/I , mob/user )
 	if(I.is_wrench(user))
 		to_chat(user, "<span class='notice'>You [anchored ? "un":""]bolt \the [src]'s grounding lines.</span>")
 		anchored = !anchored
@@ -253,7 +253,7 @@
 		return
 	..()
 
-/obj/machinery/shower/attack_hand(mob/M as mob)
+/obj/machinery/shower/attack_hand(mob/M )
 	if(..())
 		return
 	if(panel_open)
@@ -271,7 +271,7 @@
 		for(var/atom/movable/G in get_turf(src))
 			G.clean_blood()
 
-/obj/machinery/shower/attackby(obj/item/I , mob/user as mob)
+/obj/machinery/shower/attackby(obj/item/I , mob/user )
 
 	..()
 
@@ -438,7 +438,7 @@
 			G.reagents.add_reagent(WATER, 5)
 	watersource.reagents.reaction(get_turf(src), TOUCH)
 
-/obj/machinery/shower/proc/check_heat(mob/living/carbon/C as mob)
+/obj/machinery/shower/proc/check_heat(mob/living/carbon/C )
 	if(!on)
 		return
 
@@ -487,7 +487,7 @@
 		return empty_container_into()
 	return ..()
 
-/obj/structure/sink/attack_hand(mob/M as mob)
+/obj/structure/sink/attack_hand(mob/M )
 	if(isrobot(M) || isAI(M))
 		return
 
@@ -532,7 +532,7 @@
 		user.visible_message("<span class='notice'>[user] removes \the [M], cleaner than before.</span>","<span class='notice'>You remove \the [M] from \the [src], it's all nice and sparkly now but somehow didnt get it any wetter.</span>")
 	return 1
 
-/obj/structure/sink/attackby(obj/item/O , mob/user as mob)
+/obj/structure/sink/attackby(obj/item/O , mob/user )
 	if(busy)
 		to_chat(user, "<span class='warning'>Someone's already washing here.</span>")
 		return
@@ -612,12 +612,12 @@
 	icon_state = "puddle"
 	desc = "You can see your reflection! You look awful!"
 
-/obj/structure/sink/puddle/attack_hand(mob/M as mob)
+/obj/structure/sink/puddle/attack_hand(mob/M )
 	icon_state = "puddle-splash"
 	..()
 	icon_state = "puddle"
 
-/obj/structure/sink/puddle/attackby(obj/item/O , mob/user as mob)
+/obj/structure/sink/puddle/attackby(obj/item/O , mob/user )
 	icon_state = "puddle-splash"
 	..()
 	icon_state = "puddle"

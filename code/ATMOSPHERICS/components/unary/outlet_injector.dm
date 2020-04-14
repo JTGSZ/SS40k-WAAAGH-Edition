@@ -155,7 +155,7 @@
 		on = 0
 	return
 
-/obj/machinery/atmospherics/unary/outlet_injector/interact(mob/user as mob)
+/obj/machinery/atmospherics/unary/outlet_injector/interact(mob/user )
 	update_multitool_menu(user)
 
 /obj/machinery/atmospherics/unary/outlet_injector/multitool_menu(var/mob/user,var/obj/item/device/multitool/P)
@@ -166,7 +166,7 @@
 	</ul>
 "}
 
-/obj/machinery/atmospherics/unary/outlet_injector/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/machinery/atmospherics/unary/outlet_injector/attackby(var/obj/item/weapon/W , var/mob/user )
 	if (!W.is_wrench(user))
 		return ..()
 	if (!(stat & NOPOWER) && on)

@@ -399,7 +399,7 @@
 	var/mob_path = /mob/living/simple_animal/hostile/wolf
 	var/bonus_path = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
 
-/obj/structure/largecrate/secure/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/largecrate/secure/attackby(obj/item/weapon/W , mob/user )
 	if(!allowed(user))
 		to_chat(user,"<span class='warning'>\The [src]'s secure bolting system flashes hostily.</span>")
 		//Not using elseif here because we want it to continue to attack_hand
@@ -555,7 +555,7 @@
 	icon_state = "telebaton_1"
 	item_state = "telebaton_1"
 
-/obj/item/weapon/depocket_wand/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/weapon/depocket_wand/attack(mob/living/M , mob/living/user )
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -651,7 +651,7 @@
 			to_chat(user,"<B>[src]</B> [pick("murmurs","insults","mocks","groans","complains")], \"<span class='sinister'>[pick(reject_phrases)]</span>\"")
 		return FALSE
 
-/obj/item/device/vampirehead/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/device/vampirehead/attack(mob/living/M , mob/user )
 	if(!user || !M) //sanity
 		return
 
@@ -740,10 +740,10 @@
 	assignment = "Trader"
 	var/canSet = TRUE
 
-/obj/item/weapon/card/id/vox/extra/attack_self(mob/user as mob)
+/obj/item/weapon/card/id/vox/extra/attack_self(mob/user )
 	if(canSet)
 		var t = reject_bad_name(input(user, "What name would you like to put on this card?", "Trader ID Card Name", ishuman(user) ? user.real_name : user.name))
-		if(!t) //Same as mob/new_player/prefrences.dm
+		if(!t) //Same /new_player/prefrences.dm
 			alert("Invalid name.")
 			return
 		src.registered_name = t

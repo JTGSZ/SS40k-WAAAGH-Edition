@@ -206,7 +206,7 @@
 /obj/item/clothing/mask/gas/clown_hat/virus //why isn't this just a subtype of clown_hat??????? //Is now
 	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask. <span class = 'notice'>On second look, it looks like it's coming out of the wearers skin!</span>"
 
-/obj/item/clothing/mask/gas/clown_hat/virus/dropped(mob/user as mob)
+/obj/item/clothing/mask/gas/clown_hat/virus/dropped(mob/user )
 	canremove = 1
 	..()
 

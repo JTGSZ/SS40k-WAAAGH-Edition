@@ -191,7 +191,7 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O , var/mob/user )
 
 	if(O.is_open_container())
 		return 0
@@ -395,7 +395,7 @@
 	else
 		return ..()
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_tk(mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attack_tk(mob/user )
 
 	if(harvest)
 		harvest(user)
@@ -403,16 +403,16 @@
 	else if(dead)
 		remove_dead(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_ai(mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attack_ai(mob/user )
 
 	return //Until we find something smart for you to do, please steer clear. Thanks
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_robot(mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attack_robot(mob/user )
 
 	if(isMoMMI(user) && Adjacent(user)) //Are we a beep ping ?
 		return attack_hand(user) //Let them use the tray
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user )
 
 	if(isobserver(user))
 		if(!(..()))

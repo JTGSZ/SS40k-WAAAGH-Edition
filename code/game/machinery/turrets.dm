@@ -409,14 +409,14 @@
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
 
-/obj/machinery/turretid/attack_ai(mob/user as mob)
+/obj/machinery/turretid/attack_ai(mob/user )
 	add_hiddenprint(user)
 	if(!ailock || isAdminGhost(user))
 		return attack_hand(user)
 	else
 		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing [src].</span>")
 
-/obj/machinery/turretid/attack_hand(mob/user as mob)
+/obj/machinery/turretid/attack_hand(mob/user )
 	if(!user.Adjacent(src))
 		if(!issilicon(user) && !isAdminGhost(user))
 			to_chat(user, "<span class='notice'>You are too far away.</span>")
@@ -556,7 +556,7 @@
 	return
 
 
-/obj/structure/turret/gun_turret/attack_hand(mob/user as mob)
+/obj/structure/turret/gun_turret/attack_hand(mob/user )
 	user.set_machine(src)
 	var/dat = {"<html>
 					<head><title>[src] Control</title></head>
@@ -574,12 +574,12 @@
 	onclose(user, "turret")
 	return
 
-/obj/structure/turret/gun_turret/attack_ai(mob/user as mob)
+/obj/structure/turret/gun_turret/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 
-/obj/structure/turret/gun_turret/attack_alien(mob/living/user as mob)
+/obj/structure/turret/gun_turret/attack_alien(mob/living/user )
 	user.do_attack_animation(src, user)
 	user.visible_message("[user] slashes at [src]", "You slash at [src]")
 	src.take_damage(15)

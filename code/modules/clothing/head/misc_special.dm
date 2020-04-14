@@ -89,7 +89,7 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 1)
 
-/obj/item/clothing/head/cakehat/attack_self(mob/user as mob)
+/obj/item/clothing/head/cakehat/attack_self(mob/user )
 	if(status > 1)
 		return
 	src.onfire = !( src.onfire )
@@ -120,7 +120,7 @@
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 	species_fit = list(INSECT_SHAPED)
 
-/obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
+/obj/item/clothing/head/ushanka/attack_self(mob/user )
 	var/initial_icon_state = initial(icon_state)
 	if(icon_state == initial_icon_state)
 		icon_state = "[initial_icon_state]up"

@@ -78,7 +78,7 @@
 	O.set_amount(amount)
 	SmeltMineral(O)
 
-/obj/machinery/mineral/ore_redemption/attack_hand(user as mob)
+/obj/machinery/mineral/ore_redemption/attack_hand(user )
 	if(..())
 		return
 	interact(user)

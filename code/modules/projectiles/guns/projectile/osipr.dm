@@ -61,7 +61,7 @@
 			return 1
 	return 0
 
-/obj/item/weapon/gun/osipr/attackby(var/obj/item/A , mob/user as mob)
+/obj/item/weapon/gun/osipr/attackby(var/obj/item/A , mob/user )
 	if(istype(A, /obj/item/energy_magazine/osipr))
 		if(magazine)
 			to_chat(user, "There is another magazine already inserted. Remove it first.")

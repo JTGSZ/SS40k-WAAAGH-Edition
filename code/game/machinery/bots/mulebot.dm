@@ -484,7 +484,7 @@ var/global/mulebot_count = 0
 
 	// in case non-load items end up in contents, dump every else too
 	// this seems to happen sometimes due to race conditions //There are no race conditions in BYOND. It's single-threaded.
-	// with items dropping as mobs are loaded
+	// with items dropping s are loaded
 
 	for(var/atom/movable/AM in src)
 		if(AM == cell || AM == botcard || AM == integratedpai)

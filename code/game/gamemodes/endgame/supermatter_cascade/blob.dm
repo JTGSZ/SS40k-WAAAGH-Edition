@@ -84,10 +84,10 @@
 			if(SM.avail_dirs)
 				SM.avail_dirs -= get_dir(T, src)
 
-/turf/unsimulated/wall/supermatter/attack_paw(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_paw(mob/user )
 	return attack_hand(user)
 
-/turf/unsimulated/wall/supermatter/attack_robot(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_robot(mob/user )
 	if(Adjacent(user))
 		return attack_hand(user)
 	else
@@ -95,13 +95,13 @@
 	return
 
 // /vg/: Don't let ghosts fuck with this.
-/turf/unsimulated/wall/supermatter/attack_ghost(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_ghost(mob/user )
 	user.examination(src)
 
-/turf/unsimulated/wall/supermatter/attack_ai(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_ai(mob/user )
 	return user.examination(src)
 
-/turf/unsimulated/wall/supermatter/attack_hand(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_hand(mob/user )
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
 		"<span class=\"danger\">You reach out and touch \the [src]. Everything immediately goes quiet. Your last thought is \"That was not a wise decision.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise.</span>")
@@ -110,7 +110,7 @@
 
 	Consume(user)
 
-/turf/unsimulated/wall/supermatter/attackby(obj/item/weapon/W , mob/living/user as mob)
+/turf/unsimulated/wall/supermatter/attackby(obj/item/weapon/W , mob/living/user )
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")

@@ -22,7 +22,7 @@
 	to_chat(viewers(user), "<span class='danger'>[user] is falling on the [src.name]! It looks like \he's trying to commit suicide.</span>")
 	return(SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/sword/weaponcraft/attack_self(mob/user as mob)
+/obj/item/weapon/sword/weaponcraft/attack_self(mob/user )
 	if(!hypo)
 		return
 	to_chat(user, "You remove \the [hypo] from \the [src].")
@@ -162,7 +162,7 @@
 		if (istype(loc, /mob/living/carbon/human))
 			H.update_inv_hands()
 
-/obj/item/weapon/sword/venom/attack_self(mob/user as mob)
+/obj/item/weapon/sword/venom/attack_self(mob/user )
 	if(!beaker)
 		return
 	else
@@ -208,7 +208,7 @@
 		new /obj/item/weapon/aluminum_cylinder(get_turf(src))
 		qdel(src)
 
-/obj/item/weapon/sword/venom/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/sword/venom/attack(mob/M , mob/user )
 	if(!..())	//If the attack missed.
 		return
 	if(!beaker)
@@ -255,7 +255,7 @@
 	if(complete)
 		user.delayNextAttack(30) //thrice the regular attack delay
 
-/obj/item/weapon/sword/executioner/attack_self(mob/user as mob)
+/obj/item/weapon/sword/executioner/attack_self(mob/user )
 	if(complete)
 		return
 	to_chat(user, "You detach the metal blade from \the [src].")

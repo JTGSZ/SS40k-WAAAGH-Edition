@@ -10,7 +10,7 @@
 	density = 1
 	machine_flags = WRENCHMOVE | FIXED2WORK
 
-/obj/machinery/gashapon/attackby(var/obj/O , var/mob/user as mob)
+/obj/machinery/gashapon/attackby(var/obj/O , var/mob/user )
 	if (is_type_in_list(O, list(/obj/item/weapon/coin/, /obj/item/weapon/reagent_containers/food/snacks/chococoin)))
 		if(user.drop_item(O, src))
 			user.visible_message("<span class='notice'>[user] puts a coin into [src] and turns the knob.</span>", "<span class='notice'>You put a coin into [src] and turn the knob.</span>")
@@ -53,7 +53,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/capsule/attack_self(mob/M as mob)
+/obj/item/weapon/capsule/attack_self(mob/M )
 	var/capsule_prize = pick(
 		/obj/item/toy/gasha/greyshirt,
 		/obj/item/toy/gasha/greytide,

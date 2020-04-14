@@ -23,7 +23,7 @@
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	held_items = list()
 
-/mob/living/simple_animal/slime/attackby(var/obj/item/weapon/slimeparapotion/O , var/mob/user as mob)
+/mob/living/simple_animal/slime/attackby(var/obj/item/weapon/slimeparapotion/O , var/mob/user )
 	if(istype(O))
 		canmove = 0
 		icon_state = "[colour] baby slime dead"
@@ -73,7 +73,7 @@
 	pet.colour = "[colour]"
 	qdel (src)
 
-/mob/living/simple_animal/slime/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/slime/attack_hand(mob/living/carbon/human/M )
 
 	//Shamelessly stolen from Dionacode
 	if(!canmove && !locked_to && isturf(loc) && !M.get_active_hand())

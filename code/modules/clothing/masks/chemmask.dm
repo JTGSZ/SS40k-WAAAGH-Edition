@@ -68,7 +68,7 @@
 	processing_objects.Remove(src)
 	..()
 
-/obj/item/clothing/mask/chemmask/equipped(M as mob, wear_mask)
+/obj/item/clothing/mask/chemmask/equipped(M , wear_mask)
 	var/mob/living/carbon/human/H = M
 	if(H.wear_mask == src)
 		update_verbs()

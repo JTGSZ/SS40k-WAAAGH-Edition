@@ -38,14 +38,14 @@
 	// If no scanner was found, it will return null
 	return optablef
 
-/obj/machinery/computer/operating/attack_ai(user as mob)
+/obj/machinery/computer/operating/attack_ai(user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/operating/attack_paw(user as mob)
+/obj/machinery/computer/operating/attack_paw(user )
 	return attack_hand(user)
 
-/obj/machinery/computer/operating/attack_hand(mob/user as mob)
+/obj/machinery/computer/operating/attack_hand(mob/user )
 	if(..())
 		return
 	add_fingerprint(user)

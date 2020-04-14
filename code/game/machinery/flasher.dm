@@ -49,7 +49,7 @@ var/list/obj/machinery/flasher/flashers = list()
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/flasher/attackby(obj/item/weapon/W , mob/user )
 	if (iswirecutter(W))
 		add_fingerprint(user)
 		src.disable = !src.disable
@@ -124,7 +124,7 @@ var/list/obj/machinery/flasher/flashers = list()
 		if ((M.m_intent != "walk") && (src.anchored))
 			src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/flasher/portable/attackby(obj/item/weapon/W , mob/user )
 	if (W.is_wrench(user))
 		add_fingerprint(user)
 		src.anchored = !src.anchored
@@ -137,17 +137,17 @@ var/list/obj/machinery/flasher/flashers = list()
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
 			src.overlays += image(icon = icon, icon_state = "[base_state]-s")
 
-/obj/machinery/flasher_button/attack_ai(mob/user as mob)
+/obj/machinery/flasher_button/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/flasher_button/attack_paw(mob/user as mob)
+/obj/machinery/flasher_button/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/flasher_button/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/machinery/flasher_button/attackby(obj/item/weapon/W, mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/flasher_button/attack_hand(mob/user as mob)
+/obj/machinery/flasher_button/attack_hand(mob/user )
 
 	if(stat & (NOPOWER|BROKEN))
 		return

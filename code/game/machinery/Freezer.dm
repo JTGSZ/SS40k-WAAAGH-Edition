@@ -92,7 +92,7 @@
 		update_icon()
 
 
-/obj/machinery/atmospherics/unary/cold_sink/freezer/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/unary/cold_sink/freezer/attack_hand(mob/user )
 	user.set_machine(src)
 	var/temp_text = ""
 	if(air_contents.temperature > (T0C - 20))
@@ -265,7 +265,7 @@
 			network = null
 
 
-/obj/machinery/atmospherics/unary/heat_reservoir/heater/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/unary/heat_reservoir/heater/attack_hand(mob/user )
 	user.set_machine(src)
 	var/temp_text = ""
 	if(air_contents.temperature > (T20C+40))

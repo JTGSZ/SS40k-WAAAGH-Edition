@@ -29,7 +29,7 @@
 	summon_type = list(/obj/structure/constructshell/cult/alt)
 	hud_state = "const_shell_alt"
 
-/spell/aoe_turf/conjure/construct/lesser/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/aoe_turf/conjure/construct/lesser/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
 	if(!delay_animation)
 		delay_animation = new /obj/effect/artificer_underlay(get_turf(user))
 		playsound(user, 'sound/items/welder.ogg', 100, 1)
@@ -172,7 +172,7 @@
 	hud_state = "const_stone"
 	override_base = "cult"
 
-/spell/aoe_turf/conjure/soulstone/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/aoe_turf/conjure/soulstone/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
 	if(!delay_animation)
 		delay_animation = new /obj/effect/artificer_underlay(get_turf(user))
 		playsound(user, 'sound/items/welder.ogg', 100, 1)
@@ -196,7 +196,7 @@
 	hud_state = "const_pylon"
 	override_base = "cult"
 
-/spell/aoe_turf/conjure/pylon/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/aoe_turf/conjure/pylon/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
 	if(!delay_animation)
 		delay_animation = new /obj/effect/artificer_underlay(get_turf(user))
 		playsound(user, 'sound/items/welder.ogg', 100, 1)
@@ -382,7 +382,7 @@
 /spell/aoe_turf/conjure/hex/choose_targets(mob/user = usr)
 	return list(get_turf(user))
 
-/spell/aoe_turf/conjure/hex/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/aoe_turf/conjure/hex/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
 	if(!delay_animation)
 		delay_animation = new /obj/effect/artificer_underlay(get_turf(user))
 		playsound(user, 'sound/items/welder.ogg', 100, 1)
@@ -420,7 +420,7 @@
 	return list(get_turf(user))
 
 
-/spell/aoe_turf/conjure/struct/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/aoe_turf/conjure/struct/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
 	if(!delay_animation)
 		delay_animation = new /obj/effect/artificer_underlay(get_turf(user))
 		playsound(user, 'sound/items/welder.ogg', 100, 1)

@@ -11,7 +11,7 @@
 	name = "Circuit board (Advanced Security)"
 	build_path = /obj/machinery/computer/security/advanced
 
-/obj/machinery/computer/security/advanced/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/security/advanced/attack_hand(var/mob/user )
 	if (src.z > 6)
 		to_chat(user, "<span class='danger'>Unable to establish a connection: </span>You're too far away from the station!")
 		return
@@ -23,7 +23,7 @@
 	user.machine = src
 	return
 
-/obj/machinery/computer/security/advanced/check_eye(var/mob/user as mob)
+/obj/machinery/computer/security/advanced/check_eye(var/mob/user )
 	if (( ( get_dist(user, src) > 1 ) || !( user.canmove ) || ( user.blinded )) && (!istype(user, /mob/living/silicon)))
 		if(user.machine == src)
 			user.machine = null

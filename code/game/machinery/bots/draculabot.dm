@@ -60,10 +60,10 @@
 	currently_drawing_blood = 0
 	update_icon()
 
-/obj/machinery/bot/bloodbot/attack_paw(mob/user as mob)
+/obj/machinery/bot/bloodbot/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/bot/bloodbot/attack_hand(mob/user as mob)
+/obj/machinery/bot/bloodbot/attack_hand(mob/user )
 	if(..())
 		return
 	var/dat
@@ -163,7 +163,7 @@
 	if(. && !emagged && isturf(loc)) //Retreat if we're not hostile and we're under attack
 		step_away(src,user)
 
-/obj/machinery/bot/bloodbot/Emag(mob/user as mob)
+/obj/machinery/bot/bloodbot/Emag(mob/user )
 	if(!locked)
 		visible_message("<span class='danger'>[src] buzzes oddly!</span>", 1)
 		emagged = 1

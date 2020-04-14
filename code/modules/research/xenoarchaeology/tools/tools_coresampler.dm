@@ -32,7 +32,7 @@
 	if(get_dist(src, user) < 2)
 		to_chat(user, "<span class='info'>This one is [sampled_turf ? "full" : "empty"], and has [num_stored_bags] bag[num_stored_bags != 1 ? "s" : ""] remaining.</span>")
 
-/obj/item/device/core_sampler/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/core_sampler/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/weapon/storage/evidencebag))
 		if(num_stored_bags < 10)
 			to_chat(user, "<span class='notice'>You insert the [W] into the core sampler.</span>")
@@ -45,7 +45,7 @@
 	else
 		return ..()
 
-/obj/item/device/core_sampler/proc/sample_item(var/item_to_sample, var/mob/user as mob)
+/obj/item/device/core_sampler/proc/sample_item(var/item_to_sample, var/mob/user )
 	var/datum/geosample/geo_data
 	if(istype(item_to_sample, /turf/unsimulated/mineral))
 		var/turf/unsimulated/mineral/T = item_to_sample

@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/wizard/scrying/attack_hand(mob/user as mob)
+/obj/structure/wizard/scrying/attack_hand(mob/user )
 	to_chat(user, "<span class='notice'>You can see...everything!</span>")
 	visible_message("<span class='danger'>[usr] stares into [src], their eyes glazing over.</span>")
 	user.ghostize(1)

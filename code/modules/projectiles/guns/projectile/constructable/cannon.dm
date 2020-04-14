@@ -86,7 +86,7 @@
 	src.dir = turn(src.dir, 90)
 	return 1
 
-/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/attackby(obj/item/W , mob/user as mob)
+/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/attackby(obj/item/W , mob/user )
 	var/item_prohibited = 0
 	for(var/i=1, i<=prohibited_items.len, i++)
 		if(istype(W,prohibited_items[i]))
@@ -113,7 +113,7 @@
 	else
 		. = ..()
 
-/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/proc/transfer_fuel(obj/item/weapon/reagent_containers/S, mob/user as mob)
+/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/proc/transfer_fuel(obj/item/weapon/reagent_containers/S, mob/user )
 	if(!S.is_open_container())
 		return
 	if(!istype(S))

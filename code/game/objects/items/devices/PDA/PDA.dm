@@ -611,7 +611,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else
 		to_chat(usr, "You do not have a PDA. You should make an issue report about this.")
 
-/obj/item/device/pda/ai/attack_self(mob/user as mob)
+/obj/item/device/pda/ai/attack_self(mob/user )
 	if ((honkamt > 0) && (prob(60)))//For clown virus.
 		honkamt--
 		playsound(loc, 'sound/items/bikehorn.ogg', 30, 1)
@@ -653,7 +653,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return ..()
 
 //NOTE: graphic resources are loaded on client login
-/obj/item/device/pda/attack_self(mob/user as mob)
+/obj/item/device/pda/attack_self(mob/user )
 
 	user.set_machine(src)
 
@@ -2281,7 +2281,7 @@ obj/item/device/pda/AltClick()
 		return
 	return ..()
 
-/obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
+/obj/item/device/pda/proc/id_check(mob/user , choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
 	if(choice == 1)
 		if (id)
 			remove_id()
@@ -2302,7 +2302,7 @@ obj/item/device/pda/AltClick()
 	return
 
 // access to status display signals
-/obj/item/device/pda/attackby(obj/item/C , mob/user as mob)
+/obj/item/device/pda/attackby(obj/item/C , mob/user )
 	..()
 	if(hidden_uplink && hidden_uplink.active && hidden_uplink.refund(user, C))
 		return
@@ -2367,7 +2367,7 @@ obj/item/device/pda/AltClick()
 		return 1
 	return 0
 
-/obj/item/device/pda/attack(mob/living/carbon/C, mob/living/user as mob)
+/obj/item/device/pda/attack(mob/living/carbon/C, mob/living/user )
 	if(istype(C))
 		switch(scanmode)
 
@@ -2428,7 +2428,7 @@ obj/item/device/pda/AltClick()
 		note = A:info
 		to_chat(user, "<span class='notice'>Paper scanned.</span>")//concept of scanning paper copyright brainoblivion 2009
 
-/obj/item/device/pda/preattack(atom/A , mob/user as mob)
+/obj/item/device/pda/preattack(atom/A , mob/user )
 	switch(scanmode)
 		if(SCANMODE_REAGENT)
 			if(!A.Adjacent(user))

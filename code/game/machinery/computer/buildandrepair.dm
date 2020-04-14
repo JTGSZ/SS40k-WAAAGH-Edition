@@ -343,7 +343,7 @@
 	build_path = /obj/machinery/computer/stacking_unit
 	origin_tech = Tc_PROGRAMMING + "=2;" + Tc_MATERIALS + "=2"
 
-/obj/item/weapon/circuitboard/attackby(obj/item/I , mob/user as mob)
+/obj/item/weapon/circuitboard/attackby(obj/item/I , mob/user )
 	if(issolder(I))
 		var/obj/item/weapon/solder/S = I
 		if(S.remove_fuel(2,user))
@@ -361,16 +361,16 @@
 			return
 	return
 
-/obj/item/weapon/circuitboard/proc/solder_improve(mob/user as mob)
+/obj/item/weapon/circuitboard/proc/solder_improve(mob/user )
 	to_chat(user, "<span class='warning'>You fiddle with a few random fuses but can't find a routing that doesn't short the board.</span>")
 	return
 
-/obj/item/weapon/circuitboard/supplycomp/solder_improve(mob/user as mob)
+/obj/item/weapon/circuitboard/supplycomp/solder_improve(mob/user )
 	to_chat(user, "<span class='notice'>You [contraband_enabled ? "" : "un"]connect the mysterious fuse.</span>")
 	contraband_enabled = !contraband_enabled
 	return
 
-/obj/item/weapon/circuitboard/security/solder_improve(mob/user as mob)
+/obj/item/weapon/circuitboard/security/solder_improve(mob/user )
 	if(istype(src,/obj/item/weapon/circuitboard/security/advanced))
 		return ..()
 	if(istype(src,/obj/item/weapon/circuitboard/security/engineering))
@@ -382,7 +382,7 @@
 		qdel(src)
 		return
 
-/obj/structure/computerframe/attackby(obj/item/P , mob/user as mob)
+/obj/structure/computerframe/attackby(obj/item/P , mob/user )
 	switch(state)
 		if(0)
 			if(P.is_wrench(user) && wrenchAnchor(user, P))

@@ -38,7 +38,7 @@
 		update_icon()
 		handleInactive()
 
-/obj/machinery/power/port_gen/attack_hand(mob/user as mob)
+/obj/machinery/power/port_gen/attack_hand(mob/user )
 	if(..())
 		return
 	if(!anchored)
@@ -188,7 +188,7 @@
 	else
 		disconnect_from_network()
 
-/obj/machinery/power/port_gen/pacman/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/power/port_gen/pacman/attackby(var/obj/item/O , var/mob/user )
 	if(istype(O, sheet_path))
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
@@ -204,18 +204,18 @@
 		if( ..() )
 			return 1
 
-/obj/machinery/power/port_gen/pacman/attack_hand(mob/user as mob)
+/obj/machinery/power/port_gen/pacman/attack_hand(mob/user )
 	..()
 	if (!anchored)
 		return
 
 	interact(user)
 
-/obj/machinery/power/port_gen/pacman/attack_ai(mob/user as mob)
+/obj/machinery/power/port_gen/pacman/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	interact(user)
 
-/obj/machinery/power/port_gen/pacman/attack_paw(mob/user as mob)
+/obj/machinery/power/port_gen/pacman/attack_paw(mob/user )
 	interact(user)
 
 /obj/machinery/power/port_gen/pacman/interact(mob/user)

@@ -31,7 +31,7 @@
 		/obj/structure/stackopacks
 		)
 
-/obj/item/stack/package_wrap/afterattack(var/attacked, mob/user as mob, var/proximity_flag)
+/obj/item/stack/package_wrap/afterattack(var/attacked, mob/user , var/proximity_flag)
 	var/atom/movable/target = attacked
 	if(!istype(target))
 		return
@@ -80,7 +80,7 @@
 		to_chat(user, "<span class='warning'>[src] isn't useful for wrapping [target].</span>")
 	return 1
 
-/obj/item/stack/package_wrap/proc/try_wrap_human(var/mob/living/carbon/human/H, mob/user as mob)
+/obj/item/stack/package_wrap/proc/try_wrap_human(var/mob/living/carbon/human/H, mob/user )
 	if(!manpath)
 		to_chat(user, "<span class='notice'>This material is not strong enough to wrap humanoids, try something else.</span>")
 		return 0
@@ -138,13 +138,13 @@
 		AM.forceMove(loc)
 	..()
 
-/obj/item/delivery/attack_self(mob/user as mob)
+/obj/item/delivery/attack_self(mob/user )
 	user.drop_item(src, user.loc)
 	for(var/obj/item/I in contents)
 		user.put_in_hands(I) //if it fails, it'll drop on the ground. simple
 	qdel(src)
 
-/obj/item/delivery/attackby(obj/item/W , mob/user as mob)
+/obj/item/delivery/attackby(obj/item/W , mob/user )
 	if(istype(W, /obj/item/device/destTagger))
 		var/obj/item/device/destTagger/O = W
 
@@ -196,10 +196,10 @@
 		AM.forceMove(get_turf(src))
 	..()
 
-/obj/item/delivery/large/attack_paw(mob/user as mob)
+/obj/item/delivery/large/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/item/delivery/large/attack_hand(mob/user as mob)
+/obj/item/delivery/large/attack_hand(mob/user )
 	if(!is_holder_of(src, user))
 		qdel(src)
 

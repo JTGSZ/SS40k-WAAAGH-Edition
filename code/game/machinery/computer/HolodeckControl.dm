@@ -18,11 +18,11 @@
 
 	light_color = LIGHT_COLOR_CYAN
 
-/obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/HolodeckControl/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/HolodeckControl/attack_paw(var/mob/user )
 	return
 
 /obj/machinery/computer/HolodeckControl/proc/spawn_holoperson(mob/dead/observer/user)
@@ -56,7 +56,7 @@
 		H.name = capitalize(pick(N))
 		H.real_name = H.name
 
-/obj/machinery/computer/HolodeckControl/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/HolodeckControl/attack_hand(var/mob/user )
 
 	if(..())
 		return
@@ -297,11 +297,11 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/HolodeckControl/attackby(var/obj/item/weapon/D , var/mob/user as mob)
+/obj/machinery/computer/HolodeckControl/attackby(var/obj/item/weapon/D , var/mob/user )
 	..() //This still allows items to unrez even if the computer is deconstructed
 	return
 
-/obj/machinery/computer/HolodeckControl/emag(mob/user as mob)
+/obj/machinery/computer/HolodeckControl/emag(mob/user )
 	playsound(src, 'sound/effects/sparks4.ogg', 75, 1)
 	if(emagged)
 		return //No spamming
@@ -492,7 +492,7 @@
 	icon_state = "light_on"
 	floor_tile
 
-/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W , mob/user as mob)
+/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W , mob/user )
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
@@ -514,7 +514,7 @@
 	icon_state = "boxingred"
 	item_state = "boxingred"
 
-/obj/structure/window/reinforced/holo/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/window/reinforced/holo/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_screwdriver(user))
 		to_chat(user, "It's a holowindow! It has no frame!")
 		return
@@ -573,7 +573,7 @@
 	AddToProfiler()
 	_color = pick("red","blue","green","purple")
 
-/obj/item/weapon/holo/esword/attack_self(mob/living/user as mob)
+/obj/item/weapon/holo/esword/attack_self(mob/living/user )
 	active = !active
 	if(active)
 		force = 30
@@ -609,7 +609,7 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/holohoop/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<GRAB_AGGRESSIVE)
@@ -659,19 +659,19 @@
 	power_channel = ENVIRON
 	ghost_read = 0
 
-/obj/machinery/readybutton/attack_ai(mob/user as mob)
+/obj/machinery/readybutton/attack_ai(mob/user )
 	if(issilicon(user))
 		to_chat(user, "<span='warning'>The station's silicons are not to interact with these devices.</span>")
 		return
 	..()
 
-/obj/machinery/readybutton/attack_paw(mob/user as mob)
+/obj/machinery/readybutton/attack_paw(mob/user )
 	to_chat(user, "<span='warning'>You are too primitive to use this device.</span>")
 
-/obj/machinery/readybutton/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/readybutton/attackby(obj/item/weapon/W , mob/user )
 	to_chat(user, "<span='warning'>The device is a solid button, there's nothing you can do with it!</span>")
 
-/obj/machinery/readybutton/attack_hand(mob/user as mob)
+/obj/machinery/readybutton/attack_hand(mob/user )
 	if(..())
 		return
 

@@ -416,17 +416,17 @@
 	origin_tech = Tc_SYNDICATE + "=3"
 	var/registered_user=null
 
-/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O , mob/user as mob)
+/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O , mob/user )
 	if(istype(O, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/I = O
 		to_chat(user, "<span class='notice'>The [src]'s microscanners activate as you pass it over \the [I], copying its access.</span>")
 		access |= I.access
 
-/obj/item/weapon/card/id/syndicate/attack_self(mob/user as mob)
+/obj/item/weapon/card/id/syndicate/attack_self(mob/user )
 	if(!src.registered_name)
 		//Stop giving the players unsanitized unputs! You are giving ways for players to intentionally crash clients! -Nodrak
 		var t = reject_bad_name(input(user, "What name would you like to put on this card?", "Agent card name", ishuman(user) ? user.real_name : user.name))
-		if(!t) //Same as mob/new_player/prefrences.dm
+		if(!t) //Same /new_player/prefrences.dm
 			alert("Invalid name.")
 			return
 		src.registered_name = t

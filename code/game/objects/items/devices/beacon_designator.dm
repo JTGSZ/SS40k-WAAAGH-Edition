@@ -23,7 +23,7 @@
 		id=1
 	to_chat(user, "Spawning beacons with ID: [id]")
 
-/obj/item/weapon/beacon_dispenser/afterattack(atom/A, mob/user as mob)
+/obj/item/weapon/beacon_dispenser/afterattack(atom/A, mob/user )
 	var/turf/T = get_turf(A)
 
 	if(istype(A,/obj/item/bluespace_beacon))

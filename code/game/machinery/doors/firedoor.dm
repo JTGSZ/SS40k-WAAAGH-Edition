@@ -255,7 +255,7 @@ var/global/list/alert_overlays_global = list()
 	else
 		..()
 
-/obj/machinery/door/firedoor/attack_hand(mob/user as mob)
+/obj/machinery/door/firedoor/attack_hand(mob/user )
 	return do_interaction(user)
 
 /obj/machinery/door/firedoor/attack_alien(mob/living/carbon/alien/humanoid/user)

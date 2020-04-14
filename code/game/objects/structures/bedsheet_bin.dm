@@ -22,7 +22,7 @@ LINEN BINS
 	toolsounds = list("rustle")
 
 //cutting the bedsheet into rags
-/obj/item/weapon/bedsheet/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/bedsheet/attackby(var/obj/item/I, mob/user )
 	var/cut_time=0
 	if(I.is_sharp())
 		cut_time = 60 / I.sharpness
@@ -159,7 +159,7 @@ LINEN BINS
 		else				icon_state = "linenbin-full"
 
 
-/obj/structure/bedsheetbin/attackby(obj/item/I , mob/user as mob)
+/obj/structure/bedsheetbin/attackby(obj/item/I , mob/user )
 	if(I.is_wrench(user))
 		wrenchAnchor(user, I, time_to_wrench = 2 SECONDS)
 		return
@@ -195,11 +195,11 @@ LINEN BINS
 			to_chat(user, "<span class='notice'>You hide [I] among the sheets.</span>")
 
 
-/obj/structure/bedsheetbin/attack_paw(mob/user as mob)
+/obj/structure/bedsheetbin/attack_paw(mob/user )
 	return attack_hand(user)
 
 
-/obj/structure/bedsheetbin/attack_hand(mob/user as mob)
+/obj/structure/bedsheetbin/attack_hand(mob/user )
 	if(amount >= 1)
 		amount--
 
@@ -223,7 +223,7 @@ LINEN BINS
 
 	add_fingerprint(user)
 
-/obj/structure/bedsheetbin/attack_tk(mob/user as mob)
+/obj/structure/bedsheetbin/attack_tk(mob/user )
 	if(amount >= 1)
 		amount--
 

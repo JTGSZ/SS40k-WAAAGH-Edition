@@ -1857,7 +1857,7 @@ obj/item/organ/external/head/proc/transfer_identity(var/mob/living/carbon/human/
 	brainmob.default_language = H.default_language
 	brainmob.container = src
 
-obj/item/organ/external/head/attackby(obj/item/weapon/W , mob/user as mob)
+obj/item/organ/external/head/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/weapon/scalpel) || istype(W,/obj/item/weapon/shard) || (istype(W,/obj/item/weapon/kitchen/utensil/knife/large) && !istype(W,/obj/item/weapon/kitchen/utensil/knife/large/butch)))
 		if(organ_data)
 			switch(brain_op_stage)

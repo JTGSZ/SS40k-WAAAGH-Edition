@@ -170,7 +170,7 @@
 /*
 	ITEM INTERACTIONS
 					*/
-/obj/item/weapon/gun/energy/lasgun/attackby(var/obj/item/A , mob/user as mob) //Loading
+/obj/item/weapon/gun/energy/lasgun/attackby(var/obj/item/A , mob/user ) //Loading
 	if(A.is_screwdriver(user))
 		to_chat(user, "<span class='notice'>You adjust and repair the [src].</span>")
 		degradation_state = 10
@@ -183,13 +183,13 @@
 			to_chat(user, "<span class='warning'>There is already a magazine loaded in \the [src]!</span>")
 	..()
 
-/obj/item/weapon/gun/energy/lasgun/attack_hand(mob/user as mob)
+/obj/item/weapon/gun/energy/lasgun/attack_hand(mob/user )
 	if(user.get_inactive_hand() == src)
 		RemoveMag(user)
 	else
 		..()
 
-/obj/item/weapon/gun/energy/lasgun/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+/obj/item/weapon/gun/energy/lasgun/attack_self(mob/user ) //Unloading (Need special handler for unattaching.)
 	if(user.get_active_hand() == src)
 		if(!wielded)
 			wield(user)

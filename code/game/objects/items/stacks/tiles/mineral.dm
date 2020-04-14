@@ -36,7 +36,7 @@
 
 	material = "uranium_safe"
 
-/obj/item/stack/tile/mineral/uranium/safe/attackby(obj/item/W , mob/user as mob)
+/obj/item/stack/tile/mineral/uranium/safe/attackby(obj/item/W , mob/user )
 	if(iscrowbar(W))
 		to_chat(user, "You pry off the layer of reinforced glass from [src].")
 
@@ -44,7 +44,7 @@
 			drop_stack(/obj/item/stack/tile/mineral/uranium, user.loc, 1, user)
 		return
 
-/obj/item/stack/tile/mineral/uranium/attackby(obj/item/W , mob/user as mob)
+/obj/item/stack/tile/mineral/uranium/attackby(obj/item/W , mob/user )
 	if(istype(W,/obj/item/stack/sheet/glass/rglass))
 		var/obj/item/stack/sheet/glass/rglass/G = W
 		to_chat(user, "You add a layer of reinforced glass to [src].")

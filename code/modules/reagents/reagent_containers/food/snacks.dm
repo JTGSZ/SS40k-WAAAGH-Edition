@@ -3342,7 +3342,7 @@
 
 	icon_state = "pizzabox[boxes.len+1]"
 
-/obj/item/pizzabox/attack_hand( mob/user as mob )
+/obj/item/pizzabox/attack_hand( mob/user  )
 
 	if( open && pizza )
 		user.put_in_hands( pizza )
@@ -3367,7 +3367,7 @@
 		return
 	..()
 
-/obj/item/pizzabox/attack_self( mob/user as mob )
+/obj/item/pizzabox/attack_self( mob/user  )
 
 	if( boxes.len > 0 )
 		return
@@ -3379,7 +3379,7 @@
 
 	update_icon()
 
-/obj/item/pizzabox/attackby( obj/item/I , mob/user as mob )
+/obj/item/pizzabox/attackby( obj/item/I , mob/user  )
 	if( istype(I, /obj/item/pizzabox/) )
 		var/obj/item/pizzabox/box = I
 
@@ -4522,7 +4522,7 @@
 	src.throw_at(T, 10, 2)
 	return 1
 
-/obj/item/weapon/reagent_containers/food/snacks/chocofrog/pickup(mob/living/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/chocofrog/pickup(mob/living/user )
 	var/mob/living/carbon/human/H = user
 	if(!H)
 		return 1

@@ -81,7 +81,7 @@
 	src.icon_state = "[src.icon_initial][src.on]"
 	src.updateUsrDialog()
 
-/obj/machinery/bot/farmbot/attack_paw(mob/user as mob)
+/obj/machinery/bot/farmbot/attack_paw(mob/user )
 	return attack_hand(user)
 
 
@@ -91,7 +91,7 @@
 		total_fert++
 	return total_fert
 
-/obj/machinery/bot/farmbot/attack_hand(mob/user as mob)
+/obj/machinery/bot/farmbot/attack_hand(mob/user )
 	. = ..()
 	if (.)
 		return
@@ -152,7 +152,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/bot/farmbot/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/bot/farmbot/attackby(obj/item/weapon/W , mob/user )
 	if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if (src.allowed(user))
 			src.locked = !src.locked
@@ -174,7 +174,7 @@
 	else
 		..()
 
-/obj/machinery/bot/farmbot/Emag(mob/user as mob)
+/obj/machinery/bot/farmbot/Emag(mob/user )
 	..()
 	if(user)
 		to_chat(user, "<span class='warning'>You short out [src]'s plant identifier circuits.</span>")
@@ -468,7 +468,7 @@
 			new /obj/structure/reagent_dispensers/watertank(src)
 
 
-/obj/structure/reagent_dispensers/watertank/attackby(var/obj/item/robot_parts/S, mob/user as mob)
+/obj/structure/reagent_dispensers/watertank/attackby(var/obj/item/robot_parts/S, mob/user )
 
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
 		..()
@@ -485,7 +485,7 @@
 	qdel(S)
 	S = null
 
-/obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if((istype(W, /obj/item/device/analyzer/plant_analyzer)) && (!src.build_step))
 		src.build_step++

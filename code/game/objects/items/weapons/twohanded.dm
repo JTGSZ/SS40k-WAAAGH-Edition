@@ -82,7 +82,7 @@
 		to_chat(viewers(user), "<span class='danger'>[user] is smashing \himself in the head with the [src.name]! It looks like \he's commit suicide!</span>")
 		return (SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/fireaxe/afterattack(atom/A , mob/user as mob, proximity)
+/obj/item/weapon/fireaxe/afterattack(atom/A , mob/user , proximity)
 	if(!proximity)
 		return
 	..()
@@ -256,7 +256,7 @@
 		user.on_moved.Remove(event_key)
 		event_key = null
 
-/obj/item/weapon/bloodlust/attack(target as mob, mob/living/user)
+/obj/item/weapon/bloodlust/attack(target , mob/living/user)
 	if(isliving(target))
 		playsound(target, get_sfx("machete_hit"),50, 0)
 	if(clumsy_check(user) && prob(50))

@@ -18,7 +18,7 @@
 	desc = "A festive holiday wreath"
 	icon_state = "wreath_bow"
 
-/obj/structure/wreath/wreath_bow/attackby(obj/item/W , mob/user as mob)
+/obj/structure/wreath/wreath_bow/attackby(obj/item/W , mob/user )
 	if(iscrowbar(W))
 		to_chat(user, "You begin prying \the [src] off the wall.")
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -49,7 +49,7 @@
 	desc = "A holiday wreath decked with holly"
 	icon_state = "wreath_nobow"
 
-/obj/structure/wreath/wreath_nobow/attackby(obj/item/W , mob/user as mob)
+/obj/structure/wreath/wreath_nobow/attackby(obj/item/W , mob/user )
 	if(iscrowbar(W))
 		to_chat(user, "You begin prying \the [src] off the wall.")
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)

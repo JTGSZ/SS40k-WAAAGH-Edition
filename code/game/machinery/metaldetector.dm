@@ -34,7 +34,7 @@
 		)
 
 //THIS CODE IS COPYPASTED IN ed209bot.dm AND secbot.dm, with slight variations
-/obj/machinery/detector/proc/assess_perp(mob/living/carbon/human/perp as mob)
+/obj/machinery/detector/proc/assess_perp(mob/living/carbon/human/perp )
 	var/threatcount = 0 //If threat >= PERP_LEVEL_ARREST at the end, they get arrested
 	if(!(istype(perp, /mob/living/carbon)) || isalien(perp) || isbrain(perp))
 		return -1
@@ -149,7 +149,7 @@
 
 
 
-/obj/machinery/detector/attack_hand(mob/user as mob)
+/obj/machinery/detector/attack_hand(mob/user )
 
 	if(src.allowed(user))
 

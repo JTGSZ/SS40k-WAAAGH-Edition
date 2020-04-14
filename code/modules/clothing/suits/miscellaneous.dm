@@ -499,7 +499,7 @@
 		user.flying = 1
 		animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
 
-/obj/item/clothing/suit/clownpiece/flying/dropped(mob/user as mob)
+/obj/item/clothing/suit/clownpiece/flying/dropped(mob/user )
 	if(user.flying)
 		user.flying = 0
 		animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)

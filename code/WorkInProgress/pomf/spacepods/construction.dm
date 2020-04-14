@@ -165,7 +165,7 @@
 				)
 			)
 
-/datum/construction/reversible/pod/spawn_result(mob/user as mob)
+/datum/construction/reversible/pod/spawn_result(mob/user )
 	..()
 	feedback_inc("spacepod_created",1)
 	return

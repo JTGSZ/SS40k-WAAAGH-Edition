@@ -20,7 +20,7 @@
 /obj/item/weapon/melee/legacy_cultblade/cultify()
 	return
 
-/obj/item/weapon/melee/legacy_cultblade/attack(mob/living/target as mob, mob/living/carbon/human/user as mob)
+/obj/item/weapon/melee/legacy_cultblade/attack(mob/living/target , mob/living/carbon/human/user )
 	if(!checkcult || islegacycultist(user))
 		playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 		return ..()
@@ -32,7 +32,7 @@
 			user.UpdateDamageIcon()
 
 
-/obj/item/weapon/melee/legacy_cultblade/pickup(mob/living/user as mob)
+/obj/item/weapon/melee/legacy_cultblade/pickup(mob/living/user )
 	if(checkcult && !islegacycultist(user))
 		to_chat(user, "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up the cultist's sword. It would be wise to rid yourself of this blade quickly.</span>")
 		user.Dizzy(120)

@@ -37,14 +37,14 @@ Refactored AI modules by N3X15
 	name = "'[modname]' [modtype]"
 	updateLaw()
 
-/obj/item/weapon/aiModule/attack_ai(mob/user as mob)
+/obj/item/weapon/aiModule/attack_ai(mob/user )
 	// Keep MoMMIs from picking them up.
 	if(isMoMMI(user))
 		to_chat(user, "<span class='warning'>Your firmware prevents you from picking that up!</span>")
 	return
 
 // This prevents modules from being picked up.  Use it, if needed.
-// /obj/item/weapon/aiModule/attack_hand(mob/user as mob)
+// /obj/item/weapon/aiModule/attack_hand(mob/user )
 // 	return
 
 // Make a copy of this module.

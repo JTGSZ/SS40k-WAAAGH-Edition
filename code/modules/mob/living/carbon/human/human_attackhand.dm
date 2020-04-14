@@ -1,5 +1,5 @@
 //BITES
-/mob/living/carbon/human/bite_act(mob/living/carbon/human/M as mob)
+/mob/living/carbon/human/bite_act(mob/living/carbon/human/M )
 
 	var/dam_check = !(istype(loc, /turf) && istype(loc.loc, /area/start)) // 0 or 1
 

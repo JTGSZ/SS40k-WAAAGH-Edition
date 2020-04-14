@@ -7,7 +7,7 @@ var/global/list/camera_bugs = list()
 	var/obj/item/device/camera_bug/current
 	var/network
 
-/obj/item/device/handtv/attack_self(mob/user as mob)
+/obj/item/device/handtv/attack_self(mob/user )
 	if(!network && user.mind)
 		network = "\ref[user.mind]"
 	var/list/cameras = list()
@@ -40,7 +40,7 @@ var/global/list/camera_bugs = list()
 		user.unset_machine()
 		return
 
-/obj/item/device/handtv/check_eye(var/mob/user as mob)
+/obj/item/device/handtv/check_eye(var/mob/user )
 	if ( src.loc != user || user.get_active_hand() != src || !user.canmove || user.blinded || !current || !current.active )
 		return null
 	user.reset_view(current)

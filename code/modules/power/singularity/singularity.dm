@@ -51,7 +51,7 @@ var/list/global_singularity_pool
 		global_singularity_pool = list()
 	global_singularity_pool += src
 	
-/obj/machinery/singularity/attack_hand(mob/user as mob)
+/obj/machinery/singularity/attack_hand(mob/user )
 	consume(user)
 	return 1
 

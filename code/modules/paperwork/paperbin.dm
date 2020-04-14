@@ -49,11 +49,11 @@
 	return ..()
 
 
-/obj/item/weapon/paper_bin/attack_paw(mob/user as mob)
+/obj/item/weapon/paper_bin/attack_paw(mob/user )
 	return attack_hand(user)
 
 
-/obj/item/weapon/paper_bin/attack_hand(mob/user as mob)
+/obj/item/weapon/paper_bin/attack_hand(mob/user )
 	if(amount >= 1)
 		amount--
 
@@ -79,7 +79,7 @@
 	return
 
 
-/obj/item/weapon/paper_bin/attackby(obj/item/weapon/paper/i , mob/user as mob)
+/obj/item/weapon/paper_bin/attackby(obj/item/weapon/paper/i , mob/user )
 	if(!istype(i))
 		return
 

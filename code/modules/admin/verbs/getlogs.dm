@@ -107,7 +107,7 @@
 	feedback_add_details("admin_verb","SSAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
-/datum/admins/proc/view_mob_attack_log(var/mob/M as mob)
+/datum/admins/proc/view_mob_attack_log(var/mob/M )
 	set category	= "Admin"
 	set name		= "Show mob's attack logs"
 	set desc			= "Shows the (formatted) attack log of a mob in a HTML window."

@@ -24,11 +24,11 @@
 
 	light_color = LIGHT_COLOR_BLUE
 
-/obj/machinery/computer/med_data/attack_ai(user as mob)
+/obj/machinery/computer/med_data/attack_ai(user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/med_data/attack_paw(user as mob)
+/obj/machinery/computer/med_data/attack_paw(user )
 	return attack_hand(user)
 
 /obj/machinery/computer/med_data/attack_hand(var/mob/user)

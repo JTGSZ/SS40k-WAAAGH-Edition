@@ -130,7 +130,7 @@
 		special_assembly.Crossed(AM)
 
 
-/obj/item/device/assembly_holder/on_found(mob/wearer, mob/finder as mob)
+/obj/item/device/assembly_holder/on_found(mob/wearer, mob/finder )
 	if(a_left)
 		a_left.on_found(wearer, finder)
 	if(a_right)
@@ -159,7 +159,7 @@
 	return
 
 
-/obj/item/device/assembly_holder/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/assembly_holder/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_screwdriver(user))
 		if(!a_left || !a_right)
 			to_chat(user, "<span class='warning'>BUG:Assembly part missing, please report this!</span>")
@@ -193,7 +193,7 @@
 	..()
 
 
-/obj/item/device/assembly_holder/attack_self(mob/user as mob)
+/obj/item/device/assembly_holder/attack_self(mob/user )
 	src.add_fingerprint(user)
 	if(src.secured)
 		if(!a_left || !a_right)

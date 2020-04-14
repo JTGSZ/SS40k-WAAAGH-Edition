@@ -35,14 +35,14 @@
 
 	machine_flags = EMAGGABLE | MULTITOOL_MENU
 
-/obj/machinery/door_control/attack_ai(mob/user as mob)
+/obj/machinery/door_control/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	if(wires & 2)
 		return src.attack_hand(user)
 	else
 		to_chat(user, "Error, no route to host.")
 
-/obj/machinery/door_control/attack_paw(mob/user as mob)
+/obj/machinery/door_control/attack_paw(mob/user )
 	return src.attack_hand(user)
 
 /obj/machinery/door_control/emag(mob/user)
@@ -50,7 +50,7 @@
 	req_one_access = list()
 	playsound(src, "sparks", 100, 1)
 
-/obj/machinery/door_control/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/machinery/door_control/attackby(obj/item/weapon/W, mob/user )
 	..()
 	..()
 	/* For later implementation
@@ -71,7 +71,7 @@
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/door_control/attack_hand(mob/user as mob)
+/obj/machinery/door_control/attack_hand(mob/user )
 	src.add_fingerprint(usr)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -130,14 +130,14 @@
 /obj/machinery/door_control/npc_tamper_act(mob/living/L)
 	attack_hand(L)
 
-/obj/machinery/driver_button/attack_ai(mob/user as mob)
+/obj/machinery/driver_button/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/driver_button/attack_paw(mob/user as mob)
+/obj/machinery/driver_button/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/driver_button/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/machinery/driver_button/attackby(obj/item/weapon/W, mob/user )
 	. = ..()
 	if(.)
 		return .
@@ -162,7 +162,7 @@
 	<li>[format_tag("ID Tag","id_tag")]</li>
 	</ul>"}
 
-/obj/machinery/driver_button/attack_hand(mob/user as mob)
+/obj/machinery/driver_button/attack_hand(mob/user )
 
 	src.add_fingerprint(usr)
 	if(stat & (NOPOWER|BROKEN))

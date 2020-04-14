@@ -264,7 +264,7 @@
 	speech.as_name = "Slot machine #[id]"
 	Broadcast_Message(speech, level = list(z))
 
-/obj/machinery/computer/slot_machine/attack_hand(mob/user as mob)
+/obj/machinery/computer/slot_machine/attack_hand(mob/user )
 	if(..())
 		return
 
@@ -308,7 +308,7 @@
 	src.updateUsrDialog()
 
 
-/obj/machinery/computer/slot_machine/attackby(obj/item/I , mob/user as mob)
+/obj/machinery/computer/slot_machine/attackby(obj/item/I , mob/user )
 	..()
 
 	if(istype(I,/obj/item/weapon/spacecash))

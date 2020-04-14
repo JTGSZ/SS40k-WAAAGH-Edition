@@ -86,7 +86,7 @@
 	return
 
 
-/obj/item/device/transfer_valve/attack_self(mob/user as mob)
+/obj/item/device/transfer_valve/attack_self(mob/user )
 	user.set_machine(src)
 	var/dat = {"<B> Valve properties: </B>
 	<BR> <B> Attachment one:</B> [tank_one] [tank_one ? "<A href='?src=\ref[src];tankone=1'>Remove</A>" : ""]

@@ -14,7 +14,7 @@
 	var/destroyed = 0
 	var/mob/living/carbon/human/supported_mob
 
-/obj/structure/support_rail/attackby(obj/item/weapon/W, mob/living/carbon/human/user as mob)
+/obj/structure/support_rail/attackby(obj/item/weapon/W, mob/living/carbon/human/user )
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 50)
 		var/obj/item/stack/sheet/metal/M = getFromPool(/obj/item/stack/sheet/metal, get_turf(src))
@@ -37,7 +37,7 @@
 	src.supported_mob = null
 	return
 
-/obj/structure/support_rail/attack_hand(mob/user as mob)
+/obj/structure/support_rail/attack_hand(mob/user )
 	if(supported_mob) //Anyone can force you to let go
 		letgo()
 		add_fingerprint(user)

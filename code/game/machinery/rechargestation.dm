@@ -179,7 +179,7 @@
 /obj/machinery/recharge_station/allow_drop()
 	return 0
 
-/obj/machinery/recharge_station/relaymove(mob/user as mob)
+/obj/machinery/recharge_station/relaymove(mob/user )
 	if(user.stat)
 		return
 	src.go_out()

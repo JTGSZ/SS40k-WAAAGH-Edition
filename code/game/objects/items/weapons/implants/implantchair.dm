@@ -20,7 +20,7 @@
 	var/injecting = 0
 
 /obj/machinery/implantchair/proc/go_out()
-/obj/machinery/implantchair/proc/put_mob(mob/living/carbon/M as mob)
+/obj/machinery/implantchair/proc/put_mob(mob/living/carbon/M )
 /obj/machinery/implantchair/proc/implant(var/mob/M)
 /obj/machinery/implantchair/proc/add_implants()
 
@@ -30,7 +30,7 @@
 	add_implants()
 
 
-/obj/machinery/implantchair/attack_hand(mob/user as mob)
+/obj/machinery/implantchair/attack_hand(mob/user )
 	user.set_machine(src)
 	var/health_text = ""
 	if(src.occupant)
@@ -74,7 +74,7 @@
 		return
 
 
-/obj/machinery/implantchair/attackby(var/obj/item/weapon/G , var/mob/user as mob)
+/obj/machinery/implantchair/attackby(var/obj/item/weapon/G , var/mob/user )
 	if(istype(G, /obj/item/weapon/grab))
 		if(!ismob(G:affecting))
 			return
@@ -106,7 +106,7 @@
 	return
 
 
-/obj/machinery/implantchair/put_mob(mob/living/carbon/M as mob)
+/obj/machinery/implantchair/put_mob(mob/living/carbon/M )
 	if(!iscarbon(M))
 		to_chat(usr, "<span class='danger'>The [src.name] cannot hold this!</span>")
 		return

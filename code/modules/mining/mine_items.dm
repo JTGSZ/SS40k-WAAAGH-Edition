@@ -122,7 +122,7 @@ proc/move_mining_shuttle()
 	machine_flags = EMAGGABLE | SCREWTOGGLE
 	light_color = LIGHT_COLOR_CYAN
 
-/obj/machinery/computer/mining_shuttle/attack_hand(user as mob)
+/obj/machinery/computer/mining_shuttle/attack_hand(user )
 	if(..(user))
 		return
 	src.add_fingerprint(usr)
@@ -151,7 +151,7 @@ proc/move_mining_shuttle()
 		else
 			to_chat(usr, "<span class='notice'>Shuttle is already moving.</span>")
 
-/obj/machinery/computer/mining_shuttle/emag(mob/user as mob)
+/obj/machinery/computer/mining_shuttle/emag(mob/user )
 	..()
 	src.req_access = list()
 	to_chat(usr, "You disable the console's access requirement.")
@@ -240,7 +240,7 @@ proc/move_mining_shuttle()
 	desc = "Re-purposed mining equipment, built to kill."
 	attack_verb = list("hits", "hammers", "impacts", "attacks")
 
-/obj/item/weapon/pickaxe/jackhammer/combat/afterattack(atom/A , mob/user as mob, proximity)
+/obj/item/weapon/pickaxe/jackhammer/combat/afterattack(atom/A , mob/user , proximity)
 	user.delayNextAttack(25)
 
 /obj/item/weapon/pickaxe/gold
@@ -412,7 +412,7 @@ proc/move_mining_shuttle()
 	throw_range = 5
 	origin_tech = Tc_BLUESPACE + "=2"
 
-/obj/item/device/wormhole_jaunter/attack_self(mob/user as mob)
+/obj/item/device/wormhole_jaunter/attack_self(mob/user )
 	var/turf/device_turf = get_turf(user)
 	if(!device_turf || device_turf.z == CENTCOMM_Z || device_turf.z > map.zLevels.len)
 		to_chat(user, "<span class='notice'>You're having difficulties getting [src] to work.</span>")
@@ -507,7 +507,7 @@ proc/move_mining_shuttle()
 		spawn(20)
 			cooldown = 0
 
-/obj/item/weapon/resonator/attack_self(mob/user as mob)
+/obj/item/weapon/resonator/attack_self(mob/user )
 	CreateResonance(src, user)
 	..()
 
@@ -624,7 +624,7 @@ proc/move_mining_shuttle()
 	meat_type = null
 	mob_property_flags = MOB_ROBOTIC
 
-/mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I , mob/user as mob)
+/mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I , mob/user )
 	if(iswelder(I))
 		var/obj/item/weapon/weldingtool/W = I
 		if(W.welding && !stat)

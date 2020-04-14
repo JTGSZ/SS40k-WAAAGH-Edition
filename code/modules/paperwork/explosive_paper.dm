@@ -7,7 +7,7 @@
 		detonate()
 	..()
 
-/obj/item/weapon/paper/explosive/attackby(obj/item/weapon/P , mob/user as mob)
+/obj/item/weapon/paper/explosive/attackby(obj/item/weapon/P , mob/user )
 	if(istype(P, /obj/item/weapon/pen) || istype(P, /obj/item/toy/crayon))
 		if(!(istype(P, /obj/item/weapon/pen/robopen) && P:mode == 2))
 			detonate()

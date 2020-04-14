@@ -42,7 +42,7 @@
 		if (displayed_holomap)
 			displayed_holomap.update_holomap()
 
-/mob/living/carbon/attack_animal(mob/living/simple_animal/M as mob)//humans and slimes have their own
+/mob/living/carbon/attack_animal(mob/living/simple_animal/M )//humans and slimes have their own
 	M.unarmed_attack_mob(src)
 
 /* Old Station Map Stuff
@@ -91,7 +91,7 @@
 		visible_message("<span class='warning'>Something bursts from \the [src]'s stomach!</span>")
 	. = ..()
 
-/mob/living/carbon/attack_hand(mob/M as mob)
+/mob/living/carbon/attack_hand(mob/M )
 	if(!istype(M, /mob/living/carbon))
 		return
 	if (hasorgans(M))
@@ -359,7 +359,7 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/show_inv(mob/living/carbon/user as mob)
+/mob/living/carbon/show_inv(mob/living/carbon/user )
 	user.set_machine(src)
 	var/dat = ""
 

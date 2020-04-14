@@ -93,7 +93,7 @@
 	_color = "orange"
 	species_fit = list(VOX_SHAPED, INSECT_SHAPED)
 
-/obj/item/clothing/shoes/orange/attack_self(mob/user as mob)
+/obj/item/clothing/shoes/orange/attack_self(mob/user )
 	if (src.chained)
 		src.chained = null
 		src.slowdown = NO_SLOWDOWN

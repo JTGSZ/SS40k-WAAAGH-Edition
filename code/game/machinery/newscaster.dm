@@ -208,11 +208,11 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				playsound(src, 'sound/effects/Glasshit.ogg', 100, 1)
 			update_icon()
 
-/obj/machinery/newscaster/attack_ai(mob/user as mob)
+/obj/machinery/newscaster/attack_ai(mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/newscaster/attack_hand(mob/user as mob)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
+/obj/machinery/newscaster/attack_hand(mob/user )            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
 
 	if(buildstage != 1)
 		return
@@ -880,7 +880,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			updateUsrDialog()
 
 
-/obj/machinery/newscaster/attackby(obj/item/I , mob/user as mob)
+/obj/machinery/newscaster/attackby(obj/item/I , mob/user )
 	switch(buildstage)
 		if(0)
 			if(iscrowbar(I))
@@ -945,11 +945,11 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					to_chat(user, "<span class='notice'>This does nothing.</span>")
 	update_icon()
 
-/obj/machinery/newscaster/attack_paw(mob/user as mob)
+/obj/machinery/newscaster/attack_paw(mob/user )
 	to_chat(user, "<span class='notice'>The newscaster controls are far too complicated for your tiny brain!</span>")
 	return
 
-/obj/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
+/obj/machinery/newscaster/proc/AttachPhoto(mob/user )
 	if(photo)
 		return EjectPhoto(user)
 
@@ -957,7 +957,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(istype(P) && user.drop_item(P, src))
 		photo = P
 
-/obj/machinery/newscaster/proc/EjectPhoto(mob/user as mob)
+/obj/machinery/newscaster/proc/EjectPhoto(mob/user )
 	if(!photo)
 		return
 	if(istype(photo,/obj/item/weapon/photo))
@@ -968,7 +968,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	else if(istype(photo,/datum/picture))
 		photo = null
 
-/obj/machinery/newscaster/proc/AttachPhotoButton(mob/user as mob)
+/obj/machinery/newscaster/proc/AttachPhotoButton(mob/user )
 	var/name = "Attach Photo"
 	var/href = "set_attachment=1"
 	if(issilicon(user))
@@ -1016,7 +1016,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 
-/obj/item/weapon/newspaper/attack_self(mob/user as mob)
+/obj/item/weapon/newspaper/attack_self(mob/user )
 	if(ishuman(user))
 		var/dat
 		pages = 0
@@ -1129,7 +1129,7 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 			attack_self(loc)
 
 
-obj/item/weapon/newspaper/attackby(obj/item/weapon/W , mob/user as mob)
+obj/item/weapon/newspaper/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/pen))
 		if(scribble_page == curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")

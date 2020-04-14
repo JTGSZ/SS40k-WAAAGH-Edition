@@ -133,7 +133,7 @@ var/list/all_doors = list()
 					O.take_damage(damage) //Brute damage only
 			return
 
-/obj/machinery/door/proc/bump_open(mob/user as mob)
+/obj/machinery/door/proc/bump_open(mob/user )
 	// TODO: analyze this
 	headbutt_check(user, 8, 5, 10)
 
@@ -152,14 +152,14 @@ var/list/all_doors = list()
 	else if(!operating)
 		denied()
 
-/obj/machinery/door/attack_ai(mob/user as mob)
+/obj/machinery/door/attack_ai(mob/user )
 	add_hiddenprint(user)
 	attack_hand(user)
 
-/obj/machinery/door/attack_paw(mob/user as mob)
+/obj/machinery/door/attack_paw(mob/user )
 	attack_hand(user)
 
-/obj/machinery/door/attack_hand(mob/user as mob)
+/obj/machinery/door/attack_hand(mob/user )
 	headbutt_check(user, 8, 5, 10)
 
 	if(isobserver(user)) //Adminghosts don't want to toggle the door open, they want to see the AI interface

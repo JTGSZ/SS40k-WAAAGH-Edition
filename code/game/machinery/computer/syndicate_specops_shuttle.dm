@@ -180,18 +180,18 @@ var/syndicate_elite_shuttle_timeleft = 0
 	else
 		return 1
 
-/obj/machinery/computer/syndicate_elite_shuttle/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/syndicate_elite_shuttle/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/syndicate_elite_shuttle/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/syndicate_elite_shuttle/attack_paw(var/mob/user )
 	return attack_hand(user)
 
-/obj/machinery/computer/syndicate_elite_shuttle/emag(mob/user as mob)
+/obj/machinery/computer/syndicate_elite_shuttle/emag(mob/user )
 	if(user)
 		to_chat(user, "<span class='notice'>The electronic systems in this console are far too advanced for your primitive hacking peripherals.</span>")
 
-/obj/machinery/computer/syndicate_elite_shuttle/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/syndicate_elite_shuttle/attack_hand(var/mob/user )
 	if(!allowed(user))
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
 		return

@@ -111,7 +111,7 @@ var/list/holomap_cache = list()
 		var/mob/user = C.loc
 		A.Grant(user)
 
-/obj/item/clothing/accessory/holomap_chip/on_removed(mob/user as mob)
+/obj/item/clothing/accessory/holomap_chip/on_removed(mob/user )
 	deactivate_holomap()
 	for(var/datum/action/A in attached_to.actions)
 		if(istype(A, /datum/action/item_action/toggle_minimap))

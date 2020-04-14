@@ -16,7 +16,7 @@
 	nest_locations -= src
 	..()
 
-/obj/structure/bed/nest/manual_unbuckle(mob/user as mob)
+/obj/structure/bed/nest/manual_unbuckle(mob/user )
 	if(istype(user, /mob/living/silicon/pai)) //added istype(user, /mob/living/silicon/pai) cause it was in buckle_mob, dunno why tho
 		return
 
@@ -43,7 +43,7 @@
 					overlays.len = 0
 		src.add_fingerprint(user)
 
-/obj/structure/bed/nest/buckle_mob(mob/M as mob, mob/user as mob)
+/obj/structure/bed/nest/buckle_mob(mob/M , mob/user )
 	if (is_locking(/datum/locking_category/buckle/bed/nest) || !ismob(M) || (get_dist(src, user) > 1) || (M.loc != src.loc) || user.restrained() || user.stat || M.locked_to || istype(user, /mob/living/silicon/pai) )
 		return
 
@@ -71,7 +71,7 @@
 	overlays += nest_covering
 	stabilize()
 
-/obj/structure/bed/nest/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/bed/nest/attackby(obj/item/weapon/W , mob/user )
 	var/aforce = W.force
 	health = max(0, health - aforce)
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)

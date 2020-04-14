@@ -48,7 +48,7 @@
 
 	name = "[name] (ID [id])"
 
-/obj/machinery/portable_atmospherics/scrubber/huge/attack_hand(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/scrubber/huge/attack_hand(var/mob/user )
 	to_chat(usr, "<span class='notice'>You can't directly interact with this machine. Use the area atmos computer.</span>")
 
 /obj/machinery/portable_atmospherics/scrubber/huge/update_icon()
@@ -59,7 +59,7 @@
 	else
 		icon_state = "scrubber:0"
 
-/obj/machinery/portable_atmospherics/scrubber/huge/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/machinery/portable_atmospherics/scrubber/huge/attackby(var/obj/item/weapon/W , var/mob/user )
 	if(W.is_wrench(user))
 		if(on)
 			to_chat(user, "<span class='notice'>Turn it off first!</span>")
@@ -76,7 +76,7 @@
 /obj/machinery/portable_atmospherics/scrubber/huge/stationary
 	name = "Stationary Air Scrubber"
 
-	attackby(var/obj/item/weapon/W , var/mob/user as mob)
+	attackby(var/obj/item/weapon/W , var/mob/user )
 		if(W.is_wrench(user))
 			to_chat(user, "<span class='notice'>The bolts are too tight for you to unscrew!</span>")
 			return
@@ -165,14 +165,14 @@
 /obj/machinery/portable_atmospherics/scrubber/return_air()
 	return air_contents
 
-/obj/machinery/portable_atmospherics/scrubber/attack_ai(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/scrubber/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/scrubber/attack_paw(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/scrubber/attack_paw(var/mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/scrubber/attack_hand(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/scrubber/attack_hand(var/mob/user )
 	ui_interact(user)
 	return
 

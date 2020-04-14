@@ -20,7 +20,7 @@
 	flag = NO_BREATHE
 	canPossess = TRUE
 
-/mob/living/carbon/monkey/diona/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/carbon/monkey/diona/attack_hand(mob/living/carbon/human/M )
 
 	//Let people pick the little buggers up.
 	if((M.a_intent == I_HELP) && !(locked_to) && (isturf(src.loc)) && (M.get_active_hand() == null)) //Unless their location isn't a turf!

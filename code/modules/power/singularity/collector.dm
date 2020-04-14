@@ -38,7 +38,7 @@ var/global/list/rad_collectors = list()
 		else
 			P.air_contents.adjust_gas(GAS_PLASMA, -0.001 * drain_ratio)
 
-/obj/machinery/power/rad_collector/attack_hand(mob/user as mob)
+/obj/machinery/power/rad_collector/attack_hand(mob/user )
 	if(anchored)
 		if(!src.locked)
 			toggle_power()

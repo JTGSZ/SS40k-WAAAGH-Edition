@@ -53,7 +53,7 @@
 	else if (!flashbulb)
 		to_chat(user, "<span class='info'>\The [src] appears to be missing a flashbulb.</span>")
 
-/obj/item/device/blinder/attack_self(mob/user as mob)
+/obj/item/device/blinder/attack_self(mob/user )
 	if(!flashbulb || flashbulb.status >= LIGHT_BROKEN || !cell)
 		if (user)
 			user.visible_message("*click click*", "<span class='danger'>*click*</span>")

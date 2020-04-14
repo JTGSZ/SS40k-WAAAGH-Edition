@@ -388,14 +388,14 @@ Auto Patrol: []"},
 	O.New(O.loc)
 	qdel(src)
 
-/obj/machinery/bot/secbot/attack_alien(var/mob/living/carbon/alien/user as mob)
+/obj/machinery/bot/secbot/attack_alien(var/mob/living/carbon/alien/user )
 	..()
 	if(!isalien(target))
 		set_target(user)
 
 //Secbot Construction
 
-/obj/item/clothing/head/helmet/tactical/sec/attackby(var/obj/item/device/assembly/signaler/S, mob/user as mob)
+/obj/item/clothing/head/helmet/tactical/sec/attackby(var/obj/item/device/assembly/signaler/S, mob/user )
 	..()
 	if(!issignaler(S))
 		..()
@@ -411,7 +411,7 @@ Auto Patrol: []"},
 	else
 		return
 
-/obj/item/weapon/secbot_assembly/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/secbot_assembly/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if((iswelder(W)) && (!src.build_step))
 		var/obj/item/weapon/weldingtool/WT = W
@@ -667,7 +667,7 @@ Auto Patrol: []"},
 		user.drop_from_inventory(src)
 		qdel(src)
 
-/obj/item/weapon/secbot_assembly/britsky/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/secbot_assembly/britsky/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if((iswelder(W)) && (!src.build_step))
 		var/obj/item/weapon/weldingtool/WT = W

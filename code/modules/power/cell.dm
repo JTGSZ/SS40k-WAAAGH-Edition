@@ -67,7 +67,7 @@
 		to_chat(user, "Based on its starchiness, it probably has a maximum potential of [maxcharge].")
 		to_chat(user, "<span class='info'>The impromptu power gauge is [crit_fail ? "charred" : "at [round(percent())]%"].</span>")
 
-/obj/item/weapon/cell/attack_self(mob/user as mob)
+/obj/item/weapon/cell/attack_self(mob/user )
 	src.add_fingerprint(user)
 
 /obj/item/weapon/cell/attackby(obj/item/W, mob/user)

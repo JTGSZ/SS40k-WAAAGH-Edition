@@ -7,7 +7,7 @@
 	used_atom = null
 	return 1
 
-/datum/construction/mecha_chassis/action(atom/used_atom,mob/user as mob)
+/datum/construction/mecha_chassis/action(atom/used_atom,mob/user )
 	return check_all_steps(used_atom,user)
 
 
@@ -20,7 +20,7 @@
 					 list(Co_KEY=/obj/item/mecha_parts/part/ripley_right_leg)//5
 					)
 
-/datum/construction/mecha_chassis/ripley/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/ripley/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/ripley(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -41,7 +41,7 @@
 					 list(Co_KEY=/obj/item/clothing/suit/fire)//6
 					)
 
-/datum/construction/mecha_chassis/firefighter/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/firefighter/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/firefighter(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -61,7 +61,7 @@
 					 list(Co_KEY=/obj/item/mecha_parts/part/gygax_head)
 					)
 
-/datum/construction/mecha_chassis/gygax/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/gygax/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/combat/gygax(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -82,7 +82,7 @@
 				 list(Co_KEY=/obj/item/mecha_parts/part/durand_head)
 				)
 
-/datum/construction/mecha_chassis/durand/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/durand/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/combat/durand(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -104,7 +104,7 @@
 				 list(Co_KEY=/obj/item/mecha_parts/part/marauder_head)
 				)
 
-/datum/construction/mecha_chassis/marauder/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/marauder/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/combat/marauder(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -125,7 +125,7 @@
 					 list(Co_KEY=/obj/item/mecha_parts/part/odysseus_right_leg)//6
 					)
 
-/datum/construction/mecha_chassis/odysseus/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/odysseus/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/odysseus(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -147,7 +147,7 @@
 					 list(Co_KEY=/obj/item/mecha_parts/part/phazon_head)
 					)
 
-/datum/construction/mecha_chassis/phazon/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/phazon/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/phazon(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -168,7 +168,7 @@
 					 list(Co_KEY=/obj/item/mecha_parts/part/honker_head)
 					)
 
-/datum/construction/mecha_chassis/honker/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/honker/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/honker(const_holder)
 	const_holder.setDensity(TRUE)
@@ -186,7 +186,7 @@
 					 list(Co_KEY=/obj/item/mecha_parts/part/clarke_right_tread)//6
 					)
 
-/datum/construction/mecha_chassis/clarke/spawn_result(mob/user as mob)
+/datum/construction/mecha_chassis/clarke/spawn_result(mob/user )
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/clarke(const_holder)
 	const_holder.icon = 'icons/mecha/mech_construction.dmi'

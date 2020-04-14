@@ -28,7 +28,7 @@
 	var/obj/item/ammo_casing/current_shell = null
 	gun_flags = 0
 
-/obj/item/weapon/gun/projectile/shotgun/pump/attack_self(mob/living/user as mob)
+/obj/item/weapon/gun/projectile/shotgun/pump/attack_self(mob/living/user )
 	if(recentpump)
 		return
 	pump(user)
@@ -48,7 +48,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
+/obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M )
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 	pumped = 0
 	if(current_shell)//We have a shell in the chamber
@@ -101,7 +101,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attack_self(mob/living/user as mob)
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attack_self(mob/living/user )
 	if(!(locate(/obj/item/ammo_casing/shotgun) in src) && !getAmmo())
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		return
@@ -120,7 +120,7 @@
 	to_chat(user, "<span class='notice'>You break \the [src].</span>")
 	update_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A , mob/user as mob)
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A , mob/user )
 	..()
 	A.update_icon()
 	update_icon()

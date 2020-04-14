@@ -26,7 +26,7 @@
 			to_chat(user, "[bicon(G)] [G.name]")
 
 
-/obj/item/weapon/gun/grenadelauncher/attackby(obj/item/I , mob/user as mob)
+/obj/item/weapon/gun/grenadelauncher/attackby(obj/item/I , mob/user )
 
 	if((istype(I, /obj/item/weapon/grenade)))
 		if(grenades.len < max_grenades)

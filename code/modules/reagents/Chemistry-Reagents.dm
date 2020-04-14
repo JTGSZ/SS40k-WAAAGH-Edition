@@ -6974,7 +6974,7 @@ var/global/list/tonio_doesnt_remove=list("tonio", "blood")
 	density = 1.01
 	specheatcap = 3.88
 
-/datum/reagent/antidepressant/citalopram/on_mob_life(var/mob/living/M as mob)
+/datum/reagent/antidepressant/citalopram/on_mob_life(var/mob/living/M )
 	if(..())
 		return 1
 	if(volume <= 0.1)
@@ -6997,7 +6997,7 @@ var/global/list/tonio_doesnt_remove=list("tonio", "blood")
 	density = 1.19
 	specheatcap = 3.99
 
-/datum/reagent/antidepressant/paroxetine/on_mob_life(var/mob/living/M as mob)
+/datum/reagent/antidepressant/paroxetine/on_mob_life(var/mob/living/M )
 	if(..())
 		return 1
 	if(volume <= 0.1)

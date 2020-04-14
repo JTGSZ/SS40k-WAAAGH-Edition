@@ -17,7 +17,7 @@
 /obj/item/device/assembly/speaker/activate()
 	src.say(message)
 
-/obj/item/device/assembly/speaker/attack_self(mob/user as mob)
+/obj/item/device/assembly/speaker/attack_self(mob/user )
 	var/new_msg = sanitize(input(user,"Enter new message for the [src]","NanoSpeaker Settings",message))
 	if(!Adjacent(user) || user.incapacitated())
 		return
@@ -29,7 +29,7 @@
 		language = all_languages["Spooky"]
 	src.say("New message: [message]", language)
 
-/obj/item/device/assembly/speaker/attackby(obj/item/W , mob/user as mob)
+/obj/item/device/assembly/speaker/attackby(obj/item/W , mob/user )
 	..()
 	if(istype(W,/obj/item/weapon/pen)) //pen
 		var/new_name = sanitize(input(user,"Enter new name for the [src]","NanoSpeaker Settings",name))

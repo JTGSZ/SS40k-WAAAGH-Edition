@@ -84,7 +84,7 @@
 			if(prob(10))
 				say("Nom")
 
-/mob/living/simple_animal/hostile/retaliate/goat/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/hostile/retaliate/goat/attackby(var/obj/item/O , var/mob/user )
 	if(stat == CONSCIOUS)
 		if(istype(O, /obj/item/weapon/reagent_containers/glass))
 			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
@@ -139,7 +139,7 @@
 	udder.my_atom = src
 	..()
 
-/mob/living/simple_animal/cow/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/cow/attackby(var/obj/item/O , var/mob/user )
 	if(stat == CONSCIOUS && istype(O, /obj/item/weapon/reagent_containers/glass))
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/obj/item/weapon/reagent_containers/glass/G = O
@@ -159,7 +159,7 @@
 		if(udder && prob(5))
 			udder.add_reagent(MILK, rand(5, 10))
 
-/mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
+/mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M )
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
 		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
 		Knockdown(30)
@@ -256,7 +256,7 @@
 	pixel_x = rand(-6, 6) * PIXEL_MULTIPLIER
 	pixel_y = rand(0, 10) * PIXEL_MULTIPLIER
 
-/mob/living/simple_animal/chicken/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/chicken/attackby(var/obj/item/O , var/mob/user )
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/wheat)) //feedin' dem chickens
 		if(!stat && eggsleft < 8)
 			if(!user.drop_item(O))
@@ -373,7 +373,7 @@
 	..(gibbed)
 	playsound(src, 'sound/effects/box_scream.ogg', 100, 1)
 
-/mob/living/simple_animal/hostile/retaliate/box/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/hostile/retaliate/box/attackby(var/obj/item/O , var/mob/user )
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/chickenshroom)) //Pigs like mushrooms
 		if(!stat && size < SIZE_BIG)
 			if(!user.drop_item(O))

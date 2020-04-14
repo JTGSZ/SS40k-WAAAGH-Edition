@@ -33,7 +33,7 @@
 	to_chat(viewers(user), "<span class='danger'>[user] is impaling \himself with the [src.name]! It looks like \he's trying to commit suicide.</span>")
 	return(SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/sord/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/sord/attack(mob/living/carbon/M , mob/living/carbon/user )
 	playsound(src, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 	user.adjustBruteLoss(0.5)
 	return ..()
@@ -139,7 +139,7 @@ obj/item/weapon/wirerod
 	attack_verb = list("hits", "bludgeons", "whacks", "bonks")
 
 
-obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
+obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user )
 	..()
 	if(istype(I, /obj/item/weapon/shard))
 		user.visible_message("<span class='notice'>[user] starts securing \the [I] to the top of \the [src].</span>",\

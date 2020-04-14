@@ -105,7 +105,7 @@
 //END HUGGER MOVEMENT AI
 
 
-/obj/item/clothing/mask/facehugger/attack_paw(user as mob) //can be picked up by aliens
+/obj/item/clothing/mask/facehugger/attack_paw(user ) //can be picked up by aliens
 	if(isalien(user))
 		attack_hand(user)
 		return
@@ -113,7 +113,7 @@
 		..()
 		return
 
-/obj/item/clothing/mask/facehugger/attack_hand(user as mob)
+/obj/item/clothing/mask/facehugger/attack_hand(user )
 	if((stat == CONSCIOUS && !sterile) && !isalien(user))
 		Attach(user)
 		return
@@ -144,7 +144,7 @@
 		icon_state = "[initial(icon_state)]_dead"
 		death()
 
-/obj/item/clothing/mask/facehugger/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/clothing/mask/facehugger/attack(mob/living/M , mob/user )
 	..()
 	user.drop_from_inventory(src)
 	Attach(M)
@@ -193,7 +193,7 @@
 	HasProximity(target)
 	return
 
-/obj/item/clothing/mask/facehugger/on_found(wearer, mob/finder as mob)
+/obj/item/clothing/mask/facehugger/on_found(wearer, mob/finder )
 	if(stat == CONSCIOUS)
 		return HasProximity(finder)
 	return FALSE
@@ -335,7 +335,7 @@
 
 	return FALSE
 
-/obj/item/clothing/mask/facehugger/proc/Impregnate(mob/living/target as mob)
+/obj/item/clothing/mask/facehugger/proc/Impregnate(mob/living/target )
 	if(!target || target.wear_mask != src || target.stat == DEAD) //was taken off or something
 		return
 

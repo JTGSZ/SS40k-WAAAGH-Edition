@@ -210,7 +210,7 @@
 		daemon.examine(user)
 
 
-/obj/item/attack_ai(mob/user as mob)
+/obj/item/attack_ai(mob/user )
 	..()
 	if(isMoMMI(user))
 		var/in_range = in_range(src, user) || loc == user
@@ -262,7 +262,7 @@
 /obj/item/requires_dexterity(mob/user)
 	return TRUE
 
-/obj/item/attack_paw(mob/user as mob)
+/obj/item/attack_paw(mob/user )
 	if (istype(loc, /obj/item/weapon/storage))
 		for(var/mob/M in range(1, loc))
 			if (M.s_active == loc)
@@ -287,16 +287,16 @@
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/attackby(obj/item/weapon/W , mob/user )
 	return ..()
 
 /obj/item/proc/talk_into(var/datum/speech/speech, var/channel=null)
 	return
 
-/obj/item/proc/moved(mob/user as mob, old_loc )
+/obj/item/proc/moved(mob/user , old_loc )
 	return
 
-/obj/item/proc/dropped(mob/user as mob)
+/obj/item/proc/dropped(mob/user )
 	reset_plane_and_layer()
 	if(wielded)
 		unwield(user)
@@ -305,12 +305,12 @@
 		A.Remove(user)
 
 ///called when an item is stripped off by another person, called BEFORE it is dropped. return 1 to prevent it from actually being stripped.
-/obj/item/proc/before_stripped(mob/wearer as mob, mob/stripper as mob, slot)
+/obj/item/proc/before_stripped(mob/wearer , mob/stripper , slot)
 	if(slot in list(slot_l_store, slot_r_store)) //is in pockets
 		on_found(wearer, stripper)
 
 ///called when an item is stripped off by another person, called AFTER it is on the ground
-/obj/item/proc/stripped(mob/wearer as mob, mob/stripper as mob, slot)
+/obj/item/proc/stripped(mob/wearer , mob/stripper , slot)
 	return unequipped(wearer)
 
 // called just as an item is picked up (loc is not yet changed). return 1 to prevent the item from being actually picked up.
@@ -929,7 +929,7 @@
 
 	return FALSE
 
-/obj/item/proc/eyestab(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/proc/eyestab(mob/living/carbon/M , mob/living/carbon/user )
 
 
 	var/mob/living/carbon/human/H = M

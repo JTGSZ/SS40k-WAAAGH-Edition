@@ -105,7 +105,7 @@
 	soot_type = null
 	melt_temperature = 0 // Doesn't melt.
 
-/turf/simulated/floor/engine/attackby(obj/item/weapon/C , mob/user as mob)
+/turf/simulated/floor/engine/attackby(obj/item/weapon/C , mob/user )
 	if(!C)
 		return
 	if(!user)
@@ -143,7 +143,7 @@
 	name = "engraved floor"
 	icon_state = "cult"
 
-/turf/simulated/floor/engine/cult/attack_construct(mob/user as mob)
+/turf/simulated/floor/engine/cult/attack_construct(mob/user )
 	return 0
 
 /turf/simulated/floor/engine/cult/cultify()

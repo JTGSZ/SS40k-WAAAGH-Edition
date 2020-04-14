@@ -159,7 +159,7 @@
 
 	return
 
-/obj/structure/closet/statue/attack_animal(mob/living/simple_animal/user as mob)
+/obj/structure/closet/statue/attack_animal(mob/living/simple_animal/user )
 	if(user.environment_smash_flags & SMASH_CONTAINERS)
 		for(var/mob/M in src)
 			shatter(M)
@@ -168,7 +168,7 @@
 	for(var/mob/M in src)
 		shatter(M)
 
-/obj/structure/closet/statue/attackby(obj/item/I , mob/user as mob)
+/obj/structure/closet/statue/attackby(obj/item/I , mob/user )
 	health -= I.force
 	visible_message("<span class='warning'>[user] strikes [src] with [I].</span>")
 	user.delayNextAttack(10)
@@ -194,7 +194,7 @@
 /obj/structure/closet/statue/update_icon()
 	return
 
-/obj/structure/closet/statue/proc/shatter(mob/user as mob)
+/obj/structure/closet/statue/proc/shatter(mob/user )
 	if (user)
 		user.gib()
 	dump_contents()

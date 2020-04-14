@@ -682,7 +682,7 @@ obj/structure/bomberflame/Destroy()
 	..()
 	bombermangear -= src
 
-/obj/item/clothing/suit/space/bomberman/dropped(mob/user as mob)
+/obj/item/clothing/suit/space/bomberman/dropped(mob/user )
 	..()
 	never_removed = 0
 
@@ -713,7 +713,7 @@ obj/structure/bomberflame/Destroy()
 	..()
 	bombermangear -= src
 
-/obj/item/clothing/head/helmet/space/bomberman/dropped(mob/user as mob)
+/obj/item/clothing/head/helmet/space/bomberman/dropped(mob/user )
 	..()
 	never_removed = 0
 

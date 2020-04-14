@@ -47,11 +47,11 @@
 	else
 		verbs -= /obj/item/weapon/blunderbuss/verb/empty_fuel
 
-/obj/item/weapon/blunderbuss/pickup(mob/user as mob)
+/obj/item/weapon/blunderbuss/pickup(mob/user )
 	..()
 	update_verbs()
 
-/obj/item/weapon/blunderbuss/dropped(mob/user as mob)
+/obj/item/weapon/blunderbuss/dropped(mob/user )
 	..()
 	update_verbs()
 
@@ -92,7 +92,7 @@
 		to_chat(usr, "You pour the fuel out of \the [src].")
 	update_verbs()
 
-/obj/item/weapon/blunderbuss/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/blunderbuss/attackby(obj/item/W , mob/user )
 	var/item_prohibited = 0
 	for(var/i=1, i<=prohibited_items.len, i++)
 		if(istype(W,prohibited_items[i]))
@@ -126,7 +126,7 @@
 	else
 		. = ..()
 
-/obj/item/weapon/blunderbuss/proc/transfer_fuel(obj/item/weapon/reagent_containers/S, mob/user as mob)
+/obj/item/weapon/blunderbuss/proc/transfer_fuel(obj/item/weapon/reagent_containers/S, mob/user )
 	if(!S.is_open_container())
 		return
 	if(!istype(S))
@@ -196,7 +196,7 @@
 	else
 		Fire(target,user,params)
 
-/obj/item/weapon/blunderbuss/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/weapon/blunderbuss/attack(mob/living/M , mob/living/user , def_zone)
 	dont_shoot = 1
 	if (loaded_item)
 		if(user.a_intent == I_HURT)

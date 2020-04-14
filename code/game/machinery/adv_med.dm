@@ -53,7 +53,7 @@
 	else
 		set_light(0)
 
-/obj/machinery/bodyscanner/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/machinery/bodyscanner/MouseDropTo(atom/movable/O , mob/user )
 	if(!ismob(O)) //humans only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -135,7 +135,7 @@
 		visible_message("[usr] removes [occupant.name] from \the [src].")
 	go_out(over_location, ejector = usr)
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/user )
 	if(user.stat)
 		return
 	go_out(ejector = user)
@@ -202,7 +202,7 @@
 		return FALSE
 	return ..()
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/W , user as mob)
+/obj/machinery/bodyscanner/attackby(obj/item/weapon/W , user )
 	if(!istype(W, /obj/item/weapon/grab))
 		return ..()
 	var/obj/item/weapon/grab/G = W

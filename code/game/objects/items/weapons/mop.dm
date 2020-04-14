@@ -29,12 +29,12 @@
 	A.clean_blood()
 	playsound(src, get_sfx("mop"), 25, 1)
 
-/obj/effect/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/effect/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/mop))
 		return
 	..()
 
-/obj/item/weapon/mop/afterattack(atom/A, mob/user as mob)
+/obj/item/weapon/mop/afterattack(atom/A, mob/user )
 	if(!user.Adjacent(A))
 		return
 	if(A.mop_act(src, user))

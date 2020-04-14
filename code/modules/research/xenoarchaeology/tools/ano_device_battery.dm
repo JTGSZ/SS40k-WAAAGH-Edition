@@ -32,7 +32,7 @@
 	. = ..()
 	processing_objects.Add(src)
 
-/obj/item/weapon/anodevice/attackby(var/obj/I , var/mob/user as mob)
+/obj/item/weapon/anodevice/attackby(var/obj/I , var/mob/user )
 	if(istype(I, /obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			if(user.drop_item(I, src))
@@ -42,7 +42,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/anodevice/attack_self(var/mob/user as mob)
+/obj/item/weapon/anodevice/attack_self(var/mob/user )
 	if(in_range(src, user))
 		return src.interact(user)
 

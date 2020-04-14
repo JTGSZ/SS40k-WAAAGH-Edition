@@ -49,7 +49,7 @@
 			return
 	return
 
-/obj/machinery/ai_slipper/attack_ai(mob/user as mob)
+/obj/machinery/ai_slipper/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	if(stat & (NOPOWER|BROKEN))
 		return

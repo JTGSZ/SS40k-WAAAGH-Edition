@@ -184,7 +184,7 @@ var/list/camera_names=list()
 	src.view_range = num
 	cameranet.updateVisibility(src, 0)
 
-/obj/machinery/camera/attack_paw(mob/living/carbon/alien/humanoid/user as mob)
+/obj/machinery/camera/attack_paw(mob/living/carbon/alien/humanoid/user )
 	if(!istype(user))
 		return
 	if(!status)
@@ -349,10 +349,10 @@ var/list/camera_messages = list()
 		var/list/pictureinfo = camera_messages[message_id]
 		usr << browse("<HTML><HEAD><TITLE>[pictureinfo["title"]]</TITLE></HEAD><BODY><TT>[pictureinfo["text"]]</TT></BODY></HTML>", "window=[message_id]")
 
-/obj/machinery/camera/attack_pai(mob/user as mob)
+/obj/machinery/camera/attack_pai(mob/user )
 	wirejack(user)
 
-/obj/machinery/camera/proc/deactivate(user as mob, var/choice = 1)
+/obj/machinery/camera/proc/deactivate(user , var/choice = 1)
 	vision_flags = SEE_SELF
 	if(assembly)
 		update_upgrades()
@@ -511,14 +511,14 @@ var/list/camera_messages = list()
 	upgradeXRay()
 	upgradeHearing()
 
-/obj/machinery/camera/arena/attackby(obj/item/W , mob/living/user as mob)
+/obj/machinery/camera/arena/attackby(obj/item/W , mob/living/user )
 	if(W.is_screwdriver(user))
 		to_chat(user, "<span class='warning'>There aren't any visible screws to unscrew.</span>")
 	else
 		user.visible_message("<span class='warning'>\The [user] hits \the [src] with \the [W] but it doesn't seem to affect it in the least.</span>","<span class='warning'>You hit \the [src] with \the [W] but it doesn't seem to affect it in the least</span>")
 	return
 
-/obj/machinery/camera/arena/attack_paw(mob/living/carbon/alien/humanoid/user as mob)
+/obj/machinery/camera/arena/attack_paw(mob/living/carbon/alien/humanoid/user )
 	user.visible_message("<span class='warning'>\The [user] slashes at \the [src], but that didn't affect it at all.</span>","<span class='warning'>You slash at \the [src], but that didn't affect it at all.</span>")
 	return
 
@@ -540,7 +540,7 @@ var/list/camera_messages = list()
 /obj/structure/planner/arena/cultify()
 	return
 
-/obj/machinery/camera/arena/attack_pai(mob/user as mob)
+/obj/machinery/camera/arena/attack_pai(mob/user )
 	return
 
 /obj/machinery/camera/arena/bullet_act(var/obj/item/projectile/Proj)

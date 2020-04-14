@@ -134,7 +134,7 @@
 	else
 		nuke_code = "Code will be provided later, complain to Syndicate Command"
 
-/datum/faction/syndicate/nuke_op/proc/nuke_last_name(var/mob/M as mob)
+/datum/faction/syndicate/nuke_op/proc/nuke_last_name(var/mob/M )
 
 	var/newname = copytext(sanitize(input(M, "Pick a static last name for all the members of your team. Leave blank to preserve everyone's unique last names", "Family Name", "")), 1, MAX_NAME_LEN)
 

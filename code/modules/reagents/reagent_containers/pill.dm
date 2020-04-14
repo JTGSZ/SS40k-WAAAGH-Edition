@@ -18,10 +18,10 @@
 	if(!icon_state)
 		icon_state = "pill[rand(1,20)]"
 
-/obj/item/weapon/reagent_containers/pill/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/pill/attack_self(mob/user )
 	return attack(user, user) //Dealt with in attack code
 
-/obj/item/weapon/reagent_containers/pill/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/pill/attack(mob/M , mob/user , def_zone)
 	return try_feed(M, user)
 
 // Handles pill dissolving in containers
@@ -79,7 +79,7 @@
 	try_feed(user, user)
 
 //OOP, HO!
-/obj/item/weapon/reagent_containers/pill/proc/ingest(mob/M as mob)
+/obj/item/weapon/reagent_containers/pill/proc/ingest(mob/M )
 	if(!reagents)
 		return
 	if(!M)
@@ -286,7 +286,7 @@
 	icon_state = "pill7" //grey oblong
 	flags = FPRINT | NOREACT
 
-/obj/item/weapon/reagent_containers/pill/time_release/ingest(mob/M as mob)
+/obj/item/weapon/reagent_containers/pill/time_release/ingest(mob/M )
 	if(!reagents)
 		return
 	if(!M)

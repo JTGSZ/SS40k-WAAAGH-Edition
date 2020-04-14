@@ -25,7 +25,7 @@
 	var/amount = 3 // spawns each items X times.
 	icon_state = "emerg"
 
-/obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user as mob)
+/obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user )
 	if (istype(user, /mob/living/silicon/ai))	//Added by Strumpetplaya - AI shouldn't be able to
 		return									//activate emergency lockers.  This fixes that.  (Does this make sense, the AI can't call attack_hand, can it? --Mloc)
 	if(!amount)
@@ -70,7 +70,7 @@
 /obj/structure/closet/walllocker/defiblocker/take_contents() //we don't want these to hoover up items below them
 	return
 
-/obj/structure/closet/walllocker/defiblocker/attack_hand(mob/user as mob)
+/obj/structure/closet/walllocker/defiblocker/attack_hand(mob/user )
 	if(istype(user, /mob/living/silicon/ai))
 		return
 	if(istype(user, /mob/living/silicon/robot))
@@ -93,7 +93,7 @@
 		update_icon()
 	return
 
-/obj/structure/closet/walllocker/defiblocker/attackby(obj/item/weapon/G , mob/user as mob)
+/obj/structure/closet/walllocker/defiblocker/attackby(obj/item/weapon/G , mob/user )
 	if(istype(G, /obj/item/weapon/melee/defibrillator))
 		if(defib)
 			to_chat(usr, "<spawn class='notice'>The locker is full.")

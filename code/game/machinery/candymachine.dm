@@ -13,7 +13,7 @@
 	emagged = 0
 	use_power = 0
 
-/obj/machinery/sweet/attackby(var/obj/O , var/mob/user as mob)
+/obj/machinery/sweet/attackby(var/obj/O , var/mob/user )
 	if (stat & (NOPOWER|BROKEN))
 		return ..()
 	if (is_type_in_list(O, list(/obj/item/weapon/coin/, /obj/item/weapon/reagent_containers/food/snacks/chococoin)))

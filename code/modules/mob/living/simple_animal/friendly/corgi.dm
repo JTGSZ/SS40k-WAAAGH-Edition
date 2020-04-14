@@ -156,7 +156,7 @@
 			else
 				healths.icon_state = "health7"
 
-/mob/living/simple_animal/corgi/show_inv(mob/user as mob)
+/mob/living/simple_animal/corgi/show_inv(mob/user )
 	user.set_machine(src)
 	if(user.stat)
 		return
@@ -175,7 +175,7 @@
 	onclose(user, "mob[real_name]")
 	return
 
-/mob/living/simple_animal/corgi/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/corgi/attackby(var/obj/item/O , var/mob/user )
 	if(istype(O, /obj/item/weapon/newspaper))
 		if(!stat)
 			user.visible_message("<span class='notice'>[user] baps [name] on the nose with the rolled up [O]</span>")

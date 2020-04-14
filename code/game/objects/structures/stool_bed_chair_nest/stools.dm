@@ -51,7 +51,7 @@
 	I.dir = dir
 	. = ..()
 
-/obj/item/weapon/stool/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/stool/attack(mob/M , mob/user )
 	if(prob(5) && istype(M, /mob/living) && sheet_type)
 		user.visible_message("<span class='warning'>[user] breaks \the [src] over [M]'s back!.</span>")
 		user.u_equip(src, 0)

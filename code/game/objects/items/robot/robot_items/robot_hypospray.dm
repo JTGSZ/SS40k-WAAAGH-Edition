@@ -57,7 +57,7 @@
 	return 1
 
 
-/obj/item/weapon/reagent_containers/borghypo/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/reagent_containers/borghypo/attack(mob/M , mob/user )
 	var/datum/reagents/reagents = reagent_list[mode]
 
 	if(!reagents.total_volume)
@@ -82,7 +82,7 @@
 		to_chat(user, "<span class='notice'>[transferred] units injected. [reagents.total_volume] units remaining.</span>")
 		add_logs(user, M, "injected [transferred]u [reagent_ids[mode]] with \the [src]", admin = (user.ckey && M.ckey)) //We don't care about monkeymen, right?
 
-/obj/item/weapon/reagent_containers/borghypo/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/borghypo/attack_self(mob/user )
 	playsound(src, 'sound/effects/pop.ogg', 50, 0) // change the mode
 
 	if(++mode > reagent_list.len)

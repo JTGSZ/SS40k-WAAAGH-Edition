@@ -18,7 +18,7 @@
 
 	manual_unbuckle(user)
 
-/obj/effect/plantsegment/attack_paw(mob/user as mob)
+/obj/effect/plantsegment/attack_paw(mob/user )
 	manual_unbuckle(user)
 
 /obj/effect/plantsegment/proc/harvest(var/mob/user)
@@ -103,7 +103,7 @@
 			victim.vessel.remove_reagent(BLOOD, drawing)
 			last_special = world.time
 
-/obj/effect/plantsegment/proc/manual_unbuckle(mob/user as mob)
+/obj/effect/plantsegment/proc/manual_unbuckle(mob/user )
 	var/list/atom/movable/locked = get_locked(/datum/locking_category/plantsegment)
 	if(locked && locked.len)
 		var/mob/M = locked[1]

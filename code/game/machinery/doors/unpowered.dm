@@ -10,7 +10,7 @@
 	..(AM)
 	return
 
-/obj/machinery/door/unpowered/attackby(obj/item/I , mob/user as mob)
+/obj/machinery/door/unpowered/attackby(obj/item/I , mob/user )
 	// TODO: is energy blade only attack circuity like emag?
 	if (istype(I, /obj/item/weapon/card/emag))
 		return
@@ -21,7 +21,7 @@
 	..()
 	return
 
-/obj/machinery/door/unpowered/attack_hand(mob/user as mob)
+/obj/machinery/door/unpowered/attack_hand(mob/user )
 	if(istype(user,/mob/dead/observer))
 		return
 

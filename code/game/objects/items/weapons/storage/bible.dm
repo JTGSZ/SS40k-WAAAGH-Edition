@@ -54,7 +54,7 @@
 	new /obj/item/ammo_storage/magazine/mc9mm(src)
 
 //What happens when you slap things with the Bible in general
-/obj/item/weapon/storage/bible/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/weapon/storage/bible/attack(mob/living/M , mob/living/user )
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
@@ -164,12 +164,12 @@
 			A.reagents.del_reagent(WATER)
 			A.reagents.add_reagent(HOLYWATER, water2holy)
 
-/obj/item/weapon/storage/bible/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/storage/bible/attackby(obj/item/weapon/W , mob/user )
 	if(!stealthy(user))
 		playsound(src, "rustle", 50, 1, -5)
 	. = ..()
 
-/obj/item/weapon/storage/bible/pickup(mob/living/user as mob)
+/obj/item/weapon/storage/bible/pickup(mob/living/user )
 	if(my_rel.leadsThisReligion(user)) //We are the religious leader, yes we are
 		to_chat(user, "<span class ='notice'>You feel [my_rel.deity_name]'s holy presence as you pick up \the [src].</span>")
 	if(ishuman(user)) //We are checking for antagonists, only humans can be antagonists

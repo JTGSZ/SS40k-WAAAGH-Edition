@@ -162,7 +162,7 @@ var/list/lawgiver_modes = list(
 	var/the_name = "The [name]"
 	return the_name
 
-/obj/item/weapon/gun/lawgiver/equipped(M as mob, hand)
+/obj/item/weapon/gun/lawgiver/equipped(M , hand)
 	update_icon()
 
 /obj/item/weapon/gun/lawgiver/update_icon()
@@ -368,7 +368,7 @@ var/list/lawgiver_modes = list(
 		return FALSE
 	return TRUE
 
-/obj/item/weapon/gun/lawgiver/attackby(var/obj/item/A , mob/user as mob)
+/obj/item/weapon/gun/lawgiver/attackby(var/obj/item/A , mob/user )
 	if(istype(A, /obj/item/ammo_storage/magazine/lawgiver))
 		if(!check_mag_type(A, user))
 			return
@@ -386,7 +386,7 @@ var/list/lawgiver_modes = list(
 		return 0
 	return 1
 
-/obj/item/weapon/gun/lawgiver/attack_self(mob/user as mob)
+/obj/item/weapon/gun/lawgiver/attack_self(mob/user )
 	if (target)
 		return ..()
 	if (magazine)

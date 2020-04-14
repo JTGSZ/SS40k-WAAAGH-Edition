@@ -76,14 +76,14 @@ var/global/list/floorbot_targets=list()
 	update_icon()
 	updateUsrDialog()
 
-/obj/machinery/bot/floorbot/attack_hand(mob/user as mob)
+/obj/machinery/bot/floorbot/attack_hand(mob/user )
 	. = ..()
 	if (.)
 		return
 	usr.set_machine(src)
 	interact(user)
 
-/obj/machinery/bot/floorbot/interact(mob/user as mob)
+/obj/machinery/bot/floorbot/interact(mob/user )
 	var/dat
 	dat += "<TT><B>Automatic Station Floor Repairer v1.0</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
@@ -129,7 +129,7 @@ var/global/list/floorbot_targets=list()
 	else
 		. = ..()
 
-/obj/machinery/bot/floorbot/Emag(mob/user as mob)
+/obj/machinery/bot/floorbot/Emag(mob/user )
 	..()
 	if(open && !locked)
 		if(user)
@@ -439,7 +439,7 @@ var/global/list/floorbot_targets=list()
 /obj/item/weapon/storage/toolbox/electrical/floorbot_type()
 	return "y"
 
-/obj/item/weapon/storage/toolbox/attackby(var/obj/item/stack/tile/plasteel/T, mob/user as mob)
+/obj/item/weapon/storage/toolbox/attackby(var/obj/item/stack/tile/plasteel/T, mob/user )
 	if(!istype(T, /obj/item/stack/tile/plasteel) || contents.len >= 1 || floorbot_type() == "no_build") //Only do this if the thing is empty
 		return ..()
 	user.remove_from_mob(T)
@@ -453,7 +453,7 @@ var/global/list/floorbot_targets=list()
 	user.drop_from_inventory(src)
 	qdel(src)
 
-/obj/item/weapon/toolbox_tiles/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/weapon/toolbox_tiles/attackby(var/obj/item/W, mob/user )
 	..()
 	if(isprox(W))
 		qdel(W)
@@ -476,7 +476,7 @@ var/global/list/floorbot_targets=list()
 
 		created_name = t
 
-/obj/item/weapon/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/weapon/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/robot_parts/l_arm) || istype(W, /obj/item/robot_parts/r_arm))
 		qdel(W)

@@ -112,7 +112,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		location.hotspot_expose(source_temperature, 5, surfaces = istype(loc, /turf))
 		return
 
-/obj/item/weapon/match/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/match/attack(mob/living/carbon/M , mob/living/carbon/user )
 	if(istype(M.wear_mask, /obj/item/clothing/mask/cigarette) && user.zone_sel.selecting == "mouth" && lit == 1)
 		var/obj/item/clothing/mask/cigarette/cig = M.wear_mask
 		if(M == user)
@@ -122,7 +122,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	else
 		return ..()
 
-/obj/item/weapon/match/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/match/attackby(obj/item/weapon/W , mob/user )
 	if(W.is_hot() >= autoignition_temperature)
 		light()
 		user.visible_message("[user] lights \the [src] with \the [W].", \
@@ -233,7 +233,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		return source_temperature
 	return 0
 
-/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W , mob/user )
 	..()
 
 	if(lit) //The cigarette is already lit
@@ -271,7 +271,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		light("<span class='notice'>[user] lights \his [name] with \the [W].</span>")
 	return
 
-/obj/item/clothing/mask/cigarette/afterattack(obj/reagentholder, mob/user as mob)
+/obj/item/clothing/mask/cigarette/afterattack(obj/reagentholder, mob/user )
 	..()
 	if(reagentholder.is_open_container() && !ismob(reagentholder) && reagentholder.reagents)
 		if(reagentholder.reagents.has_reagent(SACID) || reagentholder.reagents.has_reagent(PACID)) //Dumping into acid, a dumb idea
@@ -384,7 +384,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 			reagents.remove_any(REAGENTS_METABOLISM)
 	return
 
-/obj/item/clothing/mask/cigarette/attack_self(mob/user as mob)
+/obj/item/clothing/mask/cigarette/attack_self(mob/user )
 	if(lit)
 		user.visible_message("<span class='notice'>[user] calmly drops and treads on the lit [name], putting it out.</span>")
 		var/turf/T = get_turf(src)
@@ -465,7 +465,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 
 /*
 //I'll light my cigar with an energy sword if I want to, thanks
-/obj/item/clothing/mask/cigarette/cigar/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/clothing/mask/cigarette/cigar/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/match))
 		..()
 	else
@@ -580,7 +580,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		location.hotspot_expose(source_temperature, 5, surfaces = istype(loc, /turf))
 	return
 
-/obj/item/clothing/mask/cigarette/pipe/attack_self(mob/user as mob) //Refills the pipe. Can be changed to an attackby later, if loose tobacco is added to vendors or something. //Later meaning never
+/obj/item/clothing/mask/cigarette/pipe/attack_self(mob/user ) //Refills the pipe. Can be changed to an attackby later, if loose tobacco is added to vendors or something. //Later meaning never
 	if(lit)
 		user.visible_message("<span class='notice'>[user] puts out \the [src].</span>", \
 							"<span class='notice'>You put out \the [src].</span>")
@@ -596,7 +596,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 
 /*
 //Ditto above, only a ruffian would refuse to light his pipe with an energy sword
-/obj/item/clothing/mask/cigarette/pipe/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/clothing/mask/cigarette/pipe/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/match))
 		..()
 	else
@@ -738,7 +738,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		return source_temperature
 	return 0
 
-/obj/item/weapon/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/lighter/attack(mob/living/carbon/M , mob/living/carbon/user )
 	if(istype(M.wear_mask, /obj/item/clothing/mask/cigarette) && user.zone_sel.selecting == "mouth" && lit)
 		var/obj/item/clothing/mask/cigarette/cig = M.wear_mask
 		if(M == user)

@@ -106,7 +106,7 @@
 	else
 		ai_actual_track(target)
 
-/mob/living/silicon/ai/proc/open_nearest_door(mob/living/target as mob)
+/mob/living/silicon/ai/proc/open_nearest_door(mob/living/target )
 	if(!istype(target))
 		return
 	spawn(0)
@@ -220,7 +220,7 @@
 		return 0
 	return 1
 
-/obj/machinery/camera/attack_ai(var/mob/living/silicon/ai/user as mob)
+/obj/machinery/camera/attack_ai(var/mob/living/silicon/ai/user )
 	if (!istype(user))
 		return
 	if (!src.can_use())
@@ -228,7 +228,7 @@
 	user.eyeobj.forceMove(get_turf(src))
 
 
-/mob/living/silicon/ai/attack_ai(var/mob/user as mob)
+/mob/living/silicon/ai/attack_ai(var/mob/user )
 	ai_camera_list()
 
 /proc/camera_sort(list/L)

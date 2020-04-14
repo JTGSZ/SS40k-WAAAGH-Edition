@@ -23,7 +23,7 @@
 	update_icon()
 	return
 
-/obj/machinery/space_heater/air_conditioner/interact(mob/user as mob)
+/obj/machinery/space_heater/air_conditioner/interact(mob/user )
 	if(panel_open)
 		var/temp = set_temperature
 		var/dat

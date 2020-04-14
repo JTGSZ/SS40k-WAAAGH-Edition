@@ -30,7 +30,7 @@
 		stat |= MAINT
 		src.update_icon()
 
-/obj/machinery/embedded_controller/attackby(var/obj/item/W , var/mob/user as mob)
+/obj/machinery/embedded_controller/attackby(var/obj/item/W , var/mob/user )
 	. = ..()
 	if(.)
 		return .
@@ -136,16 +136,16 @@
 	src.updateDialog()
 
 
-/obj/machinery/embedded_controller/attack_ai(mob/user as mob)
+/obj/machinery/embedded_controller/attack_ai(mob/user )
 	if(build<2)
 		return 1
 	src.ui_interact(user)
 
-/obj/machinery/embedded_controller/attack_paw(mob/user as mob)
+/obj/machinery/embedded_controller/attack_paw(mob/user )
 	attack_hand(user)
 	return
 
-/obj/machinery/embedded_controller/attack_hand(mob/user as mob)
+/obj/machinery/embedded_controller/attack_hand(mob/user )
 	if(build<2)
 		return 1
 	src.ui_interact(user)

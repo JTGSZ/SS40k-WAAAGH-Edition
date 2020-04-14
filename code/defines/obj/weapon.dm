@@ -662,7 +662,7 @@
 	throw_speed = 1
 	throw_range = 3
 
-/obj/item/weapon/batteringram/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/batteringram/attackby(var/obj/item/I, mob/user )
 	if(istype(I,/obj/item/weapon/ram_kit))
 		flags &= ~MUSTTWOHAND //Retains FPRINT and TWOHANDABLE
 		icon_state = "ram-upgraded"
@@ -707,7 +707,7 @@
 	var/timepassed = 0
 	flags = FPRINT | PROXMOVE
 
-/obj/item/weapon/caution/proximity_sign/attack_self(mob/user as mob)
+/obj/item/weapon/caution/proximity_sign/attack_self(mob/user )
 	if(ishuman(user))
 		if(armed)
 			armed = 0
@@ -741,7 +741,7 @@
 				if(src)
 					qdel(src)
 
-/obj/item/weapon/caution/proximity_sign/proc/dead_legs(mob/living/carbon/human/H as mob)
+/obj/item/weapon/caution/proximity_sign/proc/dead_legs(mob/living/carbon/human/H )
 	for(var/datum/organ/external/OE in H.get_organs(LIMB_LEFT_LEG, LIMB_RIGHT_LEG))
 		OE.droplimb()
 
@@ -758,7 +758,7 @@
 	w_class = W_CLASS_LARGE
 	slot_flags = SLOT_HEAD
 
-/obj/item/weapon/caution/attackby(obj/item/I , mob/user as mob)
+/obj/item/weapon/caution/attackby(obj/item/I , mob/user )
 	if(iswirecutter(I))
 		to_chat(user, "<span class='info'>You cut apart the cone into plastic.</span>")
 		drop_stack(/obj/item/stack/sheet/mineral/plastic, user.loc, 2, user)

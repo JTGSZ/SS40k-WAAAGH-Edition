@@ -223,7 +223,7 @@ var/list/one_way_windows
 		healthcheck()
 		visible_message("<span class='danger'>\The [I] slams into \the [src].</span>")
 
-/obj/structure/window/attack_hand(mob/living/user as mob)
+/obj/structure/window/attack_hand(mob/living/user )
 
 	if(M_HULK in user.mutations)
 		user.do_attack_animation(src, user)
@@ -251,11 +251,11 @@ var/list/one_way_windows
 		"You hear knocking.")
 	return
 
-/obj/structure/window/attack_paw(mob/user as mob)
+/obj/structure/window/attack_paw(mob/user )
 
 	return attack_hand(user)
 
-/obj/structure/window/proc/attack_generic(mob/living/user as mob, damage = 0)	//used by attack_alien, attack_animal, and attack_slime
+/obj/structure/window/proc/attack_generic(mob/living/user , damage = 0)	//used by attack_alien, attack_animal, and attack_slime
 
 	user.do_attack_animation(src, user)
 	user.delayNextAttack(10)
@@ -264,20 +264,20 @@ var/list/one_way_windows
 	"<span class='danger'>You smash into \the [src]!</span>")
 	healthcheck(user)
 
-/obj/structure/window/attack_alien(mob/user as mob)
+/obj/structure/window/attack_alien(mob/user )
 
 	if(islarva(user))
 		return
 	attack_generic(user, 15)
 
-/obj/structure/window/attack_animal(mob/user as mob)
+/obj/structure/window/attack_animal(mob/user )
 
 	var/mob/living/simple_animal/M = user
 	if(M.melee_damage_upper <= 0)
 		return
 	attack_generic(M, M.melee_damage_upper)
 
-/obj/structure/window/attack_slime(mob/user as mob)
+/obj/structure/window/attack_slime(mob/user )
 
 	if(!isslimeadult(user))
 		return
@@ -306,7 +306,7 @@ var/list/one_way_windows
 		set_opacity(1)
 	return opacity
 
-/obj/structure/window/attackby(obj/item/weapon/W , mob/living/user as mob)
+/obj/structure/window/attackby(obj/item/weapon/W , mob/living/user )
 
 	if(istype(W, /obj/item/weapon/grab) && Adjacent(user))
 		var/obj/item/weapon/grab/G = W

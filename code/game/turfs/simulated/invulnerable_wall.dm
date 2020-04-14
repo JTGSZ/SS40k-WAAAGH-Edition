@@ -15,7 +15,7 @@
 
 	penetration_dampening = 40
 
-/turf/simulated/wall/invulnerable/attackby(obj/item/W , mob/user as mob)
+/turf/simulated/wall/invulnerable/attackby(obj/item/W , mob/user )
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
 		var/obj/item/weapon/solder/S = W
@@ -27,7 +27,7 @@
 		icon = initial(icon)
 		return
 
-/turf/simulated/wall/invulnerable/attack_construct(mob/user as mob)
+/turf/simulated/wall/invulnerable/attack_construct(mob/user )
 	return 0
 
 /turf/simulated/wall/invulnerable/singularity_pull(S, current_size)

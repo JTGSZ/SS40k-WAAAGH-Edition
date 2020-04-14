@@ -82,7 +82,7 @@
 	else
 		return ..()
 
-/obj/item/device/radio/interact(mob/user as mob)
+/obj/item/device/radio/interact(mob/user )
 	if(!on)
 		return
 
@@ -537,7 +537,7 @@
 	else if(illegalradio_construction == 2)
 		to_chat(user, "You need wirecutters to remove the wiring!")
 
-/obj/item/device/radio/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/radio/attackby(obj/item/weapon/W , mob/user )
 	..()
 	user.set_machine(src)
 	if(W.is_screwdriver(user))

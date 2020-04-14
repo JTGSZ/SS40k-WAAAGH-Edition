@@ -70,7 +70,7 @@
 		for(var/obj/item/weapon/reagent_containers/glass/beaker/B in beakers)
 			B.reagents.get_examine(user)
 
-/obj/item/weapon/gun/dartgun/attackby(obj/item/I , mob/user as mob)
+/obj/item/weapon/gun/dartgun/attackby(obj/item/I , mob/user )
 	if(istype(I, /obj/item/weapon/dart_cartridge))
 
 		var/obj/item/weapon/dart_cartridge/D = I
@@ -165,7 +165,7 @@
 		return
 	..()
 
-/obj/item/weapon/gun/dartgun/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)
+/obj/item/weapon/gun/dartgun/can_hit(var/mob/living/target , var/mob/living/user )
 	return 1
 
 /obj/item/weapon/gun/dartgun/updateUsrDialog()

@@ -87,7 +87,7 @@ var/global/list/assembly_short_name_to_type = list() //Please, I beg you, don't 
 /obj/item/device/assembly/proc/holder_movement()							//Called when the holder is moved
 	return
 
-/obj/item/device/assembly/interact(mob/user as mob)					//Called when attack_self is called
+/obj/item/device/assembly/interact(mob/user )					//Called when attack_self is called
 	return
 
 /obj/item/device/assembly/proc/describe()									// Called by grenades to describe the state of the trigger (time left, etc)
@@ -269,7 +269,7 @@ var/global/list/assembly_short_name_to_type = list() //Please, I beg you, don't 
 	return 0
 
 
-/obj/item/device/assembly/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/assembly/attackby(obj/item/weapon/W , mob/user )
 	if(isassembly(W))
 		var/obj/item/device/assembly/A = W
 		if((!A.secured) && (!secured))
@@ -298,7 +298,7 @@ var/global/list/assembly_short_name_to_type = list() //Please, I beg you, don't 
 		else
 			to_chat(user, "<span class='info'>\The [src] can be attached!</span>")
 
-/obj/item/device/assembly/attack_self(mob/user as mob)
+/obj/item/device/assembly/attack_self(mob/user )
 	if(!user)
 		return 0
 	user.set_machine(src)

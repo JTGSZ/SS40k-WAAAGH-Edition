@@ -10,7 +10,7 @@
 	starting_materials = list()
 	var/list/stored_ores = list()
 
-/obj/structure/ore_box/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/ore_box/attackby(obj/item/weapon/W , mob/user )
 	// this makes it possible for supply cyborgs to interact with the box
 	if (istype(W, /obj/item/device/mining_scanner))
 		attack_hand(user)
@@ -32,7 +32,7 @@
 		to_chat(user, "<span class='notice'>You empty \the [W] into the box.</span>")
 	return
 
-/obj/structure/ore_box/attack_hand(mob/user as mob)
+/obj/structure/ore_box/attack_hand(mob/user )
 	var/dat = "<b>The contents of the ore box reveal...</b><ul>"
 	for(var/ore_id in stored_ores)
 		var/amount = stored_ores[ore_id]

@@ -181,7 +181,7 @@
 	if (bodytemperature < 283.222)
 		. += (283.222 - bodytemperature) / 10 * 1.75
 
-/mob/living/carbon/monkey/show_inv(mob/living/carbon/user as mob)
+/mob/living/carbon/monkey/show_inv(mob/living/carbon/user )
 	user.set_machine(src)
 
 	var/dat
@@ -279,7 +279,7 @@
 			M.disarm_mob(src)
 	return
 
-/mob/living/carbon/monkey/attack_alien(mob/living/carbon/alien/humanoid/M as mob)
+/mob/living/carbon/monkey/attack_alien(mob/living/carbon/alien/humanoid/M )
 	switch(M.a_intent)
 		if (I_HELP)
 			visible_message("<span class='notice'>[M] caresses [src] with its scythe like arm.</span>")

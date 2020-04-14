@@ -20,13 +20,13 @@
 				remaining++
 	..()
 
-/obj/machinery/communication/attack_ghost(mob/user as mob)
+/obj/machinery/communication/attack_ghost(mob/user )
 	return //Dont want even adminghosts touching this
 
-/obj/machinery/communication/attack_ai(mob/user as mob)
+/obj/machinery/communication/attack_ai(mob/user )
 	return //Robots HA
 
-/obj/machinery/communication/attack_hand(mob/user as mob)
+/obj/machinery/communication/attack_hand(mob/user )
 	if(..())
 		return 1
 	if(contents.len)
@@ -44,7 +44,7 @@
 		to_chat(user, "<span class='notice'>You delicately remove one of the strange stones from the ancient device.</span>")
 		return
 
-/obj/machinery/communication/examine(mob/user as mob)
+/obj/machinery/communication/examine(mob/user )
 	..()
 	if(remaining)
 		to_chat(user, "<span class='info'>The device's slots still apears to hold [remaining] stone\s.")
@@ -81,7 +81,7 @@
 	number = remaining
 	update_icon()
 
-/obj/item/commstone/examine(mob/user as mob)
+/obj/item/commstone/examine(mob/user )
 	..()
 	if(!commdevice || (commdevice.stat & NOPOWER))
 		to_chat(user, "<span class='info'>It seems to have lost its luster, perhaps the device it is connected to isn't functional.")

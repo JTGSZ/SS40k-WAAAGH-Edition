@@ -235,7 +235,7 @@
 
 /obj/item/weapon/gripper/no_use //Used when you want to hold and put things in other things, but not able to 'use' the item
 
-/obj/item/weapon/gripper/no_use/attack_self(mob/user as mob)
+/obj/item/weapon/gripper/no_use/attack_self(mob/user )
 	return
 
 /obj/item/weapon/gripper/no_use/attackby(var/atom/thing, var/mob/living/user)

@@ -207,7 +207,7 @@ var/global/num_vending_terminals = 1
 				spark(src, 5)
 	return ..()
 
-/obj/machinery/vending/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/machinery/vending/MouseDropTo(atom/movable/O , mob/user )
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -628,10 +628,10 @@ var/global/num_vending_terminals = 1
 				playsound(src, 'sound/machines/alert.ogg', 50, 1)
 				visible_message("[bicon(src)] \The [src] buzzes.")
 
-/obj/machinery/vending/attack_paw(mob/user as mob)
+/obj/machinery/vending/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/vending/attack_ai(mob/user as mob)
+/obj/machinery/vending/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
@@ -735,7 +735,7 @@ var/global/num_vending_terminals = 1
 		return 1
 	return 0
 
-/obj/machinery/vending/attack_hand(mob/living/user as mob)
+/obj/machinery/vending/attack_hand(mob/living/user )
 	if(stat & (BROKEN))
 		to_chat(user, "<span class='notice'>The glass in \the [src] is broken, it refuses to work.</span>")
 		return
@@ -1800,7 +1800,7 @@ var/global/num_vending_terminals = 1
 /obj/machinery/wallmed_frame/update_icon()
 	icon_state = "wallmed_frame[build]"
 
-/obj/machinery/wallmed_frame/attackby(var/obj/item/W , var/mob/user as mob)
+/obj/machinery/wallmed_frame/attackby(var/obj/item/W , var/mob/user )
 	switch(build)
 		if(0) // Empty hull
 			if(W.is_screwdriver(user))
@@ -1887,7 +1887,7 @@ var/global/num_vending_terminals = 1
 				return 1
 	..()
 
-/obj/machinery/wallmed_frame/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/machinery/wallmed_frame/MouseDropTo(atom/movable/O , mob/user )
 	if(user.incapacitated() || user.lying)
 		return
 	if(!Adjacent(user) || !user.Adjacent(O))

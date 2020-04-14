@@ -395,21 +395,21 @@
 		qdel(src)
 
 // This is broken, see attack_ai.
-/obj/structure/closet/attack_robot(mob/living/silicon/robot/user as mob)
+/obj/structure/closet/attack_robot(mob/living/silicon/robot/user )
 	if(isMoMMI(user) || HAS_MODULE_QUIRK(user, required_quirk))
 		src.add_hiddenprint(user)
 		add_fingerprint(user)
 		return src.attack_hand(user)
 	..(user)
 
-/obj/machinery/closet/attack_ai(mob/user as mob)
+/obj/machinery/closet/attack_ai(mob/user )
 	if(isMoMMI(user))
 		src.add_hiddenprint(user)
 		add_fingerprint(user)
 		return src.attack_hand(user)
 	..(user)
 
-/obj/structure/closet/attack_animal(mob/living/simple_animal/user as mob)
+/obj/structure/closet/attack_animal(mob/living/simple_animal/user )
 	if(user.environment_smash_flags & SMASH_CONTAINERS)
 //		user.do_attack_animation(src, user) //This will look stupid
 		visible_message("<span class='warning'>[user] destroys the [src]. </span>")
@@ -431,7 +431,7 @@
 			A.forceMove(src.loc)
 		qdel(src)
 
-/obj/structure/closet/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/closet/attackby(obj/item/weapon/W , mob/user )
 	if(src.opened)
 		if(istype(W, /obj/item/weapon/grab))
 			if(src.large)
@@ -496,7 +496,7 @@
 	src.add_fingerprint(user)
 	return 1
 
-/obj/structure/closet/relaymove(mob/user as mob)
+/obj/structure/closet/relaymove(mob/user )
 	if(user.stat || !isturf(src.loc))
 		return
 
@@ -510,10 +510,10 @@
 				lastbang = 0
 
 
-/obj/structure/closet/attack_paw(mob/user as mob)
+/obj/structure/closet/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/structure/closet/attack_hand(mob/user as mob)
+/obj/structure/closet/attack_hand(mob/user )
 	if(!Adjacent(user))
 		return
 	src.add_fingerprint(user)
@@ -562,7 +562,7 @@
 		to_chat(usr, "<span class='notice'>It won't budge!</span>")
 
 // tk grab then use on self
-/obj/structure/closet/attack_self_tk(mob/user as mob)
+/obj/structure/closet/attack_self_tk(mob/user )
 	src.add_fingerprint(user)
 
 	if(!src.toggle(user))

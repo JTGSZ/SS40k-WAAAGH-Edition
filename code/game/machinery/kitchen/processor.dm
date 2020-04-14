@@ -218,7 +218,7 @@
 		A.forceMove(src)
 	return
 
-/obj/machinery/processor/attack_hand(var/mob/user as mob)
+/obj/machinery/processor/attack_hand(var/mob/user )
 	if (src.stat != 0) //NOPOWER etc
 		return
 	if(!anchored)
@@ -247,7 +247,7 @@
 	src.visible_message("<span class='notice'>[src] is done.</span>", \
 		"You hear [src] stop.")
 
-/obj/machinery/processor/attack_ghost(mob/user as mob)
+/obj/machinery/processor/attack_ghost(mob/user )
 	user.examination(src)
 
 /obj/machinery/processor/examine(mob/user)

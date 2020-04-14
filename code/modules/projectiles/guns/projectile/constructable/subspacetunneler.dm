@@ -83,7 +83,7 @@
 				sleep(1)
 	..()
 
-/obj/item/weapon/subspacetunneler/attack_self(mob/user as mob)
+/obj/item/weapon/subspacetunneler/attack_self(mob/user )
 	if(!loaded_crystal)
 		return
 
@@ -145,7 +145,7 @@
 	update_verbs()
 	update_icon()
 
-/obj/item/weapon/subspacetunneler/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/subspacetunneler/attackby(obj/item/W , mob/user )
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(loaded_crystal)
 			var/obj/item/bluespace_crystal/B = loaded_crystal

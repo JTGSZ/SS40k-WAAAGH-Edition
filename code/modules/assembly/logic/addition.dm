@@ -39,7 +39,7 @@
 #define add_limit_href(amount) "<a href='?src=\ref[src];add_limit=[amount]'>"
 #define sub_limit_href(amount) "<a href='?src=\ref[src];sub_limit=[amount]'>"
 
-/obj/item/device/assembly/addition/interact(mob/user as mob)
+/obj/item/device/assembly/addition/interact(mob/user )
 	var/dat = ""
 
 	dat += "<tt>Addition circuit</tt><BR><BR>"

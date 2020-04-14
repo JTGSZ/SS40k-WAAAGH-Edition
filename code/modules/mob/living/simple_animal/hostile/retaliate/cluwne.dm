@@ -91,7 +91,7 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/cluwne/attackby(var/obj/item/O , var/mob/user as mob)
+/mob/living/simple_animal/hostile/retaliate/cluwne/attackby(var/obj/item/O , var/mob/user )
 	var/currenthealth = health
 	..()
 	playsound(src, 'sound/items/bikehorn.ogg', 50, 1)

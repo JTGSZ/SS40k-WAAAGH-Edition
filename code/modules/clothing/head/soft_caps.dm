@@ -8,7 +8,7 @@
 	var/flipped = 0
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/head/soft/proc/flip(var/mob/user as mob)
+/obj/item/clothing/head/soft/proc/flip(var/mob/user )
 	if(!user.incapacitated())
 		src.flipped = !src.flipped
 		if(src.flipped)
@@ -19,7 +19,7 @@
 			to_chat(user, "You flip the hat back in normal position.")
 		user.update_inv_head()	//so our mob-overlays update
 
-/obj/item/clothing/head/soft/attack_self(var/mob/user as mob)
+/obj/item/clothing/head/soft/attack_self(var/mob/user )
 	flip(user)
 
 /obj/item/clothing/head/soft/verb/flip_cap()

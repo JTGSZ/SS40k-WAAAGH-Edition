@@ -86,7 +86,7 @@
 	contained_mob = null
 	qdel(src)
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Unwrap(mob/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Unwrap(mob/user )
 
 	icon_state = "monkeycube"
 	desc = "Just add water!"

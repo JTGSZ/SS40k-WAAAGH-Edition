@@ -116,7 +116,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(!("[department]" in req_console_information))
 				req_console_information += department
 
-/obj/machinery/requests_console/attack_hand(user as mob)
+/obj/machinery/requests_console/attack_hand(user )
 	if(..(user))
 		return
 	var/dat
@@ -426,7 +426,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			make_announcement(msg, G)
 
 					//deconstruction and hacking
-/obj/machinery/requests_console/attackby(var/obj/item/weapon/O , var/mob/user as mob)
+/obj/machinery/requests_console/attackby(var/obj/item/weapon/O , var/mob/user )
 	if (iscrowbar(O))
 		if(open)
 			open = 0

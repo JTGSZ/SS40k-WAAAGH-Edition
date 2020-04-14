@@ -206,7 +206,7 @@ var/global/list/ghdel_profiling = list()
 	else
 		return null
 
-/atom/proc/check_eye(user as mob)
+/atom/proc/check_eye(user )
 	if (istype(user, /mob/living/silicon/ai)) // WHYYYY
 		return 1
 	return
@@ -558,7 +558,7 @@ its easier to just keep the beam vertical.
 /atom/proc/hitby(var/atom/movable/AM)
 	. = isobserver(AM)
 
-/atom/proc/add_hiddenprint(mob/M as mob)
+/atom/proc/add_hiddenprint(mob/M )
 	if(isnull(M))
 		return
 	if(isnull(M.key))
@@ -590,7 +590,7 @@ its easier to just keep the beam vertical.
 		fingerprintslastTS = time_stamp()
 	return
 
-/atom/proc/add_fingerprint(mob/living/M as mob)
+/atom/proc/add_fingerprint(mob/living/M )
 	if(isnull(M))
 		return
 	if(isAI(M))
@@ -693,7 +693,7 @@ its easier to just keep the beam vertical.
 
 
 //returns 1 if made bloody, returns 0 otherwise
-/atom/proc/add_blood(mob/living/carbon/human/M as mob)
+/atom/proc/add_blood(mob/living/carbon/human/M )
 	.=1
 	if(!M)//if the blood is of non-human source
 		if(!blood_DNA || !istype(blood_DNA, /list))

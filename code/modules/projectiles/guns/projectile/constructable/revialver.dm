@@ -24,7 +24,7 @@
 		cylinder = null
 	..()
 
-/obj/item/weapon/gun/projectile/revialver/attack_self(mob/user as mob)
+/obj/item/weapon/gun/projectile/revialver/attack_self(mob/user )
 	if(!cylinder)
 		return
 

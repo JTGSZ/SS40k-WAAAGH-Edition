@@ -47,7 +47,7 @@
 	crushable = null
 	. = ..()
 
-/obj/item/weapon/reagent_containers/glass/mortar/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/mortar/attackby(var/obj/item/O , var/mob/user )
 	if (O.is_screwdriver(user))
 		if(crushable)
 			crushable.forceMove(user.loc)
@@ -77,7 +77,7 @@
 	to_chat(user, "<span class='notice'>You place \the [O] in \the [src].</span>")
 	return 0
 
-/obj/item/weapon/reagent_containers/glass/mortar/attack_hand(mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/mortar/attack_hand(mob/user )
 	add_fingerprint(user)
 	if(user.get_inactive_hand() != src)
 		return ..()
@@ -87,7 +87,7 @@
 		crushable = null
 	return
 
-/obj/item/weapon/reagent_containers/glass/mortar/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/mortar/attack_self(mob/user )
 	if(!crushable)
 		to_chat(user, "<span class='notice'>There is nothing to be crushed.</span>")
 		return

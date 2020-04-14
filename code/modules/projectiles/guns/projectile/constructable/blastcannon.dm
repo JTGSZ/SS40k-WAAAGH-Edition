@@ -31,7 +31,7 @@
 	bomb_air_contents_2 = null
 	..()
 
-/obj/item/weapon/gun/projectile/blastcannon/attack_self(mob/user as mob)
+/obj/item/weapon/gun/projectile/blastcannon/attack_self(mob/user )
 	if(!bomb)
 		return
 	else
@@ -45,11 +45,11 @@
 		w_class = W_CLASS_MEDIUM
 	update_icon()
 
-/obj/item/weapon/gun/projectile/blastcannon/pickup(mob/user as mob)
+/obj/item/weapon/gun/projectile/blastcannon/pickup(mob/user )
 	..()
 	update_icon()
 
-/obj/item/weapon/gun/projectile/blastcannon/dropped(mob/user as mob)
+/obj/item/weapon/gun/projectile/blastcannon/dropped(mob/user )
 	..()
 	update_icon()
 

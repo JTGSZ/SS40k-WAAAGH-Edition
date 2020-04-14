@@ -52,7 +52,7 @@
 	..()
 	to_chat(user, "<span class='info'>It is [on? "on" : "off"].</span>")
 
-/obj/machinery/light_switch/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/light_switch/attackby(obj/item/W , mob/user )
 	switch(buildstage)
 		if(2)
 			if(W.is_screwdriver(user))

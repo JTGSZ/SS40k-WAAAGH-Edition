@@ -40,7 +40,7 @@
 	money_stored = 0
 	cached_sellables = get_black_market_sellables()
 
-/obj/item/device/illegalradio/interact(mob/user as mob) //Whenever called, return to main menu.
+/obj/item/device/illegalradio/interact(mob/user ) //Whenever called, return to main menu.
 	selected_item = null
 	var/dat = "<body link='yellow' alink='white' bgcolor='#331461'><font color='white'>"
 	dat += src.generate_main_menu(user)
@@ -49,7 +49,7 @@
 	onclose(user, "hidden")
 	return
 
-/obj/item/device/illegalradio/attack_self(mob/user as mob)
+/obj/item/device/illegalradio/attack_self(mob/user )
 	user.set_machine(src)
 	interact(user)
 
@@ -249,7 +249,7 @@
 		money_stored = 0
 	interact(usr)
 
-/obj/item/device/illegalradio/afterattack(atom/A , mob/user as mob)
+/obj/item/device/illegalradio/afterattack(atom/A , mob/user )
 	if(istype(A, /obj/item/weapon/spacecash) && A.Adjacent(user))
 		var/obj/item/weapon/spacecash/cash = A
 		money_stored += cash.get_total()

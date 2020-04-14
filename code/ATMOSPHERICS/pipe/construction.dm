@@ -418,10 +418,10 @@ var/list/manifold_pipes = list(PIPE_MANIFOLD4W, PIPE_INSUL_MANIFOLD4W, PIPE_HE_M
 		else
 			return 0
 
-/obj/item/pipe/attack_self(mob/user as mob)
+/obj/item/pipe/attack_self(mob/user )
 	return rotate()
 
-/obj/item/pipe/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/item/pipe/attackby(var/obj/item/weapon/W , var/mob/user )
 	..()
 	//*
 	if(!W.is_wrench(user))
@@ -568,7 +568,7 @@ var/list/manifold_pipes = list(PIPE_MANIFOLD4W, PIPE_INSUL_MANIFOLD4W, PIPE_HE_M
 
 	var/layer_to_make = PIPING_LAYER_DEFAULT
 
-/obj/item/pipe_meter/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/item/pipe_meter/attackby(var/obj/item/weapon/W , var/mob/user )
 	..()
 
 	if(!W.is_wrench(user))
@@ -605,7 +605,7 @@ var/list/manifold_pipes = list(PIPE_MANIFOLD4W, PIPE_INSUL_MANIFOLD4W, PIPE_HE_M
 	flags = FPRINT
 	w_class = W_CLASS_LARGE
 
-/obj/item/pipe_gsensor/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/item/pipe_gsensor/attackby(var/obj/item/weapon/W , var/mob/user )
 	..()
 	if(!W.is_wrench(user))
 		return ..()

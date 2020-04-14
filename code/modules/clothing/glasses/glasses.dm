@@ -219,7 +219,7 @@ var/list/science_goggles_wearers = list()
 
 /obj/item/clothing/glasses/sunglasses/virus
 
-/obj/item/clothing/glasses/sunglasses/virus/dropped(mob/user as mob)
+/obj/item/clothing/glasses/sunglasses/virus/dropped(mob/user )
 	canremove = 1
 	..()
 

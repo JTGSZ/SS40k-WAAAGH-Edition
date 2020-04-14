@@ -91,7 +91,7 @@ var/global/list/comparison_circuit_operations = list("EQUAL TO", "LESS THAN", "M
 
 
 
-/obj/item/device/assembly/comparison/interact(mob/user as mob)
+/obj/item/device/assembly/comparison/interact(mob/user )
 	var/dat = ""
 
 	dat += "CONDITON:<br>"

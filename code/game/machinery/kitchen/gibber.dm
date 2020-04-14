@@ -42,11 +42,11 @@ obj/machinery/gibber/New()
 
 	RefreshParts()
 
-/obj/machinery/gibber/attack_ghost(mob/dead/observer/user as mob)
+/obj/machinery/gibber/attack_ghost(mob/dead/observer/user )
 	to_chat(user, "<span class='warning'>You can't do that while dead.</span>")
 	return
 
-/obj/machinery/gibber/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/gibber/attackby(var/obj/item/O , var/mob/user )
 	if(operating)
 		to_chat(user, "<span class='notice'>[src] is currently gibbing something!</span>")
 		return
@@ -74,14 +74,14 @@ obj/machinery/gibber/New()
 	else
 		src.overlays += image('icons/obj/kitchen.dmi', "gridle")
 
-/obj/machinery/gibber/attack_paw(mob/user as mob)
+/obj/machinery/gibber/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/gibber/relaymove(mob/user as mob)
+/obj/machinery/gibber/relaymove(mob/user )
 	src.go_out()
 	return
 
-/obj/machinery/gibber/attack_hand(mob/user as mob)
+/obj/machinery/gibber/attack_hand(mob/user )
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!anchored)
@@ -96,8 +96,8 @@ obj/machinery/gibber/New()
 	else
 		src.startgibbing(user)
 
-// OLD /obj/machinery/gibber/attackby(obj/item/weapon/grab/G , mob/user as mob)
-/obj/machinery/gibber/proc/handleGrab(obj/item/weapon/grab/G , mob/user as mob)
+// OLD /obj/machinery/gibber/attackby(obj/item/weapon/grab/G , mob/user )
+/obj/machinery/gibber/proc/handleGrab(obj/item/weapon/grab/G , mob/user )
 	if(!anchored)
 		to_chat(user, "<span class='warning'>[src] must be anchored first!</span>")
 		return
@@ -185,7 +185,7 @@ obj/machinery/gibber/New()
 	return
 
 
-/obj/machinery/gibber/proc/startgibbing(mob/user as mob)
+/obj/machinery/gibber/proc/startgibbing(mob/user )
 	if(src.operating)
 		return
 	if(!src.occupant)
@@ -270,10 +270,10 @@ obj/machinery/gibber/New()
 	..()
 	overlays = null
 
-/obj/machinery/gibber/autogibber/attack_hand(mob/user as mob)
+/obj/machinery/gibber/autogibber/attack_hand(mob/user )
 	Bumped(user)
 
-/obj/machinery/gibber/autogibber/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/gibber/autogibber/attackby(var/obj/item/O , var/mob/user )
 	Bumped(user)
 
 /obj/machinery/gibber/autogibber/Bumped(var/atom/A)
@@ -287,7 +287,7 @@ obj/machinery/gibber/New()
 		M.forceMove(src)
 		startautogibbing(M)
 
-/obj/machinery/gibber/autogibber/proc/startautogibbing(mob/living/victim as mob)
+/obj/machinery/gibber/autogibber/proc/startautogibbing(mob/living/victim )
 	if(!victim)
 		visible_message("<span class='warning'>You hear a loud metallic grinding sound.</span>", \
 			drugged_message = "<span class='warning'>You faintly hear a guitar solo.</span>")

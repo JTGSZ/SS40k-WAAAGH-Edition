@@ -52,7 +52,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 					if("Obj")
 						target = input("Enter target:","Target",usr)  in world
 					if("Mob")
-						target = input("Enter target:","Target",usr) as mob in world
+						target = input("Enter target:","Target",usr)  in world
 					if("Area or Turf")
 						target = input("Enter target:","Target",usr.loc) as area|turf in world
 					if("Client")

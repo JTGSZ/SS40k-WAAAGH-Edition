@@ -41,7 +41,7 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/weapon/gun/projectile/detective/attackby(var/obj/item/A , mob/user as mob)
+/obj/item/weapon/gun/projectile/detective/attackby(var/obj/item/A , mob/user )
 	..()
 	if(A.is_screwdriver(user) || istype(A, /obj/item/weapon/conversion_kit))
 		var/obj/item/weapon/conversion_kit/CK
@@ -131,7 +131,7 @@
 /obj/item/weapon/gun/projectile/russian/proc/Spin()
 	loaded = shuffle(loaded)
 
-/obj/item/weapon/gun/projectile/russian/attackby(var/obj/item/A , mob/user as mob)
+/obj/item/weapon/gun/projectile/russian/attackby(var/obj/item/A , mob/user )
 
 	if(!A)
 		return
@@ -176,7 +176,7 @@
 	update_icon()
 	return
 
-/obj/item/weapon/gun/projectile/russian/attack_self(mob/user as mob)
+/obj/item/weapon/gun/projectile/russian/attack_self(mob/user )
 
 	user.visible_message("<span class='warning'>[user] spins the chamber of the revolver.</span>", "<span class='warning'>You spin the revolver's chamber.</span>")
 	playsound(user, 'sound/weapons/revolver_spin.ogg', 50, 1)

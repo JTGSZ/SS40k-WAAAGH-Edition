@@ -29,7 +29,7 @@
 
 	return
 
-/obj/machinery/chem_master/snackbar_machine/attack_hand(mob/user as mob)
+/obj/machinery/chem_master/snackbar_machine/attack_hand(mob/user )
 
 	if(..())
 		return 1

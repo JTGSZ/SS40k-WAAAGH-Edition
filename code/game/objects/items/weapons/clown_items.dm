@@ -25,7 +25,7 @@
 			M.simple_message("<span class='notice'>You slipped on the [name]!</span>",
 				"<span class='userdanger'>Something is scratching at your feet! Oh god!</span>")
 
-/obj/item/weapon/soap/afterattack(atom/target, mob/user as mob)
+/obj/item/weapon/soap/afterattack(atom/target, mob/user )
 	//I couldn't feasibly fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	//Overlay bugs can probably be fixed by updating the user's icon, see watercloset.dm
@@ -73,7 +73,7 @@
 		target.clean_blood()
 	return
 
-/obj/item/weapon/soap/attack(mob/target as mob, mob/user as mob)
+/obj/item/weapon/soap/attack(mob/target , mob/user )
 	if(target && user && ishuman(target) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == "mouth" )
 		user.visible_message("<span class='warning'>\the [user] washes \the [target]'s mouth out with soap!</span>")
 		return
@@ -104,11 +104,11 @@
 	playsound(user, hitsound, 100, vary_pitch)
 	user.gib()
 
-/obj/item/weapon/bikehorn/attack_self(mob/user as mob)
+/obj/item/weapon/bikehorn/attack_self(mob/user )
 	if(honk())
 		add_fingerprint(user)
 
-/obj/item/weapon/bikehorn/afterattack(atom/target, mob/user as mob, proximity_flag)
+/obj/item/weapon/bikehorn/afterattack(atom/target, mob/user , proximity_flag)
 	//hitsound takes care of that
 	//if(proximity_flag && istype(target, /mob)) //for honking in the chest
 		//honk()

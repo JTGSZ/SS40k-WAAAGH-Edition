@@ -12,7 +12,7 @@
 /obj/item/weapon/implanter/proc/update()
 	icon_state = "implanter[imp? 1:0]"
 
-/obj/item/weapon/implanter/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/implanter/attack(mob/M , mob/user )
 	if(!istype(M, /mob/living/carbon))
 		return
 	if(user && imp)
@@ -92,7 +92,7 @@
 	else
 		icon_state = "cimplanter0"
 
-/obj/item/weapon/implanter/compressed/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/implanter/compressed/attack(mob/M , mob/user )
 	// Attacking things in your hands tends to make this fuck up.
 	if(!istype(M))
 		return
@@ -104,7 +104,7 @@
 		return
 	..()
 
-/obj/item/weapon/implanter/compressed/afterattack(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/implanter/compressed/afterattack(var/obj/item/I, mob/user )
 	if(is_type_in_list(I,forbidden_types))
 		to_chat(user, "<span class='warning'>A red light flickers on the implanter.</span>")
 		return

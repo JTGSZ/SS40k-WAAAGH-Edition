@@ -820,7 +820,7 @@
 	src.pixel_x = rand(-5, 5) * PIXEL_MULTIPLIER
 	src.pixel_y = rand(-5, 5) * PIXEL_MULTIPLIER
 
-/obj/item/packobelongings/attack_self(mob/user as mob)
+/obj/item/packobelongings/attack_self(mob/user )
 	var/turf/T = get_turf(user)
 	for(var/obj/O in src)
 		O.forceMove(T)

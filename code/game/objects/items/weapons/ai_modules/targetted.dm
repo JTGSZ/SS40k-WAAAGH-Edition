@@ -38,7 +38,7 @@
 	clone.law = law
 	return clone
 
-/obj/item/weapon/aiModule/targetted/attack_self(var/mob/user as mob)
+/obj/item/weapon/aiModule/targetted/attack_self(var/mob/user )
 	..()
 	var/targName = stripped_input(usr, "Please enter the name of the person to [action].", "Who?", user.name)
 	if (!targName)

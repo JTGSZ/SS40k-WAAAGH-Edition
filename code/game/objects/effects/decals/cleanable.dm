@@ -100,7 +100,7 @@ var/list/infected_cleanables = list()
 		.["type"] = persistent_type_replacement
 
 
-/obj/effect/decal/cleanable/attackby(obj/item/O , mob/user as mob)
+/obj/effect/decal/cleanable/attackby(obj/item/O , mob/user )
 	if(istype(O,/obj/item/weapon/mop))
 		return ..()
 	return 0 //No more "X HITS THE BLOOD WITH AN RCD"

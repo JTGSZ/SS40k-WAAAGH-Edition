@@ -104,7 +104,7 @@
 		qdel(src)
 
 
-/obj/item/weapon/storage/lockbox/show_to(mob/user as mob)
+/obj/item/weapon/storage/lockbox/show_to(mob/user )
 	if(locked)
 		to_chat(user, "<span class='warning'>It's locked!</span>")
 	else
@@ -241,7 +241,7 @@
 	..()
 	to_chat(user, "<span class='info'>[tracked_access]</span>")
 
-/obj/item/weapon/storage/lockbox/unlockable/attackby(obj/O , mob/user as mob)
+/obj/item/weapon/storage/lockbox/unlockable/attackby(obj/O , mob/user )
 	if (istype(O, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/ID = O
 		if(src.broken)
@@ -453,7 +453,7 @@
 	else
 		overlays += image(icon, src, "ledb")
 
-/obj/item/weapon/storage/lockbox/diskettebox/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/storage/lockbox/diskettebox/attackby(obj/item/weapon/W , mob/user )
 	. = ..()
 	if (istype(W,/obj/item/weapon/card))
 		playsound(src, get_sfx("card_swipe"), 60, 1, -5)

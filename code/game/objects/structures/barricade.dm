@@ -42,7 +42,7 @@
 		qdel(src)
 
 //Note : We don't want glass knocking sounds to play
-/obj/structure/window/barricade/attack_hand(mob/user as mob)
+/obj/structure/window/barricade/attack_hand(mob/user )
 
 	//Bang against the barricade
 	if(usr.a_intent == I_HURT)
@@ -66,7 +66,7 @@
 
 	return
 
-/obj/structure/window/barricade/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/window/barricade/attackby(obj/item/weapon/W , mob/user )
 
 	if(iscrowbar(W) && user.a_intent == I_HURT && !busy) //Only way to deconstruct, needs harm intent
 		W.playtoolsound(loc, 75)

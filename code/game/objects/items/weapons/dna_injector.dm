@@ -33,7 +33,7 @@
 		SetValue(src.value)
 		//testing("[name]: DNA2 SE blocks after SetValue: [english_list(buf.dna.SE)]")
 
-/obj/item/weapon/dnainjector/attack_paw(mob/user as mob)
+/obj/item/weapon/dnainjector/attack_paw(mob/user )
 	return attack_hand(user)
 
 /obj/item/weapon/dnainjector/proc/GetRealBlock(var/selblock)
@@ -70,7 +70,7 @@
 	else
 		return buf.dna.SetUIValue(real_block,val)
 
-/obj/item/weapon/dnainjector/proc/inject(mob/M as mob, mob/user as mob)
+/obj/item/weapon/dnainjector/proc/inject(mob/M , mob/user )
 	if(ismanifested(M))
 		to_chat(M, "<span class='warning'> Apparently it didn't work.</span>")
 		if(M != user)
@@ -149,7 +149,7 @@
 			qdel(src)
 	return uses
 
-/obj/item/weapon/dnainjector/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/dnainjector/attack(mob/M , mob/user )
 	if (!istype(M, /mob))
 		return
 

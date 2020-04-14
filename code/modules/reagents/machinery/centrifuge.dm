@@ -12,7 +12,7 @@
 	..()
 	to_chat(user, "<span class='info'>It contains [cans.len] empty containers[beaker ? " and an active container!" : "."]</span>")
 
-/obj/structure/centrifuge/attackby(obj/item/weapon/reagent_containers/W , mob/user as mob)
+/obj/structure/centrifuge/attackby(obj/item/weapon/reagent_containers/W , mob/user )
 	if(iscrowbar(W))
 		var/obj/structure/toilet/T = new /obj/structure/toilet(src.loc)
 		T.open = 1
@@ -38,7 +38,7 @@
 	else
 		..()
 
-/obj/structure/centrifuge/attack_hand(mob/user as mob)
+/obj/structure/centrifuge/attack_hand(mob/user )
 	add_fingerprint(user)
 	if(cans.len || beaker)
 		for(var/obj/item/O in cans)

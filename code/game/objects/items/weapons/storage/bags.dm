@@ -379,7 +379,7 @@ var/global/list/plantbag_colour_choices = list("plantbag", "green red stripe", "
 
 // Sets up numbered display to show the stack size of each stored mineral
 // NOTE: numbered display is turned off currently because it's broken
-/obj/item/weapon/storage/bag/sheetsnatcher/orient2hud(mob/user as mob)
+/obj/item/weapon/storage/bag/sheetsnatcher/orient2hud(mob/user )
 	var/adjusted_contents = contents.len
 
 	//Numbered contents display

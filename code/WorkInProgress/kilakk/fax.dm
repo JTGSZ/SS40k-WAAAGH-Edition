@@ -50,10 +50,10 @@ var/list/alldepartments = list("Central Command")
 			scancount += SP.rating-1
 	cooldown_time = initial(cooldown_time) - 300*scancount
 
-/obj/machinery/faxmachine/attack_ai(mob/user as mob)
+/obj/machinery/faxmachine/attack_ai(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/faxmachine/attack_paw(mob/user as mob)
+/obj/machinery/faxmachine/attack_paw(mob/user )
 	return attack_hand(user)
 
 /obj/machinery/faxmachine/verb/remove_id()
@@ -70,7 +70,7 @@ var/list/alldepartments = list("Central Command")
 		usr.put_in_hands(tofax)
 		tofax = null
 
-/obj/machinery/faxmachine/attack_hand(mob/user as mob)
+/obj/machinery/faxmachine/attack_hand(mob/user )
 	user.set_machine(src)
 
 	var/dat = "Fax Machine<BR>"
@@ -182,7 +182,7 @@ var/list/alldepartments = list("Central Command")
 
 	updateUsrDialog()
 
-/obj/machinery/faxmachine/attackby(obj/item/O , mob/user as mob)
+/obj/machinery/faxmachine/attackby(obj/item/O , mob/user )
 	if(stat & NOPOWER)
 		to_chat(user, "<span class = 'warning'>\The [src] has no power.</span>")
 		return

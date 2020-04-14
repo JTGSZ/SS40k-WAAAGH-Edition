@@ -7,10 +7,10 @@ THAT STUPID GAME KIT
 	src.board_stat = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
 	src.selected = "CR"
 
-/obj/item/weapon/game_kit/attack_paw(mob/user as mob)
+/obj/item/weapon/game_kit/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/item/weapon/game_kit/MouseDropFrom(mob/user as mob)
+/obj/item/weapon/game_kit/MouseDropFrom(mob/user )
 	if (user == usr && !usr.incapacitated() && (usr.contents.Find(src) || in_range(src, usr)))
 		if (usr.hand)
 			if (!usr.l_hand)
@@ -52,11 +52,11 @@ THAT STUPID GAME KIT
 		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[src.base_url]/board_[piece].png' width=32 height=32 border=0></a>"
 	src.data = dat
 
-/obj/item/weapon/game_kit/attack_ai(mob/user as mob, unused, flag)
+/obj/item/weapon/game_kit/attack_ai(mob/user , unused, flag)
 	src.add_hiddenprint(user)
 	return src.attack_hand(user, unused, flag)
 
-/obj/item/weapon/game_kit/attack_hand(mob/user as mob, unused, flag)
+/obj/item/weapon/game_kit/attack_hand(mob/user , unused, flag)
 
 	if (flag)
 		return ..()

@@ -25,7 +25,7 @@
 	if(!owned_scanner)
 		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
 
-/obj/machinery/artifact_harvester/attackby(var/obj/I , var/mob/user as mob)
+/obj/machinery/artifact_harvester/attackby(var/obj/I , var/mob/user )
 	if(istype(I,/obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			if(user.drop_item(I, src))
@@ -37,11 +37,11 @@
 	else
 		return..()
 
-/obj/machinery/artifact_harvester/attack_hand(var/mob/user as mob)
+/obj/machinery/artifact_harvester/attack_hand(var/mob/user )
 	src.add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/artifact_harvester/interact(var/mob/user as mob)
+/obj/machinery/artifact_harvester/interact(var/mob/user )
 	if(stat & (NOPOWER|BROKEN))
 		return
 	user.set_machine(src)

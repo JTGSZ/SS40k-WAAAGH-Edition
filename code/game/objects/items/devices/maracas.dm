@@ -46,7 +46,7 @@
 /obj/item/device/maracas/afterattack()
 	chickchicky()
 
-/obj/item/device/maracas/attack_self(mob/user as mob)
+/obj/item/device/maracas/attack_self(mob/user )
 	chickchicky()
 
 /obj/item/device/maracas/proc/chickchicky()

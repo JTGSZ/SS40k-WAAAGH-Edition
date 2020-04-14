@@ -543,7 +543,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	return temp
 
-/spell/proc/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/proc/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
 	if(!user || isnull(user))
 		return 0
 	if(numticks == 0)
@@ -625,7 +625,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	return
 
 //To batch-remove wizard spells. Linked to mind.dm.
-/mob/proc/spellremove(var/mob/M as mob)
+/mob/proc/spellremove(var/mob/M )
 	for(var/spell/spell_to_remove in src.spell_list)
 		remove_spell(spell_to_remove)
 

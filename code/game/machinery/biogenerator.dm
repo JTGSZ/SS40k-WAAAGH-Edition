@@ -373,7 +373,7 @@
 		return
 	return ..()
 
-/obj/machinery/biogenerator/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/biogenerator/attackby(var/obj/item/O , var/mob/user )
 	if(..())
 		return 1
 	else if(istype(O, /obj/item/weapon/reagent_containers/glass))
@@ -439,7 +439,7 @@
 		return 1
 	return
 
-/obj/machinery/biogenerator/interact(mob/user as mob)
+/obj/machinery/biogenerator/interact(mob/user )
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)
@@ -484,7 +484,7 @@
 	onclose(user, "biogenerator")
 	return
 
-/obj/machinery/biogenerator/attack_hand(mob/user as mob)
+/obj/machinery/biogenerator/attack_hand(mob/user )
 	interact(user)
 
 /obj/machinery/biogenerator/proc/activate()

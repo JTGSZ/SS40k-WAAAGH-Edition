@@ -73,14 +73,14 @@
 /obj/structure/morgue/alter_health() //???????????????
 	return src.loc
 
-/obj/structure/morgue/attack_paw(mob/user as mob)
+/obj/structure/morgue/attack_paw(mob/user )
 	return src.attack_hand(user)
 
 /obj/structure/morgue/attack_robot(mob/living/silicon/robot/user)
 	if(HAS_MODULE_QUIRK(user, MODULE_CAN_HANDLE_MEDICAL))
 		attack_hand(user)
 
-/obj/structure/morgue/attack_hand(mob/user as mob)
+/obj/structure/morgue/attack_hand(mob/user )
 	if (connected)
 		close_up()
 	else
@@ -143,7 +143,7 @@
 		set_tiny_label(user, " - '", "'", maxlength=32)
 	src.add_fingerprint(user)
 
-/obj/structure/morgue/relaymove(mob/user as mob)
+/obj/structure/morgue/relaymove(mob/user )
 	if (user.isUnconscious())
 		return
 	open_up()
@@ -185,10 +185,10 @@
 	else
 		return ..()
 
-/obj/structure/m_tray/attack_paw(mob/user as mob)
+/obj/structure/m_tray/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/structure/m_tray/attack_hand(mob/user as mob)
+/obj/structure/m_tray/attack_hand(mob/user )
 	if(connected)
 		connected.close_up()
 	else
@@ -198,7 +198,7 @@
 	if(HAS_MODULE_QUIRK(user, MODULE_CAN_HANDLE_MEDICAL))
 		attack_hand(user)
 
-/obj/structure/m_tray/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/structure/m_tray/MouseDropTo(atom/movable/O , mob/user )
 	if (!istype(O) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
@@ -271,10 +271,10 @@
 /obj/structure/crematorium/alter_health()
 	return src.loc
 
-/obj/structure/crematorium/attack_paw(mob/user as mob)
+/obj/structure/crematorium/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/structure/crematorium/attack_hand(mob/user as mob)
+/obj/structure/crematorium/attack_hand(mob/user )
 //	if (cremating) AWW MAN! THIS WOULD BE SO MUCH MORE FUN ... TO WATCH
 //		user.show_message("<span class='warning'>Uh-oh, that was a bad idea.</span>", 1)
 //		to_chat(usr, "Uh-oh, that was a bad idea.")
@@ -308,12 +308,12 @@
 	src.add_fingerprint(user)
 	update()
 
-/obj/structure/crematorium/attackby(P , mob/user as mob)
+/obj/structure/crematorium/attackby(P , mob/user )
 	if (istype(P, /obj/item/weapon/pen))
 		set_tiny_label(user, " - '", "'", maxlength=32)
 	src.add_fingerprint(user)
 
-/obj/structure/crematorium/relaymove(mob/user as mob)
+/obj/structure/crematorium/relaymove(mob/user )
 	if (user.stat || locked)
 		return
 	src.connected = new /obj/structure/c_tray( src.loc )
@@ -406,10 +406,10 @@
 	else
 		return ..()
 
-/obj/structure/c_tray/attack_paw(mob/user as mob)
+/obj/structure/c_tray/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/structure/c_tray/attack_hand(mob/user as mob)
+/obj/structure/c_tray/attack_hand(mob/user )
 	if (src.connected)
 		for(var/atom/movable/A  in src.loc)
 			if (!( A.anchored ))
@@ -420,7 +420,7 @@
 		//SN src = null
 		qdel(src)
 
-/obj/structure/c_tray/MouseDropTo(atom/movable/O , mob/user as mob)
+/obj/structure/c_tray/MouseDropTo(atom/movable/O , mob/user )
 	if ((!( istype(O, /atom/movable) ) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O)))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
@@ -431,7 +431,7 @@
 			if ((B.client && !( B.blinded )))
 				to_chat(B, text("<span class='warning'>[] stuffs [] into []!</span>", user, O, src))
 
-/obj/machinery/crema_switch/attack_hand(mob/user as mob)
+/obj/machinery/crema_switch/attack_hand(mob/user )
 	if (allowed(user))
 		for (var/obj/structure/crematorium/C in crematorium_list)
 			if (C.id == id)

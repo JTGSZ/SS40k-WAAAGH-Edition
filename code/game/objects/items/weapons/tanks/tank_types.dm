@@ -80,7 +80,7 @@
 	..()
 	air_contents.multiply(0)
 
-/obj/item/weapon/tank/plasma/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/tank/plasma/attackby(obj/item/weapon/W , mob/user )
 	..()
 
 	if (istype(W, /obj/item/weapon/gun/projectile/flamethrower))

@@ -51,7 +51,7 @@
 	return 1
 
 
-/obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/flashlight/attack(mob/living/M , mob/living/user )
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == "eyes")
 
@@ -228,7 +228,7 @@
 	user.visible_message("<span class='notice'>[user] activates the flare.</span>", "<span class='notice'>You pull the cord on the flare, activating it!</span>")
 	Light(user)
 
-/obj/item/device/flashlight/flare/proc/Light(var/mob/user as mob)
+/obj/item/device/flashlight/flare/proc/Light(var/mob/user )
 	on = 1
 	src.force = on_damage
 	src.damtype = "fire"

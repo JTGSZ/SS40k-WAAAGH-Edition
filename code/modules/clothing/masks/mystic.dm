@@ -9,7 +9,7 @@
 	siemens_coefficient = 3.0
 	gas_transfer_coefficient = 0.90
 
-/obj/item/clothing/mask/happy/equipped(M as mob, wear_mask)
+/obj/item/clothing/mask/happy/equipped(M , wear_mask)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -19,14 +19,14 @@
 		H << sound('sound/effects/hellclown.ogg')
 		canremove = 0
 
-/obj/item/clothing/mask/happy/attack_hand(mob/user as mob)
+/obj/item/clothing/mask/happy/attack_hand(mob/user )
 	if(user.wear_mask == src)
 		to_chat(user, "<span class='sinister'>It won't come off.</span>")
 		flick("happiest_flash", src)
 	else
 		..()
 
-/obj/item/clothing/mask/happy/pickup(mob/user as mob)
+/obj/item/clothing/mask/happy/pickup(mob/user )
 	flick("happiest_flash", src)
 	to_chat(user, "<span class=warning><B>The mask's eyesockets briefly flash with a foreboding red glare.</span></B>")
 

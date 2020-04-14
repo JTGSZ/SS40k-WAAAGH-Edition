@@ -91,7 +91,7 @@
 	if (!caught_bees.len)
 		current_species = null
 
-/obj/item/weapon/bee_net/attack_self(mob/user as mob)
+/obj/item/weapon/bee_net/attack_self(mob/user )
 	empty_bees()
 
 /obj/item/weapon/bee_net/verb/empty_bees()

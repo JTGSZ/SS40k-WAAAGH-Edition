@@ -414,7 +414,7 @@ steam.start() -- spawns the effect
 			reagents.reaction(A)
 	return
 
-/obj/effect/effect/smoke/chem/affect(mob/living/carbon/M as mob )
+/obj/effect/effect/smoke/chem/affect(mob/living/carbon/M  )
 	reagents.reaction(M)
 
 /datum/effect/effect/system/smoke_spread/chem

@@ -60,7 +60,7 @@
 /obj/item/weapon/crossbow/get_cell()
 	return cell
 
-/obj/item/weapon/crossbow/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/crossbow/attackby(obj/item/W , mob/user )
 	if(!arrow)
 		if (istype(W,/obj/item/weapon/arrow))
 			if(!user.drop_item(W, src))
@@ -116,7 +116,7 @@
 	else
 		..()
 
-/obj/item/weapon/crossbow/attack_self(mob/living/user as mob)
+/obj/item/weapon/crossbow/attack_self(mob/living/user )
 	if(tension)
 		if(arrow)
 			user.visible_message("[user] relaxes the tension on [src]'s string and removes [arrow].","You relax the tension on [src]'s string and remove [arrow].")
@@ -131,7 +131,7 @@
 	else
 		draw(user)
 
-/obj/item/weapon/crossbow/proc/draw(var/mob/user as mob)
+/obj/item/weapon/crossbow/proc/draw(var/mob/user )
 
 
 	if(!arrow)
@@ -147,7 +147,7 @@
 	tension = 1
 	spawn(25) increase_tension(user)
 
-/obj/item/weapon/crossbow/proc/increase_tension(var/mob/user as mob)
+/obj/item/weapon/crossbow/proc/increase_tension(var/mob/user )
 
 
 	if(!arrow || !tension || current_user != user) //Arrow has been fired, bow has been relaxed or user has changed.
@@ -239,7 +239,7 @@
 		if(4) to_chat(user, "It has a steel backbone, plastic lath and a cell mount installed.")
 		if(5) to_chat(user, "It has a steel cable loosely strung across the lath.")
 
-/obj/item/crossbowframe/attackby(obj/item/W , mob/user as mob)
+/obj/item/crossbowframe/attackby(obj/item/W , mob/user )
 	if(istype(W,/obj/item/stack/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/rods/R = W

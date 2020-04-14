@@ -20,7 +20,7 @@
 	mopbucket_list.Remove(src)
 	..()
 
-/obj/structure/mopbucket/attack_hand(mob/user as mob)
+/obj/structure/mopbucket/attack_hand(mob/user )
 	..()
 	if(!anchored)
 		anchored = 1
@@ -35,7 +35,7 @@
 	if(istype(W, /obj/item/weapon/mop))
 		return 0
 	return ..()
-/obj/structure/mopbucket/mop_act(obj/item/weapon/mop/M, mob/user as mob)
+/obj/structure/mopbucket/mop_act(obj/item/weapon/mop/M, mob/user )
 	if (istype(M))
 		if (src.reagents.total_volume >= 1)
 			if(M.reagents.total_volume >= 25)

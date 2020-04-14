@@ -143,7 +143,7 @@
 /obj/structure/displaycase/npc_tamper_act(mob/living/L)
 	dump() //Screw fingerprints checking and other crap, gremlin magic
 
-/obj/structure/displaycase/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/displaycase/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/I=W
 		if(!check_access(I))
@@ -202,13 +202,13 @@
 				occupant=W
 				update_icon()
 
-/obj/structure/displaycase/attack_paw(mob/user as mob)
+/obj/structure/displaycase/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/structure/displaycase/proc/getPrint(mob/user as mob)
+/obj/structure/displaycase/proc/getPrint(mob/user )
 	return md5(user:dna:uni_identity)
 
-/obj/structure/displaycase/attack_hand(mob/user as mob)
+/obj/structure/displaycase/attack_hand(mob/user )
 	if (destroyed)
 		if(occupant)
 			dump()

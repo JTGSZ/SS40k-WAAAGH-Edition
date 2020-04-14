@@ -48,7 +48,7 @@
 		else
 			to_chat(user, "<span class='info'>It is set to \"soft liquid\".</span>")
 
-/obj/item/weapon/gun/siren/attack_self(mob/user as mob)
+/obj/item/weapon/gun/siren/attack_self(mob/user )
 	hard = !hard
 	if(hard)
 		to_chat(user, "<span class='info'>You set \the [src] to fire hard liquid.</span>")

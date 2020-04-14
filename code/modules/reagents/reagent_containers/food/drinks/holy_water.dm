@@ -12,7 +12,7 @@
 	..()
 	reagents.add_reagent(HOLYWATER, 100)
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater/attack(mob/living/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater/attack(mob/living/M , mob/user , def_zone)
 	return
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater/afterattack(var/atom/target, var/mob/user, var/adjacency_flag, var/click_params)

@@ -31,7 +31,7 @@
 		overlays += image(icon = icon, icon_state = "folder_paper")
 	return
 
-/obj/item/weapon/folder/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/folder/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/weapon/photo))
 		if(user.drop_item(W, src))
 			to_chat(user, "<span class='notice'>You put the [W] into \the [src].</span>")
@@ -40,7 +40,7 @@
 		set_tiny_label(user, " - '", "'")
 	return
 
-/obj/item/weapon/folder/attack_self(mob/user as mob)
+/obj/item/weapon/folder/attack_self(mob/user )
 	var/dat = "<title>[name]</title>"
 
 	for(var/obj/item/weapon/paper/P in src)

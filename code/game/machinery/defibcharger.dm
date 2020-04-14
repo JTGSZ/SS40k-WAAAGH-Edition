@@ -29,7 +29,7 @@ obj/machinery/recharger/defibcharger/wallcharger // obj/machinery/recharger/defi
 
 	RefreshParts()
 
-obj/machinery/recharger/defibcharger/wallcharger/attack_hand(mob/user as mob)
+obj/machinery/recharger/defibcharger/wallcharger/attack_hand(mob/user )
 	add_fingerprint(user)
 
 	if(charging)
@@ -39,7 +39,7 @@ obj/machinery/recharger/defibcharger/wallcharger/attack_hand(mob/user as mob)
 		use_power = 1
 		update_icon()
 
-obj/machinery/recharger/defibcharger/wallcharger/attack_paw(mob/user as mob)
+obj/machinery/recharger/defibcharger/wallcharger/attack_paw(mob/user )
 	return attack_hand(user)
 
 obj/machinery/recharger/defibcharger/wallcharger/emp_act(severity)
@@ -91,7 +91,7 @@ obj/machinery/recharger/defibcharger/wallcharger/process()
 		return TRUE
 	return FALSE
 
-obj/machinery/recharger/defibcharger/wallcharger/attackby(obj/item/weapon/G , mob/user as mob)
+obj/machinery/recharger/defibcharger/wallcharger/attackby(obj/item/weapon/G , mob/user )
 	if(istype(G, /obj/item/weapon/melee/defibrillator))
 		if(..())
 			return

@@ -54,12 +54,12 @@
 	shiftpitch = text2num(assblast["shiftpitch"])
 	volume = text2num(assblast["volume"])
 
-/obj/item/device/soundsynth/attack_self(mob/user as mob)
+/obj/item/device/soundsynth/attack_self(mob/user )
 	if(spam_flag + 2 SECONDS < world.timeofday)
 		playsound(src, selected_sound, volume, shiftpitch)
 		spam_flag = world.timeofday
 
-/obj/item/device/soundsynth/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/device/soundsynth/attack(mob/living/M , mob/living/user , def_zone)
 	if(M == user)
 		pick_sound()
 	else if(spam_flag + 2 SECONDS < world.timeofday)

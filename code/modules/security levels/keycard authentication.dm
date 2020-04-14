@@ -27,15 +27,15 @@ var/global/list/obj/machinery/keycard_auth/authenticators = list()
 	..()
 	authenticators += src
 
-/obj/machinery/keycard_auth/attack_ai(mob/user as mob)
+/obj/machinery/keycard_auth/attack_ai(mob/user )
 	to_chat(user, "The station AI is not to interact with these devices.")
 	return
 
-/obj/machinery/keycard_auth/attack_paw(mob/user as mob)
+/obj/machinery/keycard_auth/attack_paw(mob/user )
 	to_chat(user, "You are too primitive to use this device.")
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/keycard_auth/attackby(obj/item/weapon/W , mob/user )
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return
@@ -62,7 +62,7 @@ var/global/list/obj/machinery/keycard_auth/authenticators = list()
 	..()
 	authenticators -= src
 
-/obj/machinery/keycard_auth/attack_hand(mob/user as mob)
+/obj/machinery/keycard_auth/attack_hand(mob/user )
 	if(user.stat || stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return

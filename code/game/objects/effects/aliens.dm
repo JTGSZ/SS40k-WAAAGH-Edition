@@ -130,7 +130,7 @@
 			O.show_message("<span class='warning'>[user] slices the [name] apart!</span>", 1)
 	healthcheck()
 
-/obj/effect/alien/resin/attackby(obj/item/weapon/W , mob/living/user as mob)
+/obj/effect/alien/resin/attackby(obj/item/weapon/W , mob/living/user )
 	/*if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(isalien(user)&&(ishuman(G.affecting)||ismonkey(G.affecting)))
@@ -467,7 +467,7 @@
 	else
 		qdel(src)
 
-/obj/effect/alien/egg/attack_paw(user as mob)
+/obj/effect/alien/egg/attack_paw(user )
 	if(isalien(user))
 		switch(status)
 			if(BURST)
@@ -484,7 +484,7 @@
 	else
 		return attack_hand(user)
 
-/obj/effect/alien/egg/attack_hand(user as mob)
+/obj/effect/alien/egg/attack_hand(user )
 	to_chat(user, "<span class='warning'>It feels slimy.</span>")
 
 /obj/effect/alien/egg/proc/GetFacehugger()

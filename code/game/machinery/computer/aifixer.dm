@@ -12,7 +12,7 @@
 	..()
 	update_icon()
 
-/obj/machinery/computer/aifixer/attackby(I , user as mob)
+/obj/machinery/computer/aifixer/attackby(I , user )
 	if(istype(I, /obj/item/device/aicard))
 		if(stat & (NOPOWER|BROKEN))
 			to_chat(user, "This terminal isn't functioning right now, get it working!")
@@ -21,14 +21,14 @@
 		return
 	return ..()
 
-/obj/machinery/computer/aifixer/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/aifixer/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/aifixer/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/aifixer/attack_paw(var/mob/user )
 	return attack_hand(user)
 
-/obj/machinery/computer/aifixer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/aifixer/attack_hand(var/mob/user )
 	if(..())
 		return
 

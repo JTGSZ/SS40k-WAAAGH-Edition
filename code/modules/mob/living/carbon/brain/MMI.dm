@@ -32,7 +32,7 @@ obj/item/device/mmi/Destroy()
 	..()
 
 	// Return true if handled
-/obj/item/device/mmi/proc/try_handling_mommi_construction(var/obj/item/O , var/mob/user as mob)
+/obj/item/device/mmi/proc/try_handling_mommi_construction(var/obj/item/O , var/mob/user )
 	if(O.is_screwdriver(user))
 		for(var/t in mommi_assembly_parts)
 			var/cc=contents_count(t)
@@ -104,7 +104,7 @@ obj/item/device/mmi/Destroy()
 				return TRUE
 	return FALSE
 
-/obj/item/device/mmi/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/item/device/mmi/attackby(var/obj/item/O , var/mob/user )
 	if(try_handling_mommi_construction(O,user))
 		return
 	if(istype(O,/obj/item/organ/internal/brain) && !brainmob) //Time to stick a brain in it --NEO
@@ -174,7 +174,7 @@ obj/item/device/mmi/Destroy()
 	..()
 
 	//TODO: ORGAN REMOVAL UPDATE. Make the brain remain in the MMI so it doesn't lose organ data.
-/obj/item/device/mmi/attack_self(mob/user as mob)
+/obj/item/device/mmi/attack_self(mob/user )
 	if(!brainmob)
 		to_chat(user, "<span class='warning'>You upend \the [src], but there's nothing in it.")
 	else if(locked)

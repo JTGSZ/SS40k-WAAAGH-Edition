@@ -251,7 +251,7 @@
 	spawn(13)
 		del(src)
 
-/obj/machinery/meteor_battery/attack_alien(mob/living/carbon/alien/humanoid/M as mob)
+/obj/machinery/meteor_battery/attack_alien(mob/living/carbon/alien/humanoid/M )
 	if(!(stat & BROKEN))
 		playsound(src.loc, 'sound/weapons/slash.ogg', 25, 1, -1)
 		for(var/mob/O in viewers(src, null))

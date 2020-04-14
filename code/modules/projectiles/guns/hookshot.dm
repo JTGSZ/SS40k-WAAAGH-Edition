@@ -101,7 +101,7 @@
 	var/mob/living/carbon/C = chain_datum.extremity_B
 	to_chat(C, "<span class='warning'>\The [src] reels you in!</span>")
 
-/obj/item/weapon/gun/hookshot/dropped(mob/user as mob)
+/obj/item/weapon/gun/hookshot/dropped(mob/user )
 	if(!clockwerk && !rewinding)
 		rewind_chain()
 

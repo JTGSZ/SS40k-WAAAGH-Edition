@@ -117,7 +117,7 @@ var/global/list/juice_items = list (
 		return FALSE
 	return ..()
 
-/obj/machinery/reagentgrinder/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/reagentgrinder/attackby(var/obj/item/O , var/mob/user )
 
 	if(..())
 		return 1
@@ -187,20 +187,20 @@ var/global/list/juice_items = list (
 	src.updateUsrDialog()
 	return 0
 
-/obj/machinery/reagentgrinder/attack_paw(mob/user as mob)
+/obj/machinery/reagentgrinder/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
+/obj/machinery/reagentgrinder/attack_ai(mob/user )
 	return 0
 
-/obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
+/obj/machinery/reagentgrinder/attack_hand(mob/user )
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/reagentgrinder/attack_robot(mob/user as mob)
+/obj/machinery/reagentgrinder/attack_robot(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/reagentgrinder/interact(mob/user as mob) // The microwave Menu
+/obj/machinery/reagentgrinder/interact(mob/user ) // The microwave Menu
 	var/is_chamber_empty = 0
 	var/is_beaker_ready = 0
 	var/processing_chamber = ""

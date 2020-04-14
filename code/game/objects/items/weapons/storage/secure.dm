@@ -35,7 +35,7 @@
 	if(!locked)
 		..()
 
-/obj/item/weapon/storage/secure/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/storage/secure/attackby(obj/item/weapon/W , mob/user )
 	if(locked)
 		if ( istype(W, /obj/item/weapon/card/emag) && (!src.emagged))
 			emagged = 1
@@ -158,7 +158,7 @@
 	new /obj/item/weapon/paper(src)
 	new /obj/item/weapon/pen(src)
 
-/obj/item/weapon/storage/secure/briefcase/attack_hand(mob/user as mob)
+/obj/item/weapon/storage/secure/briefcase/attack_hand(mob/user )
 	if ((src.loc == user) && (src.locked == 1))
 		to_chat(user, "<span class='warning'>[src] is locked and cannot be opened!</span>")
 	else if ((src.loc == user) && (!src.locked))
@@ -194,7 +194,7 @@
 		M.update_inv_hands()
 
 	//I consider this worthless but it isn't my code so whatever.  Remove or uncomment.
-	/*attack(mob/M as mob, mob/living/user as mob)
+	/*attack(mob/M , mob/living/user )
 		if (clumsy_check(user) && prob(50))
 			to_chat(user, "<span class='warning'>The [src] slips out of your hand and hits your head.</span>")
 			user.take_organ_damage(10)
@@ -263,7 +263,7 @@
 	new /obj/item/weapon/paper(src)
 	new /obj/item/weapon/pen(src)
 
-/obj/item/weapon/storage/secure/safe/attack_hand(mob/user as mob)
+/obj/item/weapon/storage/secure/safe/attack_hand(mob/user )
 	if(!locked)
 		if(user.s_active)
 			user.s_active.close(user) //Close and re-open

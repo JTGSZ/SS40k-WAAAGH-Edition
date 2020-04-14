@@ -12,7 +12,7 @@
 /*
  * Banhammer
  */
-/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/banhammer/attack(mob/M , mob/user )
 	to_chat(M, "<span class='red'><b>You have been banned FOR NO REISIN by [user]<b></span>")
 	to_chat(user, "<span class='red'>You have <b>BANNED</b> [M]</span>")
 
@@ -32,7 +32,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 
-/obj/item/weapon/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/weapon/melee/classic_baton/attack(mob/M , mob/living/user )
 	if (clumsy_check(user) && prob(50))
 		to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 		user.Knockdown(8)
@@ -93,7 +93,7 @@
 	var/on = 0
 
 
-/obj/item/weapon/melee/telebaton/attack_self(mob/user as mob)
+/obj/item/weapon/melee/telebaton/attack_self(mob/user )
 	on = !on
 	if(on)
 		user.visible_message("<span class='warning'>With a flick of their wrist, [user] extends their telescopic baton.</span>",\
@@ -140,7 +140,7 @@
 	I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
 	blood_overlays["[type][icon_state]"] = image(I)
 
-/obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob)
+/obj/item/weapon/melee/telebaton/attack(mob/target , mob/living/user )
 	if(on)
 		if (clumsy_check(user) && prob(50))
 			user.simple_message("<span class='warning'>You club yourself over the head.</span>",
@@ -198,10 +198,10 @@
 /*
  * Energy Axe
  */
-/obj/item/weapon/melee/energy/axe/attack(target as mob, mob/user as mob)
+/obj/item/weapon/melee/energy/axe/attack(target , mob/user )
 	..()
 
-/obj/item/weapon/melee/energy/axe/attack_self(mob/user as mob)
+/obj/item/weapon/melee/energy/axe/attack_self(mob/user )
 	src.active = !( src.active )
 	if (src.active)
 		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")

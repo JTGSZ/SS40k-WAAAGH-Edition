@@ -63,7 +63,7 @@
 	pixel_y=0
 
 
-/obj/item/weapon/paper/talisman/attack_self(mob/living/user as mob)
+/obj/item/weapon/paper/talisman/attack_self(mob/living/user )
 	if(islegacycultist(user))
 		var/use_charge = 1
 		var/obj/effect/rune_legacy/R = new
@@ -111,7 +111,7 @@
 		return
 
 
-/obj/item/weapon/paper/talisman/attack(mob/living/carbon/T as mob, mob/living/user as mob)
+/obj/item/weapon/paper/talisman/attack(mob/living/carbon/T , mob/living/user )
 	if(islegacycultist(user))
 		if(imbue == "runestun")
 			user.take_organ_damage(5, 0)
@@ -122,7 +122,7 @@
 	else
 		..()
 
-/obj/item/weapon/paper/talisman/attack_animal(var/mob/living/simple_animal/M as mob)
+/obj/item/weapon/paper/talisman/attack_animal(var/mob/living/simple_animal/M )
 	if(istype(M, /mob/living/simple_animal/construct/harvester))
 		attack_self(M)
 
@@ -195,7 +195,7 @@
 	uses = 5
 
 //imbued talismans invocation for a few runes, since calling the proc causes a runtime error due to src = null
-/obj/item/weapon/paper/talisman/proc/runestun(var/mob/living/T as mob)//When invoked as talisman, stun and mute the target mob.
+/obj/item/weapon/paper/talisman/proc/runestun(var/mob/living/T )//When invoked as talisman, stun and mute the target mob.
 	usr.say("Dream sign ''Evil sealing talisman'[pick("'","`")]!")
 	nullblock = 0
 	for(var/turf/TU in range(T,1))

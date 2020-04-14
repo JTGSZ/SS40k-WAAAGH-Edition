@@ -46,7 +46,7 @@
 
 	to_chat(user, "A small [locked ? "red" : "green"] light indicates the cabinet is [locked ? "" : "un"]locked.")
 
-/obj/structure/closet/fireaxecabinet/attackby(var/obj/item/O , var/mob/living/user as mob)  //Marker -Agouri
+/obj/structure/closet/fireaxecabinet/attackby(var/obj/item/O , var/mob/living/user )  //Marker -Agouri
 
 	user.delayNextAttack(10) //Whatever we do here, no clicking around for the user for at least one second
 
@@ -150,7 +150,7 @@
 				spawn(10)
 					update_icon()
 
-/obj/structure/closet/fireaxecabinet/attack_hand(mob/user as mob)
+/obj/structure/closet/fireaxecabinet/attack_hand(mob/user )
 
 	var/hasaxe = 0
 	if(fireaxe)
@@ -225,11 +225,11 @@
 		to_chat(usr, "<span class='notice'>\The [src] is closed.</span>")
 	update_icon()
 
-/obj/structure/closet/fireaxecabinet/attack_paw(mob/user as mob)
+/obj/structure/closet/fireaxecabinet/attack_paw(mob/user )
 	attack_hand(user)
 	return
 
-/obj/structure/closet/fireaxecabinet/attack_ai(mob/user as mob)
+/obj/structure/closet/fireaxecabinet/attack_ai(mob/user )
 	if(isobserver(user))
 		return //NO. FUCK OFF.
 	if(smashed)

@@ -286,7 +286,7 @@
 					return 1
 	return 0
 
-/mob/living/carbon/human/attack_slime(mob/living/carbon/slime/M as mob)
+/mob/living/carbon/human/attack_slime(mob/living/carbon/slime/M )
 	M.unarmed_attack_mob(src)
 
 /mob/living/carbon/human/restrained()
@@ -930,7 +930,7 @@
 
 //returns 1 if made bloody, returns 0 otherwise
 
-/mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
+/mob/living/carbon/human/add_blood(mob/living/carbon/human/M )
 	if (!..())
 		return 0
 	if(!M)

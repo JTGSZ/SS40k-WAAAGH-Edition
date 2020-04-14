@@ -101,7 +101,7 @@
 /datum/construction/reversible/station_map/action(atom/used_atom,mob/user)
 	return check_step(used_atom,user)
 
-/datum/construction/reversible/station_map/spawn_result(mob/user as mob)
+/datum/construction/reversible/station_map/spawn_result(mob/user )
 	if(result)
 		//testing("[user] finished a [result]!")
 

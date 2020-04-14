@@ -27,7 +27,7 @@
 /obj/item/weapon/shield/riot/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/shield/riot/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/melee/baton) || istype(W, /obj/item/weapon/melee/telebaton) || istype(W, /obj/item/weapon/melee/classic_baton))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
@@ -70,7 +70,7 @@
 /obj/item/weapon/shield/riot/roman/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/roman/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/shield/riot/roman/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/spear))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
@@ -108,7 +108,7 @@
 	else
 		return 0
 
-/obj/item/weapon/shield/energy/attack_self(mob/living/user as mob)
+/obj/item/weapon/shield/energy/attack_self(mob/living/user )
 	if (clumsy_check(user) && prob(50))
 		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
 		user.take_organ_damage(5)
@@ -146,7 +146,7 @@
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_SYNDICATE + "=4"
 
 
-/obj/item/weapon/cloaking_device/attack_self(mob/user as mob)
+/obj/item/weapon/cloaking_device/attack_self(mob/user )
 	src.active = !( src.active )
 	if (src.active)
 		to_chat(user, "<span class='notice'>The cloaking device is now active.</span>")
@@ -173,7 +173,7 @@
 /obj/item/weapon/shield/riot/proto/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/proto/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/shield/riot/proto/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/spear))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
@@ -192,7 +192,7 @@
 /obj/item/weapon/shield/riot/joe/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/joe/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/weapon/shield/riot/joe/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/spear))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")

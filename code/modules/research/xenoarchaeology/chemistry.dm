@@ -70,7 +70,7 @@ datum/reagent/chemical_waste
 
 /obj/item/weapon/reagent_containers/glass/solution_tray/mop_act(obj/item/weapon/mop/M, mob/user)
 	return 1
-obj/item/weapon/reagent_containers/glass/solution_tray/attackby(obj/item/weapon/W , mob/living/user as mob)
+obj/item/weapon/reagent_containers/glass/solution_tray/attackby(obj/item/weapon/W , mob/living/user )
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		set_tiny_label(user)
 	else

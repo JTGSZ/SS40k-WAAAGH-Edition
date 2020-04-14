@@ -13,7 +13,7 @@
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 
-/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W , mob/user as mob)
+/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W , mob/user )
 	..()
 	if (istype(W, /obj/item/weapon/f_card))
 		if (W.fingerprints)
@@ -33,7 +33,7 @@
 			W.add_fingerprint(user)
 	return
 
-/obj/item/device/detective_scanner/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/detective_scanner/attack(mob/living/carbon/human/M , mob/user )
 	if (!ishuman(M))
 		to_chat(user, "<span class='warning'>[M] is not human and cannot have fingerprints.</span>")
 		return 0
@@ -235,7 +235,7 @@
 	custom_forgery[2] = list()
 	custom_forgery[3] = list()
 
-/obj/item/device/detective_scanner/forger/attack_self(var/mob/user as mob)
+/obj/item/device/detective_scanner/forger/attack_self(var/mob/user )
 	var/list/customprints = list()
 	var/list/customfiber = list()
 	var/list/customblood = list()

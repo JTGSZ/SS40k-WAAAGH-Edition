@@ -30,7 +30,7 @@
 		unfolded = null
 	return ..()
 
-/obj/item/weapon/p_folded/attack_self(mob/user as mob)
+/obj/item/weapon/p_folded/attack_self(mob/user )
 	if (!canunfold(src, user))
 		return
 	processunfolding(user)

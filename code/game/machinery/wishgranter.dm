@@ -12,7 +12,7 @@
 	var/insisting = 0
 	var/wish_whispers = list("I want the station to disappear.", "Humanity is corrupt, mankind must be destroyed.", "I want to be rich.", "I want to rule the world.", "I want to uncover the truth.", "I want immortality.", "I want to become a god.", "I want my valids.")
 
-/obj/machinery/wish_granter/attack_hand(var/mob/user as mob)
+/obj/machinery/wish_granter/attack_hand(var/mob/user )
 	usr.set_machine(src)
 
 	if(charges <= 0)

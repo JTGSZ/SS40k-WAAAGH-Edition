@@ -27,7 +27,7 @@
 		timestamp += timerecorded
 		storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] \"[html_encode(speech.message)]\""
 
-/obj/item/device/taperecorder/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/taperecorder/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if(istype(W, /obj/item/weapon/card/emag))
 		if(emagged == 0)

@@ -99,7 +99,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				return
 		recruitWindow(usr)
 
-/datum/paiController/proc/recruitWindow(var/mob/M as mob)
+/datum/paiController/proc/recruitWindow(var/mob/M )
 	var/datum/paiCandidate/candidate
 	for(var/datum/paiCandidate/c in pai_candidates)
 		if(!istype(c) || !istype(M))

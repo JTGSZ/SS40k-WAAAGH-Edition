@@ -140,7 +140,7 @@
 	else
 		icon_state = "emitter"
 
-/obj/machinery/power/emitter/attack_hand(mob/user as mob)
+/obj/machinery/power/emitter/attack_hand(mob/user )
 
 	//Require consciousness
 	if(user.stat && !isAdminGhost(user))

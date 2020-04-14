@@ -98,7 +98,7 @@
 
 #undef CLONEPODRANGE
 
-/obj/machinery/computer/cloning/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/computer/cloning/attackby(obj/item/W , mob/user )
 	. = ..()
 	if(.)
 		return .
@@ -116,14 +116,14 @@
 		if(user)
 			user.visible_message("<span class='warning'>[user] slides something into \the [src]'s card-reader.</span>","<span class='warning'>You disable \the [src]'s safety overrides.</span>")
 
-/obj/machinery/computer/cloning/attack_paw(mob/user as mob)
+/obj/machinery/computer/cloning/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/computer/cloning/attack_ai(mob/user as mob)
+/obj/machinery/computer/cloning/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/computer/cloning/attack_hand(mob/user as mob)
+/obj/machinery/computer/cloning/attack_hand(mob/user )
 	if(..())
 		return 1
 	user.set_machine(src)
@@ -406,7 +406,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject as mob)
+/obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject )
 	if(istype(subject, /mob/living/slime_pile))
 		var/mob/living/slime_pile/S = subject
 		subject = S.slime_person

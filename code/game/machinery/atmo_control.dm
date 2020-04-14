@@ -57,7 +57,7 @@
 			output |= bitflag_value
 		return MT_UPDATE
 
-/obj/machinery/air_sensor/attackby(var/obj/item/W , var/mob/user as mob)
+/obj/machinery/air_sensor/attackby(var/obj/item/W , var/mob/user )
 	return ..()
 
 /obj/machinery/air_sensor/process()

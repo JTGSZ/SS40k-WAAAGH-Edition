@@ -95,7 +95,7 @@
 		active_state = base_state + _color
 	update_icon()
 
-/obj/item/weapon/melee/energy/sword/attack_self(mob/living/user as mob)
+/obj/item/weapon/melee/energy/sword/attack_self(mob/living/user )
 	if(!(flags & TWOHANDABLE))
 		if (clumsy_check(user) && prob(50) && active) //only an on blade can cut
 			to_chat(user, "<span class='danger'>You accidentally cut yourself with [src]!</span>")
@@ -255,7 +255,7 @@
 	icon_state = "dualsaber[wielded ? colorset : 0]"
 	item_state = "dualsaber[wielded ? colorset : 0]"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/attack(target as mob, mob/living/user as mob)
+/obj/item/weapon/melee/energy/sword/dualsaber/attack(target , mob/living/user )
 	..()
 	if(clumsy_check(user) && (wielded) &&prob(40))
 		to_chat(user, "<span class='warning'>You twirl around a bit before losing your balance and impaling yourself on the [src].</span>")
@@ -302,7 +302,7 @@
 	icon_state = "bananabunch[wielded ? 1 : 0]"
 	item_state = "bananabunch[wielded ? 1 : 0]"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/bananabunch/attack(target as mob, mob/living/user as mob)
+/obj/item/weapon/melee/energy/sword/dualsaber/bananabunch/attack(target , mob/living/user )
 	if(user.mind && !(user.mind.assigned_role == "Clown"))
 		to_chat(user, "<span class='warning'>Your clumsy hands fumble and you slice yourself open with [src].</span>")
 		user.take_organ_damage(40,50)
@@ -407,7 +407,7 @@
 			playsound(M, get_sfx("machete_throw_hit"),60, 0)
 	..()
 
-/obj/item/weapon/melee/energy/hfmachete/attack(target as mob, mob/living/user as mob)
+/obj/item/weapon/melee/energy/hfmachete/attack(target , mob/living/user )
 	if(isliving(target))
 		playsound(target, get_sfx("machete_hit"),50, 0)
 	if(clumsy_check(user) && prob(50))

@@ -1319,7 +1319,7 @@
 
 //////////             Rune 24 (counting burningblood, which kinda doesnt work yet.)
 
-/obj/effect/rune_legacy/proc/runestun(var/mob/living/T as mob)///When invoked as rune, flash and stun everyone around.
+/obj/effect/rune_legacy/proc/runestun(var/mob/living/T )///When invoked as rune, flash and stun everyone around.
 	usr.say("Fuu ma[pick("'","`")]jin!")
 	for(var/mob/living/L in viewers(src))
 

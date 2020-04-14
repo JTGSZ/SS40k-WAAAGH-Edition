@@ -31,7 +31,7 @@ Here it is: Buttbot.
 /obj/machinery/bot/buttbot/everbutt
 	det_chance = 0
 
-/obj/machinery/bot/buttbot/attack_hand(mob/living/user as mob)
+/obj/machinery/bot/buttbot/attack_hand(mob/living/user )
 	. = ..()
 	if (.)
 		return
@@ -86,7 +86,7 @@ Here it is: Buttbot.
 	qdel(src)
 
 
-/obj/item/clothing/head/butt/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/clothing/head/butt/attackby(var/obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/robot_parts/l_arm) || istype(W, /obj/item/robot_parts/r_arm))
 		qdel(W)

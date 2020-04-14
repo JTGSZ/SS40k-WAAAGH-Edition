@@ -4,10 +4,10 @@
 	anchored = 1
 	density = 1
 
-	attackby(obj/item/weapon/W , mob/user as mob)
+	attackby(obj/item/weapon/W , mob/user )
 		return attack_hand(user)
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user )
 		switch(alert("Travel back to ss13?",,"Yes","No"))
 			if("Yes")
 				if(user.z != src.z)
@@ -416,7 +416,7 @@ var/global/list/PDA_Manifest = list()
 	flags = FPRINT
 	siemens_coefficient = 1
 
-/obj/item/weapon/beach_ball/afterattack(atom/target , mob/user as mob)
+/obj/item/weapon/beach_ball/afterattack(atom/target , mob/user )
 	if(user.drop_item(src))
 		src.throw_at(target, throw_range, throw_speed)
 

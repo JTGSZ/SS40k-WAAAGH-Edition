@@ -1,7 +1,7 @@
 /obj/machinery/computer/library/public
 	name = "visitor computer"
 
-/obj/machinery/computer/library/public/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/library/public/attack_hand(var/mob/user )
 	if(..())
 		return
 	interact(user)

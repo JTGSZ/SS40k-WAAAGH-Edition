@@ -81,7 +81,7 @@
 				use(1)
 				return
 
-/obj/item/stack/rods/attackby(obj/item/W , mob/user as mob)
+/obj/item/stack/rods/attackby(obj/item/W , mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
@@ -106,7 +106,7 @@
 	return ..()
 
 
-/obj/item/stack/rods/attack_self(mob/user as mob)
+/obj/item/stack/rods/attack_self(mob/user )
 	src.add_fingerprint(user)
 
 	if(!active) //Start click drag construction

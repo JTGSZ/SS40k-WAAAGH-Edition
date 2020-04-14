@@ -36,19 +36,19 @@
 	return
 
 
-/obj/machinery/door/mineral/attack_ai(mob/user as mob) //those aren't really machinery, they're just big fucking slabs of a mineral
+/obj/machinery/door/mineral/attack_ai(mob/user ) //those aren't really machinery, they're just big fucking slabs of a mineral
 	if(isAI(user)) //so the AI can't open it
 		return
 	else if(isrobot(user) && get_dist(user,src) <= 1) //but robots can, not remotely though
 		return TryToSwitchState(user) //also >nesting if statements
 
-/obj/machinery/door/mineral/attack_paw(mob/user as mob)
+/obj/machinery/door/mineral/attack_paw(mob/user )
 	return TryToSwitchState(user)
 
-/obj/machinery/door/mineral/attack_hand(mob/user as mob)
+/obj/machinery/door/mineral/attack_hand(mob/user )
 	return TryToSwitchState(user)
 
-/obj/machinery/door/mineral/proc/TryToSwitchState(mob/user as mob)
+/obj/machinery/door/mineral/proc/TryToSwitchState(mob/user )
 	if(operating)
 		return
 
@@ -71,7 +71,7 @@
 	playsound(src, soundeffect, 100, 1)
 	return ..()
 
-/obj/machinery/door/mineral/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/door/mineral/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W,/obj/item/weapon/pickaxe))
 		var/obj/item/weapon/pickaxe/digTool = W
 		to_chat(user, "You start digging \the [src].")
@@ -161,7 +161,7 @@
 	icon_state = "plasmadoor_closed"
 	hardness = 4
 
-/obj/machinery/door/mineral/transparent/plasma/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/door/mineral/transparent/plasma/attackby(obj/item/weapon/W , mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))

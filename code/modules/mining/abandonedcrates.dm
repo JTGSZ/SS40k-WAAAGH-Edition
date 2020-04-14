@@ -17,7 +17,7 @@ var/global/list/valid_abandoned_crate_types = typesof(/obj/structure/closet/crat
 	..()
 	code = rand(min,max)
 
-/obj/structure/closet/crate/secure/loot/attack_hand(mob/user as mob)
+/obj/structure/closet/crate/secure/loot/attack_hand(mob/user )
 	if(locked)
 		to_chat(user, "<span class='notice'>The crate is locked with a Deca-code lock.</span>")
 		var/input = input(usr, "Enter digit from [min] to [max].", "Deca-Code Lock", "") as num
@@ -46,7 +46,7 @@ var/global/list/valid_abandoned_crate_types = typesof(/obj/structure/closet/crat
 	else
 		return ..()
 
-/obj/structure/closet/crate/secure/loot/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/closet/crate/secure/loot/attackby(obj/item/weapon/W , mob/user )
 	if(locked)
 		if (istype(W, /obj/item/device/multitool))
 			to_chat(user, "<span class='notice'>DECA-CODE LOCK REPORT:</span>")

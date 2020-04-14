@@ -150,7 +150,7 @@ var/list/apiaries_list = list()
 	visible_message("<span class='warning'>\The [src] was hit by \the [AM].</span>", 1)
 	angry_swarm()
 
-/obj/machinery/apiary/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/apiary/attackby(var/obj/item/O , var/mob/user )
 	if(..())
 		return
 	if(istype(O, /obj/item/device/analyzer/plant_analyzer))
@@ -540,7 +540,7 @@ var/list/apiaries_list = list()
 		health -= P.damage
 		updateHealth()
 
-/obj/structure/wild_apiary/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/structure/wild_apiary/attackby(var/obj/item/O , var/mob/user )
 	if(..())
 		return
 	else if(O.force)
@@ -574,7 +574,7 @@ var/list/apiaries_list = list()
 		health -= P.damage
 		updateHealth()
 
-/obj/machinery/apiary/wild/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/apiary/wild/attackby(var/obj/item/O , var/mob/user )
 	if(..())
 		return
 	if(istype(O, /obj/item/queen_bee))

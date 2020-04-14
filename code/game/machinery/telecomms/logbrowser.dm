@@ -22,7 +22,7 @@
 	req_access = list(access_tcomsat)
 
 
-/obj/machinery/computer/telecomms/server/attack_hand(mob/user as mob)
+/obj/machinery/computer/telecomms/server/attack_hand(mob/user )
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
@@ -229,7 +229,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/server/attackby(var/obj/item/weapon/D , var/mob/user as mob)
+/obj/machinery/computer/telecomms/server/attackby(var/obj/item/weapon/D , var/mob/user )
 	if(..())
 		return 1
 	src.updateUsrDialog()

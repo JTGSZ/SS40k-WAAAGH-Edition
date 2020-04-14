@@ -78,10 +78,10 @@
 		healthcheck(TRUE)
 		visible_message("<span class='danger'>\The [I] slams into \the [src].</span>")
 
-/obj/structure/grille/attack_paw(mob/user as mob)
+/obj/structure/grille/attack_paw(mob/user )
 	attack_hand(user)
 
-/obj/structure/grille/attack_hand(mob/user as mob)
+/obj/structure/grille/attack_hand(mob/user )
 	user.do_attack_animation(src, user)
 	var/humanverb = pick(list("kick", "slam", "elbow")) //Only verbs with a third person "s", thank you
 	user.delayNextAttack(8)
@@ -95,7 +95,7 @@
 	healthcheck(hitsound = 1)
 	shock(user, 100) //If there's power running in the grille, allow the attack but grill the user
 
-/obj/structure/grille/attack_alien(mob/user as mob)
+/obj/structure/grille/attack_alien(mob/user )
 	if(istype(user, /mob/living/carbon/alien/larva))
 		return
 	user.do_attack_animation(src, user)
@@ -108,7 +108,7 @@
 	healthcheck(hitsound = 1)
 	shock(user, 75) //Ditto above
 
-/obj/structure/grille/attack_slime(mob/user as mob)
+/obj/structure/grille/attack_slime(mob/user )
 	if(!istype(user, /mob/living/carbon/slime/adult))
 		return
 	user.do_attack_animation(src, user)
@@ -121,7 +121,7 @@
 	shock(user, 100)
 	return
 
-/obj/structure/grille/attack_animal(var/mob/living/simple_animal/M as mob)
+/obj/structure/grille/attack_animal(var/mob/living/simple_animal/M )
 	M.delayNextAttack(8)
 	if(M.melee_damage_upper == 0)
 		return
@@ -157,7 +157,7 @@
 	healthcheck(hitsound = 1)
 	return 0
 
-/obj/structure/grille/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/grille/attackby(obj/item/weapon/W , mob/user )
 	user.delayNextAttack(8)
 	if(isglasssheet(W))
 		var/obj/item/stack/sheet/glass/G = W
@@ -208,7 +208,7 @@
 //Shock user with probability prb (if all connections & power are working)
 //Returns 1 if shocked, 0 otherwise
 
-/obj/structure/grille/proc/shock(mob/user as mob, prb, siemens_coeff)
+/obj/structure/grille/proc/shock(mob/user , prb, siemens_coeff)
 	if(!anchored || broken)	//De-anchored and destroyed grilles are never connected to the powernet !
 		return 0
 	if(!prob(prb)) //If the probability roll failed, don't go further

@@ -45,7 +45,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/machinery/egg_incubator/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/egg_incubator/attackby(var/obj/item/O , var/mob/user )
 	if(..())
 		return 1
 	if(contents.len >= limit)
@@ -61,19 +61,19 @@
 				"<span class='notice'>You add \the [O] to \the [src].</span>")
 	src.updateUsrDialog()
 
-/obj/machinery/egg_incubator/attack_paw(mob/user as mob)
+/obj/machinery/egg_incubator/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/egg_incubator/attack_ai(mob/user as mob)
+/obj/machinery/egg_incubator/attack_ai(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/egg_incubator/attack_hand(mob/user as mob)
+/obj/machinery/egg_incubator/attack_hand(mob/user )
 	if(..())
 		return 1
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/egg_incubator/interact(mob/user as mob)
+/obj/machinery/egg_incubator/interact(mob/user )
 	var/dat = ""
 	var/counter = 0
 	if(!(contents.len))

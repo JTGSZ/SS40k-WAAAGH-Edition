@@ -15,7 +15,7 @@
 	light_range = 4
 	light_color = LIGHT_COLOR_ORANGE
 
-/obj/structure/altar/attack_hand(mob/M as mob)
+/obj/structure/altar/attack_hand(mob/M )
 
 	on = !on
 	set_light(on*light_range) //Sets the lightrange multiplied by a true (1) false (0)

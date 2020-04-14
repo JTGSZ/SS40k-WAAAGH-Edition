@@ -97,7 +97,7 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 	if(prob(50))
 		qdel(src)
 
-/obj/machinery/chem_master/attackby(var/obj/item/weapon/B , var/mob/user as mob)
+/obj/machinery/chem_master/attackby(var/obj/item/weapon/B , var/mob/user )
 	if(..())
 		return 1
 
@@ -426,11 +426,11 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 		return
 	return ..()
 
-/obj/machinery/chem_master/attack_ai(mob/user as mob)
+/obj/machinery/chem_master/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/chem_master/attack_paw(mob/user as mob)
+/obj/machinery/chem_master/attack_paw(mob/user )
 	return src.attack_hand(user)
 
 /obj/machinery/chem_master/proc/generate_pill_icon_cache()
@@ -455,7 +455,7 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 	dat += "</div>"
 	return dat
 
-/obj/machinery/chem_master/attack_hand(mob/user as mob)
+/obj/machinery/chem_master/attack_hand(mob/user )
 	. = ..()
 	if(.)
 		return

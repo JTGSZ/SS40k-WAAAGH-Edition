@@ -22,7 +22,7 @@
 		return ..()
 
 //Removing the lock and the buttons.
-/obj/item/weapon/gun/dropped(mob/user as mob)
+/obj/item/weapon/gun/dropped(mob/user )
 	stop_aim()
 	if (user && user.client)
 		user.client.remove_gun_icons()

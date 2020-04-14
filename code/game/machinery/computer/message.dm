@@ -34,7 +34,7 @@
 	light_color = LIGHT_COLOR_GREEN
 
 
-/obj/machinery/computer/message_monitor/attackby(obj/item/weapon/O , mob/living/user as mob)
+/obj/machinery/computer/message_monitor/attackby(obj/item/weapon/O , mob/living/user )
 	if(!istype(user))
 		return
 	if(O.is_screwdriver(user) && emagged)
@@ -44,7 +44,7 @@
 	..()
 	return
 
-/obj/machinery/computer/message_monitor/emag(mob/user as mob)
+/obj/machinery/computer/message_monitor/emag(mob/user )
 	// Will create sparks and print out the console's password. You will then have to wait a while for the console to be back online.
 // It'll take more time if there's more characters in the password..
 	if(!emagged)
@@ -79,7 +79,7 @@
 			linkedServer = message_servers[1]
 	return
 
-/obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
+/obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user )
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!istype(user) && !isAdminGhost(user))
@@ -250,11 +250,11 @@
 	onclose(user, "message")
 	return
 
-/obj/machinery/computer/message_monitor/attack_ai(mob/user as mob)
+/obj/machinery/computer/message_monitor/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/message_monitor/proc/BruteForce(mob/user as mob)
+/obj/machinery/computer/message_monitor/proc/BruteForce(mob/user )
 	if(isnull(linkedServer))
 		to_chat(user, "<span class='warning'>Could not complete brute-force: Linked Server Disconnected!</span>")
 	else

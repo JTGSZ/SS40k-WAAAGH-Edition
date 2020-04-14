@@ -22,7 +22,7 @@
 	pass_flags = PASSTABLE
 	machine_flags = EMAGGABLE | WRENCHMOVE | FIXED2WORK
 
-/obj/machinery/computer/library/checkout/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/library/checkout/attack_hand(var/mob/user )
 	if(..())
 		return
 	interact(user)
@@ -206,7 +206,7 @@
 		return 1
 	return
 
-/obj/machinery/computer/library/checkout/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/machinery/computer/library/checkout/attackby(obj/item/weapon/W , mob/user )
 	if(istype(W, /obj/item/weapon/barcodescanner))
 		var/obj/item/weapon/barcodescanner/scanner = W
 		scanner.computer = src

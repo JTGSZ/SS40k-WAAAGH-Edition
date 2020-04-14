@@ -30,7 +30,7 @@
 					new /obj/item/weapon/hatchet/tomahawk/drilled(get_turf(src.loc))
 			qdel(src)
 
-/obj/item/weapon/hatchet/tomahawk/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/hatchet/tomahawk/attack(mob/living/carbon/M , mob/living/carbon/user )
 	var/parent_return = ..()
 	degrade(user)
 	return parent_return //Originally returned ..() itself, but I couldn't do that if I wanted the attack to appear before the break in the chat logs.
@@ -216,7 +216,7 @@
 		else
 			to_chat(user, "<span class='notice'>There's nothing in the bowl to light.</span>")
 
-/obj/item/weapon/hatchet/tomahawk/pipe/attack_self(mob/user as mob)
+/obj/item/weapon/hatchet/tomahawk/pipe/attack_self(mob/user )
 	if(!is_lit)
 		return
 	if(current_blunt)
@@ -355,7 +355,7 @@
 		else
 			to_chat(user, "<span class='notice'>There's nothing in the bowl to light.</span>")
 
-/obj/item/weapon/broken_pipe_tomahawk/attack_self(mob/user as mob)
+/obj/item/weapon/broken_pipe_tomahawk/attack_self(mob/user )
 	if(!is_lit)
 		return
 	if(current_blunt)

@@ -11,7 +11,7 @@
 	var/mode = 2
 	fire_delay = 2
 
-	attack_self(mob/living/user as mob)
+	attack_self(mob/living/user )
 		switch(mode)
 			if(2)
 				mode = 0
@@ -50,7 +50,7 @@
 	desc = "A heavy-duty, pulse-based energy weapon."
 	cell_type = "/obj/item/weapon/cell/infinite"
 
-	attack_self(mob/living/user as mob)
+	attack_self(mob/living/user )
 		to_chat(user, "<span class='warning'>\The [src] has three settings, and they are all DESTROY.</span>")
 
 

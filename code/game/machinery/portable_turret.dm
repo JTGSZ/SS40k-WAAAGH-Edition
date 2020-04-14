@@ -92,11 +92,11 @@
 	..()
 
 
-/obj/machinery/porta_turret/attack_ai(mob/user as mob)
+/obj/machinery/porta_turret/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/porta_turret/attack_hand(mob/user as mob)
+/obj/machinery/porta_turret/attack_hand(mob/user )
 	. = ..()
 	if (.)
 		return
@@ -214,7 +214,7 @@ Status: []<BR>"},
 		if(anchored) //Can't turn on if not secure
 			on = 1 // turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
 
-/obj/machinery/porta_turret/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/porta_turret/attackby(obj/item/W , mob/user )
 	if(stat & BROKEN)
 		if(iscrowbar(W))
 
@@ -512,7 +512,7 @@ Status: []<BR>"},
 	icon_state="[lasercolor]grey_target_prism"
 
 
-/obj/machinery/porta_turret/proc/assess_perp(mob/living/carbon/human/perp as mob)
+/obj/machinery/porta_turret/proc/assess_perp(mob/living/carbon/human/perp )
 	var/threatcount = 0 // the integer returned
 
 	if(src.emagged)
@@ -649,7 +649,7 @@ Status: []<BR>"},
 
 
 
-/obj/machinery/porta_turret_construct/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/porta_turret_construct/attackby(obj/item/W , mob/user )
 
 	// this is a bit unweildy but self-explanitory
 	switch(build_step)
@@ -799,7 +799,7 @@ Status: []<BR>"},
 /obj/machinery/porta_turret_construct/attack_ai(var/mob/user)
 	return 0
 
-/obj/machinery/porta_turret_construct/attack_hand(mob/user as mob)
+/obj/machinery/porta_turret_construct/attack_hand(mob/user )
 	switch(build_step)
 		if(4)
 			if(!installed)
@@ -831,15 +831,15 @@ Status: []<BR>"},
 	machine_flags = SHUTTLEWRENCH
 
 
-/obj/machinery/porta_turret_cover/attack_ai(mob/user as mob)
+/obj/machinery/porta_turret_cover/attack_ai(mob/user )
 	add_hiddenprint(user)
 	return Parent_Turret.attack_ai(user)
 
-/obj/machinery/porta_turret_cover/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/porta_turret_cover/attackby(obj/item/W , mob/user )
 	add_fingerprint(user)
 	return Parent_Turret.attackby(W, user)
 
-/obj/machinery/porta_turret_cover/attack_hand(mob/user as mob)
+/obj/machinery/porta_turret_cover/attack_hand(mob/user )
 	add_fingerprint(user)
 	return Parent_Turret.attack_hand(user)
 

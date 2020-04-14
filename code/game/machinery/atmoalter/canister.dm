@@ -254,7 +254,7 @@
 		healthcheck()
 	..()
 
-/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W , var/mob/user as mob)
+/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W , var/mob/user )
 	if(iswelder(W) && src.destroyed)
 		if(weld(W, user))
 			to_chat(user, "<span class='notice'>You salvage what's left of \the [src].</span>")
@@ -289,17 +289,17 @@
 
 
 
-/obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/canister/attack_paw(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/canister/attack_paw(var/mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user )
 	return src.ui_interact(user)
 
-/obj/machinery/portable_atmospherics/canister/attack_alien(var/mob/living/carbon/alien/user as mob)
+/obj/machinery/portable_atmospherics/canister/attack_alien(var/mob/living/carbon/alien/user )
 	src.add_hiddenprint(user)
 	health -= rand(15, 30)
 	user.visible_message("<span class='danger'>\The [user] slashes away at \the [src]!</span>", \

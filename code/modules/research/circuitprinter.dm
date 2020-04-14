@@ -74,7 +74,7 @@ using metal and glass, it uses glass and reagents (usually sulfuric acis).
 		T += M.rating
 	max_material_storage = T * 75000
 
-/obj/machinery/r_n_d/fabricator/circuit_imprinter/attackby(var/obj/item/O , var/mob/user as mob)
+/obj/machinery/r_n_d/fabricator/circuit_imprinter/attackby(var/obj/item/O , var/mob/user )
 	..()
 	if (O.is_open_container())
 		return 0

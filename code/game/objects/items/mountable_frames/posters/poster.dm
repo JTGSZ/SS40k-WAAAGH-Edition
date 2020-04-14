@@ -79,7 +79,7 @@
 	icon_state = design.icon_state // poster[serial_number]
 	..()
 
-/obj/structure/sign/poster/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/structure/sign/poster/attackby(obj/item/weapon/W , mob/user )
 	if(iswirecutter(W))
 		W.playtoolsound(loc, 100)
 		if(ruined)
@@ -90,7 +90,7 @@
 			roll_and_drop(user.loc)
 		return
 
-/obj/structure/sign/poster/attack_hand(mob/user as mob)
+/obj/structure/sign/poster/attack_hand(mob/user )
 	if(ruined)
 		return
 	var/temp_loc = user.loc

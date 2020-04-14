@@ -163,14 +163,14 @@
 	overlays -= image(icon = icon, icon_state = "mixer_overlay")
 	src.updateUsrDialog()
 
-/obj/machinery/computer/pandemic/attack_ai(mob/user as mob)
+/obj/machinery/computer/pandemic/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/pandemic/attack_paw(mob/user as mob)
+/obj/machinery/computer/pandemic/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/computer/pandemic/attack_hand(mob/user as mob)
+/obj/machinery/computer/pandemic/attack_hand(mob/user )
 	if(stat & (NOPOWER|BROKEN))
 		return
 	user.set_machine(src)
@@ -263,7 +263,7 @@
 	return
 
 
-/obj/machinery/computer/pandemic/attackby(var/obj/item/I , var/mob/user as mob)
+/obj/machinery/computer/pandemic/attackby(var/obj/item/I , var/mob/user )
 	if(..())
 		return 1
 	else if(istype(I, /obj/item/weapon/reagent_containers/glass))

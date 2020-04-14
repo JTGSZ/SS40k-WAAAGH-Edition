@@ -9,7 +9,7 @@
 	explosion_resistance = 5
 	var/airtight = 0
 
-/obj/structure/plasticflaps/attackby(obj/item/I , mob/user as mob)
+/obj/structure/plasticflaps/attackby(obj/item/I , mob/user )
 	if(iscrowbar(I) && anchored == 1)
 		if(airtight == 0)
 			I.playtoolsound(src, 50)
@@ -36,7 +36,7 @@
 			return
 	return ..()
 
-/obj/structure/plasticflaps/examine(mob/user as mob)
+/obj/structure/plasticflaps/examine(mob/user )
 	..()
 	to_chat(user, "It appears to be [anchored? "anchored to" : "unachored from"] the floor, [airtight? "and it seems to be airtight as well." : "but it does not seem to be airtight."]")
 

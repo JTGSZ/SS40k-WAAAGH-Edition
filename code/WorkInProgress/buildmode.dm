@@ -2,7 +2,7 @@
 #define MASS_DELETE			1
 #define SELECTIVE_DELETE	2
 #define SELECTIVE_FILL		3
-/proc/togglebuildmode(mob/M as mob in player_list)
+/proc/togglebuildmode(mob/M  in player_list)
 	set name = "Toggle Build Mode"
 	set category = "Special Verbs"
 

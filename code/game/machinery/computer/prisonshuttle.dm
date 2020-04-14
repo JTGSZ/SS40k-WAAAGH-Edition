@@ -21,25 +21,25 @@ var/prison_shuttle_timeleft = 0
 	var/prison_break = FALSE
 	light_color = LIGHT_COLOR_CYAN
 
-/obj/machinery/computer/prison_shuttle/attackby(I , user as mob)
+/obj/machinery/computer/prison_shuttle/attackby(I , user )
 	if(!..())
 		attack_hand(user)
 
-/obj/machinery/computer/prison_shuttle/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/prison_shuttle/attack_ai(var/mob/user )
 	add_hiddenprint(user)
 	return attack_hand(user)
 
 
-/obj/machinery/computer/prison_shuttle/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/prison_shuttle/attack_paw(var/mob/user )
 	return attack_hand(user)
 
-/obj/machinery/computer/prison_shuttle/emag(mob/user as mob)
+/obj/machinery/computer/prison_shuttle/emag(mob/user )
 	if(!emagged)
 		emagged = TRUE
 		if(user)
 			to_chat(user, "<span class='notice'>You disable the lock.</span>")
 
-/obj/machinery/computer/prison_shuttle/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/prison_shuttle/attack_hand(var/mob/user )
 	if(!allowed(user) && !emagged)
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
 		return

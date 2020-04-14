@@ -10,7 +10,7 @@
 
 /obj/item/device/fuse_bomb/admin//spawned by the adminbus, doesn't send an admin message, but the logs are still kept.
 
-/obj/item/device/fuse_bomb/attack_self(mob/user as mob)
+/obj/item/device/fuse_bomb/attack_self(mob/user )
 	if(!fuse_lit)
 		lit(user)
 	else
@@ -19,7 +19,7 @@
 		to_chat(user, "<span class='warning'>You extinguish the fuse with [seconds_left] seconds left!</span>")
 	return
 
-/obj/item/device/fuse_bomb/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/device/fuse_bomb/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if(!fuse_lit)
 		if(iswelder(W))
@@ -45,7 +45,7 @@
 			to_chat(user, "<span class='warning'>You extinguish the fuse with [seconds_left] seconds left!</span>")
 
 
-/obj/item/device/fuse_bomb/proc/lit(mob/user as mob, var/obj/O=null)
+/obj/item/device/fuse_bomb/proc/lit(mob/user , var/obj/O=null)
 	fuse_lit = 1
 	to_chat(user, "<span class='warning'>You lit the fuse[O ? " with [O]":""]! [seconds_left] seconds till detonation!</span>")
 	admin_warn(user)
@@ -81,7 +81,7 @@
 /obj/item/device/fuse_bomb/update_icon()
 	icon_state = "fuse_bomb_[seconds_left][fuse_lit ? "-lit":""]"
 
-/obj/item/device/fuse_bomb/proc/admin_warn(mob/user as mob)
+/obj/item/device/fuse_bomb/proc/admin_warn(mob/user )
 	var/turf/bombturf = get_turf(src)
 	var/area/A = get_area(bombturf)
 
@@ -100,7 +100,7 @@
 	message_admins(log_str, 0, 1)
 	log_game(log_str)
 
-/obj/item/device/fuse_bomb/admin/admin_warn(mob/user as mob)
+/obj/item/device/fuse_bomb/admin/admin_warn(mob/user )
 	var/turf/bombturf = get_turf(src)
 	var/area/A = get_area(bombturf)
 

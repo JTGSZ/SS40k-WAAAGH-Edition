@@ -34,7 +34,7 @@
 		if(dest)
 			destinations += dest
 
-/obj/item/device/destTagger/interact(mob/user as mob)
+/obj/item/device/destTagger/interact(mob/user )
 
 	var/dat = "<table style='width:100%; padding:4px;'><tr>"
 
@@ -54,7 +54,7 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/item/device/destTagger/attack_self(mob/user as mob)
+/obj/item/device/destTagger/attack_self(mob/user )
 	interact(user)
 
 /obj/item/device/destTagger/attackby(obj/item/W, mob/user)

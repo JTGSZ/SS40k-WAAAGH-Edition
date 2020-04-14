@@ -32,7 +32,7 @@
 /obj/item/demote_chip/New()
 	..()
 
-/obj/item/demote_chip/attack_self(mob/user as mob)
+/obj/item/demote_chip/attack_self(mob/user )
 	if(target_name != null) //Used hand-labeler as example
 		to_chat(user, "<span class='notice'>The target name cannot be reset!</span>")
 		return
@@ -49,7 +49,7 @@
 		desc = desc + " Stamped by:"
 		to_chat(user, "<span class='notice'>The demotion microchip for [src.target_name] is now ready to be stamped.</span>")
 
-/obj/item/demote_chip/attackby(obj/item/I , mob/user as mob)
+/obj/item/demote_chip/attackby(obj/item/I , mob/user )
 	if(istype(I, /obj/item/weapon/stamp))
 		var/obj/item/weapon/stamp/S = I
 		if(target_name != null)//Stamper must be able to see who he is banning
@@ -93,7 +93,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/card/id/syndicate/attackby(var/obj/item/I , mob/user as mob)
+/obj/item/weapon/card/id/syndicate/attackby(var/obj/item/I , mob/user )
 	//placebo, does not affect access on syndie agent card
 	if(istype(I, /obj/item/demote_chip/))
 		var/obj/item/demote_chip/DE = I
@@ -108,7 +108,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/card/id/attackby(var/obj/item/I , mob/user as mob)
+/obj/item/weapon/card/id/attackby(var/obj/item/I , mob/user )
 	//Check for if names match, card already has a chip, and its not a captains ID.
 	if(istype(I, /obj/item/demote_chip))
 		var/obj/item/demote_chip/D = I

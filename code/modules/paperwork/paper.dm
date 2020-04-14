@@ -96,7 +96,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/item/weapon/paper/attack_self(mob/living/user as mob)
+/obj/item/weapon/paper/attack_self(mob/living/user )
 	user.examination(src)
 	if(rigged && (Holiday == APRIL_FOOLS_DAY))
 		if(spam_flag == 0)
@@ -106,13 +106,13 @@
 				spam_flag = 0
 	return
 
-/obj/item/weapon/paper/attack_robot(var/mob/user as mob)
+/obj/item/weapon/paper/attack_robot(var/mob/user )
 	if(isMoMMI(user) && Adjacent(user))
 		return attack_hand(user)
 	else
 		return attack_ai(user)
 
-/obj/item/weapon/paper/attack_ai(var/mob/living/silicon/ai/user as mob)
+/obj/item/weapon/paper/attack_ai(var/mob/living/silicon/ai/user )
 	var/dist
 	if(istype(user) && user.current) //is AI
 		dist = get_dist(src, user.current)
@@ -204,7 +204,7 @@
 	return t
 
 
-/obj/item/weapon/paper/proc/openhelp(mob/user as mob)
+/obj/item/weapon/paper/proc/openhelp(mob/user )
 	user << browse({"<HTML><HEAD><TITLE>Pen Help</TITLE></HEAD>
 	<BODY>
 		<b><center>Crayon&Pen commands</center></b><br>
@@ -312,7 +312,7 @@
 		openhelp(usr)
 
 
-/obj/item/weapon/paper/attackby(obj/item/weapon/P , mob/user as mob)
+/obj/item/weapon/paper/attackby(obj/item/weapon/P , mob/user )
 	..()
 
 	if(istype(P, /obj/item/weapon/pen) || istype(P, /obj/item/toy/crayon))

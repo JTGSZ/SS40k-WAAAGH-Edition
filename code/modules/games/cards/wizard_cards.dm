@@ -102,7 +102,7 @@ var/global/list/wizard_cards_normal = list(
 
 	playsound(src, 'sound/items/AirHorn.ogg', 50, 1)
 
-/obj/item/toy/singlecard/wizard/legendary/honkmother/pickup(mob/living/user as mob)
+/obj/item/toy/singlecard/wizard/legendary/honkmother/pickup(mob/living/user )
 	if(user.mind && user.mind.assigned_role == "Clown")
 		to_chat(user, "<span class ='notice'>You feel Honkmother's presence as you pick up the card.</span>")
 
@@ -291,7 +291,7 @@ var/global/list/wizard_cards_normal = list(
 	icon_state = "cardpack_open"
 	.=..()
 
-/obj/item/weapon/storage/bag/wiz_cards/show_to(mob/user as mob)
+/obj/item/weapon/storage/bag/wiz_cards/show_to(mob/user )
 	icon_state = "cardpack_open"
 	.=..()
 

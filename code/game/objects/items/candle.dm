@@ -22,7 +22,7 @@
 	else i = 3
 	icon_state = "candle[i][lit ? "_lit" : ""]"
 
-/obj/item/candle/attackby(obj/item/weapon/W , mob/user as mob)
+/obj/item/candle/attackby(obj/item/weapon/W , mob/user )
 	..()
 	if(source_temperature && (W.is_hot() || W.sharpness_flags & (HOT_EDGE)))
 		light("<span class='notice'>[user] lights [src] with [W].</span>")
@@ -57,7 +57,7 @@
 	if(istype(T)) //Start a fire if possible
 		T.hotspot_expose(source_temperature, 5, surfaces = 0)
 
-/obj/item/candle/attack_self(mob/user as mob)
+/obj/item/candle/attack_self(mob/user )
 	if(lit)
 		lit = 0
 		update_icon()

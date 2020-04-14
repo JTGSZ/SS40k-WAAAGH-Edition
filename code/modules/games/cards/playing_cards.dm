@@ -77,7 +77,7 @@
 	..()
 	user.show_message("There are [cards.len] cards in the deck.", 1)
 
-/obj/item/toy/cards/attack_hand(mob/user as mob)
+/obj/item/toy/cards/attack_hand(mob/user )
 	var/choice = null
 	if(!cards.len)
 		icon_state = "deck_empty"

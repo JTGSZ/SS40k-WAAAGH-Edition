@@ -73,14 +73,14 @@
 	patrol_path = list()
 	src.updateUsrDialog()
 
-/obj/machinery/bot/cleanbot/attack_hand(mob/user as mob)
+/obj/machinery/bot/cleanbot/attack_hand(mob/user )
 	. = ..()
 	if (.)
 		return
 	usr.set_machine(src)
 	interact(user)
 
-/obj/machinery/bot/cleanbot/interact(mob/user as mob)
+/obj/machinery/bot/cleanbot/interact(mob/user )
 	var/dat
 	dat += text({"
 <TT><B>Automatic Station Cleaner v1.0</B></TT><BR><BR>
@@ -286,7 +286,7 @@ text("<A href='?src=\ref[src];operation=oddbutton'>[src.oddbutton ? "Yes" : "No"
 				L.adjustFireLoss(damage/2)
 		attack_cooldown()
 
-/obj/item/weapon/bucket_sensor/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/weapon/bucket_sensor/attackby(var/obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/robot_parts/l_arm) || istype(W, /obj/item/robot_parts/r_arm))
 		if(user.drop_item(W))

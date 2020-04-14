@@ -156,7 +156,7 @@
 		visible_message("<span class='danger'>\The [I] slams into \the [src].</span>")
 		healthcheck(null, TRUE, "hitby obj")
 
-/turf/simulated/floor/glass/attack_hand(mob/living/user as mob)
+/turf/simulated/floor/glass/attack_hand(mob/living/user )
 	//Bang against the window
 	if(usr.a_intent == I_HURT)
 		if(M_HULK in user.mutations)
@@ -177,10 +177,10 @@
 
 	return
 
-/turf/simulated/floor/glass/attack_paw(mob/user as mob)
+/turf/simulated/floor/glass/attack_paw(mob/user )
 	return attack_hand(user)
 
-/turf/simulated/floor/glass/proc/attack_generic(mob/living/user as mob, damage = 0)	//used by attack_alien, attack_animal, and attack_slime
+/turf/simulated/floor/glass/proc/attack_generic(mob/living/user , damage = 0)	//used by attack_alien, attack_animal, and attack_slime
 
 	user.do_attack_animation(src, user)
 	user.delayNextAttack(10)
@@ -189,19 +189,19 @@
 	"<span class='danger'>You smash into \the [src]!</span>")
 	healthcheck(user, TRUE, "attack_generic")
 
-/turf/simulated/floor/glass/attack_alien(mob/user as mob)
+/turf/simulated/floor/glass/attack_alien(mob/user )
 	if(islarva(user))
 		return
 	attack_generic(user, 15)
 
-/turf/simulated/floor/glass/attack_animal(mob/user as mob)
+/turf/simulated/floor/glass/attack_animal(mob/user )
 
 	var/mob/living/simple_animal/M = user
 	if(M.melee_damage_upper <= 0)
 		return
 	attack_generic(M, M.melee_damage_upper)
 
-/turf/simulated/floor/glass/attack_slime(mob/user as mob)
+/turf/simulated/floor/glass/attack_slime(mob/user )
 	if(!isslimeadult(user))
 		return
 	attack_generic(user, rand(10, 15))

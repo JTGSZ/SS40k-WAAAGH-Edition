@@ -418,7 +418,7 @@ proc/check_panel(mob/M)
 
 	var/health = 100
 
-/obj/effect/fake_attacker/attackby(var/obj/item/weapon/P , mob/living/user as mob)
+/obj/effect/fake_attacker/attackby(var/obj/item/weapon/P , mob/living/user )
 	step_away(src,my_target,2)
 	user.do_attack_animation(src, P)
 	for(var/mob/M in oviewers(world.view,my_target))

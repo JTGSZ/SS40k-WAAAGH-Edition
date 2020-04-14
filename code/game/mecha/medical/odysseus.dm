@@ -23,7 +23,7 @@
 	hud = null
 	return ..()
 
-/obj/mecha/medical/odysseus/moved_inside(var/mob/living/carbon/human/H as mob)
+/obj/mecha/medical/odysseus/moved_inside(var/mob/living/carbon/human/H )
 	if(..())
 		if(H.glasses)
 			occupant_message("<span class='red'>[H.glasses] prevent you from using [src] [hud]</span>")

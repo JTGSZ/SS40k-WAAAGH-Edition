@@ -117,7 +117,7 @@
 			if(env.temperature < (heat_amt + T0C))
 				env.add_thermal_energy(min(heating_power, env.get_thermal_energy_change(1000)))
 
-/obj/machinery/r_n_d/server/attack_hand(mob/user as mob)
+/obj/machinery/r_n_d/server/attack_hand(mob/user )
 	if (disabled)
 		return
 	if (shocked)
@@ -234,7 +234,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/rdservercontrol/attack_hand(mob/user as mob)
+/obj/machinery/computer/rdservercontrol/attack_hand(mob/user )
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
@@ -302,7 +302,7 @@
 	onclose(user, "server_control")
 	return
 
-/obj/machinery/computer/rdservercontrol/attackby(var/obj/item/weapon/D , var/mob/user as mob)
+/obj/machinery/computer/rdservercontrol/attackby(var/obj/item/weapon/D , var/mob/user )
 	if(D.is_screwdriver(user))
 		D.playtoolsound(src, 50)
 		if(do_after(user, src, 20))

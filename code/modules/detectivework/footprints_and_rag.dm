@@ -24,13 +24,13 @@
 	volume = 5
 	can_be_placed_into = null
 
-/obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user )
 	return
 
 /obj/item/weapon/reagent_containers/glass/rag/mop_act(obj/item/weapon/mop/M, mob/user)
 	return 0
 
-/obj/item/weapon/reagent_containers/glass/rag/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/glass/rag/attack(mob/living/M , mob/living/user , def_zone)
 	if (!ismob(M))
 		..()
 	if(user.zone_sel.selecting == "mouth")

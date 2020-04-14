@@ -48,10 +48,10 @@
 			overlays += image(icon = icon, icon_state = "plasma-5")
 
 
-/obj/structure/dispenser/attack_robot(mob/user as mob)
+/obj/structure/dispenser/attack_robot(mob/user )
 	return attack_hand(user)
 
-/obj/structure/dispenser/attack_hand(mob/user as mob)
+/obj/structure/dispenser/attack_hand(mob/user )
 	user.set_machine(src)
 	var/dat = "[src]<br><br>"
 
@@ -62,7 +62,7 @@
 	return
 
 
-/obj/structure/dispenser/attackby(obj/item/I , mob/user as mob)
+/obj/structure/dispenser/attackby(obj/item/I , mob/user )
 	if(istype(I, /obj/item/weapon/tank/oxygen) || istype(I, /obj/item/weapon/tank/air) || istype(I, /obj/item/weapon/tank/anesthetic))
 		if(oxytanks.len < 10)
 			if(user.drop_item(I, src))

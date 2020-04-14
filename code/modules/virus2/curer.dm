@@ -7,7 +7,7 @@
 
 	var/obj/item/weapon/reagent_containers/container = null
 
-/obj/machinery/computer/curer/attackby(var/obj/item/I , var/mob/user as mob)
+/obj/machinery/computer/curer/attackby(var/obj/item/I , var/mob/user )
 	if(I.is_screwdriver(user))
 		return ..(I,user)
 	if(istype(I,/obj/item/weapon/reagent_containers))
@@ -33,15 +33,15 @@
 	src.attack_hand(user)
 	return
 
-/obj/machinery/computer/curer/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/curer/attack_ai(var/mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/computer/curer/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/curer/attack_paw(var/mob/user )
 
 	return src.attack_hand(user)
 	return
 
-/obj/machinery/computer/curer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/curer/attack_hand(var/mob/user )
 	if(..())
 		return
 	user.machine = src

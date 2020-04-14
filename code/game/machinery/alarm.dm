@@ -1032,7 +1032,7 @@ var/global/list/airalarm_presets = list(
 			set_temperature(input_temperature)
 		return 1
 
-/obj/machinery/alarm/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/alarm/attackby(obj/item/W , mob/user )
 	src.add_fingerprint(user)
 
 	switch(buildstage)
@@ -1186,7 +1186,7 @@ FIRE ALARM
 		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
 
-/obj/machinery/firealarm/attack_ai(mob/user as mob)
+/obj/machinery/firealarm/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
@@ -1208,7 +1208,7 @@ FIRE ALARM
 	else
 		alarm()
 
-/obj/machinery/firealarm/attack_paw(mob/user as mob)
+/obj/machinery/firealarm/attack_paw(mob/user )
 	return src.attack_hand(user)
 
 /obj/machinery/firealarm/emp_act(severity)
@@ -1225,7 +1225,7 @@ FIRE ALARM
 	if(istype(AM,/obj/item/inflatable/shelter))
 		attackby(AM,user)
 
-/obj/machinery/firealarm/attackby(obj/item/W , mob/user as mob)
+/obj/machinery/firealarm/attackby(obj/item/W , mob/user )
 	src.add_fingerprint(user)
 
 	if (istype(W,/obj/item/inflatable/shelter))
@@ -1331,7 +1331,7 @@ FIRE ALARM
 			stat |= NOPOWER
 			update_icon()
 
-/obj/machinery/firealarm/attack_hand(mob/user as mob)
+/obj/machinery/firealarm/attack_hand(mob/user )
 	if((user.stat && !isobserver(user)) || stat & (NOPOWER|BROKEN))
 		return
 
@@ -1475,10 +1475,10 @@ var/global/list/firealarms = list() //shrug
 	var/area/this_area = get_area(src)
 	name = "[this_area.name] party alarm"
 
-/obj/machinery/partyalarm/attack_paw(mob/user as mob)
+/obj/machinery/partyalarm/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/machinery/partyalarm/attack_hand(mob/user as mob)
+/obj/machinery/partyalarm/attack_hand(mob/user )
 	if((user.stat && !isobserver(user)) || stat & (NOPOWER|BROKEN))
 		return
 

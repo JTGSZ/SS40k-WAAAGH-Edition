@@ -7,7 +7,7 @@
 	origin_tech = Tc_MATERIALS + "=4;" + Tc_ENGINEERING + "=3"
 	amount = 10
 
-/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/stack/nanopaste/attack(mob/living/M , mob/user )
 	if(!istype(M) || !istype(user))
 		return 0
 	if(istype(M,/mob/living/silicon/robot))	//Repairing cyborgs

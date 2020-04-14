@@ -135,7 +135,7 @@
 
 
 
-/obj/structure/mannequin/attack_paw(mob/user as mob)
+/obj/structure/mannequin/attack_paw(mob/user )
 	return attack_hand(user)
 
 /obj/structure/mannequin/wrenchAnchor(var/mob/user, var/obj/item/I)
@@ -1093,7 +1093,7 @@
 	used_atom = null
 	return 1
 
-/datum/construction/mannequin_frame/action(atom/used_atom,mob/user as mob)
+/datum/construction/mannequin_frame/action(atom/used_atom,mob/user )
 	return check_all_steps(used_atom,user)
 
 /datum/construction/mannequin_frame
@@ -1106,7 +1106,7 @@
 				list(Co_KEY=/obj/item/robot_parts/l_arm)
 				)
 
-/datum/construction/mannequin_frame/spawn_result(mob/user as mob)
+/datum/construction/mannequin_frame/spawn_result(mob/user )
 	var/obj/structure/mannequin_frame/const_holder = holder
 	const_holder.construct = new /datum/construction/mannequin(const_holder)
 	const_holder.overlays.len = 0
@@ -1158,7 +1158,7 @@
 /datum/construction/mannequin/action(atom/used_atom,mob/user)
 	return check_step(used_atom,user)
 
-/datum/construction/mannequin/spawn_result(mob/user as mob)
+/datum/construction/mannequin/spawn_result(mob/user )
 	if(result)
 //		testing("[user] finished a [result]!")
 

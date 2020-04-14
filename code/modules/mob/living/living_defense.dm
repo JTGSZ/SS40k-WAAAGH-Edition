@@ -175,7 +175,7 @@
 
 
 //BITES
-/mob/living/bite_act(mob/living/carbon/human/M as mob)
+/mob/living/bite_act(mob/living/carbon/human/M )
 	var/damage = rand(1, 5)
 
 	if(M.organ_has_mutation(LIMB_HEAD, M_BEAK)) //Beaks = stronger bites

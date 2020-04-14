@@ -37,7 +37,7 @@
 		loadedammo = null
 	..()
 
-/obj/item/weapon/gun/projectile/railgun/attack_self(mob/user as mob)
+/obj/item/weapon/gun/projectile/railgun/attack_self(mob/user )
 	if(user.isUnconscious())
 		to_chat(user, "You can't do that while unconscious.")
 		return

@@ -27,7 +27,7 @@
 
 	light_color = LIGHT_COLOR_GREEN
 
-/obj/machinery/computer/telecomms/monitor/attack_hand(mob/user as mob)
+/obj/machinery/computer/telecomms/monitor/attack_hand(mob/user )
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
@@ -207,7 +207,7 @@
 	last_machine = T
 	updateUsrDialog()
 
-/obj/machinery/computer/telecomms/monitor/attackby(var/obj/item/weapon/D , var/mob/user as mob)
+/obj/machinery/computer/telecomms/monitor/attackby(var/obj/item/weapon/D , var/mob/user )
 	if(..())
 		return 1
 	updateUsrDialog()

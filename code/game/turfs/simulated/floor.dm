@@ -199,10 +199,10 @@ turf/simulated/floor/update_icon()
 			return 0
 
 
-/turf/simulated/floor/attack_paw(mob/user as mob)
+/turf/simulated/floor/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/turf/simulated/floor/attack_hand(mob/user as mob)
+/turf/simulated/floor/attack_hand(mob/user )
 	if (is_light_floor())
 		var/obj/item/stack/tile/light/T = floor_tile
 		T.on = !T.on
@@ -510,7 +510,7 @@ turf/simulated/floor/update_icon()
 				floor_tile = null
 			make_plating()
 
-/turf/simulated/floor/attackby(obj/item/C , mob/user as mob)
+/turf/simulated/floor/attackby(obj/item/C , mob/user )
 	if(!C || !user)
 		return 0
 
@@ -656,7 +656,7 @@ turf/simulated/floor/update_icon()
 		qdel(P)
 
 
-/turf/simulated/floor/attack_construct(mob/user as mob)
+/turf/simulated/floor/attack_construct(mob/user )
 	if(istype(src,/turf/simulated/floor/carpet))
 		return//carpets are cool
 	if(istype(user,/mob/living/simple_animal/construct/builder))

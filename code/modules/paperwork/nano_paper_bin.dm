@@ -14,7 +14,7 @@
 	fire_fuel = 1
 
 
-/obj/item/weapon/paper_bin/nano/MouseDropFrom(mob/user as mob)
+/obj/item/weapon/paper_bin/nano/MouseDropFrom(mob/user )
 	if(user == usr && !usr.incapacitated() && (usr.contents.Find(src) || in_range(src, usr)))
 		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
 			if( !usr.get_active_hand() )		//if active hand is empty
@@ -25,11 +25,11 @@
 	return
 
 
-/obj/item/weapon/paper_bin/nano/attack_paw(mob/user as mob)
+/obj/item/weapon/paper_bin/nano/attack_paw(mob/user )
 	return attack_hand(user)
 
 
-/obj/item/weapon/paper_bin/nano/attack_hand(mob/user as mob)
+/obj/item/weapon/paper_bin/nano/attack_hand(mob/user )
 	if(ressources > 0)
 		ressources--
 		var/obj/item/weapon/paper/nano/p
@@ -46,7 +46,7 @@
 	return
 
 
-/obj/item/weapon/paper_bin/nano/attackby(var/obj/item/stack/sheet/plasteel/i , mob/user as mob)
+/obj/item/weapon/paper_bin/nano/attackby(var/obj/item/stack/sheet/plasteel/i , mob/user )
 	if(!istype(i))
 		return
 	if(ressources > 0)

@@ -15,7 +15,7 @@
 	icon_state = "ash"
 	anchored = 1
 
-/obj/effect/decal/cleanable/ash/attack_hand(mob/user as mob)
+/obj/effect/decal/cleanable/ash/attack_hand(mob/user )
 	user.visible_message("<span class='notice'>[user] wipes away \the [src].</span>")
 	qdel(src)
 

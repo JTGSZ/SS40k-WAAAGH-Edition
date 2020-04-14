@@ -364,15 +364,15 @@ var/list/shuttle_log = list()
 			setMenuState(usr, COMM_SCREEN_SHUTTLE_LOG)
 	return 1
 
-/obj/machinery/computer/communications/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/communications/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/communications/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/communications/attack_paw(var/mob/user )
 	return src.attack_hand(user)
 
 
-/obj/machinery/computer/communications/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/communications/attack_hand(var/mob/user )
 	if(..(user))
 		return
 
@@ -460,7 +460,7 @@ var/list/shuttle_log = list()
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/communications/emag(mob/user as mob)
+/obj/machinery/computer/communications/emag(mob/user )
 	if(!emagged)
 		emagged = 1
 		if(user)

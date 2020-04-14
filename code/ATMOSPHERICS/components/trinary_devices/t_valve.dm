@@ -119,10 +119,10 @@
 
 	return 1
 
-/obj/machinery/atmospherics/trinary/tvalve/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/trinary/tvalve/attack_ai(mob/user )
 	return
 
-/obj/machinery/atmospherics/trinary/tvalve/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/trinary/tvalve/attack_hand(mob/user )
 	if(isobserver(user) && !canGhostWrite(user,src,"toggles"))
 		to_chat(user, "<span class='warning'>Nope.</span>")
 		return
@@ -219,11 +219,11 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/trinary/tvalve/digital/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/trinary/tvalve/digital/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/atmospherics/trinary/tvalve/digital/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/trinary/tvalve/digital/attack_hand(mob/user )
 	if(!src.allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return

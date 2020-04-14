@@ -18,13 +18,13 @@
 	var/installed = 0
 
 	// Allow dicking with it while it's on the floor.
-/obj/item/weapon/circuitboard/airlock/attack_robot(mob/user as mob)
+/obj/item/weapon/circuitboard/airlock/attack_robot(mob/user )
 	if(isMoMMI(user))
 		return ..()
 	attack_self(user)
 	return 1
 
-/obj/item/weapon/circuitboard/airlock/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/circuitboard/airlock/attackby(obj/item/W , mob/user )
 	if(issolder(W))
 		var/obj/item/weapon/solder/S = W
 		if(icon_state == "door_electronics_smoked")
@@ -36,7 +36,7 @@
 				icon_state = "door_electronics"
 				to_chat(user, "<span class='notice'>You repair the blown fuses on the circuitboard.</span>")
 
-/obj/item/weapon/circuitboard/airlock/attack_self(mob/user as mob)
+/obj/item/weapon/circuitboard/airlock/attack_self(mob/user )
 	if (!ishigherbeing(user) && !isrobot(user))
 		return ..()
 
@@ -50,7 +50,7 @@
 
 	interact(user)
 
-/obj/item/weapon/circuitboard/airlock/interact(mob/user as mob)
+/obj/item/weapon/circuitboard/airlock/interact(mob/user )
 	var/t1 = text("<B>Access control</B><br>\n")
 
 	if (last_configurator)

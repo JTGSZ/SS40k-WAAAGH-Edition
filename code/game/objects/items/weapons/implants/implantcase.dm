@@ -15,7 +15,7 @@
 		src.icon_state = "implantcase-0"
 	return
 
-/obj/item/weapon/implantcase/attackby(obj/item/I , mob/user as mob)
+/obj/item/weapon/implantcase/attackby(obj/item/I , mob/user )
 	..()
 	if (istype(I, /obj/item/weapon/pen))
 		set_tiny_label(user, " - '", "'")

@@ -85,7 +85,7 @@
 				winshow(M, "Telecomms IDE", 0) // hide the windows
 
 
-/obj/machinery/computer/telecomms/traffic/attack_hand(mob/user as mob)
+/obj/machinery/computer/telecomms/traffic/attack_hand(mob/user )
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
@@ -275,7 +275,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/weapon/D , var/mob/user as mob)
+/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/weapon/D , var/mob/user )
 	return ..()
 
 /obj/machinery/computer/telecomms/emag(mob/user)

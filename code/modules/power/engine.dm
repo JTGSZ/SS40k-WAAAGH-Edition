@@ -1,7 +1,7 @@
-/turf/simulated/floor/engine/attack_paw(var/mob/user as mob)
+/turf/simulated/floor/engine/attack_paw(var/mob/user )
 	return src.attack_hand(user)
 
-/turf/simulated/floor/engine/attack_hand(var/mob/user as mob)
+/turf/simulated/floor/engine/attack_hand(var/mob/user )
 	user.Move_Pulled(src)
 	return
 

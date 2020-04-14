@@ -71,7 +71,7 @@
 	..()
 
 //returns 1 if made bloody, returns 0 otherwise
-/turf/simulated/add_blood(mob/living/carbon/human/M as mob)
+/turf/simulated/add_blood(mob/living/carbon/human/M )
 	if (!..())
 		return FALSE
 
@@ -87,7 +87,7 @@
 	return TRUE //we bloodied the floor
 
 // Only adds blood on the floor -- Skie
-/turf/simulated/proc/add_blood_floor(mob/living/carbon/M as mob)
+/turf/simulated/proc/add_blood_floor(mob/living/carbon/M )
 	if(istype(M, /mob/living/carbon/monkey))
 		blood_splatter(src,M,1)
 	else if( istype(M, /mob/living/carbon/alien ))

@@ -83,7 +83,7 @@
 			src.grinded++
 			to_chat(user, "<span class='notice'>The machine now has [grinded] monkeys worth of material stored.</span>")
 
-/obj/machinery/monkey_recycler/attack_hand(var/mob/user as mob)
+/obj/machinery/monkey_recycler/attack_hand(var/mob/user )
 	if(..())
 		return 1
 	if(grinded >= minimum_monkeys)
@@ -96,7 +96,7 @@
 		to_chat(user, "<span class='warning'>The machine needs at least 3 monkeys worth of material to produce a monkey cube. It only has [grinded].</span>")
 	return
 
-/obj/machinery/monkey_recycler/MouseDropTo(atom/movable/O , mob/user as mob) //copypasted from sleepers
+/obj/machinery/monkey_recycler/MouseDropTo(atom/movable/O , mob/user ) //copypasted from sleepers
 	if(!ismob(O))
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O))

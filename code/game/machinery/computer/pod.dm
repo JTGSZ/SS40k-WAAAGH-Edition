@@ -126,16 +126,16 @@
 	return
 
 
-/obj/machinery/computer/pod/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/pod/attack_ai(var/mob/user )
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 
-/obj/machinery/computer/pod/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/pod/attack_paw(var/mob/user )
 	return attack_hand(user)
 
 
-/obj/machinery/computer/pod/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/pod/attack_hand(var/mob/user )
 	if(..())
 		return
 
@@ -290,7 +290,7 @@
 	circuit = /obj/item/weapon/circuitboard/syndicatedoor
 	light_color = null
 
-/obj/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user )
 	if(!allowed(user))
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
 		return

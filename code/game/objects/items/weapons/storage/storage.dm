@@ -81,7 +81,7 @@
 			L += G.gift:return_inv()
 	return L
 
-/obj/item/weapon/storage/proc/show_to(mob/user as mob)
+/obj/item/weapon/storage/proc/show_to(mob/user )
 	if(!user.client)
 		is_seeing -= user
 		return
@@ -101,7 +101,7 @@
 	user.s_active = src
 	is_seeing |= user
 
-/obj/item/weapon/storage/proc/hide_from(mob/user as mob)
+/obj/item/weapon/storage/proc/hide_from(mob/user )
 	if(!user.client)
 		return
 
@@ -114,7 +114,7 @@
 	user.s_active = null
 	is_seeing -= user
 
-/obj/item/weapon/storage/proc/close(mob/user as mob)
+/obj/item/weapon/storage/proc/close(mob/user )
 	src.hide_from(user)
 
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
@@ -401,7 +401,7 @@
 	return 1
 
 //This proc is called when you want to place an item into the storage item.
-/obj/item/weapon/storage/attackby(obj/item/W , mob/user as mob)
+/obj/item/weapon/storage/attackby(obj/item/W , mob/user )
 	if(!Adjacent(user,MAX_ITEM_DEPTH))
 		return
 	..()
@@ -437,10 +437,10 @@
 
 	return handle_item_insertion(W)
 
-/obj/item/weapon/storage/dropped(mob/user as mob)
+/obj/item/weapon/storage/dropped(mob/user )
 	..()
 
-/obj/item/weapon/storage/attack_hand(mob/user as mob)
+/obj/item/weapon/storage/attack_hand(mob/user )
 	if(!stealthy(user))
 		playsound(src, rustle_sound, 50, 1, -5)
 
@@ -469,7 +469,7 @@
 		close_all()
 	src.add_fingerprint(user)
 
-/obj/item/weapon/storage/attack_paw(mob/user as mob)
+/obj/item/weapon/storage/attack_paw(mob/user )
 	return attack_hand(user)
 
 /obj/item/weapon/storage/throw_at()
@@ -541,7 +541,7 @@
 			O.ex_act(severity)
 	..()
 
-/obj/item/weapon/storage/attack_self(mob/user as mob) // BubbleWrap - A box can be folded up to make card
+/obj/item/weapon/storage/attack_self(mob/user ) // BubbleWrap - A box can be folded up to make card
 	//Clicking on itself will empty it, if it has the verb to do that.
 	if(user.get_active_hand() == src)
 		if(src.verbs.Find(/obj/item/weapon/storage/verb/quick_empty) && contents.len)
@@ -637,11 +637,11 @@
 			return 1
 	return 0
 
-/obj/item/weapon/storage/OnMobDeath(mob/wearer as mob)
+/obj/item/weapon/storage/OnMobDeath(mob/wearer )
 	for(var/obj/item/I in contents)
 		I.OnMobDeath(wearer)
 
-/obj/item/weapon/storage/stripped(mob/wearer as mob, mob/stripper as mob)
+/obj/item/weapon/storage/stripped(mob/wearer , mob/stripper )
 	for(var/obj/item/I in contents)
 		I.stripped(wearer, stripper)
 

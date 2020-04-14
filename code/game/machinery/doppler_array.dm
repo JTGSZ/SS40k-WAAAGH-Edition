@@ -19,14 +19,14 @@ var/list/doppler_arrays = list()
 /obj/machinery/computer/bhangmeter/process()
 	return PROCESS_KILL
 
-/obj/machinery/computer/bhangmeter/attack_paw(mob/user as mob)
+/obj/machinery/computer/bhangmeter/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/computer/bhangmeter/attack_ai(mob/user as mob)
+/obj/machinery/computer/bhangmeter/attack_ai(mob/user )
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/bhangmeter/attack_hand(mob/user as mob)
+/obj/machinery/computer/bhangmeter/attack_hand(mob/user )
 	//user.set_machine(src)
 	ui_interact(user)
 
@@ -84,7 +84,7 @@ var/list/doppler_arrays = list()
 		ui.push_data(data)
 		return
 
-/obj/machinery/computer/bhangmeter/interact(mob/user as mob)
+/obj/machinery/computer/bhangmeter/interact(mob/user )
 	var/listing = {"
 <html>
 	<head>

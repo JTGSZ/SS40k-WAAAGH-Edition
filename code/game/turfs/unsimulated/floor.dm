@@ -15,7 +15,7 @@
 			if(prob(20))
 				new/obj/effect/decal/cleanable/soot(src)
 
-/turf/unsimulated/floor/attack_paw(user as mob)
+/turf/unsimulated/floor/attack_paw(user )
 	return src.attack_hand(user)
 
 /turf/unsimulated/floor/add_dust()

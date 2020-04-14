@@ -224,13 +224,13 @@
 	if(recharge_port)
 		recharge_port.stop_charge()
 
-/obj/machinery/computer/mech_bay_power_console/attack_hand(mob/user as mob)
+/obj/machinery/computer/mech_bay_power_console/attack_hand(mob/user )
 	if(..())
 		return
 	if(!src.stat && (get_dist(src, user) <= 1 ||  istype(user, /mob/living/silicon)))
 		return interact(user)
 
-/obj/machinery/computer/mech_bay_power_console/interact(mob/user as mob)
+/obj/machinery/computer/mech_bay_power_console/interact(mob/user )
 	user.set_machine(src)
 	var/output = "<html><head><title>[src.name]</title></head><body>"
 	if(!recharge_floor)

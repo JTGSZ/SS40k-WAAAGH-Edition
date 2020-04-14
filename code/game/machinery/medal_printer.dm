@@ -45,7 +45,7 @@
 	)
 	RefreshParts()
 
-/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe/medal_printer/attack_hand(mob/user as mob)
+/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe/medal_printer/attack_hand(mob/user )
 	if(issilicon(user))
 		return
 	if(!allowed(usr) && !emagged)
