@@ -355,7 +355,7 @@ steam.start() -- spawns the effect
 		return 0
 
 	R.burn_skin(2)
-	M.bodytemperature = min(60, M.bodytemperature + (30 * TEMPERATURE_DAMAGE_COEFFICIENT))
+	R.bodytemperature = min(60, R.bodytemperature + (30 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /////////////////////////////////////////////
 // Smoke spread

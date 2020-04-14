@@ -88,7 +88,7 @@
 				return
 			welded =! welded
 			update_icon()
-			M.visible_message("<span class='warning'>[src] has been [welded?"welded shut":"unwelded"] by [user.name].</span>", 1, "You hear welding.", 2)
+			visible_message("<span class='warning'>[src] has been [welded?"welded shut":"unwelded"] by [user.name].</span>", 1, "You hear welding.", 2)
 		if(W.is_screwdriver(user) && !locked && has_lockless_type)
 			remove_lock(user)
 			return
