@@ -76,7 +76,7 @@ proc/move_mining_shuttle()
 			// find the turf to move things to
 			var/turf/D = locate(T.x, throwy - 1, 1)
 			//var/turf/E = get_step(D, SOUTH)
-			for(var/atom/movable/AM as mob|obj in T)
+			for(var/atom/movable/AM  in T)
 				AM.Move(D)
 
 			if(istype(T, /turf/simulated))
@@ -450,7 +450,7 @@ proc/move_mining_shuttle()
 	if(istype(M, /atom/movable))
 		do_teleport(M, target, 6) */
 
-/obj/effect/portal/jaunt_tunnel/teleport(atom/movable/M as mob|obj)
+/obj/effect/portal/jaunt_tunnel/teleport(atom/movable/M )
 	if(istype(M, /obj/effect))
 		return
 	if(!(istype(M, /atom/movable)))

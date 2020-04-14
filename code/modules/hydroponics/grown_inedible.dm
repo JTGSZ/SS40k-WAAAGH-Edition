@@ -162,7 +162,7 @@
 		user.take_organ_damage(0,force)
 		to_chat(user, "<span class='warning'>The nettle burns your bare hand!</span>")
 
-/obj/item/weapon/grown/nettle/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+/obj/item/weapon/grown/nettle/afterattack(atom/A , mob/user as mob, proximity)
 	if(!proximity)
 		return
 	user.delayNextAttack(8)

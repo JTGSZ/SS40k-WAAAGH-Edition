@@ -41,7 +41,7 @@
 /obj/item/toy/waterballoon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return
 
-/obj/item/toy/waterballoon/afterattack(atom/A as mob|obj, mob/user as mob)
+/obj/item/toy/waterballoon/afterattack(atom/A , mob/user as mob)
 	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to(src, 10)
 		to_chat(user, "<span class = 'notice'>You fill the balloon with the contents of \the [A].</span>")

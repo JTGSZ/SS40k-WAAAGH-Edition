@@ -2518,7 +2518,7 @@ obj/item/device/pda/AltClick()
 	if (map_app && map_app.holomap)
 		map_app.holomap.stopWatching()
 
-/obj/item/device/pda/clown/Crossed(AM as mob|obj) //Clown PDA is slippery.
+/obj/item/device/pda/clown/Crossed(AM ) //Clown PDA is slippery.
 	if (istype(AM, /mob/living/carbon))
 		var/mob/living/carbon/M = AM
 		if (M.Slip(8, 5, 1))

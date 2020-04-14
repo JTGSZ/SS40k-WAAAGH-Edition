@@ -81,7 +81,7 @@
 			if(count)
 				to_chat(occupant,"<span class='notice'>[count] ore successfully loaded into cargo compartment.</span>")
 
-/obj/structure/bed/chair/vehicle/gigadrill/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/structure/bed/chair/vehicle/gigadrill/MouseDropTo(atom/movable/O , mob/user as mob)
 	..()
 	if(OB || !istype(O, /obj/structure/ore_box))
 		return

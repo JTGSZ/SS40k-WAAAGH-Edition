@@ -214,7 +214,7 @@ var/global/list/ghdel_profiling = list()
 /atom/proc/on_reagent_change()
 	return
 
-/atom/proc/Bumped(AM as mob|obj)
+/atom/proc/Bumped(AM )
 	return
 
 /atom/proc/setDensity(var/density)
@@ -262,7 +262,7 @@ var/global/list/ghdel_profiling = list()
 /atom/proc/allow_drop()
 	return 1
 
-/atom/proc/HasProximity(atom/movable/AM as mob|obj) //IF you want to use this, the atom must have the PROXMOVE flag, and the moving atom must also have the PROXMOVE flag currently to help with lag
+/atom/proc/HasProximity(atom/movable/AM ) //IF you want to use this, the atom must have the PROXMOVE flag, and the moving atom must also have the PROXMOVE flag currently to help with lag
 	return
 
 /atom/proc/emp_act(var/severity)

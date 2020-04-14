@@ -107,7 +107,7 @@
 	qdel(src)
 
 
-/obj/machinery/shield/hitby(AM as mob|obj)
+/obj/machinery/shield/hitby(AM )
 	. = ..()
 	if(.)
 		return

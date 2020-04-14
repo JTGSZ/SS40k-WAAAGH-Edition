@@ -104,7 +104,7 @@ var/list/mass_drivers = list()
 	desc = "Now you're here, now you're over there."
 	density = 1
 
-/obj/machinery/mass_driver/bumper/Bumped(M as mob|obj)
+/obj/machinery/mass_driver/bumper/Bumped(M )
 	setDensity(FALSE)
 	step(M, get_dir(M,src))
 	spawn(1)

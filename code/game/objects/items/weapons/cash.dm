@@ -120,7 +120,7 @@ var/global/list/moneytypes = list(
 		return taking
 	return 0
 
-/obj/item/weapon/spacecash/afterattack(atom/A as mob|obj, mob/user as mob)
+/obj/item/weapon/spacecash/afterattack(atom/A , mob/user as mob)
 	if(istype(A, /obj/item/weapon/spacecash))
 		var/obj/item/weapon/spacecash/cash = A
 		var/collected = src.collect_from(cash)

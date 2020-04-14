@@ -439,7 +439,7 @@
 
 /obj/structure/inflatable/shelter/ex_act(severity)
 	if(severity<3)
-		for(var/atom/movable/A as mob|obj in src)//pulls everything out and hits it with an explosion
+		for(var/atom/movable/A  in src)//pulls everything out and hits it with an explosion
 			A.forceMove(loc)
 			A.ex_act(severity++)
 	..()

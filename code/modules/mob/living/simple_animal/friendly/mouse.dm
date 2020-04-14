@@ -350,7 +350,7 @@
 		var/bleeding = M.check_bodypart_bleeding(HANDS)
 		share_contact_diseases(M,block,bleeding)
 
-/mob/living/simple_animal/mouse/Crossed(AM as mob|obj)
+/mob/living/simple_animal/mouse/Crossed(AM )
 	if(ishuman(AM) && can_be_infected())
 		var/mob/living/carbon/human/M = AM
 		if (M.on_foot())

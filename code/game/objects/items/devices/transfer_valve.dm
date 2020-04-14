@@ -26,12 +26,12 @@
 /obj/item/device/transfer_valve/IsAssemblyHolder()
 	return 1
 
-/obj/item/device/transfer_valve/Crossed(AM as mob|obj)
+/obj/item/device/transfer_valve/Crossed(AM )
 	if(attached_device)
 		attached_device.Crossed(AM)
 	..()
 
-/obj/item/device/transfer_valve/on_found(wearer, AM as mob|obj)
+/obj/item/device/transfer_valve/on_found(wearer, AM )
 	if(attached_device)
 		attached_device.on_found(wearer, AM)
 	..()
@@ -79,7 +79,7 @@
 	return
 
 
-/obj/item/device/transfer_valve/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/device/transfer_valve/HasProximity(atom/movable/AM )
 	if(!attached_device)
 		return
 	attached_device.HasProximity(AM)

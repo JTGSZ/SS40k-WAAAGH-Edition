@@ -65,7 +65,7 @@
 
 	var/slip_power = 4
 
-/obj/item/weapon/bananapeel/traitorpeel/Crossed(AM as mob|obj)
+/obj/item/weapon/bananapeel/traitorpeel/Crossed(AM )
 	var/burned = rand(2,5)
 	if(istype(AM, /mob/living))
 		var/mob/living/M = AM

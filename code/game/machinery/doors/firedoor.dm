@@ -585,7 +585,7 @@ var/global/list/alert_overlays_global = list()
 	else
 		close()
 
-/obj/machinery/door/firedoor/border_only/Uncross(atom/movable/mover as mob|obj, turf/target )
+/obj/machinery/door/firedoor/border_only/Uncross(atom/movable/mover , turf/target )
 	if(istype(mover) && (mover.checkpass(PASSDOOR|PASSGLASS)))
 		return 1
 	if(flow_flags & ON_BORDER)

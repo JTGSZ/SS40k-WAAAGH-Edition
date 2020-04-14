@@ -91,7 +91,7 @@
 	if(loc)
 		var/area/A = loc
 		A.area_turfs += src
-	for(var/atom/movable/AM as mob|obj in src)
+	for(var/atom/movable/AM  in src)
 		spawn( 0 )
 			src.Entered(AM)
 	if(opacity)
@@ -121,7 +121,7 @@
 				return 0
 	return 1
 
-/turf/Enter(atom/movable/mover as mob|obj, atom/forget )
+/turf/Enter(atom/movable/mover , atom/forget )
 	if (!mover)
 		return 1
 
@@ -156,7 +156,7 @@
 	return 1 //Nothing found to block so return success!
 
 
-/turf/Entered(atom/movable/A as mob|obj)
+/turf/Entered(atom/movable/A )
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>")//This is to identify lag problems
 		return
@@ -303,7 +303,7 @@
 /turf/proc/return_siding_icon_state()		//used for grass floors, which have siding.
 	return 0
 
-/turf/proc/inertial_drift(atom/movable/A as mob|obj)
+/turf/proc/inertial_drift(atom/movable/A )
 	if(!(A.last_move))
 		return
 

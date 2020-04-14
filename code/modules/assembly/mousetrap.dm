@@ -80,7 +80,7 @@
 	..()
 
 
-/obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
+/obj/item/device/assembly/mousetrap/Crossed(AM )
 	if(armed)
 		if(ishuman(AM))
 			var/mob/living/carbon/H = AM
@@ -104,7 +104,7 @@
 	return 0
 
 
-/obj/item/device/assembly/mousetrap/hitby(A as mob|obj)
+/obj/item/device/assembly/mousetrap/hitby(A )
 	. = ..()
 	if(.)
 		return

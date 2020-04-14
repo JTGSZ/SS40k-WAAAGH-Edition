@@ -8,7 +8,7 @@
 /*
  * Banana Peels
  */
-/obj/item/weapon/bananapeel/Crossed(AM as mob|obj)
+/obj/item/weapon/bananapeel/Crossed(AM )
 	if (istype(AM, /mob/living/carbon))
 		var/mob/living/carbon/M = AM
 		if (M.Slip(2, 2, 1))
@@ -18,7 +18,7 @@
 /*
  * Soap
  */
-/obj/item/weapon/soap/Crossed(AM as mob|obj) //EXACTLY the same as bananapeel for now, so it makes sense to put it in the same dm -- Urist
+/obj/item/weapon/soap/Crossed(AM ) //EXACTLY the same as bananapeel for now, so it makes sense to put it in the same dm -- Urist
 	if (istype(AM, /mob/living/carbon))
 		var/mob/living/carbon/M = AM
 		if (M.Slip(3, 2, 1))

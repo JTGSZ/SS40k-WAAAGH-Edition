@@ -127,7 +127,7 @@ Frequency:
 	icon_state = "peel"
 	item_state = "bluespacebanana_peel"
 
-/obj/item/weapon/bananapeel/bluespace/Crossed(AM as mob|obj)
+/obj/item/weapon/bananapeel/bluespace/Crossed(AM )
 	if (istype(AM, /mob/living/carbon))
 		var/mob/living/carbon/M = AM
 		if (M.Slip(2, 2, 1))

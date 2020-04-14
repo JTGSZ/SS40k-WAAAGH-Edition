@@ -477,7 +477,7 @@
 				shake_camera(M, 3, 1) // buckled, not a lot of shaking
 
 //Gibs or moves mobs and stuff
-/datum/shuttle/proc/collide(var/atom/movable/AM as mob|obj)
+/datum/shuttle/proc/collide(var/atom/movable/AM )
 	AM.shuttle_act(src)
 
 //This is awful
@@ -651,7 +651,7 @@
 			continue
 
 		var/turf/displace_to = locate(C.x_pos,throwy,new_center.z)
-		for(var/atom/movable/AM as mob|obj in new_turf.contents)
+		for(var/atom/movable/AM  in new_turf.contents)
 			if(AM.anchored || src.collision_type == COLLISION_DESTROY)
 				src.collide(AM)
 			else

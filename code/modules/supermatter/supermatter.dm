@@ -382,7 +382,7 @@
 	user.apply_radiation(50, RAD_EXTERNAL)
 
 
-/obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
+/obj/machinery/power/supermatter/Bumped(atom/AM )
 	if(istype(AM, /obj/machinery/power/supermatter))
 		AM.visible_message("<span class='sinister'>As \the [src] bumps into \the [AM] an otherworldly resonance ringing begins to shake the room, you ponder for a moment all the incorrect choices in your life that led you here, to this very moment, to witness this. You take one final sigh before it all ends.</span>")
 		sleep(10) //Adds to the hilarity

@@ -53,7 +53,7 @@
 	else
 		set_light(0)
 
-/obj/machinery/bodyscanner/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/bodyscanner/MouseDropTo(atom/movable/O , mob/user as mob)
 	if(!ismob(O)) //humans only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -231,21 +231,21 @@
 /obj/machinery/bodyscanner/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			for(var/atom/movable/A as mob|obj in src)
+			for(var/atom/movable/A  in src)
 				A.forceMove(src.loc)
 				ex_act(severity)
 			qdel(src)
 			return
 		if(2.0)
 			if(prob(50))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
 				qdel(src)
 				return
 		if(3.0)
 			if(prob(25))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
 				qdel(src)
@@ -255,7 +255,7 @@
 
 /obj/machinery/bodyscanner/blob_act()
 	if(prob(50))
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(src.loc)
 		qdel(src)
 

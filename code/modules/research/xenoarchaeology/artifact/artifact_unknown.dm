@@ -114,7 +114,7 @@
 	..()
 	on_attackby.Invoke(list(user, "MELEE", W))
 
-/obj/machinery/artifact/Bumped(M as mob|obj)
+/obj/machinery/artifact/Bumped(M )
 	..()
 	if(istype(M,/obj))
 		on_attackby.Invoke(list(usr, "THROW", M))

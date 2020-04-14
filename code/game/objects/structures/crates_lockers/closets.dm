@@ -335,7 +335,7 @@
 				if(has_electronics)
 					E = dump_electronics()
 					E.forceMove(src)
-				for (var/atom/movable/A as mob|obj in src)
+				for (var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					A.ex_act(severity++)
 				qdel(src)
@@ -345,7 +345,7 @@
 				if(has_electronics)
 					E = dump_electronics()
 					E.forceMove(src)
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					A.ex_act(severity++)
 				qdel(src)
@@ -364,7 +364,7 @@
 		broken = 1
 		if(has_electronics)
 			dump_electronics()
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(src.loc)
 		qdel(src)
 
@@ -416,7 +416,7 @@
 		broken = 1
 		if(has_electronics)
 			dump_electronics()
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(src.loc)
 		qdel(src)
 
@@ -427,7 +427,7 @@
 		broken = 1
 		if(has_electronics)
 			dump_electronics()
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(src.loc)
 		qdel(src)
 

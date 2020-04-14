@@ -143,7 +143,7 @@ var/list/apiaries_list = list()
 			angry_swarm()
 		return
 
-/obj/machinery/apiary/hitby(AM as mob|obj)
+/obj/machinery/apiary/hitby(AM )
 	. = ..()
 	if(.)
 		return

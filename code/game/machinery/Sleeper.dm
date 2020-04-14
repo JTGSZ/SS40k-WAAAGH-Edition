@@ -152,7 +152,7 @@
 		add_fingerprint(usr)
 	return
 
-/obj/machinery/sleeper/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/sleeper/MouseDropTo(atom/movable/O , mob/user as mob)
 	if(!ismob(O)) //mobs only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -245,7 +245,7 @@
 
 /obj/machinery/sleeper/blob_act()
 	if(prob(75))
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(loc)
 			A.blob_act()
 		qdel(src)
@@ -309,21 +309,21 @@
 /obj/machinery/sleeper/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			for(var/atom/movable/A as mob|obj in src)
+			for(var/atom/movable/A  in src)
 				A.forceMove(loc)
 				ex_act(severity)
 			qdel(src)
 			return
 		if(2.0)
 			if(prob(50))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(loc)
 					ex_act(severity)
 				qdel(src)
 				return
 		if(3.0)
 			if(prob(25))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(loc)
 					ex_act(severity)
 				qdel(src)

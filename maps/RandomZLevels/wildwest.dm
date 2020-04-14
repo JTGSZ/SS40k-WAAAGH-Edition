@@ -116,10 +116,10 @@
 /obj/effect/meatgrinder/New()
 	icon_state = "blob"
 
-/obj/effect/meatgrinder/Crossed(AM as mob|obj)
+/obj/effect/meatgrinder/Crossed(AM )
 	Bumped(AM)
 
-/obj/effect/meatgrinder/Bumped(mob/M as mob|obj)
+/obj/effect/meatgrinder/Bumped(mob/M )
 
 	if(triggered)
 		return

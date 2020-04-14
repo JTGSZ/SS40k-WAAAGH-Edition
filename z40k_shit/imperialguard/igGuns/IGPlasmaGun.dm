@@ -19,7 +19,7 @@
 		reagents.add_reagent(HYDROGEN, max_fuel)
 
 //If someone drops a plasma gun onto us, we tie ourselves together.
-/obj/item/weapon/iguard/ig_powerpack/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/item/weapon/iguard/ig_powerpack/MouseDropTo(atom/movable/O , mob/user as mob)
 	..()
 	if(istype(O, /obj/item/weapon/gun/ig_plasma_gun))
 		if(user.is_wearing_item(src, slot_back))

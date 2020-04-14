@@ -614,7 +614,7 @@
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>")
 	user.delayNextAttack(10)
 
-/obj/mecha/hitby(atom/movable/A as mob|obj) //wrapper
+/obj/mecha/hitby(atom/movable/A ) //wrapper
 	. = ..()
 	if(.)
 		return

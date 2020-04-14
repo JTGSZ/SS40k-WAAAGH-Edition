@@ -164,7 +164,7 @@
 	if(loaded_item)
 		to_chat(user, "<span class='info'>There [loaded_item.gender == PLURAL ? "are \a [loaded_item]s" : "is \a [loaded_item]"] jammed into the barrel.</span>")
 
-/obj/item/weapon/blunderbuss/afterattack(atom/target , mob/living/user as mob|obj, flag, params)
+/obj/item/weapon/blunderbuss/afterattack(atom/target , mob/living/user , flag, params)
 	if (istype(target, /obj/item/weapon/storage/backpack ))
 		return
 
@@ -208,7 +208,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/blunderbuss/proc/Fire(atom/target , mob/living/user as mob|obj, params, reflex = 0)
+/obj/item/weapon/blunderbuss/proc/Fire(atom/target , mob/living/user , params, reflex = 0)
 	if (!loaded_item)
 		to_chat(user, "There's nothing in \the [src] to fire!")
 		return 0

@@ -248,7 +248,7 @@
 	..()
 	emagged = TRUE
 
-/obj/machinery/detector/HasProximity(atom/movable/AM as mob|obj)
+/obj/machinery/detector/HasProximity(atom/movable/AM )
 	if ((src.disable) || (src.last_read && world.time < src.last_read + 30))
 		return
 

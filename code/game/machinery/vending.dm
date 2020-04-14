@@ -207,7 +207,7 @@ var/global/num_vending_terminals = 1
 				spark(src, 5)
 	return ..()
 
-/obj/machinery/vending/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/vending/MouseDropTo(atom/movable/O , mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -1887,7 +1887,7 @@ var/global/num_vending_terminals = 1
 				return 1
 	..()
 
-/obj/machinery/wallmed_frame/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/wallmed_frame/MouseDropTo(atom/movable/O , mob/user as mob)
 	if(user.incapacitated() || user.lying)
 		return
 	if(!Adjacent(user) || !user.Adjacent(O))

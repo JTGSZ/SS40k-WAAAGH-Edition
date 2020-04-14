@@ -73,11 +73,11 @@
 	else
 		bombtank.release()
 
-/obj/item/device/onetankbomb/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/device/onetankbomb/HasProximity(atom/movable/AM )
 	if(bombassembly)
 		bombassembly.HasProximity(AM)
 
-/obj/item/device/onetankbomb/Crossed(AM as mob|obj)
+/obj/item/device/onetankbomb/Crossed(AM )
 	if(bombassembly)
 		bombassembly.Crossed(AM)
 

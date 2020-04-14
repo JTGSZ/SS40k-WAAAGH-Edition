@@ -182,12 +182,12 @@
 	if(detonator)
 		to_chat(user, "<span class='info'>With an attached [detonator.name]</span>")
 
-/obj/item/weapon/grenade/chem_grenade/Crossed(AM as mob|obj)
+/obj/item/weapon/grenade/chem_grenade/Crossed(AM )
 	if(detonator)
 		detonator.Crossed(AM)
 	..()
 
-/obj/item/weapon/grenade/chem_grenade/on_found(wearer, AM as mob|obj)
+/obj/item/weapon/grenade/chem_grenade/on_found(wearer, AM )
 	if(detonator)
 		detonator.on_found(wearer, AM)
 	..()

@@ -249,7 +249,7 @@
 		money_stored = 0
 	interact(usr)
 
-/obj/item/device/illegalradio/afterattack(atom/A as mob|obj, mob/user as mob)
+/obj/item/device/illegalradio/afterattack(atom/A , mob/user as mob)
 	if(istype(A, /obj/item/weapon/spacecash) && A.Adjacent(user))
 		var/obj/item/weapon/spacecash/cash = A
 		money_stored += cash.get_total()

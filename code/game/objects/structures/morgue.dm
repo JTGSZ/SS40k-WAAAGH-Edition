@@ -97,7 +97,7 @@
 	if(T.contents.Find(connected))
 		src.connected.connected = src //like a dog chasing it's own tail
 		src.icon_state = "morgue0"
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(src.connected.loc)
 		connected.icon_state = "morguet"
 		connected.dir = src.dir
@@ -108,7 +108,7 @@
 /obj/structure/morgue/proc/close_up()
 	if(!connected)
 		return
-	for(var/atom/movable/A as mob|obj in connected.loc)
+	for(var/atom/movable/A  in connected.loc)
 		if(istype(A, /mob/living/simple_animal/scp_173)) //I have no shame. Until someone rewrites this shitcode extroadinaire, I'll just snowflake over it
 			continue
 		if(!A.anchored)
@@ -198,7 +198,7 @@
 	if(HAS_MODULE_QUIRK(user, MODULE_CAN_HANDLE_MEDICAL))
 		attack_hand(user)
 
-/obj/structure/m_tray/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/structure/m_tray/MouseDropTo(atom/movable/O , mob/user as mob)
 	if (!istype(O) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
@@ -251,19 +251,19 @@
 /obj/structure/crematorium/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			for(var/atom/movable/A as mob|obj in src)
+			for(var/atom/movable/A  in src)
 				A.forceMove(src.loc)
 				ex_act(severity)
 			qdel(src)
 		if(2.0)
 			if (prob(50))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
 				qdel(src)
 		if(3.0)
 			if (prob(5))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
 				qdel(src)
@@ -285,7 +285,7 @@
 		to_chat(usr, "<span class='warning'>It's locked.</span>")
 		return
 	if ((src.connected) && (src.locked == 0))
-		for(var/atom/movable/A as mob|obj in src.connected.loc)
+		for(var/atom/movable/A  in src.connected.loc)
 			if (!( A.anchored ))
 				A.forceMove(src)
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -299,7 +299,7 @@
 		if (T.contents.Find(src.connected))
 			src.connected.connected = src
 			src.icon_state = "crema0"
-			for(var/atom/movable/A as mob|obj in src)
+			for(var/atom/movable/A  in src)
 				A.forceMove(src.connected.loc)
 			src.connected.icon_state = "cremat"
 		else
@@ -322,7 +322,7 @@
 	if (T.contents.Find(src.connected))
 		src.connected.connected = src
 		src.icon_state = "crema0"
-		for(var/atom/movable/A as mob|obj in src)
+		for(var/atom/movable/A  in src)
 			A.forceMove(src.connected.loc)
 			//Foreach goto(106)
 		src.connected.icon_state = "cremat"
@@ -411,7 +411,7 @@
 
 /obj/structure/c_tray/attack_hand(mob/user as mob)
 	if (src.connected)
-		for(var/atom/movable/A as mob|obj in src.loc)
+		for(var/atom/movable/A  in src.loc)
 			if (!( A.anchored ))
 				A.forceMove(src.connected)
 		src.connected.connected = null
@@ -420,7 +420,7 @@
 		//SN src = null
 		qdel(src)
 
-/obj/structure/c_tray/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/structure/c_tray/MouseDropTo(atom/movable/O , mob/user as mob)
 	if ((!( istype(O, /atom/movable) ) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O)))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))

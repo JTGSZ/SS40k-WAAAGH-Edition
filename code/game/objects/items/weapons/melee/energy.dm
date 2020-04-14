@@ -313,7 +313,7 @@
 			user.dir = turn(user.dir, 45)
 			sleep(1)
 
-/obj/item/weapon/melee/energy/sword/dualsaber/bananabunch/Crossed(AM as mob|obj)
+/obj/item/weapon/melee/energy/sword/dualsaber/bananabunch/Crossed(AM )
 	if (istype(AM, /mob/living/carbon))
 		var/mob/living/carbon/M = AM
 		if (M.Slip(2, 2, 1))

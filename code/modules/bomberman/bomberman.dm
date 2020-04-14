@@ -185,7 +185,7 @@ var/global/list/bombermangear = list()
 	kicked = 0
 	..()
 
-/obj/structure/bomberman/Bumped(M as mob|obj)	//kick bomb
+/obj/structure/bomberman/Bumped(M )	//kick bomb
 	for (var/obj/item/weapon/bomberman/dispenser in M)
 		if (dispenser.can_kick && !kicked)
 			kicked = 1
@@ -533,7 +533,7 @@ obj/structure/bomberflame/Destroy()
 		apply_power(dispenser)
 	..()
 
-/obj/structure/powerup/Bumped(M as mob|obj)	//kick bomb
+/obj/structure/powerup/Bumped(M )	//kick bomb
 	if (istype(M, /mob/living) || istype(M, /obj/mecha) || istype(M, /obj/structure/bed/chair/) || istype(M, /obj/structure/bomberflame))
 		setDensity(FALSE)
 		step(M, get_dir(M,src))

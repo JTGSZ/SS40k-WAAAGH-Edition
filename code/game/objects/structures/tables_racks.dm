@@ -342,7 +342,7 @@
 			return 1
 	return 1
 
-/obj/structure/table/Uncross(atom/movable/mover as mob|obj, target )
+/obj/structure/table/Uncross(atom/movable/mover , target )
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
 	if(flow_flags & ON_BORDER)

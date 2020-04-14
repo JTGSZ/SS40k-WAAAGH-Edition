@@ -115,7 +115,7 @@ var/list/obj/machinery/flasher/flashers = list()
 		flash()
 	..(severity)
 
-/obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
+/obj/machinery/flasher/portable/HasProximity(atom/movable/AM )
 	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 150))
 		return
 

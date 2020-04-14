@@ -320,7 +320,7 @@
 		return 0
 	return ..()
 
-/obj/machinery/recharge_station/Bumped(atom/AM as mob|obj)
+/obj/machinery/recharge_station/Bumped(atom/AM )
 	if(!isliving(AM) || isAI(AM) || !AM.get_cell())
 		return
 	mob_enter(AM)

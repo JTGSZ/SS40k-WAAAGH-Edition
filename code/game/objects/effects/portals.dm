@@ -33,11 +33,11 @@
 		spawn()
 			src.teleport(user)
 /*
-/obj/effect/portal/Bumped(mob/M as mob|obj)
+/obj/effect/portal/Bumped(mob/M )
 	spawn()
 		src.teleport(M)
 */
-/obj/effect/portal/Crossed(AM as mob|obj,var/no_tp=0)
+/obj/effect/portal/Crossed(AM ,var/no_tp=0)
 	if(no_tp)
 		return
 	if(istype(AM,/obj/item/projectile/beam))
@@ -147,7 +147,7 @@ var/list/portal_cache = list()
 
 	overlays += portal_cache["icon[initial(T.icon)]_iconstate[T.icon_state]_[type]"]
 
-/obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
+/obj/effect/portal/proc/teleport(atom/movable/M )
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
 	if (M.anchored && !istype(M, /obj/mecha) && !istype(M, /obj/item/projectile))

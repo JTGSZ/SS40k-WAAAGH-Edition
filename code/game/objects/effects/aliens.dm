@@ -82,7 +82,7 @@
 	health-=50
 	healthcheck()
 
-/obj/effect/alien/resin/hitby(AM as mob|obj)
+/obj/effect/alien/resin/hitby(AM )
 	. = ..()
 	if(.)
 		return
@@ -568,7 +568,7 @@
 		health -= 5
 		healthcheck()
 
-/obj/effect/alien/egg/HasProximity(atom/movable/AM as mob|obj)
+/obj/effect/alien/egg/HasProximity(atom/movable/AM )
 	if(status == GROWN)
 		if(!isliving(AM))
 			return

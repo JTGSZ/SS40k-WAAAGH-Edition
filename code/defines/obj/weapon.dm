@@ -729,7 +729,7 @@
 		armed = 1
 		timing = 0
 
-/obj/item/weapon/caution/proximity_sign/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/weapon/caution/proximity_sign/HasProximity(atom/movable/AM )
 	if(armed)
 		if(istype(AM, /mob/living/carbon) && !istype(AM, /mob/living/carbon/brain))
 			var/mob/living/carbon/C = AM
@@ -988,7 +988,7 @@
 	icon = midicon
 	icon_state = "1"
 
-/obj/item/weapon/lightning/afterattack(atom/A , mob/living/user as mob|obj, flag, params)
+/obj/item/weapon/lightning/afterattack(atom/A , mob/living/user , flag, params)
 	var/angle = get_angle(A, user)
 //	to_chat(world, angle)
 	angle = round(angle) + 45

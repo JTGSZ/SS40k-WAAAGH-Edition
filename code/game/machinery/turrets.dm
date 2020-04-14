@@ -86,7 +86,7 @@
 		qdel(src)
 	return
 
-/obj/machinery/turret/proc/check_target(var/atom/movable/T as mob|obj)
+/obj/machinery/turret/proc/check_target(var/atom/movable/T )
 	if( T && T in protected_area.turretTargets )
 		var/area/area_T = get_area(T)
 		if( !area_T || (area_T.type != protected_area.type) )

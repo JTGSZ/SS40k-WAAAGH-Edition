@@ -73,7 +73,7 @@
 	else
 		to_chat(user, "<span class='warning'>Nothing is attached to the tank valve!</span>")
 
-/obj/item/weapon/storage/pneumatic/afterattack(atom/target , mob/living/user as mob|obj, flag, params)
+/obj/item/weapon/storage/pneumatic/afterattack(atom/target , mob/living/user , flag, params)
 	if (istype(target, /obj/item/weapon/storage/backpack ))
 		return
 
@@ -102,7 +102,7 @@
 			Fire(M,user)
 			return
 
-/obj/item/weapon/storage/pneumatic/proc/Fire(atom/target , mob/living/user as mob|obj, params, reflex = 0)
+/obj/item/weapon/storage/pneumatic/proc/Fire(atom/target , mob/living/user , params, reflex = 0)
 
 
 	if (!tank)

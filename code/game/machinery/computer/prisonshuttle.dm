@@ -178,7 +178,7 @@ var/prison_shuttle_timeleft = 0
 						// find the turf to move things to
 			var/turf/D = locate(T.x, throwy - 1, 1)
 						//var/turf/E = get_step(D, SOUTH)
-			for(var/atom/movable/AM as mob|obj in T)
+			for(var/atom/movable/AM  in T)
 				AM.Move(D)
 			if(istype(T, /turf/simulated))
 				qdel(T)
@@ -210,7 +210,7 @@ var/prison_shuttle_timeleft = 0
 						// find the turf to move things to
 			var/turf/D = locate(T.x, throwy - 1, 1)
 						//var/turf/E = get_step(D, SOUTH)
-			for(var/atom/movable/AM as mob|obj in T)
+			for(var/atom/movable/AM  in T)
 				AM.Move(D)
 			if(istype(T, /turf/simulated))
 				qdel(T)

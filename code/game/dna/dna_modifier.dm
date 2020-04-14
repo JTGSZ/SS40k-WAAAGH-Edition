@@ -164,7 +164,7 @@
 	src.icon_state = "scanner_1"
 	src.add_fingerprint(usr)
 
-/obj/machinery/dna_scannernew/MouseDropTo(atom/movable/O as mob|obj, mob/user as mob)
+/obj/machinery/dna_scannernew/MouseDropTo(atom/movable/O , mob/user as mob)
 	if(!ismob(O)) //mobs only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -361,7 +361,7 @@
 	//This is by far the oldest code I have ever seen, please appreciate how it's preserved in comments for distant posterity. Have some perspective of where we came from.
 	switch(severity)
 		if(1.0)
-			for(var/atom/movable/A as mob|obj in src)
+			for(var/atom/movable/A  in src)
 				//A.loc = src.loc
 				A.forceMove(src.loc)
 				//ex_act(severity)
@@ -372,7 +372,7 @@
 			return
 		if(2.0)
 			if (prob(50))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					//A.loc = src.loc
 					A.forceMove(src.loc)
 					//ex_act(severity)
@@ -383,7 +383,7 @@
 				return
 		if(3.0)
 			if (prob(25))
-				for(var/atom/movable/A as mob|obj in src)
+				for(var/atom/movable/A  in src)
 					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(181)

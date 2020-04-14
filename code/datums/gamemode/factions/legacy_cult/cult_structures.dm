@@ -128,12 +128,12 @@
 	plane = ABOVE_TURF_PLANE
 	var/spawnable = null
 
-/obj/effect/gateway/Bumped(mob/M as mob|obj)
+/obj/effect/gateway/Bumped(mob/M )
 	spawn(0)
 		return
 	return
 
-/obj/effect/gateway/Crossed(AM as mob|obj)
+/obj/effect/gateway/Crossed(AM )
 	spawn(0)
 		return
 	return

@@ -226,7 +226,7 @@
 		if(re_emit)
 			_master.emit(sources)
 
-/obj/effect/beam/Crossed(atom/movable/AM as mob|obj)
+/obj/effect/beam/Crossed(atom/movable/AM )
 	beam_testing("Crossed by [AM]")
 	if(!master || !AM)
 		beam_testing(" returning (!AM || !master)")

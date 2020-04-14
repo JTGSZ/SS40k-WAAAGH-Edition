@@ -67,7 +67,7 @@
 		return 1
 	return BUILD_FAILURE
 
-/turf/space/proc/Sandbox_Spacemove(atom/movable/A as mob|obj)
+/turf/space/proc/Sandbox_Spacemove(atom/movable/A )
 	var/cur_x
 	var/cur_y
 	var/next_x

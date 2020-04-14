@@ -139,7 +139,7 @@
 
 //Someone threw something at us, please advise
 // I don't think this shit works on turfs, but it's here just in case.
-/turf/simulated/floor/glass/hitby(AM as mob|obj)
+/turf/simulated/floor/glass/hitby(AM )
 	. =  ..()
 	if(.)
 		return

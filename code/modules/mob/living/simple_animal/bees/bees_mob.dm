@@ -177,7 +177,7 @@ var/bee_mobs_count = 0
 		user.visible_message("<span class='danger'>[src] has been attacked with [O] by [user]. </span>")
 		panic_attack(user)
 
-/mob/living/simple_animal/bee/hitby(AM as mob|obj)
+/mob/living/simple_animal/bee/hitby(AM )
 	. = ..()
 	if(.)
 		return

@@ -43,7 +43,7 @@
 			qdel(src)
 
 
-/obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, var/adjacency_flag, var/click_params)
+/obj/item/weapon/reagent_containers/spray/afterattack(atom/A , mob/user as mob, var/adjacency_flag, var/click_params)
 	if (adjacency_flag && is_type_in_list(A, ignore_spray_types))
 		return
 

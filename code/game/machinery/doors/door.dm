@@ -361,7 +361,7 @@ var/list/all_doors = list()
 			return 1
 	return !density
 
-/obj/machinery/door/Crossed(AM as mob|obj) //Since we can't actually quite open AS the car goes through us, we'll do the next best thing: open as the car goes into our tile.
+/obj/machinery/door/Crossed(AM ) //Since we can't actually quite open AS the car goes through us, we'll do the next best thing: open as the car goes into our tile.
 	if(istype(AM, /obj/structure/bed/chair/vehicle/firebird)) //Which is not 100% correct for things like windoors but it's close enough.
 		open()
 	return ..()

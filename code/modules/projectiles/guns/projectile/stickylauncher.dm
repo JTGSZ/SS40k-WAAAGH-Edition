@@ -141,7 +141,7 @@
 	else
 		..()
 
-/obj/item/stickybomb/proc/stick_to(var/atom/A as mob|obj|turf, var/side = null)
+/obj/item/stickybomb/proc/stick_to(var/atom/A, var/side = null)
 	stuck_to = A
 	loc = A
 	pixel_x = rand(-10, 10) * PIXEL_MULTIPLIER

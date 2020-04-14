@@ -552,7 +552,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	//Inertial Speed is handled in /mob/living/carbon/human/Life() and /mob/living/carbon/human/base_movement_tally()
 
 //Complex Bump Attacks
-/mob/living/carbon/human/to_bump(atom/movable/AM as mob|obj)
+/mob/living/carbon/human/to_bump(atom/movable/AM )
 	if(isliving(AM))
 		if(!bumpattack_cooldown)
 			var/obj/item/weapon/I = src.get_active_hand()

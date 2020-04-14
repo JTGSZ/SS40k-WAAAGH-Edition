@@ -244,7 +244,7 @@
 		set_light(3, l_color = "#FFAA00")
 
 
-/obj/machinery/teleport/hub/Crossed(AM as mob|obj)
+/obj/machinery/teleport/hub/Crossed(AM )
 	if(AM == src)
 		return//DUH
 	if(istype(AM,/obj/item/projectile/beam))
@@ -257,7 +257,7 @@
 		if (src.engaged && teleport(AM))
 			use_power(teleport_power_usage)
 
-/obj/machinery/teleport/hub/proc/teleport(atom/movable/M as mob|obj)
+/obj/machinery/teleport/hub/proc/teleport(atom/movable/M )
 	var/atom/locked = get_target_lock()
 	if(!locked)
 		return FALSE

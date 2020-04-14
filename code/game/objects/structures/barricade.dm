@@ -138,7 +138,7 @@
 	..(loc)
 	flow_flags &= ~ON_BORDER
 
-/obj/structure/window/barricade/full/Uncross(atom/movable/O as mob|obj, target )
+/obj/structure/window/barricade/full/Uncross(atom/movable/O , target )
 
 	return 1
 

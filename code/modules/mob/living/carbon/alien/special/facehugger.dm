@@ -198,7 +198,7 @@
 		return HasProximity(finder)
 	return FALSE
 
-/obj/item/clothing/mask/facehugger/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/clothing/mask/facehugger/HasProximity(atom/movable/AM )
 	if(isliving(AM))
 		if(CanHug(AM, src))
 			return Attach(AM)
