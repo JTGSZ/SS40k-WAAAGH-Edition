@@ -125,13 +125,6 @@
 	if(!no_backpack)
 		equip_backbag(H, species)
 
-
-	/*if(slot_r_hand) // So we can put things into hands or something easily.
-		H.put_in_hand(GRASP_RIGHT_HAND, new slot_r_hand(H))
-	if(slot_l_hand)
-		H.put_in_hand(GRASP_LEFT_HAND, new slot_l_hand(H))
-	*/
-	
 	for(var/imp_type in implant_types)
 		var/obj/item/weapon/implant/I = new imp_type(H)
 		I.imp_in = H
@@ -146,7 +139,7 @@
 	give_disabilities_equipment(H)
 	H.update_icons()
 	//Handle faction shit here
-	spawn(4 SECONDS)
+	spawn(1 SECONDS)
 		handle_faction(H)
 		handle_special_abilities(H)
 
