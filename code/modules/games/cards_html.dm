@@ -54,7 +54,7 @@
 
 		src.cards.Add(card)
 
-/obj/item/weapon/deck/attackby(obj/O as obj, mob/user as mob)
+/obj/item/weapon/deck/attackby(obj/O, mob/user)
 	if (istype(O,/obj/item/weapon/hand))
 		var/obj/item/weapon/hand/H = O
 
@@ -67,21 +67,21 @@
 	else
 		return ..()
 
-/obj/item/weapon/deck/attack_self(var/mob/user as mob)
+/obj/item/weapon/deck/attack_self(var/mob/user)
 	user.delayNextAttack(5)
-	var/list/newcards           = list()
+	var/list/newcards = list()
 	var/datum/playingcard/card
 
 	while (cards.len)
-		card                    = pick(cards)
+		card = pick(cards)
 		newcards.Add(card)
 		src.cards.Remove(card)
 
-	src.cards                   = newcards
+	src.cards = newcards
 
 	user.visible_message("\The [user] shuffles [src].")
 
-/obj/item/weapon/deck/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
+/obj/item/weapon/deck/afterattack(atom/A, mob/living/user, flag, params)
 	if(flag)
 		return //It's adjacent, is the user, or is on the user's person
 
@@ -90,7 +90,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/deck/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/weapon/deck/attack(mob/living/M, mob/living/user, def_zone)
 	if (istype(M))
 		src.dealTo(M, user)
 	else
@@ -142,7 +142,7 @@
 
 	return ..()
 
-/obj/item/weapon/hand/attackby(obj/O as obj, mob/user as mob)
+/obj/item/weapon/hand/attackby(obj/O, mob/user)
 	if(istype(O,/obj/item/weapon/hand))
 		var/obj/item/weapon/hand/H = O
 
@@ -193,7 +193,7 @@
 
 	src.update_icon()
 
-/obj/item/weapon/hand/attack_self(var/mob/user as mob)
+/obj/item/weapon/hand/attack_self(var/mob/user)
 	src.hi.show(user)
 
 /obj/item/weapon/hand/examine()

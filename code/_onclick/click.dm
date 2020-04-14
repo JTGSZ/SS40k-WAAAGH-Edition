@@ -266,12 +266,6 @@
 /mob/living/carbon/MiddleClickOn(var/atom/A)
 	swap_hand()
 
-// In case of use break glass
-/*
-/atom/proc/MiddleClick(var/mob/M as mob)
-	return
-*/
-
 /mob/proc/MiddleShiftClickOn(var/atom/A)
 	pointed(A)
 

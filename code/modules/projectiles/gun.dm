@@ -102,7 +102,7 @@
 /obj/item/weapon/gun/proc/can_discharge() //because process_chambered() is an atrocity
 	return 0
 
-/obj/item/weapon/gun/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params, struggle = 0)
+/obj/item/weapon/gun/afterattack(atom/A, mob/living/user, flag, params, struggle = 0)
 	if(flag)
 		return //we're placing gun on a table or in backpack
 	if(harm_labeled >= min_harm_label)
@@ -148,7 +148,7 @@
 			return 0
 	return 1
 
-/obj/item/weapon/gun/proc/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0, var/use_shooter_turf = FALSE)//TODO: go over this
+/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0, var/use_shooter_turf = FALSE)//TODO: go over this
 
 	if(!prefire_check(user, 1))
 		return

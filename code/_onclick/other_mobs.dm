@@ -60,12 +60,12 @@
 		if(O.material_type)
 			O.material_type.on_use(O, src, null)
 
-/atom/proc/attack_hand(mob/user as mob, params, var/proximity)
+/atom/proc/attack_hand(mob/user, params, var/proximity)
 	return
 
 //called when we try to click but have no hand
 //good for general purposes
-/atom/proc/attack_stump(mob/user as mob, params, var/proximity)
+/atom/proc/attack_stump(mob/user, params, var/proximity)
 	if(!requires_dexterity(user))
 		attack_hand(user, params, proximity) //if the object doesn't need dexterity, we can use our stump
 	else
@@ -89,16 +89,6 @@
 			LaserEyes(A) // moved into a proc below
 
 		else if(M_TK in mutations)
-			/*switch(get_dist(src,A))
-				if(1 to 5) // not adjacent may mean blocked by window
-					Next_move += 2
-				if(5 to 7)
-					Next_move += 5
-				if(8 to 15)
-					Next_move += 10
-				if(16 to 128)
-					return
-			*/
 			A.attack_tk(src)
 
 /*
@@ -110,7 +100,7 @@
 	A.attack_animal(src)
 	return
 
-/atom/proc/attack_animal(mob/user as mob)
+/atom/proc/attack_animal(mob/user)
 	return
 /mob/living/RestrainedClickOn(var/atom/A)
 	..()
@@ -124,7 +114,7 @@
 	A.attack_paw(src)
 	return
 
-/atom/proc/attack_paw(mob/user as mob)
+/atom/proc/attack_paw(mob/user)
 	return
 
 /*
@@ -167,7 +157,7 @@
 	A.attack_alien(src)
 	return
 
-/atom/proc/attack_alien(mob/user as mob)
+/atom/proc/attack_alien(mob/user)
 	attack_paw(user)
 	return
 /mob/living/carbon/alien/RestrainedClickOn(var/atom/A)
@@ -180,7 +170,7 @@
 	A.attack_larva(src)
 	return
 
-/atom/proc/attack_larva(mob/user as mob)
+/atom/proc/attack_larva(mob/user)
 	return
 
 
@@ -191,7 +181,7 @@
 /mob/living/carbon/slime/UnarmedAttack(var/atom/A)
 	A.attack_slime(src)
 	return
-/atom/proc/attack_slime(mob/user as mob)
+/atom/proc/attack_slime(mob/user)
 	return
 /mob/living/carbon/slime/RestrainedClickOn(var/atom/A)
 	return
@@ -216,7 +206,7 @@
 /mob/living/simple_animal/construct/RangedAttack(atom/A)
 	A.attack_construct(src)
 
-/atom/proc/attack_construct(mob/user as mob,var/dist = null)
+/atom/proc/attack_construct(mob/user,var/dist = null)
 	return 0
 
 //Martians

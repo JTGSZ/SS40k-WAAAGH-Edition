@@ -100,7 +100,7 @@ air2.volume
 
 	return 1
 
-/obj/machinery/atmospherics/binary/pump/interact(mob/user as mob)
+/obj/machinery/atmospherics/binary/pump/interact(mob/user)
 	var/dat = {"<b>Power: </b><a href='?src=\ref[src];power=1'>[on?"On":"Off"]</a><br>
 				<b>Desirable output pressure: </b>
 				[round(target_pressure,0.1)]kPa | <a href='?src=\ref[src];set_press=1'>Change</a>
@@ -140,7 +140,7 @@ air2.volume
 	if(old_on != on)
 		investigation_log(I_ATMOS,"was turned [on ? "on" : "off"] by a remote signal.")
 
-/obj/machinery/atmospherics/binary/pump/attack_hand(user as mob)
+/obj/machinery/atmospherics/binary/pump/attack_hand(user)
 	if(..())
 		return
 	src.add_fingerprint(usr)
@@ -201,7 +201,7 @@ air2.volume
 	..()
 	update_icon()
 
-/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W, var/mob/user)
 	if (!W.is_wrench(user))
 		return ..()
 	if (!(stat & NOPOWER) && on)

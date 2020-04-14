@@ -21,8 +21,19 @@
 	..() //Yeah Sorry, just basic shit here man, this is the only commented section you are getting lol.
 	icon_state = "slugga[stored_magazine ? "" : "-e"]"
 
-/obj/item/weapon/gun/projectile/automatic/slugga/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
-	..()
+/obj/item/weapon/gun/projectile/automatic/slugga/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	if(!isork(user))
-		to_chat(user, "What even is this? How does it work? Does it work?")
-		return
+		if(user.attribute_strength <= 11)
+			if(prob(30))
+				user.drop_item(src)
+				if(istype(user,/mob/living/carbon/human/))
+					var/mob/living/carbon/human/H = user
+					if(prob(25))
+						H.visible_message("[src] flies out of [user]'s hands and into their mouth.", "The [src] flies from your hands and knocks your teeth out.")
+						H.knock_out_teeth()
+						H.adjustBruteLoss(5)
+						H.Knockdown(5)
+					else
+						src.throw_at(get_edge_target_turf(src,turn(H.dir,180)),3,3)
+						H.visible_message("[src] flies out of [user]'s hands.", "The [src] flies out of your hands.")
+	..()

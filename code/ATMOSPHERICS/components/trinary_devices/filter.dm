@@ -114,7 +114,7 @@ obj/machinery/atmospherics/trinary/filter/initialize()
 	..()
 
 
-obj/machinery/atmospherics/trinary/filter/attack_hand(user as mob) // -- TLE
+obj/machinery/atmospherics/trinary/filter/attack_hand(user) // -- TLE
 	if(..())
 		return
 
@@ -153,16 +153,7 @@ obj/machinery/atmospherics/trinary/filter/attack_hand(user as mob) // -- TLE
 			<HR><B>Desirable output pressure:</B>
 			[src.target_pressure]kPa | <a href='?src=\ref[src];set_press=1'>Change</a>
 			"}
-/*
-		user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD>[dat]","window=atmo_filter")
-		onclose(user, "atmo_filter")
-		return
 
-	if (src.temp)
-		dat = text("<TT>[]</TT><BR><BR><A href='?src=\ref[];temp=1'>Clear Screen</A>", src.temp, src)
-	//else
-	//	src.on != src.on
-*/
 	user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_filter")
 	onclose(user, "atmo_filter")
 	return
@@ -183,13 +174,7 @@ obj/machinery/atmospherics/trinary/filter/Topic(href, href_list) // -- TLE
 		on=!on
 	src.update_icon()
 	src.updateUsrDialog()
-/*
-	for(var/mob/M in viewers(1, src))
-		if ((M.client && M.machine == src))
-			src.attack_hand(M)
-*/
 	return
-
 
 /obj/machinery/atmospherics/trinary/filter/mirrored
 	icon_state = "hintactm_off"

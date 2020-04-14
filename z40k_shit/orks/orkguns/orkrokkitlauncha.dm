@@ -50,7 +50,7 @@
 	update_icon()
 	..()
 
-/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_hand(mob/user as mob)
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		if(loaded.len || stored_magazine)
 			var/obj/item/ammo_casing/AC = loaded[1]
@@ -66,7 +66,7 @@
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack_self(mob/user) //Unloading (Need special handler for unattaching.)
 	if(user.get_active_hand() == src)
 		if(!wielded)
 			wield(user)
@@ -83,9 +83,14 @@
 	if(!wielded)
 		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
 	if(!ork_held)
-		if(prob(80))
-			var/turf/lol = get_step(user,turn(user.dir,rand(0,360)))
-			newtarget = lol
+		if(user.attribute_strength <= 12)
+			if(prob(80))
+				var/turf/lol = get_step(user,turn(user.dir,rand(0,360)))
+				newtarget = lol
+				user.visible_message("[user] loses control of the [src]", "You spin around and fire the rocket in a uncontrolled direction")
+				for(var/i=1, i<=8, i++)
+					user.dir = turn(user.dir, 45)
+					sleep(1)
 	..(newtarget,user,params,reflex,struggle)
 
 /obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/update_icon()
@@ -99,7 +104,7 @@
 	if(istype(loc,/mob/living/carbon/human))
 		H.update_inv_hands()
 
-/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha/attack(mob/living/M, mob/living/user, def_zone)
 	if(M == user && user.zone_sel.selecting == "mouth") //Are we trying to suicide by shooting our head off ?
 		user.visible_message("<span class='warning'>[user] tries to fit \the [src] into \his mouth but quickly reconsiders it</span>", \
 		"<span class='warning'>You try to fit \the [src] into your mouth. You feel silly and pull it out</span>")

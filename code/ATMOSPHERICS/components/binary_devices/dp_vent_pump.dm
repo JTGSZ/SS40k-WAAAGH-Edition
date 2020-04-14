@@ -190,7 +190,7 @@
 		broadcast_status()
 	update_icon()
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/binary/dp_vent_pump/attackby(var/obj/item/W, var/mob/user)
 	return ..()
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/interact(var/mob/user)

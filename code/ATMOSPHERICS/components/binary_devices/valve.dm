@@ -1,7 +1,6 @@
 /obj/machinery/atmospherics/binary/valve
 	icon = 'icons/obj/atmospherics/valve.dmi'
 	icon_state = "hvalve0"
-
 	name = "manual valve"
 	desc = "A pipe valve."
 	var/open = FALSE
@@ -18,10 +17,8 @@
 		icon_state = "hvalve[open]"
 	..()
 
-
 /obj/machinery/atmospherics/binary/valve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	..()
-
 	if(open)
 		if(reference == node1)
 			if(node2)
@@ -40,11 +37,9 @@
 	sleep(10)
 	open = TRUE
 	update_icon()
-
 	if(network1&&network2)
 		network1.merge(network2)
 		network2 = network1
-
 	if(network1)
 		network1.update = 1
 	else if(network2)
@@ -55,12 +50,10 @@
 /obj/machinery/atmospherics/binary/valve/proc/close()
 	if(!open)
 		return 0
-
 	update_icon(0,1) //animate
 	sleep(10)
 	open = FALSE
 	update_icon()
-
 	if(network1)
 		if(network1)
 			returnToPool(network1)
@@ -69,7 +62,6 @@
 			returnToPool(network2)
 
 	build_network()
-
 	return 1
 
 /obj/machinery/atmospherics/binary/valve/proc/normalize_dir()
@@ -78,15 +70,15 @@
 	else if(dir==12)
 		dir = 4
 
-/obj/machinery/atmospherics/binary/valve/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/binary/valve/attack_ai(mob/user)
 	return
 
-/obj/machinery/atmospherics/binary/valve/attack_robot(mob/user as mob)
+/obj/machinery/atmospherics/binary/valve/attack_robot(mob/user)
 	if(isMoMMI(user))
 		attack_hand(user)
 	return
 
-/obj/machinery/atmospherics/binary/valve/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/binary/valve/attack_hand(mob/user)
 	toggle_status(user)
 
 /obj/machinery/atmospherics/binary/valve/investigation_log(var/subject, var/message)
@@ -94,9 +86,7 @@
 
 /obj/machinery/atmospherics/binary/valve/initialize()
 	normalize_dir()
-
 	findAllConnections(initialize_directions)
-
 	build_network()
 
 	if(openDuringInit)
@@ -117,7 +107,7 @@
 
 	machine_flags = MULTITOOL_MENU
 
-/obj/machinery/atmospherics/binary/valve/digital/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/binary/valve/digital/attack_ai(mob/user)
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
@@ -173,7 +163,6 @@
 /obj/machinery/atmospherics/binary/valve/digital/receive_signal(datum/signal/signal)
 	if(!signal.data["tag"] || (signal.data["tag"] != id_tag))
 		return 0
-
 	var/state_changed=0
 	switch(signal.data["command"])
 		if("valve_open")

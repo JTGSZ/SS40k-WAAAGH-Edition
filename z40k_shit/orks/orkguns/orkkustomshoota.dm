@@ -60,7 +60,7 @@
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/isHandgun()
 	return FALSE //No Kustom Shoota Akimbo for us.
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	var/atom/newtarget = target
 	if(!isork(user))
 		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
@@ -74,13 +74,13 @@
 	force = wielded ? 30 : 15
 	update_icon()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_hand(mob/user as mob)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		RemoveMag(user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_self(mob/user as mob) //Unloading (Need special handler for unattaching.)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_self(mob/user) //Unloading (Need special handler for unattaching.)
 	if(user.get_active_hand() == src)
 		if(!wielded)
 			wield(user)
@@ -98,7 +98,7 @@
 	if(shotgunpellets)
 		to_chat(user, "<span class='info'> There are currently [shotgunpellets] shotguns attached.</span>")
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/attackby(obj/item/I, mob/user)
 	var/good2go = FALSE //Basically I don't really feel like doing ALL the guns atm
 	if(totalguncount > 29)
 		to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
@@ -112,13 +112,11 @@
 		playsound(loc, 'z40k_shit/sounds/tape.ogg', 50, 0)
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
-		if(istype(I, /obj/item/weapon/gun/projectile/automatic/kustomshoota) || \
-			istype(I, /obj/item/weapon/gun/projectile/automatic/slugga) || \
-			istype(I,/obj/item/weapon/gun/projectile/automatic/boltpistol))
+		if(istype(I, /obj/item/weapon/gun/projectile/automatic))
 			basicbullets++
 			totalguncount++
 			good2go = TRUE
-		if(istype(I, /obj/item/weapon/gun/energy/lasgun))
+		if(istype(I, /obj/item/weapon/gun/energy))
 			laserbeams++
 			totalguncount++
 			good2go = TRUE
@@ -146,7 +144,7 @@
 		H.update_inv_hands()
 	return
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/afterattack(atom/target as mob|obj|turf, mob/living/user as mob|obj, flag, params, struggle = FALSE)
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/afterattack(atom/target, mob/living/user, flag, params, struggle = FALSE)
 	if(!cooldown)
 		makethepainstop(target, user, params, struggle)
 		return
@@ -154,24 +152,27 @@
 	else if(cooldown)
 		return
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/proc/makethepainstop(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
+/obj/item/weapon/gun/projectile/automatic/kustomshoota/proc/makethepainstop(atom/target, mob/living/user, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
+	var/fucked_fire = FALSE //We set this if someone has fucked up firing.
 	if(!isork(user))
-		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
-		return
+		if(user.attribute_strength <= 12)
+			fucked_fire = TRUE
 	if(!taped)
 		user.visible_message("\red This needs to be taped up before it can be used!")
 		return
 	if(!cooldown) //If we are not on cooldown
 		if(getAmmo()) //If we have ammo
 			var/atom/originaltarget = target //Our original target
-			var/turf/targloc
+			var/turf/targloc = get_turf(target)
+			target = get_inaccuracy(originaltarget, 1+recoil)
 			cooldown = 1
 			fire_volume = clamp((3 * totalguncount), 20, 100) //Ouch my ears... well up to 90% vol anyways.
+			user.visible_message("[user] loses control of the [src].", "The [src] starts firing wildly due to your puny muscles.")
 			if(basicbullets >= 0)
 				projectile_type = "/obj/item/projectile/bullet/orkscrapbullet"
 				for(var/i=1 to basicbullets)
-					target = get_inaccuracy(originaltarget, 1+recoil)
-					targloc = get_turf(target)
+					if(fucked_fire)
+						target = get_step(user,turn(user.dir,rand(0,360)))
 					in_chamber = new projectile_type(src)
 					fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 					Fire(targloc, user, params, struggle)
@@ -179,8 +180,8 @@
 				in_chamber = null
 				projectile_type = "/obj/item/projectile/beam/medpower"
 				for(var/i=1 to laserbeams)
-					target = get_inaccuracy(originaltarget, 1+recoil)
-					targloc = get_turf(target)
+					if(fucked_fire)
+						target = get_step(user,turn(user.dir,rand(0,360)))
 					in_chamber = new projectile_type(src)
 					fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 					Fire(targloc, user, params, struggle)
@@ -189,8 +190,8 @@
 				in_chamber = null
 				projectile_type = "/obj/item/projectile/bullet/buckshot"
 				for(var/i=1 to shotgunpellets)
-					target = get_inaccuracy(originaltarget, 1+recoil)
-					targloc = get_turf(target)
+					if(fucked_fire)
+						target = get_step(user,turn(user.dir,rand(0,360)))
 					in_chamber = new projectile_type(src)
 					fire_sound = 'z40k_shit/sounds/shotta.ogg'
 					Fire(targloc, user, params, struggle)

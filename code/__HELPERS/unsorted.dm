@@ -789,7 +789,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	return TRUE
 
-/proc/do_after(var/mob/user as mob, var/atom/target, var/delay as num, var/numticks = 10, var/needhand = TRUE, var/use_user_turf = FALSE)
+/proc/do_after(var/mob/user, var/atom/target, var/delay as num, var/numticks = 10, var/needhand = TRUE, var/use_user_turf = FALSE)
 	if(!user || isnull(user))
 		return 0
 	if(numticks == 0)

@@ -59,10 +59,6 @@
 		return
 
 	if(W == A)
-		/*next_move = world.time + 8
-		if(W.flags&USEDELAY)
-			next_move += 5
-		*/
 		W.attack_self(src, params)
 		return
 
@@ -78,10 +74,6 @@
 		return
 
 	if(A.Adjacent(src, MAX_ITEM_DEPTH)) // see adjacent.dm
-		/*next_move = world.time + 10
-		if(W.flags&USEDELAY)
-			next_move += 5
-		*/
 		var/resolved = W.preattack(A, src, 1, params)
 		if(!resolved)
 			resolved = A.attackby(W,src,params)
@@ -164,7 +156,7 @@
 /mob/living/silicon/robot/RangedAttack(atom/A)
 	A.attack_robot(src)
 
-/atom/proc/attack_robot(mob/user as mob)
+/atom/proc/attack_robot(mob/user)
 	attack_ai(user)
 	return
 
@@ -173,10 +165,4 @@
 /atom/proc/RobotAltClick()
 	return
 
-// /vg/: Alt-click to open shit
-/* not anymore
-/obj/machinery/door/airlock/RobotAltClick() // Opens doors
-	if(density)
-		Topic("aiEnable=7", list("aiEnable"="7"), 1) // 1 meaning no window (consistency!)
-	else
-		Topic("aiDisable=7", list("aiDisable"="7"), 1)*/
+

@@ -80,7 +80,7 @@ obj/machinery/atmospherics/trinary/mixer/process()
 
 	return 1
 
-obj/machinery/atmospherics/trinary/mixer/attack_hand(user as mob)
+obj/machinery/atmospherics/trinary/mixer/attack_hand(user)
 	if(..())
 		return
 	src.add_fingerprint(usr)

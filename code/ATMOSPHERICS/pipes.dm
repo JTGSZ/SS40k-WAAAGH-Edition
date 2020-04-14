@@ -879,7 +879,7 @@
 	color=IPIPE_COLOR_BLUE
 
 
-/obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(istype(W, /obj/item/device/rcd/rpd) || istype(W, /obj/item/device/pipe_painter))
 		return // Coloring pipes.
 

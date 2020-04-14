@@ -53,7 +53,7 @@
 	else if(!src.force && src.w_class)
 		return clamp(src.w_class * 6, 10, 100) // Multiply the item's weight class by 6, then clamp the value between 10 and 100
 
-/obj/item/proc/attack(mob/living/M as mob, mob/living/user as mob, def_zone, var/originator = null)
+/obj/item/proc/attack(mob/living/M, mob/living/user, def_zone, var/originator = null)
 	if(restraint_resist_time > 0)
 		if(restraint_apply_check(M, user))
 			return attempt_apply_restraints(M, user)
@@ -63,7 +63,7 @@
 		return handle_attack(src, M, user, def_zone)
 
 // Making this into a helper proc because of inheritance wonkyness making children of reagent_containers being nigh impossible to attack with.
-/obj/item/proc/handle_attack(obj/item/I, mob/living/M as mob, mob/living/user as mob, def_zone, var/mob/originator = null)
+/obj/item/proc/handle_attack(obj/item/I, mob/living/M, mob/living/user, def_zone, var/mob/originator = null)
 	. = 1
 	//if(!istype(M)) // not sure if this is the right thing...
 	//	return 0

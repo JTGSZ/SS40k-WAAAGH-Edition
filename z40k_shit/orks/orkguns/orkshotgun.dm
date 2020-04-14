@@ -19,3 +19,19 @@
 /obj/item/weapon/gun/projectile/shotgun/shotta/update_icon()
 	..()
 	icon_state = "shotta[stored_magazine ? "" : "-e"]"
+
+/obj/item/weapon/gun/projectile/shotgun/shotta/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+	if(!isork(user))
+		if(user.attribute_strength <= 11)
+			user.drop_item(src)
+			if(istype(user,/mob/living/carbon/human/))
+				var/mob/living/carbon/human/H = user
+				if(prob(50))
+					H.visible_message("[src] flies out of [user]'s hands and into their mouth.", "The [src] flies from your hands and knocks your teeth out.")
+					H.knock_out_teeth()
+					H.adjustBruteLoss(5)
+					H.Knockdown(5)
+				else
+					src.throw_at(get_edge_target_turf(src,turn(H.dir,180)),3,3)
+					H.visible_message("[src] flies out of [user]'s hands.", "The [src] flies out of your hands.")
+	..()

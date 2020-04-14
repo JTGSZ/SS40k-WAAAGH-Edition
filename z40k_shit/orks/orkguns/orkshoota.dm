@@ -20,9 +20,38 @@
 /obj/item/weapon/gun/projectile/automatic/shoota/update_icon()
 	..() //Yeah Sorry, just basic shit here man, this is the only commented section you are getting lol.
 	icon_state = "ork_shoota[stored_magazine ? "" : "-e"]"
+	item_state = "ork_shoota[wielded ? "-wielded" : "-unwielded"]"
 
-/obj/item/weapon/gun/projectile/automatic/shoota/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0, struggle = 0)
-	..()
+/obj/item/weapon/gun/projectile/automatic/shoota/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+	var/atom/newtarget = target
 	if(!isork(user))
-		to_chat(user, "What even is this? How does it work? Does it work?")
-		return
+		if(user.attribute_strength <= 11)
+			if(prob(40))
+				user.visible_message("[user] can't handle the recoil of [src]", "The ork gun goes backwards and slams into your chest")
+				user.Knockdown(12)
+				user.Stun(12)
+				user.adjustBruteLoss(5)
+	if(!wielded)
+		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
+	..(newtarget,user,params,reflex,struggle)
+
+/obj/item/weapon/gun/projectile/automatic/shoota/update_wield(mob/user)
+	..()
+	force = wielded ? 30 : 15
+	update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/shoota/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src)
+		RemoveMag(user)
+	else
+		..()
+
+/obj/item/weapon/gun/projectile/automatic/shoota/attack_self(mob/user) //Unloading (Need special handler for unattaching.)
+	if(user.get_active_hand() == src)
+		if(!wielded)
+			wield(user)
+			src.update_wield(user)
+		else
+			unwield(user)
+			src.update_wield(user)
+
