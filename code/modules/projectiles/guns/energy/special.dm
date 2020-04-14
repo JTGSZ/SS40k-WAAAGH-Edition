@@ -431,7 +431,7 @@
 		mutstrength = input(usr, "Enter new mutation strength level (1-15):", "Somatoray Alpha Ray Threshold", mutstrength) as num
 		mutstrength = clamp(round(mutstrength), 1, 15)
 
-/obj/item/weapon/gun/energy/floragun/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/gun/energy/floragun/attackby(obj/item/weapon/W , mob/user as mob)
 	if(isEmag(W) || issolder(W))
 		if (mode == 2)
 			to_chat(user, "The safeties are already de-activated.")

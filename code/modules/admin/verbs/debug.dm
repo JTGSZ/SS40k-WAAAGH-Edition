@@ -50,7 +50,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 				class = input("Proc owned by...","Owner",null) as null|anything in list("Obj","Mob","Area or Turf","Client")
 				switch(class)
 					if("Obj")
-						target = input("Enter target:","Target",usr) as obj in world
+						target = input("Enter target:","Target",usr)  in world
 					if("Mob")
 						target = input("Enter target:","Target",usr) as mob in world
 					if("Area or Turf")

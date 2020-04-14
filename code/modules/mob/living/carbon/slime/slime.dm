@@ -290,7 +290,7 @@
 	return
 
 
-/mob/living/carbon/slime/u_equip(obj/item/W as obj)
+/mob/living/carbon/slime/u_equip(obj/item/W )
 	return
 
 
@@ -584,7 +584,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	var/enhanced = 0 //has it been enhanced before?
 	var/primarytype = /mob/living/carbon/slime
 
-/obj/item/slime_extract/attackby(obj/item/O as obj, mob/user as mob)
+/obj/item/slime_extract/attackby(obj/item/O , mob/user as mob)
 	if(istype(O, /obj/item/weapon/slimesteroid2))
 		if(enhanced == 1)
 			to_chat(user, "<span class='warning'>This extract has already been enhanced!</span>")
@@ -1158,7 +1158,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	if (environment.molar_density(GAS_PLASMA) > MOLES_PLASMA_VISIBLE / CELL_VOLUME)//plasma exposure causes the egg to hatch
 		src.Hatch()
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/slime/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/egg/slime/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype( W, /obj/item/toy/crayon ))
 		return
 	else

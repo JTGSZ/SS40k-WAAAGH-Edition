@@ -288,7 +288,7 @@
 	if(src != AM && istype(AM, src.type))
 		merge(AM)
 
-/obj/item/stack/proc/copy_evidences(obj/item/stack/from as obj)
+/obj/item/stack/proc/copy_evidences(obj/item/stack/from )
 	src.blood_DNA = from.blood_DNA
 	src.fingerprints  = from.fingerprints
 	src.fingerprintshidden  = from.fingerprintshidden

@@ -15,7 +15,7 @@
 
 	penetration_dampening = 40
 
-/turf/simulated/wall/invulnerable/attackby(obj/item/W as obj, mob/user as mob)
+/turf/simulated/wall/invulnerable/attackby(obj/item/W , mob/user as mob)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
 		var/obj/item/weapon/solder/S = W

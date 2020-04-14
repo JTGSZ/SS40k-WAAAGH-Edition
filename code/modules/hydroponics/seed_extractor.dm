@@ -41,7 +41,7 @@
 		B += M.rating-1
 	max_seeds=4+B
 
-obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob)
+obj/machinery/seed_extractor/attackby(var/obj/item/O , var/mob/user as mob)
 
 	// Emptying a plant bag
 	if (istype(O,/obj/item/weapon/storage/bag/plants))
@@ -275,7 +275,7 @@ obj/machinery/seed_extractor/Topic(var/href, var/list/href_list)
 		updateUsrDialog()
 		return
 
-obj/machinery/seed_extractor/proc/moveToStorage(var/obj/item/seeds/O as obj)
+obj/machinery/seed_extractor/proc/moveToStorage(var/obj/item/seeds/O )
 	if(istype(O.loc,/obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = O.loc
 		S.remove_from_storage(O,src)

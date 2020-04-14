@@ -150,7 +150,7 @@
 	else
 		M.unarmed_attack_mob(src)
 
-/mob/living/simple_animal/construct/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/construct/attackby(var/obj/item/O , var/mob/user as mob)
 	user.delayNextAttack(8)
 	if(O.force)
 		var/damage = O.force
@@ -192,7 +192,7 @@
 	status_flags = 0
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
-/mob/living/simple_animal/construct/armoured/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/construct/armoured/attackby(var/obj/item/O , var/mob/user as mob)
 	if(O.force && O.force < 11)
 		user.delayNextAttack(8)
 		for(var/mob/M in viewers(src, null))

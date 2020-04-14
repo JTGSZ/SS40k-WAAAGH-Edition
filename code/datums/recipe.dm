@@ -12,13 +12,13 @@
      default /datum/recipe/ procs does not rely on this parameter.
  *
  *  Functions you need:
- *  /datum/recipe/proc/make(var/obj/container as obj)
+ *  /datum/recipe/proc/make(var/obj/container )
  *    Creates result inside container,
  *    deletes prerequisite reagents,
  *    transfers reagents from prerequisite objects,
  *    deletes all prerequisite objects (even not needed for recipe at the moment).
  *
- *  /proc/select_recipe(list/datum/recipe/avaiable_recipes, obj/obj as obj, exact = 1)
+ *  /proc/select_recipe(list/datum/recipe/avaiable_recipes, obj/obj , exact = 1)
  *    Wonderful function that select suitable recipe for you.
  *    obj is a machine (or magik hat) with prerequisites,
  *    exact = 0 forces algorithm to ignore superfluous stuff.
@@ -27,7 +27,7 @@
  *  /datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
  *    //1 = precisely,  0 = insufficiently, -1 = superfluous
  *
- *  /datum/recipe/proc/check_items(var/obj/container as obj)
+ *  /datum/recipe/proc/check_items(var/obj/container )
  *    //1 = precisely, 0=insufficiently, -1 = superfluous
  *
  * */
@@ -90,7 +90,7 @@
 		-1: Found enough objects to satisfy requirements, and more.
 
 */
-/datum/recipe/proc/check_items(var/obj/container as obj)
+/datum/recipe/proc/check_items(var/obj/container )
 	if(!items) //If there's no items in our recipe
 		if(locate(/obj/) in container) //but we find something, at the least.
 			return -1

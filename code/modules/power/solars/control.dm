@@ -81,7 +81,7 @@
 
 	updateDialog()
 
-/obj/machinery/power/solar/control/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/power/solar/control/attackby(obj/item/I , mob/user as mob)
 	if(I.is_screwdriver(user))
 		I.playtoolsound(src, 50)
 		if(do_after(user, src, 20))

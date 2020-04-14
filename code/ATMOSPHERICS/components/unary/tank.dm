@@ -173,7 +173,7 @@
 			network = null
 		update_icon()
 
-/obj/machinery/atmospherics/unary/tank/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/unary/tank/attackby(var/obj/item/weapon/W , var/mob/user as mob)
 	if (istype(W, /obj/item/device/analyzer) && get_dist(user, src) <= 1)
 		var/obj/item/device/analyzer/analyzer = W
 		user.show_message(analyzer.output_gas_scan(air_contents, src, 0), 1)

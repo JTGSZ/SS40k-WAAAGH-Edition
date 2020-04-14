@@ -40,7 +40,7 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "snow_rock"
 
-/turf/unsimulated/wall/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/unsimulated/wall/attackby(obj/item/weapon/W , mob/user as mob)
 	user.delayNextAttack(8)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)

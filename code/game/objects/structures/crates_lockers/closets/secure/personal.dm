@@ -47,7 +47,7 @@
 		/obj/item/device/radio/headset,
 	)
 
-/obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/card/id))
 		if(src.broken)
 			to_chat(user, "<span flags='rose'>It appears to be broken.</span>")

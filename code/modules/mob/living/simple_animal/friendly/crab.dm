@@ -45,7 +45,7 @@
 	response_harm   = "stomps"
 
 //LOOK AT THIS - ..()??
-/mob/living/simple_animal/crab/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/crab/attackby(var/obj/item/O , var/mob/user as mob)
 	if(iswirecutter(O))
 		if(stat == DEAD)
 			return ..()

@@ -22,7 +22,7 @@
 	else i = 3
 	icon_state = "candle[i][lit ? "_lit" : ""]"
 
-/obj/item/candle/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/candle/attackby(obj/item/weapon/W , mob/user as mob)
 	..()
 	if(source_temperature && (W.is_hot() || W.sharpness_flags & (HOT_EDGE)))
 		light("<span class='notice'>[user] lights [src] with [W].</span>")

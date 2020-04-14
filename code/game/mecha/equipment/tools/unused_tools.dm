@@ -14,19 +14,19 @@
 	var/shock_damage = 15
 	var/active
 
-/obj/item/mecha_parts/mecha_equipment/defence_shocker/can_attach(obj/mecha/M as obj)
+/obj/item/mecha_parts/mecha_equipment/defence_shocker/can_attach(obj/mecha/M )
 	if(..())
 		if(!istype(M, /obj/mecha/combat/honker))
 			if(!M.proc_res["dynattackby"] && !M.proc_res["dynattackhand"] && !M.proc_res["dynattackalien"])
 				return 1
 	return 0
 
-/obj/item/mecha_parts/mecha_equipment/defence_shocker/attach(obj/mecha/M as obj)
+/obj/item/mecha_parts/mecha_equipment/defence_shocker/attach(obj/mecha/M )
 	..()
 	chassis.proc_res["dynattackby"] = src
 	return
 
-/obj/item/mecha_parts/mecha_equipment/defence_shocker/proc/dynattackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/mecha_parts/mecha_equipment/defence_shocker/proc/dynattackby(obj/item/weapon/W , mob/user as mob)
 	if(!action_checks(user) || !active)
 		return
 	user.electrocute_act(shock_damage, src)

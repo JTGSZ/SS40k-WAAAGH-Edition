@@ -8,7 +8,7 @@
 	var/isolating = 0
 	var/beaker = null
 
-/obj/machinery/disease2/isolator/attackby(var/W as obj, var/mob/user)
+/obj/machinery/disease2/isolator/attackby(var/W , var/mob/user)
 	if(!istype(W,/obj/item/weapon/reagent_containers/syringe))
 		return
 

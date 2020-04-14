@@ -233,7 +233,7 @@
 		if(slot_in_backpack)
 			return 1
 
-/mob/living/carbon/human/u_equip(obj/item/W as obj, dropped = 1, var/slot = null)
+/mob/living/carbon/human/u_equip(obj/item/W , dropped = 1, var/slot = null)
 	if(!W)
 		return 0
 	var/success
@@ -367,7 +367,7 @@
 //set del_on_fail to have it delete W if it fails to equip
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
-/mob/living/carbon/human/equip_to_slot_if_possible(obj/item/W as obj, slot, act_on_fail = 0, disable_warning = 0, redraw_mob = 1, automatic = 0)
+/mob/living/carbon/human/equip_to_slot_if_possible(obj/item/W , slot, act_on_fail = 0, disable_warning = 0, redraw_mob = 1, automatic = 0)
 	switch(W.mob_can_equip(src, slot, disable_warning, automatic))
 		if(CANNOT_EQUIP)
 			switch(act_on_fail)
@@ -417,7 +417,7 @@
 
 //This is an UNSAFE proc. Use mob_can_equip() before calling this one! Or rather use equip_to_slot_if_possible() or advanced_equip_to_slot_if_possible()
 //set redraw_mob to 0 if you don't wish the hud to be updated - if you're doing it manually in your own proc.
-/mob/living/carbon/human/equip_to_slot(obj/item/W as obj, slot, redraw_mob = 1)
+/mob/living/carbon/human/equip_to_slot(obj/item/W , slot, redraw_mob = 1)
 	if(!slot)
 		return
 	if(!istype(W))

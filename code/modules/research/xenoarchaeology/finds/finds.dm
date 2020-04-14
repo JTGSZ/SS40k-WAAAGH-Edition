@@ -994,7 +994,7 @@
 	if(severity && prob(30))
 		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
 
-/obj/item/weapon/strangerock/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/strangerock/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W,/obj/item/weapon/pickaxe/brush))
 		if(inside)
 			inside.forceMove(get_turf(src))

@@ -133,7 +133,7 @@ var/list/mass_drivers = list()
 
 	return competition_found
 
-/obj/machinery/mass_driver_frame/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/mass_driver_frame/attackby(var/obj/item/W , var/mob/user as mob)
 	switch(build)
 		if(0) // Loose frame
 			if(iswelder(W))

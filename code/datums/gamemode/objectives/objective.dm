@@ -13,7 +13,7 @@
 	..()
 
 /**
-	Used for post-adding things, such as objective/target finding a target that isn't the owner of this objective.
+	Used for post-adding things, such ective/target finding a target that isn't the owner of this objective.
 	Return: TRUE if succesful, FALSE otherwise
 */
 

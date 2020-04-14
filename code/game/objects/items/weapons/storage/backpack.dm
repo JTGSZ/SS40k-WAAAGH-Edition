@@ -15,7 +15,7 @@
 	fits_max_w_class = W_CLASS_MEDIUM
 	max_combined_w_class = 21
 
-/obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W , mob/user as mob)
 	if(!stealthy(user))
 		playsound(src, "rustle", 50, 1, -5)
 	. = ..()

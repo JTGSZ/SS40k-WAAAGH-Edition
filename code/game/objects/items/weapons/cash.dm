@@ -51,7 +51,7 @@ var/global/list/moneytypes = list(
 	else
 		return ..()
 
-/obj/item/weapon/spacecash/proc/copy_evidences(obj/item/stack/from as obj)
+/obj/item/weapon/spacecash/proc/copy_evidences(obj/item/stack/from )
 	src.blood_DNA = from.blood_DNA
 	src.fingerprints  = from.fingerprints
 	src.fingerprintshidden  = from.fingerprintshidden

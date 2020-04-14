@@ -187,7 +187,7 @@ For vending packs, see vending_packs.dm*/
 
 	onclose(user, "computer")
 
-/obj/machinery/computer/supplycomp/attackby(obj/item/I as obj, user as mob)
+/obj/machinery/computer/supplycomp/attackby(obj/item/I , user as mob)
 	if(istype(I,/obj/item/weapon/card/emag) && !hacked)
 		to_chat(user, "<span class='notice'>Special supplies unlocked.</span>")
 		hacked = 1

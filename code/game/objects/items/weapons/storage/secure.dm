@@ -35,7 +35,7 @@
 	if(!locked)
 		..()
 
-/obj/item/weapon/storage/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/storage/secure/attackby(obj/item/weapon/W , mob/user as mob)
 	if(locked)
 		if ( istype(W, /obj/item/weapon/card/emag) && (!src.emagged))
 			emagged = 1

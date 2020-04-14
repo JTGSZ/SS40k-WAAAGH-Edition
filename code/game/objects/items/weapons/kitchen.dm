@@ -541,7 +541,7 @@
 	if(w_class == W_CLASS_MEDIUM)
 		return 5
 
-/obj/item/weapon/tray/attackby(obj/item/W as obj, mob/user as mob, params)
+/obj/item/weapon/tray/attackby(obj/item/W , mob/user as mob, params)
 	if(isrobot(user) && !isMoMMI(user))
 		return
 	if(istype(W, /obj/item/weapon/kitchen/rollingpin)) //shield bash

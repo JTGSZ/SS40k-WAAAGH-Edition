@@ -1228,7 +1228,7 @@ var/global/list/common_tools = list(
 /obj/item/device/multitool,
 /obj/item/weapon/crowbar)
 
-/proc/is_surgery_tool(obj/item/W as obj)
+/proc/is_surgery_tool(obj/item/W )
 	return (	\
 	istype(W, /obj/item/weapon/scalpel)			||	\
 	istype(W, /obj/item/weapon/hemostat)		||	\

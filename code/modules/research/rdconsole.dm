@@ -200,7 +200,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	griefProtection()
 */
 
-/obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D , var/mob/user as mob)
 	if(..())
 		return
 	if(istype(D, /obj/item/weapon/disk))

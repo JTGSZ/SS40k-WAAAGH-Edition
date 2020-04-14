@@ -49,7 +49,7 @@
 	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
 		max_queue_len = 10 * M.rating
 
-/obj/machinery/r_n_d/reverse_engine/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/reverse_engine/attackby(var/obj/O , var/mob/user as mob)
 	if(..())
 		return 1
 	if(busy)

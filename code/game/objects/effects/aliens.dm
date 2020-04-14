@@ -130,7 +130,7 @@
 			O.show_message("<span class='warning'>[user] slices the [name] apart!</span>", 1)
 	healthcheck()
 
-/obj/effect/alien/resin/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/effect/alien/resin/attackby(obj/item/weapon/W , mob/living/user as mob)
 	/*if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(isalien(user)&&(ishuman(G.affecting)||ismonkey(G.affecting)))

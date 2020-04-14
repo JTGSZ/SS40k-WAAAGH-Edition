@@ -79,7 +79,7 @@
 	icon_state = design.icon_state // poster[serial_number]
 	..()
 
-/obj/structure/sign/poster/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/sign/poster/attackby(obj/item/weapon/W , mob/user as mob)
 	if(iswirecutter(W))
 		W.playtoolsound(loc, 100)
 		if(ruined)

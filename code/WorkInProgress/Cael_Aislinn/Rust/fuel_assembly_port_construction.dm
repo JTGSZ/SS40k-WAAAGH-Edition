@@ -10,7 +10,7 @@
 	flags = FPRINT
 	siemens_coefficient = 1
 
-/obj/item/mounted/frame/rust_fuel_assembly_port/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/mounted/frame/rust_fuel_assembly_port/attackby(obj/item/weapon/W , mob/user as mob)
 	if (W.is_wrench(user))
 		new /obj/item/stack/sheet/plasteel( get_turf(src.loc), 12 )
 		qdel(src)

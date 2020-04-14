@@ -178,7 +178,7 @@
 	else
 		icon_state = "[mineral]fwall_open"
 
-/obj/structure/falsewall/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/falsewall/attackby(obj/item/weapon/W , mob/user as mob)
 	if(opening)
 		to_chat(user, "<span class='warning'>You must wait until the door has stopped moving.</span>")
 		return
@@ -289,7 +289,7 @@
 	var/junction=findSmoothingNeighbors()
 	icon_state = "rwall[junction]"
 
-/obj/structure/falserwall/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/falserwall/attackby(obj/item/weapon/W , mob/user as mob)
 	if(opening)
 		to_chat(user, "<span class='warning'>You must wait until the door has stopped moving.</span>")
 		return
@@ -332,7 +332,7 @@
 	var/active = null
 	var/last_event = 0
 
-/obj/structure/falsewall/uranium/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/falsewall/uranium/attackby(obj/item/weapon/W , mob/user as mob)
 	radiate()
 	..()
 

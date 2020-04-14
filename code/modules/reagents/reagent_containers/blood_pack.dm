@@ -141,7 +141,7 @@
 	reagents.add_reagent(PHALANXIMINE, 200)
 	update_icon()
 
-/obj/item/weapon/reagent_containers/blood/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/reagent_containers/blood/attackby(obj/item/W , mob/user as mob)
 	var/turf/T = get_turf(src)
 	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 

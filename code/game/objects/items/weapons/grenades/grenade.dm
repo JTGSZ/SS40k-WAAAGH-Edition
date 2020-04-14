@@ -98,7 +98,7 @@
 		M.drop_from_inventory(src)
 
 
-/obj/item/weapon/grenade/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/grenade/attackby(obj/item/weapon/W , mob/user as mob)
 	if(W.is_screwdriver(user))
 		if(active)
 			to_chat(user, "<span class = 'warning'>It's already primed!</span>")

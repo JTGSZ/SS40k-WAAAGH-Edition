@@ -140,7 +140,7 @@
 			icon_state = initial(icon_state)
 
 //copied from computer.dm
-/obj/machinery/power/monitor/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/power/monitor/attackby(obj/item/I , mob/user as mob)
 	if(I.is_screwdriver(user) && circuit)
 		I.playtoolsound(loc, 50)
 		if(do_after(user,src,20))

@@ -117,7 +117,7 @@ var/global/list/juice_items = list (
 		return FALSE
 	return ..()
 
-/obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/reagentgrinder/attackby(var/obj/item/O , var/mob/user as mob)
 
 	if(..())
 		return 1

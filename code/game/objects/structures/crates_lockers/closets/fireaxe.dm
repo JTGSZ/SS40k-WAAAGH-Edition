@@ -46,7 +46,7 @@
 
 	to_chat(user, "A small [locked ? "red" : "green"] light indicates the cabinet is [locked ? "" : "un"]locked.")
 
-/obj/structure/closet/fireaxecabinet/attackby(var/obj/item/O as obj, var/mob/living/user as mob)  //Marker -Agouri
+/obj/structure/closet/fireaxecabinet/attackby(var/obj/item/O , var/mob/living/user as mob)  //Marker -Agouri
 
 	user.delayNextAttack(10) //Whatever we do here, no clicking around for the user for at least one second
 

@@ -1134,7 +1134,7 @@ About the new airlock wires panel:
 		return 1
 	return
 
-/obj/machinery/door/airlock/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/door/airlock/attackby(obj/item/I , mob/user as mob)
 	if(isAI(user) || isobserver(user))
 		return attack_ai(user)
 

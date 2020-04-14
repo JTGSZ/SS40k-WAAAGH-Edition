@@ -34,7 +34,7 @@
 	light_color = LIGHT_COLOR_GREEN
 
 
-/obj/machinery/computer/message_monitor/attackby(obj/item/weapon/O as obj, mob/living/user as mob)
+/obj/machinery/computer/message_monitor/attackby(obj/item/weapon/O , mob/living/user as mob)
 	if(!istype(user))
 		return
 	if(O.is_screwdriver(user) && emagged)

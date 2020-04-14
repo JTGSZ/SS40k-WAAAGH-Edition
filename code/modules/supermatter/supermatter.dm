@@ -362,7 +362,7 @@
 /obj/machinery/power/supermatter/proc/transfer_energy()
 	emitted_harvestable_radiation(get_turf(src), power, range = 15)
 
-/obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/machinery/power/supermatter/attackby(obj/item/weapon/W , mob/living/user as mob)
 	. = ..()
 	if(.)
 		return .

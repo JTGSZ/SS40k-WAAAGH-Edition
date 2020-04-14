@@ -182,7 +182,7 @@ var/list/alldepartments = list("Central Command")
 
 	updateUsrDialog()
 
-/obj/machinery/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/faxmachine/attackby(obj/item/O , mob/user as mob)
 	if(stat & NOPOWER)
 		to_chat(user, "<span class = 'warning'>\The [src] has no power.</span>")
 		return

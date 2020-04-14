@@ -20,7 +20,7 @@
 				user.put_in_hands(B)
 	to_chat(user, "<span class='notice'>You remove the containers from the electrolyzer.</span>")
 
-/obj/item/weapon/electrolyzer/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/electrolyzer/attackby(obj/item/weapon/W , mob/user as mob)
 	if(iswirecutter(W))
 		if(beakers.len)
 			to_chat(user, "<span class='warning'>The electrolyzer contains beakers!</span>")
@@ -110,7 +110,7 @@
 	else
 		..()
 
-/obj/item/weapon/electrolyzer/proc/insert_beaker(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/electrolyzer/proc/insert_beaker(obj/item/weapon/W , mob/user as mob)
 	if(user.drop_item(W, src))
 		W.forceMove(src)
 		beakers += W

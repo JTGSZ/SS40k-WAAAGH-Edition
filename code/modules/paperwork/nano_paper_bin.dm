@@ -46,7 +46,7 @@
 	return
 
 
-/obj/item/weapon/paper_bin/nano/attackby(var/obj/item/stack/sheet/plasteel/i as obj, mob/user as mob)
+/obj/item/weapon/paper_bin/nano/attackby(var/obj/item/stack/sheet/plasteel/i , mob/user as mob)
 	if(!istype(i))
 		return
 	if(ressources > 0)

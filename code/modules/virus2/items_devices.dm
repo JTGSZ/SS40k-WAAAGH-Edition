@@ -209,7 +209,7 @@ var/list/virusdishes = list()
 		processing_objects.Remove(src)
 	infection_attempt(user)
 
-/obj/item/weapon/virusdish/attackby(var/obj/item/weapon/W as obj,var/mob/living/carbon/user as mob)
+/obj/item/weapon/virusdish/attackby(var/obj/item/weapon/W ,var/mob/living/carbon/user as mob)
 	..()
 	if(istype(W,/obj/item/weapon/hand_labeler))
 		return

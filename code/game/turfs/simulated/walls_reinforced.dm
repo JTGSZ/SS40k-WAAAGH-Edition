@@ -55,7 +55,7 @@
 		return //Now fuck off
 	icon_state = "r_wall-[d_state]"  //You can thank me later
 
-/turf/simulated/wall/r_wall/attackby(obj/item/W as obj, mob/user as mob)
+/turf/simulated/wall/r_wall/attackby(obj/item/W , mob/user as mob)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
 		var/obj/item/weapon/solder/S = W

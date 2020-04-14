@@ -36,7 +36,7 @@
 		hold.remove_from_storage(I, T)
 	src.add_fingerprint(user)
 
-/obj/item/clothing/accessory/storage/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/accessory/storage/attackby(obj/item/weapon/W , mob/user as mob)
 	hold.attackby(W,user)
 	return 1
 
@@ -112,7 +112,7 @@
 	icon_state = "nr_rig"
 	_color = "nr_rig"
 
-/obj/item/clothing/accessory/storage/knifeharness/attackby(var/obj/item/O as obj, mob/user as mob)
+/obj/item/clothing/accessory/storage/knifeharness/attackby(var/obj/item/O , mob/user as mob)
 	..()
 	update()
 

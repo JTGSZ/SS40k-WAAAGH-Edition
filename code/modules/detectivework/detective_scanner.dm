@@ -13,7 +13,7 @@
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 
-/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W as obj, mob/user as mob)
+/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W , mob/user as mob)
 	..()
 	if (istype(W, /obj/item/weapon/f_card))
 		if (W.fingerprints)
@@ -90,7 +90,7 @@
 			extracted_fibers[fiber]=A.suit_fibers[fiber]
 	return extracted_fibers
 
-/obj/item/device/detective_scanner/afterattack(atom/A as obj|turf|area, mob/user as mob)
+/obj/item/device/detective_scanner/afterattack(atom/A, mob/user)
 	if(!in_range(A,user))
 		return
 	if(loc != user)
@@ -279,7 +279,7 @@
 	custom_forgery[3] = customblood ? customblood.Copy() : null
 
 //shameless copy pasting
-/obj/item/device/detective_scanner/forger/afterattack(atom/A as obj|turf|area, mob/user as mob)
+/obj/item/device/detective_scanner/forger/afterattack(atom/A, mob/user)
 	var/list/custom_finger = list()
 	var/list/custom_fiber = list()
 	var/list/custom_blood = list()

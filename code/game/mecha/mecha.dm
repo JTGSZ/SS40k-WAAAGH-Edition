@@ -728,7 +728,7 @@
 		src.check_for_internal_damage(list(MECHA_INT_FIRE, MECHA_INT_TEMP_CONTROL))
 	return
 
-/obj/mecha/proc/dynattackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/mecha/proc/dynattackby(obj/item/weapon/W , mob/living/user as mob)
 	user.delayNextAttack(8)
 	user.do_attack_animation(src, W)
 	src.log_message("Attacked by [W]. Attacker - [user]")
@@ -751,7 +751,7 @@
 ////// AttackBy //////
 //////////////////////
 
-/obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/mecha/attackby(obj/item/weapon/W , mob/user as mob)
 
 
 	if(istype(W, /obj/item/device/mmi))
@@ -1180,7 +1180,7 @@
 	else
 		return 0
 
-/obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
+/obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc ,mob/user as mob)
 	if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
 		to_chat(user, "Consciousness matrix not detected.")
 		return 0
@@ -1207,7 +1207,7 @@
 		to_chat(user, "You stop inserting \the [mmi_as_oc].")
 	return 0
 
-/obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
+/obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc ,mob/user as mob)
 	if(!isnull(src.loc) && mmi_as_oc && user in range(1))
 		if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
 			to_chat(user, "Consciousness matrix not detected.")
@@ -2135,7 +2135,7 @@
 /datum/global_iterator/mecha_intertial_movement //inertial movement in space
 	delay = 7
 
-	process(var/obj/mecha/mecha as obj,direction)
+	process(var/obj/mecha/mecha ,direction)
 		if(direction)
 			if(!step(mecha, direction)||mecha.check_for_support())
 				src.stop()

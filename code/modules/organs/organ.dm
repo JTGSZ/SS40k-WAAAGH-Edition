@@ -27,7 +27,7 @@
 /datum/organ/proc/process()
 	return 0
 
-/datum/organ/proc/receive_chem(chemical as obj)
+/datum/organ/proc/receive_chem(chemical )
 	return 0
 
 /datum/organ/proc/Copy()

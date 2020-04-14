@@ -98,7 +98,7 @@
 	if(meets_conditions)
 		src.Hatch()
 
-/obj/item/weapon/reagent_containers/food/snacks/borer_egg/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/borer_egg/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype( W, /obj/item/toy/crayon ))
 		return
 	else

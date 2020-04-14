@@ -120,7 +120,7 @@
 	to_chat(user, "<span class='notice'>You break \the [src].</span>")
 	update_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A , mob/user as mob)
 	..()
 	A.update_icon()
 	update_icon()

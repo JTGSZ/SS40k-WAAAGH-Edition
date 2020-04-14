@@ -35,7 +35,7 @@
 								/obj/item/weapon/light,
 								/obj/item/weapon/fossil/egg)
 
-/obj/item/weapon/reagent_containers/syringe/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/reagent_containers/syringe/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		set_tiny_label(user)
 

@@ -306,7 +306,7 @@ var/list/one_way_windows
 		set_opacity(1)
 	return opacity
 
-/obj/structure/window/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/structure/window/attackby(obj/item/weapon/W , mob/living/user as mob)
 
 	if(istype(W, /obj/item/weapon/grab) && Adjacent(user))
 		var/obj/item/weapon/grab/G = W

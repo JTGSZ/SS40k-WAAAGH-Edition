@@ -372,7 +372,7 @@
 		return
 	return ..()
 
-/obj/structure/table/attackby(obj/item/W as obj, mob/user as mob, params)
+/obj/structure/table/attackby(obj/item/W , mob/user as mob, params)
 	if (!W)
 		return
 
@@ -579,7 +579,7 @@
 	else
 		return ..()
 
-/obj/structure/table/reinforced/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
+/obj/structure/table/reinforced/attackby(obj/item/weapon/W , mob/user as mob, params)
 	if(istype(W,/obj/item/weapon/stock_parts/scanning_module) && can_optable)
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 		if(do_after(user, src, 40))
@@ -625,7 +625,7 @@
 	parts = /obj/item/weapon/table_parts/glass
 	health = 30
 
-/obj/structure/table/glass/attackby(obj/item/W as obj, mob/living/user as mob, params)
+/obj/structure/table/glass/attackby(obj/item/W , mob/living/user as mob, params)
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if (istype(G.affecting, /mob/living))
@@ -764,7 +764,7 @@
 /obj/structure/rack/bumped_by_firebird(obj/structure/bed/chair/vehicle/firebird/F)
 	destroy()
 
-/obj/structure/rack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/rack/attackby(obj/item/weapon/W , mob/user as mob)
 	if(W.is_wrench(user) && can_disassemble())
 		W.playtoolsound(src, 50)
 		destroy(TRUE)

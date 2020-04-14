@@ -399,7 +399,7 @@
 	var/mob_path = /mob/living/simple_animal/hostile/wolf
 	var/bonus_path = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
 
-/obj/structure/largecrate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/largecrate/secure/attackby(obj/item/weapon/W , mob/user as mob)
 	if(!allowed(user))
 		to_chat(user,"<span class='warning'>\The [src]'s secure bolting system flashes hostily.</span>")
 		//Not using elseif here because we want it to continue to attack_hand

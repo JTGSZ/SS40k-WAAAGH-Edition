@@ -142,7 +142,7 @@ var/global/list/rnd_machines = list()
 		return TRUE
 	return FALSE
 
-/obj/machinery/r_n_d/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/attackby(var/obj/item/O , var/mob/user as mob)
 	if (shocked)
 		shock(user,50, O.siemens_coefficient)
 	if (busy)

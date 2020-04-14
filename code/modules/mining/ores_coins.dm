@@ -352,7 +352,7 @@
 /obj/item/stack/ore/ex_act()
 	return
 
-/obj/item/stack/ore/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/stack/ore/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W,/obj/item/device/core_sampler))
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)
@@ -534,7 +534,7 @@
 	credits = 1000
 	siemens_coefficient = 0
 
-/obj/item/weapon/coin/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/coin/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W,/obj/item/stack/cable_coil) )
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)

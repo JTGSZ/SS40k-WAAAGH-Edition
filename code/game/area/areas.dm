@@ -98,7 +98,7 @@ var/area/space_area
 
 	return T
 
-/area/proc/poweralert(var/state, var/obj/source as obj)
+/area/proc/poweralert(var/state, var/obj/source )
 	if (suspend_alert)
 		return
 	if (state != poweralm)

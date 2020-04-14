@@ -241,7 +241,7 @@
 		visible_message("[usr] removes [occupant.name] from \the [src].")
 	go_out(over_location, ejector = usr)
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item as obj, var/mob/user as mob)
+/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item , var/mob/user as mob)
 	if(istype(item, /obj/item/weapon/reagent_containers/glass))
 		if(item.w_class > W_CLASS_SMALL)
 			to_chat(user, "<span class='warning'>\The [item] is too big to fit.</span>")
@@ -450,7 +450,7 @@
 	L.name = src.name
 	L.color = src.color
 
-/obj/machinery/computer/scan_consolenew/attackby(obj/O as obj, mob/user as mob)
+/obj/machinery/computer/scan_consolenew/attackby(obj/O , mob/user as mob)
 	..()
 	if (istype(O, /obj/item/weapon/disk/data)) //INSERT SOME diskS
 		if (!disk)

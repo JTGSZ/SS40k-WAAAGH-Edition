@@ -78,7 +78,7 @@
 		return
 	..()
 
-/obj/item/device/radio/intercom/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/intercom/attackby(obj/item/weapon/W , mob/user as mob)
 	switch(buildstage)
 		if(3)
 			if(iswirecutter(W) && b_stat && wires.IsAllCut())

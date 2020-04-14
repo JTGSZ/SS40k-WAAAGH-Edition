@@ -1800,7 +1800,7 @@ var/global/num_vending_terminals = 1
 /obj/machinery/wallmed_frame/update_icon()
 	icon_state = "wallmed_frame[build]"
 
-/obj/machinery/wallmed_frame/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/wallmed_frame/attackby(var/obj/item/W , var/mob/user as mob)
 	switch(build)
 		if(0) // Empty hull
 			if(W.is_screwdriver(user))

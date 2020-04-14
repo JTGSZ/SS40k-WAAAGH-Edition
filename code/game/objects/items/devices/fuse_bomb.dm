@@ -19,7 +19,7 @@
 		to_chat(user, "<span class='warning'>You extinguish the fuse with [seconds_left] seconds left!</span>")
 	return
 
-/obj/item/device/fuse_bomb/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/fuse_bomb/attackby(obj/item/weapon/W , mob/user as mob)
 	..()
 	if(!fuse_lit)
 		if(iswelder(W))

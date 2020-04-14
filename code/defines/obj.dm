@@ -4,7 +4,7 @@
 	anchored = 1
 	density = 1
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/weapon/W , mob/user as mob)
 		return attack_hand(user)
 
 	attack_hand(mob/user as mob)

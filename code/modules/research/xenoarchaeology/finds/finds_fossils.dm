@@ -33,7 +33,7 @@
 	icon_state = "hskull"
 	desc = "It's a fossilised, horned skull."
 
-/obj/item/weapon/fossil/skull/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/fossil/skull/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W,/obj/item/weapon/fossil/bone))
 		var/obj/o = new /obj/structure/skeleton(get_turf(src))
 		var/a = new /obj/item/weapon/fossil/bone
@@ -58,7 +58,7 @@
 	src.breq = rand(6)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
 
-/obj/structure/skeleton/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/skeleton/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W,/obj/item/weapon/fossil/bone))
 		if(!bstate)
 			bnum++

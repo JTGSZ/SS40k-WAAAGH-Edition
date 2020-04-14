@@ -73,7 +73,7 @@ var/list/poddoors = list()
 		denied()
 		return FALSE
 
-/obj/machinery/door/poddoor/attackby(obj/item/weapon/C as obj, mob/user as mob)
+/obj/machinery/door/poddoor/attackby(obj/item/weapon/C , mob/user as mob)
 	src.add_fingerprint(user)
 	if (!( iscrowbar(C) || (istype(C, /obj/item/weapon/fireaxe) && C.wielded == 1) ))
 		return

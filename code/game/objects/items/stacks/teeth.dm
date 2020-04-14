@@ -52,7 +52,7 @@
 		else
 			to_chat(user, "<span class='info'>You need at least 5 lengths of cable to do this!</span>")
 
-/obj/item/stack/teeth/copy_evidences(obj/item/stack/from as obj)
+/obj/item/stack/teeth/copy_evidences(obj/item/stack/from )
 	.=..()
 	if(istype(from, /obj/item/stack/teeth))
 		var/obj/item/stack/teeth/original_teeth = from

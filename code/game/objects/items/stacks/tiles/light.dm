@@ -51,7 +51,7 @@ var/global/list/lightfloor_colors = list(
 	color_overlay.color = rgb(color_r,color_g,color_b)
 	overlays += color_overlay
 
-/obj/item/stack/tile/light/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/item/stack/tile/light/attackby(var/obj/item/O , var/mob/user as mob)
 	if(istype(O,/obj/item/weapon/crowbar))
 		var/obj/item/stack/sheet/metal/M = getFromPool(/obj/item/stack/sheet/metal, get_turf(src))
 		M.amount = 1

@@ -262,7 +262,7 @@
 	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."
 
-/obj/structure/bed/chair/holowood/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/holowood/attackby(obj/item/weapon/W , mob/user as mob)
 	return
 
 //Comfy chairs

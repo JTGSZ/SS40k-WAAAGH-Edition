@@ -47,7 +47,7 @@
 	crushable = null
 	. = ..()
 
-/obj/item/weapon/reagent_containers/glass/mortar/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/item/weapon/reagent_containers/glass/mortar/attackby(var/obj/item/O , var/mob/user as mob)
 	if (O.is_screwdriver(user))
 		if(crushable)
 			crushable.forceMove(user.loc)

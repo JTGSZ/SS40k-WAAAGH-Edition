@@ -164,7 +164,7 @@
 			A.reagents.del_reagent(WATER)
 			A.reagents.add_reagent(HOLYWATER, water2holy)
 
-/obj/item/weapon/storage/bible/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/storage/bible/attackby(obj/item/weapon/W , mob/user as mob)
 	if(!stealthy(user))
 		playsound(src, "rustle", 50, 1, -5)
 	. = ..()

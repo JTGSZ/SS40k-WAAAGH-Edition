@@ -1,9 +1,9 @@
 //can't unequip since it can't equip anything
-//mob/living/carbon/alien/larva/u_equip(obj/item/W as obj)
+//mob/living/carbon/alien/larva/u_equip(obj/item/W )
 //	return
 //We do now.
 
-/mob/living/carbon/alien/larva/equip_to_slot(obj/item/W as obj, slot)
+/mob/living/carbon/alien/larva/equip_to_slot(obj/item/W , slot)
 	if(!slot)
 		return
 	if(!istype(W))

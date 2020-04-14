@@ -90,7 +90,7 @@
 		holding.forceMove(loc)
 		holding = null
 
-/obj/machinery/portable_atmospherics/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/portable_atmospherics/attackby(var/obj/item/weapon/W , var/mob/user as mob)
 
 	var/obj/icon = src
 	if ((istype(W, /obj/item/weapon/tank) && !( src.destroyed )))

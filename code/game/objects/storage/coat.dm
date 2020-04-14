@@ -31,7 +31,7 @@
 	else
 		return ..()
 
-/obj/item/clothing/suit/storage/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/suit/storage/attackby(obj/item/weapon/W , mob/user as mob)
 	hold.attackby(W,user)
 	return 1
 

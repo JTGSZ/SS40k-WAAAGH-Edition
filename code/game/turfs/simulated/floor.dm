@@ -510,7 +510,7 @@ turf/simulated/floor/update_icon()
 				floor_tile = null
 			make_plating()
 
-/turf/simulated/floor/attackby(obj/item/C as obj, mob/user as mob)
+/turf/simulated/floor/attackby(obj/item/C , mob/user as mob)
 	if(!C || !user)
 		return 0
 

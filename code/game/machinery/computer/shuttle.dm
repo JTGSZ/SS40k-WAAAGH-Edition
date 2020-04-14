@@ -7,7 +7,7 @@
 
 	light_color = LIGHT_COLOR_CYAN
 
-	attackby(var/obj/item/weapon/card/W as obj, var/mob/user as mob)
+	attackby(var/obj/item/weapon/card/W , var/mob/user as mob)
 		if(stat & (BROKEN|NOPOWER))
 			return
 		..()

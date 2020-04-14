@@ -426,7 +426,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			make_announcement(msg, G)
 
 					//deconstruction and hacking
-/obj/machinery/requests_console/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
+/obj/machinery/requests_console/attackby(var/obj/item/weapon/O , var/mob/user as mob)
 	if (iscrowbar(O))
 		if(open)
 			open = 0

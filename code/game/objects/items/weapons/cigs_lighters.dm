@@ -122,7 +122,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	else
 		return ..()
 
-/obj/item/weapon/match/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/match/attackby(obj/item/weapon/W , mob/user as mob)
 	if(W.is_hot() >= autoignition_temperature)
 		light()
 		user.visible_message("[user] lights \the [src] with \the [W].", \
@@ -233,7 +233,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		return source_temperature
 	return 0
 
-/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W , mob/user as mob)
 	..()
 
 	if(lit) //The cigarette is already lit
@@ -465,7 +465,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 
 /*
 //I'll light my cigar with an energy sword if I want to, thanks
-/obj/item/clothing/mask/cigarette/cigar/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/mask/cigarette/cigar/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/match))
 		..()
 	else
@@ -596,7 +596,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 
 /*
 //Ditto above, only a ruffian would refuse to light his pipe with an energy sword
-/obj/item/clothing/mask/cigarette/pipe/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/mask/cigarette/pipe/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/match))
 		..()
 	else

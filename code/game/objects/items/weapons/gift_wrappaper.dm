@@ -24,7 +24,7 @@
 	gift = target
 	update_icon()
 
-/obj/item/weapon/gift/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/gift/attackby(obj/item/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/pen))
 		var/str = copytext(sanitize(input(user,"What should the label read? (max 52 characters)","Write a personal message!","") as message|null),1,MAX_NAME_LEN * 2)
 		if (!Adjacent(user) || user.stat)
@@ -312,7 +312,7 @@
 		return
 	to_chat(user, "<span class='notice'>You can't move.</span>")
 
-/obj/structure/strange_present/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/strange_present/attackby(obj/item/weapon/W , mob/user as mob)
 	if (iswirecutter(W))
 		to_chat(user, "<span class='notice'>You cut open the present.</span>")
 

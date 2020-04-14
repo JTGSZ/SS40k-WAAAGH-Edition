@@ -214,7 +214,7 @@ Status: []<BR>"},
 		if(anchored) //Can't turn on if not secure
 			on = 1 // turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
 
-/obj/machinery/porta_turret/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/porta_turret/attackby(obj/item/W , mob/user as mob)
 	if(stat & BROKEN)
 		if(iscrowbar(W))
 
@@ -649,7 +649,7 @@ Status: []<BR>"},
 
 
 
-/obj/machinery/porta_turret_construct/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/porta_turret_construct/attackby(obj/item/W , mob/user as mob)
 
 	// this is a bit unweildy but self-explanitory
 	switch(build_step)
@@ -835,7 +835,7 @@ Status: []<BR>"},
 	add_hiddenprint(user)
 	return Parent_Turret.attack_ai(user)
 
-/obj/machinery/porta_turret_cover/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/porta_turret_cover/attackby(obj/item/W , mob/user as mob)
 	add_fingerprint(user)
 	return Parent_Turret.attackby(W, user)
 

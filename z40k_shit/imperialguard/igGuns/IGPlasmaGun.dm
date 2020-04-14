@@ -42,7 +42,7 @@
 			ASS.update_icon()
 
 //If we attack a hydrogen tank with our powerpack we refuel.
-/obj/item/weapon/iguard/ig_powerpack/afterattack(obj/O as obj, mob/user as mob, proximity)
+/obj/item/weapon/iguard/ig_powerpack/afterattack(obj/O , mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/hydrogen_tank) && get_dist(src,O) <= 1)

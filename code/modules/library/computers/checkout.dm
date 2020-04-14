@@ -206,7 +206,7 @@
 		return 1
 	return
 
-/obj/machinery/computer/library/checkout/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/computer/library/checkout/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/barcodescanner))
 		var/obj/item/weapon/barcodescanner/scanner = W
 		scanner.computer = src

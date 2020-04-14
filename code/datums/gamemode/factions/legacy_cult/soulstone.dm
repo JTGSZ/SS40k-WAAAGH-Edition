@@ -106,7 +106,7 @@
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "shell"
 
-/obj/structure/constructshell/attackby(obj/item/O as obj, mob/user as mob)
+/obj/structure/constructshell/attackby(obj/item/O , mob/user as mob)
 	if(istype(O, /obj/item/device/soulstone/gem))
 		O.transfer_soul("PERFECT",src,user)
 	else if(istype(O, /obj/item/device/soulstone))

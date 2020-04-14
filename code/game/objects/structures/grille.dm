@@ -157,7 +157,7 @@
 	healthcheck(hitsound = 1)
 	return 0
 
-/obj/structure/grille/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/grille/attackby(obj/item/weapon/W , mob/user as mob)
 	user.delayNextAttack(8)
 	if(isglasssheet(W))
 		var/obj/item/stack/sheet/glass/G = W

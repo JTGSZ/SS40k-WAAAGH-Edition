@@ -33,14 +33,14 @@
 	var/obj/item/weapon/card/id/front_id = null
 
 
-/obj/item/weapon/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location, var/force = 0, var/refresh = 1)
+/obj/item/weapon/storage/wallet/remove_from_storage(obj/item/W , atom/new_location, var/force = 0, var/refresh = 1)
 	. = ..(W, new_location)
 	if(.)
 		if(W == front_id)
 			front_id = null
 			update_icon()
 
-/obj/item/weapon/storage/wallet/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/weapon/storage/wallet/handle_item_insertion(obj/item/W , prevent_warning = 0)
 	. = ..(W, prevent_warning)
 	if(.)
 		if(!front_id && istype(W, /obj/item/weapon/card/id))

@@ -49,7 +49,7 @@
 		src.update_icon()
 	return
 
-/obj/item/toy/waterballoon/attackby(obj/O as obj, mob/user as mob)
+/obj/item/toy/waterballoon/attackby(obj/O , mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(O.reagents)
 			if(O.reagents.total_volume < 1)
@@ -159,7 +159,7 @@
 	..()
 	to_chat(user, "There [bullets == 1 ? "is" : "are"] [bullets] cap\s left.")
 
-/obj/item/toy/gun/attackby(obj/item/toy/ammo/gun/A as obj, mob/user as mob)
+/obj/item/toy/gun/attackby(obj/item/toy/ammo/gun/A , mob/user as mob)
 	if (istype(A, /obj/item/toy/ammo/gun))
 		if (src.bullets >= 7)
 			to_chat(user, "<span class = 'notice'>It's already fully loaded!</span>")

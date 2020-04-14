@@ -71,7 +71,7 @@
 	playsound(src, soundeffect, 100, 1)
 	return ..()
 
-/obj/machinery/door/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/door/mineral/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W,/obj/item/weapon/pickaxe))
 		var/obj/item/weapon/pickaxe/digTool = W
 		to_chat(user, "You start digging \the [src].")
@@ -161,7 +161,7 @@
 	icon_state = "plasmadoor_closed"
 	hardness = 4
 
-/obj/machinery/door/mineral/transparent/plasma/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/door/mineral/transparent/plasma/attackby(obj/item/weapon/W , mob/user as mob)
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))

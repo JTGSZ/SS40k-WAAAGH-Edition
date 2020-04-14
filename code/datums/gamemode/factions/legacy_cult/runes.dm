@@ -1006,7 +1006,7 @@
 
 /////////////////////////////////////////SIXTEENTH RUNE
 
-/obj/effect/rune_legacy/proc/revealrunes(var/obj/W as obj)
+/obj/effect/rune_legacy/proc/revealrunes(var/obj/W )
 	var/go=0
 	var/rad
 	var/S=0

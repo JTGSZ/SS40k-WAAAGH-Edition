@@ -880,7 +880,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			updateUsrDialog()
 
 
-/obj/machinery/newscaster/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/newscaster/attackby(obj/item/I , mob/user as mob)
 	switch(buildstage)
 		if(0)
 			if(iscrowbar(I))
@@ -1129,7 +1129,7 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 			attack_self(loc)
 
 
-obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
+obj/item/weapon/newspaper/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/pen))
 		if(scribble_page == curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")

@@ -29,7 +29,7 @@
 	A.clean_blood()
 	playsound(src, get_sfx("mop"), 25, 1)
 
-/obj/effect/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/effect/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/mop))
 		return
 	..()

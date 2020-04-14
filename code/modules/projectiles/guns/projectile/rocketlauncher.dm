@@ -128,7 +128,7 @@
 			return(SUICIDE_ACT_BRUTELOSS)
 	return
 
-/obj/item/weapon/gun/projectile/rocketlauncher/nikita/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/rocketlauncher/nikita/attackby(var/obj/item/A , mob/user as mob)
 	if(istype(A, /obj/item/weapon/card/emag) && !emagged)
 		emagged = 1
 		to_chat(user, "<span class='warning'>You disable \the [src]'s idiot security!</span>")

@@ -10,7 +10,7 @@
 	starting_materials = list()
 	var/list/stored_ores = list()
 
-/obj/structure/ore_box/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/ore_box/attackby(obj/item/weapon/W , mob/user as mob)
 	// this makes it possible for supply cyborgs to interact with the box
 	if (istype(W, /obj/item/device/mining_scanner))
 		attack_hand(user)

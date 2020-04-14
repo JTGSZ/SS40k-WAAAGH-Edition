@@ -96,7 +96,7 @@
 	..()
 
 
-/obj/structure/mirror/attackby(obj/item/I as obj, mob/living/user as mob)
+/obj/structure/mirror/attackby(obj/item/I , mob/living/user as mob)
 	if ((shattered) && (istype(I, /obj/item/stack/sheet/glass/glass)))
 		var/obj/item/stack/sheet/glass/glass/stack = I
 		if ((stack.amount - 2) < 0)

@@ -145,7 +145,7 @@
 	update_verbs()
 	update_icon()
 
-/obj/item/weapon/subspacetunneler/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/subspacetunneler/attackby(obj/item/W , mob/user as mob)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(loaded_crystal)
 			var/obj/item/bluespace_crystal/B = loaded_crystal
@@ -249,7 +249,7 @@
 			playsound(captive, 'sound/effects/phasein.ogg', 50, 1)
 			anim(location = T,a_icon = 'icons/obj/weaponsmithing.dmi',flick_anim = "subspace_rift",name = "subspace rift")
 
-/obj/item/weapon/subspacetunneler/proc/receive(obj/O as obj, mob/living/user as mob|obj, params, reflex = 0)
+/obj/item/weapon/subspacetunneler/proc/receive(obj/O , mob/living/user as mob|obj, params, reflex = 0)
 	if(!loaded_crystal)
 		return
 

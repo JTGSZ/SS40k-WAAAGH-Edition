@@ -297,7 +297,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/HolodeckControl/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/machinery/computer/HolodeckControl/attackby(var/obj/item/weapon/D , var/mob/user as mob)
 	..() //This still allows items to unrez even if the computer is deconstructed
 	return
 
@@ -492,7 +492,7 @@
 	icon_state = "light_on"
 	floor_tile
 
-/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W , mob/user as mob)
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
@@ -514,7 +514,7 @@
 	icon_state = "boxingred"
 	item_state = "boxingred"
 
-/obj/structure/window/reinforced/holo/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/window/reinforced/holo/attackby(obj/item/weapon/W , mob/user as mob)
 	if(W.is_screwdriver(user))
 		to_chat(user, "It's a holowindow! It has no frame!")
 		return
@@ -609,7 +609,7 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/holohoop/attackby(obj/item/weapon/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<GRAB_AGGRESSIVE)
@@ -668,7 +668,7 @@
 /obj/machinery/readybutton/attack_paw(mob/user as mob)
 	to_chat(user, "<span='warning'>You are too primitive to use this device.</span>")
 
-/obj/machinery/readybutton/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/readybutton/attackby(obj/item/weapon/W , mob/user as mob)
 	to_chat(user, "<span='warning'>The device is a solid button, there's nothing you can do with it!</span>")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)

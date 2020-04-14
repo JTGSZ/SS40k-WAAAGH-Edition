@@ -22,7 +22,7 @@
 /obj/item/weapon/gun/syringe/isHandgun()
 	return FALSE
 
-/obj/item/weapon/gun/syringe/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/weapon/gun/syringe/attackby(obj/item/I , mob/user as mob)
 	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
 		var/obj/item/weapon/reagent_containers/syringe/S = I
 		if(S.mode != 2)//SYRINGE_BROKEN in syringes.dm

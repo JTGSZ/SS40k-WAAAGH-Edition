@@ -144,7 +144,7 @@
 		user.put_in_hands(I) //if it fails, it'll drop on the ground. simple
 	qdel(src)
 
-/obj/item/delivery/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/delivery/attackby(obj/item/W , mob/user as mob)
 	if(istype(W, /obj/item/device/destTagger))
 		var/obj/item/device/destTagger/O = W
 

@@ -646,7 +646,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/get_owner_name_from_ID()
 	return owner
 
-/obj/item/device/pda/MouseDropFrom(obj/over_object as obj, src_location, over_location)
+/obj/item/device/pda/MouseDropFrom(obj/over_object , src_location, over_location)
 	var/mob/M = usr
 	if((!istype(over_object, /obj/abstract/screen)) && can_use(M))
 		return attack_self(M)
@@ -2302,7 +2302,7 @@ obj/item/device/pda/AltClick()
 	return
 
 // access to status display signals
-/obj/item/device/pda/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/device/pda/attackby(obj/item/C , mob/user as mob)
 	..()
 	if(hidden_uplink && hidden_uplink.active && hidden_uplink.refund(user, C))
 		return

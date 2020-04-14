@@ -136,7 +136,7 @@
 
 	add_fingerprint(user)
 
-/obj/machinery/optable/attackby(obj/item/weapon/W as obj, mob/living/carbon/user as mob)
+/obj/machinery/optable/attackby(obj/item/weapon/W , mob/living/carbon/user as mob)
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 50)
 		if(do_after(user, src, 40))

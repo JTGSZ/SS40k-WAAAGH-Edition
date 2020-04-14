@@ -33,7 +33,7 @@
 			I.forceMove(src)
 
 
-/obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
+/obj/structure/filingcabinet/attackby(obj/item/P , mob/user as mob)
 	if(istype(P, /obj/item/weapon/paper) || istype(P, /obj/item/weapon/folder) || istype(P, /obj/item/weapon/photo))
 		if(user.drop_item(P, src))
 			to_chat(user, "<span class='notice'>You put [P] in [src].</span>")

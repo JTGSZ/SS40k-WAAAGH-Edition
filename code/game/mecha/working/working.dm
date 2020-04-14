@@ -5,16 +5,7 @@
 	var/obj/structure/ore_box/ore_box //to save on locate()
 	var/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp/hydraulic_clamp
 
-/*
-/obj/mecha/working/melee_action(atom/target as obj|mob|turf)
-	if(internal_damage&MECHA_INT_CONTROL_LOST)
-		target = pick(oview(1,src))
-	if(selected_tool)
-		selected_tool.action(target)
-	return
-*/
-
-/obj/mecha/working/range_action(atom/target as obj|mob|turf)
+/obj/mecha/working/range_action(atom/target)
 	return
 
 /obj/mecha/working/Exit(atom/movable/O)
@@ -34,8 +25,6 @@
 				ore_box = locate(/obj/structure/ore_box) in cargo //i'll fix this later
 			src.log_message("Unloaded [O]. Cargo compartment capacity: [cargo_capacity - src.cargo.len]")
 	return
-
-
 
 /obj/mecha/working/get_stats_part()
 	var/output = ..()

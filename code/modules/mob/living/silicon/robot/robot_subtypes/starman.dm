@@ -52,7 +52,7 @@
 /mob/living/silicon/robot/starman/getarmorabsorb()
 	return 10
 	
-/mob/living/silicon/robot/starman/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/silicon/robot/starman/attackby(var/obj/item/O , var/mob/user as mob)
 	if(O.force && O.force < 11)
 		user.delayNextAttack(8)
 		user.visible_message("<span class='danger'>[O] bounces harmlessly off of \the [src].</span>", "<span class='userdanger'>[O] bounces harmlessly off of \the [src].</span>")

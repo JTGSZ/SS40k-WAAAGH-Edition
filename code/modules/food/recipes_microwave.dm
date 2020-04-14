@@ -279,7 +279,7 @@
 // Human ///////////////////////////////////////////////////////
 
 /datum/recipe/human //Parent datum only
-	make_food(var/obj/container as obj)
+	make_food(var/obj/container )
 		var/human_name
 		var/human_job
 		for(var/obj/item/weapon/reagent_containers/food/snacks/meat/human/HM in container)
@@ -2271,7 +2271,7 @@
 		)
 	result = /obj/item/weapon/reagent_containers/food/snacks/zhulongcaofan
 
-/datum/recipe/zhulongcaofan/make_food(var/obj/container as obj)
+/datum/recipe/zhulongcaofan/make_food(var/obj/container )
 	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/pitcher/P in container)
 		P.reagents.del_reagent(SACID) //This cleanses the plant.
 	return ..()
@@ -2302,7 +2302,7 @@
 		)
 	result = /obj/item/weapon/reagent_containers/food/snacks/hoboburger
 
-/datum/recipe/hoboburger/make_food(var/obj/container as obj)
+/datum/recipe/hoboburger/make_food(var/obj/container )
 	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/pitcher/P in container)
 		P.reagents.del_reagent(SACID) //This cleanses the plant.
 	return ..()

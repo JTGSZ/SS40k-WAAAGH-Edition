@@ -198,7 +198,7 @@
 	for(var/obj/item/toy/crayon/crayon in contents)
 		overlays += image('icons/obj/crayons.dmi',crayon.colourName)
 
-/obj/item/weapon/storage/fancy/crayons/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/storage/fancy/crayons/attackby(obj/item/W , mob/user as mob)
 	if(istype(W,/obj/item/toy/crayon))
 		switch(W:colourName)
 			if("mime")
@@ -260,13 +260,13 @@
 		icon_state = "[initial(icon_state)]"
 		return
 
-/obj/item/weapon/storage/fancy/matchbox/attackby(obj/item/weapon/match/W as obj, mob/user as mob)
+/obj/item/weapon/storage/fancy/matchbox/attackby(obj/item/weapon/match/W , mob/user as mob)
 	if(istype(W, /obj/item/weapon/match) && !W.lit)
 		W.light()
 		return
 	return ..()
 
-/obj/item/weapon/storage/fancy/matchbox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/weapon/storage/fancy/matchbox/handle_item_insertion(obj/item/W , prevent_warning = 0)
 	. = ..()
 	if(.)
 		if(W.is_hot() >= src.autoignition_temperature)
@@ -325,7 +325,7 @@
 	desc = "There are [contents.len] cig\s left!"
 	return
 
-/obj/item/weapon/storage/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location, var/force = 0, var/refresh = 1)
+/obj/item/weapon/storage/fancy/cigarettes/remove_from_storage(obj/item/W , atom/new_location, var/force = 0, var/refresh = 1)
 	var/obj/item/clothing/mask/cigarette/C = W
 	if(!istype(C))
 		return ..() // what
@@ -400,7 +400,7 @@
 		overlays += vial_image
 		i++
 
-/obj/item/weapon/storage/fancy/vials/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/weapon/storage/fancy/vials/handle_item_insertion(obj/item/W , prevent_warning = 0)
 	.=..()
 	if (.)
 		playsound(src, 'sound/effects/pop.ogg', 100, 1, -6)
@@ -458,13 +458,13 @@
 	else
 		overlays += image(icon, src, "ledb")
 
-/obj/item/weapon/storage/lockbox/vials/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/storage/lockbox/vials/attackby(obj/item/weapon/W , mob/user as mob)
 	. = ..()
 	if (istype(W,/obj/item/weapon/card))
 		playsound(src, get_sfx("card_swipe"), 60, 1, -5)
 	update_icon()
 
-/obj/item/weapon/storage/lockbox/vials/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/weapon/storage/lockbox/vials/handle_item_insertion(obj/item/W , prevent_warning = 0)
 	.=..()
 	if (.)
 		playsound(src, 'sound/effects/pop.ogg', 100, 1, -6)
@@ -533,7 +533,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/chicken_drumstick(src)
 	return
 
-/obj/item/weapon/storage/fancy/food_box/chicken_bucket/remove_from_storage(obj/item/W as obj, atom/new_location, var/force = 0, var/refresh = 1)
+/obj/item/weapon/storage/fancy/food_box/chicken_bucket/remove_from_storage(obj/item/W , atom/new_location, var/force = 0, var/refresh = 1)
 	. = ..()
 	if(!contents.len)
 		new/obj/item/trash/chicken_bucket(get_turf(src.loc))

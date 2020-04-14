@@ -34,7 +34,6 @@ var/datum/cameranet/cameranet = new()
 // Updates what the aiEye can see. It is recommended you use this when the aiEye moves or it's location is set.
 
 /datum/cameranet/proc/visibility(mob/camera/aiEye/ai)
-	// 0xf = 15
 	var/x1 = max(0, ai.x - 16) & ~(CHUNK_SIZE - 1)
 	var/y1 = max(0, ai.y - 16) & ~(CHUNK_SIZE - 1)
 	var/x2 = min(world.maxx, ai.x + 16) & ~(CHUNK_SIZE - 1)
@@ -67,7 +66,6 @@ var/datum/cameranet/cameranet = new()
 	majorChunkChange(A, 2)
 
 /datum/cameranet/proc/updateChunk(x, y, z)
-	// 0xf = 15
 	if(!chunkGenerated(x, y, z))
 		return
 	var/datum/camerachunk/chunk = getCameraChunk(x, y, z)
@@ -111,8 +109,6 @@ var/datum/cameranet/cameranet = new()
 		var/x2 = min(world.maxx, T.x + (CHUNK_SIZE / 2)) & ~(CHUNK_SIZE - 1)
 		var/y2 = min(world.maxy, T.y + (CHUNK_SIZE / 2)) & ~(CHUNK_SIZE - 1)
 
-//		to_chat(world, "X1: [x1] - Y1: [y1] - X2: [x2] - Y2: [y2]")
-
 		for(var/x = x1; x <= x2; x += CHUNK_SIZE)
 			for(var/y = y1; y <= y2; y += CHUNK_SIZE)
 				if(chunkGenerated(x, y, T.z))
@@ -127,7 +123,7 @@ var/datum/cameranet/cameranet = new()
 
 // Will check if an atom is on a viewable turf. Returns 1 if it is, otherwise returns 0.
 
-/datum/cameranet/proc/checkCameraVis(atom/target as obj|mob|turf)
+/datum/cameranet/proc/checkCameraVis(atom/target)
 
 
 	// 0xf = 15
@@ -144,11 +140,3 @@ var/datum/cameranet/cameranet = new()
 			return 1
 	return 0
 
-// Debug verb for VVing the chunk that the turf is in.
-/*
-/turf/verb/view_chunk()
-	set src in world
-	if(cameranet.chunkGenerated(x, y, z))
-		var/datum/camerachunk/chunk = cameranet.getCameraChunk(x, y, z)
-		usr.client.debug_variables(chunk)
-*/

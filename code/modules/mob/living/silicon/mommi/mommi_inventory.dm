@@ -58,7 +58,7 @@
 	update_items()
 	return 1
 
-/mob/living/silicon/robot/mommi/u_equip(W as obj)
+/mob/living/silicon/robot/mommi/u_equip(W )
 	if(W == tool_state)
 		if(module_active==tool_state)
 			module_active = null
@@ -246,7 +246,7 @@
 
 // Equip an item to the MoMMI. Currently the only thing you can equip is hats
 // Returns a 0 or 1 based on whether or not the equipping worked
-/mob/living/silicon/robot/mommi/equip_to_slot(obj/item/W as obj, slot, redraw_mob = 1)
+/mob/living/silicon/robot/mommi/equip_to_slot(obj/item/W , slot, redraw_mob = 1)
 	// If the parameters were given incorrectly, return an error
 	if(!slot)
 		return 0

@@ -18,7 +18,7 @@
 	icon_state = "nboard0[notices]"
 
 //attaching papers!!
-/obj/structure/noticeboard/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
+/obj/structure/noticeboard/attackby(var/obj/item/weapon/O , var/mob/user as mob)
 	if(O.is_wrench(user))
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		O.playtoolsound(src, 100)

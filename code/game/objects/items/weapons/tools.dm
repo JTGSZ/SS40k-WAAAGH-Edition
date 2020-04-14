@@ -271,7 +271,7 @@
 		to_chat(user, "<span class='notice'>The welder is unsecured.</span>")
 	to_chat(user, "It contains [get_fuel()]/[src.max_fuel] units of fuel!")
 
-/obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/weldingtool/attackby(obj/item/W , mob/user as mob)
 	if(user.is_in_modules(src))
 		return
 	if(istype(W,/obj/item/weapon/screwdriver))
@@ -762,7 +762,7 @@
 	..()
 	to_chat(user, "It contains [reagents.get_reagent_amount(SACID) + reagents.get_reagent_amount(FORMIC_ACID)]/[src.max_fuel] units of fuel!")
 
-/obj/item/weapon/solder/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/solder/attackby(obj/item/W , mob/user as mob)
 	if(istype(W,/obj/item/weapon/reagent_containers/) && W.flags & OPENCONTAINER)
 		var/obj/item/weapon/reagent_containers/G = W
 		if(G.reagents.reagent_list.len>1)

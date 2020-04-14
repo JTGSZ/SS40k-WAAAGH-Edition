@@ -168,7 +168,7 @@
 	for(var/mob/M in src)
 		shatter(M)
 
-/obj/structure/closet/statue/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/closet/statue/attackby(obj/item/I , mob/user as mob)
 	health -= I.force
 	visible_message("<span class='warning'>[user] strikes [src] with [I].</span>")
 	user.delayNextAttack(10)

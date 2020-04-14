@@ -241,7 +241,7 @@
 	..()
 	to_chat(user, "<span class='info'>[tracked_access]</span>")
 
-/obj/item/weapon/storage/lockbox/unlockable/attackby(obj/O as obj, mob/user as mob)
+/obj/item/weapon/storage/lockbox/unlockable/attackby(obj/O , mob/user as mob)
 	if (istype(O, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/ID = O
 		if(src.broken)
@@ -453,13 +453,13 @@
 	else
 		overlays += image(icon, src, "ledb")
 
-/obj/item/weapon/storage/lockbox/diskettebox/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/storage/lockbox/diskettebox/attackby(obj/item/weapon/W , mob/user as mob)
 	. = ..()
 	if (istype(W,/obj/item/weapon/card))
 		playsound(src, get_sfx("card_swipe"), 60, 1, -5)
 	update_icon()
 
-/obj/item/weapon/storage/lockbox/diskettebox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/weapon/storage/lockbox/diskettebox/handle_item_insertion(obj/item/W , prevent_warning = 0)
 	.=..()
 	if (.)
 		playsound(loc, 'sound/machines/click.ogg', 30, -5)

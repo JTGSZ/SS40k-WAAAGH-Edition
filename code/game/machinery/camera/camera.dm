@@ -511,7 +511,7 @@ var/list/camera_messages = list()
 	upgradeXRay()
 	upgradeHearing()
 
-/obj/machinery/camera/arena/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/camera/arena/attackby(obj/item/W , mob/living/user as mob)
 	if(W.is_screwdriver(user))
 		to_chat(user, "<span class='warning'>There aren't any visible screws to unscrew.</span>")
 	else

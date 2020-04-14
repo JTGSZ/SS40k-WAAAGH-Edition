@@ -54,7 +54,7 @@
 		linked = null
 	..()
 
-/obj/machinery/telepad/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/telepad/attackby(obj/item/weapon/W , mob/user as mob)
 	..()
 	if(W.is_screwdriver(user))
 		if(opened)

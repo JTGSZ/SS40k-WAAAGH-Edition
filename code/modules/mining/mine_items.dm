@@ -624,7 +624,7 @@ proc/move_mining_shuttle()
 	meat_type = null
 	mob_property_flags = MOB_ROBOTIC
 
-/mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I as obj, mob/user as mob)
+/mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I , mob/user as mob)
 	if(iswelder(I))
 		var/obj/item/weapon/weldingtool/W = I
 		if(W.welding && !stat)

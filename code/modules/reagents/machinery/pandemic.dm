@@ -263,7 +263,7 @@
 	return
 
 
-/obj/machinery/computer/pandemic/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/machinery/computer/pandemic/attackby(var/obj/item/I , var/mob/user as mob)
 	if(..())
 		return 1
 	else if(istype(I, /obj/item/weapon/reagent_containers/glass))

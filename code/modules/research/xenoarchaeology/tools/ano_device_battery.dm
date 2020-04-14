@@ -32,7 +32,7 @@
 	. = ..()
 	processing_objects.Add(src)
 
-/obj/item/weapon/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/item/weapon/anodevice/attackby(var/obj/I , var/mob/user as mob)
 	if(istype(I, /obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			if(user.drop_item(I, src))

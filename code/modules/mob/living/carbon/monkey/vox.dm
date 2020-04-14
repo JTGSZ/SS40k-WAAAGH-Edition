@@ -58,7 +58,7 @@
 
 	return ..(message)
 
-/mob/living/carbon/monkey/vox/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/carbon/monkey/vox/attackby(var/obj/item/O , var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/wheat)) //feedin' dem chickens
 		if(!stat && eggsleft < 8)
 			if(!user.drop_item(O))

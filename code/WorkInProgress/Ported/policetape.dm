@@ -180,7 +180,7 @@
 	else
 		return 0
 
-/obj/item/tape/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/tape/attackby(obj/item/weapon/W , mob/user as mob)
 	breaktape(W, user)
 
 /obj/item/tape/attack_hand(mob/user as mob)
@@ -217,7 +217,7 @@
 			return
 	breaktape(null,L, TRUE)
 
-/obj/item/tape/proc/breaktape(obj/item/weapon/W as obj, mob/user as mob, var/override = FALSE)
+/obj/item/tape/proc/breaktape(obj/item/weapon/W , mob/user as mob, var/override = FALSE)
 	if(!override && user.a_intent == I_HELP && (!W || !W.is_sharp()) && !src.allowed(user))
 		to_chat(user, "<span class='notice'>You can't break [src] [W ? "with \the [W] " : ""]unless you use force.</span>")
 		return

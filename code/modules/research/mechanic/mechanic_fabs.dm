@@ -69,7 +69,7 @@
 		output += " | [get_resource_cost_w_coeff(part, MAT_PLASTIC)] Plastic"
 	return output
 
-/obj/machinery/r_n_d/fabricator/mechanic_fab/get_resource_cost_w_coeff(var/datum/design/part as obj,var/resource as text, var/roundto=1)
+/obj/machinery/r_n_d/fabricator/mechanic_fab/get_resource_cost_w_coeff(var/datum/design/part ,var/resource as text, var/roundto=1)
 	if(resource == MAT_PLASTIC && !(MAT_PLASTIC in part.materials)) //output the extra 0.1 plastic we need
 		return round(part.MatTotal() * PLASTIC_FRACTION * resource_coeff, roundto)
 	return round(part.materials[resource]*resource_coeff, roundto)

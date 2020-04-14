@@ -92,7 +92,7 @@
 		to_chat(usr, "You pour the fuel out of \the [src].")
 	update_verbs()
 
-/obj/item/weapon/blunderbuss/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/blunderbuss/attackby(obj/item/W , mob/user as mob)
 	var/item_prohibited = 0
 	for(var/i=1, i<=prohibited_items.len, i++)
 		if(istype(W,prohibited_items[i]))

@@ -1032,7 +1032,7 @@ var/global/list/airalarm_presets = list(
 			set_temperature(input_temperature)
 		return 1
 
-/obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/alarm/attackby(obj/item/W , mob/user as mob)
 	src.add_fingerprint(user)
 
 	switch(buildstage)
@@ -1225,7 +1225,7 @@ FIRE ALARM
 	if(istype(AM,/obj/item/inflatable/shelter))
 		attackby(AM,user)
 
-/obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/firealarm/attackby(obj/item/W , mob/user as mob)
 	src.add_fingerprint(user)
 
 	if (istype(W,/obj/item/inflatable/shelter))

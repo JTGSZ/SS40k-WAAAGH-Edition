@@ -43,7 +43,7 @@
 		amt += req_components[path]
 	return amt
 
-/obj/machinery/constructable_frame/machine_frame/attackby(obj/item/P as obj, mob/user as mob)
+/obj/machinery/constructable_frame/machine_frame/attackby(obj/item/P , mob/user as mob)
 	if(P.crit_fail)
 		to_chat(user, "<span class='warning'>This part is faulty, you cannot add this to the machine!</span>")
 		return
@@ -306,7 +306,7 @@ to destroy them and players will be able to make replacements.
 	..()
 	//local_fuses = new(src)
 
-/obj/item/weapon/circuitboard/blank/attackby(obj/item/O as obj, mob/user as mob)
+/obj/item/weapon/circuitboard/blank/attackby(obj/item/O , mob/user as mob)
 	/*if(ismultitool(O))
 		var/boardType = local_fuses.assigned_boards["[local_fuses.localbit]"] //Localbit is an int, but this is an associative list organized by strings
 		if(boardType)

@@ -450,7 +450,7 @@ var/runedec = 0 // Rune cap ?
 		to_chat(user, "The book seems full of illegible scribbles. Is this a joke?")
 		return
 
-/obj/item/weapon/tome_legacy/attackby(obj/item/weapon/tome_legacy/T as obj, mob/living/user as mob)
+/obj/item/weapon/tome_legacy/attackby(obj/item/weapon/tome_legacy/T , mob/living/user as mob)
 	if(istype(T, /obj/item/weapon/tome_legacy) && islegacycultist(user)) // sanity check to prevent a runtime error
 		switch(alert("Copy the runes from your tome?",,"Copy", "Cancel"))
 			if("Cancel")

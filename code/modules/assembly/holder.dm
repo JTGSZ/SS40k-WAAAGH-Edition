@@ -159,7 +159,7 @@
 	return
 
 
-/obj/item/device/assembly_holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/assembly_holder/attackby(obj/item/weapon/W , mob/user as mob)
 	if(W.is_screwdriver(user))
 		if(!a_left || !a_right)
 			to_chat(user, "<span class='warning'>BUG:Assembly part missing, please report this!</span>")

@@ -202,7 +202,7 @@
 		return FALSE
 	return ..()
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/W as obj, user as mob)
+/obj/machinery/bodyscanner/attackby(obj/item/weapon/W , user as mob)
 	if(!istype(W, /obj/item/weapon/grab))
 		return ..()
 	var/obj/item/weapon/grab/G = W

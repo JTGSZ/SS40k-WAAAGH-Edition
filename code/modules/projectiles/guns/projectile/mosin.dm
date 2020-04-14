@@ -60,7 +60,7 @@
 	update_icon()	//I.E. fix the desc
 	return 1
 
-/obj/item/weapon/gun/projectile/mosin/attackby(var/obj/item/A as obj, mob/living/user as mob)
+/obj/item/weapon/gun/projectile/mosin/attackby(var/obj/item/A , mob/living/user as mob)
 	..()
 	if(istype(src, /obj/item/weapon/gun/projectile/mosin/obrez))
 		return

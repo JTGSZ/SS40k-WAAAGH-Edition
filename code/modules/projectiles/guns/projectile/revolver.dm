@@ -41,7 +41,7 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/weapon/gun/projectile/detective/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/detective/attackby(var/obj/item/A , mob/user as mob)
 	..()
 	if(A.is_screwdriver(user) || istype(A, /obj/item/weapon/conversion_kit))
 		var/obj/item/weapon/conversion_kit/CK
@@ -131,7 +131,7 @@
 /obj/item/weapon/gun/projectile/russian/proc/Spin()
 	loaded = shuffle(loaded)
 
-/obj/item/weapon/gun/projectile/russian/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/weapon/gun/projectile/russian/attackby(var/obj/item/A , mob/user as mob)
 
 	if(!A)
 		return

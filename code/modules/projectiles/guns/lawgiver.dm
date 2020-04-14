@@ -368,7 +368,7 @@ var/list/lawgiver_modes = list(
 		return FALSE
 	return TRUE
 
-/obj/item/weapon/gun/lawgiver/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/weapon/gun/lawgiver/attackby(var/obj/item/A , mob/user as mob)
 	if(istype(A, /obj/item/ammo_storage/magazine/lawgiver))
 		if(!check_mag_type(A, user))
 			return

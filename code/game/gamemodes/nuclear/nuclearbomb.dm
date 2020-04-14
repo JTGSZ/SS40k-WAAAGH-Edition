@@ -35,7 +35,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 			if((M.client && M.machine == src))
 				attack_hand(M)
 
-/obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob)
+/obj/machinery/nuclearbomb/attackby(obj/item/weapon/O , mob/user as mob)
 	if (src.extended)
 		if (istype(O, /obj/item/weapon/disk/nuclear))
 			usr.drop_item(O, src, force_drop = 1)
