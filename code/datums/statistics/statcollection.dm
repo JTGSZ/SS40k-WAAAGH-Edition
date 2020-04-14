@@ -143,7 +143,7 @@
 	var/assignment = null
 
 // redo using mind list instead so we can get non-human players in its output
-/datum/stat/manifest_entry/New(/var/mob/living/carbon/human/M)
+/datum/stat/manifest_entry/New(var/mob/living/carbon/human/M)
 	key = ckey(M.mind.key)
 	name = STRIP_NEWLINE(M.mind.name)
 	assignment = STRIP_NEWLINE(M.mind.assigned_job)
