@@ -14,10 +14,11 @@
 	var/turf/T = get_turf(over)
 	if(!occupants.Find(usr))
 		var/mob/pilot = get_pilot()
-		visible_message("<span class='notice'>[usr] start pulling [pilot.name] out of \the [src].</span>")
-		if(do_after(usr, src, 4 SECONDS))
-			move_outside(pilot, T)
-		return
+		if(pilot)
+			visible_message("<span class='notice'>[usr] start pulling [pilot.name] out of \the [src].</span>")
+			if(do_after(usr, src, 4 SECONDS))
+				move_outside(pilot, T)
+			return
 	if(!Adjacent(T) || T.density)
 		return
 	for(var/atom/movable/A in T.contents)

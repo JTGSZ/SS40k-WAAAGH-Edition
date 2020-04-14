@@ -24,7 +24,6 @@ Proc call vars. - Attachment Master
  (4) master user	-	Must be a mob. Usually get_pilot()
 */
 /datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
-	//Make room for the entry bitch.
 	if(slide_in)
 		bitch.my_atom = massa_obj //My bitches atom is the massa object.
 		equipment_systems += bitch //We add bitch to our equipment list
@@ -39,13 +38,14 @@ Proc call vars. - Attachment Master
 		
 		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade)) //Dozerblade
 			massa_obj.dozer_blade = TRUE
+	
 	else //I'm pullin out.
 		bitch.my_atom = null //you don't got no atom bitch.
 		equipment_systems -= bitch //and you leavin our equipment_systems
 		
-		var/ocean_of_semen = locate(bitch.tied_action) in action_storage //I'll find yo action in our storage.
-		if(ocean_of_semen) //And if you got it.
-			action_storage -= ocean_of_semen //This ocean of semen is leaving me.
+		var/ocean_of_semen = locate(bitch.tied_action) in action_storage
+		if(ocean_of_semen)
+			action_storage -= ocean_of_semen
 			var/datum/action/ARSE = ocean_of_semen
 			if(massa_man)
 				ARSE.Remove(massa_man) //And I'm removing your ass too.
@@ -61,6 +61,7 @@ Proc call vars. - Attachment Master
 //Here mostly so we can append stuff fast during development
 /obj/item/device/vehicle_equipment
 	name = "equipment"
+	icon = 'z40k_shit/icons/complex_vehicle/vehicle_equipment.dmi'
 	var/tied_action //The action button tied to the object
 	var/obj/my_atom //Basically the object we are attached to.
 	var/id			//The ID we share with our action button if we have one.
@@ -73,6 +74,9 @@ Proc call vars. - Attachment Master
 /obj/item/device/vehicle_equipment/proc/action(atom/target)
 	return
 
+/obj/item/device/vehicle_equipment/ex_act() //No QDEL from ex_Acts
+	return
+
 /*
 	VEHICLE EQUIPMENT WEAPONERY PARENT
 										*/
@@ -80,7 +84,6 @@ Proc call vars. - Attachment Master
 /obj/item/device/vehicle_equipment/weaponry
 	name = "weapon parent"
 	desc = "You shouldn't be seeing this"
-	icon = 'z40k_shit/icons/complex_vehicle/vehicle_equipment.dmi'
 	var/projectile_type //Type of Projectile
 	var/fire_delay = 10 //Delay on when next action can be done.
 	var/projectiles_per_shot = 2 //How many projectiles come out

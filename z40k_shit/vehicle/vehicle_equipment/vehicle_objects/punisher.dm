@@ -16,7 +16,7 @@
 
 /obj/item/device/vehicle_equipment/weaponry/punisher
 	name = "Punisher Gatling Cannon"
-	desc = "for testing"
+	desc = "This is gonna hurt"
 	icon_state = "punisher_cannon"
 	projectile_type = /obj/item/projectile/bullet/punisherbullet
 	projectiles_per_shot = 5

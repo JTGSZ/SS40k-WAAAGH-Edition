@@ -1,75 +1,91 @@
 
+
 /obj/complex_vehicle/to_bump(var/atom/A)
 	..()
 	var/randomizer = pick('z40k_shit/sounds/wallsmash1.ogg','z40k_shit/sounds/wallsmash2.ogg', 'z40k_shit/sounds/wallsmash3.ogg')
+	var/ntime = world.time
+
 	if(istype(A, /turf/simulated/wall) && !istype(A, /turf/simulated/wall/r_wall))
 		if(dozer_blade)
 			visible_message("<span class = 'warning'>\The [src] collides with the [A], and destroys it with the dozerblade.</span>")
+			acceleration -= 100
 			if(prob(50))
 				A.ex_act(1)
 			else
 				A.ex_act(2)
-			playsound(loc, randomizer, 75, 0)
+			playsound(loc, randomizer, 100, 1)
 		else
-			switch(acceleration)
-				if(0 to 100) //Max reverse
-					if(prob(25))
-						A.ex_act(2)
-						playsound(loc, randomizer, 75, 0)
-					adjust_health(250)	
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
-				if(100 to 600) //Mid Reverse
-					adjust_health(50)
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
-				if(600 to 700) //Med-High Forward
-					adjust_health(100)
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
-				if(700 to 900) //Max Forward
-					if(prob(25))
-						A.ex_act(2)
-						playsound(loc, randomizer, 75, 0)
-					adjust_health(250)	
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")	
-				if(900 to 1000)
-					if(prob(90))
-						A.ex_act(1)
-						playsound(loc, randomizer, 75, 0)
-					adjust_health(500)
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] at FULL SPEED.</span>")
-			playsound(loc,'z40k_shit/sounds/crash.ogg',75,1)
-	
+			if(world.time >= ntime) //only do this every 2 seconds.
+				switch(acceleration)
+					if(0 to 100) //Max reverse
+						if(prob(25))
+							A.ex_act(2)
+							playsound(loc, randomizer, 100, 1)
+						adjust_health(250)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
+						acceleration = 350
+					if(100 to 600) //Mid Reverse
+						adjust_health(50)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
+						acceleration = 350
+					if(600 to 700) //Med-High Forward
+						adjust_health(100)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
+						acceleration = 350
+					if(700 to 900) //Max Forward
+						if(prob(25))
+							A.ex_act(2)
+							playsound(loc, randomizer, 100, 1)
+						adjust_health(250)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")	
+						acceleration = 350
+					if(900 to 1000)
+						if(prob(90))
+							A.ex_act(1)
+							playsound(loc, randomizer, 100, 1)
+						adjust_health(500)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] at FULL SPEED.</span>")
+				ntime = world.time+20
+				playsound(loc,'z40k_shit/sounds/crash.ogg',75,1)
+			else
+				return
 	if(istype(A, /turf/simulated/wall/r_wall))
 		if(dozer_blade)
 			if(prob(50))
 				A.ex_act(1)
 			else
 				A.ex_act(2)
-			playsound(loc, randomizer, 75, 0)
+			playsound(loc, randomizer, 100, 1)
 			visible_message("<span class = 'warning'>\The [src] collides with the [A], and destroys it with the dozerblade.</span>")
 		else
-			switch(acceleration)
-				if(0 to 100)
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
-					adjust_health(250)
-				if(100 to 700)
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
-					adjust_health(100)
-				if(700 to 1000)
-					visible_message("<span class = 'warning'>\The [src] collides with the [A] at FULL SPEED.</span>")
-					adjust_health(1000)
-			playsound(loc,'z40k_shit/sounds/crash.ogg',75,1)
-		
+			if(world.time >= ntime) //only do this every 2 seconds.
+				switch(acceleration)
+					if(0 to 100)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
+						adjust_health(250)
+						acceleration = 350
+					if(100 to 700)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] and takes damage.</span>")
+						adjust_health(100)
+						acceleration = 350
+					if(700 to 1000)
+						visible_message("<span class = 'warning'>\The [src] collides with the [A] at FULL SPEED.</span>")
+						adjust_health(1000)
+						acceleration = 350
+				ntime = world.time+20
+				playsound(loc,'z40k_shit/sounds/crash.ogg',75,1)
+			else
+				return
 	if(istype(A, /obj/structure))
 		if(dozer_blade)
 			visible_message("<span class = 'warning'>\The [src] collides with the [A], and destroys it with the dozerblade.</span>")
 			A.ex_act(1)
 		else
-			if(prob(25))
+			if(prob(10))
 				adjust_health(25)
 			A.ex_act(1)
 			visible_message("<span class = 'warning'>\The [src] collides with the [A]</span>")
 			playsound(loc,'z40k_shit/sounds/crash.ogg',75,1)
-
 
 	if(istype(A, /obj/machinery))
 		A.ex_act(1)
@@ -117,10 +133,10 @@
 					to_chat(L, "<span class='warning'>[i]</span>")
 				if(i == 0)
 					if(has_passengers())
-						for(var/mob/living/GAYS in get_passengers())
-							move_outside(GAYS, get_turf(src))
-							GAYS.throw_at(get_turf(pick(orange(5,src))))
-							to_chat(GAYS, "<span class='warning'>You are forcefully thrown from \the [src]!</span>")
+						for(var/mob/living/MUHDICK in get_passengers())
+							move_outside(MUHDICK, get_turf(src))
+							MUHDICK.throw_at(get_turf(pick(orange(5,src))))
+							to_chat(MUHDICK, "<span class='warning'>You are forcefully thrown from \the [src]!</span>")
 					var/mob/living/carbon/human/H = get_pilot()
 					if(H)
 						move_outside(H, get_turf(src))
