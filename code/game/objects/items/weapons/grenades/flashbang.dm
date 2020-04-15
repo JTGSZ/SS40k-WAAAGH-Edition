@@ -145,12 +145,12 @@ atom/proc/flashbang(var/turf/T, var/mob/living/M, var/ignore_protection = 0, var
 		var/datum/organ/internal/eyes/E = H.internal_organs_by_name["eyes"]
 		if (E && E.damage >= E.min_bruised_damage)
 			to_chat(M, "<span class='warning'>Your eyes start to burn badly!</span>")
-			if(!isbanglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
+			if(!isbanglet && !(istype(src, /obj/item/weapon/grenade/flashbang/clusterbang)))
 				if (E.damage >= E.min_broken_damage)
 					to_chat(M, "<span class='warning'>You can't see anything!</span>")
 	if (M.ear_damage >= 15)
 		to_chat(M, "<span class='warning'>Your ears start to ring badly!</span>")
-		if(!isbanglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
+		if(!isbanglet && !(istype(src, /obj/item/weapon/grenade/flashbang/clusterbang)))
 			if (prob(M.ear_damage - 10 + 5))
 				to_chat(M, "<span class='warning'>You can't hear anything!</span>")
 				M.sdisabilities |= DEAF

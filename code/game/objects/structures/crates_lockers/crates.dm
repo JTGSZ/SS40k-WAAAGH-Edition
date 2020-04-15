@@ -522,7 +522,7 @@
 	else
 		to_chat(user, "<span class='notice'>Access Denied.</span>")
 
-/obj/structure/closet/crate/secure/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/closet/crate/secure/attackby(obj/item/weapon/W, mob/user )
 	if ( istype(W, /obj/item/weapon/card/emag) && locked &&!broken)
 		overlays.len = 0
 		overlays += emag
@@ -582,7 +582,7 @@
 /obj/structure/closet/crate/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/structure/closet/crate/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/closet/crate/attackby(obj/item/weapon/W, mob/user )
 	if(opened)
 		return ..()
 	else if(istype(W, /obj/item/weapon/circuitboard/airlock) && src.has_lock_type)

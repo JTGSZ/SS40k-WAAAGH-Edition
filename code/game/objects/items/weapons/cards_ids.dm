@@ -416,7 +416,7 @@
 	origin_tech = Tc_SYNDICATE + "=3"
 	var/registered_user=null
 
-/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O , mob/user )
+/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O, mob/user )
 	if(istype(O, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/I = O
 		to_chat(user, "<span class='notice'>The [src]'s microscanners activate as you pass it over \the [I], copying its access.</span>")

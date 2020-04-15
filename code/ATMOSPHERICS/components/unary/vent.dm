@@ -100,7 +100,7 @@
 /obj/machinery/atmospherics/unary/vent/can_crawl_through()
 	return !welded
 
-/obj/machinery/atmospherics/unary/vent/attackby(var/obj/item/W , var/mob/user )
+/obj/machinery/atmospherics/unary/vent/attackby(var/obj/item/W, var/mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class='notice'>Now welding the vent.</span>")

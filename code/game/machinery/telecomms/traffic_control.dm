@@ -275,7 +275,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/weapon/D , var/mob/user )
+/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/weapon/D, var/mob/user )
 	return ..()
 
 /obj/machinery/computer/telecomms/emag(mob/user)

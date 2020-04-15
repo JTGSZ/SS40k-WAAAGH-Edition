@@ -584,7 +584,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	var/enhanced = 0 //has it been enhanced before?
 	var/primarytype = /mob/living/carbon/slime
 
-/obj/item/slime_extract/attackby(obj/item/O , mob/user )
+/obj/item/slime_extract/attackby(obj/item/O, mob/user )
 	if(istype(O, /obj/item/weapon/slimesteroid2))
 		if(enhanced == 1)
 			to_chat(user, "<span class='warning'>This extract has already been enhanced!</span>")
@@ -725,7 +725,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	icon_state = "bottle19"
 	w_class = W_CLASS_TINY
 
-	attack(mob/living/carbon/slime/M , mob/user )
+	attack(mob/living/carbon/slime/M, mob/user )
 		if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
 			to_chat(user, "<span class='warning'>The potion only works on baby slimes!</span>")
 			return ..()
@@ -764,7 +764,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	icon_state = "bottle19"
 	w_class = W_CLASS_TINY
 
-	attack(mob/living/carbon/slime/adult/M , mob/user )
+	attack(mob/living/carbon/slime/adult/M, mob/user )
 		if(!istype(M, /mob/living/carbon/slime/adult))//If target is not a slime.
 			to_chat(user, "<span class='warning'>The potion only works on adult slimes!</span>")
 			return ..()
@@ -800,7 +800,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	icon_state = "bottle16"
 	w_class = W_CLASS_TINY
 
-	attack(mob/living/carbon/slime/M , mob/user )
+	attack(mob/living/carbon/slime/M, mob/user )
 		if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
 			to_chat(user, "<span class='warning'>The steroid only works on baby slimes!</span>")
 			return ..()
@@ -827,7 +827,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	w_class = W_CLASS_TINY
 	var/Uses = 2
 
-/obj/item/weapon/slimenutrient/attack(mob/living/carbon/slime/M , mob/user )
+/obj/item/weapon/slimenutrient/attack(mob/living/carbon/slime/M, mob/user )
 	if(!istype(M))//If target is not a slime.
 		to_chat(user, "<span class='warning'>The steroid only works on slimes!</span>")
 		return ..()
@@ -860,7 +860,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	icon_state = "bottle15"
 	w_class = W_CLASS_TINY
 
-/obj/item/weapon/slimedupe/attack(mob/living/carbon/slime/M , mob/user )
+/obj/item/weapon/slimedupe/attack(mob/living/carbon/slime/M, mob/user )
 	if(!istype(M, /mob/living/carbon/slime))//target is not a slime
 		to_chat(user, "<span class='warning'>The solution only works on slimes!</span>")
 		return ..()
@@ -1158,7 +1158,7 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	if (environment.molar_density(GAS_PLASMA) > MOLES_PLASMA_VISIBLE / CELL_VOLUME)//plasma exposure causes the egg to hatch
 		src.Hatch()
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/slime/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/reagent_containers/food/snacks/egg/slime/attackby(obj/item/weapon/W, mob/user )
 	if(istype( W, /obj/item/toy/crayon ))
 		return
 	else

@@ -206,7 +206,7 @@
 
 //Step one - dehairing.
 
-/obj/item/stack/sheet/animalhide/attackby(obj/item/weapon/W , mob/user )
+/obj/item/stack/sheet/animalhide/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_sharp() >= 1.2 && W.sharpness_flags & SHARP_BLADE)
 
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)

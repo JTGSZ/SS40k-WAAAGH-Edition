@@ -418,7 +418,7 @@ proc/check_panel(mob/M)
 
 	var/health = 100
 
-/obj/effect/fake_attacker/attackby(var/obj/item/weapon/P , mob/living/user )
+/obj/effect/fake_attacker/attackby(var/obj/item/weapon/P, mob/living/user )
 	step_away(src,my_target,2)
 	user.do_attack_animation(src, P)
 	for(var/mob/M in oviewers(world.view,my_target))
@@ -434,7 +434,7 @@ proc/check_panel(mob/M)
 	if(M == my_target)
 		step_away(src,my_target,2)
 		if(prob(30))
-			for(var/mob/O in oviewers(world.view , my_target))
+			for(var/mob/O in oviewers(world.view, my_target))
 				to_chat(O, "<span class='danger'>[my_target] stumbles around.</span>")
 
 /obj/effect/fake_attacker/New()

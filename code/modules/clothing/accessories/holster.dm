@@ -88,7 +88,7 @@
 		return 1
 	return ..()
 
-/obj/item/clothing/accessory/holster/attackby(obj/item/W , mob/user )
+/obj/item/clothing/accessory/holster/attackby(obj/item/W, mob/user )
 	return holster(W, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)

@@ -39,7 +39,7 @@
 	cham_proj_scan = !cham_proj_scan
 	to_chat(usr, "You [cham_proj_scan ? "activate":"deactivate"] [src]'s scanning function")
 
-/obj/item/device/chameleon/preattack(atom/target, mob/user , proximity)
+/obj/item/device/chameleon/preattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
 	if(!cham_proj_scan) //Is scanning disabled ?

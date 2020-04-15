@@ -150,7 +150,7 @@
 	else
 		M.unarmed_attack_mob(src)
 
-/mob/living/simple_animal/construct/attackby(var/obj/item/O , var/mob/user )
+/mob/living/simple_animal/construct/attackby(var/obj/item/O, var/mob/user )
 	user.delayNextAttack(8)
 	if(O.force)
 		var/damage = O.force
@@ -192,7 +192,7 @@
 	status_flags = 0
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
-/mob/living/simple_animal/construct/armoured/attackby(var/obj/item/O , var/mob/user )
+/mob/living/simple_animal/construct/armoured/attackby(var/obj/item/O, var/mob/user )
 	if(O.force && O.force < 11)
 		user.delayNextAttack(8)
 		for(var/mob/M in viewers(src, null))
@@ -348,7 +348,7 @@
 
 ////////////////Float//////////////////
 /mob/living/simple_animal/construct/proc/setupfloat()
-	animate(src, pixel_y = 6 * PIXEL_MULTIPLIER , time = 7, loop = -1, easing = SINE_EASING)
+	animate(src, pixel_y = 6 * PIXEL_MULTIPLIER, time = 7, loop = -1, easing = SINE_EASING)
 	animate(pixel_y = 2 * PIXEL_MULTIPLIER, time = 7, loop = -1, easing = SINE_EASING)
 
 ////////////////Powers//////////////////

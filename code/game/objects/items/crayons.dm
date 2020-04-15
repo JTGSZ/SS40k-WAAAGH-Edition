@@ -106,7 +106,7 @@ var/global/list/all_graffitis = list(
 
 #define FONT_SIZE "6pt"
 #define FONT_NAME "Comic Sans MS"
-/obj/item/toy/crayon/afterattack(atom/target, mob/user , proximity)
+/obj/item/toy/crayon/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -218,7 +218,7 @@ var/global/list/all_graffitis = list(
 #undef FONT_SIZE
 #undef FONT_NAME
 
-/obj/item/toy/crayon/attack(mob/M , mob/user )
+/obj/item/toy/crayon/attack(mob/M, mob/user )
 	if(M == user)
 		user.visible_message("<span class='notice'>[user] bites a chunk out of \the [src].</span>", \
 			"<span class='notice'>You bite a chunk out of \the [src].</span>")

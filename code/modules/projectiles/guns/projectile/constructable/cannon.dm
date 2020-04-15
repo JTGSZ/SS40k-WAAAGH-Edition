@@ -86,7 +86,7 @@
 	src.dir = turn(src.dir, 90)
 	return 1
 
-/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/attackby(obj/item/W , mob/user )
+/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/attackby(obj/item/W, mob/user )
 	var/item_prohibited = 0
 	for(var/i=1, i<=prohibited_items.len, i++)
 		if(istype(W,prohibited_items[i]))

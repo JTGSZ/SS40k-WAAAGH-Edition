@@ -156,7 +156,7 @@
 
 
 
-/obj/structure/door_assembly/attackby(obj/item/W , mob/user )
+/obj/structure/door_assembly/attackby(obj/item/W, mob/user )
 	if(busy)
 		return
 

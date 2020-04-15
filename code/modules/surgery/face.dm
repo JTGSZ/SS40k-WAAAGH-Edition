@@ -40,13 +40,13 @@
 	..()
 
 /datum/surgery_step/generic/cut_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has cut open [target]'s face and neck with \the [tool].</span>" , \
+	user.visible_message("<span class='notice'>[user] has cut open [target]'s face and neck with \the [tool].</span>", \
 	"<span class='notice'>You have cut open [target]'s face and neck with \the [tool].</span>",)
 	target.op_stage.face = 1
 
 /datum/surgery_step/generic/cut_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
 	affected.createwound(CUT, 60)
 	target.losebreath += 10
@@ -139,7 +139,7 @@
 	return ..() && target.op_stage.face > 0
 
 /datum/surgery_step/face/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] is beginning to cauterize the incision on [target]'s face and neck with \the [tool]." , \
+	user.visible_message("[user] is beginning to cauterize the incision on [target]'s face and neck with \the [tool].", \
 	"You are beginning to cauterize the incision on [target]'s face and neck with \the [tool].")
 	..()
 

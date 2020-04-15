@@ -230,7 +230,7 @@
 
 
 
-/obj/item/weapon/gun/energy/staff/necro/attack(mob/living/target , mob/living/user )
+/obj/item/weapon/gun/energy/staff/necro/attack(mob/living/target, mob/living/user )
 	afterattack(target,user,1)
 
 #undef RAISE_TYPE_ZOMBIE
@@ -266,7 +266,7 @@
 	else if(power_supply.charge < power_supply.maxcharge)
 		power_notice = 0
 
-/obj/item/weapon/gun/energy/staff/destruction_wand/attack(atom/target , mob/living/user , def_zone)
+/obj/item/weapon/gun/energy/staff/destruction_wand/attack(atom/target, mob/living/user, def_zone)
 	if(target == user && !mouthshoot)
 		if(!(power_supply.charge == charge_cost || lifekiller))
 			if(!lifekiller)
@@ -289,7 +289,7 @@
 	else
 		src.Fire(target,user,0,0,0)
 
-/obj/item/weapon/gun/energy/staff/destruction_wand/Fire(atom/target , mob/living/user , params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/energy/staff/destruction_wand/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	if(power_supply.charge == charge_cost || lifekiller)
 		if(!istype(target, /turf/simulated/wall) && !istype(target, /turf/simulated/floor))
 			if(!istype(target, /mob/living))
@@ -431,7 +431,7 @@
 		mutstrength = input(usr, "Enter new mutation strength level (1-15):", "Somatoray Alpha Ray Threshold", mutstrength) as num
 		mutstrength = clamp(round(mutstrength), 1, 15)
 
-/obj/item/weapon/gun/energy/floragun/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/gun/energy/floragun/attackby(obj/item/weapon/W, mob/user )
 	if(isEmag(W) || issolder(W))
 		if (mode == 2)
 			to_chat(user, "The safeties are already de-activated.")
@@ -643,7 +643,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user )
 	cell_type = "/obj/item/weapon/cell"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/guns_experimental.dmi', "right_hand" = 'icons/mob/in-hand/right/guns_experimental.dmi')
 
-obj/item/weapon/gun/energy/ricochet/Fire(atom/target , mob/living/user , params, reflex = 0, struggle = 0)
+obj/item/weapon/gun/energy/ricochet/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	if(defective && prob(30))
 		target = get_ranged_target_turf(user, pick(diagonal), 7)
 	..()
@@ -724,7 +724,7 @@ obj/item/weapon/gun/energy/ricochet/Fire(atom/target , mob/living/user , params,
 	..()
 	playsound(src, 'sound/weapons/spur_spawn.ogg', 50, 0, null, FALLOFF_SOUNDS, 0)
 
-/obj/item/weapon/gun/energy/polarstar/afterattack(atom/A , mob/living/user , flag, params, struggle = 0)
+/obj/item/weapon/gun/energy/polarstar/afterattack(atom/A, mob/living/user, flag, params, struggle = 0)
 	levelChange()
 	..()
 

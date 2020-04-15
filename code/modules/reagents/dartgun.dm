@@ -70,7 +70,7 @@
 		for(var/obj/item/weapon/reagent_containers/glass/beaker/B in beakers)
 			B.reagents.get_examine(user)
 
-/obj/item/weapon/gun/dartgun/attackby(obj/item/I , mob/user )
+/obj/item/weapon/gun/dartgun/attackby(obj/item/I, mob/user )
 	if(istype(I, /obj/item/weapon/dart_cartridge))
 
 		var/obj/item/weapon/dart_cartridge/D = I
@@ -160,12 +160,12 @@
 			update_icon()
 		return 1
 
-/obj/item/weapon/gun/dartgun/afterattack(atom/target , mob/user , flag)
+/obj/item/weapon/gun/dartgun/afterattack(atom/target, mob/user, flag)
 	if(target == user)
 		return
 	..()
 
-/obj/item/weapon/gun/dartgun/can_hit(var/mob/living/target , var/mob/living/user )
+/obj/item/weapon/gun/dartgun/can_hit(var/mob/living/target, var/mob/living/user )
 	return 1
 
 /obj/item/weapon/gun/dartgun/updateUsrDialog()
@@ -254,7 +254,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/item/weapon/gun/dartgun/Fire(atom/target , mob/living/user , params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/dartgun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	if(cartridge)
 		..()
 	else

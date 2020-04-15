@@ -120,7 +120,7 @@
 	to_chat(user, "<span class='notice'>You break \the [src].</span>")
 	update_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A , mob/user )
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A, mob/user )
 	..()
 	A.update_icon()
 	update_icon()
@@ -161,7 +161,7 @@
 	item_state = "sawnshotgun"
 	fire_delay = 0
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/super/Fire(atom/target , mob/living/user , params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/super/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	if(..())
 		..()
 		attack_self(user)

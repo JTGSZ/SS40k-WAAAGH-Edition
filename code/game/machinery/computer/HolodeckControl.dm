@@ -297,7 +297,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/HolodeckControl/attackby(var/obj/item/weapon/D , var/mob/user )
+/obj/machinery/computer/HolodeckControl/attackby(var/obj/item/weapon/D, var/mob/user )
 	..() //This still allows items to unrez even if the computer is deconstructed
 	return
 
@@ -357,7 +357,7 @@
 				T.ex_act(3)
 				T.hotspot_expose(1000,500,1,surfaces=1)
 
-/obj/machinery/computer/HolodeckControl/proc/derez(var/obj/obj , var/silent = 1)
+/obj/machinery/computer/HolodeckControl/proc/derez(var/obj/obj, var/silent = 1)
 
 
 	holographic_items.Remove(obj)
@@ -406,7 +406,7 @@
 		for(var/item in holographic_items)
 			derez(item)
 		var/area/targetsource = locate(/area/holodeck/source_plating)
-		targetsource.copy_contents_to(linkedholodeck , 1)
+		targetsource.copy_contents_to(linkedholodeck, 1)
 		active = 0
 
 /obj/machinery/computer/HolodeckControl/proc/loadProgram(var/area/A)
@@ -432,7 +432,7 @@
 	for(var/mob/living/simple_animal/hostile/carp/holocarp/holocarp in linkedholodeck)
 		qdel(holocarp)
 
-	holographic_items = A.copy_contents_to(linkedholodeck , 1)
+	holographic_items = A.copy_contents_to(linkedholodeck, 1)
 
 	if(emagged)
 		for(var/obj/item/weapon/holo/esword/H in linkedholodeck)
@@ -462,7 +462,7 @@
 		loadProgram(target)
 
 	var/area/targetsource = locate(/area/holodeck/source_plating)
-	targetsource.copy_contents_to(linkedholodeck , 1)
+	targetsource.copy_contents_to(linkedholodeck, 1)
 	active = 0
 
 // Holographic Items!
@@ -492,7 +492,7 @@
 	icon_state = "light_on"
 	floor_tile
 
-/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W , mob/user )
+/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W, mob/user )
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
@@ -514,7 +514,7 @@
 	icon_state = "boxingred"
 	item_state = "boxingred"
 
-/obj/structure/window/reinforced/holo/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/window/reinforced/holo/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_screwdriver(user))
 		to_chat(user, "It's a holowindow! It has no frame!")
 		return
@@ -609,7 +609,7 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/holohoop/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<GRAB_AGGRESSIVE)
@@ -668,7 +668,7 @@
 /obj/machinery/readybutton/attack_paw(mob/user )
 	to_chat(user, "<span='warning'>You are too primitive to use this device.</span>")
 
-/obj/machinery/readybutton/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/readybutton/attackby(obj/item/weapon/W, mob/user )
 	to_chat(user, "<span='warning'>The device is a solid button, there's nothing you can do with it!</span>")
 
 /obj/machinery/readybutton/attack_hand(mob/user )

@@ -87,7 +87,7 @@
 				point(shitfood)
 				start_walk_to(shitfood, 1, 5)
 				if(prob(50))
-					say(pick("ALRIGHT, EVERYBODY STOP!" , "THAT'S ENOUGH!"))
+					say(pick("ALRIGHT, EVERYBODY STOP!", "THAT'S ENOUGH!"))
 				sleep(2 SECONDS)
 				drama()
 				sleep(2 SECONDS)
@@ -162,7 +162,7 @@
 		return 1
 	return 0
 
-/obj/machinery/bot/chefbot/attackby(obj/item/W , mob/user )
+/obj/machinery/bot/chefbot/attackby(obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/weapon/card/emag))
 		emag_act(user, W)

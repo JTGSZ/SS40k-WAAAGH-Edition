@@ -74,7 +74,7 @@
 	if(loaded_food)
 		attack(user,user)
 
-/obj/item/weapon/kitchen/utensil/fork/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/kitchen/utensil/fork/attack(mob/living/carbon/M, mob/living/carbon/user )
 	if(!istype(M) || !istype(user))
 		return ..()
 
@@ -178,7 +178,7 @@
 						"<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit seppuku.</span>"))
 	return (SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/kitchen/utensil/knife/attack(target , mob/living/user )
+/obj/item/weapon/kitchen/utensil/knife/attack(target, mob/living/user )
 	if (clumsy_check(user) && prob(50))
 		to_chat(user, "<span class='warning'>You accidentally cut yourself with the [src].</span>")
 		user.take_organ_damage(2 * force)
@@ -346,7 +346,7 @@
 	autoignition_temperature=AUTOIGNITION_WOOD
 	attack_verb = list("bashes", "batters", "bludgeons", "thrashes", "whacks") //I think the rollingpin attackby will end up ignoring this anyway.
 
-/obj/item/weapon/kitchen/rollingpin/attack(mob/living/M , mob/living/user )
+/obj/item/weapon/kitchen/rollingpin/attack(mob/living/M, mob/living/user )
 	if (clumsy_check(user) && prob(50))
 		to_chat(user, "<span class='warning'>The [src] slips out of your hand and hits your head.</span>")
 		user.take_organ_damage(10)
@@ -414,7 +414,7 @@
 	carrying = null
 	..()
 
-/obj/item/weapon/tray/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/tray/attack(mob/living/carbon/M, mob/living/carbon/user )
 
 	// Drop all the things. All of them.
 	send_items_flying()
@@ -541,7 +541,7 @@
 	if(w_class == W_CLASS_MEDIUM)
 		return 5
 
-/obj/item/weapon/tray/attackby(obj/item/W , mob/user , params)
+/obj/item/weapon/tray/attackby(obj/item/W, mob/user, params)
 	if(isrobot(user) && !isMoMMI(user))
 		return
 	if(istype(W, /obj/item/weapon/kitchen/rollingpin)) //shield bash

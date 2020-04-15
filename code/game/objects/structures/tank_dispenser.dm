@@ -62,7 +62,7 @@
 	return
 
 
-/obj/structure/dispenser/attackby(obj/item/I , mob/user )
+/obj/structure/dispenser/attackby(obj/item/I, mob/user )
 	if(istype(I, /obj/item/weapon/tank/oxygen) || istype(I, /obj/item/weapon/tank/air) || istype(I, /obj/item/weapon/tank/anesthetic))
 		if(oxytanks.len < 10)
 			if(user.drop_item(I, src))

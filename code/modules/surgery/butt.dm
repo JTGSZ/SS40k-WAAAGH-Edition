@@ -43,7 +43,7 @@
 
 
 /datum/surgery_step/butt/slice_cheek/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, cutting [target]'s ass with \the [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, cutting [target]'s ass with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, cutting [target]'s ass with \the [tool]!</span>" )
 	target.apply_damage(max(10, tool.force), BRUTE, LIMB_GROIN)
 
@@ -115,7 +115,7 @@
 	target.op_stage.butt = SURGERY_SAW_HIP
 
 /datum/surgery_step/butt/saw_hip/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s hip with \the [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s hip with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, cracking [target]'s hip with \the [tool]!</span>" )
 	target.apply_damage(max(10, tool.force), BRUTE, LIMB_GROIN)
 
@@ -157,7 +157,7 @@
 	target.op_stage.butt = 4
 
 /datum/surgery_step/butt/cauterize_butt/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[target] lets out a small fart, which gets set alight with [user]'s [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[target] lets out a small fart, which gets set alight with [user]'s [tool]!</span>", \
 	"<span class='warning'>[target] farts into the open flame, burning his anus!</span>" )
 	target.apply_damage(max(10, tool.force), BURN, LIMB_GROIN)
 	playsound(target, 'sound/effects/holler.ogg', 50, 1)
@@ -342,7 +342,7 @@
 	affected.clamp_wounds()
 
 /datum/surgery_step/butt_replace/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, burning the flesh around [target]'s butt with /the [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, burning the flesh around [target]'s butt with /the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, burning the flesh around [target]'s butt with /the [tool]!</span>" )
 	target.apply_damage(max(10, tool.force), BURN, LIMB_GROIN)
 

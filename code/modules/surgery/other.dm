@@ -33,7 +33,7 @@
 
 /datum/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts patching the damaged vein in [target]'s [affected.display_name] with \the [tool]." , \
+	user.visible_message("[user] starts patching the damaged vein in [target]'s [affected.display_name] with \the [tool].", \
 	"You start patching the damaged vein in [target]'s [affected.display_name] with \the [tool].")
 	target.custom_pain("The pain in [affected.display_name] is unbearable!",1, scream=TRUE)
 	..()
@@ -51,7 +51,7 @@
 
 /datum/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.display_name]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.display_name]!</span>", \
 	"<span class='warning'>Your hand slips, smearing \the [tool] in the incision in [target]'s [affected.display_name]!</span>")
 	affected.take_damage(5, 0)
 
@@ -90,7 +90,7 @@
 
 /datum/surgery_step/fix_dead_tissue/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts cutting away necrotic tissue in [target]'s [affected.display_name] with \the [tool]." , \
+	user.visible_message("[user] starts cutting away necrotic tissue in [target]'s [affected.display_name] with \the [tool].", \
 	"You start cutting away necrotic tissue in [target]'s [affected.display_name] with \the [tool].")
 	target.custom_pain("The pain in [affected.display_name] is unbearable!",1, scream=TRUE)
 	..()
@@ -145,7 +145,7 @@
 
 /datum/surgery_step/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [affected.display_name] with \the [tool]." , \
+	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [affected.display_name] with \the [tool].", \
 	"You start applying medication to the affected tissue in [target]'s [affected.display_name] with \the [tool].")
 	target.custom_pain("Something in your [affected.display_name] is causing you a lot of pain!",1, scream=TRUE)
 	..()
@@ -179,7 +179,7 @@
 	var/trans = container.reagents.trans_to(target, container.amount_per_transfer_from_this)
 	container.reagents.reaction(target, INGEST)	//technically it's contact, but the reagents are being applied to internal tissue
 
-	user.visible_message("<span class='warning'>[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.display_name] with the [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.display_name] with the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.display_name] with the [tool]!</span>")
 
 	//no damage or anything, just wastes medicine

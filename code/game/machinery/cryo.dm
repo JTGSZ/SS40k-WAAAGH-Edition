@@ -91,7 +91,7 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 		//beaker.loc = get_step(loc, SOUTH) //Beaker is carefully ejected from the wreckage of the cryotube
 	..()
 
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDropTo(atom/movable/O , mob/user )
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDropTo(atom/movable/O, mob/user )
 	if(!ismob(O))
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -409,7 +409,7 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 		detach()
 	return ..()
 
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/weapon/G , var/mob/user )
+/obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/weapon/G, var/mob/user )
 	if(istype(G, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")

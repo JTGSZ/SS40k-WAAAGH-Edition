@@ -51,7 +51,7 @@
 
 
 //maybe this proc can even be used as an admin tool for teleporting players without ruining immulsions?
-/proc/create_wormhole(var/turf/enter , var/turf/exit )
+/proc/create_wormhole(var/turf/enter, var/turf/exit )
 	var/obj/effect/portal/P = new /obj/effect/portal( enter )
 	P.target = exit
 	P.icon = 'icons/obj/objects.dmi'

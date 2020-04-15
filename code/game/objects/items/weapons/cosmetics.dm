@@ -44,7 +44,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/lipstick/attack(mob/M , mob/user )
+/obj/item/weapon/lipstick/attack(mob/M, mob/user )
 	if(!open)
 		return
 
@@ -125,7 +125,7 @@
 		to_chat(user, "<span class='notice'>Where are the eyes on that?</span>")
 
 //you can wipe off eyeshadow with paper!
-/obj/item/weapon/paper/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/paper/attack(mob/living/carbon/M, mob/living/carbon/user )
 	if(!ishuman(M))
 		return
 
@@ -192,7 +192,7 @@
 		color_b = hex2num(copytext(new_color, 6, 8))
 	update_icon()
 
-/obj/item/weapon/hair_dye/attack(mob/M , mob/user )
+/obj/item/weapon/hair_dye/attack(mob/M, mob/user )
 	if(!istype(M, /mob))
 		return
 

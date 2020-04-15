@@ -22,7 +22,7 @@
 /obj/item/weapon/gun/syringe/isHandgun()
 	return FALSE
 
-/obj/item/weapon/gun/syringe/attackby(obj/item/I , mob/user )
+/obj/item/weapon/gun/syringe/attackby(obj/item/I, mob/user )
 	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
 		var/obj/item/weapon/reagent_containers/syringe/S = I
 		if(S.mode != 2)//SYRINGE_BROKEN in syringes.dm
@@ -39,7 +39,7 @@
 
 		return 1 // Avoid calling the syringe's afterattack()
 
-/obj/item/weapon/gun/syringe/afterattack(obj/target, mob/user , flag)
+/obj/item/weapon/gun/syringe/afterattack(obj/target, mob/user, flag)
 	if(target == user)
 		return
 	..()
@@ -50,7 +50,7 @@
 /obj/item/weapon/gun/syringe/can_discharge()
 	return canbe_fired()
 
-/obj/item/weapon/gun/syringe/can_hit(var/mob/living/target , var/mob/living/user )
+/obj/item/weapon/gun/syringe/can_hit(var/mob/living/target, var/mob/living/user )
 	return 1		//SHOOT AND LET THE GOD GUIDE IT (probably will hit a wall anyway)
 
 /obj/item/weapon/gun/syringe/process_chambered()

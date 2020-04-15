@@ -145,7 +145,7 @@
 						<input type='hidden' name='src' value='\ref[src]'>
 						<input type='hidden' name='votepollid' value='[pollid]'>
 						<input type='hidden' name='votetype' value='TEXT'>
-						<font size='2'>Please provide feedback below. You can use any letters of the English alphabet, numbers and the symbols: . , ! ? : ; -</font><br>
+						<font size='2'>Please provide feedback below. You can use any letters of the English alphabet, numbers and the symbols: ., ! ? : ; -</font><br>
 						<textarea name='replytext' cols='50' rows='14'></textarea>
 						<p><input type='submit' value='Submit'>
 						</form>
@@ -366,7 +366,7 @@
 			adminrank = usr.client.holder.rank
 
 
-		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]')")
+		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_vote (id,datetime,pollid,optionid,ckey,ip,adminrank) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]')")
 		insert_query.Execute()
 
 		to_chat(usr, "<span class='notice'>Vote successful.</span>")
@@ -424,7 +424,7 @@
 			to_chat(usr, "The text you entered was blank, contained illegal characters or was too long. Please correct the text and submit again.")
 			return
 
-		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_textreply (id ,datetime ,pollid ,ckey ,ip ,replytext ,adminrank) VALUES (null, Now(), [pollid], '[usr.ckey]', '[usr.client.address]', '[replytext]', '[adminrank]')")
+		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_textreply (id,datetime,pollid,ckey,ip,replytext,adminrank) VALUES (null, Now(), [pollid], '[usr.ckey]', '[usr.client.address]', '[replytext]', '[adminrank]')")
 		insert_query.Execute()
 
 		to_chat(usr, "<span class='notice'>Feedback logging successful.</span>")
@@ -486,7 +486,7 @@
 			adminrank = usr.client.holder.rank
 
 
-		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank, rating) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]', [(isnull(rating)) ? "null" : rating])")
+		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_vote (id,datetime,pollid,optionid,ckey,ip,adminrank, rating) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]', [(isnull(rating)) ? "null" : rating])")
 		insert_query.Execute()
 
 		to_chat(usr, "<span class='notice'>Vote successful.</span>")

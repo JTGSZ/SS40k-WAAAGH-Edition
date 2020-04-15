@@ -12,7 +12,7 @@
 /obj/item/weapon/implanter/proc/update()
 	icon_state = "implanter[imp? 1:0]"
 
-/obj/item/weapon/implanter/attack(mob/M , mob/user )
+/obj/item/weapon/implanter/attack(mob/M, mob/user )
 	if(!istype(M, /mob/living/carbon))
 		return
 	if(user && imp)
@@ -92,7 +92,7 @@
 	else
 		icon_state = "cimplanter0"
 
-/obj/item/weapon/implanter/compressed/attack(mob/M , mob/user )
+/obj/item/weapon/implanter/compressed/attack(mob/M, mob/user )
 	// Attacking things in your hands tends to make this fuck up.
 	if(!istype(M))
 		return

@@ -57,7 +57,7 @@
 				if(B.live)
 					B.detonate()
 
-/obj/item/weapon/gun/stickybomb/attackby(var/obj/item/A , mob/user )
+/obj/item/weapon/gun/stickybomb/attackby(var/obj/item/A, mob/user )
 	if(istype(A, /obj/item/stickybomb))
 		var/obj/item/stickybomb/B = A
 		if(B.live)
@@ -251,8 +251,8 @@
 	unstick()
 
 /obj/item/stickybomb/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
-		if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+	if(istype(Proj,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
+		if(!istype(Proj,/obj/item/projectile/beam/lasertag) && !istype(Proj,/obj/item/projectile/beam/practice) )
 			detonate()
 
 #undef MAX_STICKYBOMBS

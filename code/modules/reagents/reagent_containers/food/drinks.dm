@@ -53,7 +53,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/bite_act(mob/user)
 	return try_consume(user)
 
-/obj/item/weapon/reagent_containers/food/drinks/attack(mob/living/M , mob/user , def_zone)
+/obj/item/weapon/reagent_containers/food/drinks/attack(mob/living/M, mob/user, def_zone)
 	var/datum/reagents/R = src.reagents
 	var/fillevel = gulp_size
 
@@ -113,7 +113,7 @@
 					O.show_message(text("<span class='danger'>[M] hits \himself with a [smashtext][src.name] on the head!</span>"), 1)
 			//Weaken the target for the duration that we calculated and divide it by 5.
 			if(armor_duration)
-				M.apply_effect(min(armor_duration, 10) , WEAKEN) // Never weaken more than a flash!
+				M.apply_effect(min(armor_duration, 10), WEAKEN) // Never weaken more than a flash!
 
 		else
 			//Default attack message and don't weaken the target.
@@ -1070,7 +1070,7 @@
 	melt_temperature = MELTPOINT_GLASS
 	w_type=RECYK_GLASS
 
-/obj/item/weapon/broken_bottle/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/broken_bottle/attack(mob/living/carbon/M, mob/living/carbon/user )
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 	return ..()
 
@@ -1375,7 +1375,7 @@
 	..()
 	reagents.add_reagent(GREYVODKA, 100)
 
-/obj/item/weapon/reagent_containers/food/drinks/proc/smash(mob/living/M , mob/living/user )
+/obj/item/weapon/reagent_containers/food/drinks/proc/smash(mob/living/M, mob/living/user )
 	if(molotov == 1) //for molotovs
 		if(lit)
 			new /obj/effect/decal/cleanable/ash(get_turf(src))

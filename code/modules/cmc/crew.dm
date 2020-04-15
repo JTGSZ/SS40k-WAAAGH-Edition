@@ -326,7 +326,7 @@ HOLOMAP PROCS
 	var/holomap_bgmap = "cmc_\ref[src]_\ref[user]_[z]"
 	if(holomap_bgmap in holomap_cache)
 		var/image/bgmap = holomap_cache[holomap_bgmap]
-		animate(bgmap , alpha = 0, time = 5, easing = LINEAR_EASING)
+		animate(bgmap, alpha = 0, time = 5, easing = LINEAR_EASING)
 
 	if(user && user.client)
 		user.client.images -= holomap_images[uid]

@@ -200,7 +200,7 @@ var/list/factions_with_hud_icons = list()
 		if(!usr.check_rights(R_ADMIN))
 			message_admins("[usr] tried to destroy a faction without permissions.")
 			return
-		if(alert(usr, "Are you sure you want to destroy [name]?",  "Destroy Faction" , "Yes" , "No") != "Yes")
+		if(alert(usr, "Are you sure you want to destroy [name]?",  "Destroy Faction", "Yes", "No") != "Yes")
 			return
 		message_admins("[key_name(usr)] destroyed faction [name].")
 		Dismantle()

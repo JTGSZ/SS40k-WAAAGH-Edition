@@ -147,7 +147,7 @@
 
 	..()
 
-/obj/item/device/mmi/posibrain/attackby(var/obj/item/O , var/mob/user )
+/obj/item/device/mmi/posibrain/attackby(var/obj/item/O, var/mob/user )
 	if(try_handling_mommi_construction(O,user))
 		return
 	..()

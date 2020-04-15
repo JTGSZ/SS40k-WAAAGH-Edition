@@ -599,7 +599,7 @@
 //set del_on_fail to have it delete W if it fails to equip
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
-/mob/proc/equip_to_slot_if_possible(obj/item/W , slot, act_on_fail = 0, disable_warning = 0, redraw_mob = 1, automatic = 0)
+/mob/proc/equip_to_slot_if_possible(obj/item/W, slot, act_on_fail = 0, disable_warning = 0, redraw_mob = 1, automatic = 0)
 	if(!istype(W))
 		return 0
 
@@ -621,15 +621,15 @@
 
 //This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.
 //In most cases you will want to use equip_to_slot_if_possible()
-/mob/proc/equip_to_slot(obj/item/W , slot)
+/mob/proc/equip_to_slot(obj/item/W, slot)
 	return
 
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the round starts and when events happen and such.
-/mob/proc/equip_to_slot_or_del(obj/item/W , slot)
+/mob/proc/equip_to_slot_or_del(obj/item/W, slot)
 	return equip_to_slot_if_possible(W, slot, EQUIP_FAILACTION_DELETE, 1, 0)
 
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the round starts and when events happen and such.
-/mob/proc/equip_to_slot_or_drop(obj/item/W , slot)
+/mob/proc/equip_to_slot_or_drop(obj/item/W, slot)
 	return equip_to_slot_if_possible(W, slot, EQUIP_FAILACTION_DROP, 1, 0)
 
 // Convenience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
@@ -995,7 +995,7 @@ Use this proc preferably at the end of an equipment loadout
 	popup.open()
 	return
 
-/mob/proc/ret_grab(obj/effect/list_container/mobl/L , flag)
+/mob/proc/ret_grab(obj/effect/list_container/mobl/L, flag)
 	if (!find_held_item_by_type(/obj/item/weapon/grab)) //No grab in hands
 		if (!( L ))
 			return null

@@ -91,7 +91,7 @@
 			return
 		makeMoMMI(user)
 
-/obj/machinery/mommi_spawner/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/mommi_spawner/attackby(var/obj/item/O, var/mob/user )
 	if(!..())
 		if(istype(O,/obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = O

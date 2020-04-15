@@ -86,7 +86,7 @@ var/list/LOGGED_SPLASH_REAGENTS = list(FUEL, THERMITE)
 /obj/item/weapon/reagent_containers/attack_self(mob/user )
 	return
 
-/obj/item/weapon/reagent_containers/attack(mob/M , mob/user , def_zone)
+/obj/item/weapon/reagent_containers/attack(mob/M, mob/user, def_zone)
 	//If harm intent, splash it on em, else try to feed em it
 	if(!M.reagents)
 		return

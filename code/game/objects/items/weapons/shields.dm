@@ -27,7 +27,7 @@
 /obj/item/weapon/shield/riot/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/shield/riot/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/melee/baton) || istype(W, /obj/item/weapon/melee/telebaton) || istype(W, /obj/item/weapon/melee/classic_baton))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
@@ -70,7 +70,7 @@
 /obj/item/weapon/shield/riot/roman/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/roman/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/shield/riot/roman/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/spear))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
@@ -173,7 +173,7 @@
 /obj/item/weapon/shield/riot/proto/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/proto/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/shield/riot/proto/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/spear))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
@@ -192,7 +192,7 @@
 /obj/item/weapon/shield/riot/joe/IsShield()
 	return 1
 
-/obj/item/weapon/shield/riot/joe/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/shield/riot/joe/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/spear))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")

@@ -9,7 +9,7 @@
 	explosion_resistance = 5
 	var/airtight = 0
 
-/obj/structure/plasticflaps/attackby(obj/item/I , mob/user )
+/obj/structure/plasticflaps/attackby(obj/item/I, mob/user )
 	if(iscrowbar(I) && anchored == 1)
 		if(airtight == 0)
 			I.playtoolsound(src, 50)

@@ -39,7 +39,7 @@
 	user << browse("<TITLE>Temperature Gun Configuration</TITLE><HR>[dat]", "window=tempgun;size=510x102")
 	onclose(user, "tempgun")
 
-/obj/item/weapon/gun/energy/temperature/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/gun/energy/temperature/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/card/emag) && !emagged)
 		emagged = 1
 		to_chat(user, "<span class='caution'>You double the gun's temperature cap ! Targets hit by searing beams will burst into flames !</span>")

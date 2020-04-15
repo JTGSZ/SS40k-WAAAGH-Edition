@@ -6,7 +6,7 @@
 	name = "RoboTray"
 	desc = "An autoloading tray specialized for carrying refreshments."
 
-/obj/item/weapon/tray/robotray/afterattack(atom/target, mob/user , proximity_flag)
+/obj/item/weapon/tray/robotray/afterattack(atom/target, mob/user, proximity_flag)
 	if(!target)
 		return
 

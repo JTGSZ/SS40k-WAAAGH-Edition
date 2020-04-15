@@ -43,7 +43,7 @@
 		..()
 
 /datum/surgery_step/eye/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has separated the corneas on [target]'s eyes with \the [tool].</span>" , \
+	user.visible_message("<span class='notice'>[user] has separated the corneas on [target]'s eyes with \the [tool].</span>", \
 	"<span class='notice'>You have separated the corneas on [target]'s eyes with \the [tool].</span>",)
 	target.op_stage.eyes = 1
 	target.blinded += 1.5
@@ -51,7 +51,7 @@
 /datum/surgery_step/eye/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/internal/eyes/eyes = target.internal_organs_by_name["eyes"]
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s eyes wth \the [tool]!</span>" , \
+	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s eyes wth \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, slicing [target]'s eyes wth \the [tool]!</span>" )
 	affected.createwound(CUT, 10)
 	eyes.take_damage(5, 0)
@@ -77,7 +77,7 @@
 	..()
 
 /datum/surgery_step/eye/lift_eyes/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has lifted the corneas from [target]'s eyes from with \the [tool].</span>" , \
+	user.visible_message("<span class='notice'>[user] has lifted the corneas from [target]'s eyes from with \the [tool].</span>", \
 	"<span class='notice'>You has lifted the corneas from [target]'s eyes from with \the [tool].</span>" )
 	target.op_stage.eyes = 2
 
@@ -111,7 +111,7 @@
 	..()
 
 /datum/surgery_step/eye/mend_eyes/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] mends the nerves and lenses in [target]'s with \the [tool].</span>" ,	\
+	user.visible_message("<span class='notice'>[user] mends the nerves and lenses in [target]'s with \the [tool].</span>",	\
 	"<span class='notice'>You mend the nerves and lenses in [target]'s with \the [tool].</span>")
 	target.op_stage.eyes = 3
 
@@ -146,7 +146,7 @@
 	return ..()
 
 /datum/surgery_step/eye/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] is beginning to cauterize the incision around [target]'s eyes with \the [tool]." , \
+	user.visible_message("[user] is beginning to cauterize the incision around [target]'s eyes with \the [tool].", \
 	"You are beginning to cauterize the incision around [target]'s eyes with \the [tool].")
 
 /datum/surgery_step/eye/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

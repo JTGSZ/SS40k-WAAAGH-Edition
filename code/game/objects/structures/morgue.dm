@@ -198,7 +198,7 @@
 	if(HAS_MODULE_QUIRK(user, MODULE_CAN_HANDLE_MEDICAL))
 		attack_hand(user)
 
-/obj/structure/m_tray/MouseDropTo(atom/movable/O , mob/user )
+/obj/structure/m_tray/MouseDropTo(atom/movable/O, mob/user )
 	if (!istype(O) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
@@ -308,7 +308,7 @@
 	src.add_fingerprint(user)
 	update()
 
-/obj/structure/crematorium/attackby(P , mob/user )
+/obj/structure/crematorium/attackby(P, mob/user )
 	if (istype(P, /obj/item/weapon/pen))
 		set_tiny_label(user, " - '", "'", maxlength=32)
 	src.add_fingerprint(user)
@@ -420,7 +420,7 @@
 		//SN src = null
 		qdel(src)
 
-/obj/structure/c_tray/MouseDropTo(atom/movable/O , mob/user )
+/obj/structure/c_tray/MouseDropTo(atom/movable/O, mob/user )
 	if ((!( istype(O, /atom/movable) ) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O)))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))

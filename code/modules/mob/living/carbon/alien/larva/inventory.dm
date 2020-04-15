@@ -3,7 +3,7 @@
 //	return
 //We do now.
 
-/mob/living/carbon/alien/larva/equip_to_slot(obj/item/W , slot)
+/mob/living/carbon/alien/larva/equip_to_slot(obj/item/W, slot)
 	if(!slot)
 		return
 	if(!istype(W))

@@ -648,7 +648,7 @@ function loadPage(list) {
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		if(alert(usr, "Are you sure you wish to inflict cancer upon [key_name(H)]?",  "Confirm Cancer?" , "Yes" , "No") != "Yes")
+		if(alert(usr, "Are you sure you wish to inflict cancer upon [key_name(H)]?",  "Confirm Cancer?", "Yes", "No") != "Yes")
 			return
 
 		log_admin("[key_name(H)] was inflicted with cancer, courtesy of [key_name(usr)]")

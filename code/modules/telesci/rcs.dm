@@ -20,7 +20,7 @@
 	global.cargo_telepads -= src
 	return ..()
 
-/obj/machinery/telepad_cargo/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/telepad_cargo/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 50)
 		anchored = !anchored

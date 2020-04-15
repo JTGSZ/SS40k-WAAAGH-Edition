@@ -39,7 +39,7 @@
 	gib()
 	explosion(gloc, -1, -1, 3, 5)
 
-/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O , var/mob/user )
+/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O, var/mob/user )
 	user.delayNextAttack(8)
 	if(O.force)
 		if(O.force >= 25)
@@ -119,7 +119,7 @@
 	set name = "Shriek"
 	set desc = "Give voice to a psychic shriek."
 
-/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O , var/mob/user )
+/mob/living/simple_animal/vox/armalis/attackby(var/obj/item/O, var/mob/user )
 	if(istype(O,/obj/item/vox/armalis_armour))
 		user.drop_item(O, src, force_drop = 1)
 		armour = O

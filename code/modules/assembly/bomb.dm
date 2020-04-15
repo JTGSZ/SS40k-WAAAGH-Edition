@@ -24,7 +24,7 @@
 		overlays += bombassembly.overlays
 		overlays += image(icon = icon, icon_state = "bomb_assembly")
 
-/obj/item/device/onetankbomb/attackby(obj/item/weapon/W , mob/user )
+/obj/item/device/onetankbomb/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/device/analyzer))
 		bombtank.attackby(W, user)
 		return

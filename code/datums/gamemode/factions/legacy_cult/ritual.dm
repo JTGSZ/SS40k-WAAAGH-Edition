@@ -320,7 +320,7 @@ var/runedec = 0 // Rune cap ?
 	usr << browse(null, "window=tank")
 */
 
-/obj/item/weapon/tome_legacy/attack(mob/living/M , mob/living/user )
+/obj/item/weapon/tome_legacy/attack(mob/living/M, mob/living/user )
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on him by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
 	msg_admin_attack("[user.name] ([user.ckey]) used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
@@ -450,7 +450,7 @@ var/runedec = 0 // Rune cap ?
 		to_chat(user, "The book seems full of illegible scribbles. Is this a joke?")
 		return
 
-/obj/item/weapon/tome_legacy/attackby(obj/item/weapon/tome_legacy/T , mob/living/user )
+/obj/item/weapon/tome_legacy/attackby(obj/item/weapon/tome_legacy/T, mob/living/user )
 	if(istype(T, /obj/item/weapon/tome_legacy) && islegacycultist(user)) // sanity check to prevent a runtime error
 		switch(alert("Copy the runes from your tome?",,"Copy", "Cancel"))
 			if("Cancel")

@@ -4793,8 +4793,8 @@
 	if(..())
 		return 1
 
-	M.eye_blurry = max(M.eye_blurry - 1 , 0)
-	M.eye_blind = max(M.eye_blind - 1 , 0)
+	M.eye_blurry = max(M.eye_blurry - 1, 0)
+	M.eye_blind = max(M.eye_blind - 1, 0)
 	switch(data)
 		if(21 to INFINITY)
 			if(prob(data - 10))
@@ -5761,7 +5761,7 @@
 	if(holder.get_reagent_amount(SPIDERS)>=4) //The main reason we need to have a minimum cost rather than just high custom metabolism is so that someone can't give themselves an IV of spiders for "fun"
 		new /mob/living/simple_animal/hostile/giant_spider/spiderling(get_turf(M))
 		holder.remove_reagent(SPIDERS,4)
-		M.emote("scream", , , 1)
+		M.emote("scream",,, 1)
 		M.visible_message("<span class='warning'>[M] recoils as a spider emerges from \his mouth!</span>")
 
 /datum/reagent/ethanol/weedeater

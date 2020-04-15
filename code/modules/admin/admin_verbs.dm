@@ -582,7 +582,7 @@ var/list/admin_verbs_mod = list(
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] - [warn_reason], resulting in a [bantime] minute ban.")
 		AddBan(warned_ckey, D.last_id, "Autobanning due to too many formal warnings - [warn_reason]", ckey, 1, bantime)
-		holder.DB_ban_record(BANTYPE_TEMP, null, bantime, "[reason] - [warn_reason]", , ,warned_ckey)
+		holder.DB_ban_record(BANTYPE_TEMP, null, bantime, "[reason] - [warn_reason]",,,warned_ckey)
 		feedback_inc("ban_warn",1)
 		D.save_preferences_sqlite(C, C.ckey)
 		del(C)

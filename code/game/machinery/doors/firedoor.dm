@@ -241,7 +241,7 @@ var/global/list/alert_overlays_global = list()
 		var/alarmed = A.doors_down || A.fire
 		var/old_density = src.density
 		if(old_density)
-			if(override || alert("Override the [alarmed ? "alarming " : ""]firelock's safeties and open \the [src]?" ,,"Yes", "No") == "Yes")
+			if(override || alert("Override the [alarmed ? "alarming " : ""]firelock's safeties and open \the [src]?",,"Yes", "No") == "Yes")
 				open()
 		else if(!old_density)
 			close()
@@ -585,7 +585,7 @@ var/global/list/alert_overlays_global = list()
 	else
 		close()
 
-/obj/machinery/door/firedoor/border_only/Uncross(atom/movable/mover , turf/target )
+/obj/machinery/door/firedoor/border_only/Uncross(atom/movable/mover, turf/target )
 	if(istype(mover) && (mover.checkpass(PASSDOOR|PASSGLASS)))
 		return 1
 	if(flow_flags & ON_BORDER)

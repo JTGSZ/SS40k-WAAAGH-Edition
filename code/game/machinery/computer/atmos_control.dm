@@ -58,7 +58,7 @@ var/global/list/atmos_controllers = list()
 		return
 	return interact(user)
 
-/obj/machinery/computer/atmoscontrol/attackby(var/obj/item/I , var/mob/user )
+/obj/machinery/computer/atmoscontrol/attackby(var/obj/item/I, var/mob/user )
 	if(istype(I, /obj/item/weapon/card/emag))
 		return //lazy hackfix for the UI opening and not updating when using an emag with the UI closed
 	return ..()
@@ -66,7 +66,7 @@ var/global/list/atmos_controllers = list()
 /obj/machinery/computer/atmoscontrol/interact(mob/user)
 	return ui_interact(user)
 
-/obj/machinery/computer/atmoscontrol/emag_act(var/mob/user , var/obj/item/weapon/card/E )
+/obj/machinery/computer/atmoscontrol/emag_act(var/mob/user, var/obj/item/weapon/card/E )
 	if(!emagged)
 		emagged = 1
 		spark(src, 1, FALSE)

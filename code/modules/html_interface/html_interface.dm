@@ -257,7 +257,7 @@ mob/verb/test()
 			if (!src.clients.len)
 				src.clients = null
 
-		hclient.client.hi_last_pos = winget(hclient.client, "browser_\ref[src]" ,"pos")
+		hclient.client.hi_last_pos = winget(hclient.client, "browser_\ref[src]","pos")
 
 		winshow(hclient.client, "browser_\ref[src]", FALSE)
 		winset(hclient.client, "browser_\ref[src]", "parent=none")

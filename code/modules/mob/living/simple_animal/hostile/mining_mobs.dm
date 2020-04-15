@@ -339,7 +339,7 @@ obj/item/asteroid/basilisk_hide/New()
 	time_left -= world.time - last_process
 	last_process = world.time
 
-/obj/item/asteroid/hivelord_core/attack(mob/living/M , mob/living/user )
+/obj/item/asteroid/hivelord_core/attack(mob/living/M, mob/living/user )
 	if (iscarbon(M) && user.a_intent != I_HURT)
 		return consume(user, M)
 	else

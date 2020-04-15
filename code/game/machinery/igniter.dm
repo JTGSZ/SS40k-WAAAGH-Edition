@@ -62,7 +62,7 @@ var/global/list/igniters = list()
 	else
 		icon_state = "igniter0"
 
-/obj/machinery/igniter/attackby(var/obj/item/weapon/W , var/mob/user )
+/obj/machinery/igniter/attackby(var/obj/item/weapon/W, var/mob/user )
 	if(iswelder(W) && src.assembly)
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class='notice'>You begin to cut \the [src] off the floor...</span>")
@@ -113,7 +113,7 @@ var/global/list/igniters = list()
 		icon_state = "[base_state]-p"
 //		src.sd_SetLuminosity(0)
 
-/obj/machinery/sparker/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/sparker/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/device/detective_scanner))
 		return
 	if (W.is_screwdriver(user))

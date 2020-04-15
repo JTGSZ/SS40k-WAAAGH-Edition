@@ -758,7 +758,7 @@
 	w_class = W_CLASS_LARGE
 	slot_flags = SLOT_HEAD
 
-/obj/item/weapon/caution/attackby(obj/item/I , mob/user )
+/obj/item/weapon/caution/attackby(obj/item/I, mob/user )
 	if(iswirecutter(I))
 		to_chat(user, "<span class='info'>You cut apart the cone into plastic.</span>")
 		drop_stack(/obj/item/stack/sheet/mineral/plastic, user.loc, 2, user)
@@ -822,9 +822,9 @@
 			if(wielded)
 				to_chat(user, "<span class='notice'>You hold \the [src] between your legs.</span>")
 				user.say("QUID 'ITCH")
-				animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER , time = 10, loop = 1, easing = SINE_EASING)
+				animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
 			else
-				animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER , time = 1, loop = 1)
+				animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
 				animate(user, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
 				animate(user)
 				if(user.lying)//aka. if they have just been stunned
@@ -988,7 +988,7 @@
 	icon = midicon
 	icon_state = "1"
 
-/obj/item/weapon/lightning/afterattack(atom/A , mob/living/user , flag, params)
+/obj/item/weapon/lightning/afterattack(atom/A, mob/living/user, flag, params)
 	var/angle = get_angle(A, user)
 //	to_chat(world, angle)
 	angle = round(angle) + 45

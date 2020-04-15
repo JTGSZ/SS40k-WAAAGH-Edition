@@ -345,7 +345,7 @@
 		to_chat(user, "There's no room for another cooling unit!")
 		return FAILED_TO_ADD
 
-	T.recharge_time = max(2 , T.recharge_time - 4)
+	T.recharge_time = max(2, T.recharge_time - 4)
 
 
 /obj/item/borg/upgrade/noir

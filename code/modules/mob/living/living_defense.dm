@@ -77,7 +77,7 @@
 			src.dust()
 	return absorb
 
-/mob/living/hitby(atom/movable/AM ,var/speed = 5,var/dir)//Standardization and logging -Sieve
+/mob/living/hitby(atom/movable/AM,var/speed = 5,var/dir)//Standardization and logging -Sieve
 	. = ..()
 	if(.)
 		return

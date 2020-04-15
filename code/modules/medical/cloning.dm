@@ -366,7 +366,7 @@
 	. = ..()
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/cloning/clonepod/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/cloning/clonepod/attackby(obj/item/weapon/W, mob/user )
 	. = ..()
 	if(.)
 		return .

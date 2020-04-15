@@ -626,7 +626,7 @@ Once done, you will be able to interface with all systems, notably the onboard n
 
 /datum/role/greytide/Drop(silent = TRUE)
 	if (!silent)
-		antag.current.visible_message("<span class='userdanger'>[antag.current] briefly convulses!</span>" ,"<span class='userdanger'>Your loyalty to the greytide fades and vanishes. You are free of your actions again.</span>")
+		antag.current.visible_message("<span class='userdanger'>[antag.current] briefly convulses!</span>","<span class='userdanger'>Your loyalty to the greytide fades and vanishes. You are free of your actions again.</span>")
 	return ..()
 
 /datum/role/greytide/PostMindTransfer(var/mob/living/new_character, var/mob/living/old_character)

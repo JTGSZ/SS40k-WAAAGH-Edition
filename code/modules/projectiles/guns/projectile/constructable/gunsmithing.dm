@@ -722,7 +722,7 @@
 		desc = "A wheelchair with an unsecured barrel on it."
 		icon_state = "wheelchair_assembly"
 
-/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/buckle_mob(mob/M , mob/user )
+/obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/buckle_mob(mob/M, mob/user )
 	return	//This isn't actually a vehicle, it's just the child of one.
 
 /obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/attack_hand()

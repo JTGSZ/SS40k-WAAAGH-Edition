@@ -36,7 +36,7 @@
 	qdel(src)
 	return
 
-/obj/structure/sign/attackby(obj/item/tool , mob/user )	//deconstruction
+/obj/structure/sign/attackby(obj/item/tool, mob/user )	//deconstruction
 	if(tool.is_screwdriver(user) && !istype(src, /obj/structure/sign/double))
 		to_chat(user, "You unfasten the sign with your [tool].")
 		var/obj/item/sign/S = new(src.loc)
@@ -58,7 +58,7 @@
 	w_class = W_CLASS_MEDIUM		//big
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool , mob/user )	//construction
+/obj/item/sign/attackby(obj/item/tool, mob/user )	//construction
 	if(tool.is_screwdriver(user) && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel" || src.loc == null)

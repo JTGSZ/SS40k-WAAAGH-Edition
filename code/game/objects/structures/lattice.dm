@@ -48,7 +48,7 @@
 		if(2.0)
 			qdel(src)
 
-/obj/structure/lattice/attackby(obj/item/C , mob/user )
+/obj/structure/lattice/attackby(obj/item/C, mob/user )
 	if(iswelder(C))
 		var/obj/item/weapon/weldingtool/WeldingTool = C
 		if(WeldingTool.remove_fuel(0, user))
@@ -59,7 +59,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //Attacking to the lattice will attack to the space turf
 
-/obj/structure/lattice/wood/attackby(obj/item/C , mob/user )
+/obj/structure/lattice/wood/attackby(obj/item/C, mob/user )
 	if(C.sharpness_flags & (CHOPWOOD|SERRATED_BLADE)) // If C is able to cut down a tree
 		new/obj/item/stack/sheet/wood(loc)
 		to_chat(user, "<span class='notice'>You chop the [src] apart!</span>")

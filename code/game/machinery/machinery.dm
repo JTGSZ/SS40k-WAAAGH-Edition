@@ -420,7 +420,7 @@ Class Procs:
 /obj/machinery/attack_paw(mob/user )
 	return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user , var/ignore_brain_damage = 0)
+/obj/machinery/attack_hand(mob/user, var/ignore_brain_damage = 0)
 	if(stat & (NOPOWER|BROKEN|MAINT))
 		return 1
 

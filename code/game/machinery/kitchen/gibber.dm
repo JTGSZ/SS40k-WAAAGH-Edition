@@ -46,7 +46,7 @@ obj/machinery/gibber/New()
 	to_chat(user, "<span class='warning'>You can't do that while dead.</span>")
 	return
 
-/obj/machinery/gibber/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/gibber/attackby(var/obj/item/O, var/mob/user )
 	if(operating)
 		to_chat(user, "<span class='notice'>[src] is currently gibbing something!</span>")
 		return
@@ -96,8 +96,8 @@ obj/machinery/gibber/New()
 	else
 		src.startgibbing(user)
 
-// OLD /obj/machinery/gibber/attackby(obj/item/weapon/grab/G , mob/user )
-/obj/machinery/gibber/proc/handleGrab(obj/item/weapon/grab/G , mob/user )
+// OLD /obj/machinery/gibber/attackby(obj/item/weapon/grab/G, mob/user )
+/obj/machinery/gibber/proc/handleGrab(obj/item/weapon/grab/G, mob/user )
 	if(!anchored)
 		to_chat(user, "<span class='warning'>[src] must be anchored first!</span>")
 		return
@@ -273,7 +273,7 @@ obj/machinery/gibber/New()
 /obj/machinery/gibber/autogibber/attack_hand(mob/user )
 	Bumped(user)
 
-/obj/machinery/gibber/autogibber/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/gibber/autogibber/attackby(var/obj/item/O, var/mob/user )
 	Bumped(user)
 
 /obj/machinery/gibber/autogibber/Bumped(var/atom/A)

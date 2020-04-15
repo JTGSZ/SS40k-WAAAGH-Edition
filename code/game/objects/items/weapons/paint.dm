@@ -26,7 +26,7 @@ var/global/list/paint_types = subtypesof(/datum/reagent/paint)
 /obj/item/weapon/reagent_containers/glass/paint/mop_act(obj/item/weapon/mop/M, mob/user)
 	return 0
 
-/obj/item/weapon/reagent_containers/glass/paint/afterattack(turf/simulated/target, mob/user , flag)
+/obj/item/weapon/reagent_containers/glass/paint/afterattack(turf/simulated/target, mob/user, flag)
 	if(!flag || user.stat)
 		return ..()
 

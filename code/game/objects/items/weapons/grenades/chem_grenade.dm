@@ -70,7 +70,7 @@
 		reservoir.forceMove(T)
 		reservoir = null
 
-/obj/item/weapon/grenade/chem_grenade/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/grenade/chem_grenade/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
 		var/obj/item/device/assembly_holder/det = W
 		if(istype(det.a_left,det.a_right.type) || (!isigniter(det.a_left) && !isigniter(det.a_right)))
@@ -324,7 +324,7 @@ obj/item/weapon/grenade/chem_grenade/exgrenade
 	origin_tech = Tc_COMBAT + "=4;" + Tc_MATERIALS + "=3;" + Tc_ENGINEERING + "=2"
 	affected_area = 4
 
-obj/item/weapon/grenade/chem_grenade/exgrenade/attackby(obj/item/weapon/W , mob/user )
+obj/item/weapon/grenade/chem_grenade/exgrenade/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
 		var/obj/item/device/assembly_holder/det = W
 		if(istype(det.a_left,det.a_right.type) || (!isigniter(det.a_left) && !isigniter(det.a_right)))

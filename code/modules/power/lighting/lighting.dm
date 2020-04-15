@@ -30,7 +30,7 @@
 			mode = "It's wired."
 	to_chat(user, "<span class='info'>[mode]</span>")
 
-/obj/machinery/light_construct/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/light_construct/attackby(obj/item/weapon/W, mob/user )
 	src.add_fingerprint(user)
 	if (W.is_wrench(user))
 		if (src.stage == 1)
@@ -163,8 +163,8 @@ var/global/list/obj/machinery/light/alllights = list()
 	qdel(src)
 
 /obj/machinery/light/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
-		if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+	if(istype(Proj,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
+		if(!istype(Proj,/obj/item/projectile/beam/lasertag) && !istype(Proj,/obj/item/projectile/beam/practice) )
 			broken()
 
 /obj/machinery/light/kick_act(mob/living/carbon/human/H)

@@ -57,7 +57,7 @@
 	return 1
 
 
-/obj/item/weapon/reagent_containers/borghypo/attack(mob/M , mob/user )
+/obj/item/weapon/reagent_containers/borghypo/attack(mob/M, mob/user )
 	var/datum/reagents/reagents = reagent_list[mode]
 
 	if(!reagents.total_volume)

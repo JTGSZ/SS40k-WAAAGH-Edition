@@ -13,7 +13,7 @@
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 
-/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W , mob/user )
+/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W, mob/user )
 	..()
 	if (istype(W, /obj/item/weapon/f_card))
 		if (W.fingerprints)
@@ -33,7 +33,7 @@
 			W.add_fingerprint(user)
 	return
 
-/obj/item/device/detective_scanner/attack(mob/living/carbon/human/M , mob/user )
+/obj/item/device/detective_scanner/attack(mob/living/carbon/human/M, mob/user )
 	if (!ishuman(M))
 		to_chat(user, "<span class='warning'>[M] is not human and cannot have fingerprints.</span>")
 		return 0
@@ -134,7 +134,7 @@
 					blood_DNA_found[R.blood3.data["blood_DNA"]] = R.blood3.data["blood_type"]
 	//General
 	if (fingerprints_found.len == 0 && blood_DNA_found.len == 0 && fibers_found.len == 0)
-		user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]" ,\
+		user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]",\
 		"<span class='notice'>Unable to locate any fingerprints, materials, fibers, or blood on [A]!</span>",\
 		"You hear a faint hum of electrical equipment.")
 		return 0
@@ -174,12 +174,12 @@
 				to_chat(user, "Blood type: <span class='warning'>[blood_DNA_found[blood]] \t </span>DNA: <span class='warning'>[blood]</span>")
 
 	if(prob(80) || !fingerprints_found.len)
-		user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]" ,\
+		user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]",\
 		"You finish scanning \the [A].",\
 		"You hear a faint hum of electrical equipment.")
 		return 0
 	else
-		user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]\n[user.gender == MALE ? "He" : "She"] seems to perk up slightly at the readout." ,\
+		user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]\n[user.gender == MALE ? "He" : "She"] seems to perk up slightly at the readout.",\
 		"The results of the scan pique your interest.",\
 		"You hear a faint hum of electrical equipment, and someone making a thoughtful noise.")
 		return 0
@@ -317,12 +317,12 @@
 	//General
 	if (fingerprints_found.len == 0 && blood_DNA_found.len == 0 && fibers_found.len == 0)
 		if(!custom_finger.len && !custom_fiber.len && !custom_blood.len)
-			user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]" ,\
+			user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]",\
 			"<span class='notice'>Unable to locate any fingerprints, materials, fibers, or blood on [A]!</span>",\
 			"You hear a faint hum of electrical equipment.")
 			return 0
 		else
-			user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]" ,\
+			user.visible_message("\The [user] scans \the [A] with \a [src], the air around [user.gender == MALE ? "him" : "her"] humming[prob(70) ? " gently." : "."]",\
 			"<span class='notice'>Unable to locate any fingerprints, materials, fibers, or blood on [A], loading custom forgery instead.</span>",\
 			"You hear a faint hum of electrical equipment.")
 

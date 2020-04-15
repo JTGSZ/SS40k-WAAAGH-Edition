@@ -222,7 +222,7 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	name = "\improper [mineral.display_name] deposit"
 	update_icon()
 
-/turf/unsimulated/mineral/attackby(obj/item/weapon/W , mob/user )
+/turf/unsimulated/mineral/attackby(obj/item/weapon/W, mob/user )
 
 	if(busy)
 		return
@@ -600,7 +600,7 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 			gets_dug()
 	return
 
-/turf/unsimulated/floor/asteroid/attackby(obj/item/weapon/W , mob/user )
+/turf/unsimulated/floor/asteroid/attackby(obj/item/weapon/W, mob/user )
 
 	if(!W || !user)
 		return 0
@@ -706,7 +706,7 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 		if(1.0)
 			gets_dug()
 
-/turf/simulated/floor/asteroid/attackby(obj/item/weapon/W , mob/user )
+/turf/simulated/floor/asteroid/attackby(obj/item/weapon/W, mob/user )
 	if(!W || !user)
 		return 0
 	if (istype(W, /obj/item/weapon/pickaxe))

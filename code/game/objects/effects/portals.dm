@@ -25,7 +25,7 @@
 		spawn()
 			src.teleport(user)
 
-/obj/effect/portal/attackby(obj/item/weapon/O , mob/user )
+/obj/effect/portal/attackby(obj/item/weapon/O, mob/user )
 	if(O == creator)
 		to_chat(user, "<span class='warning'>You close the portal prematurely.</span>")
 		qdel(src)
@@ -37,7 +37,7 @@
 	spawn()
 		src.teleport(M)
 */
-/obj/effect/portal/Crossed(AM ,var/no_tp=0)
+/obj/effect/portal/Crossed(AM,var/no_tp=0)
 	if(no_tp)
 		return
 	if(istype(AM,/obj/item/projectile/beam))

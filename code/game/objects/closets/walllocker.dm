@@ -93,7 +93,7 @@
 		update_icon()
 	return
 
-/obj/structure/closet/walllocker/defiblocker/attackby(obj/item/weapon/G , mob/user )
+/obj/structure/closet/walllocker/defiblocker/attackby(obj/item/weapon/G, mob/user )
 	if(istype(G, /obj/item/weapon/melee/defibrillator))
 		if(defib)
 			to_chat(usr, "<spawn class='notice'>The locker is full.")

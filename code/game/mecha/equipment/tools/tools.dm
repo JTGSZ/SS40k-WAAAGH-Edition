@@ -377,7 +377,7 @@
 
 							var/obj/effect/effect/foam/fire/F = locate() in oldturf
 							if(!istype(F) && oldturf != get_turf(src))
-								F = new /obj/effect/effect/foam/fire( get_turf(oldturf) , W.reagents)
+								F = new /obj/effect/effect/foam/fire( get_turf(oldturf), W.reagents)
 
 							if(W.loc == my_target)
 								break
@@ -776,7 +776,7 @@
 		return
 	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp;[src.name]"
 
-/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster/proc/dynattackby(obj/item/weapon/W , mob/user )
+/obj/item/mecha_parts/mecha_equipment/anticcw_armor_booster/proc/dynattackby(obj/item/weapon/W, mob/user )
 	if(!action_checks(user))
 		return chassis.dynattackby(W,user)
 	chassis.log_message("Attacked by [W]. Attacker - [user]")

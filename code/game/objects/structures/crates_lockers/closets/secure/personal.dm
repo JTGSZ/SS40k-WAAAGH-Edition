@@ -47,7 +47,7 @@
 		/obj/item/device/radio/headset,
 	)
 
-/obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/card/id))
 		if(src.broken)
 			to_chat(user, "<span flags='rose'>It appears to be broken.</span>")
@@ -59,7 +59,7 @@
 	else
 		..() //get the other stuff to do it
 
-/obj/structure/closet/secure_closet/personal/togglelock(mob/user , var/given_name = "")
+/obj/structure/closet/secure_closet/personal/togglelock(mob/user, var/given_name = "")
 	if(src.allowed(user) || !src.registered_name || (src.registered_name == given_name)) //they can open all lockers, or nobody owns this, or they own this locker
 		src.locked = !src.locked
 		for(var/mob/O in viewers(user, 3))

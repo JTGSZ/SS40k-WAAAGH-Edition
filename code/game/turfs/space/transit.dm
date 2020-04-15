@@ -54,7 +54,7 @@
 	return ..(N, tell_universe, 1, allow)
 
 //Overwrite because we dont want people building rods in space.
-/turf/space/transit/attackby(obj/O , mob/user )
+/turf/space/transit/attackby(obj/O, mob/user )
 	return
 
 /turf/space/transit/canBuildCatwalk()

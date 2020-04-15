@@ -307,7 +307,7 @@
 
 	move_to_delay = 20
 
-	speak = list("Die, Allied schweinhund!","Die Welt ist unser!","Guten Tag!" ,"Scheise!")
+	speak = list("Die, Allied schweinhund!","Die Welt ist unser!","Guten Tag!","Scheise!")
 	speak_emote = list("says")
 	emote_hear = list("hums")
 	emote_see = list("stomps")

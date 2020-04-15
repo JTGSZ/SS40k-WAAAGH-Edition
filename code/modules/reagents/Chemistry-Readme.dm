@@ -11,7 +11,7 @@ Structure: ///////////////////          //////////////////////////
 		   							      |          |          |
 		   							      V          V          V
 
-		   							         reagents (datums)	    	Reagents. I.e. Water , antitoxins or mercury.
+		   							         reagents (datums)	    	Reagents. I.e. Water, antitoxins or mercury.
 
 
 Random important notes:
@@ -182,7 +182,7 @@ About Reagents:
 
 		on_mob_life(var/mob/M)
 			This proc is called everytime the mobs life proc executes.
-			This is the place where you put damage for toxins ,
+			This is the place where you put damage for toxins,
 			drowsyness for sleep toxins etc etc.
 			You'll want to call the parents proc by using ..() .
 			If you dont, the chemical will stay in the mob forever -
@@ -261,7 +261,7 @@ About the Tools:
 	By default, all atom have a reagents var - but its empty. if you want to use an object for the chem.
 	system you'll need to add something like this in its new proc:
 
-		to_chat(var/datum/reagents/R = new/datum/reagents(100), <<< create a new datum , 100 is the maximum_volume of the new holder datum.)
+		to_chat(var/datum/reagents/R = new/datum/reagents(100), <<< create a new datum, 100 is the maximum_volume of the new holder datum.)
 		to_chat(reagents = R, <<< assign the new datum to the objects reagents var)
 		to_chat(R.my_atom = src, <<< set the holders my_atom to src so that we know where we are.)
 
@@ -278,7 +278,7 @@ About the Tools:
 
 		atom/proc/is_open_container()
 			Checks atom/var/flags & OPENCONTAINER.
-			If this returns 1 , you can use syringes, beakers etc
+			If this returns 1, you can use syringes, beakers etc
 			to manipulate the contents of this object.
 			If it's 0, you'll need to write your own custom reagent
 			transfer code since you will not be able to use the standard

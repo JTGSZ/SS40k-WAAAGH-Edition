@@ -43,7 +43,7 @@
 
 	return 1
 
-/obj/machinery/shield/attackby(obj/item/weapon/W , mob/living/user )
+/obj/machinery/shield/attackby(obj/item/weapon/W, mob/living/user )
 	if(!istype(W))
 		return
 
@@ -269,7 +269,7 @@
 		return FALSE
 	. = ..()
 
-/obj/machinery/shieldgen/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/shieldgen/attackby(obj/item/weapon/W, mob/user )
 	if(..())
 		return 1
 

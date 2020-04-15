@@ -37,7 +37,7 @@ FLOOR SAFES
 			space += I.w_class
 			I.forceMove(src)
 
-/obj/structure/safe/proc/check_unlocked(mob/user , canhear)
+/obj/structure/safe/proc/check_unlocked(mob/user, canhear)
 	if(user && canhear)
 		if(tumbler_1_pos == tumbler_1_open)
 			to_chat(user, "<span class='notice'>You hear a [pick("tonk", "krunk", "plunk")] from [src].</span>")
@@ -143,7 +143,7 @@ FLOOR SAFES
 				updateUsrDialog()
 
 
-/obj/structure/safe/attackby(obj/item/I , mob/user )
+/obj/structure/safe/attackby(obj/item/I, mob/user )
 	if(open)
 		if(I.w_class + space <= maxspace)
 			if(user.drop_item(I, src))

@@ -130,9 +130,9 @@ var/list/apiaries_list = list()
 		return 0
 
 /obj/machinery/apiary/bullet_act(var/obj/item/projectile/Proj) //Works with the Somatoray to modify plant variables.
-	if(istype(Proj ,/obj/item/projectile/energy/floramut))
+	if(istype(Proj,/obj/item/projectile/energy/floramut))
 		damage = round(rand(0,3))//0, 1, or 2 brute damage per stings...per bee in a swarm
-	else if(istype(Proj ,/obj/item/projectile/energy/florayield))
+	else if(istype(Proj,/obj/item/projectile/energy/florayield))
 		if(!yieldmod)
 			yieldmod += 1
 		else if (prob(1/(yieldmod * yieldmod) *100))//This formula gives you diminishing returns based on yield. 100% with 1 yield, decreasing to 25%, 11%, 6, 4, 2...
@@ -150,7 +150,7 @@ var/list/apiaries_list = list()
 	visible_message("<span class='warning'>\The [src] was hit by \the [AM].</span>", 1)
 	angry_swarm()
 
-/obj/machinery/apiary/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/apiary/attackby(var/obj/item/O, var/mob/user )
 	if(..())
 		return
 	if(istype(O, /obj/item/device/analyzer/plant_analyzer))
@@ -317,7 +317,7 @@ var/list/apiaries_list = list()
 	if (reagents.total_volume < 1)
 		return 0
 
-	var/number_of_honeycombs = min(round(reagents.total_volume / 12.5) + 1 , 8)
+	var/number_of_honeycombs = min(round(reagents.total_volume / 12.5) + 1, 8)
 	var/reagents_per_honeycomb = reagents.total_volume / number_of_honeycombs
 	var/turf/T = get_turf(src)
 
@@ -540,7 +540,7 @@ var/list/apiaries_list = list()
 		health -= P.damage
 		updateHealth()
 
-/obj/structure/wild_apiary/attackby(var/obj/item/O , var/mob/user )
+/obj/structure/wild_apiary/attackby(var/obj/item/O, var/mob/user )
 	if(..())
 		return
 	else if(O.force)
@@ -574,7 +574,7 @@ var/list/apiaries_list = list()
 		health -= P.damage
 		updateHealth()
 
-/obj/machinery/apiary/wild/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/apiary/wild/attackby(var/obj/item/O, var/mob/user )
 	if(..())
 		return
 	if(istype(O, /obj/item/queen_bee))

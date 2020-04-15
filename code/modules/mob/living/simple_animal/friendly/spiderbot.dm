@@ -53,7 +53,7 @@
 	)
 	return allowed_items
 
-/mob/living/simple_animal/spiderbot/attackby(var/obj/item/O , var/mob/user )
+/mob/living/simple_animal/spiderbot/attackby(var/obj/item/O, var/mob/user )
 
 	if(istype(O, /obj/item/device/mmi) || istype(O, /obj/item/device/mmi/posibrain))
 		var/obj/item/device/mmi/B = O

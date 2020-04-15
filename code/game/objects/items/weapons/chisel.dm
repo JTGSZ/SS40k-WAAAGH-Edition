@@ -22,7 +22,7 @@
 	else
 		to_chat(user, "You will no longer sign your work.")
 
-/obj/item/weapon/chisel/attack(mob/M , mob/user )
+/obj/item/weapon/chisel/attack(mob/M, mob/user )
 	..()
 	if(istype(M, /mob/living/simple_animal/scp_173))
 		var/engraving = sanitize(input(usr, "What do you want to write on \the [M.real_name]?") as text)
@@ -37,7 +37,7 @@
 
 		M.desc += engraving
 
-/obj/item/weapon/chisel/afterattack(atom/target, mob/user , proximity)
+/obj/item/weapon/chisel/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(target,/turf/simulated/wall))

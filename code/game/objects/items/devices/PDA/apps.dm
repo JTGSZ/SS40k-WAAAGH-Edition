@@ -39,7 +39,7 @@ var/global/list/pda_app_menus = list(
 	price = 10
 	menu = PDA_APP_RINGER
 	icon = "pda_bell"
-	var/frequency = 1457	//	1200 < frequency < 1600 , always end with an odd number.
+	var/frequency = 1457	//	1200 < frequency < 1600, always end with an odd number.
 	var/status = 1			//	0=off 1=on
 
 /datum/pda_app/alarm

@@ -316,7 +316,7 @@ datum/gas_mixture/proc/zburn(var/turf/T, force_burn)
 		var/total_oxygen = min(src[GAS_OXYGEN], 2 * total_fuel)
 
 		//determine the amount of fuel actually used
-		var/used_fuel_ratio = min(src[GAS_OXYGEN] / 2 , total_fuel) / total_fuel
+		var/used_fuel_ratio = min(src[GAS_OXYGEN] / 2, total_fuel) / total_fuel
 		total_fuel = total_fuel * used_fuel_ratio
 
 		var/total_reactants = total_fuel + total_oxygen

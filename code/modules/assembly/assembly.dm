@@ -269,7 +269,7 @@ var/global/list/assembly_short_name_to_type = list() //Please, I beg you, don't 
 	return 0
 
 
-/obj/item/device/assembly/attackby(obj/item/weapon/W , mob/user )
+/obj/item/device/assembly/attackby(obj/item/weapon/W, mob/user )
 	if(isassembly(W))
 		var/obj/item/device/assembly/A = W
 		if((!A.secured) && (!secured))

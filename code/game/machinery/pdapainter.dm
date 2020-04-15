@@ -76,7 +76,7 @@ Feel free to do whatever with this if you think it lacks.
 
 	RefreshParts()
 
-/obj/machinery/pdapainter/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/pdapainter/attackby(var/obj/item/O, var/mob/user )
 	if(busy)
 		to_chat(user, "\The [src] is currently busy, try again later.")
 		return

@@ -73,7 +73,7 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/aiupload/attackby(obj/item/weapon/O , mob/user )
+/obj/machinery/computer/aiupload/attackby(obj/item/weapon/O, mob/user )
 	if(istype(O, /obj/item/weapon/aiModule))
 		if(!same_zlevel())
 			to_chat(user, "<span class='danger'>Unable to establish a connection</span>: You're too far away from the target AI!")
@@ -194,7 +194,7 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/borgupload/attackby(var/obj/item/weapon/W , mob/user )
+/obj/machinery/computer/borgupload/attackby(var/obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/aiModule))
 		if(!same_zlevel())
 			to_chat(user, "<span class='danger'>Unable to establish a connection</span>: You're too far away from the target silicon!")

@@ -82,7 +82,7 @@
 	investigation_log(I_GHOST, "|| was switched [on ? "off" : "on"] by [key_name(ghost)][ghost.locked_to ? ", who was haunting [ghost.locked_to]" : ""]")
 	return ..()
 
-/obj/machinery/floodlight/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/floodlight/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if(istype(W, /obj/item/weapon/cell))
 		if(panel_open)

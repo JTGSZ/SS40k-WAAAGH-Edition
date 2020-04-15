@@ -20,7 +20,7 @@
 /obj/structure/kitchenspike/attack_paw(mob/user )
 	return src.attack_hand(usr)
 
-/obj/structure/kitchenspike/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/kitchenspike/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if (W.is_wrench(user))
 		if(occupant)
@@ -34,7 +34,7 @@
 	if(istype(W,/obj/item/weapon/grab))
 		return handleGrab(W,user)
 
-/obj/structure/kitchenspike/proc/handleGrab(obj/item/weapon/grab/G , mob/user )
+/obj/structure/kitchenspike/proc/handleGrab(obj/item/weapon/grab/G, mob/user )
 	if(!istype(G))
 		return
 

@@ -63,7 +63,7 @@
 	origin_tech = Tc_MATERIALS + "=1"
 	attack_verb = list("bashes", "batters", "bludgeons", "whacks")
 
-/obj/item/weapon/grown/log/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/grown/log/attackby(obj/item/weapon/W, mob/user )
 	if(W.sharpness_flags & CHOPWOOD) // I considered adding serrated to this but c'mon, making planks out of a serrated blade sounds like an awful idea
 		user.show_message("<span class='notice'>You make two planks out of \the [src].</span>", MESSAGE_SEE)
 		playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
@@ -94,7 +94,7 @@
 	throw_range = 3
 	fragrance = INCENSE_SUNFLOWERS
 
-/obj/item/weapon/grown/sunflower/attack(mob/M , mob/user )
+/obj/item/weapon/grown/sunflower/attack(mob/M, mob/user )
 	to_chat(M, "<font color='green'><b> [user] smacks you with a sunflower! </font><font color='yellow'><b>FLOWER POWER<b></font>")
 	to_chat(user, "<font color='green'>Your sunflower's </font><font color='yellow'><b>FLOWER POWER</b></font><font color='green'> strikes [M]</font>")
 	//Uh... Doesn't this cancel the rest of attack()?
@@ -125,7 +125,7 @@
 	potency = newValue
 	force = round((5 + potency / 5), 1)
 
-/obj/item/weapon/grown/novaflower/attack(mob/living/carbon/M , mob/user )
+/obj/item/weapon/grown/novaflower/attack(mob/living/carbon/M, mob/user )
 	if(!..())
 		return
 	if(istype(M, /mob/living))
@@ -162,7 +162,7 @@
 		user.take_organ_damage(0,force)
 		to_chat(user, "<span class='warning'>The nettle burns your bare hand!</span>")
 
-/obj/item/weapon/grown/nettle/afterattack(atom/A , mob/user , proximity)
+/obj/item/weapon/grown/nettle/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 	user.delayNextAttack(8)
@@ -210,7 +210,7 @@
 			user.Paralyse(5)
 			to_chat(user, "<span class='warning'>You are stunned by the Deathnettle when you try picking it up!</span>")
 
-/obj/item/weapon/grown/deathnettle/attack(mob/living/carbon/M , mob/user )
+/obj/item/weapon/grown/deathnettle/attack(mob/living/carbon/M, mob/user )
 	if(!..())
 		return
 	to_chat(M, "<span class='warning'>You are stunned by the powerful acid of the Deathnettle!</span>")
@@ -249,7 +249,7 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/weapon/corncob/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/corncob/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if(W.is_sharp() && W.sharpness_flags & SHARP_BLADE)
 		to_chat(user, "<span class='notice'>You use [W] to fashion a pipe out of the corn cob!</span>")

@@ -773,7 +773,7 @@ var/list/arcane_tomes = list()
 		layer = ABOVE_HUD_LAYER
 		item_state = "soulblade-full"
 		icon_state = "soulblade-full"
-		animate(src, pixel_y = -8 * PIXEL_MULTIPLIER , time = 7, loop = -1, easing = SINE_EASING)
+		animate(src, pixel_y = -8 * PIXEL_MULTIPLIER, time = 7, loop = -1, easing = SINE_EASING)
 		animate(pixel_y = -12 * PIXEL_MULTIPLIER, time = 7, loop = -1, easing = SINE_EASING)
 	else
 		if (!ismob(loc))

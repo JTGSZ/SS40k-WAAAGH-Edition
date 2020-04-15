@@ -102,7 +102,7 @@ BREATHALYZER
 	var/last_reading = null
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M , mob/living/user )
+/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user )
 	if(!user.hallucinating())
 		if(last_scantime + 1 SECONDS < world.time)
 			last_reading = healthanalyze(M, user, mode, silent = FALSE)
@@ -111,7 +111,7 @@ BREATHALYZER
 			last_reading = healthanalyze(M, user, mode, silent = TRUE)
 	else
 		if(M.isDead())
-			user.show_message("<span class='game say'><b>\The [src] beeps</b>, \"It's dead, Jim.\"</span>", MESSAGE_HEAR ,"<span class='notice'>\The [src] glows black.</span>")
+			user.show_message("<span class='game say'><b>\The [src] beeps</b>, \"It's dead, Jim.\"</span>", MESSAGE_HEAR,"<span class='notice'>\The [src] glows black.</span>")
 		else
 			to_chat(user, "<span class='notice'>\The [src] glows [pick("red", "green", "blue", "pink")]! You wonder what that would mean.</span>")
 	src.add_fingerprint(user)
@@ -146,7 +146,7 @@ BREATHALYZER
 		to_chat(user, last_reading)
 
 //Note : Used directly by other objects. Could benefit of OOP, maybe ?
-proc/healthanalyze(mob/living/M , mob/living/user , var/mode = 0, var/skip_checks = 0, var/silent = 0)
+proc/healthanalyze(mob/living/M, mob/living/user, var/mode = 0, var/skip_checks = 0, var/silent = 0)
 	var/message = ""
 	if(!skip_checks)
 		if(((M_CLUMSY in user.mutations) || user.getBrainLoss() >= 60) && prob(50))
@@ -439,7 +439,7 @@ Subject's pulse: ??? BPM"})
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/attack(mob/living/M , mob/living/user )
+/obj/item/device/mass_spectrometer/attack(mob/living/M, mob/living/user )
 	if(!M.reagents)
 		return
 	if(iscarbon(M))

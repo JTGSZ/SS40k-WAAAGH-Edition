@@ -9,7 +9,7 @@
 	siemens_coefficient = 3.0
 	gas_transfer_coefficient = 0.90
 
-/obj/item/clothing/mask/happy/equipped(M , wear_mask)
+/obj/item/clothing/mask/happy/equipped(M, wear_mask)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return

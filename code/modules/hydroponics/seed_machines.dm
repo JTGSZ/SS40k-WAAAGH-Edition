@@ -88,7 +88,7 @@
 
 	nanomanager.update_uis(src)
 
-/obj/machinery/botany/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/botany/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W,/obj/item/seeds))
 		if(loaded_seed)
 			to_chat(user, "There is already a seed loaded.")

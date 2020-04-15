@@ -129,7 +129,7 @@
 	return (S.attack_verb == "punches" ? 'sound/weapons/punchmiss.ogg' : 'sound/weapons/slashmiss.ogg')
 
 /mob/living/carbon/human/get_unarmed_damage_type(mob/living/target)
-	if(ishuman(target) && istype(gloves , /obj/item/clothing/gloves/boxing/hologlove))
+	if(ishuman(target) && istype(gloves, /obj/item/clothing/gloves/boxing/hologlove))
 		return HALLOSS
 	return ..()
 

@@ -81,7 +81,7 @@
 				use(1)
 				return
 
-/obj/item/stack/rods/attackby(obj/item/W , mob/user )
+/obj/item/stack/rods/attackby(obj/item/W, mob/user )
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 

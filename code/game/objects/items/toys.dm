@@ -38,10 +38,10 @@
 	. = ..()
 	create_reagents(10)
 
-/obj/item/toy/waterballoon/attack(mob/living/carbon/human/M , mob/user )
+/obj/item/toy/waterballoon/attack(mob/living/carbon/human/M, mob/user )
 	return
 
-/obj/item/toy/waterballoon/afterattack(atom/A , mob/user )
+/obj/item/toy/waterballoon/afterattack(atom/A, mob/user )
 	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to(src, 10)
 		to_chat(user, "<span class = 'notice'>You fill the balloon with the contents of \the [A].</span>")
@@ -49,7 +49,7 @@
 		src.update_icon()
 	return
 
-/obj/item/toy/waterballoon/attackby(obj/O , mob/user )
+/obj/item/toy/waterballoon/attackby(obj/O, mob/user )
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(O.reagents)
 			if(O.reagents.total_volume < 1)
@@ -159,7 +159,7 @@
 	..()
 	to_chat(user, "There [bullets == 1 ? "is" : "are"] [bullets] cap\s left.")
 
-/obj/item/toy/gun/attackby(obj/item/toy/ammo/gun/A , mob/user )
+/obj/item/toy/gun/attackby(obj/item/toy/ammo/gun/A, mob/user )
 	if (istype(A, /obj/item/toy/ammo/gun))
 		if (src.bullets >= 7)
 			to_chat(user, "<span class = 'notice'>It's already fully loaded!</span>")
@@ -179,7 +179,7 @@
 		return 1
 	return
 
-/obj/item/toy/gun/afterattack(atom/target, mob/user , flag)
+/obj/item/toy/gun/afterattack(atom/target, mob/user, flag)
 	if (flag)
 		return
 

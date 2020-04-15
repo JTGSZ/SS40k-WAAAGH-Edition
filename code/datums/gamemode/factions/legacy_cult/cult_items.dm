@@ -20,7 +20,7 @@
 /obj/item/weapon/melee/legacy_cultblade/cultify()
 	return
 
-/obj/item/weapon/melee/legacy_cultblade/attack(mob/living/target , mob/living/carbon/human/user )
+/obj/item/weapon/melee/legacy_cultblade/attack(mob/living/target, mob/living/carbon/human/user )
 	if(!checkcult || islegacycultist(user))
 		playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 		return ..()

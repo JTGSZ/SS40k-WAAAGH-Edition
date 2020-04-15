@@ -61,9 +61,9 @@
 		if(0 to 5)
 			available_options = list(INAPROVALINE = "Inaprovaline", STOXIN2 = "Soporific Rejuvenant", KELOTANE = "Kelotane", BICARIDINE = "Bicaridine", DEXALIN = "Dexalin")
 		if(6 to 8)
-			available_options = list(INAPROVALINE = "Inaprovaline", STOXIN2 = "Soporific Rejuvenant", DERMALINE = "Dermaline", BICARIDINE = "Bicaridine", DEXALIN = "Dexalin", IMIDAZOLINE = "Imidazoline" , INACUSIATE = "Inacusiate" ,  TRICORDRAZINE = "Tricordrazine")
+			available_options = list(INAPROVALINE = "Inaprovaline", STOXIN2 = "Soporific Rejuvenant", DERMALINE = "Dermaline", BICARIDINE = "Bicaridine", DEXALIN = "Dexalin", IMIDAZOLINE = "Imidazoline", INACUSIATE = "Inacusiate",  TRICORDRAZINE = "Tricordrazine")
 		else
-			available_options = list(INAPROVALINE = "Inaprovaline", STOXIN2 = "Soporific Rejuvenant", DERMALINE = "Dermaline", BICARIDINE = "Bicaridine", DEXALIN = "Dexalin", IMIDAZOLINE = "Imidazoline" , INACUSIATE = "Inacusiate" ,  TRICORDRAZINE = "Tricordrazine" , ALKYSINE = "Alkysine" , TRAMADOL = "Tramadol" , PEPTOBISMOL  = "Peptobismol")
+			available_options = list(INAPROVALINE = "Inaprovaline", STOXIN2 = "Soporific Rejuvenant", DERMALINE = "Dermaline", BICARIDINE = "Bicaridine", DEXALIN = "Dexalin", IMIDAZOLINE = "Imidazoline", INACUSIATE = "Inacusiate",  TRICORDRAZINE = "Tricordrazine", ALKYSINE = "Alkysine", TRAMADOL = "Tramadol", PEPTOBISMOL  = "Peptobismol")
 
 /obj/machinery/sleeper/interact(var/mob/user)
 	var/dat = list()
@@ -152,7 +152,7 @@
 		add_fingerprint(usr)
 	return
 
-/obj/machinery/sleeper/MouseDropTo(atom/movable/O , mob/user )
+/obj/machinery/sleeper/MouseDropTo(atom/movable/O, mob/user )
 	if(!ismob(O)) //mobs only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -400,7 +400,7 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/sleeper/proc/inject_chemical(mob/living/user , chemical, amount)
+/obj/machinery/sleeper/proc/inject_chemical(mob/living/user, chemical, amount)
 	if(!occupant)
 		to_chat(user, "<span class='warning'>There's no occupant in the sleeper!</span>")
 		return

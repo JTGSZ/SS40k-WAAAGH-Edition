@@ -22,7 +22,7 @@
 		return
 	return ..()
 
-/obj/structure/reagent_dispensers/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/reagent_dispensers/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_wrench(user) && wrenchable())
 		return wrenchAnchor(user, W)
 
@@ -121,7 +121,7 @@
 				rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W, mob/user )
 	if (W.is_wrench(user))
 		user.visible_message("[user] wrenches [src]'s faucet [modded ? "closed" : "open"].", \
 			"You wrench [src]'s faucet [modded ? "closed" : "open"]")
@@ -167,8 +167,8 @@
 		explode()
 
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
-		if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+	if(istype(Proj,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
+		if(!istype(Proj,/obj/item/projectile/beam/lasertag) && !istype(Proj,/obj/item/projectile/beam/practice) )
 			log_attack("<font color='red'>[key_name(Proj.firer)] shot [src]/([formatJumpTo(src)]) with a [Proj.type]</font>")
 			if(Proj.firer)//turrets don't have "firers"
 				Proj.firer.attack_log += "\[[time_stamp()]\] <b>[key_name(Proj.firer)]</b> shot <b>[src]([x],[y],[z])</b> with a <b>[Proj.type]</b>"
@@ -252,7 +252,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attack_paw(mob/user )
 	return attack_hand(user)
 
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/I , mob/user )
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/I, mob/user )
 	if (iswelder(I))
 		var/obj/item/weapon/weldingtool/WT = I
 		if(WT.remove_fuel(0, user))
@@ -423,7 +423,7 @@
 	for(var/atom/movable/AM in src)
 		AM.forceMove(loc)
 
-/obj/structure/reagent_dispensers/cauldron/barrel/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/reagent_dispensers/cauldron/barrel/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_wrench(user))
 		return
 	if(istype(W,/obj/item/weapon/grab))

@@ -15,7 +15,7 @@
 /obj/structure/bed/chair/e_chair/Destroy()
 	return ..()
 
-/obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_wrench(user))
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
 		W.playtoolsound(src, 50)

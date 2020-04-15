@@ -262,7 +262,7 @@
 	if(isliving(user))
 		user.visible_message("<span class='warning'>[user] displays their Nanotrasen Internal Security Legal Authorization Badge.\nIt reads: [stored_name], NT Security.</span>","<span class='warning'>You display your Nanotrasen Internal Security Legal Authorization Badge.\nIt reads: [stored_name], NT Security.</span>")
 
-/obj/item/clothing/accessory/holobadge/attackby(var/obj/item/O , var/mob/user )
+/obj/item/clothing/accessory/holobadge/attackby(var/obj/item/O, var/mob/user )
 
 	if (istype(O, /obj/item/weapon/card/emag))
 		if (emagged)

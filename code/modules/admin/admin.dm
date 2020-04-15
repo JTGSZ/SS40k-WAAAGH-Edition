@@ -1463,7 +1463,7 @@ proc/move_admin_shuttle()
 
 /**********************Alien ship**************************/
 
-var/alien_ship_location = 1 // 0 = base , 1 = mine
+var/alien_ship_location = 1 // 0 = base, 1 = mine
 
 proc/move_alien_ship()
 	var/area/fromArea

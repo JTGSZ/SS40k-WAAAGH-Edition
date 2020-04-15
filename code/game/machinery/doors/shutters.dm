@@ -16,7 +16,7 @@
 	density = 0
 	opacity = 0
 
-/obj/machinery/door/poddoor/shutters/attackby(obj/item/weapon/C , mob/user )
+/obj/machinery/door/poddoor/shutters/attackby(obj/item/weapon/C, mob/user )
 	add_fingerprint(user)
 	if(!(iscrowbar(C) || (istype(C, /obj/item/weapon/fireaxe) && C.wielded == 1) ))
 		return

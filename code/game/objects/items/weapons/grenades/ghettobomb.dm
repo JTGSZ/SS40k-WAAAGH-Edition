@@ -46,7 +46,7 @@
 	var/current_shrapnel = 0
 
 
-/obj/item/weapon/grenade/iedcasing/afterattack(atom/target, mob/user , flag) //Filling up the can
+/obj/item/weapon/grenade/iedcasing/afterattack(atom/target, mob/user, flag) //Filling up the can
 	if(assembled == 0)
 		if(istype(target, /obj/structure/reagent_dispensers/fueltank) && target.Adjacent(user))
 			if(target.reagents.total_volume < 50)

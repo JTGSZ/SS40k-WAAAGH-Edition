@@ -15,7 +15,7 @@
 	keyslot = initial(keyslot)
 	recalculateChannels()
 
-/obj/item/device/radio/borg/attackby(obj/item/weapon/W , mob/user )
+/obj/item/device/radio/borg/attackby(obj/item/weapon/W, mob/user )
 //	..()
 	user.set_machine(src)
 	if (!( W.is_screwdriver(user) || (istype(W, /obj/item/device/encryptionkey/ ))))

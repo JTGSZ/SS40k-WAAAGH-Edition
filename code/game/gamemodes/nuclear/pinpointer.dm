@@ -141,10 +141,10 @@ var/list/pinpointerpinpointer_list = list()
 		if("Location")
 			mode = 1
 
-			var/locationx = input(usr, "Please input the x coordinate to search for.", "Location?" , "") as num
+			var/locationx = input(usr, "Please input the x coordinate to search for.", "Location?", "") as num
 			if(!locationx || !Adjacent(usr))
 				return
-			var/locationy = input(usr, "Please input the y coordinate to search for.", "Location?" , "") as num
+			var/locationy = input(usr, "Please input the y coordinate to search for.", "Location?", "") as num
 			if(!locationy || !!Adjacent(usr))
 				return
 
@@ -163,7 +163,7 @@ var/list/pinpointerpinpointer_list = list()
 
 		if("Other Signature")
 			mode = 2
-			switch(alert("Search for item signature or DNA fragment?" , "Signature Mode Select" , "" , "Item" , "DNA"))
+			switch(alert("Search for item signature or DNA fragment?", "Signature Mode Select", "", "Item", "DNA"))
 				if("Item")
 					var/list/item_paths[0]
 					for(var/index in potential_theft_objectives)
@@ -181,7 +181,7 @@ var/list/pinpointerpinpointer_list = list()
 						return
 					to_chat(usr,"You set the pinpointer to locate [targetitem]")
 				if("DNA")
-					var/DNAstring = input("Input DNA string to search for." , "Please Enter String." , "")
+					var/DNAstring = input("Input DNA string to search for.", "Please Enter String.", "")
 					if(!DNAstring)
 						return
 					for(var/mob/living/carbon/M in mob_list)

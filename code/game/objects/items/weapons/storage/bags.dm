@@ -320,7 +320,7 @@ var/global/list/plantbag_colour_choices = list("plantbag", "green red stripe", "
 	//verbs -= /obj/item/weapon/storage/verb/quick_empty
 	//verbs += /obj/item/weapon/storage/bag/sheetsnatcher/quick_empty
 
-/obj/item/weapon/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W , stop_messages = FALSE)
+/obj/item/weapon/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W, stop_messages = FALSE)
 	if(!istype(W,/obj/item/stack/sheet) || istype(W,/obj/item/stack/sheet/mineral/sandstone) || istype(W,/obj/item/stack/sheet/wood))
 		if(!stop_messages)
 			to_chat(usr, "The snatcher does not accept [W].")
@@ -336,7 +336,7 @@ var/global/list/plantbag_colour_choices = list("plantbag", "green red stripe", "
 
 
 // Modified handle_item_insertion.  Would prefer not to, but...
-/obj/item/weapon/storage/bag/sheetsnatcher/handle_item_insertion(obj/item/W , prevent_warning = FALSE)
+/obj/item/weapon/storage/bag/sheetsnatcher/handle_item_insertion(obj/item/W, prevent_warning = FALSE)
 	var/obj/item/stack/sheet/S = W
 	if(!istype(S))
 		return FALSE
@@ -419,7 +419,7 @@ var/global/list/plantbag_colour_choices = list("plantbag", "green red stripe", "
 	update_icon()
 
 // Instead of removing
-/obj/item/weapon/storage/bag/sheetsnatcher/remove_from_storage(obj/item/W , atom/new_location)
+/obj/item/weapon/storage/bag/sheetsnatcher/remove_from_storage(obj/item/W, atom/new_location)
 	var/obj/item/stack/sheet/S = W
 	if(!istype(S))
 		return FALSE

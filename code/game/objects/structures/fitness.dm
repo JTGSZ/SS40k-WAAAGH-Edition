@@ -79,7 +79,7 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/weightlifter/attack_hand(mob/user , params, proximity)
+/obj/structure/weightlifter/attack_hand(mob/user, params, proximity)
 	if(!proximity)
 		return
 	if(in_use)

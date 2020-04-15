@@ -24,7 +24,7 @@
 	attack_self(user)
 	return 1
 
-/obj/item/weapon/circuitboard/airlock/attackby(obj/item/W , mob/user )
+/obj/item/weapon/circuitboard/airlock/attackby(obj/item/W, mob/user )
 	if(issolder(W))
 		var/obj/item/weapon/solder/S = W
 		if(icon_state == "door_electronics_smoked")

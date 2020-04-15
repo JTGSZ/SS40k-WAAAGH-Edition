@@ -8,7 +8,7 @@
 	if(check_shields(P.damage, P))
 		P.on_hit(src, 2)
 		return 2
-	return (..(P , def_zone))
+	return (..(P, def_zone))
 
 /mob/living/carbon/complex/attack_hand(mob/living/M)
 	switch(M.a_intent)

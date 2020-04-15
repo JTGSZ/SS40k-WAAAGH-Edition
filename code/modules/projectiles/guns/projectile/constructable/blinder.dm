@@ -86,7 +86,7 @@
 		flashbulb.shatter(verbose = FALSE)
 		update_verbs()
 
-/obj/item/device/blinder/proc/flash(var/turf/T , var/mob/living/M)
+/obj/item/device/blinder/proc/flash(var/turf/T, var/mob/living/M)
 	playsound(src, 'sound/weapons/flash.ogg', 100, 1)
 
 	if(M.blinded)

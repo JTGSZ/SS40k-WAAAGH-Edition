@@ -66,7 +66,7 @@
 		return 0
 
 
-/obj/machinery/optable/MouseDropTo(atom/movable/O , mob/user )
+/obj/machinery/optable/MouseDropTo(atom/movable/O, mob/user )
 	if(!ismob(O)) //humans only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -136,7 +136,7 @@
 
 	add_fingerprint(user)
 
-/obj/machinery/optable/attackby(obj/item/weapon/W , mob/living/carbon/user )
+/obj/machinery/optable/attackby(obj/item/weapon/W, mob/living/carbon/user )
 	if(W.is_wrench(user))
 		W.playtoolsound(src, 50)
 		if(do_after(user, src, 40))

@@ -249,7 +249,7 @@
 				continue
 	return TRUE //All roles true? Return true.
 
-/obj/item/clothing/before_stripped(mob/wearer , mob/stripper , slot)
+/obj/item/clothing/before_stripped(mob/wearer, mob/stripper, slot)
 	..()
 	if(slot == slot_w_uniform) //this will cause us to drop our belt, ID, and pockets!
 		for(var/slotID in list(slot_wear_id, slot_belt, slot_l_store, slot_r_store))

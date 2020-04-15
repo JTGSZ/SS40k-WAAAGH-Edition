@@ -208,7 +208,7 @@
 		new /obj/item/weapon/aluminum_cylinder(get_turf(src))
 		qdel(src)
 
-/obj/item/weapon/sword/venom/attack(mob/M , mob/user )
+/obj/item/weapon/sword/venom/attack(mob/M, mob/user )
 	if(!..())	//If the attack missed.
 		return
 	if(!beaker)
@@ -251,7 +251,7 @@
 	hitsound = "sound/weapons/smash.ogg"
 	var/complete = 0
 
-/obj/item/weapon/sword/executioner/afterattack(null, mob/living/user , null, null, null)
+/obj/item/weapon/sword/executioner/afterattack(null, mob/living/user, null, null, null)
 	if(complete)
 		user.delayNextAttack(30) //thrice the regular attack delay
 

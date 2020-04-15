@@ -98,7 +98,7 @@
 
 	..()
 
-/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O , var/mob/user )
+/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O, var/mob/user )
 	for(var/ac_type in accepted_types)
 		if(istype(O, ac_type))
 			return 1
@@ -341,7 +341,7 @@
 	if(.)
 		update_nearby_tiles()
 
-/obj/machinery/smartfridge/attackby(var/obj/item/O , var/mob/user , params)
+/obj/machinery/smartfridge/attackby(var/obj/item/O, var/mob/user, params)
 	if(..())
 		return 1
 	if(stat & NOPOWER)

@@ -68,7 +68,7 @@ log transactions
 		if(ticks_left_locked_down <= 0)
 			number_incorrect_tries = 0
 
-/obj/machinery/atm/attackby(obj/item/I , mob/user )
+/obj/machinery/atm/attackby(obj/item/I, mob/user )
 	if(I.is_wrench(user))
 		user.visible_message("<span class='notice'>[user] begins to take apart the [src]!</span>", "<span class='notice'>You start to take apart the [src]</span>")
 		if(do_after(user, src, 40))
@@ -128,7 +128,7 @@ log transactions
 		var/obj/item/weapon/card/id/card_id = atm_card
 		return card_id.name
 
-/obj/machinery/atm/attack_hand(mob/user ,var/fail_safe=0)
+/obj/machinery/atm/attack_hand(mob/user,var/fail_safe=0)
 	if(isobserver(user) && !isAdminGhost(user))
 		to_chat(user, "<span class='warning'>Your ghostly limb passes right through \the [src].</span>")
 		return

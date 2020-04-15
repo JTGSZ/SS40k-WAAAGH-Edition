@@ -399,7 +399,7 @@
 	var/mob_path = /mob/living/simple_animal/hostile/wolf
 	var/bonus_path = /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
 
-/obj/structure/largecrate/secure/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/largecrate/secure/attackby(obj/item/weapon/W, mob/user )
 	if(!allowed(user))
 		to_chat(user,"<span class='warning'>\The [src]'s secure bolting system flashes hostily.</span>")
 		//Not using elseif here because we want it to continue to attack_hand
@@ -555,7 +555,7 @@
 	icon_state = "telebaton_1"
 	item_state = "telebaton_1"
 
-/obj/item/weapon/depocket_wand/attack(mob/living/M , mob/living/user )
+/obj/item/weapon/depocket_wand/attack(mob/living/M, mob/living/user )
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -651,7 +651,7 @@
 			to_chat(user,"<B>[src]</B> [pick("murmurs","insults","mocks","groans","complains")], \"<span class='sinister'>[pick(reject_phrases)]</span>\"")
 		return FALSE
 
-/obj/item/device/vampirehead/attack(mob/living/M , mob/user )
+/obj/item/device/vampirehead/attack(mob/living/M, mob/user )
 	if(!user || !M) //sanity
 		return
 

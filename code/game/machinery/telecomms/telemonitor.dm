@@ -207,7 +207,7 @@
 	last_machine = T
 	updateUsrDialog()
 
-/obj/machinery/computer/telecomms/monitor/attackby(var/obj/item/weapon/D , var/mob/user )
+/obj/machinery/computer/telecomms/monitor/attackby(var/obj/item/weapon/D, var/mob/user )
 	if(..())
 		return 1
 	updateUsrDialog()

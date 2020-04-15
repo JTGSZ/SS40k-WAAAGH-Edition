@@ -138,7 +138,7 @@ var/list/impact_master = list()
 		playsound(loc, hitsound, 35, 1)
 	return 1
 
-/obj/item/projectile/proc/check_fire(var/mob/living/target , var/mob/living/user )  //Checks if you can hit them or not.
+/obj/item/projectile/proc/check_fire(var/mob/living/target, var/mob/living/user )  //Checks if you can hit them or not.
 	if(!istype(target) || !istype(user))
 		return 0
 	var/obj/item/projectile/test/in_chamber = getFromPool(/obj/item/projectile/test, get_step_to(user, target)) //Making the test....

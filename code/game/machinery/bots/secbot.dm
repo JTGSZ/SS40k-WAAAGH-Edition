@@ -411,7 +411,7 @@ Auto Patrol: []"},
 	else
 		return
 
-/obj/item/weapon/secbot_assembly/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/secbot_assembly/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if((iswelder(W)) && (!src.build_step))
 		var/obj/item/weapon/weldingtool/WT = W
@@ -667,7 +667,7 @@ Auto Patrol: []"},
 		user.drop_from_inventory(src)
 		qdel(src)
 
-/obj/item/weapon/secbot_assembly/britsky/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/secbot_assembly/britsky/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if((iswelder(W)) && (!src.build_step))
 		var/obj/item/weapon/weldingtool/WT = W

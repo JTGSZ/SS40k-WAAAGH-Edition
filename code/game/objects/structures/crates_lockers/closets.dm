@@ -431,7 +431,7 @@
 			A.forceMove(src.loc)
 		qdel(src)
 
-/obj/structure/closet/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/closet/attackby(obj/item/weapon/W, mob/user )
 	if(src.opened)
 		if(istype(W, /obj/item/weapon/grab))
 			if(src.large)

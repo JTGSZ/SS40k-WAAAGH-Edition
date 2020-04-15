@@ -109,7 +109,7 @@
 	on_attackhand.Invoke(list(user, "TOUCH"))
 	to_chat(user, "<b>You touch [src].</b>")
 
-/obj/machinery/artifact/attackby(obj/item/weapon/W , mob/living/user )
+/obj/machinery/artifact/attackby(obj/item/weapon/W, mob/living/user )
 
 	..()
 	on_attackby.Invoke(list(user, "MELEE", W))

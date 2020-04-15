@@ -23,7 +23,7 @@
 		return
 	if(find_empty_hand_index())
 		give_check = TRUE
-		switch(alert(src, "[user] wants to give you \a [I]?", , "Yes", "No"))
+		switch(alert(src, "[user] wants to give you \a [I]?",, "Yes", "No"))
 			if("Yes")
 				give_check = FALSE
 				if(!I)

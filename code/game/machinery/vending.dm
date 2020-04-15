@@ -207,7 +207,7 @@ var/global/num_vending_terminals = 1
 				spark(src, 5)
 	return ..()
 
-/obj/machinery/vending/MouseDropTo(atom/movable/O , mob/user )
+/obj/machinery/vending/MouseDropTo(atom/movable/O, mob/user )
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -1800,7 +1800,7 @@ var/global/num_vending_terminals = 1
 /obj/machinery/wallmed_frame/update_icon()
 	icon_state = "wallmed_frame[build]"
 
-/obj/machinery/wallmed_frame/attackby(var/obj/item/W , var/mob/user )
+/obj/machinery/wallmed_frame/attackby(var/obj/item/W, var/mob/user )
 	switch(build)
 		if(0) // Empty hull
 			if(W.is_screwdriver(user))
@@ -1887,7 +1887,7 @@ var/global/num_vending_terminals = 1
 				return 1
 	..()
 
-/obj/machinery/wallmed_frame/MouseDropTo(atom/movable/O , mob/user )
+/obj/machinery/wallmed_frame/MouseDropTo(atom/movable/O, mob/user )
 	if(user.incapacitated() || user.lying)
 		return
 	if(!Adjacent(user) || !user.Adjacent(O))

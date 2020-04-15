@@ -41,7 +41,7 @@
 		B += M.rating-1
 	max_seeds=4+B
 
-obj/machinery/seed_extractor/attackby(var/obj/item/O , var/mob/user )
+obj/machinery/seed_extractor/attackby(var/obj/item/O, var/mob/user )
 
 	// Emptying a plant bag
 	if (istype(O,/obj/item/weapon/storage/bag/plants))

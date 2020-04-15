@@ -55,7 +55,7 @@
 		radio_controller.remove_object(src, frequency)
 	..()
 
-/obj/item/device/radio/electropack/attackby(obj/item/weapon/W , mob/user )
+/obj/item/device/radio/electropack/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if (W.is_screwdriver())
 		b_stat = !b_stat
@@ -152,7 +152,7 @@
 		master.receive_signal()
 	return
 
-/obj/item/device/radio/electropack/attack_self(mob/user , flag1)
+/obj/item/device/radio/electropack/attack_self(mob/user, flag1)
 
 	if(!istype(user, /mob/living/carbon/human))
 		return

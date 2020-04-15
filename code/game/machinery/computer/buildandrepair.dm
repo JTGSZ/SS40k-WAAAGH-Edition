@@ -343,7 +343,7 @@
 	build_path = /obj/machinery/computer/stacking_unit
 	origin_tech = Tc_PROGRAMMING + "=2;" + Tc_MATERIALS + "=2"
 
-/obj/item/weapon/circuitboard/attackby(obj/item/I , mob/user )
+/obj/item/weapon/circuitboard/attackby(obj/item/I, mob/user )
 	if(issolder(I))
 		var/obj/item/weapon/solder/S = I
 		if(S.remove_fuel(2,user))
@@ -382,7 +382,7 @@
 		qdel(src)
 		return
 
-/obj/structure/computerframe/attackby(obj/item/P , mob/user )
+/obj/structure/computerframe/attackby(obj/item/P, mob/user )
 	switch(state)
 		if(0)
 			if(P.is_wrench(user) && wrenchAnchor(user, P))

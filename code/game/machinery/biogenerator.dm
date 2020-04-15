@@ -373,7 +373,7 @@
 		return
 	return ..()
 
-/obj/machinery/biogenerator/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/biogenerator/attackby(var/obj/item/O, var/mob/user )
 	if(..())
 		return 1
 	else if(istype(O, /obj/item/weapon/reagent_containers/glass))

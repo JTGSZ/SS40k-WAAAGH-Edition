@@ -261,7 +261,7 @@
 		words.Remove(cword)
 		var/suffix = copytext(cword,length(cword)-1,length(cword))
 		while(length(cword)>0 && suffix in list(".",",",";","!",":","?"))
-			cword  = copytext(cword,1              ,length(cword)-1)
+			cword  = copytext(cword,1             ,length(cword)-1)
 			suffix = copytext(cword,length(cword)-1,length(cword)  )
 		if(length(cword))
 			rearranged += cword

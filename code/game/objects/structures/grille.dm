@@ -157,7 +157,7 @@
 	healthcheck(hitsound = 1)
 	return 0
 
-/obj/structure/grille/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/grille/attackby(obj/item/weapon/W, mob/user )
 	user.delayNextAttack(8)
 	if(isglasssheet(W))
 		var/obj/item/stack/sheet/glass/G = W
@@ -208,7 +208,7 @@
 //Shock user with probability prb (if all connections & power are working)
 //Returns 1 if shocked, 0 otherwise
 
-/obj/structure/grille/proc/shock(mob/user , prb, siemens_coeff)
+/obj/structure/grille/proc/shock(mob/user, prb, siemens_coeff)
 	if(!anchored || broken)	//De-anchored and destroyed grilles are never connected to the powernet !
 		return 0
 	if(!prob(prb)) //If the probability roll failed, don't go further

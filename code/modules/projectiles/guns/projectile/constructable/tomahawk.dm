@@ -30,7 +30,7 @@
 					new /obj/item/weapon/hatchet/tomahawk/drilled(get_turf(src.loc))
 			qdel(src)
 
-/obj/item/weapon/hatchet/tomahawk/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/hatchet/tomahawk/attack(mob/living/carbon/M, mob/living/carbon/user )
 	var/parent_return = ..()
 	degrade(user)
 	return parent_return //Originally returned ..() itself, but I couldn't do that if I wanted the attack to appear before the break in the chat logs.

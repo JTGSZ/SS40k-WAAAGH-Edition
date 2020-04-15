@@ -60,7 +60,7 @@
 /obj/item/weapon/crossbow/get_cell()
 	return cell
 
-/obj/item/weapon/crossbow/attackby(obj/item/W , mob/user )
+/obj/item/weapon/crossbow/attackby(obj/item/W, mob/user )
 	if(!arrow)
 		if (istype(W,/obj/item/weapon/arrow))
 			if(!user.drop_item(W, src))
@@ -163,7 +163,7 @@
 		user.visible_message("[usr] draws back the string of [src]!","You continue drawing back the string of [src]!")
 		spawn(25) increase_tension(user)
 
-/obj/item/weapon/crossbow/afterattack(atom/target , mob/living/user , flag, params)
+/obj/item/weapon/crossbow/afterattack(atom/target, mob/living/user, flag, params)
 
 	if (istype(target, /obj/item/weapon/storage/backpack ))
 		src.dropped()
@@ -188,7 +188,7 @@
 	else
 		spawn(0) Fire(target,user,params)
 
-/obj/item/weapon/crossbow/proc/Fire(atom/target , mob/living/user , params, reflex = 0)
+/obj/item/weapon/crossbow/proc/Fire(atom/target, mob/living/user, params, reflex = 0)
 
 
 	add_fingerprint(user)
@@ -239,7 +239,7 @@
 		if(4) to_chat(user, "It has a steel backbone, plastic lath and a cell mount installed.")
 		if(5) to_chat(user, "It has a steel cable loosely strung across the lath.")
 
-/obj/item/crossbowframe/attackby(obj/item/W , mob/user )
+/obj/item/crossbowframe/attackby(obj/item/W, mob/user )
 	if(istype(W,/obj/item/stack/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/rods/R = W

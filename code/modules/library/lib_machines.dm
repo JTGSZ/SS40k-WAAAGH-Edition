@@ -134,7 +134,7 @@ var/global/list/library_section_names = list("Fiction", "Non-Fiction", "Adult", 
 
 	machine_flags = WRENCHMOVE | FIXED2WORK
 
-/obj/machinery/libraryscanner/attackby(var/obj/O , var/mob/user )
+/obj/machinery/libraryscanner/attackby(var/obj/O, var/mob/user )
 	if(istype(O, /obj/item/weapon/book))
 		user.drop_item(O, src)
 	else
@@ -189,7 +189,7 @@ var/global/list/library_section_names = list("Fiction", "Non-Fiction", "Adult", 
 	density = 1
 	machine_flags = WRENCHMOVE | FIXED2WORK
 
-/obj/machinery/bookbinder/attackby(var/obj/O , var/mob/user )
+/obj/machinery/bookbinder/attackby(var/obj/O, var/mob/user )
 	if(istype(O, /obj/item/weapon/paper) || istype(O, /obj/item/weapon/paper/nano))
 		if(user.drop_item(O, src))
 			user.visible_message("[user] loads some paper into [src].", "You load some paper into [src].")

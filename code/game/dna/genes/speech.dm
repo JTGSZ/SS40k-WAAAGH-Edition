@@ -7,7 +7,7 @@
 	var/list/expressions=list()
 
 // Simple replacements. (ass -> butt) => s/ass/butt/
-/datum/speech_filter/proc/addReplacement(var/orig,var/replacements , var/case_sensitive=0)
+/datum/speech_filter/proc/addReplacement(var/orig,var/replacements, var/case_sensitive=0)
 	orig        = replacetext(orig,       "/","\\/")
 	return addExpression(orig,ACT_REPLACE, replacements, flags = "[case_sensitive?"":"i"]g")
 

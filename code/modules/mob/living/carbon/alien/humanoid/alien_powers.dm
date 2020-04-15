@@ -329,7 +329,7 @@ Doesn't work on other aliens/AI.*/
 		return FALSE
 	return ..()
 
-/spell/aoe_turf/evolve/drone/spell_do_after(var/mob/user , delay as num, var/numticks = 5)
+/spell/aoe_turf/evolve/drone/spell_do_after(var/mob/user, delay as num, var/numticks = 5)
 	user.visible_message("<span class='danger'>[user] begins to violently twist and contort!</span>", "<span class='bold alien'>You begin to evolve, stand still for a few moments.</span>")
 	return ..()
 

@@ -81,7 +81,7 @@
 /obj/item/weapon/shield/IGshield/IsShield()
 	return 1
 
-/obj/item/weapon/shield/IGshield/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/shield/IGshield/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")

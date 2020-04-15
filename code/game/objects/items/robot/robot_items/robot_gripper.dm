@@ -7,7 +7,7 @@
 	var/list/valid_containers = list()
 	var/force_holder = null
 
-/obj/item/weapon/gripper/proc/grip_item(obj/item/I , mob/user, var/feedback = TRUE)
+/obj/item/weapon/gripper/proc/grip_item(obj/item/I, mob/user, var/feedback = TRUE)
 	//This function returns TRUE if we successfully took the item, or FALSE if it was invalid. This information is useful to the caller
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user

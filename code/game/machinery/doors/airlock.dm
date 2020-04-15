@@ -1134,7 +1134,7 @@ About the new airlock wires panel:
 		return 1
 	return
 
-/obj/machinery/door/airlock/attackby(obj/item/I , mob/user )
+/obj/machinery/door/airlock/attackby(obj/item/I, mob/user )
 	if(isAI(user) || isobserver(user))
 		return attack_ai(user)
 
@@ -1267,7 +1267,7 @@ About the new airlock wires panel:
 	DA.update_state()
 	qdel(src)
 
-/obj/machinery/door/airlock/proc/revert(mob/user , var/direction)
+/obj/machinery/door/airlock/proc/revert(mob/user, var/direction)
 	var/obj/structure/door_assembly/DA = new assembly_type(loc)
 	DA.anchored = 1
 	DA.fingerprints += src.fingerprints

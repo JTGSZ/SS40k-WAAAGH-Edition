@@ -78,7 +78,7 @@
 			nozzleout = FALSE
 			update_icon()
 
-/obj/item/weapon/ork/burnapack/afterattack(obj/O , mob/user , proximity)
+/obj/item/weapon/ork/burnapack/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1)

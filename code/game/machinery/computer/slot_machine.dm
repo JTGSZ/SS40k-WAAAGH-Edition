@@ -308,7 +308,7 @@
 	src.updateUsrDialog()
 
 
-/obj/machinery/computer/slot_machine/attackby(obj/item/I , mob/user )
+/obj/machinery/computer/slot_machine/attackby(obj/item/I, mob/user )
 	..()
 
 	if(istype(I,/obj/item/weapon/spacecash))

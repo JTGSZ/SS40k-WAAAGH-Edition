@@ -51,7 +51,7 @@
 	else
 		to_chat(usr, "There's no tank in [src].")
 
-/obj/item/weapon/storage/pneumatic/attackby(obj/item/W , mob/user )
+/obj/item/weapon/storage/pneumatic/attackby(obj/item/W, mob/user )
 	if(!tank && istype(W,/obj/item/weapon/tank))
 		if(!user.drop_item(W, src.tank_container))
 			to_chat(user, "<span class='warning'>You can't let go of \the [W]!</span>")
@@ -73,7 +73,7 @@
 	else
 		to_chat(user, "<span class='warning'>Nothing is attached to the tank valve!</span>")
 
-/obj/item/weapon/storage/pneumatic/afterattack(atom/target , mob/living/user , flag, params)
+/obj/item/weapon/storage/pneumatic/afterattack(atom/target, mob/living/user, flag, params)
 	if (istype(target, /obj/item/weapon/storage/backpack ))
 		return
 
@@ -92,7 +92,7 @@
 	else
 		spawn(0) Fire(target,user,params)
 
-/obj/item/weapon/storage/pneumatic/attack(mob/living/M , mob/living/user , def_zone)
+/obj/item/weapon/storage/pneumatic/attack(mob/living/M, mob/living/user, def_zone)
 	if (length(contents) > 0)
 		if(user.a_intent == I_HURT)
 			user.visible_message("<span class='danger'>\The [user] fires \the [src] point blank at [M]!</span>")
@@ -102,7 +102,7 @@
 			Fire(M,user)
 			return
 
-/obj/item/weapon/storage/pneumatic/proc/Fire(atom/target , mob/living/user , params, reflex = 0)
+/obj/item/weapon/storage/pneumatic/proc/Fire(atom/target, mob/living/user, params, reflex = 0)
 
 
 	if (!tank)

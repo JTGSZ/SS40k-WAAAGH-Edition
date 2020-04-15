@@ -203,7 +203,7 @@
 
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
-/obj/item/weapon/storage/proc/can_be_inserted(obj/item/W , stop_messages = 0)
+/obj/item/weapon/storage/proc/can_be_inserted(obj/item/W, stop_messages = 0)
 	if(W == src)
 		if(!stop_messages)
 			to_chat(usr, "<span class = 'notice'>No matter how hard you try, you can't seem to manage to fit \the [src] inside of itself.</span>")
@@ -320,7 +320,7 @@
 //This proc handles items being inserted. It does not perform any checks of whether an item can or can't be inserted. That's done by can_be_inserted()
 //The stop_warning parameter will stop the insertion message from being displayed. It is intended for cases where you are inserting multiple items at once,
 //such as when picking up all the items on a tile with one click.
-/obj/item/weapon/storage/proc/handle_item_insertion(obj/item/W , prevent_warning = 0)
+/obj/item/weapon/storage/proc/handle_item_insertion(obj/item/W, prevent_warning = 0)
 	if(!istype(W))
 		return 0
 	if(usr)
@@ -352,7 +352,7 @@
 
 //Call this proc to handle the removal of an item from the storage item. The item will be moved to the atom sent as new_target
 //force needs to be 1 if you want to override the can_be_inserted() if the target's a storage item.
-/obj/item/weapon/storage/proc/remove_from_storage(obj/item/W , atom/new_location, var/force = 0, var/refresh = 1)
+/obj/item/weapon/storage/proc/remove_from_storage(obj/item/W, atom/new_location, var/force = 0, var/refresh = 1)
 	if(!istype(W))
 		return 0
 
@@ -401,7 +401,7 @@
 	return 1
 
 //This proc is called when you want to place an item into the storage item.
-/obj/item/weapon/storage/attackby(obj/item/W , mob/user )
+/obj/item/weapon/storage/attackby(obj/item/W, mob/user )
 	if(!Adjacent(user,MAX_ITEM_DEPTH))
 		return
 	..()
@@ -641,7 +641,7 @@
 	for(var/obj/item/I in contents)
 		I.OnMobDeath(wearer)
 
-/obj/item/weapon/storage/stripped(mob/wearer , mob/stripper )
+/obj/item/weapon/storage/stripped(mob/wearer, mob/stripper )
 	for(var/obj/item/I in contents)
 		I.stripped(wearer, stripper)
 

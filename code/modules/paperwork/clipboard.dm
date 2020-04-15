@@ -31,13 +31,13 @@
 	overlays += image(icon, "clipboard_over")
 	return
 
-/obj/item/weapon/storage/bag/clipboard/handle_item_insertion(obj/item/W , prevent_warning = 0)
+/obj/item/weapon/storage/bag/clipboard/handle_item_insertion(obj/item/W, prevent_warning = 0)
 	//No special sanity needed since all checks handled in can_be_inserted(), see storage.dm
 	if(istype(W,/obj/item/weapon/paper))
 		toppaper = W
 	..() //also calls update_icon()
 
-/obj/item/weapon/storage/bag/clipboard/remove_from_storage(obj/item/W , atom/new_location, var/force = 0, var/refresh = 1)
+/obj/item/weapon/storage/bag/clipboard/remove_from_storage(obj/item/W, atom/new_location, var/force = 0, var/refresh = 1)
 	. = ..()
 	for(var/i = contents.len; i>0; i--)
 		if(istype(contents[i],/obj/item/weapon/paper))

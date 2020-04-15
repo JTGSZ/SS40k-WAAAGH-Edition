@@ -45,7 +45,7 @@
 		target = null
 
 //Compute how to fire.....
-/obj/item/weapon/gun/proc/PreFire(atom/A , mob/living/user , params, struggle = 0)
+/obj/item/weapon/gun/proc/PreFire(atom/A, mob/living/user, params, struggle = 0)
 	//Lets not spam it.
 	if(lock_time > world.time - 2)
 		return

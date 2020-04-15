@@ -30,7 +30,7 @@
 /obj/item/weapon/reagent_containers/glass/rag/mop_act(obj/item/weapon/mop/M, mob/user)
 	return 0
 
-/obj/item/weapon/reagent_containers/glass/rag/attack(mob/living/M , mob/living/user , def_zone)
+/obj/item/weapon/reagent_containers/glass/rag/attack(mob/living/M, mob/living/user, def_zone)
 	if (!ismob(M))
 		..()
 	if(user.zone_sel.selecting == "mouth")

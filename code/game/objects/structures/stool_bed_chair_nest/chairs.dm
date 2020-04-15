@@ -161,10 +161,10 @@
 /obj/structure/bed/chair/AltClick(mob/user )
 	buckle_chair(user,user)	
 
-/obj/structure/bed/chair/MouseDropTo(mob/M , mob/user )
+/obj/structure/bed/chair/MouseDropTo(mob/M, mob/user )
 	buckle_chair(M,user)
 
-/obj/structure/bed/chair/proc/buckle_chair(mob/M , mob/user )
+/obj/structure/bed/chair/proc/buckle_chair(mob/M, mob/user )
 	if(!istype(M))
 		return ..()
 
@@ -262,7 +262,7 @@
 	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."
 
-/obj/structure/bed/chair/holowood/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/bed/chair/holowood/attackby(obj/item/weapon/W, mob/user )
 	return
 
 //Comfy chairs

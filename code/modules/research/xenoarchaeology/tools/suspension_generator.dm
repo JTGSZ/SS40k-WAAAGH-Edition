@@ -175,7 +175,7 @@
 		cell = null
 		to_chat(user, "<span class='info'>You remove the power cell</span>")
 
-/obj/machinery/suspension_gen/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/suspension_gen/attackby(obj/item/weapon/W, mob/user )
 	if (W.is_screwdriver(user))
 		if(!open)
 			if(screwed)

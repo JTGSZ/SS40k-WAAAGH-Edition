@@ -73,7 +73,7 @@
 	color=PIPE_COLOR_CYAN
 
 
-/obj/machinery/atmospherics/unary/cap/attackby(var/obj/item/weapon/W , var/mob/user )
+/obj/machinery/atmospherics/unary/cap/attackby(var/obj/item/weapon/W, var/mob/user )
 	if(istype(W, /obj/item/device/rcd/rpd) || istype(W, /obj/item/device/pipe_painter))
 		return // Coloring pipes.
 

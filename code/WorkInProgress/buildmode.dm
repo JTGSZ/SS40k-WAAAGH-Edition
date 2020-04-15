@@ -250,7 +250,7 @@ obj/effect/bmode/buildholder/New()
 			if(3)
 				var/list/locked = list("vars", "key", "ckey", "client", "firemut", "ishulk", "telekinesis", "xray", "virus", "viruses", "cuffed", "ka", "last_eaten", "urine")
 
-				var/edit_variable = input(usr,"Enter variable name:" ,"Name", "name")
+				var/edit_variable = input(usr,"Enter variable name:","Name", "name")
 				if(edit_variable in locked && !check_rights(R_DEBUG,0))
 					return 1
 

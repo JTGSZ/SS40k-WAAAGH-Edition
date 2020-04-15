@@ -388,7 +388,7 @@
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_COMBAT + "=1"
 	attack_verb = list("chops", "tears", "cuts")
 
-/obj/item/weapon/hatchet/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/hatchet/attack(mob/living/carbon/M, mob/living/carbon/user )
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 	return ..()
 
@@ -416,7 +416,7 @@
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_COMBAT + "=2"
 	attack_verb = list("chops", "slices", "cuts", "reaps")
 
-/obj/item/weapon/scythe/afterattack(atom/A, mob/user , proximity)
+/obj/item/weapon/scythe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(A, /obj/effect/plantsegment) || istype(A, /turf/simulated/floor) || istype(A, /obj/effect/biomass) || istype(A, /obj/structure/cable/powercreeper))

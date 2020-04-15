@@ -274,7 +274,7 @@
 			newline = copytext(newline, 1, INSTRUMENT_MAX_LINE_LENGTH)
 		lines.Add(newline)
 	else if(href_list["deleteline"])
-		if(alert(usr, "Are you sure you want to delete Line [href_list["deleteline"]]?",  "Delete Line" , "Yes" , "No") != "Yes")
+		if(alert(usr, "Are you sure you want to delete Line [href_list["deleteline"]]?",  "Delete Line", "Yes", "No") != "Yes")
 			return
 		var/num = round(text2num(href_list["deleteline"]))
 		if(num > lines.len || num < 1)
@@ -417,7 +417,7 @@
 /obj/structure/piano/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.destroy)
 		src.ex_act(2)
-	else if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+	else if(!istype(Proj,/obj/item/projectile/beam/lasertag) && !istype(Proj,/obj/item/projectile/beam/practice) )
 		if(prob(Proj.damage))
 			src.ex_act(2)
 

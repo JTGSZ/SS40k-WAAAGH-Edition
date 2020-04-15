@@ -66,7 +66,7 @@
 
 	return
 
-/obj/structure/window/barricade/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/window/barricade/attackby(obj/item/weapon/W, mob/user )
 
 	if(iscrowbar(W) && user.a_intent == I_HURT && !busy) //Only way to deconstruct, needs harm intent
 		W.playtoolsound(loc, 75)
@@ -138,7 +138,7 @@
 	..(loc)
 	flow_flags &= ~ON_BORDER
 
-/obj/structure/window/barricade/full/Uncross(atom/movable/O , target )
+/obj/structure/window/barricade/full/Uncross(atom/movable/O, target )
 
 	return 1
 

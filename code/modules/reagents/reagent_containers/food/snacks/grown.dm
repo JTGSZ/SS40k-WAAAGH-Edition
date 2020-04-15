@@ -321,7 +321,7 @@ var/list/special_fruits = list()
 	filling_color = "#E6E8DA"
 	plantname = "potato"
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/potato/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/reagent_containers/food/snacks/grown/potato/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if(istype(W, /obj/item/stack/cable_coil))
 		if(W:amount >= 5)
@@ -461,7 +461,7 @@ var/list/special_fruits = list()
 	potency = 10
 	plantname = "ambrosiacruciatus"
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/attackby(var/obj/item/weapon/O , var/mob/user )
+/obj/item/weapon/reagent_containers/food/snacks/grown/attackby(var/obj/item/weapon/O, var/mob/user )
 	if(istype(O, /obj/item/weapon/paper))
 		qdel(O)
 		to_chat(user, "<span class='notice'>You roll a blunt out of \the [src].</span>")
@@ -482,7 +482,7 @@ var/list/special_fruits = list()
 	filling_color = "#229E11"
 	plantname = "ambrosiadeus"
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris/deus/attackby(var/obj/item/weapon/O , var/mob/user )
+/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris/deus/attackby(var/obj/item/weapon/O, var/mob/user )
 	if(istype(O, /obj/item/weapon/paper))
 		qdel(O)
 		to_chat(user, "<span class='notice'>You roll a godly blunt.</span>")
@@ -530,7 +530,7 @@ var/list/special_fruits = list()
 	filling_color = "#FAB728"
 	plantname = "pumpkin"
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/pumpkin/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/reagent_containers/food/snacks/grown/pumpkin/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if(W.sharpness_flags & SHARP_BLADE)
 		user.visible_message("<span class='notice'>[user] carves a face into \the [src] with \the [W]!</span>", "<span class='notice'>You carve a face into \the [src] with \the [W]!</span>")

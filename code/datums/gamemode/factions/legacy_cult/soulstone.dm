@@ -32,7 +32,7 @@
 	transfer_soul("VICTIM", M, user)
 	return
 
-/*attack(mob/living/simple_animal/shade/M , mob/user )//APPARENTLY THEY NEED THEIR OWN SPECIAL SNOWFLAKE CODE IN THE LIVING ANIMAL DEFINES
+/*attack(mob/living/simple_animal/shade/M, mob/user )//APPARENTLY THEY NEED THEIR OWN SPECIAL SNOWFLAKE CODE IN THE LIVING ANIMAL DEFINES
 	if(!istype(M, /mob/living/simple_animal/shade))//If target is not a shade
 		return ..()
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</font>")
@@ -106,7 +106,7 @@
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "shell"
 
-/obj/structure/constructshell/attackby(obj/item/O , mob/user )
+/obj/structure/constructshell/attackby(obj/item/O, mob/user )
 	if(istype(O, /obj/item/device/soulstone/gem))
 		O.transfer_soul("PERFECT",src,user)
 	else if(istype(O, /obj/item/device/soulstone))
@@ -124,7 +124,7 @@
 		L.canmove = 1
 		L.cancel_camera()
 
-/obj/item/proc/capture_soul(var/target, var/mob/user , var/silent=0)
+/obj/item/proc/capture_soul(var/target, var/mob/user, var/silent=0)
 	if(istype(target, /mob/living/carbon))//humans, monkeys, aliens
 		var/mob/living/carbon/carbonMob = target
 		//first of all, let's check that our target has a soul, somewhere

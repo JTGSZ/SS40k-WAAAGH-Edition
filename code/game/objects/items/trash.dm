@@ -56,7 +56,7 @@
 	if(pixel_y == 0)
 		pixel_y = rand(-4, 4) * PIXEL_MULTIPLIER
 
-/obj/item/trash/attack(mob/M , mob/living/user )
+/obj/item/trash/attack(mob/M, mob/living/user )
 	return
 
 /obj/item/trash/bustanuts

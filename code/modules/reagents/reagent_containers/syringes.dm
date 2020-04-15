@@ -35,7 +35,7 @@
 								/obj/item/weapon/light,
 								/obj/item/weapon/fossil/egg)
 
-/obj/item/weapon/reagent_containers/syringe/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/reagent_containers/syringe/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		set_tiny_label(user)
 
@@ -71,7 +71,7 @@
 /obj/item/weapon/reagent_containers/syringe/attack_paw(var/mob/user)
 	return attack_hand(user)
 
-/obj/item/weapon/reagent_containers/syringe/attack(mob/M , mob/user , def_zone)
+/obj/item/weapon/reagent_containers/syringe/attack(mob/M, mob/user, def_zone)
 	return //Stop trying to drink from syringes!
 
 /obj/item/weapon/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity_flag, click_parameters)
@@ -250,7 +250,7 @@
 	else
 		return INJECTION_BODY
 
-/obj/item/weapon/reagent_containers/syringe/proc/syringestab(mob/living/carbon/target , mob/living/carbon/user )
+/obj/item/weapon/reagent_containers/syringe/proc/syringestab(mob/living/carbon/target, mob/living/carbon/user )
 	if (ishuman(target))
 		var/mob/living/carbon/human/H = target
 		var/target_zone = check_zone(user.zone_sel.selecting, target)

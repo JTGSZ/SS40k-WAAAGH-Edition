@@ -646,7 +646,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/get_owner_name_from_ID()
 	return owner
 
-/obj/item/device/pda/MouseDropFrom(obj/over_object , src_location, over_location)
+/obj/item/device/pda/MouseDropFrom(obj/over_object, src_location, over_location)
 	var/mob/M = usr
 	if((!istype(over_object, /obj/abstract/screen)) && can_use(M))
 		return attack_self(M)
@@ -2281,7 +2281,7 @@ obj/item/device/pda/AltClick()
 		return
 	return ..()
 
-/obj/item/device/pda/proc/id_check(mob/user , choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
+/obj/item/device/pda/proc/id_check(mob/user, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
 	if(choice == 1)
 		if (id)
 			remove_id()
@@ -2302,7 +2302,7 @@ obj/item/device/pda/AltClick()
 	return
 
 // access to status display signals
-/obj/item/device/pda/attackby(obj/item/C , mob/user )
+/obj/item/device/pda/attackby(obj/item/C, mob/user )
 	..()
 	if(hidden_uplink && hidden_uplink.active && hidden_uplink.refund(user, C))
 		return
@@ -2428,7 +2428,7 @@ obj/item/device/pda/AltClick()
 		note = A:info
 		to_chat(user, "<span class='notice'>Paper scanned.</span>")//concept of scanning paper copyright brainoblivion 2009
 
-/obj/item/device/pda/preattack(atom/A , mob/user )
+/obj/item/device/pda/preattack(atom/A, mob/user )
 	switch(scanmode)
 		if(SCANMODE_REAGENT)
 			if(!A.Adjacent(user))

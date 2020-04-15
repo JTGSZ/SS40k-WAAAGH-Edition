@@ -21,7 +21,7 @@
 /obj/item/weapon/reagent_containers/pill/attack_self(mob/user )
 	return attack(user, user) //Dealt with in attack code
 
-/obj/item/weapon/reagent_containers/pill/attack(mob/M , mob/user , def_zone)
+/obj/item/weapon/reagent_containers/pill/attack(mob/M, mob/user, def_zone)
 	return try_feed(M, user)
 
 // Handles pill dissolving in containers

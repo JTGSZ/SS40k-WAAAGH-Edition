@@ -4,7 +4,7 @@
 	anchored = 1
 	density = 1
 
-	attackby(obj/item/weapon/W , mob/user )
+	attackby(obj/item/weapon/W, mob/user )
 		return attack_hand(user)
 
 	attack_hand(mob/user )
@@ -416,7 +416,7 @@ var/global/list/PDA_Manifest = list()
 	flags = FPRINT
 	siemens_coefficient = 1
 
-/obj/item/weapon/beach_ball/afterattack(atom/target , mob/user )
+/obj/item/weapon/beach_ball/afterattack(atom/target, mob/user )
 	if(user.drop_item(src))
 		src.throw_at(target, throw_range, throw_speed)
 

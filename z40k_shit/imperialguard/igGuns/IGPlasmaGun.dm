@@ -19,7 +19,7 @@
 		reagents.add_reagent(HYDROGEN, max_fuel)
 
 //If someone drops a plasma gun onto us, we tie ourselves together.
-/obj/item/weapon/iguard/ig_powerpack/MouseDropTo(atom/movable/O , mob/user )
+/obj/item/weapon/iguard/ig_powerpack/MouseDropTo(atom/movable/O, mob/user )
 	..()
 	if(istype(O, /obj/item/weapon/gun/ig_plasma_gun))
 		if(user.is_wearing_item(src, slot_back))
@@ -42,7 +42,7 @@
 			ASS.update_icon()
 
 //If we attack a hydrogen tank with our powerpack we refuel.
-/obj/item/weapon/iguard/ig_powerpack/afterattack(obj/O , mob/user , proximity)
+/obj/item/weapon/iguard/ig_powerpack/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/hydrogen_tank) && get_dist(src,O) <= 1)

@@ -59,7 +59,7 @@ var/list/smes_list = list()
 
 	initialize()
 
-/obj/machinery/power/battery/smes/attackby(var/obj/item/weapon/W , var/mob/user ) //these can only be moved by being reconstructed, solves having to remake the powernet.
+/obj/machinery/power/battery/smes/attackby(var/obj/item/weapon/W, var/mob/user ) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	if(iscrowbar(W) && panel_open && terminal)
 		to_chat(user, "<span class='warning'>You must first cut the terminal from the SMES!</span>")
 		return 1

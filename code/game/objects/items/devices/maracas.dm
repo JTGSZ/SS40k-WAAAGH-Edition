@@ -27,7 +27,7 @@
 
 /obj/item/device/maracas/throw_impact(atom/hit_atom)
 	if(emagged)
-		explosion(get_turf(src), -1 ,1, 3)
+		explosion(get_turf(src), -1,1, 3)
 		qdel(src)
 
 /obj/item/device/maracas/dropped(mob/user)

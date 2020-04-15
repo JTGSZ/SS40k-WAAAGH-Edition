@@ -59,7 +59,7 @@
 		playsound(src, selected_sound, volume, shiftpitch)
 		spam_flag = world.timeofday
 
-/obj/item/device/soundsynth/attack(mob/living/M , mob/living/user , def_zone)
+/obj/item/device/soundsynth/attack(mob/living/M, mob/living/user, def_zone)
 	if(M == user)
 		pick_sound()
 	else if(spam_flag + 2 SECONDS < world.timeofday)

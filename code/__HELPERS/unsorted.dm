@@ -645,7 +645,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 			cant_pass = 1
 	return cant_pass
 
-/proc/get_step_towards2(var/atom/ref , var/atom/trg)
+/proc/get_step_towards2(var/atom/ref, var/atom/trg)
 	var/base_dir = get_dir(ref, get_step_towards(ref,trg))
 	var/turf/temp = get_step_towards(ref,trg)
 
@@ -677,7 +677,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		return get_step(ref, base_dir)
 
 //if needs_item is 0 it won't need any item that existed in "holding" to finish
-/proc/do_mob(var/mob/user , var/mob/target, var/delay = 30, var/numticks = 10, var/needs_item = 1) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(var/mob/user, var/mob/target, var/delay = 30, var/numticks = 10, var/needs_item = 1) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		return 0
 	var/user_loc = user.loc
@@ -965,7 +965,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/datum/coords/CR = new(x_pos+C.x_pos,y_pos+C.y_pos,z_pos+C.z_pos)
 	return CR
 
-proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
+proc/DuplicateObject(obj/original, var/perfectcopy = 0, var/sameloc = 0)
 	if(!original)
 		return null
 
@@ -983,7 +983,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	return O
 
 
-/area/proc/copy_contents_to(var/area/A , var/platingRequired = 0 )
+/area/proc/copy_contents_to(var/area/A, var/platingRequired = 0 )
 	//Takes: Area. Optional: If it should copy to areas that don't have plating
 	//Returns: Nothing.
 	//Notes: Attempts to move the contents of one area to another area.
@@ -1066,7 +1066,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 
 					for(var/obj/O in objs)
-						newobjs += DuplicateObject(O , 1)
+						newobjs += DuplicateObject(O, 1)
 
 
 					for(var/obj/O in newobjs)
@@ -1079,7 +1079,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 						mobs += M
 
 					for(var/mob/M in mobs)
-						newmobs += DuplicateObject(M , 1)
+						newmobs += DuplicateObject(M, 1)
 
 					for(var/mob/M in newmobs)
 						M.forceMove(X)
@@ -1127,7 +1127,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 proc/anyprob(value)
 	return (rand(1,value)==value)
 
-proc/view_or_range(distance = world.view , center = usr , type)
+proc/view_or_range(distance = world.view, center = usr, type)
 	switch(type)
 		if("view")
 			. = view(distance,center)
@@ -1135,7 +1135,7 @@ proc/view_or_range(distance = world.view , center = usr , type)
 			. = range(distance,center)
 	return
 
-proc/oview_or_orange(distance = world.view , center = usr , type)
+proc/oview_or_orange(distance = world.view, center = usr, type)
 	switch(type)
 		if("view")
 			. = oview(distance,center)

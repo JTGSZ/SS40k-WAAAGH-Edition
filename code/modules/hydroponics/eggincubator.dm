@@ -45,7 +45,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/machinery/egg_incubator/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/egg_incubator/attackby(var/obj/item/O, var/mob/user )
 	if(..())
 		return 1
 	if(contents.len >= limit)

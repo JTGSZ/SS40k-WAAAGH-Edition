@@ -16,7 +16,7 @@
 	..()
 	return
 
-/obj/item/assembly/shock_kit/attackby(obj/item/weapon/W , mob/user )
+/obj/item/assembly/shock_kit/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_wrench(user))
 		var/turf/T = loc
 		if(ismob(T))

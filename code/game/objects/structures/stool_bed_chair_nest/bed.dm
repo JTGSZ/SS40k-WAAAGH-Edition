@@ -83,7 +83,7 @@
 		M.clear_alert(SCREEN_ALARM_BUCKLE)
 		return TRUE
 
-/obj/structure/bed/proc/buckle_mob(mob/M , mob/user )
+/obj/structure/bed/proc/buckle_mob(mob/M, mob/user )
 	if(!Adjacent(user) || user.incapacitated() || istype(user, /mob/living/silicon/pai))
 		return
 

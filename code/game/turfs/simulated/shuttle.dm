@@ -20,7 +20,7 @@
 /turf/simulated/shuttle/wall/shuttle_rotate(angle) //delete this when autosmooth is added
 	src.transform = turn(src.transform, angle)
 
-/turf/simulated/shuttle/wall/attackby(obj/item/weapon/W , mob/user )
+/turf/simulated/shuttle/wall/attackby(obj/item/weapon/W, mob/user )
 	user.delayNextAttack(8)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)

@@ -32,7 +32,7 @@
 		icon_state_to_appearance[icon_state] = appearance
 	snowballs = rand(5, 10) //Used to be (30, 50). A quick way to overload the server with atom instances.
 
-/turf/simulated/floor/plating/snow/attackby(obj/item/weapon/W , mob/user )
+/turf/simulated/floor/plating/snow/attackby(obj/item/weapon/W, mob/user )
 
 	..()
 

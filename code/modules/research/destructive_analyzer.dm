@@ -59,7 +59,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		return TRUE
 	return FALSE
 
-/obj/machinery/r_n_d/destructive_analyzer/attackby(var/obj/O , var/mob/user )
+/obj/machinery/r_n_d/destructive_analyzer/attackby(var/obj/O, var/mob/user )
 	if(..())
 		return 1
 	if (istype(O, /obj/item) && !loaded_item && !panel_open)

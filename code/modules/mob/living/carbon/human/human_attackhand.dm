@@ -258,5 +258,5 @@
 			return M.disarm_mob(src)
 	return
 
-/mob/living/carbon/human/proc/afterattack(atom/target , mob/living/user , inrange, params)
+/mob/living/carbon/human/proc/afterattack(atom/target, mob/living/user, inrange, params)
 	return

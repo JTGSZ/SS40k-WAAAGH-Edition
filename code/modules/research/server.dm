@@ -302,7 +302,7 @@
 	onclose(user, "server_control")
 	return
 
-/obj/machinery/computer/rdservercontrol/attackby(var/obj/item/weapon/D , var/mob/user )
+/obj/machinery/computer/rdservercontrol/attackby(var/obj/item/weapon/D, var/mob/user )
 	if(D.is_screwdriver(user))
 		D.playtoolsound(src, 50)
 		if(do_after(user, src, 20))

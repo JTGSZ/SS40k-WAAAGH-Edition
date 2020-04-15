@@ -30,7 +30,7 @@
 		stat |= MAINT
 		src.update_icon()
 
-/obj/machinery/embedded_controller/attackby(var/obj/item/W , var/mob/user )
+/obj/machinery/embedded_controller/attackby(var/obj/item/W, var/mob/user )
 	. = ..()
 	if(.)
 		return .

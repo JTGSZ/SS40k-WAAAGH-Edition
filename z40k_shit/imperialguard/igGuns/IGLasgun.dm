@@ -170,7 +170,7 @@
 /*
 	ITEM INTERACTIONS
 					*/
-/obj/item/weapon/gun/energy/lasgun/attackby(var/obj/item/A , mob/user ) //Loading
+/obj/item/weapon/gun/energy/lasgun/attackby(var/obj/item/A, mob/user ) //Loading
 	if(A.is_screwdriver(user))
 		to_chat(user, "<span class='notice'>You adjust and repair the [src].</span>")
 		degradation_state = 10

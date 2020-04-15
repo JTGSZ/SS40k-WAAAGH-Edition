@@ -238,7 +238,7 @@
 		return 1
 
 	damage_archived = damage
-	damage = max( damage + ( (removed.temperature - 800) / 150 ) , 0 )
+	damage = max( damage + ( (removed.temperature - 800) / 150 ), 0 )
 	//Ok, 100% oxygen atmosphere = best reaction
 	//Maxes out at 100% oxygen pressure
 	oxygen = clamp((removed[GAS_OXYGEN] - removed[GAS_NITROGEN] * NITROGEN_RETARDATION_FACTOR) / MOLES_CELLSTANDARD, 0, 1) //0 unless O2>80%. At 99%, ~0.6
@@ -362,7 +362,7 @@
 /obj/machinery/power/supermatter/proc/transfer_energy()
 	emitted_harvestable_radiation(get_turf(src), power, range = 15)
 
-/obj/machinery/power/supermatter/attackby(obj/item/weapon/W , mob/living/user )
+/obj/machinery/power/supermatter/attackby(obj/item/weapon/W, mob/living/user )
 	. = ..()
 	if(.)
 		return .

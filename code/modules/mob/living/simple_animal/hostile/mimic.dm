@@ -521,15 +521,15 @@ var/global/list/protected_objects = list(
 		var/amplitude = 2
 		var/pixel_x_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
 		var/pixel_y_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
-		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 1, loop = -1)
+		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 1, loop = -1)
 		animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 1, loop = -1, easing = BOUNCE_EASING)
 		pixel_x_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
 		pixel_y_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
-		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 1, loop = -1)
+		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 1, loop = -1)
 		animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 1, loop = -1, easing = BOUNCE_EASING)
 		pixel_x_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
 		pixel_y_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
-		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 1, loop = -1)
+		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 1, loop = -1)
 		animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 1, loop = -1, easing = BOUNCE_EASING)
 
 	// Die after a specified time limit
@@ -584,15 +584,15 @@ var/global/list/protected_objects = list(
 			var/amplitude = 2
 			var/pixel_x_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
 			var/pixel_y_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
-			animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 1, loop = -1)
+			animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 1, loop = -1)
 			animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 1, loop = -1, easing = BOUNCE_EASING)
 			pixel_x_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
 			pixel_y_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
-			animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 1, loop = -1)
+			animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 1, loop = -1)
 			animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 1, loop = -1, easing = BOUNCE_EASING)
 			pixel_x_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
 			pixel_y_diff = rand(-amplitude, amplitude) * PIXEL_MULTIPLIER
-			animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 1, loop = -1)
+			animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 1, loop = -1)
 			animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 1, loop = -1, easing = BOUNCE_EASING)
 
 		if(istype(O, /obj/structure) || istype(O, /obj/machinery))

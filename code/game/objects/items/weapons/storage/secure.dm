@@ -35,7 +35,7 @@
 	if(!locked)
 		..()
 
-/obj/item/weapon/storage/secure/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/storage/secure/attackby(obj/item/weapon/W, mob/user )
 	if(locked)
 		if ( istype(W, /obj/item/weapon/card/emag) && (!src.emagged))
 			emagged = 1
@@ -194,7 +194,7 @@
 		M.update_inv_hands()
 
 	//I consider this worthless but it isn't my code so whatever.  Remove or uncomment.
-	/*attack(mob/M , mob/living/user )
+	/*attack(mob/M, mob/living/user )
 		if (clumsy_check(user) && prob(50))
 			to_chat(user, "<span class='warning'>The [src] slips out of your hand and hits your head.</span>")
 			user.take_organ_damage(10)

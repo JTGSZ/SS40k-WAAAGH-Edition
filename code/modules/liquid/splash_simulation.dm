@@ -42,7 +42,7 @@ client/proc/splash()
 		return
 	trigger_splash(T, volume)
 
-proc/trigger_splash(turf/epicenter , volume as num)
+proc/trigger_splash(turf/epicenter, volume as num)
 	if(!epicenter)
 		return
 	if(volume <= 0)

@@ -53,7 +53,7 @@
 	else
 		set_light(0)
 
-/obj/machinery/bodyscanner/MouseDropTo(atom/movable/O , mob/user )
+/obj/machinery/bodyscanner/MouseDropTo(atom/movable/O, mob/user )
 	if(!ismob(O)) //humans only
 		return
 	if(O.loc == user || !isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O)) //no you can't pull things out of your ass
@@ -202,7 +202,7 @@
 		return FALSE
 	return ..()
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/W , user )
+/obj/machinery/bodyscanner/attackby(obj/item/weapon/W, user )
 	if(!istype(W, /obj/item/weapon/grab))
 		return ..()
 	var/obj/item/weapon/grab/G = W

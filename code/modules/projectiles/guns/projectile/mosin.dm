@@ -60,7 +60,7 @@
 	update_icon()	//I.E. fix the desc
 	return 1
 
-/obj/item/weapon/gun/projectile/mosin/attackby(var/obj/item/A , mob/living/user )
+/obj/item/weapon/gun/projectile/mosin/attackby(var/obj/item/A, mob/living/user )
 	..()
 	if(istype(src, /obj/item/weapon/gun/projectile/mosin/obrez))
 		return
@@ -90,7 +90,7 @@
 /obj/item/weapon/gun/projectile/mosin/obrez/isHandgun()
 	return TRUE //WHY NOT
 
-/obj/item/weapon/gun/projectile/mosin/obrez/Fire(atom/target , mob/living/user , params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/mosin/obrez/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	if(current_shell && current_shell.BB)
 		//explosion(src.loc,-1,1,2)
 		spark(user, 3, FALSE)

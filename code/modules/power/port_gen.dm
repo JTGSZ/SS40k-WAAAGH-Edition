@@ -188,7 +188,7 @@
 	else
 		disconnect_from_network()
 
-/obj/machinery/power/port_gen/pacman/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/power/port_gen/pacman/attackby(var/obj/item/O, var/mob/user )
 	if(istype(O, sheet_path))
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)

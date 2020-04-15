@@ -60,10 +60,10 @@
 				to_chat(user, "You fail to repair the pylon")
 	attackpylon(user, user.melee_damage_upper)
 
-/obj/structure/cult_legacy/pylon/attackby(obj/item/W , mob/user )
+/obj/structure/cult_legacy/pylon/attackby(obj/item/W, mob/user )
 	attackpylon(user, W.force)
 
-/obj/structure/cult_legacy/pylon/proc/attackpylon(mob/user , var/damage)
+/obj/structure/cult_legacy/pylon/proc/attackpylon(mob/user, var/damage)
 	if(!isbroken)
 		if(prob(1+ damage * 5))
 			to_chat(user, "You hit the pylon, and its crystal breaks apart!")
@@ -104,7 +104,7 @@
 	light_range = 2
 	light_color = LIGHT_COLOR_RED
 
-/obj/structure/cult_legacy/tome/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/cult_legacy/tome/attackby(obj/item/weapon/W, mob/user )
 	user.drop_item(W, src.loc)
 	return 1
 

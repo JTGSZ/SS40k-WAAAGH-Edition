@@ -229,7 +229,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/server/attackby(var/obj/item/weapon/D , var/mob/user )
+/obj/machinery/computer/telecomms/server/attackby(var/obj/item/weapon/D, var/mob/user )
 	if(..())
 		return 1
 	src.updateUsrDialog()

@@ -144,7 +144,7 @@
 		icon_state = "[initial(icon_state)]_dead"
 		death()
 
-/obj/item/clothing/mask/facehugger/attack(mob/living/M , mob/user )
+/obj/item/clothing/mask/facehugger/attack(mob/living/M, mob/user )
 	..()
 	user.drop_from_inventory(src)
 	Attach(M)

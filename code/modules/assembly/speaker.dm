@@ -29,7 +29,7 @@
 		language = all_languages["Spooky"]
 	src.say("New message: [message]", language)
 
-/obj/item/device/assembly/speaker/attackby(obj/item/W , mob/user )
+/obj/item/device/assembly/speaker/attackby(obj/item/W, mob/user )
 	..()
 	if(istype(W,/obj/item/weapon/pen)) //pen
 		var/new_name = sanitize(input(user,"Enter new name for the [src]","NanoSpeaker Settings",name))

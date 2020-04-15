@@ -23,7 +23,7 @@
 
 	light_color = LIGHT_COLOR_RED
 
-/obj/machinery/computer/secure_data/attackby(obj/item/O , user )
+/obj/machinery/computer/secure_data/attackby(obj/item/O, user )
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
 		if(usr.drop_item(O, src))
 			scan = O

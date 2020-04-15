@@ -22,7 +22,7 @@
 		else
 			return ..()
 
-/obj/item/clothing/mask/stone/equipped(mob/M , wear_mask)
+/obj/item/clothing/mask/stone/equipped(mob/M, wear_mask)
 	if(!istype(M, /mob/living/carbon/human)) //just in case a non-human somehow manages to equip it
 		forceMove(M.loc)
 	spikes()

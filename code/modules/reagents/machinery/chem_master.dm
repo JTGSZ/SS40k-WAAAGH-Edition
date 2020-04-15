@@ -97,7 +97,7 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 	if(prob(50))
 		qdel(src)
 
-/obj/machinery/chem_master/attackby(var/obj/item/weapon/B , var/mob/user )
+/obj/machinery/chem_master/attackby(var/obj/item/weapon/B, var/mob/user )
 	if(..())
 		return 1
 
@@ -516,7 +516,7 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 					reg_name = "[reg_name] ([vaccines])"
 				dat += {"
 					<td class="column1">
-						[reg_name] , [round(G.volume, 0.01)] Units - <A href='?src=\ref[src];analyze=\ref[G]'>(?)</A>
+						[reg_name], [round(G.volume, 0.01)] Units - <A href='?src=\ref[src];analyze=\ref[G]'>(?)</A>
 					</td>
 					<td class="column2">
 						<A href='?src=\ref[src];add=[G.id];amount=1'>1u</A>
@@ -591,7 +591,7 @@ var/global/list/pillIcon2Name = list("oblong purple-pink", "oblong green-white",
 					reg_name = "[reg_name] ([vaccines])"
 				dat += {"
 					<td class="column1">
-						[reg_name] , [round(N.volume, 0.01)] Units - <A href='?src=\ref[src];analyze=\ref[N]'>(?)</A>
+						[reg_name], [round(N.volume, 0.01)] Units - <A href='?src=\ref[src];analyze=\ref[N]'>(?)</A>
 					</td>
 					<td class="column2">
 						<A href='?src=\ref[src];remove=[N.id];amount=1'>1u</A>

@@ -1069,7 +1069,7 @@
 /datum/recipe/meatballsoup
 	reagents = list(WATER = 10)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/faggot ,
+		/obj/item/weapon/reagent_containers/food/snacks/faggot,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/carrot,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/potato,
 		)

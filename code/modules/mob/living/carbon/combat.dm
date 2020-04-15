@@ -64,7 +64,7 @@
 			return TRUE 
 	var/damage = run_armor_absorb(target_zone, I.damtype, I.force)
 	damage += user.attribute_strength
-	apply_damage(damage, I.damtype, affecting, armor , I.is_sharp(), used_weapon = I)
+	apply_damage(damage, I.damtype, affecting, armor, I.is_sharp(), used_weapon = I)
 
 	return TRUE
 

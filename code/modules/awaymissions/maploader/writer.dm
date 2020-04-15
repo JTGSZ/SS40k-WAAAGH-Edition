@@ -21,7 +21,7 @@
 			/mob/dview,
 			/mob/virtualhearer
 	)
-/dmm_suite/save_map(var/turf/t1 , var/turf/t2 , var/map_name as text, var/flags as num)
+/dmm_suite/save_map(var/turf/t1, var/turf/t2, var/map_name as text, var/flags as num)
 	//Check for illegal characters in file name... in a cheap way.
 	if(!((ckeyEx(map_name) == map_name) && ckeyEx(map_name)))
 		CRASH("Invalid text supplied to proc save_map, invalid characters or empty string.")
@@ -40,7 +40,7 @@
 
 	return saved_map
 
-/dmm_suite/write_map(var/turf/t1 , var/turf/t2 , var/flags as num)
+/dmm_suite/write_map(var/turf/t1, var/turf/t2, var/flags as num)
 	//Check for valid turfs.
 	if(!isturf(t1) || !isturf(t2))
 		CRASH("Invalid arguments supplied to proc write_map, arguments were not turfs.")
@@ -111,7 +111,7 @@
 
 	return dmm_text
 
-/dmm_suite/proc/make_template(var/turf/model , var/flags as num)
+/dmm_suite/proc/make_template(var/turf/model, var/flags as num)
 	var/template = ""
 	var/obj_template = ""
 	var/mob_template = ""

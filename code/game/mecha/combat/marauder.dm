@@ -210,7 +210,7 @@
 	var/obj/mecha/combat/marauder/Marauder = src.linked_mech
 	Marauder.crashing = null
 	var/landing = get_distant_turf(get_turf(linked_mech), Marauder.dir, 5)
-	Marauder.throw_at(landing, 5 , 2)
+	Marauder.throw_at(landing, 5, 2)
 
 	Marauder.log_message("Performed Rocket-Dash.")
 	Marauder.occupant_message("Triggered Rocket-Dash sub-routine")

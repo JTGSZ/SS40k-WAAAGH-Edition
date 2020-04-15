@@ -180,7 +180,7 @@
 /turf/simulated/floor/glass/attack_paw(mob/user )
 	return attack_hand(user)
 
-/turf/simulated/floor/glass/proc/attack_generic(mob/living/user , damage = 0)	//used by attack_alien, attack_animal, and attack_slime
+/turf/simulated/floor/glass/proc/attack_generic(mob/living/user, damage = 0)	//used by attack_alien, attack_animal, and attack_slime
 
 	user.do_attack_animation(src, user)
 	user.delayNextAttack(10)

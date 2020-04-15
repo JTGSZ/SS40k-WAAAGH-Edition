@@ -118,10 +118,10 @@ proc/getFlatIcon(atom/A, dir, cache=1, exact=0) // 1 = use cache, 2 = override c
 			layerdir = dir
 
 		add = icon(I:icon || A.icon
-		         , I:icon_state || (I:icon && (A.icon_state in icon_states(I:icon)) && A.icon_state)
-		         , layerdir
-		         , 1
-		         , 0)
+		        , I:icon_state || (I:icon && (A.icon_state in icon_states(I:icon)) && A.icon_state)
+		        , layerdir
+		        , 1
+		        , 0)
 
 		if(I:name == "damage layer")
 			var/mob/living/carbon/human/H = A

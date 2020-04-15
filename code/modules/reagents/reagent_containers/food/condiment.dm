@@ -17,7 +17,7 @@
 	possible_transfer_amounts = list(1,5,10)
 	volume = 50
 
-/obj/item/weapon/reagent_containers/food/condiment/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/reagent_containers/food/condiment/attackby(obj/item/weapon/W, mob/user )
 
 	return
 
@@ -26,7 +26,7 @@
 	attack(user, user)
 	return
 
-/obj/item/weapon/reagent_containers/food/condiment/attack(mob/living/M , mob/user , def_zone)
+/obj/item/weapon/reagent_containers/food/condiment/attack(mob/living/M, mob/user, def_zone)
 
 	var/datum/reagents/R = src.reagents
 
@@ -75,7 +75,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/reagent_containers/food/condiment/afterattack(obj/target, mob/user , flag)
+/obj/item/weapon/reagent_containers/food/condiment/afterattack(obj/target, mob/user, flag)
 	if(!flag || ismob(target))
 		return 0
 	if(istype(target, /obj/structure/reagent_dispensers)) //A dispenser. Transfer FROM it TO us.

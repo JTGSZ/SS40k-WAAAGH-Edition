@@ -23,7 +23,7 @@
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	held_items = list()
 
-/mob/living/simple_animal/slime/attackby(var/obj/item/weapon/slimeparapotion/O , var/mob/user )
+/mob/living/simple_animal/slime/attackby(var/obj/item/weapon/slimeparapotion/O, var/mob/user )
 	if(istype(O))
 		canmove = 0
 		icon_state = "[colour] baby slime dead"

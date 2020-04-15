@@ -110,7 +110,7 @@
 			post_signal(control_freq, "command", "bot_status", "active", active, s_filter = RADIO_SECBOT)
 
 		if("summon")
-			post_signal(control_freq, "command", "summon", "active", active, "target", get_turf(PDA) , s_filter = RADIO_SECBOT)
+			post_signal(control_freq, "command", "summon", "active", active, "target", get_turf(PDA), s_filter = RADIO_SECBOT)
 			post_signal(control_freq, "command", "bot_status", "active", active, s_filter = RADIO_SECBOT)
 	PDA.cartridge.unlock()
 

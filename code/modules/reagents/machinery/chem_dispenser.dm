@@ -281,7 +281,7 @@ USE THIS CHEMISTRY DISPENSER FOR MAPS SO THEY START AT 100 ENERGY
 		return
 	return ..()
 
-/obj/machinery/chem_dispenser/attackby(var/obj/item/weapon/D , var/mob/user ) //to be worked on
+/obj/machinery/chem_dispenser/attackby(var/obj/item/weapon/D, var/mob/user ) //to be worked on
 
 	if(..())
 		return 1

@@ -238,7 +238,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Checks to see if the value meets the target. Like a frequency being a traitor_frequency, in order to unlock a headset.
 // If true, it accesses trigger() and returns 1. If it fails, it returns false. Use this to see if you need to close the
 // current item's menu.
-/obj/item/device/uplink/hidden/proc/check_trigger(mob/user , var/value, var/target)
+/obj/item/device/uplink/hidden/proc/check_trigger(mob/user, var/value, var/target)
 	if(value == target)
 		trigger(user)
 		return 1

@@ -26,7 +26,7 @@ var/list/map_dimension_cache = list()
 		key_len = 1
 
 	//proceed line by line to find the map layout
-	//Another way to do this would be to search for this string: (1,1,1) = {" , but if some joker varedited that into the map it would break bigly
+	//Another way to do this would be to search for this string: (1,1,1) = {", but if some joker varedited that into the map it would break bigly
 	for(lpos=1; lpos<tfile_len; lpos=findtext(tfile,"\n",lpos,0)+1)
 		var/tline = copytext(tfile,lpos,findtext(tfile,"\n",lpos,0))
 		if(copytext(tline,1,2) != quote)//we reached the map "layout"

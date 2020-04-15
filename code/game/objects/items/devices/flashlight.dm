@@ -51,7 +51,7 @@
 	return 1
 
 
-/obj/item/device/flashlight/attack(mob/living/M , mob/living/user )
+/obj/item/device/flashlight/attack(mob/living/M, mob/living/user )
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == "eyes")
 

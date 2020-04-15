@@ -266,7 +266,7 @@ var/paperwork_library
 	name = "promotional Nanotrasen pen"
 	desc = "Just a cheap plastic pen. It reads: \"For our most valued customers\". They probably meant 'employees'."
 
-/obj/item/weapon/pen/attack(mob/M , mob/user )
+/obj/item/weapon/pen/attack(mob/M, mob/user )
 	if(!ismob(M))
 		return
 	to_chat(user, "<span class='warning'>You stab [M] with the pen.</span>")
@@ -296,7 +296,7 @@ var/paperwork_library
 	create_reagents(30) // Used to be 300
 	reagents.add_reagent(CHLORALHYDRATE, 22) // Used to be 100 sleep toxin // 30 Chloral seems to be fatal, reducing it to 22. /N
 
-/obj/item/weapon/pen/sleepypen/attack(mob/M , mob/user )
+/obj/item/weapon/pen/sleepypen/attack(mob/M, mob/user )
 	if(!(istype(M,/mob)))
 		return
 	..()
@@ -315,7 +315,7 @@ var/paperwork_library
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_SYNDICATE + "=5"
 
 
-/obj/item/weapon/pen/paralysis/attack(mob/M , mob/user )
+/obj/item/weapon/pen/paralysis/attack(mob/M, mob/user )
 	if(!(istype(M,/mob)))
 		return
 	..()

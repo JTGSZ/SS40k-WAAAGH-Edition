@@ -15,7 +15,7 @@
 	. = ..()
 	id = "[rand(1000, 9999)]"
 
-/obj/machinery/computer/teleporter/attackby(I , mob/living/user )
+/obj/machinery/computer/teleporter/attackby(I, mob/living/user )
 	if(..())
 		return 1
 	else if(istype(I, /obj/item/weapon/card/data/))

@@ -62,7 +62,7 @@
 	icon_state = "egg-yellow"
 	_color = "yellow"
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/reagent_containers/food/snacks/egg/attackby(obj/item/weapon/W, mob/user )
 	if (istype(W, /obj/item/weapon/reagent_containers))
 		if(W.reagents.amount_cache.len == 1 && W.reagents.has_reagent(FLOUR, 5))
 			W.reagents.remove_reagent(FLOUR,5)

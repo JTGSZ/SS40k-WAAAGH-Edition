@@ -36,7 +36,7 @@
 	attacktext = "slashes"
 	status_flags = 0
 
-/mob/living/simple_animal/hostile/humanoid/syndicate/melee/attackby(var/obj/item/O , var/mob/user )
+/mob/living/simple_animal/hostile/humanoid/syndicate/melee/attackby(var/obj/item/O, var/mob/user )
 	user.delayNextAttack(8)
 	if(O.force)
 		if(prob(80))

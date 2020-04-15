@@ -92,7 +92,7 @@
 		to_chat(usr, "You pour the fuel out of \the [src].")
 	update_verbs()
 
-/obj/item/weapon/blunderbuss/attackby(obj/item/W , mob/user )
+/obj/item/weapon/blunderbuss/attackby(obj/item/W, mob/user )
 	var/item_prohibited = 0
 	for(var/i=1, i<=prohibited_items.len, i++)
 		if(istype(W,prohibited_items[i]))
@@ -164,7 +164,7 @@
 	if(loaded_item)
 		to_chat(user, "<span class='info'>There [loaded_item.gender == PLURAL ? "are \a [loaded_item]s" : "is \a [loaded_item]"] jammed into the barrel.</span>")
 
-/obj/item/weapon/blunderbuss/afterattack(atom/target , mob/living/user , flag, params)
+/obj/item/weapon/blunderbuss/afterattack(atom/target, mob/living/user, flag, params)
 	if (istype(target, /obj/item/weapon/storage/backpack ))
 		return
 
@@ -196,7 +196,7 @@
 	else
 		Fire(target,user,params)
 
-/obj/item/weapon/blunderbuss/attack(mob/living/M , mob/living/user , def_zone)
+/obj/item/weapon/blunderbuss/attack(mob/living/M, mob/living/user, def_zone)
 	dont_shoot = 1
 	if (loaded_item)
 		if(user.a_intent == I_HURT)
@@ -208,7 +208,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/blunderbuss/proc/Fire(atom/target , mob/living/user , params, reflex = 0)
+/obj/item/weapon/blunderbuss/proc/Fire(atom/target, mob/living/user, params, reflex = 0)
 	if (!loaded_item)
 		to_chat(user, "There's nothing in \the [src] to fire!")
 		return 0

@@ -319,7 +319,7 @@
 
 /datum/surgery_step/generic/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] is beginning to cauterize the incision on [target]'s [affected.display_name] with \the [tool]." , \
+	user.visible_message("[user] is beginning to cauterize the incision on [target]'s [affected.display_name] with \the [tool].", \
 	"You are beginning to cauterize the incision on [target]'s [affected.display_name] with \the [tool].")
 	target.custom_pain("Your [affected.display_name] is being burned!",1, scream=TRUE)
 	..()
@@ -365,7 +365,7 @@
 
 /datum/surgery_step/generic/cut_limb/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] is beginning to cut off [target]'s [affected.display_name] with \the [tool]." , \
+	user.visible_message("[user] is beginning to cut off [target]'s [affected.display_name] with \the [tool].", \
 	"You are beginning to cut off [target]'s [affected.display_name] with \the [tool].")
 	target.custom_pain("Your [affected.display_name] is being ripped apart!",1, scream=TRUE)
 	..()
@@ -411,7 +411,7 @@
 
 /datum/surgery_step/generic/injectfoam/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/datum/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] begins to inject [target] with \the [tool]'s biofoam injector." , \
+	user.visible_message("[user] begins to inject [target] with \the [tool]'s biofoam injector.", \
 	"You begin to inject [target] with \the [tool]'s biofoam injector.")
 	target.custom_pain("You feel a tiny prick in your [affected.display_name]!",1, scream=TRUE)
 	..()

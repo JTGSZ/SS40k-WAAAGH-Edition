@@ -400,7 +400,7 @@
 	var/image/glow = image(icon,"glow-[icon_state]",overlay_layer)
 	glow.plane = overlay_plane
 	overlays += glow
-	animate(src, pixel_y = 4 * PIXEL_MULTIPLIER , time = 10, loop = -1, easing = SINE_EASING)
+	animate(src, pixel_y = 4 * PIXEL_MULTIPLIER, time = 10, loop = -1, easing = SINE_EASING)
 	animate(pixel_y = 2 * PIXEL_MULTIPLIER, time = 10, loop = -1, easing = SINE_EASING)
 
 /mob/living/simple_animal/hostile/hex/Destroy()

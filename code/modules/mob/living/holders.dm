@@ -49,7 +49,7 @@
 /obj/item/weapon/holder/relaymove(mob/M, direction)
 	returnToPool(src) //This calls Destroy(), and frees the mob
 
-/obj/item/weapon/holder/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/holder/attackby(obj/item/weapon/W, mob/user )
 	for(var/mob/M in src.contents)
 		M.attackby(W,user)
 

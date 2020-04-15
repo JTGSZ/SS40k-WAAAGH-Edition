@@ -11,7 +11,7 @@
 	origin_tech = Tc_PROGRAMMING + "=4;" + Tc_MATERIALS + "=4"
 
 
-/obj/item/device/aicard/attack(mob/living/silicon/ai/M , mob/user )
+/obj/item/device/aicard/attack(mob/living/silicon/ai/M, mob/user )
 	if(!istype(M, /mob/living/silicon/ai))//If target is not an AI.
 		return ..()
 	if(M.mind && M.mind.current != M)

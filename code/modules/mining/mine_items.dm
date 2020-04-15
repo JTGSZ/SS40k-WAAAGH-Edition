@@ -240,7 +240,7 @@ proc/move_mining_shuttle()
 	desc = "Re-purposed mining equipment, built to kill."
 	attack_verb = list("hits", "hammers", "impacts", "attacks")
 
-/obj/item/weapon/pickaxe/jackhammer/combat/afterattack(atom/A , mob/user , proximity)
+/obj/item/weapon/pickaxe/jackhammer/combat/afterattack(atom/A, mob/user, proximity)
 	user.delayNextAttack(25)
 
 /obj/item/weapon/pickaxe/gold
@@ -624,7 +624,7 @@ proc/move_mining_shuttle()
 	meat_type = null
 	mob_property_flags = MOB_ROBOTIC
 
-/mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I , mob/user )
+/mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I, mob/user )
 	if(iswelder(I))
 		var/obj/item/weapon/weldingtool/W = I
 		if(W.welding && !stat)

@@ -77,7 +77,7 @@
 							"<span class='danger'>[user] is slitting \his throat with the shard of glass! It looks like \he's trying to commit suicide.</span>"))
 		return (SUICIDE_ACT_BRUTELOSS)
 
-/obj/item/weapon/shard/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/shard/attack(mob/living/carbon/M, mob/living/carbon/user )
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 	return ..()
 
@@ -95,7 +95,7 @@
 		return
 	return
 
-/obj/item/weapon/shard/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/shard/attackby(obj/item/weapon/W, mob/user )
 	if (iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))

@@ -267,7 +267,7 @@
 				var/datum/reagents/R = new/datum/reagents(5)
 				R.my_atom = src
 				reagents.trans_to_holder(R,1)
-				var/obj/effect/effect/foam/fire/W = new /obj/effect/effect/foam/fire( get_turf(src) , R)
+				var/obj/effect/effect/foam/fire/W = new /obj/effect/effect/foam/fire( get_turf(src), R)
 				var/turf/my_target = pick(the_targets)
 				if(!W || !src)
 					return
@@ -293,7 +293,7 @@
 
 					var/obj/effect/effect/foam/fire/F = locate() in oldturf
 					if(!istype(F) && oldturf != get_turf(src))
-						F = new /obj/effect/effect/foam/fire( get_turf(oldturf) , W.reagents)
+						F = new /obj/effect/effect/foam/fire( get_turf(oldturf), W.reagents)
 					if(W.loc == my_target)
 						break
 					sleep(2)

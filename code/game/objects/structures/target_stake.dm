@@ -19,7 +19,7 @@
 		pinned_target = null
 		setDensity(TRUE)
 
-/obj/structure/target_stake/attackby(obj/item/W , mob/user )
+/obj/structure/target_stake/attackby(obj/item/W, mob/user )
 	// Putting objects on the stake. Most importantly, targets
 	if(pinned_target)
 		return // get rid of that pinned target first!

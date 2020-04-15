@@ -34,14 +34,14 @@
 		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
 		return 0
 
-	var/input = stripped_input(usr,"What do you want to name the gun?", ,"", MAX_NAME_LEN)
+	var/input = stripped_input(usr,"What do you want to name the gun?",,"", MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(src,M))
 		name = input
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/weapon/gun/projectile/detective/attackby(var/obj/item/A , mob/user )
+/obj/item/weapon/gun/projectile/detective/attackby(var/obj/item/A, mob/user )
 	..()
 	if(A.is_screwdriver(user) || istype(A, /obj/item/weapon/conversion_kit))
 		var/obj/item/weapon/conversion_kit/CK
@@ -131,7 +131,7 @@
 /obj/item/weapon/gun/projectile/russian/proc/Spin()
 	loaded = shuffle(loaded)
 
-/obj/item/weapon/gun/projectile/russian/attackby(var/obj/item/A , mob/user )
+/obj/item/weapon/gun/projectile/russian/attackby(var/obj/item/A, mob/user )
 
 	if(!A)
 		return
@@ -183,7 +183,7 @@
 	if(getAmmo() > 0)
 		Spin()
 
-/obj/item/weapon/gun/projectile/russian/attack(atom/target , mob/living/user )
+/obj/item/weapon/gun/projectile/russian/attack(atom/target, mob/living/user )
 
 	var/obj/item/ammo_casing/AC = loaded[1]
 	if(isliving(target) && isliving(user) && target == user)
@@ -227,7 +227,7 @@
 
 	..()
 
-/obj/item/weapon/gun/projectile/russian/Fire(atom/target , mob/living/user , params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/russian/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	var/obj/item/ammo_casing/AC = loaded[1]
 	if(!AC || !AC.BB)
 		user.visible_message("<span class='warning'>*click*</span>")
@@ -289,7 +289,7 @@
 /obj/item/weapon/gun/projectile/colt/AltClick(var/mob/user)
 	attack_self(user, callparent = TRUE)
 
-/obj/item/weapon/gun/projectile/colt/afterattack(atom/target , mob/living/user , flag, struggle = 0)
+/obj/item/weapon/gun/projectile/colt/afterattack(atom/target, mob/living/user, flag, struggle = 0)
 	if(cocked)
 		..()
 		cocked = FALSE

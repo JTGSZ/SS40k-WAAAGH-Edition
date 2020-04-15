@@ -7,7 +7,7 @@
 
 	var/obj/item/weapon/reagent_containers/container = null
 
-/obj/machinery/computer/curer/attackby(var/obj/item/I , var/mob/user )
+/obj/machinery/computer/curer/attackby(var/obj/item/I, var/mob/user )
 	if(I.is_screwdriver(user))
 		return ..(I,user)
 	if(istype(I,/obj/item/weapon/reagent_containers))

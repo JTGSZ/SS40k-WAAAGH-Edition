@@ -283,7 +283,7 @@
 		new_text = replacetext(new_text, "\n", "<BR>")
 
 		spawn()
-			new_text = parsepencode(usr, usr.get_active_hand() ,new_text)
+			new_text = parsepencode(usr, usr.get_active_hand(),new_text)
 
 			//Count the fields
 			var/laststart = 1
@@ -312,7 +312,7 @@
 		openhelp(usr)
 
 
-/obj/item/weapon/paper/attackby(obj/item/weapon/P , mob/user )
+/obj/item/weapon/paper/attackby(obj/item/weapon/P, mob/user )
 	..()
 
 	if(istype(P, /obj/item/weapon/pen) || istype(P, /obj/item/toy/crayon))

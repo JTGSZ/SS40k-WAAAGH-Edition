@@ -58,7 +58,7 @@ var/global/list/datum/stack_recipe/cable_recipes = list ( \
 ///////////////////////////////////
 
 //You can use wires to heal robotics
-/obj/item/stack/cable_coil/attack(mob/M , mob/user )
+/obj/item/stack/cable_coil/attack(mob/M, mob/user )
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/datum/organ/external/S = H.get_organ(user.zone_sel.selecting)

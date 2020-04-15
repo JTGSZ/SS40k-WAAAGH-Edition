@@ -59,7 +59,7 @@
 		assembling = 0
 	return 0
 
-/datum/construction/proc/is_right_key(mob/user , atom/used_atom) // returns current step num if used_atom is of the right type.
+/datum/construction/proc/is_right_key(mob/user, atom/used_atom) // returns current step num if used_atom is of the right type.
 	if(assembling)
 		return 0
 	var/list/L = steps[steps.len]
@@ -129,7 +129,7 @@
 	holder.desc = step[Co_DESC]
 	return
 
-/datum/construction/proc/try_consume(mob/user , atom/movable/used_atom, given_step)
+/datum/construction/proc/try_consume(mob/user, atom/movable/used_atom, given_step)
 	if(used_atom.construction_delay_mult && !used_atom.construction_delay_mult[Co_CON_SPEED])
 		to_chat(user, "<span class='warning'>This tool only works for deconstruction!</span>")//It doesn't technically have to be a tool to cause this message, but it wouldn't make sense for anything else to do so.
 
@@ -208,7 +208,7 @@
 		set_desc(index)
 	return
 
-/datum/construction/reversible/is_right_key(mob/user ,atom/used_atom) // returns index step
+/datum/construction/reversible/is_right_key(mob/user,atom/used_atom) // returns index step
 	if(assembling)
 		return 0
 	assembling = 1
@@ -274,7 +274,7 @@
 /datum/construction/reversible/fixText(message, mob/user, self = 0)
 	return ..(message, user, self)
 
-/datum/construction/reversible/try_consume(mob/user , atom/movable/used_atom, given_step, index, diff)
+/datum/construction/reversible/try_consume(mob/user, atom/movable/used_atom, given_step, index, diff)
 	//if we've made some progress on a step, we want to drop it
 	var/current_step = (diff == BACKWARD ? get_forward_step(index) : get_backward_step(index))
 	if(used_atom.construction_delay_mult && !used_atom.construction_delay_mult[diff == FORWARD ? Co_CON_SPEED : Co_DECON_SPEED])

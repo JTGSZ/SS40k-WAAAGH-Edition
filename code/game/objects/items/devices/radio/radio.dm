@@ -459,7 +459,7 @@
 		if(get_dist(src, speech.speaker) <= canhear_range)
 			talk_into(speech)
 /*
-/obj/item/device/radio/proc/accept_rad(obj/item/device/radio/R , message)
+/obj/item/device/radio/proc/accept_rad(obj/item/device/radio/R, message)
 
 
 	if ((R.frequency == frequency && message))
@@ -537,7 +537,7 @@
 	else if(illegalradio_construction == 2)
 		to_chat(user, "You need wirecutters to remove the wiring!")
 
-/obj/item/device/radio/attackby(obj/item/weapon/W , mob/user )
+/obj/item/device/radio/attackby(obj/item/weapon/W, mob/user )
 	..()
 	user.set_machine(src)
 	if(W.is_screwdriver(user))

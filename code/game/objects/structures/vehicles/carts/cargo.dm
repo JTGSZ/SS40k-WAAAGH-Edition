@@ -28,7 +28,7 @@
 
 	load(C)
 
-/obj/machinery/cart/cargo/MouseDropFrom(obj/over_object , src_location, over_location)
+/obj/machinery/cart/cargo/MouseDropFrom(obj/over_object, src_location, over_location)
 	..()
 	var/mob/user = usr
 	if (user.incapacitated() || !in_range(user, src) || !in_range(src, over_object))

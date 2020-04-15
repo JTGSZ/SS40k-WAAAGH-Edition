@@ -139,7 +139,7 @@
 
 	return
 
-/obj/machinery/computer/attackby(I , user )
+/obj/machinery/computer/attackby(I, user )
 	if(..(I,user))
 		return
 	else

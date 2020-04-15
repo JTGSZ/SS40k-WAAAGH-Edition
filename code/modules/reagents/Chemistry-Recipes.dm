@@ -1792,7 +1792,7 @@
 	if(!istype(holder.my_atom.loc,/obj/item/weapon/grenade/chem_grenade))
 		holder.my_atom.visible_message("<span class='warning'>The slime extract begins to vibrate violently!</span>")
 		sleep(50)
-	explosion(get_turf(holder.my_atom), 1 ,3, 6)
+	explosion(get_turf(holder.my_atom), 1,3, 6)
 	..()
 
 /datum/chemical_reaction/slime_extract/slimegenocide

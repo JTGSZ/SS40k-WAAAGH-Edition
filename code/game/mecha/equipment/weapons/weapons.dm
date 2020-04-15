@@ -6,7 +6,7 @@
 	var/fire_sound
 
 
-/obj/item/mecha_parts/mecha_equipment/weapon/can_attach(var/obj/mecha/combat/M , var/override = FALSE)
+/obj/item/mecha_parts/mecha_equipment/weapon/can_attach(var/obj/mecha/combat/M, var/override = FALSE)
 	if(..())
 		if(istype(M) || override)
 			return 1

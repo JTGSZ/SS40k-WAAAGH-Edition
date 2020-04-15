@@ -26,7 +26,7 @@
 			to_chat(user, "[bicon(G)] [G.name]")
 
 
-/obj/item/weapon/gun/grenadelauncher/attackby(obj/item/I , mob/user )
+/obj/item/weapon/gun/grenadelauncher/attackby(obj/item/I, mob/user )
 
 	if((istype(I, /obj/item/weapon/grenade)))
 		if(grenades.len < max_grenades)
@@ -37,7 +37,7 @@
 		else
 			to_chat(user, "<span class='warning'>The [src.name] cannot hold more grenades.</span>")
 
-/obj/item/weapon/gun/grenadelauncher/afterattack(obj/target, mob/user , flag)
+/obj/item/weapon/gun/grenadelauncher/afterattack(obj/target, mob/user, flag)
 
 	if (istype(target, /obj/item/weapon/storage/backpack ))
 		return

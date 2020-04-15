@@ -20,7 +20,7 @@
 	..()
 	in_chamber = new projectile_type(src)
 
-/obj/item/weapon/gun/bulletstorm/afterattack(atom/A , mob/living/user , flag, params, struggle = 0)
+/obj/item/weapon/gun/bulletstorm/afterattack(atom/A, mob/living/user, flag, params, struggle = 0)
 	if(flag)
 		return //we're placing gun on a table or in backpack
 	if(harm_labeled >= min_harm_label)

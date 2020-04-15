@@ -22,7 +22,7 @@
 	..(loc)
 	flow_flags |= ON_BORDER
 
-/obj/structure/window/full/Uncross(atom/movable/O , target )
+/obj/structure/window/full/Uncross(atom/movable/O, target )
 
 	return 1
 

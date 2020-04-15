@@ -21,7 +21,7 @@ var/prison_shuttle_timeleft = 0
 	var/prison_break = FALSE
 	light_color = LIGHT_COLOR_CYAN
 
-/obj/machinery/computer/prison_shuttle/attackby(I , user )
+/obj/machinery/computer/prison_shuttle/attackby(I, user )
 	if(!..())
 		attack_hand(user)
 

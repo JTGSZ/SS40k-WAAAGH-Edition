@@ -11,7 +11,7 @@
 	blocks_air = 1
 
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
-	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
+	heat_capacity = 312500 //a little over 5 cm thick, 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
 
 	var/walltype = "metal"
 	var/hardness = 60 //Higher numbers are harder (so that it actually makes sense). Walls are 60 hardness, reinforced walls are 90 hardness. No hardness over 100, PLEASE
@@ -177,7 +177,7 @@
 		dismantle_wall()
 		return
 
-/turf/simulated/wall/attackby(obj/item/weapon/W , mob/user )
+/turf/simulated/wall/attackby(obj/item/weapon/W, mob/user )
 	user.delayNextAttack(8)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)

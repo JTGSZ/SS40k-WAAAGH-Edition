@@ -47,7 +47,7 @@
 	. = ..()
 	to_chat(user, "<span class='notice'>Cloning is [clone ? "enabled" : "disabled"].</span>")
 
-/obj/item/device/multitool/attack(mob/M , mob/user )
+/obj/item/device/multitool/attack(mob/M, mob/user )
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/datum/organ/external/S = H.organs_by_name[user.zone_sel.selecting]

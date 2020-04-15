@@ -166,7 +166,7 @@
 	</ul>
 "}
 
-/obj/machinery/atmospherics/unary/outlet_injector/attackby(var/obj/item/weapon/W , var/mob/user )
+/obj/machinery/atmospherics/unary/outlet_injector/attackby(var/obj/item/weapon/W, var/mob/user )
 	if (!W.is_wrench(user))
 		return ..()
 	if (!(stat & NOPOWER) && on)

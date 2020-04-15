@@ -91,7 +91,7 @@ obj/machinery/recharger/defibcharger/wallcharger/process()
 		return TRUE
 	return FALSE
 
-obj/machinery/recharger/defibcharger/wallcharger/attackby(obj/item/weapon/G , mob/user )
+obj/machinery/recharger/defibcharger/wallcharger/attackby(obj/item/weapon/G, mob/user )
 	if(istype(G, /obj/item/weapon/melee/defibrillator))
 		if(..())
 			return

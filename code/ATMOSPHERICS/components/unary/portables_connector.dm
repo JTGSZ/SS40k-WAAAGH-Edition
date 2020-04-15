@@ -69,7 +69,7 @@
 	return results
 
 
-/obj/machinery/atmospherics/unary/portables_connector/attackby(var/obj/item/weapon/W , var/mob/user )
+/obj/machinery/atmospherics/unary/portables_connector/attackby(var/obj/item/weapon/W, var/mob/user )
 	if (!W.is_wrench(user))
 		return ..()
 	if (connected_device)

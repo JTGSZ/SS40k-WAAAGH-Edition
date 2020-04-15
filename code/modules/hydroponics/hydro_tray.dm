@@ -191,7 +191,7 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O, var/mob/user )
 
 	if(O.is_open_container())
 		return 0
@@ -555,7 +555,7 @@
 		return
 
 	//Override for somatoray projectiles.
-	if(!is_somatoraying && istype(Proj ,/obj/item/projectile/energy/floramut))
+	if(!is_somatoraying && istype(Proj,/obj/item/projectile/energy/floramut))
 		var/obj/item/projectile/energy/floramut/P = Proj
 		var/sev = P.mutstrength
 		is_somatoraying = 1
@@ -566,7 +566,7 @@
 				if(prob(30) && seed.yield != -1)
 					apply_mut("plusstat_yield", sev)
 				return
-	else if(istype(Proj ,/obj/item/projectile/energy/florayield))
+	else if(istype(Proj,/obj/item/projectile/energy/florayield))
 		if(seed && !dead)
 			yield_mod = clamp(yield_mod + (rand(3,5)/10), 1, 2)
 			if(yield_mod >= 2)

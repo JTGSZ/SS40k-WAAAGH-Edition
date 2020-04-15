@@ -418,7 +418,7 @@
 	if(amount != contents.len)
 		update_icon()
 
-/obj/item/weapon/storage/belt/lazarus/remove_from_storage(obj/item/W , atom/new_location, var/force = 0, var/refresh = 1)
+/obj/item/weapon/storage/belt/lazarus/remove_from_storage(obj/item/W, atom/new_location, var/force = 0, var/refresh = 1)
 	. = ..()
 	update_icon()
 

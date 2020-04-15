@@ -280,7 +280,7 @@
 	name = "apocalytic meteor"
 	desc = "And behold, a white meteor. And on that meteor..."
 
-/obj/item/projectile/meteor/attackby(obj/item/weapon/W , mob/user )
+/obj/item/projectile/meteor/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/pickaxe)) //Yeah, you can totally do that
 		qdel(src)
 		return

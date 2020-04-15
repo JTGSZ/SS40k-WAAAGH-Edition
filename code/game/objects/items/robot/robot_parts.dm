@@ -113,7 +113,7 @@
 				return 1
 	return 0
 
-/obj/item/robot_parts/robot_suit/attackby(obj/item/W , mob/user )
+/obj/item/robot_parts/robot_suit/attackby(obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/stack/sheet/metal) && !l_arm && !r_arm && !l_leg && !r_leg && !chest && !head)
 		var/obj/item/weapon/ed209_assembly/B = new /obj/item/weapon/ed209_assembly
@@ -259,7 +259,7 @@
 
 	return
 
-/obj/item/robot_parts/chest/attackby(obj/item/W , mob/user )
+/obj/item/robot_parts/chest/attackby(obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/weapon/cell))
 		if(src.cell)
@@ -280,7 +280,7 @@
 			to_chat(user, "<span class='notice'>You insert the wire!</span>")
 	return
 
-/obj/item/robot_parts/head/attackby(obj/item/W , mob/user )
+/obj/item/robot_parts/head/attackby(obj/item/W, mob/user )
 	..()
 	if(istype(W, /obj/item/device/flash))
 		if(src.flash1 && src.flash2)
@@ -304,7 +304,7 @@
 			return
 	return
 
-/obj/item/robot_parts/attackby(obj/item/W , mob/user )
+/obj/item/robot_parts/attackby(obj/item/W, mob/user )
 	if(istype(W,/obj/item/weapon/card/emag))
 		if(sabotaged)
 			to_chat(user, "<span class='warning'>[src] is already sabotaged!</span>")

@@ -127,7 +127,7 @@
 	floor = 1
 	return 1
 
-/obj/effect/glowshroom/attackby(obj/item/weapon/W , mob/user )
+/obj/effect/glowshroom/attackby(obj/item/weapon/W, mob/user )
 	..()
 
 	endurance -= W.force

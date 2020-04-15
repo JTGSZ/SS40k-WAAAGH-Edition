@@ -143,7 +143,7 @@
 /obj/structure/displaycase/npc_tamper_act(mob/living/L)
 	dump() //Screw fingerprints checking and other crap, gremlin magic
 
-/obj/structure/displaycase/attackby(obj/item/weapon/W , mob/user )
+/obj/structure/displaycase/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/I=W
 		if(!check_access(I))

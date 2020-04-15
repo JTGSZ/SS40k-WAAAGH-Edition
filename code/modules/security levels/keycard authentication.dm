@@ -35,7 +35,7 @@ var/global/list/obj/machinery/keycard_auth/authenticators = list()
 	to_chat(user, "You are too primitive to use this device.")
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/keycard_auth/attackby(obj/item/weapon/W, mob/user )
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return

@@ -45,7 +45,7 @@
 /obj/item/stack/attack_self(mob/user )
 	list_recipes(user)
 
-/obj/item/stack/proc/list_recipes(mob/user , recipes_sublist)
+/obj/item/stack/proc/list_recipes(mob/user, recipes_sublist)
 	ASSERT(isnum(amount))
 	if(!recipes)
 		return

@@ -98,7 +98,7 @@
 
 #undef CLONEPODRANGE
 
-/obj/machinery/computer/cloning/attackby(obj/item/W , mob/user )
+/obj/machinery/computer/cloning/attackby(obj/item/W, mob/user )
 	. = ..()
 	if(.)
 		return .

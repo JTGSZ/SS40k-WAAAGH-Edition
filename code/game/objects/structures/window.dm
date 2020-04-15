@@ -255,7 +255,7 @@ var/list/one_way_windows
 
 	return attack_hand(user)
 
-/obj/structure/window/proc/attack_generic(mob/living/user , damage = 0)	//used by attack_alien, attack_animal, and attack_slime
+/obj/structure/window/proc/attack_generic(mob/living/user, damage = 0)	//used by attack_alien, attack_animal, and attack_slime
 
 	user.do_attack_animation(src, user)
 	user.delayNextAttack(10)
@@ -306,7 +306,7 @@ var/list/one_way_windows
 		set_opacity(1)
 	return opacity
 
-/obj/structure/window/attackby(obj/item/weapon/W , mob/living/user )
+/obj/structure/window/attackby(obj/item/weapon/W, mob/living/user )
 
 	if(istype(W, /obj/item/weapon/grab) && Adjacent(user))
 		var/obj/item/weapon/grab/G = W

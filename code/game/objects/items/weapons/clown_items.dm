@@ -73,7 +73,7 @@
 		target.clean_blood()
 	return
 
-/obj/item/weapon/soap/attack(mob/target , mob/user )
+/obj/item/weapon/soap/attack(mob/target, mob/user )
 	if(target && user && ishuman(target) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == "mouth" )
 		user.visible_message("<span class='warning'>\the [user] washes \the [target]'s mouth out with soap!</span>")
 		return
@@ -108,7 +108,7 @@
 	if(honk())
 		add_fingerprint(user)
 
-/obj/item/weapon/bikehorn/afterattack(atom/target, mob/user , proximity_flag)
+/obj/item/weapon/bikehorn/afterattack(atom/target, mob/user, proximity_flag)
 	//hitsound takes care of that
 	//if(proximity_flag && istype(target, /mob)) //for honking in the chest
 		//honk()

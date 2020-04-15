@@ -87,7 +87,7 @@
 
 		qdel(src)
 
-/obj/item/weapon/tank/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/tank/attackby(obj/item/weapon/W, mob/user )
 	..()
 	var/obj/icon = src
 

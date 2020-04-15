@@ -103,7 +103,7 @@ var/global/list/floorbot_targets=list()
 	for(var/mob/O in hearers(src, null))
 		O.show_message("<span class='game say'><span class='name'>[src]</span> beeps, \"[message]\"",2)
 
-/obj/machinery/bot/floorbot/attackby(var/obj/item/W , mob/user)
+/obj/machinery/bot/floorbot/attackby(var/obj/item/W, mob/user)
 	if(istype(W, /obj/item/stack/tile/plasteel))
 		var/obj/item/stack/tile/plasteel/T = W
 		if(amount >= 50)

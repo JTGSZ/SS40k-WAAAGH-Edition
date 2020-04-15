@@ -752,7 +752,7 @@
 		var/mob/M = get_locked(lock_type)[1]
 
 		if (istype(blade) && !blade.shade)//If an empty soul blade was the tool used for the ritual, let's make them its shade.
-			var/mob/living/simple_animal/shade/new_shade = M.change_mob_type( /mob/living/simple_animal/shade , null, null, 1 )
+			var/mob/living/simple_animal/shade/new_shade = M.change_mob_type( /mob/living/simple_animal/shade, null, null, 1 )
 			blade.forceMove(loc)
 			blade.blood = blade.maxblood
 			new_shade.forceMove(blade)

@@ -76,7 +76,7 @@
 	..()
 	diceroll(user, 1)
 
-/obj/item/weapon/dice/proc/show_roll(mob/user , thrown, result)
+/obj/item/weapon/dice/proc/show_roll(mob/user, thrown, result)
 	var/comment = ""
 	if(sides == 20)
 		if(result == 20)
@@ -93,11 +93,11 @@
 	else if(src.throwing == 0) //Dice was thrown and is coming to rest
 		visible_message("<span class='notice'>[src] rolls to a stop, landing on [result]. [comment]</span>")
 
-/obj/item/weapon/dice/proc/diceroll(mob/user , thrown)
+/obj/item/weapon/dice/proc/diceroll(mob/user, thrown)
 	result = rand(minsides, sides)
 	show_roll(user, thrown, result)
 
-/obj/item/weapon/dice/loaded/diceroll(mob/user , thrown)
+/obj/item/weapon/dice/loaded/diceroll(mob/user, thrown)
 	result = rand(minsides, sides * 1.5)
 	result = min(result, sides)
 	show_roll(user, thrown, result)
@@ -113,7 +113,7 @@
 	overlays.len = 0
 	overlays += image(icon = icon, icon_state = "[src.icon_state][src.result]")
 
-/obj/item/weapon/dice/d20/e20/diceroll(mob/user , thrown)
+/obj/item/weapon/dice/d20/e20/diceroll(mob/user, thrown)
 	if(!istype(user))
 		return 0
 	if(triggered)
@@ -159,7 +159,7 @@
 	if(deactivated == 0)
 		to_chat(user, "<span class='sinister'>Are you feeling lucky?</span>")
 
-/obj/item/weapon/dice/d20/cursed/diceroll(mob/user , thrown)
+/obj/item/weapon/dice/d20/cursed/diceroll(mob/user, thrown)
 	..()
 	if(deactivated == 0) //If the dice has power then something will happen
 		if(istype(user,/mob/living/carbon/human)) //check that a humanoid is rolling the dice; Xenomorphs / Sillicons need not apply.

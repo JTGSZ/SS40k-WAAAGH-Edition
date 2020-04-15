@@ -75,7 +75,7 @@ proc/explosion_rec(turf/epicenter, power)
 			continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
-		var/severity = 4 - round(max(min( 3, ((ET.max_power - ET.turf.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)
+		var/severity = 4 - round(max(min( 3, ((ET.max_power - ET.turf.explosion_resistance) / (max(3,(power/3)))) ),1), 1)
 								//sanity			effective power on tile				divided by either 3 or one third the total explosion power
 								//															One third because there are three power levels and I
 								//															want each one to take up a third of the crater

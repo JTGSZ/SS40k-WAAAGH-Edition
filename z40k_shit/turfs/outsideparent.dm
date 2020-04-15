@@ -91,7 +91,7 @@
 /turf/unsimulated/outside/cultify()
 	return //It's already pretty red out in nar-sie universe.
 
-/turf/unsimulated/outside/attackby(obj/item/weapon/W , mob/user )
+/turf/unsimulated/outside/attackby(obj/item/weapon/W, mob/user )
 	..()
 
 //In the future, catwalks should be the base to build in the arctic, not lattices

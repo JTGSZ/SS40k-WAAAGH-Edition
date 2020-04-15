@@ -121,7 +121,7 @@
 				return 0
 	return 1
 
-/turf/Enter(atom/movable/mover , atom/forget )
+/turf/Enter(atom/movable/mover, atom/forget )
 	if (!mover)
 		return 1
 

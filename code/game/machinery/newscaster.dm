@@ -198,8 +198,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	return
 
 /obj/machinery/newscaster/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
-		if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+	if(istype(Proj,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet)||istype(Proj,/obj/item/projectile/ricochet))
+		if(!istype(Proj,/obj/item/projectile/beam/lasertag) && !istype(Proj,/obj/item/projectile/beam/practice) )
 			hitstaken++
 			if(hitstaken>=3 && !(stat & BROKEN))
 				stat |= BROKEN
@@ -880,7 +880,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			updateUsrDialog()
 
 
-/obj/machinery/newscaster/attackby(obj/item/I , mob/user )
+/obj/machinery/newscaster/attackby(obj/item/I, mob/user )
 	switch(buildstage)
 		if(0)
 			if(iscrowbar(I))
@@ -1129,7 +1129,7 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 			attack_self(loc)
 
 
-obj/item/weapon/newspaper/attackby(obj/item/weapon/W , mob/user )
+obj/item/weapon/newspaper/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/pen))
 		if(scribble_page == curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")

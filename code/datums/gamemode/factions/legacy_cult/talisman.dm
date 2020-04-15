@@ -111,7 +111,7 @@
 		return
 
 
-/obj/item/weapon/paper/talisman/attack(mob/living/carbon/T , mob/living/user )
+/obj/item/weapon/paper/talisman/attack(mob/living/carbon/T, mob/living/user )
 	if(islegacycultist(user))
 		if(imbue == "runestun")
 			user.take_organ_damage(5, 0)

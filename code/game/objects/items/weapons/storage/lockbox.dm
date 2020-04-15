@@ -114,8 +114,8 @@
 /obj/item/weapon/storage/lockbox/bullet_act(var/obj/item/projectile/Proj)
 	// WHY MUST WE DO THIS
 	// WHY
-	if(istype(Proj ,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet))
-		if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !Proj.nodamage)
+	if(istype(Proj,/obj/item/projectile/beam)||istype(Proj,/obj/item/projectile/bullet))
+		if(!istype(Proj,/obj/item/projectile/beam/lasertag) && !istype(Proj,/obj/item/projectile/beam/practice) && !Proj.nodamage)
 			health -= Proj.damage
 	..()
 	if(health <= 0)
@@ -241,7 +241,7 @@
 	..()
 	to_chat(user, "<span class='info'>[tracked_access]</span>")
 
-/obj/item/weapon/storage/lockbox/unlockable/attackby(obj/O , mob/user )
+/obj/item/weapon/storage/lockbox/unlockable/attackby(obj/O, mob/user )
 	if (istype(O, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/ID = O
 		if(src.broken)
@@ -453,13 +453,13 @@
 	else
 		overlays += image(icon, src, "ledb")
 
-/obj/item/weapon/storage/lockbox/diskettebox/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/storage/lockbox/diskettebox/attackby(obj/item/weapon/W, mob/user )
 	. = ..()
 	if (istype(W,/obj/item/weapon/card))
 		playsound(src, get_sfx("card_swipe"), 60, 1, -5)
 	update_icon()
 
-/obj/item/weapon/storage/lockbox/diskettebox/handle_item_insertion(obj/item/W , prevent_warning = 0)
+/obj/item/weapon/storage/lockbox/diskettebox/handle_item_insertion(obj/item/W, prevent_warning = 0)
 	.=..()
 	if (.)
 		playsound(loc, 'sound/machines/click.ogg', 30, -5)

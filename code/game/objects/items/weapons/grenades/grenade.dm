@@ -26,7 +26,7 @@
 	return 1
 
 
-/*/obj/item/weapon/grenade/afterattack(atom/target , mob/user )
+/*/obj/item/weapon/grenade/afterattack(atom/target, mob/user )
 	if (istype(target, /obj/item/weapon/storage))
 		return ..() // Trying to put it in a full container
 	if (istype(target, /obj/item/weapon/gun/grenadelauncher))
@@ -98,7 +98,7 @@
 		M.drop_from_inventory(src)
 
 
-/obj/item/weapon/grenade/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/grenade/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_screwdriver(user))
 		if(active)
 			to_chat(user, "<span class = 'warning'>It's already primed!</span>")

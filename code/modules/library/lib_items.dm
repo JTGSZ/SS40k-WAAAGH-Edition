@@ -45,7 +45,7 @@
 		getFromPool(/obj/item/stack/sheet/wood, get_turf(src), 3)
 		qdel(src)
 
-/obj/structure/bookcase/attackby(obj/item/O , mob/user )
+/obj/structure/bookcase/attackby(obj/item/O, mob/user )
 	if(busy) //So that you can't mess with it while deconstructing
 		return
 	if(is_type_in_list(O, valid_types))
@@ -274,7 +274,7 @@
 	else
 		..()
 
-/obj/item/weapon/book/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/book/attackby(obj/item/weapon/W, mob/user )
 	if(!carved && W.is_sharp() && W.sharpness_flags & SHARP_BLADE)
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
 		if(do_after(user, src, 30 / W.sharpness))

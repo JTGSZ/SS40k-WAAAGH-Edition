@@ -105,7 +105,7 @@
 	soot_type = null
 	melt_temperature = 0 // Doesn't melt.
 
-/turf/simulated/floor/engine/attackby(obj/item/weapon/C , mob/user )
+/turf/simulated/floor/engine/attackby(obj/item/weapon/C, mob/user )
 	if(!C)
 		return
 	if(!user)

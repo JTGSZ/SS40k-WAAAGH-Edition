@@ -11,7 +11,7 @@ proc/admin_spawn_room_at_pos()
 	var/z = input("Z position","Z pos",usr.z)
 	var/x_len = input("Desired length.","Length",5)
 	var/y_len = input("Desired width.","Width",5)
-	var/clean = input("Delete existing items in area?" , "Clean area?", 0)
+	var/clean = input("Delete existing items in area?", "Clean area?", 0)
 	switch(alert("Wall type",null,"Reinforced wall","Regular wall","Resin wall"))
 		if("Reinforced wall")
 			wall=/turf/simulated/wall/r_wall

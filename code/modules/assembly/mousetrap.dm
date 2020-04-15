@@ -21,7 +21,7 @@
 	if(holder)
 		holder.update_icon()
 
-/obj/item/device/assembly/mousetrap/proc/triggered(mob/target , var/type = "feet")
+/obj/item/device/assembly/mousetrap/proc/triggered(mob/target, var/type = "feet")
 	if(!armed)
 		return
 	var/datum/organ/external/affecting = null

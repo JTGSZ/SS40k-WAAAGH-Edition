@@ -292,7 +292,7 @@ var/global/list/math_circuit_operations_list = list("ADD", "SUBTRACT", "MULTIPLY
 						if("MOD")
 							. %= number
 
-		. = round(. , 0.00001) //Round to 5 decimal places (prevent shit like cos(90) = 6.12323e-017)
+		. = round(., 0.00001) //Round to 5 decimal places (prevent shit like cos(90) = 6.12323e-017)
 
 	else if(value == VALUE_VARIABLES)
 		//EXPORT all nomials in a single string

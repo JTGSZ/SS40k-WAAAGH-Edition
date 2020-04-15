@@ -352,7 +352,7 @@ var/list/camera_messages = list()
 /obj/machinery/camera/attack_pai(mob/user )
 	wirejack(user)
 
-/obj/machinery/camera/proc/deactivate(user , var/choice = 1)
+/obj/machinery/camera/proc/deactivate(user, var/choice = 1)
 	vision_flags = SEE_SELF
 	if(assembly)
 		update_upgrades()
@@ -511,7 +511,7 @@ var/list/camera_messages = list()
 	upgradeXRay()
 	upgradeHearing()
 
-/obj/machinery/camera/arena/attackby(obj/item/W , mob/living/user )
+/obj/machinery/camera/arena/attackby(obj/item/W, mob/living/user )
 	if(W.is_screwdriver(user))
 		to_chat(user, "<span class='warning'>There aren't any visible screws to unscrew.</span>")
 	else

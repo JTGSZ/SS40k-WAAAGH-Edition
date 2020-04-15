@@ -10,7 +10,7 @@
 			return legcuffed
 	return null
 
-/mob/living/carbon/u_equip(obj/item/W , dropped = 1, var/slot = null)
+/mob/living/carbon/u_equip(obj/item/W, dropped = 1, var/slot = null)
 	var/success = 0
 	if(!W)
 		return 0

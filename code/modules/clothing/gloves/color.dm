@@ -132,7 +132,7 @@
 	else
 		return ..()
 
-/obj/item/clothing/gloves/black/thief/storage/attackby(obj/item/weapon/W , mob/user )
+/obj/item/clothing/gloves/black/thief/storage/attackby(obj/item/weapon/W, mob/user )
 	hold.attackby(W,user)
 	return 1
 

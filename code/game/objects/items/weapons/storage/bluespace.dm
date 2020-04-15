@@ -29,7 +29,7 @@
 	user.drop_item(src)
 	qdel(user)
 
-/obj/item/weapon/storage/backpack/holding/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/storage/backpack/holding/attackby(obj/item/weapon/W, mob/user )
 	. = ..()
 	if(!.)
 		return

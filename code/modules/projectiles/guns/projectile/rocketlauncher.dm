@@ -33,7 +33,7 @@
 		icon_state = "rpg"
 		item_state = "rpg"
 
-/obj/item/weapon/gun/projectile/rocketlauncher/attack(mob/living/M , mob/living/user , def_zone)
+/obj/item/weapon/gun/projectile/rocketlauncher/attack(mob/living/M, mob/living/user, def_zone)
 	if(M == user && user.zone_sel.selecting == "mouth") //Are we trying to suicide by shooting our head off ?
 		user.visible_message("<span class='warning'>[user] tries to fit \the [src] into \his mouth but quickly reconsiders it</span>", \
 		"<span class='warning'>You try to fit \the [src] into your mouth. You feel silly and pull it out</span>")
@@ -128,7 +128,7 @@
 			return(SUICIDE_ACT_BRUTELOSS)
 	return
 
-/obj/item/weapon/gun/projectile/rocketlauncher/nikita/attackby(var/obj/item/A , mob/user )
+/obj/item/weapon/gun/projectile/rocketlauncher/nikita/attackby(var/obj/item/A, mob/user )
 	if(istype(A, /obj/item/weapon/card/emag) && !emagged)
 		emagged = 1
 		to_chat(user, "<span class='warning'>You disable \the [src]'s idiot security!</span>")

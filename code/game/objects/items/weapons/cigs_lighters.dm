@@ -112,7 +112,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		location.hotspot_expose(source_temperature, 5, surfaces = istype(loc, /turf))
 		return
 
-/obj/item/weapon/match/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/match/attack(mob/living/carbon/M, mob/living/carbon/user )
 	if(istype(M.wear_mask, /obj/item/clothing/mask/cigarette) && user.zone_sel.selecting == "mouth" && lit == 1)
 		var/obj/item/clothing/mask/cigarette/cig = M.wear_mask
 		if(M == user)
@@ -122,7 +122,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	else
 		return ..()
 
-/obj/item/weapon/match/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/match/attackby(obj/item/weapon/W, mob/user )
 	if(W.is_hot() >= autoignition_temperature)
 		light()
 		user.visible_message("[user] lights \the [src] with \the [W].", \
@@ -233,7 +233,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		return source_temperature
 	return 0
 
-/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W , mob/user )
+/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W, mob/user )
 	..()
 
 	if(lit) //The cigarette is already lit
@@ -465,7 +465,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 
 /*
 //I'll light my cigar with an energy sword if I want to, thanks
-/obj/item/clothing/mask/cigarette/cigar/attackby(obj/item/weapon/W , mob/user )
+/obj/item/clothing/mask/cigarette/cigar/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/match))
 		..()
 	else
@@ -596,7 +596,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 
 /*
 //Ditto above, only a ruffian would refuse to light his pipe with an energy sword
-/obj/item/clothing/mask/cigarette/pipe/attackby(obj/item/weapon/W , mob/user )
+/obj/item/clothing/mask/cigarette/pipe/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/match))
 		..()
 	else
@@ -738,7 +738,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		return source_temperature
 	return 0
 
-/obj/item/weapon/lighter/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/lighter/attack(mob/living/carbon/M, mob/living/carbon/user )
 	if(istype(M.wear_mask, /obj/item/clothing/mask/cigarette) && user.zone_sel.selecting == "mouth" && lit)
 		var/obj/item/clothing/mask/cigarette/cig = M.wear_mask
 		if(M == user)

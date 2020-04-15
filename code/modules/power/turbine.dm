@@ -215,7 +215,7 @@
 			if(P.id_tag == id_tag)
 				doors += P
 
-/obj/machinery/computer/turbine_computer/attackby(obj/item/I , mob/user )
+/obj/machinery/computer/turbine_computer/attackby(obj/item/I, mob/user )
 	if(I.is_screwdriver(user))
 		I.playtoolsound(src, 50)
 		if(do_after(user, src, 20))

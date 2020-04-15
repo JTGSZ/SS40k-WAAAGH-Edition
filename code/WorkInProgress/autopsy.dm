@@ -189,7 +189,7 @@
 		// place the item in the usr's hand if possible
 		usr.put_in_hands(P)
 
-/obj/item/weapon/autopsy_scanner/attack(mob/living/carbon/human/M , mob/living/carbon/user )
+/obj/item/weapon/autopsy_scanner/attack(mob/living/carbon/human/M, mob/living/carbon/user )
 	if(!istype(M))
 		return
 

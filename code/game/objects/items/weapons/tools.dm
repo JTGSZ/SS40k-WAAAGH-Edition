@@ -135,7 +135,7 @@
 	if (prob(75))
 		src.pixel_y = rand(0, 16) * PIXEL_MULTIPLIER
 
-/obj/item/weapon/screwdriver/attack(mob/living/carbon/M , mob/living/carbon/user )
+/obj/item/weapon/screwdriver/attack(mob/living/carbon/M, mob/living/carbon/user )
 	if(!istype(M))
 		return ..()
 	if(can_operate(M, user))
@@ -203,7 +203,7 @@
 		icon_state = "cutters-y"
 		item_state = "cutters_yellow"
 
-/obj/item/weapon/wirecutters/attack(mob/living/carbon/C , mob/user )
+/obj/item/weapon/wirecutters/attack(mob/living/carbon/C, mob/user )
 	if((iscarbon(C)) && (C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)) && user.a_intent!=I_HURT)
 		usr.visible_message("\The [user] cuts \the [C]'s [C.handcuffed.name] with \the [src]!",\
 		"You cut \the [C]'s [C.handcuffed.name] with \the [src]!",\
@@ -271,7 +271,7 @@
 		to_chat(user, "<span class='notice'>The welder is unsecured.</span>")
 	to_chat(user, "It contains [get_fuel()]/[src.max_fuel] units of fuel!")
 
-/obj/item/weapon/weldingtool/attackby(obj/item/W , mob/user )
+/obj/item/weapon/weldingtool/attackby(obj/item/W, mob/user )
 	if(user.is_in_modules(src))
 		return
 	if(istype(W,/obj/item/weapon/screwdriver))
@@ -354,7 +354,7 @@
 		location.hotspot_expose(source_temperature, 5,surfaces=istype(loc,/turf))
 
 
-/obj/item/weapon/weldingtool/afterattack(atom/A, mob/user , proximity)
+/obj/item/weapon/weldingtool/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 	if (istype(A, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,A) <= 1 && !src.welding)
@@ -661,7 +661,7 @@
 	return (SUICIDE_ACT_BRUTELOSS)
 
 
-/obj/item/weapon/weldingtool/attack(mob/M , mob/user )
+/obj/item/weapon/weldingtool/attack(mob/M, mob/user )
 	if(hasorgans(M))
 		if(can_operate(M, user))
 			if(do_surgery(M, user, src))
@@ -762,7 +762,7 @@
 	..()
 	to_chat(user, "It contains [reagents.get_reagent_amount(SACID) + reagents.get_reagent_amount(FORMIC_ACID)]/[src.max_fuel] units of fuel!")
 
-/obj/item/weapon/solder/attackby(obj/item/W , mob/user )
+/obj/item/weapon/solder/attackby(obj/item/W, mob/user )
 	if(istype(W,/obj/item/weapon/reagent_containers/) && W.flags & OPENCONTAINER)
 		var/obj/item/weapon/reagent_containers/G = W
 		if(G.reagents.reagent_list.len>1)

@@ -152,7 +152,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/bot/farmbot/attackby(obj/item/weapon/W , mob/user )
+/obj/machinery/bot/farmbot/attackby(obj/item/weapon/W, mob/user )
 	if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if (src.allowed(user))
 			src.locked = !src.locked
@@ -485,7 +485,7 @@
 	qdel(S)
 	S = null
 
-/obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W , mob/user )
+/obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W, mob/user )
 	..()
 	if((istype(W, /obj/item/device/analyzer/plant_analyzer)) && (!src.build_step))
 		src.build_step++

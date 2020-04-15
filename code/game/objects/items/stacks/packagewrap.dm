@@ -31,7 +31,7 @@
 		/obj/structure/stackopacks
 		)
 
-/obj/item/stack/package_wrap/afterattack(var/attacked, mob/user , var/proximity_flag)
+/obj/item/stack/package_wrap/afterattack(var/attacked, mob/user, var/proximity_flag)
 	var/atom/movable/target = attacked
 	if(!istype(target))
 		return
@@ -144,7 +144,7 @@
 		user.put_in_hands(I) //if it fails, it'll drop on the ground. simple
 	qdel(src)
 
-/obj/item/delivery/attackby(obj/item/W , mob/user )
+/obj/item/delivery/attackby(obj/item/W, mob/user )
 	if(istype(W, /obj/item/device/destTagger))
 		var/obj/item/device/destTagger/O = W
 

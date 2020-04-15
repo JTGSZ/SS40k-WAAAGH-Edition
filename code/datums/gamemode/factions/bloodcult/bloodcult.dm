@@ -741,7 +741,7 @@ var/global/global_anchor_bloodstone // Keeps track of what stone becomes the anc
 		if (data[BLOODCOST_TARGET_SPLATTER])
 			data[BLOODCOST_TOTAL] += data[BLOODCOST_AMOUNT_SPLATTER]
 			var/obj/effect/decal/cleanable/blood/B = data[BLOODCOST_TARGET_SPLATTER]
-			B.amount = max(0 , B.amount - data[BLOODCOST_AMOUNT_SPLATTER])
+			B.amount = max(0, B.amount - data[BLOODCOST_AMOUNT_SPLATTER])
 		if (data[BLOODCOST_TARGET_GRAB])
 			data[BLOODCOST_TOTAL] += data[BLOODCOST_AMOUNT_GRAB]
 			var/mob/living/carbon/human/H = data[BLOODCOST_TARGET_GRAB]

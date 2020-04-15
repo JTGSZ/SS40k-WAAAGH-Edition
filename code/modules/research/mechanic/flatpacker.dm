@@ -77,7 +77,7 @@
 	src.busy = 0
 	return 1
 
-/obj/machinery/r_n_d/fabricator/mechanic_fab/flatpacker/attackby(var/obj/item/O , var/mob/user )
+/obj/machinery/r_n_d/fabricator/mechanic_fab/flatpacker/attackby(var/obj/item/O, var/mob/user )
 	if(..())
 		return 1
 	if (O.is_open_container())

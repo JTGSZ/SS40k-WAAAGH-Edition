@@ -29,7 +29,7 @@
 	reagents.add_reagent(CREATINE, 30)
 	return
 
-/obj/item/weapon/reagent_containers/hypospray/attack(mob/M , mob/user )
+/obj/item/weapon/reagent_containers/hypospray/attack(mob/M, mob/user )
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 		return
@@ -85,7 +85,7 @@
 	volume = 5
 	flags = FPRINT
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M , mob/user )
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M, mob/user )
 	..()
 //	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
 //		flags &= ~OPENCONTAINER
