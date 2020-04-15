@@ -30,6 +30,7 @@
 	user.vis_contents += new /obj/effect/overlay/sunburst(user,15)
 	for(var/mob/living/AUGH in targets)
 		to_chat(AUGH, "<span class='danger'><font size='3'>You are engulfed by brilliant warp flames!</font></span>")
+		AUGH.soul_blaze_append()
 		AUGH.fire_stacks += 10
 		AUGH.IgniteMob()
 		AUGH.adjustFireLoss(30)

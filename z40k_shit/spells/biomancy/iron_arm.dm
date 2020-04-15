@@ -13,13 +13,16 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 /spell/aoe_turf/iron_arm/cast(list/targets, mob/user)
+	set waitfor = 0
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>Your arms feel a hell of a lot stronger.</span>")
 		L.attribute_strength += 15
-		L.vis_contents += new /obj/effect/overlay/upper_blue_glow(L,12 SECONDS)
-		spawn(12 SECONDS)
-			to_chat(L, "<span class='sinister'>Warp energy fading, your strength feels weak.</span>")
-			L.attribute_strength -= 15
+		user.filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=2, color=rgb(253, 6, 241))
+		var/f1 = user.filters[user.filters.len]
+		sleep(12 SECONDS)
+		user.filters -= f1
+		to_chat(L, "<span class='sinister'>Warp energy fading, your strength feels weak.</span>")
+		L.attribute_strength -= 15
 			
 /spell/aoe_turf/iron_arm/choose_targets(var/mob/user = usr)
 	return list(user)

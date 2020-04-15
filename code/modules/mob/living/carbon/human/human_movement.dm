@@ -134,13 +134,21 @@
 	prob_slip = round(prob_slip)
 	return(prob_slip)
 
+/mob/living/carbon/human/proc/begin_shitting_images1()
+	set waitfor = 0
+	var/obj/effect/overlay/viscons/afterimages/ARGH = new(loc, M = src, effect_duration = 11)
+	ARGH.vis_contents += src
+	animate(ARGH, alpha=120)
+	animate(alpha = 0, time = 10)
+	
+
 /mob/living/carbon/human/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
 	. = ..()
-
-	/*if(status_flags & FAKEDEATH)
-		return 0*/
-
+	
 	if(.)
+		if(warp_speed)
+			begin_shitting_images1()
+
 		if(shoes && istype(shoes, /obj/item/clothing/shoes))
 			var/obj/item/clothing/shoes/S = shoes
 			S.step_action()

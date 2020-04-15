@@ -12,6 +12,7 @@
 	var/spread = 1
 	var/spread_start = 100
 	var/spread_chance = 20
+	var/magic_fire = FALSE
 
 /obj/effect/fire_blast/New(atom/A, var/damage = 0, var/current_step = 0, var/age = 1, var/pressure = 0, var/blast_temperature = 0, var/fire_duration)
 	..(A)
@@ -89,6 +90,9 @@
 					L.adjustFireLoss(adjusted_fire_damage * 2) //Deals double damage to non-human mobs
 				else
 					L.adjustFireLoss(adjusted_fire_damage)
+
+				if(magic_fire)
+					L.soul_blaze_append()
 
 			for(var/obj/O in get_turf(A))
 				if(istype(O, /obj/structure/reagent_dispensers/fueltank))

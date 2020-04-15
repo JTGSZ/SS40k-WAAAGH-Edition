@@ -17,56 +17,56 @@
 	hud_state = "molten_beam"
 
 /spell/aoe_turf/molten_beam/cast(list/targets, mob/living/user)
-	set waitfor = FALSE
+	set waitfor = 0
 	user.anchored = TRUE
 
 	var/turf/user_turf = get_turf(user)
 	var/turf/starting_turf = get_step(user_turf, user.dir)
 	var/turf/bound_adjustment
 
-	if(user.attribute_sensitivity >= 800 && user.attribute_willpower >= 15)
-		/*Logic: 	3 2 1 $ 1 2 3
-					& & & & & & &				
-					$ 1 2 3 4 5 6
-									*/	
-		switch(user.dir)
-			if(NORTH)
-				bound_adjustment = get_step(starting_turf,turn(user.dir,90))
-				for(var/i=1 to 2) //2 and 3.
-					bound_adjustment = get_step(bound_adjustment,turn(user.dir,90))
-			if(SOUTH)
-				bound_adjustment = get_step(starting_turf,turn(user.dir,-90))
-				for(var/i=1 to 2) //2 and 3.
-					bound_adjustment = get_step(bound_adjustment,turn(user.dir,-90))
-			if(EAST)
-				bound_adjustment = get_step(starting_turf,turn(user.dir,-90))
-				for(var/i=1 to 2) //2 and 3.
-					bound_adjustment = get_step(bound_adjustment,turn(user.dir,-90))
-			if(WEST)
-				bound_adjustment = get_step(starting_turf,turn(user.dir,90))
-				for(var/i=1 to 2) //2 and 3.
-					bound_adjustment = get_step(bound_adjustment,turn(user.dir,90))
+	if(do_after(user,user,30))
+		if(user.attribute_sensitivity >= 800 && user.attribute_willpower >= 15)
+			/*Logic: 	3 2 1 $ 1 2 3
+						& & & & & & &				
+						$ 1 2 3 4 5 6
+										*/	
+			switch(user.dir)
+				if(NORTH)
+					bound_adjustment = get_step(starting_turf,turn(user.dir,90))
+					for(var/i=1 to 2) //2 and 3.
+						bound_adjustment = get_step(bound_adjustment,turn(user.dir,90))
+				if(SOUTH)
+					bound_adjustment = get_step(starting_turf,turn(user.dir,-90))
+					for(var/i=1 to 2) //2 and 3.
+						bound_adjustment = get_step(bound_adjustment,turn(user.dir,-90))
+				if(EAST)
+					bound_adjustment = get_step(starting_turf,turn(user.dir,-90))
+					for(var/i=1 to 2) //2 and 3.
+						bound_adjustment = get_step(bound_adjustment,turn(user.dir,-90))
+				if(WEST)
+					bound_adjustment = get_step(starting_turf,turn(user.dir,90))
+					for(var/i=1 to 2) //2 and 3.
+						bound_adjustment = get_step(bound_adjustment,turn(user.dir,90))
 
-		new /obj/effect/super_molten_beam/head(bound_adjustment,user.dir,beam_length)
+			new /obj/effect/super_molten_beam/head(bound_adjustment,user.dir,beam_length)
 
+		else
+			/*Logic:	1 $ 1
+						& & &
+						$ 1 2		*/
+			switch(user.dir)
+				if(NORTH)
+					bound_adjustment = get_step(starting_turf,turn(user.dir, 90)) //1
+				if(SOUTH)
+					bound_adjustment = get_step(starting_turf,turn(user.dir,-90)) //1
+				if(EAST)
+					bound_adjustment = get_step(starting_turf,turn(user.dir,-90)) //1
+				if(WEST)
+					bound_adjustment = get_step(starting_turf,turn(user.dir, 90)) //1
+			new /obj/effect/molten_beam/head(bound_adjustment,user.dir,beam_length)
 	else
-		/*Logic:	1 $ 1
-					& & &
-					$ 1 2		*/
-		switch(user.dir)
-			if(NORTH)
-				bound_adjustment = get_step(starting_turf,turn(user.dir, 90)) //1
-			if(SOUTH)
-				bound_adjustment = get_step(starting_turf,turn(user.dir,-90)) //1
-			if(EAST)
-				bound_adjustment = get_step(starting_turf,turn(user.dir,-90)) //1
-			if(WEST)
-				bound_adjustment = get_step(starting_turf,turn(user.dir, 90)) //1
-		new /obj/effect/molten_beam/head(bound_adjustment,user.dir,beam_length)
+		to_chat(user,"<span class='bad'> Your casting was disrupted</span>")
 
-	sleep(4 SECONDS)
-	user.anchored = FALSE
-			
 /spell/aoe_turf/molten_beam/choose_targets(var/mob/user = usr)
 	return list(user)
 

@@ -99,11 +99,16 @@
 	layer = LIGHTING_LAYER
 
 /obj/effect/overlay/red_radiating/New(var/mob/M,var/effect_duration)
+	set waitfor = 0
 	..()
-	animate(src, alpha = 0, time = effect_duration)
-	spawn(effect_duration)
-		M.vis_contents -= src
-		qdel(src)
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=2, color=rgb(158, 4, 163))
+	var/f1 = filters[filters.len]
+	animate(f1,alpha=200,time=10,loop=-1)
+	animate(alpha=255,time=10)
+	sleep(effect_duration)
+	filters -= f1
+	M.vis_contents -= src
+	qdel(src)
 
 /obj/effect/overlay/upper_blue_glow
 	name = "warp sparkles"
@@ -124,10 +129,17 @@
 	layer = LIGHTING_LAYER
 
 /obj/effect/overlay/purple_flame/New(var/mob/M,var/effect_duration)
+	set waitfor = 0
 	..()
-	spawn(effect_duration)
-		M.vis_contents -= src
-		qdel(src)
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=2, color=rgb(212, 66, 218))
+	var/f1 = filters[filters.len]
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=2, color=rgb(120, 2, 124))
+	var/f2 = filters[filters.len]
+	sleep(effect_duration)
+	filters -= f1
+	filters -= f2
+	M.vis_contents -= src
+	qdel(src)
 
 /obj/effect/overlay/soul_blaze
 	name = "psychic flame"
@@ -136,13 +148,20 @@
 	layer = LIGHTING_LAYER
 
 /obj/effect/overlay/soul_blaze/New(var/mob/M,var/effect_duration)
+	set waitfor = 0
 	..()
 	pixel_x = -64
 	pixel_y = -64
 	animate(src, alpha = 0, time = effect_duration)
-	spawn(effect_duration)
-		M.vis_contents -= src
-		qdel(src)
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=-2, color=rgb(212, 66, 218))
+	var/f1 = filters[filters.len]
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=2, color=rgb(120, 2, 124))
+	var/f2 = filters[filters.len]
+	sleep(effect_duration)
+	filters -= f1
+	filters -= f2
+	M.vis_contents -= src
+	qdel(src)
 
 /obj/effect/overlay/sunburst
 	name = "psychic flame"

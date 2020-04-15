@@ -88,6 +88,7 @@
 	spread = 0
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "1"
+	magic_fire = TRUE
 
 /datum/locking_category/fire_shield
 	var/target_x_offset
