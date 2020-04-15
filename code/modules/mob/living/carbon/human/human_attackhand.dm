@@ -162,9 +162,9 @@
 				if(M.loc != src.loc)
 					throw_dir = get_dir(M, src)
 
-				var/turf/T = get_edge_target_turf(get_turf(src), throw_dir)
-				var/throw_strength = 3 * M.attribute_strength/2
-				throw_at(T, throw_strength, 1)
+				var/turf/T = get_step(get_turf(src), throw_dir) //Throw them in the direction we're facing!
+				T = get_step(T,throw_dir)
+				src.throw_at(T, 6, 1)
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='red'>Kicked [src.name] ([src.ckey]) for [damage] damage</font>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been kicked by [M.name] ([M.ckey]) for [damage] damage</font>")

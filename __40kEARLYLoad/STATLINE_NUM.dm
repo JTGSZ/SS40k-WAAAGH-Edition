@@ -24,6 +24,7 @@
 	var/realtime_warp_charge = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
 	var/chaos_tainted = FALSE //Are we currently tainted by chaos?
 	var/list/spelltree_unlocked_list = list() //Spell trees that are currently unlocked.
+	var/soul_blazed = FALSE //We currently appended to?
 
 /*
 	Strength

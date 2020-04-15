@@ -17,43 +17,23 @@
 
 	mymob.client.screen += list(powerwords_display)
 
-/mob/living/carbon/human/proc/update_powerwords_hud()
+/mob/living/carbon/human
+	var/wordhud_disp_holder = ""
+
+/mob/living/carbon/human/proc/update_powerwords_hud(conversion_strings, var/clear = 0)
 	if(hud_used)
 		if(!hud_used.powerwords_display)
 			hud_used.powerwords_hud()
-			//hud_used.human_hud(hud_used.ui_style)
+
+		if(clear)
+			wordhud_disp_holder = ""
+		else
+			wordhud_disp_holder += conversion_strings
 		
-		var/conversion_string //Basically this is our conversion string, we now exist.
-		conversion_string = word_combo_chain //Then we make it our word combo chain
-		//Then we regex stuff - Basically we can get our colors on this way.
-		if(findtext(conversion_string, "grapple")) //This one is grab
-			conversion_string = replacetext(conversion_string, "grapple", "<font color='#FFFF00'><i> Grapple </i></font>") 
-		if(findtext(conversion_string, "disarm")) //This one is disarm
-			conversion_string = replacetext(conversion_string, "disarm", "<font color='#0000FF'> Disarm </font>") 
-		if(findtext(conversion_string, "knockback")) //This one is help
-			conversion_string = replacetext(conversion_string, "knockback", "<font color='#00FF00'> Knockback </font>") 
-		if(findtext(conversion_string, "hurt")) //This one is hurt
-			conversion_string = replacetext(conversion_string, "hurt", "<font color='#FF0000'> Hurt </font>") 
-		if(findtext(conversion_string, "overchrge")) //Pierce action
-			conversion_string = replacetext(conversion_string, "overchrge", "<font color='#8602f1'><b><i> Overcharge! </i></b></font>")
-		if(findtext(conversion_string, "charge")) //This one is charge action
-			conversion_string = replacetext(conversion_string, "charge", "<font color='#FF9933'><b> Charge! </b></font>") 
-		if(findtext(conversion_string, "parry")) //This one is parry action
-			conversion_string = replacetext(conversion_string, "parry", "<font color='#EE82EE'><b> Parry! </b></font>") 
-		if(findtext(conversion_string, "pierce")) //Pierce action
-			conversion_string = replacetext(conversion_string, "pierce", "<font color='#00ffea'><b><i> PIERCE! </i></b></font>")  
-		if(findtext(conversion_string, "saw")) //Pierce action
-			conversion_string = replacetext(conversion_string, "saw", "<font color='#ff00f2'><b><i> Saw! </i></b></font>") 
-		if(findtext(conversion_string, "deflect"))
-			conversion_string = replacetext(conversion_string, "deflect", "<font color='#b3ff00'><b><i> DEFLECT! </i></b></font>") 
-		if(findtext(conversion_string, "block"))
-			conversion_string = replacetext(conversion_string, "block", "<font color='#00ffd5'><b><i> Block! </i></b></font>") 
-
-
 		hud_used.powerwords_display.maptext_width = 128
 		hud_used.powerwords_display.maptext_height = 42
 		hud_used.powerwords_display.maptext = "<div align='left' valign='top' style='position:relative; top:0px; left:6px'>\
 				<br>\
-				[conversion_string]<br>\
+				[wordhud_disp_holder]<br>\
 				</div>"
 	return

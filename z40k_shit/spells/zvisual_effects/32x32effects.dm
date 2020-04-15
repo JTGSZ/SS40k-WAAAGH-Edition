@@ -150,8 +150,26 @@
 /obj/effect/overlay/soul_blaze/New(var/mob/M,var/effect_duration)
 	set waitfor = 0
 	..()
-	pixel_x = -64
-	pixel_y = -64
+	animate(src, alpha = 0, time = effect_duration)
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=-2, color=rgb(66, 218, 129))
+	var/f1 = filters[filters.len]
+	sleep(effect_duration)
+	filters -= f1
+	M.vis_contents -= src
+	qdel(src)
+
+/obj/effect/overlay/sunburst
+	name = "psychic flame"
+	icon = 'z40k_shit/icons/96x96effects.dmi'
+	icon_state = "sunburst"
+	plane = OBJ_PLANE 
+	layer = ABOVE_OBJ_LAYER
+
+/obj/effect/overlay/sunburst/New(var/mob/M,var/effect_duration)
+	set waitfor = 0
+	..()
+	pixel_x = -32
+	pixel_y = -32
 	animate(src, alpha = 0, time = effect_duration)
 	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=-2, color=rgb(212, 66, 218))
 	var/f1 = filters[filters.len]
@@ -163,35 +181,25 @@
 	M.vis_contents -= src
 	qdel(src)
 
-/obj/effect/overlay/sunburst
-	name = "psychic flame"
-	icon = 'z40k_shit/icons/96x96effects.dmi'
-	icon_state = "sunburst"
-	layer = LIGHTING_LAYER
-
-/obj/effect/overlay/sunburst/New(var/mob/M,var/effect_duration)
-	..()
-	pixel_x = -64
-	pixel_y = -64
-	animate(src, alpha = 0, time = effect_duration)
-	spawn(effect_duration)
-		M.vis_contents -= src
-		qdel(src)
-
 /obj/effect/overlay/shockwave
 	name = "shockwave"
 	icon = 'z40k_shit/icons/96x96effects.dmi'
 	icon_state = "shockwave"
-	layer = LIGHTING_LAYER
+	plane = OBJ_PLANE
+	layer = ABOVE_OBJ_LAYER
 
 /obj/effect/overlay/shockwave/New(var/mob/M,var/effect_duration)
+	set waitfor = 0
 	..()
-	pixel_x = -64
-	pixel_y = -64
+	pixel_x = -32
+	pixel_y = -32
 	animate(src, alpha = 0, time = effect_duration)
-	spawn(effect_duration)
-		M.vis_contents -= src
-		qdel(src)
+	filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=-2, color=rgb(183, 192, 194))
+	var/f1 = filters[filters.len]
+	sleep(effect_duration)
+	filters -= f1
+	M.vis_contents -= src
+	qdel(src)
 
 
 

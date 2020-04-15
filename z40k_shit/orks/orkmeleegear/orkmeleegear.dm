@@ -40,7 +40,7 @@
 			user.visible_message("<span class='danger'>[H] lands a extra hard swing on [T]!</span>")
 			target.adjustBruteLoss(35)
 			H.word_combo_chain = ""
-			H.update_powerwords_hud()
+			H.update_powerwords_hud(clear = TRUE)
 		if("hurthurthurthurthurt")
 			user.visible_message("<span class='danger'>[H] swings and cleaves everything in front of them!")
 			var/turf/starter = get_step(user,user.dir)
@@ -54,7 +54,7 @@
 			target.adjustBruteLoss(15)
 			T.attackby(src,user)
 			H.word_combo_chain = ""
-			H.update_powerwords_hud()
+			H.update_powerwords_hud(clear = TRUE)
 
 
 /obj/item/weapon/shield/orkshield
