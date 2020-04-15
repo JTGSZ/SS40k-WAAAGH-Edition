@@ -490,7 +490,7 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 		user.visible_message("<span class='notice'> [user] stops supercharging their [src].</span>")
 	else
 		overcharged = TRUE
-		user.word_combo_chain += "overcharge"
+		user.word_combo_chain += "overchrge"
 		user.update_powerwords_hud()
 		user.visible_message("<span class='notice'> [user] begins supercharging their [src].</span>")
 	return

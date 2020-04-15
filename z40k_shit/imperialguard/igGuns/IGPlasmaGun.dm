@@ -173,6 +173,7 @@
 				return 1
 	return 0
 
+
 /obj/item/weapon/gun/ig_plasma_gun/failure_check(mob/living/user)
 	if(overcharged) 
 		gunheat += 6
@@ -180,18 +181,17 @@
 			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
 			user.adjustFireLoss(500)
 			gunheat = 0
-			for(var/turf/ITBURNS in range(1,loc))
-				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
+			for(var/mob/living/burntcunts in range(1,user))
+				burntcunts.adjustFireLoss(500)
 			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 			S.time_to_live = 20 //2 seconds instead of full 10
 	else
 		gunheat += 3
 		if(prob(1+gunheat)) //A good chance to boil alive if you spam shoot.
 			user.visible_message("<span class='notice'> [src] begins failsafe venting.</span>")
-			user.adjustFireLoss(500)
 			gunheat = 0
-			for(var/turf/ITBURNS in range(1,loc))
-				ITBURNS.hotspot_expose(70000, 50000, 1, surfaces=1)
+			for(var/mob/living/burntcunts in range(1,user))
+				burntcunts.adjustFireLoss(500)
 			var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
 			S.time_to_live = 20 //2 seconds instead of full 10
 		
@@ -200,7 +200,46 @@
 //Fire action
 /obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	var/atom/newtarget = target
+
+	if(my_cell.get_fuel() > 0)
+		if(istype(user.get_held_item_by_index(GRASP_RIGHT_HAND), src)) //right hand
+			user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"rhand")
+		else //left hand
+			user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"lhand")
+		sleep(20)
+	
 	..(newtarget,user,params,reflex,struggle)
+
+
+/*
+	VISCONTENTS EFFRTS OVERLAYS
+								*/
+
+/obj/effect/overlay/plasgun_charge
+	name = "plasgun charge"
+	icon = 'z40k_shit/icons/64x64effects.dmi'
+	icon_state = "plasgun_overlay_left"
+	layer = LIGHTING_LAYER
+	vis_flags = VIS_INHERIT_DIR
+	pixel_y = -3
+	pixel_x = -WORLD_ICON_SIZE/2
+	pixel_y = -WORLD_ICON_SIZE/2
+
+/obj/effect/overlay/plasgun_charge/New(var/mob/M,var/effect_duration,var/handstring)
+	..()
+
+	switch(handstring)
+		if("rhand")
+			icon_state = "plasgun_overlay_right"
+		if("lhand")
+			icon_state = "plasgun_overlay_left"
+
+	animate(src, alpha = 0)
+	animate(src, alpha = 255, time = effect_duration)
+
+	spawn(effect_duration)
+		M.vis_contents -= src
+		qdel(src)
 
 /*
 	Hydrogen tank lmao
@@ -239,9 +278,11 @@
 	if(!plasgun || !istype(plasgun))
 		return
 	if(plasgun.overcharged)
-		icon_state = "plasma"
+		icon = 'z40k_shit/icons/obj/64x64projectiles.dmi'
 		damage = 100
 		kill_count = 20
+	else
+		icon = 'z40k_shit/icons/obj/projectiles.dmi'
 
 
 /*

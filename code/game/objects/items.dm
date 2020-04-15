@@ -836,10 +836,6 @@
 	return TRUE
 
 /obj/item/verb_pickup(mob/living/user)
-	//set src in oview(1)
-	//set category = "Object"
-	//set name = "Pick up"
-
 	if(!can_pickup(user))
 		return FALSE
 

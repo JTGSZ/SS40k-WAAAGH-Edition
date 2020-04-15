@@ -148,7 +148,6 @@ var/list/impact_master = list()
 	in_chamber.pass_flags = pass_flags //And the pass flags to that of the real projectile...
 	in_chamber.firer = user
 	var/output = in_chamber.process() //Test it!
-	//del(in_chamber) //No need for it anymore
 	returnToPool(in_chamber)
 	return output //Send it back to the gun!
 
