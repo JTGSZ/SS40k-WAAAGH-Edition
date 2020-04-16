@@ -14,13 +14,16 @@
 	var/spread_chance = 20
 	var/magic_fire = FALSE
 
-/obj/effect/fire_blast/New(atom/A, var/damage = 0, var/current_step = 0, var/age = 1, var/pressure = 0, var/blast_temperature = 0, var/fire_duration)
+/obj/effect/fire_blast/New(atom/A, var/damage = 0, var/current_step = 0, var/age = 1, var/pressure = 0, var/blast_temperature = 0, var/fire_duration, var/mgc_fire)
 	..(A)
 	icon_state = "[rand(1,3)]"
 
 	blast_age = age
 	if(fire_duration)
 		duration = fire_duration
+
+	if(mgc_fire)
+		magic_fire = TRUE
 
 	if(damage)
 		fire_damage = damage

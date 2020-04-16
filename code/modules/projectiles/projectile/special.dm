@@ -366,11 +366,12 @@ obj/item/projectile/kinetic/New()
 	var/pressure = ONE_ATMOSPHERE * 4.5
 	var/temperature = T0C + 175
 	var/fire_duration
+	var/magic_fire = FALSE
 
 /obj/item/projectile/fire_breath/straight 
 	fire_blast_type = /obj/effect/fire_blast/no_spread
 
-/obj/item/projectile/fire_breath/New(turf/T, var/direction, var/F_Dam, var/P, var/T, var/F_Dur)
+/obj/item/projectile/fire_breath/New(turf/T, var/direction, var/F_Dam, var/P, var/T, var/F_Dur, var/mgc_fire)
 	..(T,direction)
 	if(F_Dam)
 		fire_damage = F_Dam
@@ -380,6 +381,8 @@ obj/item/projectile/kinetic/New()
 		temperature = T
 	if(F_Dur)
 		fire_duration = F_Dur
+	if(mgc_fire)
+		magic_fire = TRUE
 
 /obj/item/projectile/fire_breath/process_step()
 	..()
@@ -394,7 +397,7 @@ obj/item/projectile/kinetic/New()
 	if(!T)
 		return
 
-	new fire_blast_type(T, fire_damage, stepped_range, 1, pressure, temperature, fire_duration)
+	new fire_blast_type(T, fire_damage, stepped_range, 1, pressure, temperature, fire_duration, magic_fire)
 
 /obj/item/projectile/fire_breath/shuttle_exhaust //don't stand behind rockets
 	fire_blast_type = /obj/effect/fire_blast/blue

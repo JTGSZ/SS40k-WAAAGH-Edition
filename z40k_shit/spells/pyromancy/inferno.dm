@@ -1,39 +1,48 @@
-/spell/targeted/projectile/dumbfire/fireball/inferno
+/spell/targeted/projectile/dumbfire/inferno
 	name = "Inferno"
-	desc = "Witchfire - Shoots out a gout of flames ."
+	abbreviation = "INF"
+	desc = "Witchfire - Fires a flaming projectile."
 	user_type = USER_TYPE_PSYKER
 	specialization = SSPYROMANCY
 
-	proj_type = /obj/item/projectile/fire_breath
-	invocation_type = SpI_NONE
+	proj_type = /obj/item/projectile/spell_projectile/inferno
+
 	school = "evocation"
-
-	spell_flags = WAIT_FOR_CLICK
-	spell_aspect_flags = SPELL_FIRE
+	charge_max = 100
+	invocation_type = SpI_NONE
 	range = 20
-	projectile_speed = 1
-	
-	dumbfire = 0
-	amt_dam_brute = 0
-	amt_dam_fire = 0
 
-	var/pressure = 500 //Basically controls the spread //455 is normal they add 150 to it per level up to 5
-	var/temperature = 500 //Controls the damage + heat. normally 488.15, 1643.15 is instant death
-	var/fire_duration = 0
+	spell_flags = 0
+	spell_aspect_flags = SPELL_FIRE
+	duration = 20
+	projectile_speed = 1
+
+	amt_dam_brute = 20
+	amt_dam_fire = 25
+	spell_flags = WAIT_FOR_CLICK
+	dumbfire = 0
+
+	var/ex_severe = -1
+	var/ex_heavy = 1
+	var/ex_light = 2
+	var/ex_flash = 5
 
 	hud_state = "inferno"
 
-/spell/targeted/projectile/dumbfire/fireball/inferno/spawn_projectile(var/location, var/direction)
-	to_chat(world,"We are reaching the new proj_type area.")
-	return new proj_type(location, direction, P = pressure, T = temperature, F_Dur = fire_duration)
+/spell/targeted/projectile/dumbfire/fireball/inferno/prox_cast(var/list/targets, spell_holder)
+	for(var/mob/living/M in targets)
+		apply_spell_damage(M)
+		M.soul_blaze_append()
+		
+	explosion(get_turf(spell_holder), ex_severe, ex_heavy, ex_light, ex_flash)
+	return targets
 
-/spell/targeted/projectile/dumbfire/fireball/inferno/cast(list/targets, mob/user = usr)
-	var/mob/living/psyker = user
-	pressure  += (psyker.attribute_sensitivity/2)
-	temperature += (psyker.attribute_sensitivity/2)
-	fire_duration = psyker.attribute_willpower
-	
-	..()
+/spell/targeted/projectile/dumbfire/fireball/inferno/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
+	var/list/targets = ..()
+	for(var/mob/living/M in targets)
+		if(M.lying)
+			targets -= M
+	return targets
 
 /spell/targeted/projectile/dumbfire/fireball/inferno/is_valid_target(var/atom/target)
 	if(!istype(target))
@@ -42,3 +51,15 @@
 		return 0
 
 	return (isturf(target) || isturf(target.loc))
+
+//PROJECTILE
+/obj/item/projectile/spell_projectile/inferno
+	name = "fireball"
+	icon_state = "fireball"
+	animate_movement = 2
+	linear_movement = 0
+
+/obj/item/projectile/spell_projectile/inferno/to_bump(var/atom/A)
+	if(!isliving(A))
+		forceMove(get_turf(A))
+	return ..()
