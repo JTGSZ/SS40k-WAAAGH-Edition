@@ -16,7 +16,7 @@
 		var/mob/pilot = get_pilot()
 		if(pilot)
 			visible_message("<span class='notice'>[usr] start pulling [pilot.name] out of \the [src].</span>")
-			if(do_after(usr, src, 4 SECONDS))
+			if(do_after(usr, usr, 4 SECONDS))
 				move_outside(pilot, T)
 			return
 	if(!Adjacent(T) || T.density)

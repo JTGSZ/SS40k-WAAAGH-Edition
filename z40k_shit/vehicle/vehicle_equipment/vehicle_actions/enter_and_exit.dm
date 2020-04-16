@@ -25,7 +25,7 @@
 
 	visible_message("<span class='notice'>[user] starts to climb into \the [src].</span>")
 
-	if(do_after(user, src, 4 SECONDS))
+	if(do_after(user, user, 4 SECONDS))
 		var/list/passengers = get_passengers()
 		if(!get_pilot() || passengers.len < passenger_limit)
 			move_into_vehicle(user)
