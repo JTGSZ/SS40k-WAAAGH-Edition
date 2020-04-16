@@ -2676,7 +2676,6 @@
 #include "z40k_shit\spells\biomancy\warp_speed.dm"
 #include "z40k_shit\spells\pyromancy\fiery_form.dm"
 #include "z40k_shit\spells\pyromancy\fire_shield.dm"
-#include "z40k_shit\spells\pyromancy\flamebreath.dm"
 #include "z40k_shit\spells\pyromancy\inferno.dm"
 #include "z40k_shit\spells\pyromancy\molten_beam.dm"
 #include "z40k_shit\spells\pyromancy\soul_blaze.dm"
