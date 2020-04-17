@@ -19,6 +19,7 @@
 			L.movement_speed_modifier += 1.0
 			for(var/i=1 to 6)
 				step(L,user.dir)
+				sleep(1)
 
 			spawn(12 SECONDS)
 				to_chat(L, "<span class='sinister'>The visions leave your mind, along with your vigor.</span>")

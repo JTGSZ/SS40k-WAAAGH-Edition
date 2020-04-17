@@ -19,6 +19,7 @@
 			C.movement_speed_modifier -= 1.0
 			for(var/i=1 to terrify_amount)
 				step(C,get_dir(user,C))
+				sleep(1)
 
 			spawn(12 SECONDS)
 				to_chat(C, "<span class='sinister'>The terror leaves your mind, letting you calm yourself.</span>")
