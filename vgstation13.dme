@@ -2663,6 +2663,7 @@
 #include "z40k_shit\orks\orkguns\orkslugga.dm"
 #include "z40k_shit\orks\orkmeleegear\boss_choppa.dm"
 #include "z40k_shit\orks\orkmeleegear\orkmeleegear.dm"
+#include "z40k_shit\spells\perilsofthewarp.dm"
 #include "z40k_shit\spells\psykerbook.dm"
 #include "z40k_shit\spells\racial_mekbuild.dm"
 #include "z40k_shit\spells\racial_waagh.dm"

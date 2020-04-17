@@ -145,9 +145,9 @@ var/global/list/organ_damage_overlays = list(
 				update_powerwords_hud(clear = TRUE)
 			clear_counter += 1
 
-		if(realtime_warp_charge >= 0)
-			realtime_warp_charge -= 5+(attribute_willpower/2)
-
+		if(warp_charges >= 0)
+			warp_charges -= attribute_willpower
+ 
 		if(SSair.current_cycle % 4 == 2 || failed_last_breath) //First, resolve location and get a breath
 			breathe() //Only try to take a breath every 4 ticks, unless suffocating
 			last_processed = "Breathe"

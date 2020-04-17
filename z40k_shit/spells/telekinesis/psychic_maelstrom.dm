@@ -81,7 +81,7 @@
 	desc = "What a psyker whom is high powered can do"
 	icon = 'z40k_shit/icons/32x32effects.dmi'
 	icon_state = "electricity"
-	density = 1
+	density = 0
 	w_type = NOT_RECYCLABLE
 	anchored = 1
 	opacity = 0

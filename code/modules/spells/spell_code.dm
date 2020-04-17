@@ -23,6 +23,8 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	var/silenced = 0 //not a binary (though it seems that it is at the moment) - the length of time we can't cast this for, set by the spell_master silence_spells()
 
+	var/warpcharge_cost = 0 //Basically a HEAT system for the mob.
+
 	var/price = Sp_BASE_PRICE //How much does it cost to buy this spell from a spellbook
 	var/refund_price = 0 //If 0, non-refundable
 
@@ -452,7 +454,10 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		return insufficient_holder_msg
 	return still_recharging_msg
 
-/spell/proc/take_charge(mob/user = user, var/skipcharge)
+/spell/proc/take_charge(mob/living/user = user, var/skipcharge)
+	
+	user.warp_charges += warpcharge_cost
+
 	if(!skipcharge)
 		if(charge_type & Sp_RECHARGE)
 			charge_counter = 0 //doesn't start recharging until the targets selecting ends
@@ -470,6 +475,9 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			process()
 		if(charge_type & Sp_PASSIVE)
 			process()
+
+	if(user.warp_charges >= 100)
+		perils_of_the_warp(user)
 
 
 /spell/proc/invocation(mob/user = usr, var/list/targets) //spelling the spell out and setting it on recharge/reducing charges amount
@@ -652,17 +660,3 @@ Made a proc so this is not repeated 14 (or more) times.*/
 		return 0
 	return 1
 
-// So can monkeys (FIXME)
-/*
-/mob/living/carbon/monkey/wearing_wiz_garb()
-	if(!is_wiz_garb(src.wear_suit))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my robe.</span>")
-		return 0
-	if(!is_wiz_garb(src.shoes))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my sandals.</span>")
-		return 0
-	if(!is_wiz_garb(src.head))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my hat.</span>")
-		return 0
-	return 1
-*/

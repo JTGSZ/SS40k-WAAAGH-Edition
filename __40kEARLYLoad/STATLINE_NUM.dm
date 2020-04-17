@@ -17,11 +17,11 @@
 /mob
 	var/warp_speed = FALSE //We are currently in WARP INDUCED SPEED INCREASE (Aka extra attacks)
 	var/soul_blaze_melee = FALSE //Are we currently applying soul blaze?
-
+ 
 /mob/living
 	var/stat_increase_cooldown = FALSE //A optional cooldown on stat increases
 	var/objuration_mechanicum = FALSE //Causes Gun failures
-	var/realtime_warp_charge = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
+	var/warp_charges = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
 	var/chaos_tainted = FALSE //Are we currently tainted by chaos?
 	//var/list/spelltree_unlocked_list = list() //Spell trees that are currently unlocked.
 	var/list/spelltree_unlocked_list = list(
