@@ -144,7 +144,6 @@
 				ARGH = get_step(src,turn(direction,180))
 				var/obj/effect/super_molten_beam/tail/AH = new(ARGH, direction)
 				segments += AH			
-				ARGH.ChangeTurf(get_base_turf(src.z))
 				sleep(3)
 
 	if(traveled_length <= beam_length)
@@ -249,7 +248,6 @@
 				ARGH = get_step(src,turn(direction,180))
 				var/obj/effect/molten_beam/tail/AH = new(ARGH, direction)
 				segments += AH			
-				ARGH.ChangeTurf(get_base_turf(src.z))
 				sleep(3)
 	
 	if(traveled_length <= beam_length)

@@ -71,11 +71,11 @@
 	return list(user)
 
 /*
-	SUPER MOLTEN BEAM
+	BIG ASSAIL
 						*/
 
 /obj/effect/super_thrown_rock
-	name = "ascended molten beam"
+	name = "Assail"
 	desc = "What a psyker whom is high powered can do"
 	density = 1
 	w_type = NOT_RECYCLABLE
@@ -91,17 +91,16 @@
 	consume(A)
 
 /obj/effect/super_thrown_rock/proc/consume(atom/A)
-	var/obj/item/O = A
-	if(istype(A,/obj/item))
-		qdel(O)
-
 	var/obj/complex_vehicle/CV = A
 	if(istype(A,/obj/complex_vehicle))
 		CV.health -= 1000
 
 	if(iscarbon(A))
 		var/mob/living/carbon/C = A
-		C.gib()
+		C.adjustBruteLoss(25)
+		C.knockdown(12)
+		C.stun(12)
+		to_chat(C,"<span class='bad'>You've been hit by a large chunk of earth.")
 
 	var/obj/structure/ST = A
 	if(istype(A, /obj/structure))
@@ -143,8 +142,7 @@
 			if(step(src,direction))
 				ARGH = get_step(src,turn(direction,180))
 				var/obj/effect/super_thrown_rock/tail/AH = new(ARGH, direction)
-				segments += AH			
-				ARGH.ChangeTurf(get_base_turf(src.z))
+				segments += AH
 				sleep(3)
 
 	if(traveled_length <= beam_length)
@@ -152,11 +150,14 @@
 
 /obj/effect/super_thrown_rock/head/proc/beam_end()
 	for(var/obj/effect/super_thrown_rock/tail/AH in segments)
-		qdel(AH)
+		cya_boys(AH)
 
 	qdel(src)
 
 /obj/effect/super_thrown_rock/tail
+	name = "Gouge in the earth"
+	desc = "Its a gouge in the earth."
+	density = 0
 
 /obj/effect/super_thrown_rock/tail/New(var/turf/T,direction)
 	..()
@@ -164,27 +165,32 @@
 	switch(direction)
 		if(NORTH)
 			icon = 'z40k_shit/icons/224x32assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_width = 7 * WORLD_ICON_SIZE
 		if(SOUTH)
 			icon = 'z40k_shit/icons/224x32assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_width = 7 * WORLD_ICON_SIZE
 		if(EAST)
 			icon = 'z40k_shit/icons/32x224assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_height = 7 * WORLD_ICON_SIZE
 		if(WEST)
 			icon = 'z40k_shit/icons/32x224assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_height = 7 * WORLD_ICON_SIZE
+
+/obj/effect/super_thrown_rock/tail/proc/cya_boys()
+	set waitfor = 0
+	sleep(20 SECONDS)
+	qdel(src)
 
 /*
 	REGULAR MOLTEN BEAM
 						*/
 
 /obj/effect/thrown_rock
-	name = "regular molten beam"
+	name = "Sand Wave"
 	desc = "What a psyker whom is high powered can do"
 	density = 1
 	w_type = NOT_RECYCLABLE
@@ -201,16 +207,24 @@
 
 /obj/effect/thrown_rock/proc/consume(atom/A)
 	var/obj/item/O = A
-	if(istype(A,/obj/item))
-		qdel(O)
-
 	var/mob/living/carbon/C = A
 	if(istype(A,/mob/living/carbon))
-		C.gib()
+		C.adjustBruteLoss(25)
+		C.knockdown(12)
+		C.stun(12)
+		to_chat(C,"<span class='bad'>You've been hit by a large chunk of earth.")
+
+	var/obj/complex_vehicle/CV = A
+	if(istype(A,/obj/complex_vehicle))
+		CV.health -= 1000
 
 	var/obj/structure/ST = A
 	if(istype(A, /obj/structure))
 		qdel(ST)
+
+	var/obj/machinery/MACH = A
+	if(istype(A,/obj/machinery))
+		qdel(MACH)
 
 /obj/effect/thrown_rock/head
 	var/list/segments = list() //record our segments
@@ -222,19 +236,19 @@
 	switch(direction)
 		if(NORTH)
 			icon = 'z40k_shit/icons/96x32assail.dmi'
-			icon_state = "beamhead_north"
+			icon_state = "assail_head"
 			bound_width = 3 * WORLD_ICON_SIZE
 		if(SOUTH)
 			icon = 'z40k_shit/icons/96x32assail.dmi'
-			icon_state = "beamhead_south"
+			icon_state = "assail_head"
 			bound_width = 3 * WORLD_ICON_SIZE
 		if(EAST)
 			icon = 'z40k_shit/icons/32x96assail.dmi'
-			icon_state = "beamhead_east"
+			icon_state = "assail_east"
 			bound_height = 3 * WORLD_ICON_SIZE
 		if(WEST)
 			icon = 'z40k_shit/icons/32x96assail.dmi'
-			icon_state = "beamhead_west"
+			icon_state = "assail_west"
 			bound_height = 3 * WORLD_ICON_SIZE
 
 	var/turf/ARGH
@@ -253,11 +267,26 @@
 
 /obj/effect/thrown_rock/head/proc/beam_end()
 	for(var/obj/effect/assail/tail/AH in segments)
-		qdel(AH)
+		cya_boys(AH)
 
 	qdel(src)
 
 /obj/effect/thrown_rock/tail
+	name = "Gouge in the earth"
+	desc = "Its a gouge in the earth."
+	slowdown_modifier = 2
+	density = 0
+
+/obj/effect/thrown_rock/tail/consume(atom/A)
+	return
+	var/mob/living/carbon/C = A
+	if(istype(A,/mob/living/carbon))
+		return
+
+/obj/effect/thrown_rock/tail/proc/cya_boys()
+	set waitfor = 0
+	sleep(20 SECONDS)
+	qdel(src)
 
 /obj/effect/thrown_rock/tail/New(var/turf/T,direction)
 	..()
@@ -265,17 +294,17 @@
 	switch(direction)
 		if(NORTH)
 			icon = 'z40k_shit/icons/96x32assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_width = 3 * WORLD_ICON_SIZE
 		if(SOUTH)
 			icon = 'z40k_shit/icons/96x32assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_width = 3 * WORLD_ICON_SIZE
 		if(EAST)
 			icon = 'z40k_shit/icons/32x96assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_height = 3 * WORLD_ICON_SIZE
 		if(WEST)
 			icon = 'z40k_shit/icons/32x96assail.dmi'
-			icon_state = "beammiddle"
+			icon_state = "assailmiddle"
 			bound_height = 3 * WORLD_ICON_SIZE

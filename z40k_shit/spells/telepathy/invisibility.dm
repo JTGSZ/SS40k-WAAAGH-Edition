@@ -13,17 +13,23 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 /spell/aoe_turf/invisibility/cast(list/targets, mob/user)
+	set waitfor = 0
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>You become invisible.</span>")
-		L.invisibility = INVISIBILITY_MAXIMUM
-		spawn(12 SECONDS)
-			to_chat(L, "<span class='sinister'>Warp Energy fading, you return to being visible to the naked eye.</span>")
-			L.invisibility = 0
+		L.invisibility = 101
+
+	sleep(12 SECONDS)
+
+	for(var/mob/living/L in targets)
+		to_chat(L, "<span class='sinister'>Warp Energy fading, you return to being visible to the naked eye.</span>")
+		L.invisibility = 0
 
 /spell/aoe_turf/invisibility/choose_targets(var/mob/user = usr)
 	var/list/targets = list()
 
 	for(var/mob/living/L in view(2, user))
 		targets += L
+
+	targets += user
 
 	return targets
