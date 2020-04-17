@@ -10,6 +10,7 @@
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "hallucination"
+	warpcharge_cost = 120
 
 /spell/targeted/hallucination/cast(var/list/targets, mob/user)
 	for(var/atom/target in targets)

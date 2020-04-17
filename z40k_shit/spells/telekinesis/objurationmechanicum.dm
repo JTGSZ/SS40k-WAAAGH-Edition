@@ -10,6 +10,7 @@
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "objmech"
+	warpcharge_cost = 20
 
 /spell/targeted/objuration_mechanicum/cast(var/list/targets, mob/user)
 	set waitfor = 0

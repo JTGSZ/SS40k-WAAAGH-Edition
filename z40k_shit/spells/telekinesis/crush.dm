@@ -12,6 +12,7 @@
 	invocation_type = SpI_NONE
 
 	hud_state = "crush"
+	warpcharge_cost = 20
 
 
 /spell/targeted/crush/cast(var/list/targets, mob/user)

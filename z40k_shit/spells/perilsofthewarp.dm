@@ -7,10 +7,10 @@
 	switch(user.warp_charges)
 		if(70 to 100)
 			to_chat(user,"<span class='bad'> The warp energy you are tapping into feels like it could slip out of your control.</span>")
-		if(101 to 200)
+		if(101 to INFINITY)
 			var/our_prob = user.warp_charges-100
 			if(prob(our_prob))
-				user.visible_message("<span class='sinister'>[user] appears to be struggling with themself!</span>")
+				user.visible_message("<h2><span style=\"color:#f50ce9\"><span style=\"font-family: Impact, Charcoal, sans-serif\">[user] struggles to control their warp energy.</span></span></h2>")
 				var/punishment = rand(1,6)
 				sleep(2 SECONDS)
 				switch(punishment)
@@ -70,9 +70,9 @@
 						user.warp_speed = FALSE
 
 /spell/proc/apply_highperf_perils_aura(mob/living/user,effect_duration)
-	user.filters += filter(type="drop_shadow", x=0, y=0, size=7, offset=2, color=rgb(249, 62, 255))
+	user.filters += filter(type="drop_shadow", x=0, y=0, size=7, offset=2, color=rgb(122, 17, 117))
 	var/f1 = user.filters[user.filters.len]
-	user.filters += filter(type="drop_shadow", x=0, y=0, size=7, offset=2, color=rgb(5, 236, 25))
+	user.filters += filter(type="drop_shadow", x=0, y=0, size=7, offset=2, color=rgb(255, 4, 255))
 	var/f3 = user.filters[user.filters.len]
 	var/start = user.filters.len
 	var/X

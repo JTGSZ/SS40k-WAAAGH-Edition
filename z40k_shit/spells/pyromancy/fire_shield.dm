@@ -14,6 +14,7 @@
 	duration = 100
 	range = 3
 	selection_type = "range"
+	warpcharge_cost = 20
 
 /spell/aoe_turf/fire_shield/choose_targets(mob/user = usr)
 	return trange(range, get_turf(user)) - trange(range - 1, get_turf(user))

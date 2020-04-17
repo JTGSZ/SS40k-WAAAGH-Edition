@@ -18,6 +18,7 @@
 	var/multicast = 3
 	var/zapzap = 0
 	var/lastbumped = null
+	warpcharge_cost = 10
 
 /spell/smite/New()
 	..()

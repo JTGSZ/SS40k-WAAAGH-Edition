@@ -11,6 +11,7 @@
 	invocation_type = SpI_NONE
 	range = 1
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
+	warpcharge_cost = 20
 
 /spell/aoe_turf/shrouding/cast(list/targets, mob/living/user)
 	set waitfor = 0

@@ -15,6 +15,7 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 	hud_state = "assail"
+	warpcharge_cost = 30
 
 /spell/aoe_turf/assail/cast(list/targets, mob/living/user)
 	set waitfor = 0

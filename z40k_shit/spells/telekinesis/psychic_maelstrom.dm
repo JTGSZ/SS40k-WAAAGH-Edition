@@ -21,7 +21,7 @@
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "psychic_maelstrom"
 	cast_prox_range = 2
-
+	warpcharge_cost = 170
 
 /spell/targeted/projectile/psychic_maelstrom/cast(list/targets, mob/living/user = usr)
 	SHEER_POWER = SHEER_POWER+round(user.attribute_sensitivity/500)

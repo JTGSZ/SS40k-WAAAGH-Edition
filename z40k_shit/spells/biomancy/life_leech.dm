@@ -16,6 +16,7 @@
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "life_leech"
 	cast_prox_range = 3
+	warpcharge_cost = 20
 
 
 /spell/targeted/projectile/life_leech/cast(list/targets, mob/living/user = usr)

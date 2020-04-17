@@ -12,6 +12,7 @@
 	spell_flags = STATALLOWED
 
 	hud_state = "shockwave"
+	warpcharge_cost = 20
 
 /spell/aoe_turf/shockwave/choose_targets(var/mob/user = usr)
 

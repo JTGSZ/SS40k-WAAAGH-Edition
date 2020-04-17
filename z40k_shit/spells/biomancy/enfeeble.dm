@@ -10,6 +10,7 @@
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "enfeeble"
+	warpcharge_cost = 20
 
 /spell/targeted/enfeeble/cast(var/list/targets, mob/user)
 	for(var/atom/target in targets)
@@ -17,7 +18,7 @@
 			C.movement_speed_modifier -= 0.5
 			C.attribute_strength -= 10
 			C.attribute_constitution -= 10
-			C.adjustBruteLoss(50)
+			C.adjustBruteLoss(50-C.attribute_willpower)
 			C.vis_contents += new /obj/effect/overlay/weak_red_circle(C,5)
 			C.vis_contents += new /obj/effect/overlay/red_downwards_lines(C,4)
 

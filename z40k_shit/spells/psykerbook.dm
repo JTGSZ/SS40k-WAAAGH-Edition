@@ -102,9 +102,12 @@
 		var/spell/abstract_spell = spell
 		var/spell_name = initial(abstract_spell.name)
 		var/spell_cooldown = get_spell_cooldown_string(initial(abstract_spell.charge_max), initial(abstract_spell.charge_type))
+		var/spell_warpcharge_cost = abstract_spell.warpcharge_cost
+		dat += "<div style=\"border: 2px solid black\">"
 		dat += "<strong>[spell_name]</strong>[spell_cooldown] <br>"
-		dat += "<em>[initial(abstract_spell.desc)]</em><br>"
-
+		dat += "<em>[initial(abstract_spell.desc)]</em><br><br>"
+		dat += "<span style=\"color:#ae00ff\">Warpcharge Cost per Cast</span>: <span style =\"color:#04c94c\">[spell_warpcharge_cost]</span>"
+		dat += "</div>"
 //FORMATTING
 //<b>Fireball</b> - 10 seconds (buy for 1 spell point)
 //<i>(Description)</i>
@@ -117,8 +120,8 @@
 	
 	switch(biomancy)
 		if(1)
-			dat += "<span style=\"color:green\"><strong>UNLOCK BIOMANCY</strong></span><br>"
-			dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock=1;unlock_tree=biomancy'>Unlock Tree</a></span><br><br>"
+			dat += "<br><span style=\"color:green\"><strong>UNLOCK BIOMANCY</strong></span><br>"
+			dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock=1;unlock_tree=biomancy'>Unlock Tree</a></span><br>"
 		if(2)
 			dat += "<span style=\"color:green\"><strong>BIOMANCY SPELLS:</strong></span><br><br>"
 			if(biomancy_spells.len)
@@ -128,8 +131,8 @@
 	
 	switch(pyromancy)
 		if(1)
-			dat += "<span style=\"color:red\"><strong>UNLOCK PYROMANCY:</strong></span><br>"
-			dat += "<span style=\"color:red\"><a href='?src=\ref[src];unlock=1;unlock_tree=pyromancy'>Unlock Tree</a></span><br><br>"
+			dat += "<br><span style=\"color:red\"><strong>UNLOCK PYROMANCY:</strong></span><br>"
+			dat += "<span style=\"color:red\"><a href='?src=\ref[src];unlock=1;unlock_tree=pyromancy'>Unlock Tree</a></span><br>"
 		if(2)
 			dat += "<span style=\"color:red\"><strong>PYROMANCY SPELLS:</strong></span><br><br>"
 			if(pyromancy_spells.len)
@@ -139,8 +142,8 @@
 
 	switch(telekinesis)
 		if(1)
-			dat += "<span style=\"color:blue\"><strong>UNLOCK TELEKINESIS:</strong></span><br>"
-			dat += "<span style=\"color:blue\"><a href='?src=\ref[src];unlock=1;unlock_tree=telekinesis'>Unlock Tree</a></span><br><br>"
+			dat += "<br><span style=\"color:blue\"><strong>UNLOCK TELEKINESIS:</strong></span><br>"
+			dat += "<span style=\"color:blue\"><a href='?src=\ref[src];unlock=1;unlock_tree=telekinesis'>Unlock Tree</a></span><br>"
 		if(2)
 			dat += "<span style=\"color:blue\"><strong>TELEKINESIS SPELLS:</strong></span><br><br>"
 			if(telekinesis_spells.len)
@@ -150,8 +153,8 @@
 
 	switch(telepathy)
 		if(1)
-			dat += "<span style=\"color:purple\"><strong>UNLOCK TELEPATHY</strong></span><br>"
-			dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock=1;unlock_tree=telepathy'>Unlock Tree</a></span><br><br>"
+			dat += "<br><span style=\"color:purple\"><strong>UNLOCK TELEPATHY</strong></span><br>"
+			dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock=1;unlock_tree=telepathy'>Unlock Tree</a></span><br>"
 		if(2)
 			dat += "<span style=\"color:purple\"><strong>TELEPATHY SPELLS:</strong></span><br><br>"
 			if(telepathy_spells.len)

@@ -13,6 +13,7 @@
 	spell_flags = STATALLOWED
 
 	hud_state = "psychic_shriek"
+	warpcharge_cost = 20
 
 /spell/aoe_turf/psychic_shriek/cast_check(var/skipcharge = 0, var/mob/user = usr)
 	. = ..()

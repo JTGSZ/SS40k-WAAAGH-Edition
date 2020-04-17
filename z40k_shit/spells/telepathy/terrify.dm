@@ -10,6 +10,7 @@
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "terrify"
+	warpcharge_cost = 20
 
 /spell/targeted/terrify/cast(var/list/targets, var/mob/living/user)
 	var/terrify_amount = (6+user.attribute_willpower)

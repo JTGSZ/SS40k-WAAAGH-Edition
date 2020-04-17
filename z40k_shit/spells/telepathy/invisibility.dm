@@ -12,6 +12,7 @@
 	invocation_type = SpI_NONE
 	range = 0
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
+	warpcharge_cost = 140
 
 /spell/aoe_turf/invisibility/cast(list/targets, mob/user)
 	set waitfor = 0

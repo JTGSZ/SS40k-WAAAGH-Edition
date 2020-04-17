@@ -11,6 +11,7 @@
 	invocation_type = SpI_NONE
 	range = 0
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
+	warpcharge_cost = 20
 
 /spell/targeted/mental_fortitude/cast(list/targets, mob/user)
 	for(var/atom/target in targets)

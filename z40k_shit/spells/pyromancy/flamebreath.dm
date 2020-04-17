@@ -23,6 +23,7 @@
 	var/fire_duration = 0
 
 	hud_state = "flame_breath"
+	warpcharge_cost = 10
 
 /spell/targeted/projectile/dumbfire/fireball/inferno/spawn_projectile(var/location, var/direction)
 	return new proj_type(location, direction, P = pressure, T = temperature, F_Dur = fire_duration, m_fire = TRUE)

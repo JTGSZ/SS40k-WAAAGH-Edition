@@ -15,6 +15,7 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 	hud_state = "molten_beam"
+	warpcharge_cost = 160
 
 /spell/aoe_turf/molten_beam/cast(list/targets, mob/living/user)
 	set waitfor = 0

@@ -13,6 +13,7 @@
 	spell_flags = STATALLOWED
 
 	hud_state = "sunburst"
+	warpcharge_cost = 20
 
 /spell/aoe_turf/sunburst/choose_targets(var/mob/user = usr)
 

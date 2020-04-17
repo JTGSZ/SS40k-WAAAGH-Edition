@@ -10,6 +10,7 @@
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
 	hud_state = "dominate"
+	warpcharge_cost = 20
 
 /spell/targeted/dominate/cast(var/list/targets, mob/user)
 	var/list/our_victims = list()

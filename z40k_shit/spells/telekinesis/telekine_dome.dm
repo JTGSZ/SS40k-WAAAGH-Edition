@@ -13,6 +13,7 @@
 
 	range = 0
 	inner_radius = 0
+	warpcharge_cost = 140
 
 /spell/aoe_turf/telekine_dome/choose_targets(var/mob/user = usr)
 	return list(user)

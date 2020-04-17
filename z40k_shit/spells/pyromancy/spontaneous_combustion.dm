@@ -12,6 +12,7 @@
 	invocation_type = SpI_NONE
 
 	hud_state = "spont_combust"
+	warpcharge_cost = 20
 
 /spell/targeted/spontaneous_combustion/cast(var/list/targets, mob/user)
 	..()

@@ -28,6 +28,7 @@
 	var/ex_flash = 5
 
 	hud_state = "inferno"
+	warpcharge_cost = 120
 
 /spell/targeted/projectile/dumbfire/fireball/inferno/prox_cast(var/list/targets, spell_holder)
 	for(var/mob/living/M in targets)
