@@ -78,4 +78,14 @@
 	name = "Ork Warboss"
 	icon_state = "ork_warboss"
 	landmark_override = TRUE
+
+/obj/effect/landmark/start/orkmek
+	name = "Mek"
+	icon_state = "ork_mek"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/orktankbusta
+	name = "Ork Tankbusta"
+	icon_state = "ork_tankbusta"
+	landmark_override = TRUE
 	
