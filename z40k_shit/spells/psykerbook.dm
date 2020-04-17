@@ -111,6 +111,10 @@
 //Requires robes to cast
 
 	var/biomancy = user.spelltree_unlocked_list[BIOMANCY]
+	var/pyromancy = user.spelltree_unlocked_list[PYROMANCY]
+	var/telepathy = user.spelltree_unlocked_list[TELEPATHY]
+	var/telekinesis = user.spelltree_unlocked_list[TELEKINESIS]
+	
 	switch(biomancy)
 		if(1)
 			dat += "<span style=\"color:green\"><strong>UNLOCK BIOMANCY</strong></span><br>"
@@ -121,27 +125,39 @@
 				dat += "<span style=\"color:green\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=biomancy'>Learn Psychic Spell</a></span><br><br>"
 			else
 				dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock_primaris_spell=1;primaris_spell=biomancy'>Unlock Primaris Spell</a></span><br><br>"
+	
+	switch(pyromancy)
+		if(1)
+			dat += "<span style=\"color:red\"><strong>UNLOCK PYROMANCY:</strong></span><br>"
+			dat += "<span style=\"color:red\"><a href='?src=\ref[src];unlock=1;unlock_tree=pyromancy'>Unlock Tree</a></span><br><br>"
+		if(2)
+			dat += "<span style=\"color:red\"><strong>PYROMANCY SPELLS:</strong></span><br><br>"
+			if(pyromancy_spells.len)
+				dat += "<span style=\"color:red\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=pyromancy'>Learn Psychic Spell</a></span><br><br>"
+			else
+				dat += "<span style=\"color:red\"><a href='?src=\ref[src];unlock_primaris_spell=1;primaris_spell=pyromancy'>Unlock Primaris Spell</a></span><br><br>"
 
-	if(PYROMANCY in user.spelltree_unlocked_list)
-		dat += "<span style=\"color:red\"><strong>PYROMANCY SPELLS:</strong></span><br><br>"
-		dat += "<span style=\"color:red\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=pyromancy'>Learn Psychic Spell</a></span><br><br>"
-	else
-		dat += "<span style=\"color:red\"><strong>UNLOCK PYROMANCY:</strong></span><br>"
-		dat += "<span style=\"color:red\"><a href='?src=\ref[src];unlock=1;unlock_tree=pyromancy'>Unlock Tree</a></span><br><br>"
+	switch(telekinesis)
+		if(1)
+			dat += "<span style=\"color:blue\"><strong>UNLOCK TELEKINESIS:</strong></span><br>"
+			dat += "<span style=\"color:blue\"><a href='?src=\ref[src];unlock=1;unlock_tree=telekinesis'>Unlock Tree</a></span><br><br>"
+		if(2)
+			dat += "<span style=\"color:blue\"><strong>TELEKINESIS SPELLS:</strong></span><br><br>"
+			if(telekinesis_spells.len)
+				dat += "<span style=\"color:blue\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=telekinesis'>Learn Psychic Spell</a></span><br><br>"
+			else
+				dat += "<span style=\"color:blue\"><a href='?src=\ref[src];unlock_primaris_spell=1;primaris_spell=telekinesis'>Unlock Primaris Spell</a></span><br><br>"
 
-	if(TELEKINESIS in user.spelltree_unlocked_list)
-		dat += "<span style=\"color:blue\"><strong>TELEKINESIS SPELLS:</strong></span><br><br>"
-		dat += "<span style=\"color:blue\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=telekinesis'>Learn Psychic Spell</a></span><br><br>"
-	else
-		dat += "<span style=\"color:blue\"><strong>UNLOCK TELEKINESIS:</strong></span><br>"
-		dat += "<span style=\"color:blue\"><a href='?src=\ref[src];unlock=1;unlock_tree=telekinesis'>Unlock Tree</a></span><br><br>"
-
-	if(TELEPATHY in user.spelltree_unlocked_list)
-		dat += "<span style=\"color:purple\"><strong>TELEPATHY SPELLS:</strong></span><br><br>"
-		dat += "<span style=\"color:purple\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=telepathy'>Learn Psychic Spell</a></span><br><br>"
-	else
-		dat += "<span style=\"color:purple\"><strong>UNLOCK TELEPATHY</strong></span><br>"
-		dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock=1;unlock_tree=telepathy'>Unlock Tree</a></span><br><br>"
+	switch(telepathy)
+		if(1)
+			dat += "<span style=\"color:purple\"><strong>UNLOCK TELEPATHY</strong></span><br>"
+			dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock=1;unlock_tree=telepathy'>Unlock Tree</a></span><br><br>"
+		if(2)
+			dat += "<span style=\"color:purple\"><strong>TELEPATHY SPELLS:</strong></span><br><br>"
+			if(telepathy_spells.len)
+				dat += "<span style=\"color:purple\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=telepathy'>Learn Psychic Spell</a></span><br><br>"
+			else
+				dat += "<span style=\"color:purple\"><a href='?src=\ref[src];unlock_primaris_spell=1;primaris_spell=telepathy'>Unlock Primaris Spell</a></span><br><br>"
 
 	dat += "</body>"
 
@@ -188,10 +204,13 @@
 				add_spell(/spell/smite,L)
 			if(PYROMANCY)
 				L.spelltree_unlocked_list[PYROMANCY] += 1
+				add_spell(/spell/targeted/projectile/dumbfire/fireball/inferno,L)
 			if(TELEKINESIS)
 				L.spelltree_unlocked_list[TELEKINESIS] += 1
+				add_spell(/spell/aoe_turf/assail,L)
 			if(TELEPATHY)
 				L.spelltree_unlocked_list[TELEPATHY] += 1
+				add_spell(/spell/aoe_turf/psychic_shriek,L)
 		attack_self(usr)
 
 	if(href_list["rollbuy"])

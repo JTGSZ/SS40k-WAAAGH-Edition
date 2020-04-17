@@ -1,5 +1,5 @@
 /spell/aoe_turf/psychic_shriek
-	name = "psychic_shriek (30)"
+	name = "Psychic Shriek"
 	desc = "Witchfire (Profileless) - Emits a psychic Shriek in range."
 	abbreviation = "PSK"
 
