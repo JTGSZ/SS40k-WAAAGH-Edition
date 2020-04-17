@@ -110,15 +110,17 @@
 //<i>(Description)</i>
 //Requires robes to cast
 
-	if(BIOMANCY in user.spelltree_unlocked_list)
-		if(biomancy_spells.len)
+	var/biomancy = user.spelltree_unlocked_list[BIOMANCY]
+	switch(biomancy)
+		if(1)
+			dat += "<span style=\"color:green\"><strong>UNLOCK BIOMANCY</strong></span><br>"
+			dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock=1;unlock_tree=biomancy'>Unlock Tree</a></span><br><br>"
+		if(2)
 			dat += "<span style=\"color:green\"><strong>BIOMANCY SPELLS:</strong></span><br><br>"
-			dat += "<span style=\"color:green\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=biomancy'>Learn Psychic Spell</a></span><br><br>"
-		else
-			dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock_primaris_spell=1;primaris_spell=biomancy'>Unlock Primaris Spell</a></span><br><br>"
-	else
-		dat += "<span style=\"color:green\"><strong>UNLOCK BIOMANCY</strong></span><br>"
-		dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock=1;unlock_tree=biomancy'>Unlock Tree</a></span><br><br>"
+			if(biomancy_spells.len)
+				dat += "<span style=\"color:green\"><a href='?src=\ref[src];rollbuy=1;rollbuy_spell=biomancy'>Learn Psychic Spell</a></span><br><br>"
+			else
+				dat += "<span style=\"color:green\"><a href='?src=\ref[src];unlock_primaris_spell=1;primaris_spell=biomancy'>Unlock Primaris Spell</a></span><br><br>"
 
 	if(PYROMANCY in user.spelltree_unlocked_list)
 		dat += "<span style=\"color:red\"><strong>PYROMANCY SPELLS:</strong></span><br><br>"
@@ -170,20 +172,27 @@
 		if(use_psykpoints(1,L))
 			switch(href_list["unlock_tree"])
 				if(BIOMANCY)
-					L.spelltree_unlocked_list += BIOMANCY
+					L.spelltree_unlocked_list[BIOMANCY] += 1
 				if(PYROMANCY)
-					L.spelltree_unlocked_list += PYROMANCY
+					L.spelltree_unlocked_list[PYROMANCY] += 1
 				if(TELEKINESIS)
-					L.spelltree_unlocked_list += TELEKINESIS
+					L.spelltree_unlocked_list[TELEKINESIS] += 1
 				if(TELEPATHY)
-					L.spelltree_unlocked_list += TELEPATHY
-
+					L.spelltree_unlocked_list[TELEPATHY] += 1
 			attack_self(usr)
 
 	if(href_list["unlock_primaris_spell"])
 		switch(href_list["primaris_spell"])
 			if(BIOMANCY)
-				return
+				L.spelltree_unlocked_list[BIOMANCY] += 1
+				add_spell(/spell/smite,L)
+			if(PYROMANCY)
+				L.spelltree_unlocked_list[PYROMANCY] += 1
+			if(TELEKINESIS)
+				L.spelltree_unlocked_list[TELEKINESIS] += 1
+			if(TELEPATHY)
+				L.spelltree_unlocked_list[TELEPATHY] += 1
+		attack_self(usr)
 
 	if(href_list["rollbuy"])
 		switch(href_list["rollbuy_spell"])

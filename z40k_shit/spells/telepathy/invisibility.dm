@@ -1,3 +1,4 @@
+
 /spell/aoe_turf/invisibility	//Raaagh
 	name = "Invisibility"
 	abbreviation = "INV"
@@ -16,20 +17,20 @@
 	set waitfor = 0
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>You become invisible.</span>")
-		L.invisibility = 101
-
+		L.alpha = 1	//to cloak immediately instead of on the next Life() tick
+		L.alphas["invisspell"] = 1
+	
 	sleep(12 SECONDS)
 
 	for(var/mob/living/L in targets)
 		to_chat(L, "<span class='sinister'>Warp Energy fading, you return to being visible to the naked eye.</span>")
-		L.invisibility = 0
+		L.alpha = initial(L.alpha)
+		L.alphas.Remove("invisspell")
 
 /spell/aoe_turf/invisibility/choose_targets(var/mob/user = usr)
 	var/list/targets = list()
 
 	for(var/mob/living/L in view(2, user))
 		targets += L
-
-	targets += user
 
 	return targets

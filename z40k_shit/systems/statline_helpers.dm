@@ -52,6 +52,11 @@
 		if(ATTR_STRENGTH) //Maximum cap 20
 			attribute_strength_trained_integer += attr_trained_value
 			if(attribute_strength <= attribute_strength_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_strength_trained_integer >= 1000)
+					attribute_strength += 1 //Increase our strength by 1
+					to_chat(src,"<span class = 'good'>You feel stronger.</span>")
+					attribute_strength_trained_integer = 0 //Set strength trained integer to nothing
+					return 1 //Return true
 				if(attribute_strength <= attribute_strength_natural_limit-4) //If we are still lesser than 4 away from cap
 					increase_probability = round(1+attribute_strength_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
 				if(attribute_strength <= attribute_strength_natural_limit-10) //If we are still lesser than 10 away from cap
@@ -63,7 +68,7 @@
 						increase_probability += 3 //Add another 2
 			if(prob(increase_probability)) //If we hit the probability
 				attribute_strength += 1 //Increase our strength by 1
-				to_chat(src,"You feel stronger.")
+				to_chat(src,"<span class = 'good'>You feel stronger.</span>")
 				attribute_strength_trained_integer = 0 //Set strength trained integer to nothing
 				return 1 //Return true
 			else
@@ -71,6 +76,11 @@
 		if(ATTR_AGILITY) //Maximum cap 20
 			attribute_agility_trained_integer += attr_trained_value
 			if(attribute_agility <= attribute_agility_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_agility_trained_integer >= 1000)
+					attribute_agility += 1
+					to_chat(src,"<span class = 'good'>You feel a bit faster.</span>")
+					attribute_agility_trained_integer = 0 
+					return 1
 				if(attribute_agility <= attribute_agility_natural_limit-4) //If we are still lesser than 4 away from cap
 					increase_probability = round(1+attribute_agility_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
 				if(attribute_agility <= attribute_agility_natural_limit-10) //If we are still lesser than 10 away from cap
@@ -82,7 +92,7 @@
 						increase_probability += 3 //Add another 2
 			if(prob(increase_probability))
 				attribute_agility += 1
-				to_chat(src,"You feel a bit faster.")
+				to_chat(src,"<span class = 'good'>You feel a bit faster.</span>")
 				attribute_agility_trained_integer = 0
 				return 1
 			else
@@ -90,6 +100,11 @@
 		if(ATTR_DEXTERITY) //Maximum cap 20
 			attribute_dexterity_trained_integer += attr_trained_value
 			if(attribute_dexterity <= attribute_dexterity_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_dexterity_trained_integer >= 1000)
+					attribute_dexterity += 1
+					to_chat(src,"<span class = 'good'> Your coordination seems better.</span>")
+					attribute_dexterity_trained_integer = 0
+					return 1
 				if(attribute_dexterity <= attribute_dexterity_natural_limit-4) //If we are still lesser than 4 away from cap
 					increase_probability = round(1+attribute_dexterity_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
 				if(attribute_dexterity <= attribute_dexterity_natural_limit-10) //If we are still lesser than 10 away from cap
@@ -101,7 +116,7 @@
 						increase_probability += 3 //Add another 2
 			if(prob(increase_probability))
 				attribute_dexterity += 1
-				to_chat(src,"Your coordination seems better.")
+				to_chat(src,"<span class = 'good'> Your coordination seems better.</span>")
 				attribute_dexterity_trained_integer = 0
 				return 1
 			else
@@ -109,6 +124,13 @@
 		if(ATTR_CONSTITUTION) //Maximum cap 20
 			attribute_constitution_trained_integer += attr_trained_value
 			if(attribute_constitution <= attribute_constitution_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_constitution_trained_integer >= 1000)
+					attribute_constitution += 1
+					to_chat(src,"<span class = 'good'> You feel tougher. </span>")
+					maxHealth += 10
+					health += 10
+					attribute_constitution_trained_integer = 0
+					return 1
 				if(attribute_constitution <= attribute_constitution_natural_limit-4) //If we are still lesser than 4 away from cap
 					increase_probability = round(1+attribute_constitution_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
 				if(attribute_constitution <= attribute_constitution_natural_limit-10) //If we are still lesser than 10 away from cap
@@ -120,7 +142,7 @@
 						increase_probability += 3 //Add another 2		
 			if(prob(increase_probability))
 				attribute_constitution += 1
-				to_chat(src,"You feel tougher.")
+				to_chat(src,"<span class = 'good'> You feel tougher. </span>")
 				maxHealth += 10
 				health += 10
 				attribute_constitution_trained_integer = 0
@@ -130,6 +152,15 @@
 		if(ATTR_WILLPOWER) //Maximum cap 20
 			attribute_willpower_trained_integer += attr_trained_value
 			if(attribute_willpower <= attribute_willpower_natural_limit) //If our stat is lesser than the natural limit
+				if(attribute_willpower_trained_integer >= 1000)
+					attribute_willpower += 1
+					to_chat(src,"<span class='good'>You feel more willful.</span>")
+					attribute_willpower_trained_integer = 0
+					ticker_to_next_psyker_point += 2
+					if(ticker_to_next_psyker_point >= 6)
+						to_chat(src,"<span class = 'good'>You feel like you can tap into more power.</span>")
+						psyker_points += 1
+						ticker_to_next_psyker_point = 0
 				if(attribute_willpower <= attribute_willpower_natural_limit-4) //If we are still lesser than 4 away from cap
 					increase_probability = round(1+attribute_willpower_trained_integer/100) //increased probability + rounded number(amount we trained to 1000 divided by 100)
 				if(attribute_willpower <= attribute_willpower_natural_limit-10) //If we are still lesser than 10 away from cap
@@ -141,11 +172,11 @@
 						increase_probability += 3 //Add another 2				
 			if(prob(increase_probability))
 				attribute_willpower += 1
-				to_chat(src,"You feel more willful.")
+				to_chat(src,"<span class='good'>You feel more willful.</span>")
 				attribute_willpower_trained_integer = 0
 				ticker_to_next_psyker_point += 2
 				if(ticker_to_next_psyker_point >= 6)
-					to_chat(src,"You feel like you can tap into more power.")
+					to_chat(src,"<span class = 'good'>You feel like you can tap into more power.</span>")
 					psyker_points += 1
 					ticker_to_next_psyker_point = 0
 				return 1
@@ -155,23 +186,23 @@
 			attribute_sensitivity_trained_integer += attr_trained_value //We put trained value in
 			if(attribute_sensitivity <= attribute_sensitivity_natural_limit) //If our stat is lesser than the natural limit		
 				attribute_sensitivity += 25
-				to_chat(src,"You feel more in touch with reality.")
+				to_chat(src,"<span class='good'>You feel more in touch with reality.</span>")
 				attribute_sensitivity_trained_integer = 0
 				ticker_to_next_psyker_point += 1
 				ticker_to_next_chaos_psyker_point += 1
 				if(ticker_to_next_psyker_point >= 6)
-					to_chat(src,"You feel like you can tap into more power.")
+					to_chat(src,"<span class='good'>You feel like you can tap into more power.</span>")
 					psyker_points += 1
 					ticker_to_next_psyker_point = 0
 				if(chaos_tainted)
 					if(ticker_to_next_chaos_psyker_point >= 3)
-						to_chat(src,"Power courses through you.")
+						to_chat(src,"<span class='sinister'>Power courses through you.<s/apn>")
 						chaos_psyker_points += 1
 						ticker_to_next_chaos_psyker_point = 0
 				if(attribute_sensitivity >= 500 && !chaos_tainted)
 					if(prob(attribute_sensitivity/250))
 						chaos_tainted = TRUE
-						to_chat(src,"The Gods of Chaos call to you.")
+						to_chat(src,"<span class='sinister'>The Gods of Chaos call to you.</span>")
 				return 1
 			else
 				return 0

@@ -51,19 +51,19 @@ var/global/list/whitelisted_species = list("Human")
 	var/myhuman												// mob reference
 
 	//STATLINES: See Statlines.dm || human.dm: Line 1174 for where we transition onto the mob.
-	var/base_strength = 8
+	var/base_strength = 1
 	var/base_strength_natural_limit = 12
 
-	var/base_agility = 8
+	var/base_agility = 1
 	var/base_agility_natural_limit = 12
 
-	var/base_dexterity = 8
+	var/base_dexterity = 1
 	var/base_dexterity_natural_limit = 12
 
-	var/base_constitution = 8
+	var/base_constitution = 1
 	var/base_constitution_natural_limit = 12
 
-	var/base_willpower = 8
+	var/base_willpower = 1
 	var/base_willpower_natural_limit = 12
 
 	var/base_sensitivity = 25
@@ -338,6 +338,20 @@ var/global/list/whitelisted_species = list("Human")
 	primitive = /mob/living/carbon/monkey
 
 	anatomy_flags = HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | CAN_BE_FAT | HAS_SWEAT_GLANDS
+
+	base_strength = 8
+	base_strength_natural_limit = 12
+	base_agility = 8
+	base_agility_natural_limit = 12
+	base_dexterity = 8
+	base_dexterity_natural_limit = 12
+	base_constitution = 8
+	base_constitution_natural_limit = 12
+	base_willpower = 8
+	base_willpower_natural_limit = 12
+	base_sensitivity = 8
+	base_sensitivity_natural_limit = 100
+
 
 /datum/species/human/gib(mob/living/carbon/human/H)
 	..()
