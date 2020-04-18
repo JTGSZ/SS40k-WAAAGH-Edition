@@ -106,7 +106,6 @@
 	jingle	 		=	preference_list_client["jingle"]
 	window_flashing  =	text2num(preference_list_client["window_flashing"])
 	antag_objectives =  text2num(preference_list_client["antag_objectives"])
-
 	ooccolor		= 	sanitize_hexcolor(ooccolor, initial(ooccolor))
 	lastchangelog	= 	sanitize_text(lastchangelog, initial(lastchangelog))
 	UI_style		= 	sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
@@ -205,11 +204,6 @@
 
 
 /datum/preferences/proc/save_preferences_sqlite(var/user, var/ckey)
-	/* FUCK YOU
-	if(!(world.timeofday >= (lastPolled + POLLED_LIMIT)))
-		to_chat(user, "You need to wait [round((((lastPolled + POLLED_LIMIT) - world.timeofday) / 10))] seconds before you can save again.")
-		return
-	*/
 
 	var/database/query/check = new
 	var/database/query/q = new

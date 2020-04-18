@@ -88,8 +88,9 @@ var/savefile/panicfile
 	jobban_updatelegacybans()
 	appearance_loadbanfile()
 	LoadBans()
+	LoadRewardpoints()
 	SetupHooks() // /vg/
-
+ 
 	library_catalog.initialize()
 
 	spawn() copy_logs() // Just copy the logs.
@@ -122,7 +123,7 @@ var/savefile/panicfile
 		world.log << "Feedback database connection established."
 	migration_controller_mysql = new
 	migration_controller_sqlite = new ("players2.sqlite", "players2_empty.sqlite")
-
+ 
 	if(!setup_old_database_connection())
 		world.log << "Your server failed to establish a connection with the tgstation database."
 	else

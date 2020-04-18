@@ -27,7 +27,7 @@ var/savefile/Banlist
 		.["reason"]	= "ckey/id"
 		return .
 	else
-		for (var/A in Banlist.dir)
+		for(var/A in Banlist.dir)
 			Banlist.cd = "/base/[A]"
 			var/matches
 			if( ckey == Banlist["key"] )
@@ -40,7 +40,7 @@ var/savefile/Banlist
 				if(matches)
 					matches += "/"
 				matches += "ip"
-
+ 
 			if(matches)
 				if(Banlist["temp"])
 					if (!GetExp(Banlist["minutes"]))
@@ -59,8 +59,6 @@ var/savefile/Banlist
 	return 1
 
 /proc/LoadBans()
-
-
 	Banlist = new("data/banlist.bdb")
 	log_admin("Loading Banlist")
 
