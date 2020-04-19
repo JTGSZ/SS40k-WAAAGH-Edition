@@ -16,11 +16,8 @@ var/const/ORKWARBOSS		=(1<<12)
 var/const/ORKTANKBUSTA		=(1<<13)
 var/const/BASICMEK			=(1<<14)
 
-
 var/const/MEDSCI			=(1<<1)
-
-var/const/RD				=(1<<0)
-var/const/DOCTOR			=(1<<1)
+var/const/DOCTOR			=(1<<0)
 
 var/const/CIVILIAN			=(1<<2)
 
@@ -37,7 +34,6 @@ var/const/TRADER			=(1<<9)
 var/list/command_positions = list(
 	"General",
 	"Commissar",
-	"Research Director",
 )
 
 var/list/engineering_positions = list(
@@ -47,9 +43,7 @@ var/list/medical_positions = list(
 	"Medical Doctor",
 )
 
-var/list/science_positions = list(
-	"Research Director",
-)
+var/list/science_positions = list()
 
 var/list/civilian_positions = list(
 	"Head of Personnel",

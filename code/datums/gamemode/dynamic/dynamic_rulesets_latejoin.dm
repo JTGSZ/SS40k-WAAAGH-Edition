@@ -150,7 +150,7 @@
 /datum/dynamic_ruleset/latejoin/provocateur
 	name = "Provocateur"
 	role_category = /datum/role/revolutionary
-	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Research Director", "Internal Affairs Agent")
+	restricted_from_jobs = list("Merchant","AI", "Cyborg", "Mobile MMI", "Trooper", "Sergeant", "Inquisitor", "Commissar", "General", "Head of Personnel", "Chief Engineer", "Chief Medical Officer", "Internal Affairs Agent")
 	enemy_jobs = list("AI", "Cyborg", "Trooper","Inquisitor","Commissar", "General", "Sergeant")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1

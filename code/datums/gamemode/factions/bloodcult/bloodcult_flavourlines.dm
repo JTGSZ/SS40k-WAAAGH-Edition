@@ -230,7 +230,6 @@ var/list/failure_lines_thin_veil = list(
 
 var/list/all_depts_list = list(
 	COMMAND_POSITIONS,
-	ENGINEERING_POSITIONS,
 	MEDICAL_POSITIONS,
 	SCIENCE_POSITIONS,
 	CIVILIAN_POSITIONS,

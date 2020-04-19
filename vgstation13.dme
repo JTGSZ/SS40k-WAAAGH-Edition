@@ -588,7 +588,6 @@
 #include "code\game\jobs\job\civilian.dm"
 #include "code\game\jobs\job\job.dm"
 #include "code\game\jobs\job\medical.dm"
-#include "code\game\jobs\job\science.dm"
 #include "code\game\jobs\job\silicon.dm"
 #include "code\game\jobs\job\whitelisted.dm"
 #include "code\game\jobs\job\ImperialGuard\general.dm"

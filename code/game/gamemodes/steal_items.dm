@@ -74,7 +74,7 @@
 /datum/theft_objective/traitor/hand_tele
 	name = "a hand teleporter"
 	typepath = /obj/item/weapon/hand_tele
-	protected_jobs = list("General", "Research Director", "Head of Personnel")
+	protected_jobs = list("General", "Head of Personnel")
 
 /datum/theft_objective/traitor/cap_hardsuit
 	name = "the captain's full-body armor" //technically only the bodypiece, which is the hardest one to conceal anyways
