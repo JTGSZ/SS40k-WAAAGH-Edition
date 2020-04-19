@@ -14,11 +14,11 @@
 
 	relationship_chance = XENO_NO_RELATIONS
 	
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return 0
-		H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ] <br/> <b>Security:</b> [SEC_FREQ] <br/> <b>Medical:</b> [MED_FREQ] <br/> <b>Science:</b> [SCI_FREQ] <br/> <b>Engineering:</b> [ENG_FREQ] <br/> <b>Service:</b> [SER_FREQ] <b>Cargo:</b> [SUP_FREQ]<br/> <b>AI private:</b> [AIPRIV_FREQ]<br/>")
-		return 1
+/datum/job/ai/equip(var/mob/living/carbon/human/H)
+	if(!H)
+		return 0
+	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ] <br/> <b>Security:</b> [SEC_FREQ] <br/> <b>Medical:</b> [MED_FREQ] <br/> <b>Science:</b> [SCI_FREQ] <br/> <b>Engineering:</b> [ENG_FREQ] <br/> <b>Service:</b> [SER_FREQ] <b>Cargo:</b> [SUP_FREQ]<br/> <b>AI private:</b> [AIPRIV_FREQ]<br/>")
+	return 1
 
 /datum/job/cyborg
 	title = "Cyborg"
@@ -30,17 +30,16 @@
 	spawn_positions = 0
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
-	no_id = 1
 	minimal_player_age = 10
 	must_be_map_enabled = TRUE
 
 	relationship_chance = XENO_NO_RELATIONS
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return 0
-		H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ] <br/> <b>Security:</b> [SEC_FREQ] <br/> <b>Medical:</b> [MED_FREQ] <br/> <b>Science:</b> [SCI_FREQ] <br/> <b>Engineering:</b> [ENG_FREQ] <br/> <b>Service:</b> [SER_FREQ] <b>Cargo:</b> [SUP_FREQ]<br/><b>AI private:</b> [AIPRIV_FREQ]<br/>")
-		return 1
+/datum/job/cyborg/equip(var/mob/living/carbon/human/H)
+	if(!H)
+		return 0
+	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ] <br/> <b>Security:</b> [SEC_FREQ] <br/> <b>Medical:</b> [MED_FREQ] <br/> <b>Science:</b> [SCI_FREQ] <br/> <b>Engineering:</b> [ENG_FREQ] <br/> <b>Service:</b> [SER_FREQ] <b>Cargo:</b> [SUP_FREQ]<br/><b>AI private:</b> [AIPRIV_FREQ]<br/>")
+	return 1
 
 /datum/job/mommi
 	title = "Mobile MMI"
@@ -52,12 +51,11 @@
 	spawn_positions = 0
 	supervisors = "your laws and the AI"
 	selection_color = "#ddffdd"
-	no_id = 1
 	must_be_map_enabled = TRUE
 
 	relationship_chance = XENO_NO_RELATIONS
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return 0
-		return 1
+/datum/job/mommi/equip(var/mob/living/carbon/human/H)
+	if(!H)
+		return 0
+	return 1

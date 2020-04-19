@@ -9,7 +9,6 @@
 	wage_payout = 45
 	supervisors = "Commissar and your Platoon Sergeant."
 	selection_color = "#A6EAA9"
-	idtype = /obj/item/weapon/card/id/security
 	access = list()
 	minimal_access = list()
 	minimal_player_age = 7

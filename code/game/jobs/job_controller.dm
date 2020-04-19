@@ -445,7 +445,7 @@ var/global/datum/controller/occupations/job_master
 	var/alt_title = null
 
 	if(job)
-		job.equip(H)
+		job.equip(H) //Outfit datum
 	else
 		to_chat(H, "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
@@ -460,12 +460,6 @@ var/global/datum/controller/occupations/job_master
 			if("Mobile MMI")
 				H.MoMMIfy()
 				return 1
-			if("AI","Clown","Cyborg")	//don't need bag preference stuff!
-				if(rank=="Clown") // Clowns DO need to breathe, though - N3X
-					H.species.equip(H)
-				// -- OUTFIT DATUM BANDAID -- To be removed when outfit datums are finished...
-				if (!job.outfit_datum)
-					H.species.equip(H)
 
 	if(job)
 		job.introduce(H, (alt_title ? alt_title : rank))
@@ -475,15 +469,8 @@ var/global/datum/controller/occupations/job_master
 		if(job.req_admin_notify)
 			to_chat(H, "<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>")
 
-	spawnId(H, balance_wallet, rank, alt_title, job)
-
 	if(job && job.priority)
 		job.priority_reward_equip(H)
-
-	if(!job || !job.no_headset)
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset(H), slot_ears)
-
-	// -- TO REMOVE AFTER OUTFIT DATUMS --
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & DISABILITY_FLAG_NEARSIGHTED)
@@ -491,7 +478,6 @@ var/global/datum/controller/occupations/job_master
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = 1
-//		H.update_icons()
 
 	//If a character can't stand because of missing limbs, equip them with a wheelchair
 	if(!H.check_stand_ability())
@@ -510,60 +496,6 @@ var/global/datum/controller/occupations/job_master
 			H.put_in_hand(GRASP_RIGHT_HAND, new /obj/item/weapon/storage/box/byond(H))
 		else
 			H.equip_or_collect(new /obj/item/weapon/storage/box/byond(H), slot_in_backpack)
-	return 1
-
-
-/datum/controller/occupations/proc/spawnId(var/mob/living/carbon/human/H, wallet_funds=0, rank, title, var/datum/job/J2)
-	if(!H)
-		return 0
-	var/obj/item/weapon/card/id/C = null
-
-	if (J2.outfit_datum)
-		message_admins("Associated job [rank] has an outfit datum and was given his ID through this mean.")
-		return
-
-	// TO REMOVE AFTER OUTFIT DATUMS
-
-	var/datum/job/job = null
-	for(var/datum/job/J in occupations)
-		if(J.title == rank)
-			job = J
-			break
-
-	if(!job || !job.no_pda)
-		H.equip_or_collect(new job.pdatype(H), job.pdaslot)
-
-	if(job)
-		if(job.no_id)
-			return
-		else
-			C = new job.idtype(H)
-			C.access = job.get_access()
-	else
-		C = new /obj/item/weapon/card/id(H)
-
-	if(C)
-		C.registered_name = H.real_name
-		C.rank = rank
-		C.assignment = title ? title : rank
-		C.name = "[C.registered_name]'s ID Card ([C.assignment])"
-
-		//put the player's account number onto the ID
-		if(H.mind && H.mind.initial_account)
-			C.associated_account_number = H.mind.initial_account.account_number
-
-		H.equip_or_collect(C, slot_wear_id)
-
-		if(C.virtual_wallet)
-			C.update_virtual_wallet(wallet_funds)
-
-	if(locate(/obj/item/device/pda,H))
-		var/obj/item/device/pda/pda = locate(/obj/item/device/pda,H)
-		pda.owner = H.real_name
-		pda.ownjob = C.assignment
-		pda.name = "PDA-[H.real_name] ([pda.ownjob])"
-	H.update_inv_belt()
-	H.update_inv_wear_id()
 	return 1
 
 /datum/controller/occupations/proc/HandleFeedbackGathering()

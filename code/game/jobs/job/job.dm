@@ -34,9 +34,6 @@
 	//Sellection screen color
 	var/selection_color = "#ffffff"
 
-	//the type of the ID the player will have
-	var/idtype = /obj/item/weapon/card/id
-
 	//List of alternate titles, if any
 	var/list/alt_titles
 
@@ -45,9 +42,6 @@
 
 	//If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
 	var/minimal_player_age = 0
-
-	var/pdatype=/obj/item/device/pda
-	var/pdaslot=slot_belt
 
 	var/list/species_blacklist = list() //Job not available to species in this list
 	var/list/species_whitelist = list() //If this list isn't empty, job is only available to species in this list
@@ -60,9 +54,7 @@
 	var/no_crew_manifest = 0 //If 1, don't inject players with this job into the crew manifest
 	var/no_starting_money = 0 //If 1, don't start with a bank account or money
 	var/wage_payout = 50 //Default wage payout
-	var/no_id = TRUE //If 1, don't spawn with an ID
-	var/no_pda = TRUE //If 1, don't spawn with a PDA
-	var/no_headset = TRUE //If 1, don't spawn with a headset
+
 	var/spawns_from_edge = 0 //Instead of spawning on the shuttle, spawns in space and gets thrown
 	var/landmark_job_override = FALSE //Instead of spawning on the shuttle, we jus spawn at the start round landmarks again.
 
