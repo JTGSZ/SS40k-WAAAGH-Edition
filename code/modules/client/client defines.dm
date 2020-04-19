@@ -1,5 +1,5 @@
 /client
-		////////////////
+		//////////////// 
 		//ADMIN THINGS//
 		////////////////
 	var/datum/admins/holder = null
@@ -17,6 +17,7 @@
 		//OTHER//
 		/////////
 	var/datum/preferences/prefs = null
+	var/datum/interactive_persistence/persist = null
 	var/moving			= null
 	var/adminobs		= null
 	var/area			= null

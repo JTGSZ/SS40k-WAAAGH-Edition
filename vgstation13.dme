@@ -11,6 +11,7 @@
 // END_PREFERENCES
 // BEGIN_INCLUDE
 #include "__40kEARLYLoad\ATCHDEF.dm"
+#include "__40kEARLYLoad\global_lists.dm"
 #include "__40kEARLYLoad\HACKJOB.dm"
 #include "__40kEARLYLoad\PROJCALIBER.dm"
 #include "__40kEARLYLoad\PSYKER_DEF.dm"
@@ -2720,6 +2721,8 @@
 #include "z40k_shit\systems\complex_combat\combat_actions\stance_aggrdef.dm"
 #include "z40k_shit\systems\complex_combat\combat_actions\stance_defblock.dm"
 #include "z40k_shit\systems\crafting_recipes\mek_recipes.dm"
+#include "z40k_shit\systems\persistentchar\persistcontroller.dm"
+#include "z40k_shit\systems\persistentchar\persistmenu.dm"
 #include "z40k_shit\turfs\footprintholder.dm"
 #include "z40k_shit\turfs\gentest.dm"
 #include "z40k_shit\turfs\outsideparent.dm"

@@ -1,5 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
-
+ 
 /mob/new_player
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
@@ -34,8 +34,9 @@
 			output += "<p><b>You are ready</b> (<a href='byond://?src=\ref[src];ready=2'>Cancel</A>)</p>"
 	else
 		ready = 0 // prevent setup character issues
-		output += {"<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br>
-			<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"}
+		output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
+
+	output += "<p><a href='byond://?src=\ref[src];potential=1'>Manage Potential</A></p>"
 
 	output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
 	if(!IsGuestKey(src.key))
@@ -110,6 +111,13 @@
 		client.prefs.ShowChoices(src)
 		return 1
 
+	if(href_list["potential"])
+		if(!client.persist.persistenceloaded)
+			to_chat(usr, "<span class='warning'>Your persistence database information hasn't loaded.</span>")
+			return
+		client.persist.PersistMenu(src)
+		return 1
+
 	if(href_list["ready"])
 		if(!client.prefs.saveloaded)
 			to_chat(usr, "<span class='warning'>Your character preferences have not yet loaded.</span>")
@@ -159,8 +167,6 @@
 
 		src << browse(dat, "window=manifest;size=400x420;can_close=1")
 		return 1
-	if(href_list["manifest"])
-		ViewManifest()
 
 	if(href_list["SelectedJob"])
 

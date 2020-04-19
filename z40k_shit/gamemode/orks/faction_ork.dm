@@ -73,6 +73,12 @@ var/ork_total_points = 0
 		if(ig_total_points <= ork_total_points)
 			stage(FACTION_VICTORY)
 			results = "WE KRUMPED DA 'UMIES."
+			for(var/datum/role/R in members)
+				if(R.antag.current.client)
+					var/client/C = R.antag.current.client
+					C.persist.potential += 1
+					spawn(1)
+						C.persist.save_persistence_sqlite(C.ckey,C,TRUE)
 		else
 			stage(FACTION_DEFEATED)
 			results = "THE 'UMIES KRUMPED US."

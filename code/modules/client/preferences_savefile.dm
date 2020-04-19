@@ -58,8 +58,7 @@
 	check.Add("SELECT ckey FROM client WHERE ckey = ?", ckey)
 	if(check.Execute(db))
 		if(!check.NextRow())
-			message_admins("Error in load_preferences_sqlite [__FILE__] ln:[__LINE__] #: [check.Error()] - [check.ErrorMsg()]")
-			WARNING("Error in load_preferences_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
+			message_admins("First connection by [ckey]")
 			return 0
 	else
 		message_admins("Error in load_preferences_sqlite [__FILE__] ln:[__LINE__] #: [check.Error()] - [check.ErrorMsg()]")

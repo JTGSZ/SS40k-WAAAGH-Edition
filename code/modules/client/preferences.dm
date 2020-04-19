@@ -218,7 +218,7 @@ var/const/MAX_SAVE_SLOTS = 8
 
 	var/client/client
 	var/saveloaded = 0
-
+ 
 /datum/preferences/New(client/C)
 	client=C
 	if(istype(C))
