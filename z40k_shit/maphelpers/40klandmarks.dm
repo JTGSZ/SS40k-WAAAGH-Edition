@@ -88,4 +88,39 @@
 	name = "Ork Tankbusta"
 	icon_state = "ork_tankbusta"
 	landmark_override = TRUE
-	
+
+//Civilians
+/obj/effect/landmark/start/assistant
+	name = "Assistant"
+	icon_state = "civ_assistant"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/bartender
+	name = "Bartender"
+	icon_state = "civ_bartender"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/clown
+	name = "Clown"
+	icon_state = "civ_clown"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/mime
+	name = "Mime"
+	icon_state = "civ_mime"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/chef
+	name = "Chef"
+	icon_state = "civ_chef"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/doctor
+	name = "Medical Doctor"
+	icon_state = "civ_doctor"
+	landmark_override = TRUE
+
+/obj/effect/landmark/start/janitor
+	name = "Janitor"
+	icon_state = "civ_janitor"
+	landmark_override = TRUE

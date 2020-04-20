@@ -2628,7 +2628,7 @@
 #include "z40k_shit\gamemode\orks\role_ork.dm"
 #include "z40k_shit\imperialguard\igClothing\cadianclothing.dm"
 #include "z40k_shit\imperialguard\igClothing\commissarclothing.dm"
-#include "z40k_shit\imperialguard\igClothing\IGclothingPARENTS.dm"
+#include "z40k_shit\imperialguard\igClothing\IGclothingparents.dm"
 #include "z40k_shit\imperialguard\igClothing\IGGeneralsClothing.dm"
 #include "z40k_shit\imperialguard\igClothing\IGgenericClothing.dm"
 #include "z40k_shit\imperialguard\igClothing\inquisitorclothing.dm"
