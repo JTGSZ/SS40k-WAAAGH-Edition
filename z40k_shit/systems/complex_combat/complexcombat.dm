@@ -12,16 +12,21 @@ Its the process loop for the word combo chain system on the mob.
 	SEE: human life.dm. Line 141
 
 */
+/obj/item
+	var/complex_defense = FALSE
+	var/complex_click = FALSE
+
+
 /obj/item/weapon
 	//We have ctrl click specials
 	//COMPLEX CLICK SWITCH - SET THIS
-	var/complex_click = TRUE   //If control+click can be used for moves.
+	complex_click = TRUE   //If control+click can be used for moves.
 	//Safety so we don't leave them with a retarded cursor forever
 	var/cursor_enabled = FALSE
 
 	//DEFENSE STANCE VARS - SET THESE
 	//Our ctrl click specials have blocking actions for defensive stance
-	var/complex_defense = TRUE //If this has complex block aka parrying or other actions
+	complex_defense = TRUE //If this has complex block aka parrying or other actions
 
 	//Mostly a general direction
 	var/defenseDIR //So someone doesn't become Neo from the matrix.
@@ -589,10 +594,12 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 					offhand_cooldown = 0
 				W.afterattack(A, src)
 				return
-	
+	 
 	if(modifiers["ctrl"]) //Ctrl + Click does a complex click if it has one
 		var/obj/item/weapon/W = src.get_active_hand()
 		if(W && W.complex_click)
 			W.handle_ctrlclick(src, A)
 			return
+		else
+			to_chat(src,"<span class='bad'> You can't think of anything special to do with that!</span>")
 	..()

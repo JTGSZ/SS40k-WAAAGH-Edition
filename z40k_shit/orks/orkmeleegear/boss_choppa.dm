@@ -19,6 +19,13 @@
 	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance,
 						/datum/action/item_action/warhams/heavydef_swap_stance)
 
+/obj/item/weapon/boss_choppa/prepickup(mob/living/user)
+	if(user.attribute_strength >= 13)
+		return FALSE
+	else
+		to_chat(user,"<span class='bad'> You lack the strength required to pick up this heavy metal blunt instrument.</span>")
+		return TRUE
+
 /obj/item/weapon/boss_choppa/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	..()
 	var/mob/living/carbon/human/H = user
