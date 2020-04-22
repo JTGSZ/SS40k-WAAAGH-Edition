@@ -16,18 +16,16 @@
 /spell/aoe_turf/levitation/cast(list/targets, mob/user)
 	set waitfor = 0
 	for(var/mob/living/L in targets)
-		var/pixel_y = L.pixel_y
 		to_chat(L, "<span class='sinister'>You begin floating off the ground.</span>")
 		L.flying = TRUE
-		animate(L, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
-		
+		animate(L, pixel_y = 15, time=10, loop = -1, easing=SINE_EASING, flags=ANIMATION_RELATIVE)
+		animate(pixel_y = 8, time=10, loop = -1, easing=SINE_EASING)
+
 	sleep(12 SECONDS)
 	
 	for(var/mob/living/L in targets)
-		var/pixel_y = L.pixel_y
-		animate(L, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
-		animate(L, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
-		animate(L)
+		//L.pixel_y = 0
+		animate(L, pixel_y = 0, time = 15, easing = EASE_OUT)
 		to_chat(L, "<span class='sinister'>You stop floating.</span>")
 		L.flying = FALSE
 

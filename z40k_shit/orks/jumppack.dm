@@ -70,16 +70,15 @@
 	user.flying = 1 //We are now hovering along with an animation afterwards
 	burning = TRUE
 	update_icon() //Loop is 1 on the below animate.
-	animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
+	animate(user, pixel_y = 15, time=10, loop = -1, easing=SINE_EASING, flags=ANIMATION_RELATIVE)
+	animate(pixel_y = 8, time=10, loop = -1, easing=SINE_EASING)
 
 /obj/item/ork/jumppack/proc/hoverland(mob/user) // And then we stop hovering.
 	to_chat(user, "<span class='warning'>You stop hovering!</span>")
 	user.flying = 0
 	
 	//Animation will occur regardless because we are going to land.
-	animate(user, pixel_y = pixel_y + 10 * PIXEL_MULTIPLIER, time = 1, loop = 1)
-	animate(user, pixel_y = pixel_y, time = 10, loop = 1, easing = SINE_EASING)
-	animate(user)
+	animate(user, pixel_y = 0, time = 15, easing = EASE_OUT)
 	if(user.lying)
 		user.pixel_y -= 6 * PIXEL_MULTIPLIER
 

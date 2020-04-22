@@ -30,12 +30,6 @@
 			Paralyse(3)
 			species.OnCrit(src)
 
-			/* Done by handle_breath()
-			if( health <= 20 && prob(1) )
-				spawn(0)
-					emote("gasp")
-			if(!reagents.has_reagent(INAPROVALINE))
-				adjustOxyLoss(1)*/
 		else
 			species.OutOfCrit(src)
 
@@ -122,14 +116,6 @@
 		handle_dizziness()
 		handle_jitteriness()
 
-		//Flying
-		if(flying)
-			spawn()
-				animate(src, pixel_y = pixel_y + 5 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
-			spawn(10)
-				if(flying)
-					animate(src, pixel_y = pixel_y - 5 * PIXEL_MULTIPLIER, time = 10, loop = 1, easing = SINE_EASING)
-
 		//Other
 		if(stunned)
 			AdjustStunned(-1)
@@ -151,12 +137,5 @@
 			druggy = max(druggy - 1, 0)
 			if(!druggy)
 				to_chat(src, "It looks like you are back in Kansas.")
-/*
-		// Increase germ_level regularly
-		if(prob(40))
-			germ_level += 1
-		// If you're dirty, your gloves will become dirty, too.
-		if(gloves && germ_level > gloves.germ_level && prob(10))
-			gloves.germ_level += 1
-*/
+
 	return 1

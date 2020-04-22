@@ -201,12 +201,23 @@
 /obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	var/atom/newtarget = target
 
-	if(my_cell.get_fuel() > 0)
-		if(istype(user.get_held_item_by_index(GRASP_RIGHT_HAND), src)) //right hand
-			user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"rhand")
-		else //left hand
-			user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"lhand")
-		sleep(20)
+	switch(connection_type)
+		if(1)
+			return 0
+		if(2)
+			if(my_cell.get_fuel() > 0)
+				if(istype(user.get_held_item_by_index(GRASP_RIGHT_HAND), src)) //right hand
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"rhand")
+				else //left hand
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"lhand")
+				sleep(20)
+		if(3)
+			if(my_pack.get_fuel() > 0)
+				if(istype(user.get_held_item_by_index(GRASP_RIGHT_HAND), src)) //right hand
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"rhand")
+				else //left hand
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"lhand")
+				sleep(20)
 	
 	..(newtarget,user,params,reflex,struggle)
 
