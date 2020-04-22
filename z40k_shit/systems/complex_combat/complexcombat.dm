@@ -594,12 +594,10 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 					offhand_cooldown = 0
 				W.afterattack(A, src)
 				return
-	 
+	  
 	if(modifiers["ctrl"]) //Ctrl + Click does a complex click if it has one
 		var/obj/item/weapon/W = src.get_active_hand()
 		if(W && W.complex_click)
 			W.handle_ctrlclick(src, A)
 			return
-		else
-			to_chat(src,"<span class='bad'> You can't think of anything special to do with that!</span>")
 	..()
