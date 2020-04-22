@@ -153,24 +153,8 @@
 			src.set_species(new_species_name)
 		else
 			src.set_species()
-
-	attribute_strength = species.base_strength
-	attribute_strength_natural_limit = species.base_strength_natural_limit
-		
-	attribute_agility = species.base_agility
-	attribute_agility_natural_limit = species.base_agility_natural_limit
-		
-	attribute_dexterity = species.base_dexterity
-	attribute_dexterity_natural_limit = species.base_dexterity_natural_limit
-		
-	attribute_constitution = species.base_constitution
-	attribute_constitution_natural_limit = species.base_constitution_natural_limit
-		
-	attribute_willpower = species.base_willpower
-	attribute_willpower_natural_limit = species.base_willpower_natural_limit
-		
-	attribute_sensitivity = species.base_sensitivity
-	attribute_sensitivity_natural_limit = species.base_sensitivity_natural_limit
+  
+	initial_liveattr()
 
 	movement_speed_modifier = species.move_speed_multiplier
 
@@ -1120,7 +1104,6 @@
 
 /mob/living/carbon/human/proc/set_species(var/new_species_name, var/force_organs, var/default_colour)
 
-
 	if(new_species_name)
 		if(src.species && src.species.name && (src.species.name == new_species_name))
 			return
@@ -1149,6 +1132,7 @@
 	if(S.gender)
 		gender = S.gender
 
+	initial_liveattr()
 	for(var/L in species.known_languages)
 		add_language(L)
 	if(species.default_language)
@@ -1245,6 +1229,7 @@
 		W.update_icon()
 		W.message = message
 		W.add_fingerprint(src)
+
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	. = 1
 	if(!user)
@@ -1254,6 +1239,7 @@
 	if(!. && error_msg && user)
  		// Might need re-wording.
 		to_chat(user, "<span class='alert'>There is no exposed flesh or thin material [target_zone == LIMB_HEAD ? "on their head" : "on their body"] to inject into.</span>")
+
 /mob/living/carbon/human/canSingulothPull(var/obj/machinery/singularity/singulo)
 	if(!..())
 		return 0

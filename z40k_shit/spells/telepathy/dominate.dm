@@ -18,6 +18,8 @@
 	for(var/atom/target in targets)
 		for(var/mob/living/carbon/C in view(3, target))
 			to_chat(C, "<span class='sinister'>A alien force pervades your mind, attempting to crush your will to fight.</span>")
+			if(C == user)
+				continue
 			our_victims += C
 	
 	var/ntime = world.time

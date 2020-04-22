@@ -15,6 +15,8 @@
 /spell/targeted/hallucination/cast(var/list/targets, mob/user)
 	for(var/atom/target in targets)
 		for(var/mob/living/carbon/C in view(3, target))
+			if(C == user)
+				continue
 			C.dizziness = 86
 			C.confused = 86 // 2.1 seconds per = 180.6s
 			C.stuttering = 86

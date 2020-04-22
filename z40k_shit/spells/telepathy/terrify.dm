@@ -16,6 +16,8 @@
 	var/terrify_amount = (6+user.attribute_willpower)
 	for(var/atom/target in targets)
 		for(var/mob/living/carbon/C in view(3, target))
+			if(C == user)
+				continue
 			to_chat(C, "<span class='sinister'>Visions your nightmares, your fears, and your failures assault you.</span>")
 			C.movement_speed_modifier -= 1.0
 			for(var/i=1 to terrify_amount)
