@@ -100,6 +100,10 @@
 	if(istype(A,/obj/complex_vehicle))
 		CV.health -= 2000
 	
+	var/turf/simulated/T = A
+	if(istype(A,/turf/simulated))
+		T.ChangeTurf(get_base_turf(src.z))
+
 	if(iscarbon(A))
 		var/mob/living/carbon/C = A
 		C.gib()
@@ -207,6 +211,10 @@
 	var/obj/complex_vehicle/CV = A
 	if(istype(A,/obj/complex_vehicle))
 		CV.health -= 1000
+
+	var/turf/simulated/T = A
+	if(istype(A,/turf/simulated))
+		T.ChangeTurf(get_base_turf(src.z))
 
 	var/mob/living/carbon/C = A
 	if(istype(A,/mob/living/carbon))

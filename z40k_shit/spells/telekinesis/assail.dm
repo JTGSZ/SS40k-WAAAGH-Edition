@@ -83,7 +83,6 @@
 	anchored = 1
 
 /obj/effect/super_thrown_rock/head
-	var/list/segments = list() //we recordo ur segments
 	var/traveled_length = 0 //How much of it we have done
 
 /obj/effect/super_thrown_rock/head/New(var/turf/T, var/direction, var/beam_length)
@@ -92,19 +91,19 @@
 	switch(direction)
 		if(NORTH)
 			icon = 'z40k_shit/icons/224x32molten_beam.dmi'
-			icon_state = "beamhead_north"
+			icon_state = "assail_head"
 			bound_width = 7 * WORLD_ICON_SIZE
 		if(SOUTH)
 			icon = 'z40k_shit/icons/224x32molten_beam.dmi'
-			icon_state = "beamhead_south"
+			icon_state = "assail_head"
 			bound_width = 7 * WORLD_ICON_SIZE
 		if(EAST)
 			icon = 'z40k_shit/icons/32x224molten_beam.dmi'
-			icon_state = "beamhead_east"
+			icon_state = "assail_east"
 			bound_height = 7 * WORLD_ICON_SIZE
 		if(WEST)
 			icon = 'z40k_shit/icons/32x224molten_beam.dmi'
-			icon_state = "beamhead_west"
+			icon_state = "assail_west"
 			bound_height = 7 * WORLD_ICON_SIZE
 
 	var/turf/ARGH
@@ -113,18 +112,11 @@
 		if(beam_length > traveled_length)
 			if(step(src,direction))
 				ARGH = get_step(src,turn(direction,180))
-				var/obj/effect/super_thrown_rock/tail/AH = new(ARGH, direction)
-				segments += AH
+				new /obj/effect/super_thrown_rock/tail(ARGH, direction)
 				sleep(3)
 
 	if(traveled_length <= beam_length)
-		beam_end()
-
-/obj/effect/super_thrown_rock/head/proc/beam_end()
-	for(var/obj/effect/super_thrown_rock/tail/AH in segments)
-		AH.cya_boys()
-
-	qdel(src)
+		qdel(src)
 
 /obj/effect/super_thrown_rock/head/to_bump(atom/A)
 	consume(A)
@@ -140,6 +132,9 @@
 	if(istype(A,/obj/complex_vehicle))
 		CV.health -= 1000
 
+	var/turf/simulated/T = A
+	if(istype(A,/turf/simulated))
+		T.ChangeTurf(get_base_turf(src.z))
 	
 	if(iscarbon(A))
 		var/mob/living/carbon/C = A
@@ -161,6 +156,7 @@
 	name = "Gouge in the earth"
 	desc = "Its a gouge in the earth."
 	density = 0
+	slowdown_modifier = 2
 
 /obj/effect/super_thrown_rock/tail/New(var/turf/T,direction)
 	..()
@@ -198,9 +194,9 @@
 	density = 1
 	w_type = NOT_RECYCLABLE
 	anchored = 1
+	slowdown_modifier = 2
 
 /obj/effect/thrown_rock/head
-	var/list/segments = list() //record our segments
 	var/traveled_length = 0
 
 /obj/effect/thrown_rock/head/New(var/turf/T, var/direction, var/beam_length)
@@ -230,18 +226,11 @@
 		if(beam_length > traveled_length)
 			if(step(src,direction))
 				ARGH = get_step(src,turn(direction,180))
-				var/obj/effect/thrown_rock/tail/AH = new(ARGH, direction)
-				segments += AH			
-				ARGH.ChangeTurf(get_base_turf(src.z))
+				new /obj/effect/thrown_rock/tail(ARGH, direction)
 				sleep(3)
 	
 	if(traveled_length <= beam_length)
-		beam_end()
-
-/obj/effect/thrown_rock/head/proc/beam_end()
-	for(var/obj/effect/thrown_rock/tail/AH in segments)
-		AH.cya_boys()
-	qdel(src)
+		qdel(src)
 
 /obj/effect/thrown_rock/head/to_bump(atom/A)
 	consume(A)
@@ -263,6 +252,10 @@
 	var/obj/complex_vehicle/CV = A
 	if(istype(A,/obj/complex_vehicle))
 		CV.health -= 1000
+
+	var/turf/simulated/T = A
+	if(istype(A,/turf/simulated))
+		T.ChangeTurf(get_base_turf(src.z))
 
 	var/obj/structure/ST = A
 	if(istype(A, /obj/structure))
