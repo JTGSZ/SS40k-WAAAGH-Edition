@@ -841,6 +841,10 @@
 	reagents.add_reagent(NUTRIMENT, 3)
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/faggot/processed/New()
+	..()
+	reagents.clear_reagents()
+
 /obj/item/weapon/reagent_containers/food/snacks/sausage
 	name = "sausage"
 	desc = "A piece of mixed, long meat."
@@ -1583,6 +1587,10 @@
 	reagents.add_reagent(NUTRIMENT, 4)
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/fries/processed/New()
+	..()
+	reagents.clear_reagents()	
+
 /obj/item/weapon/reagent_containers/food/snacks/soydope
 	name = "Soy Dope"
 	desc = "Dope from a soy."
@@ -1593,6 +1601,10 @@
 	..()
 	reagents.add_reagent(NUTRIMENT, 2)
 	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/soydope/processed/New()
+	..()
+	reagents.clear_reagents()	
 
 /obj/item/weapon/reagent_containers/food/snacks/butter
 	name = "butter"
@@ -2351,6 +2363,11 @@
 	reagents.add_reagent(NUTRIMENT, 3)
 	reagents.add_reagent(IMIDAZOLINE, 3)
 	bitesize = 2
+
+
+/obj/item/weapon/reagent_containers/food/snacks/carrotfries/processed/New()
+	..()
+	reagents.clear_reagents()
 
 /obj/item/weapon/reagent_containers/food/snacks/superbiteburger
 	name = "Super Bite Burger"
