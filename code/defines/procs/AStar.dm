@@ -9,13 +9,10 @@ For the adjacent turf proc i wrote:
 And for the distance one i wrote:
 /turf/proc/Distance
 So an example use might be:
-
 src.path_list = AStar(src, src.loc, target.loc, /turf/proc/AdjacentTurfs, /turf/proc/Distance)
-
 Then to start on the path, all you need to do it:
 Step_to(src, src.path_list[1])
 src.path_list -= src.path_list[1] or equivilent to remove that node from the list.
-
 Optional extras to add on (in order):
 MaxNodes: The maximum number of nodes the returned path can be (0 = infinite)
 Maxnodedepth: The maximum number of nodes to search (default: 30, 0 = infinite)
@@ -170,7 +167,6 @@ proc/SeekTurf(var/PriorityQueue/Queue, var/turf/T)
  * end: end of targetted path
  * Adjacent: the proc which rules what is adjacent for us
  * dist: the proc which rules what is the distance for us
-
  * Returns an hint (are we processing the path, did we make the path already, or are we unable to make the path?)
  * Creates a pathmaker datum to process the path if we aren't processing the path.
  * Returns nothing if this path is already being processed.
@@ -194,7 +190,7 @@ proc/AStar(source, proc_to_call, start,end,adjacent,dist,maxnodes,maxnodedepth =
 // The main difference is that it'll be caculated immediately and transmitted to the bot rather than waiting for the path to be made.
 // Currently, security bots are using this method to chase suspsects.
 // You MUST have the start and end be turfs.
-proc/quick_AStar(start,end,adjacent,dist,maxnodes,maxnodedepth = 30,mintargetdist,minnodedist,id=null, var/turf/exclude=null)
+proc/quick_AStar(start,end,adjacent,dist,maxnodes,maxnodedepth = 30,mintargetdist,minnodedist,id=null, var/turf/exclude=null, var/reference)
 	ASSERT(!istype(end,/area)) //Because yeah some things might be doing this and we want to know what
 	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare) //the open list, ordered using the PathWeightCompare proc, from lower f to higher
 	var/list/closed = new() //the closed list
@@ -241,9 +237,9 @@ proc/quick_AStar(start,end,adjacent,dist,maxnodes,maxnodedepth = 30,mintargetdis
 				continue
 
 			var/newenddist = call(T,dist)(end)
-			var/PathNode/PNode = T.FindPathNode("unique")
+			var/PathNode/PNode = T.FindPathNode("unique_[reference]")
 			if(!PNode) //is not already in open list, so add it
-				open.Enqueue(new /PathNode(T,cur,call(cur.source,dist)(T),newenddist,cur.nodecount+1,"unique"))
+				open.Enqueue(new /PathNode(T,cur,call(cur.source,dist)(T),newenddist,cur.nodecount+1,"unique_[reference]"))
 			else //is already in open list, check if it's a better way from the current turf
 				if(newenddist < PNode.distance_from_end)
 
@@ -256,13 +252,13 @@ proc/quick_AStar(start,end,adjacent,dist,maxnodes,maxnodedepth = 30,mintargetdis
 
 	//cleanup
 	for(var/PathNode/PN in open.L)
-		PN.source.PathNodes["unique"] = null
-		PN.source.PathNodes.Remove("unique")
+		PN.source.PathNodes["unique_[reference]"] = null
+		PN.source.PathNodes.Remove("unique_[reference]")
 		qdel(PN)
 	for(var/turf/T in closed)
-		var/PathNode/PN = T.FindPathNode("unique")
-		T.PathNodes["unique"] = null
-		T.PathNodes.Remove("unique")
+		var/PathNode/PN = T.FindPathNode("unique_[reference]")
+		T.PathNodes["unique_[reference]"] = null
+		T.PathNodes.Remove("unique_[reference]")
 		qdel(PN)
 
 	//if the path is longer than maxnodes, then don't return it
