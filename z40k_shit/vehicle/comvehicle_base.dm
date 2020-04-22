@@ -151,7 +151,7 @@
 	overlays.Cut()
 	
 	chosen_weapon_overlay = null
-	
+	update_icon()
 	if(dozer_blade)
 		overlays += tank_overlays[DOZERBLADE]
 	else

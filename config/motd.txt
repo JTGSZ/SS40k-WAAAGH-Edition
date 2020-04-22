@@ -1,7 +1,4 @@
 <h1>/vg/station: 40k</h1>
-
 <h3>This is a testing session.</h3>
-
 <i>Have Questions? The game manual is in the discord.
-
 <b>Discord:</b> https://discord.gg/QK9XgqN
