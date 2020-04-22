@@ -57,11 +57,15 @@
 				for(var/mob/living/GAY in RAAAGH)
 					H.health += 10
 					GAY.attackby(src,user)
-		if("sawchargehurt")
+			H.word_combo_chain = ""
+			H.update_powerwords_hud(clear = TRUE)
+		if("sawhurtchargehurt")
 			user.visible_message("<span class='danger'>[H] continues their frenzy of violence!")
 			H.stat_increase(ATTR_SENSITIVITY,25)
 			T.attackby(src,user)
 			H.health += 25
+			H.word_combo_chain = ""
+			H.update_powerwords_hud(clear = TRUE)
 
 /obj/item/weapon/gun/projectile/eviscerator/New() //We need to get our own process loop started for sounds
 	..()

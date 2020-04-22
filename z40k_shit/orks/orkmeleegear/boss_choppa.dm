@@ -42,3 +42,5 @@
 				for(var/mob/living/GAY in RAAAGH)
 					H.health += 10
 					GAY.attackby(src,user)
+			H.word_combo_chain = ""
+			H.update_powerwords_hud(clear = TRUE)

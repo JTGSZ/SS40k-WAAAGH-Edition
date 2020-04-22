@@ -42,6 +42,8 @@
 			for(var/turf/RAAAGH in list(starter, sideone, sidetwo))
 				for(var/mob/living/GAY in RAAAGH)
 					GAY.attackby(src,user)
+			H.word_combo_chain = ""
+			H.update_powerwords_hud(clear = TRUE)
 		if("chargeknockbackhurt")
 			user.visible_message("<span class='danger'>[H] follows up with a lunge into [T]!")
 			target.adjustBruteLoss(15)
