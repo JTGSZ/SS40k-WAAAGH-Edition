@@ -20,6 +20,9 @@
 	//We have a var called highflying on the mob now for big jumps
 
 	var/burning = FALSE //We are BURNING or not.
+	actions_types = list(/datum/action/item_action/warhams/flight,
+						/datum/action/item_action/warhams/hover,
+						/datum/action/item_action/warhams/burstrush) //Actions go here
 
 /obj/item/ork/jumppack/update_icon() //Right here is where we will apply the jumppack overlay.
 	var/mob/living/carbon/human/H = loc
@@ -154,14 +157,17 @@
 	update_icon()
 	animate(user) //We also end any animations we are in if we were flying.
 
-/obj/item/ork/jumppack/verb/flight()
-	set name = "Vertical Leap"
-	set category = "Jumppack"
-	set desc = "Activate the jump pack to fly to high altitude. You may only take off or land outdoors."
-	set src in usr
+/datum/action/item_action/warhams/flight
+	name = "Vertical Leap"
+	background_icon_state = "bg_rustymetal"
+	button_icon_state = "jump"
+	desc = "Activate the jump pack to fly to high altitude. You may only take off or land outdoors."
 
-	var/mob/living/user = usr
+/datum/action/item_action/warhams/flight/Trigger()
+	var/obj/item/ork/jumppack/S = target
+	S.flight(owner)
 
+/obj/item/ork/jumppack/proc/flight(mob/living/user)
 	if(!user.canmove || user.stat || user.restrained())
 		return
 	if(user.highflying)
@@ -181,14 +187,17 @@
 	flyleap(user, leapduration) // We leap into the air.
 	usetime = world.time
 	
-/obj/item/ork/jumppack/verb/hover()
-	set name = "Hover"
-	set category = "Jumppack"
-	set desc = "Hover with the jumppack."
-	set src in usr
+/datum/action/item_action/warhams/hover
+	name = "Hover"
+	background_icon_state = "bg_rustymetal"
+	button_icon_state = "hover"
+	desc = "Hover with the jumppack."
 
-	var/mob/living/user = usr
+/datum/action/item_action/warhams/hover/Trigger()
+	var/obj/item/ork/jumppack/S = target
+	S.hover(owner)
 
+/obj/item/ork/jumppack/proc/hover(mob/living/user)
 	if(!user.canmove || user.stat || user.restrained())
 		to_chat(user, "<span class='warning'>You seem to have too many issues at the moment!</span>")
 		return
@@ -203,14 +212,17 @@
 	else
 		hoverland(user)
 
-/obj/item/ork/jumppack/verb/activatejumppack()
-	set name = "Jumppack (short burst)"
-	set category = "Jumppack"
-	set desc = "Fly forward in a short potentially explosive burst."
-	set src in usr
-	
-	var/mob/living/user = usr
+/datum/action/item_action/warhams/burstrush
+	name = "Jumppack (short burst)"
+	background_icon_state = "bg_rustymetal"
+	button_icon_state = "jumprush"
+	desc = "Fly forward in a short potentially explosive burst."
 
+/datum/action/item_action/warhams/burstrush/Trigger()
+	var/obj/item/ork/jumppack/S = target
+	S.burstrush(owner)
+
+/obj/item/ork/jumppack/proc/burstrush(mob/living/user)
 	if(!user.canmove || user.stat || user.restrained())
 		return
 	if(ismob(user))
