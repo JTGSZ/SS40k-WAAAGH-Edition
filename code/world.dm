@@ -7,7 +7,7 @@
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 	//loop_checks = 0
 	icon_size = WORLD_ICON_SIZE
-#define RECOMMENDED_VERSION 512
+#define RECOMMENDED_VERSION 513
 
 
 var/savefile/panicfile
@@ -29,13 +29,6 @@ var/savefile/panicfile
 	on_login = new ()
 	on_ban   = new ()
 	on_unban = new ()
-
-
-	/*Runtimes, not sure if i need it still so commenting out for now
-	starticon = rotate_icon('icons/obj/lightning.dmi', "lightningstart")
-	midicon = rotate_icon('icons/obj/lightning.dmi', "lightning")
-	endicon = rotate_icon('icons/obj/lightning.dmi', "lightningend")
-	*/
 
 	// logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
@@ -69,7 +62,7 @@ var/savefile/panicfile
  */
 #ifdef BORDER_USE_TURF_EXIT
 	if(byond_version < RECOMMENDED_VERSION)
-		warning("Your server's byond version does not meet the recommended requirements for this code. Please update BYOND to atleast 512.1426")
+		warning("Your server's byond version does not meet the recommended requirements for this code. Please update BYOND to atleast 513")
 #endif
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
 
@@ -115,6 +108,7 @@ var/savefile/panicfile
 	radio_controller = new /datum/controller/radio()
 	data_core = new /obj/effect/datacore()
 	paiController = new /datum/paiController()
+	viscon_pooler = new /datum/visconpooler() //40k addition.
 
 	if(!setup_database_connection())
 		world.log << "Your server failed to establish a connection with the feedback database."
