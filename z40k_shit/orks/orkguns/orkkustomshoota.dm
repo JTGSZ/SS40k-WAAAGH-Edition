@@ -60,15 +60,6 @@
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/isHandgun()
 	return FALSE //No Kustom Shoota Akimbo for us.
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
-	var/atom/newtarget = target
-	if(!isork(user))
-		to_chat(user, "<span class='warning'> What even is this? How does it work? Does it work? </span>")
-		return
-	if(!wielded)
-		newtarget = get_inaccuracy(target,1+recoil) //Inaccurate when not wielded
-	..(newtarget,user,params,reflex,struggle)
-
 /obj/item/weapon/gun/projectile/automatic/kustomshoota/update_wield(mob/user)
 	..()
 	force = wielded ? 30 : 15
@@ -163,36 +154,42 @@
 	if(!cooldown) //If we are not on cooldown
 		if(getAmmo()) //If we have ammo
 			var/atom/originaltarget = target //Our original target
-			var/turf/targloc = get_turf(target)
+			var/turf/targloc
 			target = get_inaccuracy(originaltarget, 1+recoil)
+			if(!wielded) //Even more inaccurate when not wielded
+				var/atom/newtarget = get_inaccuracy(target, 1+recoil)
+				targloc = get_turf(newtarget)
+			else
+				targloc = get_turf(target)
 			cooldown = 1
 			fire_volume = clamp((3 * totalguncount), 20, 100) //Ouch my ears... well up to 90% vol anyways.
-			user.visible_message("[user] loses control of the [src].", "The [src] starts firing wildly due to your puny muscles.")
+			if(fucked_fire)
+				user.visible_message("[user] loses control of [src].", "[src] starts firing wildly out of control due to your puny muscles.")
 			if(basicbullets >= 0)
-				projectile_type = "/obj/item/projectile/bullet/orkscrapbullet"
+				projectile_type = /obj/item/projectile/bullet/orkscrapbullet
 				for(var/i=1 to basicbullets)
 					if(fucked_fire)
-						target = get_step(user,turn(user.dir,rand(0,360)))
-					in_chamber = new projectile_type(src)
+						targloc = get_step(user,turn(user.dir,rand(0,360)))
+					in_chamber = getFromPool(projectile_type, loc)
 					fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 					Fire(targloc, user, params, struggle)
 			if(laserbeams >= 0) //Laserbeam shit
 				in_chamber = null
-				projectile_type = "/obj/item/projectile/beam/medpower"
+				projectile_type = /obj/item/projectile/beam/medpower
 				for(var/i=1 to laserbeams)
 					if(fucked_fire)
-						target = get_step(user,turn(user.dir,rand(0,360)))
-					in_chamber = new projectile_type(src)
+						targloc = get_step(user,turn(user.dir,rand(0,360)))
+					in_chamber = getFromPool(projectile_type, loc)
 					fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
 			if(shotgunpellets >= 0)
 				in_chamber = null
-				projectile_type = "/obj/item/projectile/bullet/buckshot"
+				projectile_type = /obj/item/projectile/bullet/buckshot
 				for(var/i=1 to shotgunpellets)
 					if(fucked_fire)
-						target = get_step(user,turn(user.dir,rand(0,360)))
-					in_chamber = new projectile_type(src)
+						targloc = get_step(user,turn(user.dir,rand(0,360)))
+					in_chamber = getFromPool(projectile_type, loc)
 					fire_sound = 'z40k_shit/sounds/shotta.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
