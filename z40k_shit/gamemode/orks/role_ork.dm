@@ -4,7 +4,7 @@
 	name = ORKRAIDER
 	id = ORKRAIDER
 	special_role = ORKRAIDER
-	logo_state = "vox-logo"
+	logo_state = "ork-standard-logo"
 
 /datum/role/ork_raider/New(var/datum/mind/M, var/datum/faction/fac=null, var/new_id)
 	..()

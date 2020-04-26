@@ -8,7 +8,7 @@
 	roletype = /datum/role/imperial_guard
 	initroletype = /datum/role/imperial_guard
 	logo_state = "ig-logo"
-	hud_icons = list("vox-logo")
+	hud_icons = list("ig-standard-logo")
 
 	var/time_left = (30 MINUTES)/10
 	//Are we completed or not

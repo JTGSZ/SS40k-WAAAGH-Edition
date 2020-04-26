@@ -7,8 +7,8 @@
 	late_role = ORKRAIDER
 	roletype = /datum/role/ork_raider
 	initroletype = /datum/role/ork_raider
-	logo_state = "ig-logo"
-	hud_icons = list("vox-logo")
+	logo_state = "ork-logo"
+	hud_icons = list("ork-standard-logo")
 
 	var/time_left = (30 MINUTES)/10
 	//Are we completed or not

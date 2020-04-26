@@ -4,7 +4,7 @@
 	name = IMPERIALGUARDSMEN
 	id = IMPERIALGUARDSMEN
 	special_role = IMPERIALGUARDSMEN
-	logo_state = "vox-logo"
+	logo_state = "ig-standard-logo"
 
 /datum/role/imperial_guard/New(var/datum/mind/M, var/datum/faction/fac=null, var/new_id)
 	..()
