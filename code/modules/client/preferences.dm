@@ -458,7 +458,7 @@ var/const/MAX_SAVE_SLOTS = 8
 		else
 			return "High"
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("General", "AI"), widthPerColumn = 295, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("General", "AI"), widthPerColumn = 348, height = 620)
 	if(!job_master)
 		return
 
@@ -571,23 +571,41 @@ var/const/MAX_SAVE_SLOTS = 8
 			prefLevelColor = "red"
 			prefUpperLevel = 3
 			prefLowerLevel = 1
-
+		
 		if(job.species_whitelist.len)
 			if(!job.species_whitelist.Find(src.species))
-				prefLevelLabel = "Species Locked"
+				var/stringyboi
+				var/fuck
+				for(var/i=1 to job.species_whitelist.len)
+					fuck = job.species_whitelist[i]
+					if(i==1)
+						stringyboi += "[fuck]"
+					else
+						stringyboi += ",[fuck]"
+
+				prefLevelLabel = "SpeciesReq: [stringyboi]"
 				prefLevelColor = "gray"
 				prefUpperLevel = 0
 				prefLowerLevel = 0
 		else if(job.species_blacklist.len)
 			if(job.species_blacklist.Find(src.species))
-				prefLevelLabel = "Species Locked"
+				var/stringyboi
+				var/fuck
+				for(var/i=1 to job.species_blacklist.len)
+					fuck = job.species_blacklist[i]
+					if(i==1)
+						stringyboi += "[fuck]"
+					else
+						stringyboi += ",[fuck]"
+
+				prefLevelLabel = "SpeciesBarred: [stringyboi]"
 				prefLevelColor = "gray"
 				prefUpperLevel = 0
 				prefLowerLevel = 0
 
 		if(job.gender_blacklist.len)
 			if(job.gender_blacklist.Find(src.gender))
-				prefLevelLabel = "Unavailable"
+				prefLevelLabel = "Wrong Gender"
 				prefLevelColor = "gray"
 				prefUpperLevel = 0
 				prefLowerLevel = 0

@@ -237,10 +237,10 @@
 					playsound(loc, randomizer, 75, 0)
 					M.ex_act(1)
 				if(istype(M, /turf/simulated/wall/r_wall))
-					user.Gib()
+					user.gib()
 					break
 			for(var/obj/structure/M in range(range, src.loc))
-				if(prob(25)
+				if(prob(25))
 					qdel(M)
 				else
 					user.Stun(stuntime)
