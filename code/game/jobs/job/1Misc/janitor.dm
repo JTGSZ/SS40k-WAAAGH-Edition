@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	access = list(access_janitor, access_maint_tunnels)
 	minimal_access = list(access_janitor, access_maint_tunnels)
-
+	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/janitor
 
 	relationship_chance = HUMAN_COMMON

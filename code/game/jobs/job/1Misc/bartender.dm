@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	access = list(access_hydroponics, access_bar, access_kitchen, access_morgue, access_weapons)
 	minimal_access = list(access_bar,access_weapons)
-
+	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/bartender
 
 	relationship_chance = HUMAN_COMMON

@@ -11,7 +11,7 @@
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Security Cadet")
-
+	species_blacklist = list("Ork")
 	no_random_roll = 1 //Don't become assistant randomly
 
 	outfit_datum = /datum/outfit/assistant

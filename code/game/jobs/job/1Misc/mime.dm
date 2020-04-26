@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	access = list(access_mime, access_theatre, access_maint_tunnels)
 	minimal_access = list(access_mime, access_theatre)
-
+	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/mime
 
 	relationship_chance = HUMAN_COMMON

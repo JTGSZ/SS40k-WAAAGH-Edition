@@ -12,7 +12,7 @@
 	minimal_access = list(access_medical, access_morgue, access_surgery, access_virology)
 	alt_titles = list("Emergency Physician", "Nurse", "Surgeon")
 	outfit_datum = /datum/outfit/doctor
-
+	species_blacklist = list("Ork")
 	relationship_chance = HUMAN_COMMON
 
 

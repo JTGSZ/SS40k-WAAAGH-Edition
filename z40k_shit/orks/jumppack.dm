@@ -235,11 +235,17 @@
 				if(istype(M, /turf/simulated/wall) && !istype(M, /turf/simulated/wall/r_wall))
 					var/randomizer = pick('z40k_shit/sounds/wallsmash1.ogg','z40k_shit/sounds/wallsmash2.ogg', 'z40k_shit/sounds/wallsmash3.ogg')
 					playsound(loc, randomizer, 75, 0)
-					qdel(M)
-				if(istype(M, /turf/simulated/wall/r_wall))
 					M.ex_act(1)
+				if(istype(M, /turf/simulated/wall/r_wall))
+					user.Gib()
+					break
 			for(var/obj/structure/M in range(range, src.loc))
-				qdel(M)
+				if(prob(25)
+					qdel(M)
+				else
+					user.Stun(stuntime)
+					user.Knockdown(knockdowntime)
+					break
 			for(var/turf/simulated/floor/M in range(range, src.loc))
 				M.burn_tile()
 			for(var/obj/machinery/M in range(range, src.loc))

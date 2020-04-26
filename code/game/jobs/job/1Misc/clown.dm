@@ -11,7 +11,7 @@
 	access = list(access_clown, access_theatre, access_maint_tunnels)
 	minimal_access = list(access_clown, access_theatre)
 	alt_titles = list("Jester")
-
+	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/clown
 
 	relationship_chance = HUMAN_COMMON

@@ -11,7 +11,7 @@
 	access = list(access_hydroponics, access_bar, access_kitchen, access_morgue)
 	minimal_access = list(access_kitchen, access_morgue, access_bar)
 	alt_titles = list("Cook")
-
+	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/chef
 
 	relationship_chance = HUMAN_COMMON
