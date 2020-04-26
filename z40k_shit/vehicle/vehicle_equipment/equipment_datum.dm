@@ -11,6 +11,7 @@
 	var/weapons_allowed = 5 //How many weapons we have can attach by default.
 	var/list/equipment_systems = list() //Container of all the equipment we currently have.
 	var/list/action_storage = list() //Container of all the actions we currently have.
+	var/list/extra_actions = list() //A container of duplicate actions granted to extra users.
 
 /datum/comvehicle/equipment/New(var/obj/CV)
 	..()
@@ -23,37 +24,64 @@ Proc call vars. - Attachment Master
  (3) attach or detach	-	Basically either TRUE or FALSE
  (4) master user	-	Must be a mob. Usually get_pilot()
 */
-/datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/massa_obj, var/obj/item/device/vehicle_equipment/bitch, var/slide_in, var/massa_man)
+/datum/comvehicle/equipment/proc/make_it_end(var/obj/complex_vehicle/master_src, var/obj/item/device/vehicle_equipment/equipment, var/slide_in, var/user)
 	if(slide_in)
-		bitch.my_atom = massa_obj //My bitches atom is the massa object.
-		equipment_systems += bitch //We add bitch to our equipment list
-		if(bitch.tied_action) //If bitch has a tied action.
-			var/datum/action/complex_vehicle_equipment/dicks = new bitch.tied_action(massa_obj) //new abstract construct spawned into massa obj.
+		equipment.my_atom = master_src //My equipmentes atom is the massa object.
+		equipment_systems += equipment //We add equipment to our equipment list
+		if(equipment.tied_action) //If equipment has a tied action.
+			var/datum/action/complex_vehicle_equipment/equipment_action = new equipment.tied_action(master_src) //new abstract construct spawned into massa obj.
+			action_storage += equipment_action
 
 			spawn(1)
-				dicks.id = bitch.id //The actions ID is now the objects ID, tying them together.
+				equipment_action.id = equipment.id //The actions ID is now the objects ID, tying them together.
 	
-			if(massa_man) //If we have a massa man
-				dicks.Grant(massa_man) //grant him our dicks.
-		
-		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade)) //Dozerblade
-			massa_obj.dozer_blade = TRUE
-	
-	else //I'm pullin out.
-		bitch.my_atom = null //you don't got no atom bitch.
-		equipment_systems -= bitch //and you leavin our equipment_systems
-		
-		var/ocean_of_semen = locate(bitch.tied_action) in action_storage
-		if(ocean_of_semen)
-			action_storage -= ocean_of_semen
-			var/datum/action/ARSE = ocean_of_semen
-			if(massa_man)
-				ARSE.Remove(massa_man) //And I'm removing your ass too.
-		
-		if(istype(bitch,/obj/item/device/vehicle_equipment/dozer_blade)) //Dozerblade
-			massa_obj.dozer_blade = FALSE
+			if(user) //If we have a massa man
+				equipment_action.Grant(user) //grant him our equipment_action.
 
-	massa_obj.handle_weapon_overlays()
+			if(!equipment_action.pilot_only)
+				var/theuser
+				if(master_src.occupants.len > 1)
+					for(var/i=1 to master_src.occupants.len)
+						if(i==1)
+							continue
+						theuser = master_src.occupants[i]
+						var/datum/action/fuck = new equipment_action.type(master_src)
+						extra_actions += fuck
+						fuck.Grant(theuser)
+						
+		if(istype(equipment,/obj/item/device/vehicle_equipment/dozer_blade)) //Dozerblade
+			master_src.dozer_blade = TRUE
+
+	else //I'm pullin out.
+		equipment.my_atom = null //you don't got no atom equipment.
+		equipment_systems -= equipment //and you leavin our equipment_systems
+		
+		var/located_equipment = locate(equipment.tied_action) in action_storage
+		if(located_equipment)
+			action_storage -= located_equipment
+			var/datum/action/ARSE = located_equipment
+			if(user)
+				ARSE.Remove(user) //And I'm removing your ass too.
+
+			var/extra_action_locate
+			var/datum/action/ASS
+			var/other_users
+			if(extra_actions.len) //If extra actions has length
+				for(var/i=1 to master_src.occupants.len) //for var i=1 to len of occupants on master src
+					if(i==1) //While we are on 1 we just continue
+						continue
+
+					extra_action_locate = locate(equipment.tied_action) in extra_actions //We find the tied action in extra actions
+					if(extra_action_locate) //If we find it
+						ASS = extra_action_locate //We assigned it to the action var
+						extra_actions -= located_equipment //We remove the extra actions of the located equipment
+						other_users = master_src.occupants[i] //Other user is in the occupants iteration
+						ASS.Remove(other_users) //We remove the action from them too.
+
+		if(istype(equipment,/obj/item/device/vehicle_equipment/dozer_blade)) //Dozerblade
+			master_src.dozer_blade = FALSE
+
+	master_src.handle_weapon_overlays()
 
 /*
 	VEHICLE EQUIPMENT PARENT

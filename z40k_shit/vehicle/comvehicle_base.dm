@@ -67,6 +67,8 @@
 	var/movement_delay = 3 //Speed of turning
 	var/movement_warning_oncd = FALSE
 
+	
+
 //Visible Slots - I'm sure theres a better way to do this. But we can optimize later
 	//What is in position 1, or Is there a position 1.
 	var/position_1 = null
@@ -81,7 +83,9 @@
 	ES = new(src) //New equipment system in US
 	
 	for(var/path in chassis_actions) //Mark 1
-		new path(src) //We create the actions inside of this object. They should add themselve to held actions.
+		var/cunts = new path(src) //We create the actions inside of this object. They should add themselve to held actions.
+		ES.action_storage += cunts
+
 
 	if(ticker && ticker.current_state >= GAME_STATE_PREGAME)
 		initialize()
@@ -295,6 +299,56 @@
 		pilot_zoom = FALSE
 	user.forceMove(exit_turf)
 
+/obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/Entered)
+	var/pilot
+	if(Entered)
+		occupants.Add(user)
+		pilot = get_pilot()
+		if(user == pilot)
+			for(var/datum/action/complex_vehicle_equipment/action in ES.action_storage)
+				action.Grant(user)
+		else
+			for(var/datum/action/complex_vehicle_equipment/action in ES.action_storage)
+				if(action.pilot_only)
+					continue
+				else
+					var/datum/action/newaction = new action.type(src)
+					ES.extra_actions += newaction
+					newaction.Grant(user)
+
+	else //Exited
+		pilot = get_pilot()
+		occupants.Remove(user)
+		if(user == pilot)
+			for(var/datum/action/complex_vehicle_equipment/action in ES.action_storage)
+				action.Remove(user)
+		else
+			for(var/datum/action/complex_vehicle_equipment/action in ES.extra_actions)
+				if(action.owner)
+					if(action.owner == user)
+						ES.extra_actions -= action
+						action.Remove(user)
+						qdel(action)
+				else
+					ES.extra_actions -= action
+					qdel(action)
+		if(get_pilot() && pilot != get_pilot()) //In the scenario we have another pilot after the first pilot leaves.
+			var/mob/living/new_pilot = get_pilot()
+			if(!new_pilot)
+				return
+			for(var/datum/action/complex_vehicle_equipment/action in ES.extra_actions)
+				if(action.owner)
+					if(action.owner == new_pilot)
+						action.Remove(new_pilot)
+						ES.extra_actions -= action
+						qdel(action)
+				else
+					ES.extra_actions -= action
+					qdel(action)
+			for(var/datum/action/complex_vehicle_equipment/action in ES.action_storage)
+				action.Grant(new_pilot)
+
+/*
 /obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
 	var/pilot = get_pilot()
 	if(GIVIESorTAKIES) //GIVIES
@@ -315,8 +369,8 @@
 	else //TAKIES
 		occupants.Remove(user) //WE TAKIES the user OUT of OCCUPANTS
 		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
-			actions.Remove(user) //They just left we take ALL the shit.
-
+			actions.Remove(user) //They just left we take ALL the shit. 
+ */
 /obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/mygun, var/datum/action/complex_vehicle_equipment/actionid)
 	if(usr!=get_pilot())
 		return

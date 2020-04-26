@@ -16,7 +16,7 @@
 
 /obj/complex_vehicle/proc/toggle_engine_yeah()
 	if(usr!=get_pilot())
-		return
+		to_chat(src.get_pilot(), "<span class='average'> [usr] reaches forward and flips the engine switch in front of you.")
 	
 	if(vehicle_broken_husk)
 		to_chat(src.get_pilot(), "<span class='notice'> The engine makes a little noise but ultimately does nothing.</span>")
