@@ -52,6 +52,6 @@
 	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ]<br/> <b>Security:</b> [SEC_FREQ]<br/>")
 
 /datum/outfit/commissar/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/new_trooper = new
-	new_trooper.AssignToRole(M.mind,TRUE)
-	new_trooper.mind_storage(M.mind)
+	var/datum/role/commissar/commissar = new
+	commissar.AssignToRole(M.mind,TRUE)
+	commissar.mind_storage(M.mind)

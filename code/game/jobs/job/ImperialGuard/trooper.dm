@@ -58,7 +58,7 @@
 	
 
 /datum/outfit/IG_cadian_trooper/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/new_trooper = new
+	var/datum/role/imperial_guard/trooper/new_trooper = new
 	new_trooper.AssignToRole(M.mind,TRUE)
 	new_trooper.mind_storage(M.mind)
 

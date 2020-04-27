@@ -50,10 +50,10 @@
 	ChooseReligion(H, FALSE) //Our mob, the second var is if we are a follower of Chaos.
 
 /datum/outfit/preacher/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/new_trooper = new
-	new_trooper.AssignToRole(M.mind,TRUE)
-	new_trooper.mind_storage(M.mind)
-
+	var/datum/role/imperial_guard/preacher/preacher = new
+	preacher.AssignToRole(M.mind,TRUE)
+	preacher.mind_storage(M.mind)
+ 
 /datum/job/preacher/priority_reward_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.equip_or_collect(new /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater(H.back), slot_in_backpack)

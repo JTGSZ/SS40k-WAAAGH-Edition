@@ -18,6 +18,10 @@
 	else
 		F.HandleRecruitedRole(src)
 
+//This is where we append /datum/objective path type things later.
+/datum/role/imperial_guard/ForgeObjectives()
+	..()
+
 /datum/role/imperial_guard/proc/mind_storage(var/datum/mind/M)
 	M.store_memory("The priority items are: [english_list(macguffin_items)]")
 

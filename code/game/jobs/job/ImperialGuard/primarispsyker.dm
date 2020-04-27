@@ -45,9 +45,9 @@
 	H.mind.store_memory("Fuck you")
 
 /datum/outfit/primarispsyker/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/new_trooper = new
-	new_trooper.AssignToRole(M.mind,TRUE)
-	new_trooper.mind_storage(M.mind)
+	var/datum/role/imperial_guard/psyker/psyker = new
+	psyker.AssignToRole(M.mind,TRUE)
+	psyker.mind_storage(M.mind)
 
 /datum/outfit/primarispsyker/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.attribute_willpower = 11
