@@ -12,6 +12,7 @@
 #define IGPSYKER "Psyker"
 #define IGCOMMISSAR "Commissar"
 #define IGINQUISITOR "Inquisitor"
+#define IGWEPSPECIALIST "Weapon Specialist"
 
 
 //Faction IDs: See: role_datums_defines.dm
