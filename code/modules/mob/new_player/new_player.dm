@@ -36,7 +36,7 @@
 		ready = 0 // prevent setup character issues
 		output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
 
-	output += "<p><a href='byond://?src=\ref[src];potential=1'>Manage Potential</A></p>"
+	output += "<p><a href='byond://?src=\ref[src];potential=1'>Persistence Menu</A></p>"
 
 	output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
 	if(!IsGuestKey(src.key))

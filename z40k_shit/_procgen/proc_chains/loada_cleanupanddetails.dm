@@ -1,5 +1,5 @@
 
-/proc/loada_cleanup_and_detailing(var/datum/map/active/ASS)
+/datum/loada_gen/proc/loada_cleanup_and_detailing()
 	CleanupSpace(ASS)
 
 	CreateCoastline()

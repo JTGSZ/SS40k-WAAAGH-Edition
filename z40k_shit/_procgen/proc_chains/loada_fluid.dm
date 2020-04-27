@@ -3,20 +3,20 @@
 //STAGE 3 - spawnloada1 is ran placing the spawns.
 //STAGE TURF INIT - Copy and pasted floragen shit from the halloween ball.
 
-/proc/loada_lakes3(var/datum/map/active/ASS)
+/datum/loada_gen/proc/loada_lakes3()
 	CreateDeeps(ASS)
 	CreateShallows()
 	
 	if(ASS.dd_debug)
 		log_startup_progress("LAKE LOADA 3 INITIATED")
 
-/proc/loada_rivers1(var/datum/map/active/ASS)
+/datum/loada_gen/proc/loada_rivers1()
 	CreateRiver(ASS)
 	
 	if(ASS.dd_debug)
 		log_startup_progress("RIVER LOADA 1 INITIATED")
 
-/proc/loada_river2lake1(var/datum/map/active/ASS)
+/datum/loada_gen/proc/loada_river2lake1()
 	CreateRiver2Lake(ASS) //
 	CreateShallows()
 

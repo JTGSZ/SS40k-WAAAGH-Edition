@@ -179,4 +179,4 @@
 	if(!width || !height)
 		return
 
-	populate_area_with_vaults(block(location, locate(location.x + width, location.y + height, location.z)))
+//	populate_area_with_vaults(block(location, locate(location.x + width, location.y + height, location.z)))

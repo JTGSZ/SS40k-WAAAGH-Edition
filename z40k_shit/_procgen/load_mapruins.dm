@@ -18,7 +18,7 @@
 
 //List of spawnable vaults is in code/modules/randomMaps/vault_definitions.dm
 
-/proc/loada_generate_template()
+/datum/loada_gen/proc/loada_generate_template()
 	var/area/space = get_space_area()
 
 	var/list/list_of_vaults = loada_get_map_elements()
@@ -35,7 +35,7 @@
 
 	message_admins("<span class='info'>Loaded [result] out of [vault_number] vaults.</span>")
 
-/proc/loada_get_map_elements(base_type = /datum/map_element/vault)
+/datum/loada_gen/proc/loada_get_map_elements(base_type = /datum/map_element/vault)
 	var/list/list_of_vaults = typesof(base_type) - base_type
 
 	for(var/V in list_of_vaults) //Turn list of paths into list of objects
@@ -69,7 +69,7 @@
 //POPULATION_SCARCE is cheaper but may not do the job as well
 //NOTE: Vaults may be placed partially outside of the area. Only the lower left corner is guaranteed to be in the area
 
-/proc/loada_populate_templates(area/A, list/map_element_objects, var/amount = -1, population_density = POPULATION_DENSE, filter_function)
+/datum/loada_gen/proc/loada_populate_templates(area/A, list/map_element_objects, var/amount = -1, population_density = POPULATION_DENSE, filter_function)
 	var/list/area_turfs //List of area_turfs
 
 	if(ispath(A, /area)) //If paarameter var area/a is an path on /area

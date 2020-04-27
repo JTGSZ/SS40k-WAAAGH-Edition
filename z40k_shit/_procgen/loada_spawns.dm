@@ -35,7 +35,7 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 -----Toggles startup coordinate debugging-----
 	dd_debug = TRUE
 */
-/proc/loada_spawns(var/datum/map/active/ASS)
+/datum/loada_gen/proc/loada_spawns()
 	var/datum/map_element/ME //Map Element 1
 	var/datum/map_element/MEOP //Map Element 2
 	
@@ -115,7 +115,6 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 				primary_x2 = rand(1,world.maxx)
 				primary_y2 = rand(1,world.maxy)
 
-		
 	//Symmetrical Mirror Placement + Distance between both var Adjustment.
 	var/h1 = primary_x1 - world.maxx
 	var/h2 = primary_y1 - world.maxy
@@ -133,7 +132,6 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 		primary_y1 = primary_y1 + ASS.spawn_distance
 		primary_y2 = (primary_y2 - h2) - ASS.spawn_distance
 
-	
 	 //If we don't want the templates to overwrite each other.
 	 //Our edgelimit is 169 + 20 since we are spawning to the right thusly... 189.
 	var/edgelimit_min_x2 = primary_x1 + template_x1 //EX: 169 + 20 = 189

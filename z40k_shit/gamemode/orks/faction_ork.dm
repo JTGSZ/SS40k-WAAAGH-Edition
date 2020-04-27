@@ -8,7 +8,7 @@
 	roletype = /datum/role/ork_raider
 	initroletype = /datum/role/ork_raider
 	logo_state = "ork-logo"
-	hud_icons = list("ork-standard-logo")
+	hud_icons = list()
 
 	var/time_left = (30 MINUTES)/10
 	//Are we completed or not
