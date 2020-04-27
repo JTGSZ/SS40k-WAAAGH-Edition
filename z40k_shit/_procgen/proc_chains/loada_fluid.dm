@@ -1,23 +1,22 @@
-//STAGE 1 - Generate any mountains/hills and other shits.
-//STAGE 2 - Random ruin and wreckage templates.
-//STAGE 3 - spawnloada1 is ran placing the spawns.
-//STAGE TURF INIT - Copy and pasted floragen shit from the halloween ball.
 
+//Just makes some lakes
 /datum/loada_gen/proc/loada_lakes3()
-	CreateDeeps(ASS)
+	CreateDeeps()
 	CreateShallows()
 	
 	if(ASS.dd_debug)
 		log_startup_progress("LAKE LOADA 3 INITIATED")
 
+//Creates a river
 /datum/loada_gen/proc/loada_rivers1()
-	CreateRiver(ASS)
+	CreateRiver()
 	
 	if(ASS.dd_debug)
 		log_startup_progress("RIVER LOADA 1 INITIATED")
 
+//Creates a river that goes to a lake.
 /datum/loada_gen/proc/loada_river2lake1()
-	CreateRiver2Lake(ASS) //
+	CreateRiver2Lake()
 	CreateShallows()
 
 	if(ASS.dd_debug)

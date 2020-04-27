@@ -61,3 +61,9 @@
 	var/datum/role/imperial_guard/inquisitor/inquisitor = new
 	inquisitor.AssignToRole(M.mind,TRUE)
 	inquisitor.mind_storage(M.mind)
+
+/datum/outfit/inquisitor/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.attribute_strength = 10
+	H.attribute_agility = 12
+	H.attribute_dexterity = 13
+	return 1

@@ -58,3 +58,9 @@
 	var/datum/role/imperial_guard/sergeant/new_trooper = new
 	new_trooper.AssignToRole(M.mind,TRUE)
 	new_trooper.mind_storage(M.mind)
+
+/datum/outfit/IG_trooper_sergeant/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.attribute_strength = 9
+	H.attribute_agility = 10
+	H.attribute_dexterity = 10
+	return 1

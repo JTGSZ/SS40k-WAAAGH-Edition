@@ -38,7 +38,8 @@ Append - We load in some Fauna
 
 
 /datum/loada_gen/proc/loada_prototype_desert()
-	
+	set waitfor = 0
+
 	var/watch2 = start_watch()
 	loada_generate_template()
 	log_startup_progress("Finished with generating templates in [stop_watch(watch2)]s.")
@@ -48,13 +49,13 @@ Append - We load in some Fauna
 	log_startup_progress("Finished with generating spawns in [stop_watch(watch1)]s.")
 
 	var/watch3 = start_watch()
-	loada_river2lake1(src)
+	loada_river2lake1()
 	log_startup_progress("Finished with rivers and lakes in [stop_watch(watch3)]s.")
 
 	var/watch5 = start_watch()
-	loada_cleanup_and_detailing(src)
+	loada_cleanup_and_detailing()
 	log_startup_progress("Finished with cleanup/detailing. [stop_watch(watch5)]s.")
 
 	var/watch4 = start_watch()
-	loada_floragen(src)
+	loada_floragen()
 	log_startup_progress("Finished with floragen in [stop_watch(watch4)]s.")

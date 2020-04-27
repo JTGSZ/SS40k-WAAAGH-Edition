@@ -55,3 +55,9 @@
 	var/datum/role/imperial_guard/commissar/commissar = new
 	commissar.AssignToRole(M.mind,TRUE)
 	commissar.mind_storage(M.mind)
+
+/datum/outfit/commissar/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.attribute_strength = 10
+	H.attribute_agility = 10
+	H.attribute_dexterity = 10
+	return 1

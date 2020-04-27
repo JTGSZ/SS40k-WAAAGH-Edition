@@ -58,3 +58,7 @@
 	. = ..()
 	H.equip_or_collect(new /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater(H.back), slot_in_backpack)
 
+/datum/outfit/preacher/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.attribute_strength = 12
+	H.attribute_agility = 10
+	return 1

@@ -1,6 +1,6 @@
 
 /datum/loada_gen/proc/loada_cleanup_and_detailing()
-	CleanupSpace(ASS)
+	CleanupSpace()
 
 	CreateCoastline()
 	
