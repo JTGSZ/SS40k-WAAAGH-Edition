@@ -1,0 +1,52 @@
+"a" = (/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"b" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"c" = (/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"d" = (/obj/mecha/working/clarke,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"e" = (/obj/item/stack/sheet/mineral/diamond,/obj/item/stack/sheet/mineral/diamond,/obj/item/stack/sheet/mineral/diamond,/obj/item/stack/sheet/mineral/diamond,/obj/item/stack/sheet/mineral/diamond,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"f" = (/obj/item/weapon/hammer,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"g" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"h" = (/obj/structure/bed/chair/comfy/couch/right/lime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"k" = (/obj/item/binoculars,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"n" = (/obj/machinery/vending/building,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"p" = (/obj/structure/bed/chair/comfy/couch/left/lime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"q" = (/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"r" = (/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"s" = (/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"t" = (/obj/structure/bed,/obj/item/weapon/bedsheet/blue,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"w" = (/obj/item/stack/sheet/mineral/adamantine,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"x" = (/obj/structure/bed/guillotine,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"y" = (/obj/item/stack/sheet/mineral/uqill,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"z" = (/obj/item/stack/sheet/mineral/diamond,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"B" = (/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"F" = (/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"G" = (/obj/effect/landmark/start/assistant,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"H" = (/obj/item/anvil,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"J" = (/obj/structure/bed/chair/wood/throne,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"K" = (/obj/item/stack/sheet/mineral/silver,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"L" = (/obj/structure/closet/toolcloset,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"M" = (/obj/structure/bed/chair/comfy/couch/mid/lime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"N" = (/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"O" = (/obj/item/stack/sheet/mineral/mythril,/obj/item/stack/sheet/mineral/mythril,/obj/item/stack/sheet/mineral/mythril,/obj/item/stack/sheet/mineral/mythril,/obj/item/stack/sheet/mineral/mythril,/obj/item/stack/sheet/mineral/mythril,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"P" = (/obj/effect/landmark/start/janitor,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"S" = (/obj/item/weapon/spear/wooden,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"U" = (/turf/simulated/wall/r_wall,/area/warhammer/desert)
+"V" = (/obj/structure/bed/chair/comfy/teal,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"W" = (/obj/structure/bedsheetbin,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"X" = (/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"Y" = (/obj/machinery/vending/makeup,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"Z" = (/obj/structure/forge,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+
+(1,1,1) = {"
+UUUUUUUUUUUU
+UnhMpOUYXJXU
+UBXXXsUXXXXU
+UGXXXNgXXSXU
+UeXXXwUyXXXU
+UzzNNqUKXXxU
+UUUgUUUUbUUU
+LHZarcUWXXVU
+afaaaaUXPXXU
+aafaadUkXXXU
+aaaaaFUXXtXU
+aaaaaFUUUUUU
+"}

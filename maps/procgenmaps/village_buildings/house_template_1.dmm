@@ -1,0 +1,41 @@
+"a" = (/turf/simulated/wall/mineral/wood,/area/warhammer/desert)
+"b" = (/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"e" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"f" = (/obj/effect/landmark/start/mime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"h" = (/obj/machinery/vending/games,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"k" = (/obj/structure/bed/chair/comfy/black,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"o" = (/obj/machinery/vending/hatdispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"r" = (/obj/machinery/fishtank/tank,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"t" = (/obj/item/weapon/chainsword,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"u" = (/obj/machinery/vending/chapel,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"v" = (/obj/structure/bed/chair/comfy/couch/left/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"x" = (/obj/structure/table/woodentable,/obj/item/binoculars,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"y" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"A" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"B" = (/obj/structure/bed,/obj/item/weapon/bedsheet/clown,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"C" = (/obj/machinery/washing_machine,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"D" = (/obj/structure/bed/chair/comfy/couch/right/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"F" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"G" = (/obj/machinery/vending/shoedispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"J" = (/obj/structure/bed,/obj/item/weapon/bedsheet/mime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"K" = (/obj/structure/table/woodentable,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"M" = (/obj/structure/clock,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"R" = (/obj/machinery/vending/suitdispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"T" = (/obj/machinery/vending/circus,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"U" = (/obj/effect/landmark/start/clown,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"W" = (/obj/machinery/vending/barber,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"X" = (/obj/machinery/vending/autodrobe,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Z" = (/obj/structure/bed/chair/comfy/couch/mid/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+
+(1,1,1) = {"
+aaaaaaaaaa
+aBbkaCrRoF
+abUbabbbby
+aXbbebbbbA
+abbtavKbba
+aaaaaZKbbe
+aXbuaDxbba
+abfbebbbMa
+atJbaWhGTa
+aaaaaaaaaa
+"}

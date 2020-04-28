@@ -1,0 +1,34 @@
+"a" = (/turf/simulated/wall/r_wall,/area/warhammer/desert)
+"d" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/flare/syndicate,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"g" = (/obj/structure/table/reinforced,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"h" = (/obj/structure/rack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"i" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/nagant,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"j" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/mosin,/obj/item/weapon/gun/projectile/mosin,/obj/item/weapon/gun/projectile/mosin,/obj/item/weapon/gun/projectile/mosin,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"k" = (/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"r" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"s" = (/obj/machinery/door/airlock,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"w" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/automatic/c20r,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"B" = (/obj/structure/rack,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"C" = (/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe/ammolathe,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"F" = (/obj/structure/rack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/plasteel/bigstack,/obj/item/stack/sheet/plasteel/bigstack,/obj/item/stack/sheet/plasteel/bigstack,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"H" = (/obj/item/ammo_storage/box/piles/buckshotpile/max_pile,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"K" = (/obj/structure/closet/crate/secure/weapon/experimental/osipr,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"N" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/shotgun/pump/combat,/obj/item/weapon/gun/projectile/shotgun/pump/combat,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"R" = (/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"W" = (/obj/structure/closet/crate/secure/weapon/experimental/gatling,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"X" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/automatic/l6_saw,/obj/item/ammo_storage/magazine/a762,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+
+(1,1,1) = {"
+aaaaaa
+ahRkCa
+aFRRRs
+aNHRRa
+aBRRga
+awRRga
+aXRRga
+arRRga
+aiRRga
+ajRRga
+adRKWa
+aaaaaa
+"}
