@@ -146,6 +146,12 @@
 	sleep(5)
 	landinganim = TRUE //We partway in the landing animation, so we don't gib if we take the jumppack off
 	sleep(15) //We should have 15 ticks before footprints start up again aka 20 total
+	
+	var/turf/T = get_turf(user)
+	if(istype(T,/turf/simulated))
+		user.gib()
+		return
+
 	user.setDensity(TRUE) // We also aren't dense until the anim is done too.
 	user.highflying = 0 //BACK DOWN AGAIN
 
