@@ -1,6 +1,6 @@
 "a" = (/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "b" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/unsimulated/outside/sand,/area/warhammer/desert)
-"c" = (/obj/structure/table/reinforced,/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"c" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "d" = (/obj/item/weapon/bedsheet/green,/obj/structure/bed,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "e" = (/obj/machinery/biogenerator,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "f" = (/obj/structure/closet/secure_closet/hydroponics,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)

@@ -1,4 +1,5 @@
 "a" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/ork_loot_area)
+"e" = (/obj/effect/decal/loot_pointer,/turf/simulated/floor,/area/vault/warhammergen/ork_loot_area)
 "n" = (/turf/simulated/floor,/area/vault/warhammergen/ork_loot_area)
 "w" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
 "A" = (/obj/effect/landmark/start/basicOrk,/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
@@ -18,7 +19,7 @@ EEEEEEEEEEEEEEEEEEEE
 EBBBBBBRRRVVVVVEEEEE
 EBRwRRRRRRVnanVEEEEE
 EBRRRRRRRRVnnnVEEEEE
-EBRRRRRRRRVVnVVEEEEE
+EBRRRRRRRRVVeVVEEEEE
 EwRRARRARRwRRwREEEEE
 ERRRRRRRRRRRRRREEEEE
 ERRRRRRRRRRRRRREEEEE

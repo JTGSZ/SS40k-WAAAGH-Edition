@@ -7,7 +7,7 @@
 /datum/loada_gen/proc/loada_village()
 	var/center_x = round(world.maxx/2) //EX: 200/2 = 100
 	var/center_y = round(world.maxy/2) //Exact center of a whole map.
-	var/exact_center = locate(center_x,center_y,1) //The turf location.
+	//var/exact_center = locate(center_x,center_y,1) //The turf location.
 	var/town_spread = 50 //The total amount of grid cells we can spread
 
 	//These always occur on the bottom left of our templates, so block starts here
@@ -24,8 +24,8 @@
 
 	//Now that that is settled, we calculate the top right border.
 	//We know the bottom left safe coordinates, So now we just add our town spread to the bottom left coordinates
-	var/topright_x1 = (lowleft_x1+town_spread) //EX: 140 + 50 = 190 X
-	var/topright_y1 = (lowleft_y1+town_spread) //EX: 140 + 50 = 190 Y
+	//var/topright_x1 = (lowleft_x1+town_spread) //EX: 140 + 50 = 190 X
+	//var/topright_y1 = (lowleft_y1+town_spread) //EX: 140 + 50 = 190 Y
 	//Think of the four variables we have now as a miniature map for ease of thinking.
 
 	//So whats next? Well, we need to pick our templates.

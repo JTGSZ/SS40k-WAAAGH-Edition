@@ -1,4 +1,5 @@
 "a" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"f" = (/obj/effect/decal/loot_pointer,/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "n" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "s" = (/obj/effect/landmark/start/inquisitor,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "v" = (/obj/effect/landmark/start/commissar,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -20,7 +21,7 @@ aTTTTTTWWWWWWYYYYYYa
 aTWWXWXWWWWWWYMnMMYa
 aTWWWWWWWWWWWYMMMMYa
 aTWWWWWWWWWWWYMMMMYa
-aTWWVWWWUWWWWYYMYYYa
+aTWWVWWWUWWWWYYfYYYa
 aXWWWWWWWWWWWWXWWWXa
 aWWWWWWWWWWRTWWWWWWa
 aWWWWWWWWWUTTTWWWWWa
