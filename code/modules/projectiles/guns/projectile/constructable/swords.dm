@@ -14,6 +14,7 @@
 	sharpness = 1.2
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
 	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/sword/weaponcraft
 	var/obj/item/weapon/reagent_containers/hypospray/hypo = null
@@ -292,6 +293,7 @@
 	icon_state = "shortsword"
 	item_state = "shortsword"
 
+
 /obj/item/weapon/sword/gladius
 	name = "gladius"
 	desc = "An ancient sword design employed by the romans, used for its simple design for mass manufacture. It lacks a cross-guard."
@@ -308,6 +310,7 @@
 	icon_state = "sabre"
 	item_state = "sword"
 
+
 /obj/item/weapon/sword/scimitar
 	name = "scimitar"
 	desc = "A sword with a curved blade. The curved blade made it easier for use from horseback."
@@ -315,3 +318,4 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/scimitar_left.dmi', "right_hand" = 'icons/mob/in-hand/right/scimitar_right.dmi')
 	icon_state = "scimitar"
 	item_state = "sword"
+

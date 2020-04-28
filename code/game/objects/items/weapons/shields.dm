@@ -254,6 +254,7 @@
 	icon_state = "tower_shield"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/shields.dmi', "right_hand" = 'icons/mob/in-hand/right/shields.dmi')
 	slowdown = 4
+	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance)
 
 /obj/item/weapon/shield/riot/tower/IsShield()
 	return 2 //Considering its size, twice as effective as a normal shield, but difficult to lug around

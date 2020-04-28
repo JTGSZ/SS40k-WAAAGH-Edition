@@ -496,6 +496,7 @@ obj/item/weapon/banhammer/admin
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/hammer_left.dmi', "right_hand" = 'icons/mob/in-hand/right/hammer_right.dmi')
 	force = 8
 	hitsound = 'sound/weapons/toolbox.ogg'
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/pitchfork
 	name = "pitchfork"
@@ -507,3 +508,4 @@ obj/item/weapon/banhammer/admin
 	sharpness = 2
 	sharpness = SHARP_TIP
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)

@@ -206,6 +206,7 @@ proc/move_mining_shuttle()
 	var/diggables = DIG_ROCKS
 
 	var/excavation_amount = 100
+	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
 /obj/item/weapon/pickaxe/hammer
 	name = "sledgehammer"
