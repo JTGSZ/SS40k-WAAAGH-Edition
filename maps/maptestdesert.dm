@@ -29,8 +29,8 @@
 
 //loada_spawn variables
 	spawn_overwrite = TRUE //EX: This being true means template 2 can overwrite template 1
-	spawn_template_1 = /datum/map_element/vault/test_ig_spawn
-	spawn_template_2 = /datum/map_element/vault/test_ork_spawn
+	spawn_template_1 = /datum/map_element/vault/ig_base_one
+	spawn_template_2 = /datum/map_element/vault/ork_base_one
 	spawn_alignment = "horizontals"
 	
 	//Debug textvar on all the mapgen 
@@ -43,3 +43,4 @@
 ////////////////////////////////////////////////////////////////
 #include "maptestdesert.dmm"
 #endif
+ 
