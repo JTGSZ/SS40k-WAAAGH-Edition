@@ -18,9 +18,5 @@
 		#undef MAP_OVERRIDE
 		#include "maptestsnow.dm"
 		#define MAP_OVERRIDE 1
-	#elif MAP_OVERRIDE == 3
-		#undef MAP_OVERRIDE
-		#include "packedstation.dm"
-		#define MAP_OVERRIDE 3
 	#endif
 #endif

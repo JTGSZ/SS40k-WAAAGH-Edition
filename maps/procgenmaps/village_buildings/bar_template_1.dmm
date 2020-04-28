@@ -1,0 +1,65 @@
+"a" = (/turf/simulated/wall/r_wall,/area/warhammer/desert)
+"b" = (/obj/item/weapon/stool/piano,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"c" = (/obj/structure/table/woodentable,/obj/machinery/chem_dispenser/booze_dispenser/mapping{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"d" = (/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"e" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"f" = (/obj/machinery/cooking/candy,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"g" = (/obj/structure/fence,/obj/structure/fence/corner{dir = 8},/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"h" = (/obj/structure/table/reinforced,/obj/machinery/microwave{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"i" = (/obj/machinery/cooking/still,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"j" = (/obj/structure/table/woodentable,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"k" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/grille,/obj/structure/sign/double/barsign,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"l" = (/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"m" = (/obj/structure/fence/door,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"n" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"p" = (/obj/machinery/cooking/deepfryer,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"q" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"r" = (/obj/structure/table/woodentable,/obj/structure/table/woodentable,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"s" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"t" = (/obj/structure/table/woodentable,/obj/item/weapon/storage/box/drinkingglasses,/obj/item/weapon/storage/box/drinkingglasses,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"u" = (/obj/structure/fence{dir = 4},/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"v" = (/obj/structure/table/reinforced,/obj/item/weapon/kitchen/rollingpin,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"x" = (/obj/structure/table/reinforced,/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"y" = (/obj/item/weapon/reagent_containers/spray/cleaner,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"z" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"A" = (/obj/item/weapon/stool/bar,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"B" = (/obj/item/weapon/reagent_containers/glass/beaker/large,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"C" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"D" = (/obj/effect/landmark/start/chef,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"E" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"F" = (/obj/structure/table/woodentable,/obj/machinery/chem_dispenser/soda_dispenser/mapping{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"H" = (/obj/machinery/cooking/cerealmaker,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"I" = (/obj/machinery/door/mineral/wood,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"J" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"K" = (/obj/effect/landmark/start/assistant,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"L" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"M" = (/obj/item/weapon/storage/box/condimentbottles,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"N" = (/obj/structure/table/woodentable,/obj/machinery/chem_dispenser/brewer/mapping,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"O" = (/obj/structure/sink/kitchen{pixel_y = 25},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"P" = (/obj/machinery/processor,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Q" = (/obj/structure/clock,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"R" = (/obj/machinery/vending/boozeomat,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"S" = (/obj/item/weapon/kitchen/utensil/fork,/obj/machinery/vending/dinnerware,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"T" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/reagent_containers/food/condiment/enzyme,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"U" = (/obj/effect/landmark/start/bartender,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"V" = (/obj/structure/table/reinforced,/obj/item/weapon/kitchen/utensil/knife/large/butch,/obj/item/weapon/reagent_containers/food/condiment/enzyme,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"W" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"X" = (/obj/structure/table/reinforced,/obj/item/weapon/storage/fancy/egg_box,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Y" = (/obj/structure/piano,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Z" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/condiment/ketchup,/obj/item/weapon/reagent_containers/food/condiment/hotsauce,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+
+(1,1,1) = {"
+gmuaaaaaaaaaa
+eddaXOEvVhfTa
+eddaiMylDllla
+eddIllDllBlza
+eddapPlSzlHCa
+aaaaaanaaxaaa
+allQlllFclRNa
+ajlKlrlllUlla
+alllljZjjjtaa
+abKllAAAAAAlW
+aYlllllllllls
+alllllllllllL
+aanakJJJJJJqa
+"}

@@ -77,7 +77,7 @@
 
 /obj/structure/closet/secure_closet/freezer/kitchen
 	name = "Kitchen Cabinet"
-	req_access = list(access_kitchen)
+	req_access = list()
 
 /obj/structure/closet/secure_closet/freezer/kitchen/atoms_to_spawn()
 	return list(

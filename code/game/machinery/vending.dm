@@ -1222,7 +1222,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/boozeomat
 	name = "\improper Booze-O-Mat"
 	desc = "A vending machine containing multiple drinks for bartending."
-	req_access = list(access_bar)
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_deny = "boozeomat-deny"
 	products = list(
@@ -1534,7 +1533,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/cart
 	name = "\improper PTech"
 	desc = "A vending machine containing Personal Data Assistant cartridges."
-	req_access = list(access_change_ids)
 	product_slogans = list("Carts to go!")
 	icon_state = "cart"
 	icon_deny = "cart-deny"
@@ -1611,7 +1609,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/medical
 	name = "\improper NanoMed Plus"
 	desc = "A vending machine containing medical supplies."
-	req_access = list(access_medical)
 	icon_state = "med"
 	icon_deny = "med-deny"
 	icon_vend = "med-vend"
@@ -1680,7 +1677,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/wallmed1
 	name = "\improper NanoMed"
 	desc = "Wall-mounted medical equipment dispenser."
-	//req_access = list(access_medical)
 	product_ads = list(
 		"Go save some lives!",
 		"The best stuff for your medbay.",
@@ -1712,7 +1708,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/wallmed2
 	name = "\improper NanoMed"
 	desc = "Wall-mounted medical equipment dispenser."
-	//req_access = list(access_medical)
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
@@ -1924,7 +1919,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/security
 	name = "\improper SecTech"
 	desc = "A vending machine containing Security equipment. A label reads \"SECURITY PERSONNEL ONLY\"."
-	req_access = list(access_security)
 	product_ads = list(
 		"Crack capitalist skulls!",
 		"Beat some heads in!",
@@ -1966,7 +1960,6 @@ var/global/num_vending_terminals = 1
 	pack = /obj/structure/vendomatpack/security
 
 /obj/machinery/vending/security/used
-	req_access = "0"
 	extended_inventory = 1
 	products = list(
 		/obj/item/weapon/handcuffs = 1,
@@ -2263,7 +2256,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/tool
 	name = "\improper YouTool"
 	desc = "A vending machine containing standard tools. A label reads: \"Tools for tools.\""
-	//req_access = list(access_maint_tunnels)
 	icon_state = "tool"
 	icon_deny = "tool-deny"
 	icon_vend = "tool-vend"
@@ -2293,7 +2285,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/engivend
 	name = "\improper Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
-	req_access = list(access_engine_equip)//Engineering Equipment access
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
 	icon_vend = "engivend-vend"
@@ -2369,7 +2360,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/engineering
 	name = "\improper Robco Tool Maker"
 	desc = "A vending machine containing many engineering supplies. A label reads: \"Everything you need for do-it-yourself station repair.\""
-	req_access = list(access_engine_equip)
 	icon_state = "engi"
 	icon_deny = "engi-deny"
 	products = list(
@@ -2425,7 +2415,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/robotics
 	name = "\improper Robotech Deluxe"
 	desc = "A vending machine containing roboticizing supplies. A label reads: \"All the tools you need to create your own robot army.\""
-	req_access = list(access_robotics)
 	icon_state = "robotics"
 	icon_deny = "robotics-deny"
 	products = list(
@@ -2453,7 +2442,6 @@ var/global/num_vending_terminals = 1
 	desc = "A vending machine containing costumes."
 	icon_state = "theater"
 	icon_deny = "theater-deny"
-	req_access = list(access_theatre)
 	product_slogans = list(
 		"Dress for success!",
 		"Suited and booted!",
@@ -3015,7 +3003,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/chapel
 	name = "\improper PietyVend"
 	desc = "A vending machine containing religious supplies and clothing. A label reads: \"A holy vendor for a pious man.\""
-	req_access = list(access_chapel_office)
 	product_slogans = list(
 		"Bene orasse est bene studuisse.",
 		"Beati pauperes spiritu.",
@@ -3078,7 +3065,6 @@ var/global/num_vending_terminals = 1
 	desc = "Its wiring has been modified to prevent hacking."
 	unhackable = 1
 	desc = "Make much coin."
-	req_access = list(access_trade)
 	product_slogans = list(
 		"Profits."
 	)
@@ -3319,7 +3305,6 @@ var/global/num_vending_terminals = 1
 /obj/machinery/vending/mining
 	name = "\improper Dwarven Mining Equipment"
 	desc = "Get your mining equipment here, and above all keep digging!"
-	req_access = list(access_cargo)
 	product_slogans = list(
 		"This asteroid isn't going to dig itself!",
 		"Stay safe in the tunnels, bring two Kinetic Accelerators!",

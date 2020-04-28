@@ -305,8 +305,6 @@ proc/change_base_turf(var/choice,var/new_base_path,var/update_old_base = 0)
 			D.base_turf_type = new_base_path
 
 /client/proc/set_base_turf()
-
-
 	set category = "Debug"
 	set name = "Set Base Turf"
 	set desc = "Set the base turf for a z-level. Defaults to space, does not replace existing tiles."

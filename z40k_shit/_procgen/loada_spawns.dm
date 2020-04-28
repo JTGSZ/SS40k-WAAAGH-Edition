@@ -39,14 +39,16 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 	var/datum/map_element/ME //Map Element 1
 	var/datum/map_element/MEOP //Map Element 2
 	
-	var/z1_coord = 1 //Z level will always be 1
-	var/x1_coord = 0 //Holder for calculated x - horizontal
-	var/y1_coord = 0 //Holder for calculated y - vertical
+	/*
+	var/s1_z1_coord = 1 //Z level will always be 1
+	var/s1_x1_coord = 0 //Holder for calculated x - horizontal
+	var/s1_y1_coord = 0 //Holder for calculated y - vertical
 
-	var/z2_coord = 1 //Placement of the opposing template
-	var/x2_coord = 0 //X 1
-	var/y2_coord = 0 //Y 1
-	
+	var/s2_z2_coord = 1 //Placement of the opposing template
+	var/s2_x2_coord = 0 //X 1
+	var/s2_y2_coord = 0 //Y 1
+	*/
+
 	//Center with changes to it picks which side to draw from
 	var/center_x = round(world.maxx/2) //EX: 200/2 = 100
 	var/center_y = round(world.maxy/2) //Exact center of a whole map.
@@ -145,25 +147,25 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 
 	//Since we start at the bottom left corner
 	if(!ASS.can_enlarge) //Can enlarge is false, so template deletes if it can't fit
-		x1_coord = clamp(primary_x1, edgelimit_min_x1, edgelimit_max_x1) //x coord is rng clamped between 1 and edgelimit x
-		y1_coord = clamp(primary_y1, edgelimit_min_y1, edgelimit_max_y1)
-		ME.load(x1_coord, y1_coord, z1_coord)
+		s1_x1_coord = clamp(primary_x1, edgelimit_min_x1, edgelimit_max_x1) //x coord is rng clamped between 1 and edgelimit x
+		s1_y1_coord = clamp(primary_y1, edgelimit_min_y1, edgelimit_max_y1)
+		ME.load(s1_x1_coord, s1_y1_coord, s1_z1_coord)
 
 		if(ASS.spawn_overwrite) //If we can overwrite
-			x2_coord = clamp(primary_x2, edgelimit_min_x1, edgelimit_max_x2)
-			y2_coord = clamp(primary_y2, edgelimit_min_y1, edgelimit_max_y2)
+			s2_x2_coord = clamp(primary_x2, edgelimit_min_x1, edgelimit_max_x2)
+			s2_y2_coord = clamp(primary_y2, edgelimit_min_y1, edgelimit_max_y2)
 
-			MEOP.load(x2_coord, y2_coord, z2_coord)
+			MEOP.load(s2_x2_coord, s2_y2_coord, s2_z2_coord)
 		else //if spawn_overwrite = FALSE
 			if(edgelimit_min_x2 > edgelimit_max_x2) //If we end up greater than the max
-				x2_coord = clamp(primary_x2, edgelimit_max_x2, edgelimit_min_x2) //Then we start from the max and clamp to min
+				s2_x2_coord = clamp(primary_x2, edgelimit_max_x2, edgelimit_min_x2) //Then we start from the max and clamp to min
 			if(edgelimit_min_y2 > edgelimit_max_y2)
-				y2_coord = clamp(primary_y2, edgelimit_max_y2, edgelimit_min_y2)
-			MEOP.load(x2_coord, y2_coord, z2_coord)
+				s2_y2_coord = clamp(primary_y2, edgelimit_max_y2, edgelimit_min_y2)
+			MEOP.load(s2_x2_coord, s2_y2_coord, s2_z2_coord)
 		
 	if(ASS.dd_debug)
 		log_startup_progress("-------------TEMPLATE 1---------------")
-		log_startup_progress("[ME] spawned at coordinates X:[x1_coord], Y:[y1_coord], Z:[z1_coord]")
+		log_startup_progress("[ME] spawned at coordinates X:[s1_x1_coord], Y:[s1_y1_coord], Z:[s1_z1_coord]")
 		log_startup_progress("Edgelimit Max X:[edgelimit_max_x1], Edgelimit Max Y:[edgelimit_max_y1].")
 		log_startup_progress("Edgelimit Min X:[edgelimit_min_x1], Edgelimit Min Y:[edgelimit_min_y1].")
 		log_startup_progress("Template X1: [template_x1], Template Y1: [template_y1]")
@@ -179,7 +181,7 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 		log_startup_progress("Holder 1: [h1], Holder 2: [h2]")
 
 		log_startup_progress("-------------TEMPLATE 2---------------")
-		log_startup_progress("[MEOP] spawned at coordinates X:[x2_coord], Y:[y2_coord], Z:[z2_coord]")
+		log_startup_progress("[MEOP] spawned at coordinates X:[s2_x2_coord], Y:[s2_y2_coord], Z:[s2_z2_coord]")
 		log_startup_progress("Edgelimit Max X2:[edgelimit_max_x2], Edgelimit Max Y2:[edgelimit_max_y2]")
 		log_startup_progress("Edgelimit Min X2:[edgelimit_min_x2], Edgelimit Min Y2:[edgelimit_min_y2]")
 		log_startup_progress("Template X2: [template_x2], Template Y2: [template_y2]")
