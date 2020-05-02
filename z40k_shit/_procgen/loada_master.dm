@@ -73,3 +73,7 @@ Append - We load in some Fauna
 	//var/watch4 = start_watch()
 	//loada_floragen()
 	//log_startup_progress("Finished with floragen in [stop_watch(watch4)]s.")
+
+	var/jectiewatch = start_watch()
+	loada_objectivegen()
+	log_startup_progress("Finished placing objectives in [stop_watch(jectiewatch)]s")

@@ -35,7 +35,7 @@
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "empty"
 
-	req_access = list(access_bar)
+	req_access = list()
 
 	var/sign_name = ""
 	var/list/barsigns=list()

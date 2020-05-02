@@ -22,6 +22,12 @@
 	icon_state = "maptestmk1"
 	requires_power = 0
 
+/area/warhammer/objective_area
+	name = "objective spawn"
+	icon_state = "objective_area"
+	requires_power = 0
+
+
 /*
 	Areas for general map biomes
 								*/
