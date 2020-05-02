@@ -19,7 +19,9 @@ Stage 1 - We generate random templates
 Append - We can run through and place objective objects.
 Stage 2 - We generate the Spawns
 Append - We can now generate a town
+Append - We can now place objective items/add them to the global list.
 Stage 3 - We generate rivers/lakes
+Append - We can now place roads.
 Stage 4 - We do cleanup and detailing
 Stage 5 - We load all the flora in.
 Append - We load in some Fauna

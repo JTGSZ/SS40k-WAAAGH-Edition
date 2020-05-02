@@ -62,18 +62,7 @@ var/list/diagnostic_hud_users = list() // list of all entities using a diagnosti
 		var/datum/rogan_sound/S = new path()
 		number2rogansound[S.number] = S
 
-/* // Uncomment to debug chemical reaction list.
-/client/verb/debug_chemical_list()
 
-
-	for (var/reaction in chemical_reactions_list)
-		. += "chemical_reactions_list\[\"[reaction]\"\] = \"[chemical_reactions_list[reaction]]\"\n"
-		if(islist(chemical_reactions_list[reaction]))
-			var/list/L = chemical_reactions_list[reaction]
-			for(var/t in L)
-				. += "    has: [t]\n"
-	to_chat(world, .)
-*/
 
 var/global/list/escape_list = list()
 var/list/bots_list = list()

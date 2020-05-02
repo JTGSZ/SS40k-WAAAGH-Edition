@@ -40,12 +40,6 @@ var/ork_total_points = 0
 
 /datum/faction/ork_raiders/OnPostSetup()
 	..()
-	for(var/datum/role/imperial_guard/IG in members)
-		var/datum/mind/synd_mind = IG.antag
-		mind_storage(synd_mind.current)
-
-/datum/faction/ork_raiders/proc/mind_storage(var/mob/living/carbon/human/guardsmen)
-	guardsmen.store_memory("The priority items are: [english_list(macguffin_items)]")
 
 /datum/faction/ork_raiders/process()
 	if(completed)
@@ -59,7 +53,7 @@ var/ork_total_points = 0
 
 		var/area/points_area = locate(/area/vault/warhammergen/ork_loot_area)
 		for(var/obj/O in points_area)
-			if(is_type_in_list(O, macguffin_items))
+			if(is_type_in_list(O, mcguffin_items))
 				ork_total_points += 500
 				got_items++
 

@@ -57,7 +57,7 @@ var/ig_total_points = 0
 
 		var/area/points_area = locate(/area/vault/warhammergen/ig_loot_area)
 		for(var/obj/O in points_area)
-			if(is_type_in_list(O, macguffin_items))
+			if(is_type_in_list(O, mcguffin_items))
 				ig_total_points += 500
 				got_items++
 

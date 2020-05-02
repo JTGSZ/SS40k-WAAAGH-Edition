@@ -23,7 +23,7 @@
 	..()
 
 /datum/role/ork_raider/proc/mind_storage(var/datum/mind/M)
-	M.store_memory("The priority items are: [english_list(macguffin_items)]")
+	M.store_memory("The artifacts on the map are: [english_list(mcguffin_items)]")
 
 //Just whats in the stat panel if they have the mind
 /datum/role/ork_raider/StatPanel()

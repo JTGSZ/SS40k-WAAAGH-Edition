@@ -2624,7 +2624,6 @@
 #include "z40k_shit\flora\florarocks.dm"
 #include "z40k_shit\flora\floratrees.dm"
 #include "z40k_shit\gamemode\fugmode.dm"
-#include "z40k_shit\gamemode\fugmode_globals.dm"
 #include "z40k_shit\gamemode\imperialguard\faction_ig.dm"
 #include "z40k_shit\gamemode\imperialguard\role-inquisitor.dm"
 #include "z40k_shit\gamemode\imperialguard\role_commissar.dm"
