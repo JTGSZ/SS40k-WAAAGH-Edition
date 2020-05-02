@@ -3,7 +3,11 @@ Basically the list is what we pick from, and the definitions are the maps themse
 */
 
 /datum/loada_gen
-	var/list/village_templates = list()
+	var/list/village_templates = list(/datum/map_element/vault/bar_template_one,
+									/datum/map_element/vault/house_one,
+									/datum/map_element/vault/house_two,
+									/datum/map_element/vault/farm_one,
+									/datum/map_element/vault/armory_one)
 
 //bar tempalte 1
 /datum/map_element/vault/bar_template_one

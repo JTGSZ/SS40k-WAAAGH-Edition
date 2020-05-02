@@ -5,10 +5,12 @@
 /area/warhammer
 	name = "Parent don't use this"
 	icon = 'z40k_shit/icons/40kareas.dmi'
+	dynamic_lighting = 0
 
 /area/vault/warhammergen
 	name = "Parent don't use this"
 	icon = 'z40k_shit/icons/40kareas.dmi'
+	dynamic_lighting = 0
 
 /area/warhammer/maptestmk1
 	name = "maptestmk1"
