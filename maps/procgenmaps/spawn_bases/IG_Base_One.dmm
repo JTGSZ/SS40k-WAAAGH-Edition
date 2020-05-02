@@ -2,7 +2,7 @@
 "cg" = (/obj/structure/table/reinforced,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "dc" = (/obj/effect/landmark/start/commissar,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "dh" = (/obj/machinery/vending/medical,/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
-"dr" = (/obj/effect/decal/loot_pointer,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"dr" = (/obj/effect/decal/loot_pointer,/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "dF" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "dH" = (/obj/machinery/light/he{dir = 4},/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "gi" = (/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
@@ -42,7 +42,6 @@
 "DJ" = (/obj/structure/table/glass,/obj/item/weapon/storage/firstaid/fire{pixel_x = -7},/obj/item/weapon/storage/firstaid/regular{pixel_x = -3; pixel_y = 0},/obj/item/weapon/storage/firstaid/o2{pixel_x = 3; pixel_y = 0},/obj/item/weapon/storage/firstaid/toxin{pixel_x = 7; pixel_y = 0},/obj/machinery/light{dir = 4},/turf/simulated/floor{dir = 4; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "Er" = (/obj/effect/landmark/start/IG_Cadian_Trooper,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Ev" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
-"EB" = (/obj/effect/decal/loot_pointer,/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "EV" = (/obj/complex_vehicle/complex_chassis/leman_russ/battlecannon,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "FN" = (/obj/structure/rack,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "FU" = (/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -96,9 +95,9 @@ pepeJmJmJmJmJmJmpepepepepepepeoAoAoApepepepepepepepe
 pepeJmJmJmJmJmJmpejkjkjkjkjkjkoAoAoApesNsNkDwSwSpepe
 pepeJmJmJmJmJmJmpejkzSYLzSzSjkoAoAoApewSwSwSwSwSpepe
 pepeJmJmJmJmJmJmpejkzSzSzSzSjkoAoAoApewSnwTwwSgipepe
-pepeJmJmJmJmJmJmpejkzSEBzSzSjkoAoAoABSwSnwwSwSYFpepe
-pepepepepepeJmJmpejkjkzSjkjkjkpepepepewSwSwSwSwSpepe
-pepepepepepeAxabpepeqRdrFUjvqRMTFNIZpepepepepepepepe
+pepeJmJmJmJmJmJmpejkzSzSzSzSjkoAoAoABSwSnwwSwSYFpepe
+pepepepepepeJmJmpejkjkdrjkjkjkpepepepewSwSwSwSwSpepe
+pepepepepepeAxabpepeqRLDFUjvqRMTFNIZpepepepepepepepe
 pepeLDLDqRLDLDLDpepeEvLDLDLDLDLDvkUQpeLDqRLDLDLDpepe
 pepeLDLDLDWaLDLDpepeEvLDEvEvEvEvvkyYpeNMNMLDNMNMpepe
 pepeLDWaLDLDLDLDpepeGRLDdcLDLgLgLDcgpeErErLDErErpepe

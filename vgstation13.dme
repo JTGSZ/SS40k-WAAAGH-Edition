@@ -2606,6 +2606,7 @@
 #include "z40k_shit\_procgen\load_mapruins.dm"
 #include "z40k_shit\_procgen\loada_master.dm"
 #include "z40k_shit\_procgen\loada_objective.dm"
+#include "z40k_shit\_procgen\loada_roadsystem.dm"
 #include "z40k_shit\_procgen\loada_spawns.dm"
 #include "z40k_shit\_procgen\loada_village.dm"
 #include "z40k_shit\_procgen\plottergen\_plotterobj.dm"
