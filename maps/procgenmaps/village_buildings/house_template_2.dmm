@@ -18,6 +18,7 @@
 "y" = (/obj/item/stack/sheet/mineral/uqill,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "z" = (/obj/item/stack/sheet/mineral/diamond,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "B" = (/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"C" = (/obj/road_node,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "F" = (/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "G" = (/obj/effect/landmark/start/assistant,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "H" = (/obj/item/anvil,/turf/unsimulated/outside/sand,/area/warhammer/desert)
@@ -47,6 +48,6 @@ UUUgUUUUbUUU
 LHZarcUWXXVU
 afaaaaUXPXXU
 aafaadUkXXXU
-aaaaaFUXXtXU
+aaCaaFUXXtXU
 aaaaaFUUUUUU
 "}

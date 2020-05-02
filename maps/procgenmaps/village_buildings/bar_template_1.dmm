@@ -12,6 +12,7 @@
 "l" = (/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "m" = (/obj/structure/fence/door,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "n" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"o" = (/obj/machinery/door/mineral/wood,/obj/road_node,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "p" = (/obj/machinery/cooking/deepfryer,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "q" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "r" = (/obj/structure/table/woodentable,/obj/structure/table/woodentable,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
@@ -61,5 +62,5 @@ alllljZjjjtaa
 abKllAAAAAAlW
 aYlllllllllls
 alllllllllllL
-aanakJJJJJJqa
+aaoakJJJJJJqa
 "}

@@ -6,7 +6,7 @@
 "j" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/mosin,/obj/item/weapon/gun/projectile/mosin,/obj/item/weapon/gun/projectile/mosin,/obj/item/weapon/gun/projectile/mosin,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
 "k" = (/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
 "r" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
-"s" = (/obj/machinery/door/airlock,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
+"s" = (/obj/machinery/door/airlock,/obj/road_node,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
 "w" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/automatic/c20r,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
 "B" = (/obj/structure/rack,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/obj/item/weapon/storage/box/buckshotshells,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)
 "C" = (/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe/ammolathe,/turf/simulated/floor/engine/concrete,/area/warhammer/desert)

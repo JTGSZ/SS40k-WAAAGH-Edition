@@ -13,6 +13,7 @@
 "u" = (/obj/structure/sink/puddle,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "w" = (/obj/machinery/vending/hydronutrients,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "x" = (/obj/machinery/chem_master,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"z" = (/obj/road_node,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "A" = (/obj/machinery/vending/engivend,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "B" = (/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "C" = (/obj/machinery/chem_dispenser/mapping,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
@@ -47,6 +48,6 @@ abbbaabbba
 aaaaFaaaaa
 abbbaabbba
 abbbaabbba
-aaaaaaaaaa
+aaaaazaaaa
 aaaaaaaaaa
 "}
