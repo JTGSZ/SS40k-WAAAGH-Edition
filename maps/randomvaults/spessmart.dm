@@ -165,7 +165,7 @@ var/list/shop_prices = list( //Cost in space credits
 )
 
 
-/datum/map_element/vault/supermarket
+/datum/map_element/vault/mapruins/supermarket
 	name = "Spessmart"
 	file_path = "maps/randomvaults/spessmart.dmm"
 
@@ -176,7 +176,7 @@ var/list/shop_prices = list( //Cost in space credits
 	var/goods_purchased = 0
 	var/alarm_activated = "" //Holds the explanation for alarm's activation
 
-/datum/map_element/vault/supermarket/process_scoreboard()
+/datum/map_element/vault/mapruins/supermarket/process_scoreboard()
 	var/list/L = list()
 
 	if(credits_spent || goods_purchased || alarm_activated)
@@ -188,13 +188,13 @@ var/list/shop_prices = list( //Cost in space credits
 
 	return L
 
-/datum/map_element/vault/supermarket/proc/set_stats_alarm_activated(msg)
+/datum/map_element/vault/mapruins/supermarket/proc/set_stats_alarm_activated(msg)
 	if(alarm_activated)
 		return
 
 	alarm_activated = msg
 
-/datum/map_element/vault/supermarket/initialize(list/objects)
+/datum/map_element/vault/mapruins/supermarket/initialize(list/objects)
 	..()
 
 	var/area/vault/supermarket/shop/S = locate(/area/vault/supermarket/shop)
@@ -210,10 +210,10 @@ var/list/clothing_prices = list()	//gets filled on initialize()
 	name = "Spessmart"
 	flags = NO_PORTALS | NO_TELEPORT
 
-	var/datum/map_element/vault/supermarket/map_element
+	var/datum/map_element/vault/mapruins/supermarket/map_element
 
 /area/vault/supermarket/spawned_by_map_element(datum/map_element/ME)
-	if(istype(ME, /datum/map_element/vault/supermarket))
+	if(istype(ME, /datum/map_element/vault/mapruins/supermarket))
 		map_element = ME
 
 	..()

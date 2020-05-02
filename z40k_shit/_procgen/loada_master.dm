@@ -40,7 +40,6 @@ Append - We load in some Fauna
 
 
 /datum/loada_gen/New(var/datum/map/active/map_datum,var/gen_cycle) //We pass the map datum, and what cycle to pick.
-	set waitfor = 0
 	ASS = map_datum
 	
 	switch(gen_cycle)
@@ -50,11 +49,10 @@ Append - We load in some Fauna
 
 
 /datum/loada_gen/proc/loada_prototype_desert()
-	set waitfor = 0
 
-	//var/watch2 = start_watch()
-	//loada_generate_template()
-	//log_startup_progress("Finished with generating templates in [stop_watch(watch2)]s.")
+	var/watch2 = start_watch()
+	loada_generate_template()
+	log_startup_progress("Finished with generating templates in [stop_watch(watch2)]s.")
 
 	var/watch1 = start_watch()
 	loada_spawns()
@@ -64,18 +62,19 @@ Append - We load in some Fauna
 	loada_village()
 	log_startup_progress("Finished with generating factionless town in [stop_watch(villagewatch)]s.")
 
-	//var/watch3 = start_watch()
-	//loada_river2lake1()
-	//log_startup_progress("Finished with rivers and lakes in [stop_watch(watch3)]s.")
+	var/watch3 = start_watch()
+	loada_river2lake1()
+	log_startup_progress("Finished with rivers and lakes in [stop_watch(watch3)]s.")
 
-	//var/watch5 = start_watch()
-	//loada_cleanup_and_detailing()
-	//log_startup_progress("Finished with cleanup/detailing. [stop_watch(watch5)]s.")
+	var/watch4 = start_watch()
+	loada_floragen()
+	log_startup_progress("Finished with floragen in [stop_watch(watch4)]s.")
 
-	//var/watch4 = start_watch()
-	//loada_floragen()
-	//log_startup_progress("Finished with floragen in [stop_watch(watch4)]s.")
+	var/watch5 = start_watch()
+	loada_cleanup_and_detailing()
+	log_startup_progress("Finished with cleanup/detailing. [stop_watch(watch5)]s.")
 
 	var/jectiewatch = start_watch()
 	loada_objectivegen()
 	log_startup_progress("Finished placing objectives in [stop_watch(jectiewatch)]s")
+

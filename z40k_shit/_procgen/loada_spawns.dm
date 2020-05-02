@@ -22,8 +22,8 @@ spawn_min_y = 0 	//Is 1 by default - Furthest south we go
 
 -----------------Spawn Templates-------------
 Basically the load order, and what actually spawns in for the templates.
-spawn_template_1 = /datum/map_element/vault/test_ig_spawn
-spawn_template_2 = /datum/map_element/vault/test_ork_spawn
+spawn_template_1 = /datum/map_element/vault/bases/test_ig_spawn
+spawn_template_2 = /datum/map_element/vault/bases/test_ork_spawn
 
 -----String entries for preset spawn alignments------
 |-"horizontals" - Basically are opposing north and south|
@@ -150,11 +150,13 @@ spawn_template_2 = /datum/map_element/vault/test_ork_spawn
 		s1_x1_coord = clamp(primary_x1, edgelimit_min_x1, edgelimit_max_x1) //x coord is rng clamped between 1 and edgelimit x
 		s1_y1_coord = clamp(primary_y1, edgelimit_min_y1, edgelimit_max_y1)
 		ME.load(s1_x1_coord, s1_y1_coord, s1_z1_coord)
+		CHECK_TICK
 
 		if(ASS.spawn_overwrite) //If we can overwrite
 			s2_x2_coord = clamp(primary_x2, edgelimit_min_x1, edgelimit_max_x2)
 			s2_y2_coord = clamp(primary_y2, edgelimit_min_y1, edgelimit_max_y2)
 
+			CHECK_TICK
 			MEOP.load(s2_x2_coord, s2_y2_coord, s2_z2_coord)
 		else //if spawn_overwrite = FALSE
 			if(edgelimit_min_x2 > edgelimit_max_x2) //If we end up greater than the max

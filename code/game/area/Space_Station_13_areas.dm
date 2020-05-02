@@ -423,7 +423,7 @@ proc/process_adminbus_teleport_locs()
 	name = "\improper Derelict Station"
 	icon_state = "yellow"
 	ambient_sounds = list(/datum/ambience/derelict1,/datum/ambience/derelict2,/datum/ambience/derelict3,/datum/ambience/derelict4)
-
+ 
 /area/shuttle/salvage/djstation
 	name = "\improper Ruskie DJ Station"
 	icon_state = "yellow"

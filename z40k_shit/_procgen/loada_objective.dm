@@ -30,20 +30,23 @@ var/list/choosable_jectie_items = typesof(/obj/mcguffins)-/obj/mcguffins
 
 /datum/loada_gen/proc/loada_objectivegen()
 	var/amount_of_objectives = 6
-	for(var/i=1 to amount_of_objectives)
-		var/obj/jectie_time/pick_jectie = pick(objective_markers)
+	if(!objective_markers.len) //This check right heres actually pretty important.
+		warning("NO OBJECTIVE MARKERS DETECTED. CONTACT JTGSZ#6921 ASAP.")
+	else
+		for(var/i=1 to amount_of_objectives)
+			var/obj/jectie_time/pick_jectie = pick(objective_markers)
 
-		var/turf/T = get_turf(pick_jectie)
-		qdel(pick_jectie)
-		
-		var/ourobj = pick(choosable_jectie_items)
-		var/obj/mcguffins/spawned_obj = new ourobj(T)
-		mcguffin_items += spawned_obj
-		sleep(1) //Mostly so we stop freezing the server in these loops.
+			var/turf/T = get_turf(pick_jectie)
+			qdel(pick_jectie)
+			
+			var/ourobj = pick(choosable_jectie_items)
+			var/obj/mcguffins/spawned_obj = new ourobj(T)
+			mcguffin_items += spawned_obj
+			CHECK_TICK
 
-	for(var/obj/jectie_time/qdeltime in objective_markers)
-		qdel(qdeltime) //Time for some cleanup
-		sleep(1)
+		for(var/obj/jectie_time/qdeltime in objective_markers)
+			qdel(qdeltime) //Time for some cleanup
+			CHECK_TICK
 
 /obj/mcguffins
 	name = "Parent of uselessness"

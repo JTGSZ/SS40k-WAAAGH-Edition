@@ -1,7 +1,7 @@
 /turf/unsimulated/outside/smoothingcoastline
 	name = "coastline"
 	icon = 'z40k_shit/icons/turfs/coastal2.dmi'
-	icon_state = "sandwater_t_S"
+	icon_state = "sandwater7"
 	dynamic_lighting = 0
 	luminosity = 1
 	floragen = FALSE 

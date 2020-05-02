@@ -5,11 +5,11 @@
 
 
 //Test IG Spawn Template
-/datum/map_element/vault/test_ig_spawn
+/datum/map_element/vault/bases/test_ig_spawn
 	file_path = "maps/procgenmaps/spawn_bases/IG_Base_Test.dmm"
 	only_spawn_once = 1
 
-/datum/map_element/vault/ig_base_one
+/datum/map_element/vault/bases/ig_base_one
 	file_path = "maps/procgenmaps/spawn_bases/IG_Base_One.dmm"
 	only_spawn_once = 1
 
@@ -18,11 +18,11 @@
 			*/
 
 //Test Ork Spawn Template
-/datum/map_element/vault/test_ork_spawn
+/datum/map_element/vault/bases/test_ork_spawn
 	file_path = "maps/procgenmaps/spawn_bases/Ork_Base_Test.dmm"
 	only_spawn_once = 1
 
-/datum/map_element/vault/ork_base_one
+/datum/map_element/vault/bases/ork_base_one
 	file_path = "maps/procgenmaps/spawn_bases/Ork_Base_One.dmm"
 	only_spawn_once = 1
 	

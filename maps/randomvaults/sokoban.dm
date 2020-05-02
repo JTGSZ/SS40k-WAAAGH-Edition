@@ -1,6 +1,6 @@
 
 
-/datum/map_element/vault/sokoban
+/datum/map_element/vault/mapruins/sokoban
 	name = "Sokoban"
 	file_path = "maps/randomvaults/sokoban_entrance.dmm"
 
@@ -29,7 +29,7 @@
 	var/winner_name = "" //Name displayed on the scoreboard
 
 
-/datum/map_element/vault/sokoban/process_scoreboard()
+/datum/map_element/vault/mapruins/sokoban/process_scoreboard()
 	var/list/L = list()
 
 	if(cheated)
@@ -40,7 +40,7 @@
 
 	return L
 
-/datum/map_element/vault/sokoban/pre_load()
+/datum/map_element/vault/mapruins/sokoban/pre_load()
 	//Load random levels
 	for(var/i = 1 to level_amount)
 		var/datum/map_element/dungeon/sokoban_level/SL = new /datum/map_element/dungeon/sokoban_level
@@ -62,7 +62,7 @@
 	load_dungeon(END)
 	loaded_levels.Add(END)
 
-/datum/map_element/vault/sokoban/proc/on_cheat()
+/datum/map_element/vault/mapruins/sokoban/proc/on_cheat()
 	for(var/datum/map_element/dungeon/sokoban_level/L in loaded_levels)
 		if(L.reward)
 			var/turf/current_loc = get_turf(L.reward)
@@ -84,7 +84,7 @@
 		cheated = TRUE
 		winner_name = "[usr] ([usr.key])"
 
-/datum/map_element/vault/sokoban/proc/mark_winner()
+/datum/map_element/vault/mapruins/sokoban/proc/mark_winner()
 	//Check if the 'winner' bypassed any teleporters. If they did, they're a cheater
 	for(var/obj/structure/sokoban_teleporter/T in teleporters)
 		if(T.active || !isturf(T.loc))
@@ -99,7 +99,7 @@
 ///////===========SOKOBAN LEVELS============
 
 /datum/map_element/dungeon/sokoban_level
-	var/datum/map_element/vault/sokoban/parent
+	var/datum/map_element/vault/mapruins/sokoban/parent
 
 	var/depth = 0
 
@@ -186,7 +186,7 @@ This ladder stuff looks confusing, so here's an illustration!!!
 
 	var/shipped = FALSE //Crate put on a teleporter
 
-	var/datum/map_element/vault/sokoban/parent
+	var/datum/map_element/vault/mapruins/sokoban/parent
 
 /obj/structure/closet/crate/sokoban/proc/check_cheat()
 	if(shipped)

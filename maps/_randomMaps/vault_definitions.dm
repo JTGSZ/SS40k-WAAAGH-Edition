@@ -29,16 +29,16 @@ var/list/existing_vaults = list()
 
 //How to create a new vault:
 //1) create a map in maps/randomVaults/
-//2) create a new subtype of /datum/map_element/vault/ (look below for an example) and set its file_path to your map's file path (including the file extension, which is most likely ".dmm")
+//2) create a new subtype of /datum/map_element/vault/mapruins/ (look below for an example) and set its file_path to your map's file path (including the file extension, which is most likely ".dmm")
 //3) if you're an advanced user, feel free to play around with other variables
 
-/datum/map_element/vault/icetruck_crash
+/datum/map_element/vault/mapruins/icetruck_crash
 	file_path = "maps/randomvaults/icetruck_crash.dmm"
 
-/datum/map_element/vault/asteroid_temple
+/datum/map_element/vault/mapruins/asteroid_temple
 	file_path = "maps/randomvaults/asteroid_temple.dmm"
 
-/datum/map_element/vault/asteroid_temple/initialize(list/objects)
+/datum/map_element/vault/mapruins/asteroid_temple/initialize(list/objects)
 	..(objects)
 
 	var/list/all_spawns = list()
@@ -54,29 +54,29 @@ var/list/existing_vaults = list()
 		new /mob/living/simple_animal/hostile/mimic/crate/item(get_turf(S), original) //Make copies
 		qdel(S)
 
-/datum/map_element/vault/tommyboyasteroid
+/datum/map_element/vault/mapruins/tommyboyasteroid
 	file_path = "maps/randomvaults/tommyboyasteroid.dmm"
 
-/datum/map_element/vault/hivebot_factory
+/datum/map_element/vault/mapruins/hivebot_factory
 	file_path = "maps/randomvaults/hivebot_factory.dmm"
 
-/datum/map_element/vault/clown_base
+/datum/map_element/vault/mapruins/clown_base
 	file_path = "maps/randomvaults/clown_base.dmm"
 
-/datum/map_element/vault/rust
+/datum/map_element/vault/mapruins/rust
 	file_path = "maps/randomvaults/rust.dmm"
 
-/datum/map_element/vault/dance_revolution
+/datum/map_element/vault/mapruins/dance_revolution
 	name = "Dance Dance Revolution"
 	file_path = "maps/randomvaults/dance_revolution.dmm"
 	var/obj/structure/dance_dance_revolution/machine
 
-/datum/map_element/vault/dance_revolution/initialize(list/objects)
+/datum/map_element/vault/mapruins/dance_revolution/initialize(list/objects)
 	.=..()
 
 	machine = track_atom(locate(/obj/structure/dance_dance_revolution) in objects)
 
-/datum/map_element/vault/dance_revolution/process_scoreboard()
+/datum/map_element/vault/mapruins/dance_revolution/process_scoreboard()
 	var/list/L = list()
 
 	if(!machine)
@@ -91,16 +91,16 @@ var/list/existing_vaults = list()
 
 	return L
 
-/datum/map_element/vault/spacegym
+/datum/map_element/vault/mapruins/spacegym
 	file_path = "maps/randomvaults/spacegym.dmm"
 
-/datum/map_element/vault/oldarmory
+/datum/map_element/vault/mapruins/oldarmory
 	file_path = "maps/randomvaults/oldarmory.dmm"
 
-/datum/map_element/vault/spacepond
+/datum/map_element/vault/mapruins/spacepond
 	file_path = "maps/randomvaults/spacepond.dmm"
 
-/datum/map_element/vault/spacepond/initialize(list/objects)
+/datum/map_element/vault/mapruins/spacepond/initialize(list/objects)
 	..()
 
 	load_dungeon(/datum/map_element/dungeon/wine_cellar)
@@ -108,96 +108,96 @@ var/list/existing_vaults = list()
 /datum/map_element/dungeon/wine_cellar
 	file_path = "maps/randomvaults/dungeons/wine_cellar.dmm"
 
-/datum/map_element/vault/iou_vault
+/datum/map_element/vault/mapruins/iou_vault
 	file_path = "maps/randomvaults/iou_fort.dmm"
 
-/datum/map_element/vault/biodome
+/datum/map_element/vault/mapruins/biodome
 	file_path = "maps/randomvaults/biodome.dmm"
 
-/datum/map_element/vault/iou_vault
+/datum/map_element/vault/mapruins/iou_vault
 	file_path = "maps/randomvaults/iou_fort.dmm"
 
-/datum/map_element/vault/asteroids
+/datum/map_element/vault/mapruins/asteroids
 	file_path = "maps/randomvaults/asteroids.dmm"
 
-/datum/map_element/vault/listening
+/datum/map_element/vault/mapruins/listening
 	file_path = "maps/randomvaults/listening.dmm"
 
-/datum/map_element/vault/hivebot_crash
+/datum/map_element/vault/mapruins/hivebot_crash
 	file_path = "maps/randomvaults/hivebot_crash.dmm"
 
-/datum/map_element/vault/brokeufo
+/datum/map_element/vault/mapruins/brokeufo
 	file_path = "maps/randomvaults/brokeufo.dmm"
 
-/datum/map_element/vault/prison
+/datum/map_element/vault/mapruins/prison
 	file_path = "maps/randomvaults/prison_ship.dmm"
 
-/datum/map_element/vault/prison/pre_load()
+/datum/map_element/vault/mapruins/prison/pre_load()
 	load_dungeon(/datum/map_element/dungeon/prison)
 
 /datum/map_element/dungeon/prison
 	file_path = "maps/randomvaults/dungeons/prison.dmm"
 
-/datum/map_element/vault/AIsat
+/datum/map_element/vault/mapruins/AIsat
 	file_path = "maps/randomvaults/AIsat.dmm"
 
-/datum/map_element/vault/ejectedengine
+/datum/map_element/vault/mapruins/ejectedengine
 	file_path = "maps/randomvaults/ejectedengine.dmm"
 
-/datum/map_element/vault/droneship
+/datum/map_element/vault/mapruins/droneship
 	file_path = "maps/randomvaults/droneship.dmm"
 
-/datum/map_element/vault/meteorlogical_station
+/datum/map_element/vault/mapruins/meteorlogical_station
 	file_path = "maps/randomvaults/meteorlogical_station.dmm"
 
-/datum/map_element/vault/taxi_engi
+/datum/map_element/vault/mapruins/taxi_engi
 	file_path = "maps/randomvaults/taxi_engineering.dmm"
 
-/datum/map_element/vault/lightspeedship
+/datum/map_element/vault/mapruins/lightspeedship
 	file_path = "maps/randomvaults/lightspeedship.dmm"
 
-/datum/map_element/vault/ice_comet
+/datum/map_element/vault/mapruins/ice_comet
 	file_path = "maps/randomvaults/ice_comet.dmm"
 
-/datum/map_element/vault/research_facility
+/datum/map_element/vault/mapruins/research_facility
 	file_path = "maps/randomvaults/research_facility.dmm"
 
-/datum/map_element/vault/zoo_truck
+/datum/map_element/vault/mapruins/zoo_truck
 	file_path = "maps/randomvaults/zoo_truck.dmm"
 
-/datum/map_element/vault/syndiecargo
+/datum/map_element/vault/mapruins/syndiecargo
 	file_path = "maps/randomvaults/syndiecargo.dmm"
 
-/datum/map_element/vault/skeleton_den
+/datum/map_element/vault/mapruins/skeleton_den
 	file_path = "maps/randomvaults/rattlemebones.dmm"
 
-/datum/map_element/vault/beach_party
+/datum/map_element/vault/mapruins/beach_party
 	file_path = "maps/randomvaults/beach_party.dmm"
 
-/datum/map_element/vault/zathura
+/datum/map_element/vault/mapruins/zathura
 	file_path = "maps/randomvaults/house.dmm"
 
-/datum/map_element/vault/spy_sat
+/datum/map_element/vault/mapruins/spy_sat
 	file_path = "maps/randomvaults/spy_satellite.dmm"
 
-/datum/map_element/vault/spy_sat/pre_load()
+/datum/map_element/vault/mapruins/spy_sat/pre_load()
 	load_dungeon(/datum/map_element/dungeon/satellite_deployment)
 
 /datum/map_element/dungeon/satellite_deployment
 	file_path = "maps/randomvaults/dungeons/satellite_deployment.dmm"
 
-/datum/map_element/vault/ironchef
+/datum/map_element/vault/mapruins/ironchef
 	file_path = "maps/randomvaults/ironchef.dmm"
 
-/datum/map_element/vault/assistantslair
+/datum/map_element/vault/mapruins/assistantslair
 	file_path = "maps/randomvaults/assistantslair.dmm"
 
-/datum/map_element/vault/asteroidfield
+/datum/map_element/vault/mapruins/asteroidfield
 	file_path = "maps/randomvaults/asteroidfield.dmm"
 
-/datum/map_element/vault/clownroid
+/datum/map_element/vault/mapruins/clownroid
 	file_path = "maps/randomvaults/clownroid.dmm"
 
-/datum/map_element/vault/goonesat
+/datum/map_element/vault/mapruins/goonesat
 	file_path = "maps/randomvaults/goonesat.dmm"
 	

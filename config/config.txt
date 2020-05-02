@@ -293,7 +293,7 @@ SKIP_HOLOMINIMAP_GENERATION
 
 ## NO_AMBIENCE
 ## Same as above.
-#NO_AMBIENCE
+NO_AMBIENCE
 
 ## ENABLE_ROUNDSTART_AWAY_MISSIONS
 ## Uncomment to genereate an away mission at the beginning of each round

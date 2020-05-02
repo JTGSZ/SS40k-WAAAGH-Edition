@@ -35,7 +35,7 @@
 
 	message_admins("<span class='info'>Loaded [result] out of [vault_number] vaults.</span>")
 
-/datum/loada_gen/proc/loada_get_map_elements(base_type = /datum/map_element/vault)
+/datum/loada_gen/proc/loada_get_map_elements(base_type = /datum/map_element/vault/mapruins)
 	var/list/list_of_vaults = typesof(base_type) - base_type
 
 	for(var/V in list_of_vaults) //Turn list of paths into list of objects
@@ -43,7 +43,7 @@
 		list_of_vaults.Remove(V)
 
 	//Compare all objects with the map and remove non-compactible ones
-	for(var/datum/map_element/vault/V in list_of_vaults)
+	for(var/datum/map_element/vault/mapruins/V in list_of_vaults)
 		//See code/modules/randomMaps/dungeons.dm
 		if(V.require_dungeons && !dungeon_area)
 			list_of_vaults.Remove(V)
