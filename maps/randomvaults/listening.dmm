@@ -92,6 +92,8 @@
 "bN" = (/obj/structure/table,/obj/machinery/recharger,/turf/simulated/floor,/area/vault/listening)
 "bO" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/plating,/area/vault/listening)
 "bP" = (/obj/machinery/door/airlock/external,/obj/docking_port/destination/vault/listening{dir = 2},/turf/simulated/floor/plating,/area/vault/listening)
+"cP" = (/obj/jectie_time,/turf/simulated/floor/plating,/area/vault/listening)
+"UD" = (/obj/jectie_time,/turf/simulated/floor,/area/vault/listening)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaa
@@ -103,17 +105,17 @@ aaaaaaaaaaaaafaaaaaaadadajadadaaaaaaafaaaaaaaaaaaa
 aaaaaaaaaaaaafaaaaaaafakalamafaaaaaaafaaaaaaaaaaaa
 aaaaaaaaaaafafafafadadadajadadadafafafafaaaaaaaaaa
 aaaaaaaaaaaaafaaaaadanaoapaqaradaaaaafaaaaaaaaaaaa
-aaasasasasasasasaaatauauavauavataaawawawawawawawaa
+aaasasasasasasasaaataucPavauavataaawawawawawawawaa
 axayazazazazazazaAaBaCaCaDaCaEaBaAaFaFaFaFaFaFaGax
 aaaHaHaHaHaHaHaHaaaIauauaJauaKaIaaaLaLaLaLaLaLaLaa
-aaaaafaaaaaaafaaaaadaMaNauaOaPadaaaaafaaaaafaaaaaa
+aaaaafaaaaaaafaaaaadaMaNcPaOaPadaaaaafaaaaafaaaaaa
 aaafafafadadadadafadadadaQadadadafafafafafafafaaaa
 aaaaafaaadaRaSadaaaaafakaTamafaaaaaaafaaaaafaaaaaa
 aaaaafaaadaUaVadaaaaafakaTamafaaaaaaafaaaaafaaaaaa
 aaaaadadadadaWadafafadadaQadadafafadadadadadadaaaa
 aaaaadaXaYaZbaadaaaaadbbbbbbadaaaaadbcbdbebfadaaaa
-aaaabgbhbibjbkadblbladbbbbbbadblbladbbbbbmbnbgaaaa
-aabobpbqbrbsbabtbububtbbbbbbbvbububvbbbbbwbnbxaaaa
+aaaabgbhbibjbkadblbladbbUDbbadblbladbbbbbmbnbgaaaa
+aabobpbqbrbsbabtbububtbbbbbbbvbububvbbUDbwbnbxaaaa
 aaaabybzbababaadbAbAadbBbbbCadbAbAadbbbbbmbnbyaaaa
 aaaaadbDbEbFbGadaaaaadbHbIbJadaaaaadbKbLbMbNadaaaa
 aaaaadadadadadadafafadadbOadadafafadadadadadadaaaa

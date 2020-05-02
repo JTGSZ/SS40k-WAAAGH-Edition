@@ -71,6 +71,8 @@
 "bt" = (/obj/item/weapon/pickaxe/excavationdrill,/turf/unsimulated/floor/asteroid,/area/vault/meteorlogical)
 "bu" = (/obj/item/weapon/beartrap,/turf/unsimulated/floor/asteroid,/area/vault/meteorlogical)
 "bv" = (/obj/structure/hanging_lantern{dir = 1},/turf/unsimulated/floor/asteroid,/area/vault/meteorlogical)
+"jS" = (/obj/jectie_time,/turf/simulated/floor{icon_state = "dark"; dir = 6},/area/vault/meteorlogical)
+"uY" = (/obj/jectie_time,/turf/simulated/shuttle/floor4,/area/vault/meteorlogical)
 
 (1,1,1) = {"
 aaaaaaaaababaaaaacaaaaaaaaaaaaaaaaaaaaaaaaaaababab
@@ -81,14 +83,14 @@ aaababacacacacacacacahafafafafagafacacacacacababaa
 abafafacacacacacacahajafafafafakafacacacacacababaa
 abafacacacalalalalalalalalalalalalalalacacacacabaa
 aaafafacacalamanaoapaqarasatauavawaxalacacacacabab
-ababafacacalayananananazaAaBanananaCalacacacacacac
+ababafacacalayananuYanazaAaBanananaCalacacacacacac
 ababafacacalanananananazaDaEaFananaGalacacacacafaf
-aaabacacacalanananananaHanaIananananalacacaJacabab
+aaabacacacalanananananaHanaIanuYananalacacaJacabab
 aaabacacacalaKalalalalalalalalalalaLalacacafafabaa
 aaaaafacacalaMalaNaNaNaNaNaNaNaNaNalalacacacababaa
 aaaOafafacalanalaNaPaQaRaSaTaNaNaNaUalacacacaaaaaa
-afabafacacalanalaNaVaVaWaXaIaYaNaNaNalacacacabaaab
-ababacacacalanalaNaZaVaVaVaVaVbabbaNaNacacacababab
+afabafacacalanalaNaVjSaWaXaIaYaNaNaNalacacacabaaab
+ababacacacalanalaNaZaVaVaVaVjSbabbaNaNacacacababab
 ababacacacalananbcbdbeaNbfbgbhaNbibjaNacacacacabab
 abaaafacacalbkalaNblblbmbnbnbnbobpbqaNacacacaaaaab
 aaacafacacalalalaNaNaNaNbrbnbsaNaNaNaNacacacaaaaaa

@@ -201,3 +201,5 @@ var/list/existing_vaults = list()
 /datum/map_element/vault/mapruins/goonesat
 	file_path = "maps/randomvaults/goonesat.dmm"
 	
+/datum/map_element/vault/mapruins/mechagraveyard
+	file_path = "maps/randomvaults/mecha_graveyard.dmm"

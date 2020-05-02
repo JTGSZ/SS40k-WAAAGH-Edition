@@ -215,7 +215,7 @@
 "eg" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 9},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor,/area/vault/ejectedengine/generator)
 "eh" = (/obj/structure/grille,/obj/structure/window/full/reinforced,/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 6},/turf/simulated/floor/plating,/area/vault/ejectedengine/generator)
 "ei" = (/obj/machinery/atmospherics/pipe/simple/general/visible{dir = 9},/turf/space,/area)
-"ej" = (/obj/machinery/firealarm{dir = 8; pixel_x = -24},/turf/simulated/floor,/area/vault/ejectedengine/monitoring)
+"ej" = (/obj/machinery/firealarm{dir = 8; pixel_x = -24},/obj/jectie_time,/turf/simulated/floor,/area/vault/ejectedengine/monitoring)
 "ek" = (/obj/machinery/light/burnt,/obj/machinery/atmospherics/binary/valve,/turf/simulated/floor,/area/vault/ejectedengine/monitoring)
 "el" = (/obj/machinery/power/apc/no_alerts{dir = 4; pixel_x = 24},/obj/structure/cable,/turf/simulated/floor,/area/vault/ejectedengine/monitoring)
 "em" = (/obj/machinery/atmospherics/unary/vent/visible{dir = 1},/turf/simulated/floor/engine/old,/area/vault/ejectedengine/burnroom)
@@ -292,6 +292,9 @@
 "fF" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/wall/r_wall,/area/vault/ejectedengine/gasstorage)
 "fG" = (/obj/structure/crystal,/turf/unsimulated/floor/asteroid,/area/vault/ejectedengine/gasstorage)
 "fH" = (/obj/machinery/atmospherics/pipe/simple/general/hidden{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/turf/simulated/wall/r_wall,/area/vault/ejectedengine)
+"kA" = (/obj/jectie_time,/turf/simulated/floor,/area/vault/ejectedengine/gasstorage)
+"yn" = (/obj/jectie_time,/turf/simulated/floor,/area/vault/ejectedengine/burnroom)
+"Fc" = (/obj/jectie_time,/turf/simulated/floor,/area/vault/ejectedengine/generator)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaaaaaaacaaadaaaaaaaaaaaaaaaaaa
@@ -303,18 +306,18 @@ aaasataHaHaIaIaIaIaIaIaIaIaIaHaIaIaIaIaIaIaIaIaIaHaHatbcbdaCaCbeaXbfbgbhbiaGaaab
 aabjataHaHaIaIaIaIaIaIaIaIaIaHaIaIaIaIaIaIbkblbkbmawatatataCbnbxbpbqbhbrbsaGaaaaaaaaaaabaa
 aaasatavawaIaIaIaIaIbkblbkblbtbkblbkblaIaIaHaHaHaHaIaHaHatbubvazazazbwbxbybzbAadaaaaaaaaaa
 aaasataIaIaIaIaIaIaIaHaHaHaHbBaHaHaHaHaIaIaHaybCayaIbDbEbFbGbGbHbIbJbKbLbMbNbObobobQbRbPbP
-aaasataIbkblbkblbkblaHbtbSbTbUbTbVaHaHbkblaHbWbXbWaIbYbEbFbZbHbIbJcabKcbcccdbOcecfcecfaabP
+aaasataIbkblbkblbkblaHbtbSbTbUbTbVaHaHbkblaHbWbXbWaIbYbEbFbZbHbIbJFcbKcbcccdbOcecfcecfaabP
 asasataIaHaHaHaHaHaHaHcgchcicjckclclaHbtbtbtbWbXbWbkbmawatcmcncacocacpcqccaacecrcscrcscfbP
 asatataIaHayctctctctcuclcvcwcxcwcyclczcAcAcAaybCayczczcBatcmcCbGbGcDcEcFcGbOcHcecfcecfcHbP
 asataHaIaHayaHaHaHcIcJcKcLcMcNcMcOcPcQcRcScRcTcUcVcWcWcXcYcZdadbbGdccEdddedfcHcHcscrcscrbP
-ajatdgaIaHaydhdidhdjdkdldmdndocMcLdpdqbXbXbXdrbXbXdsdtdudvdwcEdxdbdybKdzdAdBcHcHaaaaaaaabP
+ajatdgaIaHaydhdidhdjdkdldmdndocMcLdpdqbXbXbXdrynbXdsdtdudvdwcEdxdbdybKdzdAdBcHcHaaaaaaaabP
 asataHaIaHayaHaHaHaHcJdCdDcMdEdFdDdpdqdGdHdGdIbXdJdKdLdMdNdOdPcadQdRdSdTdAdfdUcHcecfcecfbR
 asatataIaHayctctctctdVcldWcMdXcLdYclczcAcAcAaybCaydZczeaatcmebecedeeefeeegeheicscrcscrcHbP
 asasataIaHaHaHaHaHaHaHclclejekelcgchaHememembWbXbWaIaHaHatbOencadzcaeobIcEepcecfcecfcecrbP
 aaasataIavawavawavawaHaHbSbTbUbTbVemaHavawaHbWbXbWaIaHaHatbOeqcaeobGbGbGeresdUcscrcscraabP
 aaasataIaIaIaIaIaIaIaHaHaHaHbBaHaHaHaHaIaIaHaybCayaIaHaHatbOetcaeuevewexeyezeAftbobPbPbPbP
 aaasatbkblaIaIaIaIaIavawavawemavawavawaIaIaHaHaHaHaIaHaHateBeCeCeBeDeDeDeEeFadaaaaaaaaaaaa
-aaasataHaHaIaIaIaIaIaIaIaIaIaHaIaIaIaIaIaIavawavbmblaHatateBeGeGeHeGeGeIeJeKaaaaaaaaaaaaaa
+aaasataHaHaIaIaIaIaIaIaIaIaIaHaIaIaIaIaIaIavawavbmblaHatateBeGeGeHeGkAeIeJeKaaaaaaaaaaaaaa
 aaasataHaHaIaIaIaIaIaIaIaIaIaHaIaIaIaIaIaIaIaIaIatatatateBeBeLeIeMeNeNeNeOeKaaaaaaaaaaaaaa
 aaasataHaHbkblaIaIaIaIaIaIaIaHaIaIaIaIaIaIaIbkblePeQeReSeBeTeNeUeVeGeIeGeWeKaaaaaaaaaaaaaa
 aaasajataHaHaHbkblaIaIaIaIaIaHaIaIaIaIaIbkblaHaHePeQeXeYeDeGeWeZfafbeGeGfcfdaaaaaaaaaaaaaa

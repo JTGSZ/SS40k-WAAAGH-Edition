@@ -32,6 +32,7 @@
 "F" = (/turf/simulated/shuttle/wall{icon_state = "swall12"},/area/vault/icetruck)
 "G" = (/turf/simulated/shuttle/wall{icon_state = "swall13"},/area/vault/icetruck)
 "H" = (/turf/space,/turf/simulated/shuttle/wall{icon_state = "swall_f9"},/area/vault/icetruck)
+"V" = (/obj/jectie_time,/turf/unsimulated/floor/snow,/area/vault/icetruck)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaa
@@ -40,10 +41,10 @@ aaaaaabbbbbbbbbbbaaaabaaa
 aaaabbbbbbbbccbbbbaaaaaaa
 aaaabbbdeeefeeegbbbbaaaaa
 aaabbbbeeefheeeeibbbbbaaa
-aaabbbbeejeeefeeebaaaaaaa
+aaabbbbeejeeVfeeebaaaaaaa
 aaabbeeekfleemfenbbbaaaaa
 aaabboeefeeeeeeepbbbbaaaa
-aaabbeeeeeeeeeeebbbbbaaaa
+aaabbeeeeVeeeeVebbbbbaaaa
 aaaabbbqeerreeebbbbbaaaaa
 aaabbbbbbbscbbbbbbbbaabaa
 aaaaabbatueeubbbbaaaaaaaa

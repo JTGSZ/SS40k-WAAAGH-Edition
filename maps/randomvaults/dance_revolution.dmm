@@ -25,7 +25,7 @@
 "ay" = (/turf/simulated/floor,/area/vault/dancedance)
 "az" = (/obj/structure/window/reinforced/plasma{dir = 8},/turf/simulated/floor/wood,/area/vault/dancedance)
 "aA" = (/obj/effect/ddr_direction,/turf/simulated/floor,/area/vault/dancedance)
-"aB" = (/obj/effect/ddr_instruction,/turf/simulated/floor,/area/vault/dancedance)
+"aB" = (/obj/jectie_time,/turf/simulated/floor/greengrid,/area/vault/dancedance/loot)
 "aC" = (/obj/structure/window/reinforced/plasma{dir = 1},/turf/simulated/floor/wood,/area/vault/dancedance)
 "aD" = (/mob/living/simple_animal/hostile/humanoid/russian{name = "Salsa Sergei"},/turf/simulated/floor/light,/area/vault/dancedance)
 "aE" = (/mob/living/simple_animal/hostile/humanoid/russian{name = "Moonwalkin' Mihail"},/turf/simulated/floor/light,/area/vault/dancedance)
@@ -70,8 +70,8 @@ alagabapaoaraDaoaraoaoaraEaoaraoapabagan
 aaagabaoaparaoaoaraFaGaraoaoarapaoabagaa
 aaagabababarababaHababaHababarabababagaa
 aaagabaIaJaraKaLaMaLaLaMaNabararaOabagaa
-aaagabaPaQaraKaLaRaSaTaRaNabararaUabagaa
-aaagabaPaVaraKaLaRaWaRaXaNabararaYabagaa
+aaagabaPaQaraKaLaRaSaTaBaNabararaUabagaa
+aaagabaPaVaraKaLaBaWaRaXaNabararaYabagaa
 aaagabaZbaaraKaLaLaLaLaLaNabarbbbcabagaa
 alagababababababababababababababababagan
 aaagagagagagagagagagagagagagagagagagagaa

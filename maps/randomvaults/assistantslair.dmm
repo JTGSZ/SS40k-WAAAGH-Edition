@@ -193,6 +193,9 @@
 "dK" = (/obj/machinery/space_heater,/turf/simulated/floor/plating,/area/vault/assistantlair)
 "dL" = (/obj/structure/rack,/obj/item/clothing/mask/gas,/obj/item/clothing/glasses/sunglasses,/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/vault/assistantlair)
 "dM" = (/obj/structure/table,/obj/item/trash/cheesie,/obj/item/clothing/gloves/yellow,/turf/simulated/floor/plating{icon_state = "panelscorched"},/area/vault/assistantlair)
+"mM" = (/obj/jectie_time,/turf/simulated/floor/wood,/area/vault/assistantlair)
+"Sb" = (/obj/jectie_time,/turf/simulated/floor/plating,/area/vault/assistantlair)
+"Tq" = (/obj/effect/decal/cleanable/dirt,/obj/jectie_time,/turf/simulated/floor/plating,/area/vault/assistantlair)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
@@ -202,7 +205,7 @@ aaahaoaaamaaaaahamaaahaaaaaaaaaaahaaaoaaawaxaqaaayaaazaaahaa
 aaaaaAaaaBaaaCahaDaaaEaaaFaGaaaaaoaoaoaaahaaaaaaaHaaaaaaaoaa
 aaaIaIaaaBaaaaaJaoaKaLaaahaoahaManaaaaaaahaqaNaaaoaoaoaoahaa
 aaaOaOaaaPaQaaanahaaaaaaaaaaaaaaahaaaRaaaaaoaSaaaTaoaaaUaoaa
-aaaVaWaMaXaoaYahaZaaambaahbbaaaaahaaahaobcahaSaabdaoaaaabeaa
+aaaVaWaMaXaoaYahaZaaambaahbbaaaaahaaahSbbcahaSaabdaoaaaabeaa
 aabfahaabgaoaaahaaaaahaaaaaAaaaaahanahaoaobhaoaYbibjaoaabkaa
 aaamanaaanaaaablaabmahaabnaobnaaboaoaabpaaaaaaaaaaaabqaaahaa
 aaaabraaahaaaoaaaabsaoaabtaobuaabvaoaaaoamaobwaobxaaaaaaaoaa
@@ -211,13 +214,13 @@ abaabAaaahbBaaahaaaaaaaaaabCaaaaaaaaaaaoahaKbDaaaaaaaaaaaaaa
 abaabEaMbFbnaaahaabGbHbIbJbKbKbLbMbNaaaobOaHaobPaobQaKaobRaa
 abaabSaaahbTaaaoaaaaaabUbVbWbKbKbXbYaaaobZaHbOaaaoahaacacbaa
 abaaaaaaaoaaaaaAaaccbXbKcdbKbKbKbXceaaanaoaHbOaacfbZaaaocgaa
-abababaaahaachahaacibXbKbKbKbKbKbXceaabOaoaHaoaacjahaaahckaa
+abababaaahaachahaacibXbKbKbKbKbKmMceaabOaoaHaoaacjahaaahckaa
 aaaaaaaaclaacmcnaacobXbKbKbKbKbKbXbYaaaobOaHbOaaaaaoaaahcpaa
 aacqcraaahaacsctaacubXcvcwbKbKcxbMbNaaaoanaHaocyaaahaabZczaa
 aacAcBaabgaoahahaaaaaaaaaabpaaaaaaaaaaaobOaHbOaaaaanaaaoaoaa
 aabycCaaaaaaaaaaaaaacDcEahaoaoaocFcGcHaoaoaKaoaacIahaaaaamaa
 aacJahahaoaKahaoaoaoaoaoahahamahbzaoahaoaoaaaaahaoahcKaacLaa
-aacMcNcOcPaaaoahambzanaaaaaaaaaaaaaKaaaaahcQaaaKaaaaaaaaaoaa
+aacMcNcOcPaaaoTqambzanaaaaaaaaaaaaaKaaaaahcQaaaKaaaaaaaaaoaa
 aaaabpaaaaaaaaaJcRaabCaacScTbbaabncUanaaahcVaaaocWaocXaaahaa
 aacYcZaoahdaaadbdcddddaaaodeaoaaaJaJdfaaaodgaaaoaodhaaaaanaa
 aadiahaaaodjaadkdldmdnaadoaodpaadqaJdraabgdsaadtduaaaadvaoaa

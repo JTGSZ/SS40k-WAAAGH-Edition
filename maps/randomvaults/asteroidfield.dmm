@@ -2,6 +2,7 @@
 "b" = (/turf/unsimulated/mineral/random/high_chance_clown,/area/vault/automap)
 "c" = (/obj/item/weapon/pickaxe/diamond,/obj/item/weapon/storage/belt/mining,/obj/item/weapon/storage/bag/ore,/turf/unsimulated/floor/asteroid/air,/area/vault/automap)
 "d" = (/obj/effect/landmark/corpse/clown,/obj/item/weapon/paper/asteroidfield,/turf/unsimulated/floor/asteroid/air,/area/vault/automap)
+"V" = (/obj/jectie_time,/turf/space,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaabbaaaaa
@@ -21,7 +22,7 @@ aaaaaabbaaaaaaaabaaaaaaaa
 aaaaaaaaaaabaaaabaaaaabaa
 aaaaaaaaaaaaaaaabbaaaabaa
 aaaabaaaaaabbbaaaaaabbaaa
-aaaabbaaaaaaaaaaaaaaabaaa
+aaaabbaVaaaaaaaaaaaaabaaa
 aaaaabaaaaaaaaaaaaaaaaaaa
 aaabbaaaabbaaaaaabaabbaaa
 aaaaaaaaabbbaaaaaaaabaaaa

@@ -79,6 +79,8 @@
 "bA" = (/obj/structure/lattice,/obj/structure/lattice,/turf/space,/area/vault/AIsat)
 "bB" = (/obj/structure/lattice,/obj/structure/grille/broken,/turf/space,/area/vault/AIsat)
 "bC" = (/obj/structure/catwalk,/turf/space,/area/vault/AIsat)
+"Rw" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/catwalk,/obj/jectie_time,/turf/space,/area/vault/AIsat)
+"TJ" = (/obj/effect/decal/cleanable/dirt,/obj/jectie_time,/turf/simulated/floor/plating/airless/damaged,/area/vault/AIsat)
 
 (1,1,1) = {"
 aaaaaaaaaaaaabacacaaaaaaaaaaaaaaaaadacacabaaaaaaaaaaaa
@@ -86,7 +88,7 @@ aaaaaaaaaaaaaaaaacaeafaeagahbBbBaeaeacaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaacaiaiaiaiajaiaiaiaiacaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaiaiakalamanaoapaqaiaiaaaaaaaaaaaaaaaa
 arararararaaaaaaaiasatauatavawataxasaiaaaaaaararararar
-ayazazaAaAaBaCaaaiaDataEaFataGaHaxaIaiaaaJaBaKaKaKaKaL
+ayazazRwaAaBaCaaaiaDataEaFataGTJaxaIaiaaaJaBaKaKaKaKaL
 aMaMaNaOaPaaaQadaiatataiaRaSaTaiaxataiadaQaaaMaMaMaMaM
 adaaaUaaaVaaaWaBaXaYaZaiaibabbaibcaYaXaBbdaaadaaaaaaad
 aaaVaaaUbebfbgbhbibjanbkblbmbnbobpataiadaQaaararararar

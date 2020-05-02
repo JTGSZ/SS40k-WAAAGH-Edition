@@ -8,6 +8,7 @@
 "h" = (/turf/unsimulated/mineral/random/high_chance_clown{rockernaut = 2},/area/asteroid)
 "i" = (/turf/unsimulated/mineral/hyperdense,/area/asteroid)
 "j" = (/turf/unsimulated/mineral/random/high_chance_clown,/area/asteroid)
+"u" = (/obj/jectie_time,/turf/unsimulated/floor/asteroid,/area/asteroid)
 
 (1,1,1) = {"
 iiiiiiiiiiiiiiiiiiiiiiiii
@@ -16,11 +17,11 @@ iibbbcccbbbbbbbbbddbbbbii
 iibbbceebbbbbbbbbeedbbbii
 iibbbbeeeebbbbbeeeebbbbii
 ibbbbeeeeeejjjeeeeeebbbbi
-ibbbbeeeeeeejeeeeeeebbbbi
+ibbbbeeueeeejeeeeeuebbbbi
 ibbbbeeeeeeeeeeeeeeebbbbi
 iibbbeeeeeeeeeeeeeeebbbii
 iiiiiieeeeeeeeeeeeeiiiiii
-affffiiiieeeeeeeiiiiffffi
+affffiiiieueeeeeiiiiffffi
 affgffffaieeeeeiafffffffi
 afgggeeefaieeeiafeeeffffi
 afgeeeeeeffihiffeeeeeeffa
@@ -28,7 +29,7 @@ affeeeeeeeaeeeaeeeeeeeffa
 afffeeeeeeeeeeeeeeeeefffa
 affffeeeeeeeeeeeeeeeffffa
 afffffeeeeeeeeeeeeefffffa
-afffffeeeeeeeeeeeeefffffa
+afffffeeeueeeeeeeeefffffa
 affffeeeeeeeeeeeeeeeffffa
 affeeeeeeeeeeeeeeeeeeeffa
 affeeeeeeeeeeeeeeeeeeeffa

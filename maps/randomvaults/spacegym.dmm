@@ -27,17 +27,17 @@
 "A" = (/obj/item/weapon/reagent_containers/food/snacks/faggot,/turf/simulated/floor/airless,/area/vault/gym)
 "B" = (/obj/machinery/power/treadmill,/turf/simulated/floor/airless,/area/vault/gym)
 "C" = (/obj/structure/mopbucket,/obj/item/weapon/mop,/turf/simulated/floor/airless,/area/vault/gym)
+"S" = (/obj/jectie_time,/turf/simulated/floor/airless,/area/vault/gym)
 
 (1,1,1) = {"
-aaaaaaaaaaaa
 aaabcdeaaaaa
 adaadddcddfa
 dggggcgcggca
-aghijklgmnga
+aghiSklgmnga
 dgopqpogdrcd
 qgopbpogbsdt
-bgopjpogqjgt
-dguvwjcxycca
+bgopSpogqjgt
+dguvwScxycca
 dgzAcbBgcCga
 dcggxgggcdga
 aacbaaaaaaaa

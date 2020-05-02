@@ -65,7 +65,7 @@
 "bm" = (/obj/machinery/r_n_d/fabricator/mech,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
 "bn" = (/obj/machinery/mineral/output,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
 "bo" = (/obj/item/robot_parts/robot_component/camera,/obj/item/robot_parts/robot_component/diagnosis_unit,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
-"bp" = (/obj/effect/decal/cleanable/blood/gibs/robot,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
+"bp" = (/obj/effect/decal/cleanable/blood/gibs/robot,/obj/jectie_time,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
 "bq" = (/obj/machinery/mineral/output,/obj/item/robot_parts/robot_component/armour,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
 "br" = (/obj/item/robot_parts/robot_component/armour,/obj/effect/decal/cleanable/blood/gibs/robot,/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
 "bs" = (/obj/machinery/mineral/output,/obj/item/robot_parts/robot_component/diagnosis_unit,/turf/simulated/floor/engine/airless,/area/vault/hive_shuttle)
@@ -82,14 +82,15 @@
 "bD" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/vault/hive_shuttle)
 "bE" = (/obj/structure/shuttle/engine/propulsion/right,/turf/space,/area/vault/hive_shuttle)
 "bF" = (/turf/space,/turf/simulated/shuttle/wall{dir = 4; icon_state = "diagonalWall3"},/area/vault/hive_shuttle)
+"VA" = (/obj/jectie_time,/turf/simulated/shuttle/floor/airless,/area/vault/hive_shuttle)
 
 (1,1,1) = {"
 aaaaaaabacadacacaeafacacadagah
 abacacaiajajakalamanaoapajaqay
-asatauasajavawavajavajavajaxar
+asatauasajavawavajavVAavajaxar
 azatajajajaAajavaBavawavajaCar
 asatauasajavaDaAaEaFaDavajaCar
-aGacacaiajajaHaIaEaEaIaJaEaqaK
+aGacacaiVAajaHaIaEaEaIaJaEaqaK
 aaaaaaaGacadacaEaLaMaEacadaNaO
 aaaaaaaaaaaaaPaQaRaSaTaPaaaaaa
 aaaaaaaaaaaUaVaWaXaYaQaVaZaaaa
@@ -102,4 +103,3 @@ aaaaaaaaaaaPbwbebxbybtbzaPaaaa
 aaaaaaaaaaaPaPbAbAbAbAaPaPaaaa
 aaaaaaaaaabBbCbDbDbDbDbEbFaaaa
 "}
-

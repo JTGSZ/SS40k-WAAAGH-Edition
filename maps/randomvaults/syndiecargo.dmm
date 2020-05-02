@@ -82,6 +82,7 @@
 "bD" = (/obj/machinery/door/airlock/external{icon_state = "door_locked"; locked = 1},/turf/simulated/shuttle/plating,/area/vault/syndiecargo)
 "bE" = (/turf/simulated/shuttle/wall{tag = "icon-bswall_f9"; icon_state = "bswall_f9"},/area/vault/syndiecargo)
 "bF" = (/obj/structure/grille,/obj/structure/window/reinforced/plasma{tag = "icon-plasmarwindow (EAST)"; icon_state = "plasmarwindow"; dir = 4},/obj/structure/window/reinforced/plasma{tag = "icon-plasmarwindow (NORTH)"; icon_state = "plasmarwindow"; dir = 1},/obj/structure/window/reinforced/plasma,/obj/structure/window/reinforced/plasma{tag = "icon-plasmarwindow (WEST)"; icon_state = "plasmarwindow"; dir = 8},/obj/structure/window/full/reinforced/plasma,/obj/machinery/door/poddoor{id_tag = 350; name = "Shutters"},/turf/simulated/shuttle/plating,/area/vault/syndiecargo)
+"ZU" = (/obj/jectie_time,/turf/simulated/shuttle/floor{tag = "icon-floor4"; icon_state = "floor4"},/area/vault/syndiecargo)
 
 (1,1,1) = {"
 aaabacacacadaaaaaaabacacacadaa
@@ -90,13 +91,13 @@ aaaealamanaeaoapaqaearamasaeaa
 aaaeatamauaeavawaxaeayamazaeaa
 abaAaBaCaDaAaEaFaDaGaEaCaDaAad
 aeaHawawaIaJawawaKaLawawaIaMae
-aeaNaOawawaPawawawawaQawawaRae
-aeawawawawaSawaTawawawawawaMae
+aeaNaOawawaPawawawawaQZUawaRae
+aeawawZUawaSawaTawawawawawaMae
 aeawawawawaUaVawawaWawaXawawae
 aeaMawawawaYajajajaZaEbaawaDae
 aeaMawaXawbbbcbdbeaeaIawawaIae
-aebfawawawbgawawbhaeawbibjawae
-aeawawbkawblbmawawbnawawawawae
+aebfawawawbgawZUbhaeawbibjawae
+aeawZUbkawblbmawawbnawZUawawae
 aeaVawawaVaeawawawboaQawaTawae
 aibpaCaCbqakbrbrbsaebtbubtbvae
 aebwamambxaiajajajakbybzbAbBae

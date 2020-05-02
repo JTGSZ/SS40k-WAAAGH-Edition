@@ -3084,7 +3084,6 @@ var/global/num_vending_terminals = 1
 		/obj/item/vaporizer = 1,
 		/obj/item/weapon/storage/trader_chemistry = 1,
 		/obj/structure/closet/secure_closet/wonderful = 1,
-		/obj/item/weapon/disk/shuttle_coords/vault/mecha_graveyard = 1,
 		/obj/item/weapon/reagent_containers/glass/beaker/bluespace = 1,
 		/obj/item/weapon/storage/bluespace_crystal = 1,
 		/obj/item/weapon/reagent_containers/food/snacks/borer_egg = 1,
@@ -3116,7 +3115,6 @@ var/global/num_vending_terminals = 1
 		/obj/item/vaporizer = 10,
 		/obj/item/weapon/storage/trader_chemistry = 50,
 		/obj/structure/closet/secure_closet/wonderful = 150,
-		/obj/item/weapon/disk/shuttle_coords/vault/mecha_graveyard = 100,
 		/obj/item/weapon/reagent_containers/glass/beaker/bluespace = 50,
 		/obj/item/weapon/storage/bluespace_crystal = 150,
 		/obj/item/weapon/reagent_containers/food/snacks/borer_egg = 50,
@@ -3140,7 +3138,6 @@ var/global/num_vending_terminals = 1
 		)
 
 /obj/machinery/vending/trader/New()
-	load_dungeon(/datum/map_element/dungeon/mecha_graveyard)
 	var/list/upgrades = existing_typesof(/obj/item/borg/upgrade) - /obj/item/borg/upgrade/magnetic_gripper
 	for(var/i = 1 to 3)
 		premium.Add(pick_n_take(upgrades))

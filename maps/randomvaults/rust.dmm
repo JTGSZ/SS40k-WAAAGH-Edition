@@ -129,6 +129,8 @@
 "cy" = (/obj/item/weapon/table_parts,/turf/simulated/floor/plating/airless/damaged,/area/vault/rust)
 "cz" = (/obj/item/stack/tile/plasteel,/turf/simulated/floor/plating/airless/damaged,/area/vault/rust)
 "cA" = (/obj/item/weapon/shard,/turf/simulated/floor/plating/airless/damaged,/area/vault/rust)
+"jG" = (/obj/jectie_time,/turf/simulated/floor/engine/airless,/area/vault/rust)
+"St" = (/obj/jectie_time,/turf/simulated/floor/damaged/airless,/area/vault/rust)
 
 (1,1,1) = {"
 aaaaabacadaeaeaaaaaaabaaaaaaaaaaaaaaaaabababaeaeaeaa
@@ -136,21 +138,21 @@ aaabababababaaaaafabababababababababababaaaaaaaaaaaa
 aaaaabaaabaaaaaaagaaahaiajajahaaaaaaaaabaaaaaaaaaaaa
 aaababaaabaaaaaaaaakahalalakahahaaamanabaaaaaaabaaaa
 aaaaabaeaoaoaoaoahapalalaqalalapahaoakarasababababab
-aeababaaaoatauavahalawalaxalayakakazaAaAaBaaaaabaaaa
+aeababaaaoatauavahalawalaxjGayakakazaAaAaBaaaaabaaaa
 aaabaaaaawakaCavaDakaEakaFalalalaGakaHaIaIamaaabaaaa
 aaabaaaaaJaJaKaLaMalaNaEaOakawalaGaLaPaEaIaQababaaaa
 aaaeaaaaasaRaSavahapalaTaUaVaWahahaAaIaIaXaaaaaYaaaa
 aaaaaaaaaoataZbaavakahbbbcbbahahavakakbdaXaabebfaaaa
-aaaaaaaaaoavaSbgavbhahbibjbkapavavavakblakaaaaabaaaa
+aaaaaaaaaoavaSbgStbhahbibjbkapavavavakblakaaaaabaaaa
 aaabababaoaAbmbnbobpbqbrbsbtbuavavbvauavaoababababaa
 aaaeaaamaXaBavavbvbwbxavakbyaLauavbzbAbBaoaaaabfabad
-aaabaaanbCaIaAbDavbAbEbFbGbHbIbhauavbJbKbKbLaabMbNaa
+aaabaaanbCaIaAbDavbAbEbFbGbHbIbhauStbJbKbKbLaabMbNaa
 aaabbObeaAbPaAbQaubhakbRbAaubSbTauboavaubUaaaaabaaaa
 aaabaaaaaobVbVbVbWaqakbXbYbZcacbbKbAakcccdcecfbNabaa
 aaabamaaaocgchcicjaAakckclavcmavbAavcncoaoaaaacpaaaa
 aaabaaaaaoaoaoaIaIaBaoaoaZaoaoaoakaIaoaoaoaaabbfabaa
 aaababababaaaaabcqaIaAcrcsctcuakaAaaababaaaaabababaa
-aaaaaaaaaaabababcvaIakbAaAakavakaoabaaababaaabbfaaaa
+aaaaaaaaaaabababcvaIakbAaAakStakaoabaaababaaabbfaaaa
 aaaaaaaaaaaaabaaaoakcwaIbAaAakcxaoabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaoaAakcyaEaAczakaAaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaababaoaAcAakaAaAaAakbAabaaaaaaaaaaaaaaaa

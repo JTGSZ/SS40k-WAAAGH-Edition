@@ -114,6 +114,7 @@
 "cm" = (/obj/machinery/space_heater,/turf/simulated/floor/wood{tag = "icon-wood-broken6"; icon_state = "wood-broken6"},/area/vault/zathura)
 "cn" = (/obj/machinery/space_heater,/turf/simulated/floor/wood,/area/vault/zathura)
 "co" = (/obj/item/stack/sheet/wood,/turf/simulated/floor/grass{color = "#8A7C8A"},/area/vault/zathura/surroundings)
+"QR" = (/obj/jectie_time,/turf/simulated/floor/wood,/area/vault/zathura)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -126,18 +127,18 @@ aaahagaoaiaiaiapaiaqaqaiagarasatagagagananauavaaaaaaaaaaaaaa
 aeagagagagaiaiawagaiaiaiagaxayagazaiaiaiaiaiaiaiagaiagaeaaaa
 aaahahahaAaAaAaBaAaCaAaCaAaAaDaDaAaAaCaAaCaAaCaAaAaAahaaaaaa
 aaaaagahaAaEaFaGaFaFaHaIaAaJaIaIaJaAaIaIaIaKaIaLaLaAagagaaaa
-aaaaagahaAaMaNaOaGaNaIaIaAaPaQaIaRaAaIaIaIaSaTaUaVaAagagaeae
+aaaaagahaAaMaNaOaGaNaIaIaAaPaQaIaRaAaIQRaIaSaTaUaVaAagagaeae
 aaaaagahaAaIaWaNaXaYaZaIaAaIbabbaIaAbcbdbebfbgaUaIaAahaaaaaa
 aaagagagaAbhbibjaYaXbkaIblbmaIaQaIaIaNbfbgbgbnaUboaAahaaaaaa
 aaagahaibpaIaIbqaIbrbsaNaAaIaIaIaIaAaIbgbgbgbgbtbibubvaaaaaa
 aaagbwaibxbybybzbyaIaNbAbBaIbbaQboaAaNbCaIaIbDaIaIbxbvaeaaaa
 aaaaagaiaAaAaAaAbEaAaAbBbBbybyaIbFaAaFbGaIaIaIaIaIaAbvahaaaa
 aaagagaiaAbHbHbIaObHbHbJaAbybbaIaSaAaNaNbKaAaAaAaAaAaiahaaaa
-aaagagagaAbLbHaIaIaIaNbMaAaIbybNbgaAaFaNbObCaIaIboaAaibPagaa
+aaagagagaAbLbHQRaIaIaNbMaAaIbybNbgaAaFaNbObCaIaIboaAaibPagaa
 aaahagagbQbiaIaIaIbRaIaIaAaIaIbgbSaAaNaIbTaIaIaIaIbpaiagagaa
 aaahagagbxaIbUaIbVaIbiaIaAaNaIaIbKaAaFbWbGaIaIaIaIbxagagagaa
 aaagagagaAaAaAaAaAaAaAaNaAaNaIbXbKaAbYbZaIaIcacbccaAagagagaa
-aaagahcdaAcecfcgchaDaIaNaNaNaNaIaQbEaIaIaIaIciciciaAagagagae
+aaagahcdaAcecfcgchaDaIaNaNaNaNaIaQbEaIQRaIaIciciciaAagagagae
 aaagahagcjckclchchaAcmcnbKbHbHbHboaAaIaIaIaIcacacaaAagahahaa
 aeaeahahaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAaAagahahaa
 aaaacoahahagagagagagagagagagagagagagagagagagagagahagagahagaa

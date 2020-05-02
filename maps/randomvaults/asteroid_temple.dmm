@@ -71,6 +71,9 @@
 "bs" = (/obj/effect/decal/remains/human,/turf/simulated/floor/carpet,/area/vault/asteroid)
 "bt" = (/obj/structure/constructshell/cult,/turf/simulated/floor/carpet,/area/vault/asteroid)
 "bu" = (/mob/living/simple_animal/hostile/faithless{faction = "mimic"; name = "The Guardian"},/turf/simulated/floor/carpet,/area/vault/asteroid)
+"tc" = (/obj/jectie_time,/turf/simulated/floor{icon_state = "dark"},/area/vault/asteroid)
+"wH" = (/obj/jectie_time,/turf/simulated/floor/wood,/area/vault/asteroid)
+"Pv" = (/obj/jectie_time,/turf/simulated/floor/plating,/area/vault/asteroid)
 
 (1,1,1) = {"
 aaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaa
@@ -83,7 +86,7 @@ acacacacacanacacacacacaaaaapapanapapaa
 acaqarasatauauavawavacaaaaapaxayazaAaa
 acauaBaCaDaDaDaDaEauacaaaaapaFaGaHaIaa
 acaJauaDaDaDaDaDauauacaaaoapaKaLaMaNaO
-acaJauaDaDaDaDaDauaJanalalanaPaQapapaa
+acaJauaDaDaDaDaDwHaJanalalanPvaQapapaa
 acaRaSaDaDaDaDaDaTauacaaaoapaUaPaVaWaa
 acaXauauauauauauauauacapapapaYaPaZbaaa
 acacacacbbanbcacacacacapbdanbebfbgbhaa
@@ -94,7 +97,7 @@ apapapapbmbjbnapapapapaaaaaaaaaaaaaaaa
 apboapboapanapboapbpapaaaaaaaaaaaaaaaa
 apbqbqbqbqbqbqbqbqbqapaaaaaaaaaaaaaaaa
 apbrbqaDaDbsaDaDbqbrapaaaaaaaaaaaaaaaa
-apbqbqbtbsbubsbtbqbqapaaaaaaaaaaaaaaaa
+apbqtcbtbsbubsbtbqbqapaaaaaaaaaaaaaaaa
 apbrbqaDaDbsaDaDbqbrapaaaaaaaaaaaaaaaa
 apapapapapapapapapapapaaaaaaaaaaaaaaaa
 "}

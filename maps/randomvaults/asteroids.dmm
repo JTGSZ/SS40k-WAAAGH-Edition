@@ -8,10 +8,12 @@
 "h" = (/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/weapon/pickaxe/drill/diamond,/turf/unsimulated/floor/asteroid,/area/mine/unexplored)
 "i" = (/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/mob/living/simple_animal/hostile/asteroid/hivelord,/turf/unsimulated/floor/asteroid,/area/mine/unexplored)
 "j" = (/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/ore/phazon,/obj/item/stack/sheet/mineral/diamond,/turf/unsimulated/floor/asteroid,/area/mine/unexplored)
+"q" = (/obj/jectie_time,/turf/space,/area)
+"x" = (/obj/jectie_time,/turf/unsimulated/floor/asteroid,/area/mine/unexplored)
 
 (1,1,1) = {"
 aaaaaaabbbaaaaaaaaaaaaa
-aaaabbbbbbbaaaaaaaaaaaa
+aaaabbbbxbbaaaaaaaaaaaa
 accccccbbbbaaaaacccccca
 acddddccbccccaaacddddcc
 ccdddddcccddcaabcdddddc
@@ -24,7 +26,7 @@ aaccdddfegdddcacdddddca
 aaaccddddddddcaccddddca
 aaaacddddddddcaaccddcca
 aaaaccdddddddcaaaccccaa
-aaaaacccccccccaaaaaaaaa
+aaaaacccccccccaqaaaaaaa
 aaaaaaaaaaaaaaaaabbaaaa
 aaaaaccccaaaaaccccbbaaa
 aaacccddccaaaccddccbbaa

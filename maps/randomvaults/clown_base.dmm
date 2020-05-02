@@ -37,6 +37,8 @@
 "K" = (/turf/unsimulated/mineral/random/high_chance,/area/vault/clownbase)
 "L" = (/turf/unsimulated/mineral/random/high_chance_clown,/area/vault/clownbase)
 "M" = (/turf/unsimulated/mineral/cytine,/area/vault/clownbase)
+"P" = (/obj/jectie_time,/turf/simulated/floor/arcade,/area/vault/clownbase)
+"Q" = (/obj/jectie_time,/turf/simulated/floor/wood,/area/vault/clownbase)
 
 (1,1,1) = {"
 aaaaabbaacddccaaaaaaaa
@@ -49,7 +51,7 @@ acffffffffeeffffffffca
 acfhhhhhhfeefhhhhhhfca
 bcfhijkihfllfhmnnnhfca
 bcfhopqiirsstmmuuuhfcb
-acfhiiiihfvvfhmmmmhfcb
+acfhiQiihfvvfhmmPmhfcb
 bcfhwxiyhfssfhzmAmhfca
 bcfhhhhhhfvvfhhhhhhfca
 bcffffffffssffffffffca

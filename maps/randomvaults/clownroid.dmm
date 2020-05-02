@@ -1,5 +1,4 @@
 "a" = (/turf/space,/area)
-"b" = (/obj/docking_port/destination/salvage/clown{dir = 2},/turf/space,/area)
 "c" = (/turf/unsimulated/mineral,/area/vault/automap)
 "d" = (/turf/unsimulated/mineral/random/high_chance_clown,/area/vault/automap)
 "e" = (/turf/unsimulated/floor/asteroid,/area/vault/automap)
@@ -37,24 +36,10 @@
 "K" = (/turf/simulated/shuttle/wall{icon_state = "swall_s5"},/area/vault/automap)
 "L" = (/turf/simulated/shuttle/wall{icon_state = "swall_s9"},/area/vault/automap)
 "M" = (/obj/effect/decal/remains/human,/turf/unsimulated/floor/asteroid,/area/vault/automap)
+"T" = (/obj/jectie_time,/turf/simulated/floor/airless,/area/vault/automap)
+"V" = (/obj/effect/decal/cleanable/dirt,/obj/jectie_time,/turf/simulated/floor/airless,/area/vault/automap)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaabaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaacccccccaaaaaaaaaaaaaa
 aaaacccdddddddcaaaaaaaaaaaaa
 aaaacdddddeddddcaaaaaaaaaaaa
@@ -66,9 +51,9 @@ acddddddddedddddcaaaaaaaaaaa
 acddddddddddddddchiijjiiiiik
 aaccdddddddddddhilemnnopqnrs
 aaacddddddddddddcctunvnvwnrx
-aaccddddddddddddcyzAnwnBnwrx
+aaccddddddddddddcyzAnwnBTwrx
 aaccdddddddddddCuDvEvmnnnwrx
-aacddddddddddddFiGvHnnIppnrJ
+aacddddddddddddFiGVHnnIppnrJ
 aaccdddddddddddddKiijjiiiiiL
 acccdddddddddddddccccccccaaa
 accacddddddddddddddddddcaaaa

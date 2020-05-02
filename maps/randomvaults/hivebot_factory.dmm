@@ -6,7 +6,7 @@
 "af" = (/obj/item/device/robotanalyzer,/obj/item/weapon/weldingtool,/turf/simulated/floor/plating,/area/vault/factory)
 "ag" = (/obj/structure/computerframe,/turf/simulated/floor/plating,/area/vault/factory)
 "ah" = (/obj/machinery/computer/aifixer,/turf/simulated/floor/plating,/area/vault/factory)
-"ai" = (/obj/item/robot_parts/head,/turf/simulated/floor/plating,/area/vault/factory)
+"ai" = (/obj/item/robot_parts/head,/obj/jectie_time,/turf/simulated/floor/plating,/area/vault/factory)
 "aj" = (/obj/item/robot_parts/robot_suit,/obj/item/weapon/gun/projectile/automatic/xcom,/turf/simulated/floor/plating,/area/vault/factory)
 "ak" = (/turf/unsimulated/floor,/area/vault/factory)
 "al" = (/mob/living/simple_animal/hostile/hivebot/range{anchored = 1; canmove = 0; name = "Hivebot Sentry"},/turf/unsimulated/floor,/area/vault/factory)
@@ -76,6 +76,8 @@
 "bx" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/wall/r_wall,/area/vault/factory)
 "by" = (/obj/structure/lattice,/obj/structure/window/reinforced/plasma,/turf/space,/area)
 "bz" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/structure/lattice,/obj/structure/window/reinforced/plasma,/obj/structure/window/reinforced/plasma{dir = 4},/turf/space,/area)
+"Ex" = (/obj/jectie_time,/turf/simulated/floor{icon_state = "floorgrime"},/area/vault/factory)
+"PA" = (/obj/jectie_time,/turf/simulated/floor/plating,/area/vault/factory)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -86,10 +88,10 @@ aaaaacacacadadadadadadadadadadadacaaaaaa
 aaacacadadadadadadadadadadadadadacacaaaa
 aaacaeadadadaeaeaeaeaeaeaeaeadadadacacaa
 aaacaeaeadadaeafagahagaiajaeadadadadacac
-acakalaeaeaeaeamanaoapaqaraeasasasasadac
+acakalaeaeaeaeamPAaoapaqaraeasasasasadac
 aaakatauavawauaxanayazaAaraeasaBaCasadac
 aaakaDaeaEaeaeaFanaGazaHaraeasaIanasadac
-acakalaeaJaKaeaeaeanazaeaeaeasaLasasadac
+acakalaeaJaKaeaeaePAazaeaeaeasaLasasadac
 aaacaeaeaMaNaeadaeaOaPaeadadasaQasadadac
 aaacaeaeaeaeaeadaeaOazaeaRaSaSaTadadadac
 aaacadadadadadadaUaVaFaeaWadadadadacacac
@@ -99,7 +101,7 @@ aaaaaaaaaaaaasbcbdaYasbebfbgbhaaaaaaaaaa
 aaaaaaaaaaaaasasasbiasaQbjasbkblbmaaaaaa
 aaaaaaaaaaaaadasbnbobnbpbqasaWacbraaaaaa
 aaaaaaaaaaadadasbsbobsbtbuasaWadbvaaaaaa
-aaaaaaaaaaadadasbsbsbsbsbwbxaTbybzaaaaaa
+aaaaaaaaaaadadasbsbsExbsbwbxaTbybzaaaaaa
 aaaaaaaaaaaaadasasasasasasasaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaadadadadadaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaadadadaaaaaaaaaaaaaaaa
