@@ -34,5 +34,15 @@
 			T = locate(curX, curY, 1)
 			if(istype(T, /turf/unsimulated/outside/sand)) //If we are sand
 				if(locate(/turf/unsimulated/outside/water/shallow) in oview(T, 1)) //And we see Shallow water around us
-					new /turf/unsimulated/outside/smoothingcoastline(T) //Then we form smoothing coastline turfs in place.
+					T.ChangeTurf(/turf/unsimulated/outside/smoothingcoastline) //Then we form smoothing coastline turfs in place.
+
+//Wow its like the coastlines except not.
+/datum/loada_gen/proc/CreatePathline()
+	var/turf/T
+	for(var/curX in 1 to world.maxx)
+		for(var/curY in 1 to world.maxy) 
+			T = locate(curX, curY, 1)
+			if(istype(T, /turf/unsimulated/outside/sand)) //If we are sand
+				if(locate(/turf/unsimulated/outside/footpath) in oview(T, 1)) //And we see footpath centers around us
+					T.ChangeTurf(/turf/unsimulated/outside/smoothingfootpath) //Then we form smoothing turflines around us.
 

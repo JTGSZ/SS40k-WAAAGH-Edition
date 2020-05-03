@@ -6,14 +6,16 @@
 "f" = (/obj/structure/closet/secure_closet/hydroponics,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "g" = (/obj/machinery/vending/engineering,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "k" = (/mob/living/simple_animal/hostile/lizard/frog,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"l" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "m" = (/obj/structure/table/reinforced,/obj/machinery/chemheater,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "p" = (/obj/machinery/seed_extractor,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "q" = (/obj/item/weapon/pitchfork,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"r" = (/obj/structure/fence/corner{dir = 1},/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "t" = (/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "u" = (/obj/structure/sink/puddle,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "w" = (/obj/machinery/vending/hydronutrients,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "x" = (/obj/machinery/chem_master,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
-"z" = (/obj/road_node,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"z" = (/obj/structure/fence{dir = 4},/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "A" = (/obj/machinery/vending/engivend,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "B" = (/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "C" = (/obj/machinery/chem_dispenser/mapping,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
@@ -22,12 +24,16 @@
 "F" = (/obj/item/weapon/pickaxe/shovel,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "G" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "J" = (/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"K" = (/obj/road_node,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "O" = (/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawnoff,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"Q" = (/obj/structure/fence/corner,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "R" = (/obj/item/weapon/storage/box/buckshotshells,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"S" = (/obj/structure/fence{dir = 8},/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "T" = (/mob/living/simple_animal/hostile/lizard,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "U" = (/turf/simulated/wall/r_wall,/area/warhammer/desert)
 "W" = (/obj/machinery/apiary/wild,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "Y" = (/obj/item/ammo_storage/box/piles/buckshotpile/max_pile,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
+"Z" = (/obj/structure/fence/door,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 
 (1,1,1) = {"
 UUUUUUUUUU
@@ -36,18 +42,18 @@ UJJJUEBBBU
 UJJJGBEBdU
 UpJeUcmRtU
 UUGUUUUUUU
-uaakuugAWa
-aaaaaaaaaa
-abbbaabbba
-aaaaakaaaa
-abbbaabbba
-abbbaabbba
-aaTaaqaaaa
-abbbaabbba
-abbbaabbba
-aaaaFaaaaa
-abbbaabbba
-abbbaabbba
-aaaaazaaaa
-aaaaaaaaaa
+luakuugAWl
+laaaaaaaal
+lbbbaabbbl
+laaaakaaal
+lbbbaabbbl
+lbbbaabbbl
+laTaaqaaal
+lbbbaabbbl
+lbbbaabbbl
+laaaFaaaal
+lbbbaabbbl
+lbbbaabbbl
+rzSzZzzzzQ
+aaaaKaaaaa
 "}

@@ -44,6 +44,9 @@ var/list/choosable_jectie_items = typesof(/obj/mcguffins)-/obj/mcguffins
 			mcguffin_items += spawned_obj
 			CHECK_TICK
 
+			if(ASS.dd_debug)
+				log_startup_progress("Objective[i]: [spawned_obj] placed at X:[T.x], Y:[T.y]")
+
 		for(var/obj/jectie_time/qdeltime in objective_markers)
 			qdel(qdeltime) //Time for some cleanup
 			CHECK_TICK

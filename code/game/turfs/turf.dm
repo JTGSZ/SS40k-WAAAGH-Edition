@@ -352,7 +352,7 @@
 	var/old_corners = corners
 	var/old_density = density
 
-	var/old_holomap = holomap_data
+	//var/old_holomap = holomap_data
 //	to_chat(world, "Replacing [src.type] with [N]")
 
 	if(connections)
@@ -422,7 +422,7 @@
 		. = W
 
 	recalc_atom_opacity()
-	if (SSlighting && SSlighting.initialized)
+	if(SSlighting && SSlighting.initialized)
 		lighting_overlay = old_lighting_overlay
 		affecting_lights = old_affecting_lights
 		corners = old_corners
@@ -434,8 +434,8 @@
 			else
 				lighting_clear_overlay()
 
-	holomap_data = old_holomap // Holomap persists through everything...
-	update_holomap_planes() // But we might need to recalculate it.
+	//holomap_data = old_holomap // Holomap persists through everything...
+	//update_holomap_planes() // But we might need to recalculate it.
 	if(density != old_density)
 		densityChanged()
 

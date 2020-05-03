@@ -4,5 +4,7 @@
 
 	CreateCoastline()
 	
+	CreatePathline()
+
 	if(ASS.dd_debug)
 		log_startup_progress("CLEANUP AND DETAILING LOADA INITIATED")

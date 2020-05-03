@@ -30,6 +30,15 @@
 	block_x2 = block_x1 + town_spread
 	block_y2 = block_y1 + town_spread
 
+	//Center with changes to it picks which side to draw from
+	//var/center_x = round(block_x2/2) //EX: 200/2 = 100
+	//var/center_y = round(block_y2/2) //Exact center of a whole map.
+	//var/exact_center = locate(center_x,center_y,1)
+
+	//We spawn the first roadnode in the exact center of our block
+	//var/obj/road_node/the_sun = new(exact_center)
+	//road_nodes += the_sun //Then we add it to the list, the road pather is ran after this proc anyways.
+
 	for(var/turf/T in block(locate(block_x1,block_y1,1), locate(block_x2,block_y2,1)))
 		valid_turf_block += T
 		//We add the turfs in the block to a list.
@@ -86,7 +95,7 @@
 
 			if(ASS.dd_debug)
 				log_startup_progress("-------------VILLAGE TEMP [i]---------------")
-				log_startup_progress("Coordinates:X:[P1.x],Y:[P2.y]")
+				log_startup_progress("Coordinates:X:[P1.x],Y:[P1.y]")
 
 		else
 			//Now we need to load our first template in.
@@ -105,5 +114,5 @@
 
 			if(ASS.dd_debug)
 				log_startup_progress("-------------VILLAGE TEMP [i]---------------")
-				log_startup_progress("Coordinates:X:[P1.x],Y:[P2.y]")
+				log_startup_progress("Coordinates:X:[P1.x],Y:[P1.y]")
 

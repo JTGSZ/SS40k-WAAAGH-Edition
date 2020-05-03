@@ -50,31 +50,35 @@ Append - We load in some Fauna
 
 /datum/loada_gen/proc/loada_prototype_desert()
 
-	var/watch2 = start_watch()
-	loada_generate_template()
-	log_startup_progress("Finished with generating templates in [stop_watch(watch2)]s.")
+	//var/templatewatch = start_watch()
+	//loada_generate_template()
+	//log_startup_progress("Finished with generating templates in [stop_watch(templatewatch)]s.")
 
-	var/watch1 = start_watch()
+	var/spawnwatch = start_watch()
 	loada_spawns()
-	log_startup_progress("Finished with generating spawns in [stop_watch(watch1)]s.")
+	log_startup_progress("Finished with generating spawns in [stop_watch(spawnwatch)]s.")
 
 	var/villagewatch = start_watch()
 	loada_village()
 	log_startup_progress("Finished with generating factionless town in [stop_watch(villagewatch)]s.")
 
-	var/watch3 = start_watch()
+	var/roadwatch = start_watch()
+	loada_roadsystem()
+	log_startup_progress("Finished with generating road paths in [stop_watch(roadwatch)]s.")
+
+	/*var/river2lakewatch = start_watch()
 	loada_river2lake1()
-	log_startup_progress("Finished with rivers and lakes in [stop_watch(watch3)]s.")
+	log_startup_progress("Finished with rivers and lakes in [stop_watch(river2lakewatch)]s.")
 
-	var/watch4 = start_watch()
+	var/florawatch = start_watch()
 	loada_floragen()
-	log_startup_progress("Finished with floragen in [stop_watch(watch4)]s.")
+	log_startup_progress("Finished with floragen in [stop_watch(florawatch)]s.")
 
-	var/watch5 = start_watch()
+	var/cleanupwatch = start_watch()
 	loada_cleanup_and_detailing()
-	log_startup_progress("Finished with cleanup/detailing. [stop_watch(watch5)]s.")
+	log_startup_progress("Finished with cleanup/detailing. [stop_watch(cleanupwatch)]s.")
 
 	var/jectiewatch = start_watch()
 	loada_objectivegen()
 	log_startup_progress("Finished placing objectives in [stop_watch(jectiewatch)]s")
-
+*/
