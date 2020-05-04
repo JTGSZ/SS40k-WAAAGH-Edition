@@ -16,7 +16,7 @@
 	.=..()
 	if(.)
 		path = .
-
+ 
 /mob/living/clickbot/process_astar_path()
 	if(gcDestroyed || stat == DEAD)
 		return FALSE

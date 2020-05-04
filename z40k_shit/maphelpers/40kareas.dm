@@ -83,3 +83,9 @@
 	name = "rng wreckage"
 	icon_state = "rng_wreckage"
 	requires_power = 0
+
+/area/vault/warhammergen/neutral_town
+	name = "neutral town"
+	icon_state = "neutral_town"
+	requires_power = 0
+	

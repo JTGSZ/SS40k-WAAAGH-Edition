@@ -49,14 +49,26 @@ var/list/road_nodes = list()
 			var/pathing = TRUE
 			var/sanity = 0
 			while(pathing)
-				if((road_nodes.len) && (100 > sanity))
+				if((road_nodes.len) && (200 > sanity))
 					var/obj/road_node/current_target = road_nodes[1]
-					step_to(big_steppy,current_target)
-					var/turf/T = get_turf(big_steppy)
-					T.ChangeTurf(/turf/unsimulated/outside/water/deep)
-					if(big_steppy.x == current_target.x && big_steppy.y == current_target.y)
+					if(get_dist(big_steppy,current_target) > world.view*2)
+						var/turf/T = get_step(big_steppy,get_dir(big_steppy,current_target))
+						if(T && T.density)
+							step_rand(big_steppy)
+						else
+							step_towards(big_steppy,current_target)
+					else
+						var/turf/T = get_step(big_steppy,get_dir(big_steppy,current_target))
+						if(T && T.density)
+							step_to(big_steppy,current_target)
+						else
+							step_towards(big_steppy,current_target)
+					var/turf/T1 = get_turf(big_steppy)
+					T1.ChangeTurf(/turf/unsimulated/outside/water/deep)
+					if(big_steppy.loc == current_target.loc)
 						road_nodes -= current_target
 						qdel(current_target)
+						sanity = 0
 						if(ASS.dd_debug)
 							log_startup_progress("Ding we hit a path change at. X:[big_steppy.x], Y:[big_steppy.y]")
 					sanity++
@@ -69,6 +81,5 @@ var/list/road_nodes = list()
 	else
 		warning("Roadnodes appear to be fucked up. Contact jtgsz#6921.")
 
-		
 	//TODO: 5/2/2020 - Roadnode system.
 	//For now I'll just place the nodes tho.

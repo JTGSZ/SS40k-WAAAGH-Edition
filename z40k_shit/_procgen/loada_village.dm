@@ -76,7 +76,6 @@
 				var/turf/B2 = locate(T2.x+templ_x+1,T2.y+templ_y+1,T.z)
 	
 				big_brain.Remove(block(B1,B2)) //Now we remove all the invalid area from our list
-				CHECK_TICK
 	
 			//We are back on the mainline again, heres some protection so we don't fuck ourselves.
 			var/turf/P1
@@ -87,7 +86,6 @@
 		
 			var/turf/P2 = locate(P1.x+templ_x,P1.y+templ_y,P1.z) //We now get the top right corner
 			valid_turf_block.Remove(block(P1,P2)) //Remove it from the original big list
-			CHECK_TICK
 
 			placed_structures += cur_sel
 			cur_sel.load(P1.x,P1.y,P1.z) // And we load the template.

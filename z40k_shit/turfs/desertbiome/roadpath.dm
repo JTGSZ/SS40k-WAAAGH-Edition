@@ -76,11 +76,6 @@
 			CHANGE.relativewall_neighbours()
 			CHANGE.coastaldiags()
 
-
-#define ASS1 1
-#define ASS2 2 
-#define ASS3 4 
-#define ASS4 8 
 //NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST
 /turf/unsimulated/outside/smoothingfootpath/proc/coastaldiags() //lol fuck u
 	var/CUNT
