@@ -49,28 +49,11 @@
 
 //We only run in the pregame anyways. Who gives a fuck.
 /turf/unsimulated/outside/smoothingfootpath/proc/coastalcleanse() 
-	switch(icon_state) //Having that it was either this or a giant scan.
-		if("sandwater7")	//I opted for this, we just do it once anyways.
-			src.ChangeTurf(/turf/unsimulated/outside/sand)
-		if("sandwater11")
-			src.ChangeTurf(/turf/unsimulated/outside/sand)
-		if("sandwater13")
-			src.ChangeTurf(/turf/unsimulated/outside/sand)
-		if("sandwater14")
-			src.ChangeTurf(/turf/unsimulated/outside/sand)
-		if("sandwater12")
-			src.ChangeTurf(/turf/unsimulated/outside/sand)
-		if("sandwater3")
-			src.ChangeTurf(/turf/unsimulated/outside/sand)
-
-	//var/Coastalneighbors //How many coastalneighbors we have next to us.
 	var/Deepwatercounter //How many turfs of deep water are around us
 	for(var/turf/unsimulated/outside/footpath/NONO in orange(1,src))
 		Deepwatercounter++
 
-	if(Deepwatercounter >= 2) //If we see 2 or more deep water turfs around us.
-		src.ChangeTurf(/turf/unsimulated/outside/sand) //And we do not have 2 or more coastal neighbors around us.
-	
+	if(Deepwatercounter >= 2) //If we see 2 or more deep water turfs around us
 		for(var/turf/unsimulated/outside/smoothingfootpath/CHANGE in orange(1,src))
 			CHANGE.relativewall() //We only run once anyways, might as well be thorough.
 			CHANGE.relativewall_neighbours()

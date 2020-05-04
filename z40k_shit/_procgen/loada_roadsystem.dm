@@ -34,7 +34,7 @@ var/list/road_nodes = list()
 				for(var/d in cardinal) //We check the cardinal directions.
 					tries++
 					var/turf/T = get_step(move_bitch, d)
-					if(istype(T,/turf/unsimulated/outside)) //If its outside
+					if(istype(T,/turf/unsimulated/outside/sand)) //If its outside
 						move_bitch.loc = T //We relocate our boy there
 						break //And break
 					if(tries >= cardinal.len) //If our tries is greater than or equal to 4
@@ -55,16 +55,20 @@ var/list/road_nodes = list()
 						var/turf/T = get_step(big_steppy,get_dir(big_steppy,current_target))
 						if(T && T.density)
 							step_rand(big_steppy)
+						else if(dense_obj_chek(T))
+							step_rand(big_steppy)
 						else
 							step_towards(big_steppy,current_target)
 					else
 						var/turf/T = get_step(big_steppy,get_dir(big_steppy,current_target))
 						if(T && T.density)
 							step_to(big_steppy,current_target)
+						else if(dense_obj_chek(T))
+							step_to(big_steppy,current_target)
 						else
 							step_towards(big_steppy,current_target)
 					var/turf/T1 = get_turf(big_steppy)
-					T1.ChangeTurf(/turf/unsimulated/outside/water/deep)
+					T1.ChangeTurf(/turf/unsimulated/outside/footpath)
 					if(big_steppy.loc == current_target.loc)
 						road_nodes -= current_target
 						qdel(current_target)
@@ -81,5 +85,13 @@ var/list/road_nodes = list()
 	else
 		warning("Roadnodes appear to be fucked up. Contact jtgsz#6921.")
 
+/datum/loada_gen/proc/dense_obj_chek(var/turf/T)
+	var/obstruction = FALSE
+	for(var/atom/A in T)
+		if(A.density)
+			obstruction = TRUE
+			break
+	if(obstruction)
+		return 1
 	//TODO: 5/2/2020 - Roadnode system.
 	//For now I'll just place the nodes tho.

@@ -65,6 +65,7 @@ Append - We load in some Fauna
 	var/roadwatch = start_watch()
 	loada_roadsystem()
 	log_startup_progress("Finished with generating road paths in [stop_watch(roadwatch)]s.")
+	CreatePathline()
 
 	/*var/river2lakewatch = start_watch()
 	loada_river2lake1()
