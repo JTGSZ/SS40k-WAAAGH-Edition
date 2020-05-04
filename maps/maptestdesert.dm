@@ -35,7 +35,7 @@
 	
 	//Debug textvar on all the mapgen 
 	//so you can just read it out on dream daemon instead of actually joining game.
-	dd_debug = TRUE
+	dd_debug = FALSE
 
 /datum/map/active/map_specific_init()
 	new /datum/loada_gen(src, "prototype_desert")

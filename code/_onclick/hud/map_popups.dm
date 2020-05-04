@@ -74,11 +74,12 @@
 /client/proc/add_objs_to_map(var/list/to_add)
 	if(!screen_maps)
 		screen_maps = list()
-	if(!to_add.len) return
+	if(!to_add.len) 
+		return
 	for(var/obj/abstract/screen/adding in to_add)
 		var/len = adding.screen_info.len
 		var/list/data = adding.screen_info
-		switch (len)
+		switch(len)
 			if(4) //set up for x/y offsets.
 				if(adding.assigned_map)
 					adding.screen_loc = "[adding.assigned_map]:[data[1]]:[data[2]],[data[3]],[data[4]]"

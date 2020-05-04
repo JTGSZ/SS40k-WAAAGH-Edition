@@ -456,7 +456,8 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 /spell/proc/take_charge(mob/living/user = user, var/skipcharge)
 	
-	user.warp_charges += warpcharge_cost
+	if(isliving(user))
+		user.warp_charges += warpcharge_cost
 
 	if(!skipcharge)
 		if(charge_type & Sp_RECHARGE)
@@ -476,9 +477,9 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		if(charge_type & Sp_PASSIVE)
 			process()
 
-	if(user.warp_charges >= 100)
-		perils_of_the_warp(user)
-
+	if(isliving(user))
+		if(user.warp_charges >= 100)
+			perils_of_the_warp(user)
 
 /spell/proc/invocation(mob/user = usr, var/list/targets) //spelling the spell out and setting it on recharge/reducing charges amount
 

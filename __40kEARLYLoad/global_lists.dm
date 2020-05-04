@@ -9,3 +9,6 @@ var/global/list/barricadepool = list(1 = null,
 									5 = null,
 									6 = null)
 
+
+var/global/list/ghostbodies = list()
+var/global/list/ghostbody_buttons = list()

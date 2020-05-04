@@ -3,8 +3,8 @@
 /mob/dead/observer
 	name = "ghost"
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "ghost1"
+	icon = 'z40k_shit/icons/mob/ghostbodies.dmi'
+	icon_state = "ghost_standard"
 	stat = DEAD
 	density = 0
 	lockflags = 0 //Neither dense when locking or dense when locked to something
@@ -20,7 +20,7 @@
 	layer = GHOST_LAYER
 	// For Aghosts dicking with telecoms equipment.
 	var/obj/item/device/multitool/ghostMulti = null
-
+ 
 	// Holomaps for ghosts
 	var/obj/item/device/station_map/station_holomap = null
 
@@ -49,6 +49,7 @@
 
 	// Our new boo spell.
 	add_spell(new /spell/aoe_turf/boo, "grey_spell_ready")
+	add_spell(new /spell/aoe_turf/ghost_body, "grey_spell_ready")
 	//add_spell(new /spell/ghost_show_map, "grey_spell_ready")
 
 	can_reenter_corpse = flags & GHOST_CAN_REENTER
@@ -62,31 +63,8 @@
 		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
 		if(!istype(attack_log, /list))
 			attack_log = list()
-		// NEW SPOOKY BAY GHOST ICONS
-		//////////////
-
-		/*//What's the point of that? The icon and overlay renders without problem even with just the bottom part. I putting the old code in comment. -Deity Link
-		if (ishuman(body))
-			var/mob/living/carbon/human/H = body
-			icon = H.stand_icon
-			overlays = H.overlays_standing//causes issue with sepia cameras
-		else
-			icon = body.icon
-			icon_state = body.icon_state
-			overlays = body.overlays
-		*/
-
-		icon = body.icon
-		icon_state = body.icon_state
-		overlays = body.overlays
-
-		// No icon?  Ghost icon time.
-		if(isnull(icon) || isnull(icon_state))
-			icon = initial(icon)
-			icon_state = initial(icon_state)
 
 		alpha = 127
-		// END BAY SPOOKY GHOST SPRITES
 
 		gender = body.gender
 		if(body.mind && body.mind.name)
