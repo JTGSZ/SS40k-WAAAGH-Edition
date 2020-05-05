@@ -10,7 +10,7 @@
 	use_power = 0
 	luminosity = 4
 
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 
 	var/obj/machinery/field_generator/FG1 = null
 	var/obj/machinery/field_generator/FG2 = null

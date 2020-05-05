@@ -21,7 +21,6 @@
 	icon_state = "sampler0"
 	item_state = "screwdriver_brown"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	//slot_flags = SLOT_BELT
 	var/sampled_turf = ""
 	var/num_stored_bags = 10

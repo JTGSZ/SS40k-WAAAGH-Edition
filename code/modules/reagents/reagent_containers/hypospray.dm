@@ -11,7 +11,7 @@
 	amount_per_transfer_from_this = 5
 	volume = 30
 	possible_transfer_amounts = null
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/reagent_containers/hypospray/attack_paw(mob/user )
@@ -83,7 +83,6 @@
 	item_state = "autoinjector"
 	amount_per_transfer_from_this = 5
 	volume = 5
-	flags = FPRINT
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M, mob/user )
 	..()
@@ -110,7 +109,6 @@
 	icon_state = "biofoam1"
 	amount_per_transfer_from_this = 15
 	volume = 15
-	flags = FPRINT
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/biofoam_injector/New()
 	..()

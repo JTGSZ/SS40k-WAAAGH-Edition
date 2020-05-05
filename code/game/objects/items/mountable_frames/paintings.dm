@@ -40,7 +40,6 @@ var/global/list/available_paintings = list(
 	icon_state = "item"
 	item_state = "painting"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/misc_tools.dmi', "right_hand" = 'icons/mob/in-hand/right/misc_tools.dmi')
-	flags = FPRINT
 	w_type = RECYK_WOOD
 	frame_material = /obj/item/stack/sheet/wood
 	sheets_refunded = 2

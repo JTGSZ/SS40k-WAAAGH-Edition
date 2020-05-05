@@ -6,7 +6,6 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
 	item_state = null
 	hitsound = "sound/weapons/bladeslice.ogg"
-	flags = FPRINT
 	siemens_coefficient = 1
 	sharpness = 1.2
 	sharpness_flags = SHARP_TIP | SHARP_BLADE

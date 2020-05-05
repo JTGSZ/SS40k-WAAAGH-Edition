@@ -159,7 +159,6 @@ var/runedec = 0 // Rune cap ?
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	var/datum/faction/cult/narsie/my_cult
 	var/notedat = ""
 	var/tomedat = ""

@@ -7,7 +7,6 @@
 	desc = "Extracts information on wounds."
 	icon = 'icons/obj/autopsy_scanner.dmi'
 	icon_state = ""
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_TINY
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_BIOTECH + "=1"

@@ -4,7 +4,6 @@
 	icon_state = "megaphone"
 	item_state = "radio"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/spamcheck = 0
@@ -34,7 +33,7 @@
 	desc = "An ominous-sounding megaphone with a built-in radio transmitter and voice scrambler. Use in hand to fiddle with the controls."
 	var/frequency = 0
 	mask_voice = TRUE
-	flags = FPRINT | HEAR
+	flags = HEAR
 
 var/list/megaphone_channels = list("DISABLE" = 0) + stationchannels
 

@@ -3,7 +3,6 @@
 	desc = "Used for repairing or building sound systems"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "wallradio"
-	flags = FPRINT
 	w_type=2*RECYK_METAL
 	mount_reqs = list("nospace", "simfloor")
 

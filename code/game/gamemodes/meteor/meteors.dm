@@ -403,7 +403,6 @@ var/list/blob_candidates = list()
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "meteorgun"
 	item_state = "gun"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_MEDIUM

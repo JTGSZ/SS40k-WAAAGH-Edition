@@ -10,7 +10,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 
 	var/list/all_spells = list()
 	var/list/offensive_spells = list()

@@ -7,7 +7,6 @@
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 	origin_tech = Tc_SYNDICATE + "=2"
 	var/datum/wires/explosive/plastic/wires = null

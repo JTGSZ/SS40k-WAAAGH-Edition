@@ -15,7 +15,6 @@
 	force = 4
 	recoil = 1
 	fire_delay = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	caliber = list(GAUGEFLARE = 1)
 	origin_tech = Tc_COMBAT + "=2;" + Tc_MATERIALS + "=2"

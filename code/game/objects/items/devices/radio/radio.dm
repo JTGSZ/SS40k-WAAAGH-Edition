@@ -24,7 +24,7 @@
 	var/raider = 0//same as above but for raiders
 	var/maxf = 1499
 //			"Example" = FREQ_LISTENING|FREQ_BROADCASTING
-	flags = FPRINT | HEAR
+	flags = HEAR
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throw_speed = 2

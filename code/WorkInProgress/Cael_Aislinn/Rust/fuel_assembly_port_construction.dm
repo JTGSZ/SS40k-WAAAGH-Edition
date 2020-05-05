@@ -7,7 +7,6 @@
 	icon_state = "port2"
 	w_class = W_CLASS_LARGE
 	mount_reqs = list("simfloor", "nospace")
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/mounted/frame/rust_fuel_assembly_port/attackby(obj/item/weapon/W, mob/user )

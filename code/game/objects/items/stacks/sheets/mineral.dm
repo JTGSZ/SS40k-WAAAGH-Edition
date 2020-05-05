@@ -262,7 +262,6 @@ var/list/datum/stack_recipe/phazon_recipes = list( \
 	perunit = CC_PER_SHEET_PHAZON
 	melt_temperature = MELTPOINT_PLASTIC
 	throwforce = 15.0
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_MATERIALS + "=9"
 	recyck_mat = MAT_PHAZON

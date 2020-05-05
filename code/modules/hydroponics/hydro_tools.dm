@@ -260,7 +260,7 @@
 /obj/item/weapon/plantspray
 	icon = 'icons/obj/hydroponics/hydro_tools.dmi'
 	item_state = "spray"
-	flags = FPRINT | NO_ATTACK_MSG
+	flags = NO_ATTACK_MSG
 	slot_flags = SLOT_BELT
 	throwforce = 4
 	w_class = W_CLASS_SMALL
@@ -322,7 +322,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "hoe"
 	item_state = "hoe"
-	flags = FPRINT  | NO_ATTACK_MSG
+	flags = NO_ATTACK_MSG
 	siemens_coefficient = 1
 	force = 5.0
 	throwforce = 7.0
@@ -340,7 +340,6 @@
 	name = "bottle of weedkiller"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle16"
-	flags = FPRINT
 	var/toxicity = 0
 	var/weed_kill_str = 0
 
@@ -348,7 +347,6 @@
 	name = "bottle of glyphosate"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle16"
-	flags = FPRINT
 	toxicity = 4
 	weed_kill_str = 2
 
@@ -356,7 +354,6 @@
 	name = "bottle of triclopyr"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle18"
-	flags = FPRINT
 	toxicity = 6
 	weed_kill_str = 4
 
@@ -364,7 +361,6 @@
 	name = "bottle of 2,4-D"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle15"
-	flags = FPRINT
 	toxicity = 8
 	weed_kill_str = 7
 
@@ -374,7 +370,6 @@
 	desc = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "hatchet"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 12.0
 	w_class = W_CLASS_SMALL
@@ -411,7 +406,6 @@
 	sharpness = 1.0
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
 	w_class = W_CLASS_LARGE
-	flags = FPRINT
 	slot_flags = SLOT_BACK
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_COMBAT + "=2"
 	attack_verb = list("chops", "slices", "cuts", "reaps")
@@ -454,7 +448,6 @@
 	throwforce = 20.0
 	throw_speed = 1
 	throw_range = 3
-	flags = FPRINT
 	var/being_potted = FALSE
 
 /obj/item/claypot/attackby(var/obj/item/O,var/mob/user)

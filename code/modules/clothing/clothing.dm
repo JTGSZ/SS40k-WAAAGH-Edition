@@ -505,7 +505,6 @@
 	icon = 'icons/obj/clothing/suits.dmi'
 	name = "suit"
 	var/fire_resist = T0C+100
-	flags = FPRINT
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/tank/emergency_nitrogen)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING
@@ -547,7 +546,6 @@
 	w_class = W_CLASS_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
-	flags = FPRINT
 	pressure_resistance = 5 * ONE_ATMOSPHERE
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/)
@@ -566,7 +564,6 @@
 	name = "under"
 	body_parts_covered = ARMS|LEGS|FULL_TORSO
 	permeability_coefficient = 0.90
-	flags = FPRINT
 	slot_flags = SLOT_ICLOTHING
 	heat_conductivity = JUMPSUIT_HEAT_CONDUCTIVITY
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)

@@ -10,7 +10,6 @@
 	icon_closed = "crate"
 	req_access = null
 	opened = 0
-	flags = FPRINT
 //	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
 	var/rigged = 0
 	var/sound_effect_open = 'sound/machines/click.ogg'
@@ -29,7 +28,6 @@
 	icon_closed = "plasticcrate"
 	req_access = null
 	opened = 0
-	flags = FPRINT
 //	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
 	var/rigged = 0
 	var/sound_effect_open = 'sound/machines/click.ogg'

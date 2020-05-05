@@ -3,7 +3,6 @@
 	desc = "A virtual map of the station."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "station_map_frame0"
-	flags = FPRINT
 	mount_reqs = list("nospace")
 
 /obj/item/mounted/frame/station_map/do_build(turf/on_wall, mob/user)

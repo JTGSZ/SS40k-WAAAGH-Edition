@@ -13,7 +13,7 @@
 	icon = 'icons/obj/food_condiment.dmi'
 	icon_state = "emptycondiment"
 	item_state = null
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	possible_transfer_amounts = list(1,5,10)
 	volume = 50
 

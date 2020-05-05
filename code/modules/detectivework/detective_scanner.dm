@@ -9,24 +9,8 @@
 	var/list/stored = list()
 	w_class = W_CLASS_SMALL
 	item_state = "electronic"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
-
-/obj/item/device/detective_scanner/attackby(obj/item/weapon/f_card/W, mob/user )
-	..()
-	if (istype(W, /obj/item/weapon/f_card))
-		if (src.amount == 20)
-			return
-		if (W.amount + src.amount > 20)
-			src.amount = 20
-			W.amount = W.amount + src.amount - 20
-		else
-			src.amount += W.amount
-			//W = null
-			qdel(W)
-			W = null
-	return
 
 /obj/item/device/detective_scanner/attack(mob/living/carbon/human/M, mob/user )
 	if ( !M.blood_DNA || !M.blood_DNA.len )
@@ -54,9 +38,6 @@
 	if(loc != user)
 		return
 	if(istype(A,/obj/machinery/computer/forensic_scanning)) //breaks shit.
-		return
-	if(istype(A,/obj/item/weapon/f_card))
-		to_chat(user, "The scanner displays on the screen: \"ERROR 43: Object on Excluded Object List.\"")
 		return
 
 	var/list/blood_DNA_found    = src.extract_blood(A)
@@ -145,30 +126,11 @@
 	custom_forgery[3] = list()
 
 /obj/item/device/detective_scanner/forger/attack_self(var/mob/user )
-	var/list/customprints = list()
-	var/list/customfiber = list()
 	var/list/customblood = list()
 	if(forging)
 		to_chat(user, "<span class='warning'>You are already forging evidence</span>")
 		return 0
 	clear_forgery()
-	//fingerprint loop
-	while(1)
-		var/print = html_encode(input(usr,"Please enter a custom fingerprint or hit cancel to finish fingerprints") as text|null)
-		if(!usr.client)
-			forging = 0
-			break
-		if(!print )
-			break
-		customprints[print] = print
-	while(1)
-		var/fiber = html_encode(input(usr,"Please enter a custom fiber/material trace or hit cancel to finish fibers/materials") as text|null)
-		if(!usr.client)
-			forging = 0
-			break
-		if(!fiber)
-			break
-		customfiber[fiber] = null
 	while(1)
 		var/blood = html_encode(input(usr,"Please enter a custom Blood DNA or hit cancel to finish forging") as text|null)
 		var/bloodtype = html_encode(input(usr,"Please enter a custom Blood Type") as text|null)
@@ -179,13 +141,8 @@
 			break
 		customblood[blood] = bloodtype
 	forging = 0
-	if(!customprints.len && !customfiber.len)
-		to_chat(user, "<span class='notice'>No forgery saved.</span>")
-		return
 	to_chat(user, "<span class='notice'>Forgery saved and will be tied to the next applicable scanned item.</span>")
-	custom_forgery[1] = customprints ? customprints.Copy() : null
-	custom_forgery[2] = customfiber ? customfiber.Copy() : null
-	custom_forgery[3] = customblood ? customblood.Copy() : null
+	custom_forgery[1] = customblood ? customblood.Copy() : null
 
 //shameless copy pasting
 /obj/item/device/detective_scanner/forger/afterattack(atom/A, mob/user)
@@ -200,11 +157,8 @@
 		return
 	if(istype(A,/obj/machinery/computer/forensic_scanning)) //breaks shit.
 		return
-	if(istype(A,/obj/item/weapon/f_card))
-		to_chat(user, "The scanner displays on the screen: \"ERROR 43: Object on Excluded Object List.\"")
-		return
 
-	var/list/blood_DNA_found    = src.extract_blood(A)
+	var/list/blood_DNA_found = src.extract_blood(A)
 
 	// Blood/vomit splatters no longer clickable, so scan the entire turf.
 	if (istype(A,/turf))
@@ -212,7 +166,7 @@
 		for(var/atom/O in T)
 			// Blood splatters, runes.
 			if (istype(O, /obj/effect/decal/cleanable/blood) || istype(O, /obj/effect/rune_legacy))
-				blood_DNA_found    += extract_blood(O)
+				blood_DNA_found += extract_blood(O)
 
 	//General
 	if (blood_DNA_found.len == 0)

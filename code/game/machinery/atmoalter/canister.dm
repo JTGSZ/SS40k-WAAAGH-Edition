@@ -12,7 +12,6 @@
 	icon_state = "yellow"
 	density = 1
 	var/health = 100.0
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/valve_open = 0

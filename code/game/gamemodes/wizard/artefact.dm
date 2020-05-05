@@ -104,7 +104,7 @@
 	icon_state = "cloakingcloak"
 	w_class = W_CLASS_MEDIUM
 	force = 0
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 	var/event_key
 
 /obj/item/weapon/cloakingcloak/proc/mob_moved(var/list/event_args, var/mob/holder)

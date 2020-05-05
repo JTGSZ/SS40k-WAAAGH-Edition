@@ -5,7 +5,6 @@
 	icon_state = "toolbox_grey"
 	item_state = "toolbox_grey"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/toolbox_ihl.dmi', "right_hand" = 'icons/mob/in-hand/right/toolbox_ihr.dmi')
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 15
 	hitsound = 'sound/weapons/toolbox.ogg'

@@ -20,7 +20,7 @@
 	icon_state = "facehugger"
 	item_state = "facehugger"
 	w_class = W_CLASS_TINY //note: can be picked up by aliens unlike most other items of w_class below 4
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 	clothing_flags = MASKINTERNALS
 	throw_range = 5
 	health = 5

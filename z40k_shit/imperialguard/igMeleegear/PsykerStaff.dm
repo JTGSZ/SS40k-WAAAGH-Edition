@@ -7,7 +7,6 @@
 	icon_state = "psykerstaff"
 	item_state = "psykerstaff"
 	slot_flags = SLOT_BACK
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 35
 	throwforce = 5

@@ -19,7 +19,6 @@
 	ghost_read = 0
 	ghost_write = 0
 
-	flags = FPRINT
 	machine_flags = SCREWTOGGLE
 
 /obj/machinery/space_heater/vesta

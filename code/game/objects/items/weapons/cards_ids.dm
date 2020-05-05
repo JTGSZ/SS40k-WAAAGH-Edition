@@ -192,7 +192,6 @@
 
 	var/blood_type = "\[UNSET\]"
 	var/dna_hash = "\[UNSET\]"
-	var/fingerprint_hash = "\[UNSET\]"
 	var/bans = null
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
@@ -219,7 +218,6 @@
 		user.show_message(text("The current assignment on the card is [src.assignment]."),1)
 		user.show_message("The blood type on the card is [blood_type].",1)
 		user.show_message("The DNA hash on the card is [dna_hash].",1)
-		user.show_message("The fingerprint hash on the card is [fingerprint_hash].",1)
 
 /obj/item/weapon/card/id/attack_self(var/mob/user)
 	if(user.attack_delayer.blocked())
@@ -280,7 +278,6 @@
 
 	blood_type = H.dna.b_type
 	dna_hash = H.dna.unique_enzymes
-	fingerprint_hash = md5(H.dna.uni_identity)
 
 /obj/item/weapon/card/id/proc/GetBalance(var/format=0)
 	var/amt = 0
@@ -344,7 +341,7 @@
 		if (ishuman(user))
 			var/mob/living/carbon/human/H = user
 			SetOwnerInfo(H)
-			alert(user,"Personal data gathered successfully; this includes: blood type, DNA, and fingerprints.\nYou may now proceed with the rest.","Nanotrasen undercover ID: notification","Ok")
+			alert(user,"Personal data gathered successfully; this includes: blood type, and DNA.\nYou may now proceed with the rest.","Nanotrasen undercover ID: notification","Ok")
 
 		var/n = input(user, "What name would you like to put on this card?", "Nanotrasen undercover ID: name") in gimmick_names
 		if(!n)
@@ -449,7 +446,7 @@
 			if("Show")
 				return ..()
 			if("Edit")
-				switch(input(user,"What would you like to edit on \the [src]?") in list("Name","Appearance","Occupation","Money account","Blood type","DNA hash","Fingerprint hash","Reset card"))
+				switch(input(user,"What would you like to edit on \the [src]?") in list("Name","Appearance","Occupation","Money account","Blood type","DNA hash","Reset card"))
 					if("Name")
 						var/new_name = reject_bad_name(input(user,"What name would you like to put on this card?","Agent card name", ishuman(user) ? user.real_name : user.name))
 						if(!Adjacent(user))
@@ -537,20 +534,6 @@
 						src.dna_hash = new_dna_hash
 						to_chat(user, "DNA hash changed to [new_dna_hash].")
 
-					if("Fingerprint hash")
-						var/default = "\[UNSET\]"
-						if(ishuman(user))
-							var/mob/living/carbon/human/H = user
-
-							if(H.dna)
-								default = md5(H.dna.uni_identity)
-
-						var/new_fingerprint_hash = sanitize(input(user,"What fingerprint hash would you like to be written on this card?","Agent card fingerprint hash",default) as text)
-						if(!Adjacent(user))
-							return
-						src.fingerprint_hash = new_fingerprint_hash
-						to_chat(user, "Fingerprint hash changed to [new_fingerprint_hash].")
-
 					if("Reset card")
 						name = initial(name)
 						registered_name = initial(registered_name)
@@ -559,7 +542,6 @@
 						associated_account_number = initial(associated_account_number)
 						blood_type = initial(blood_type)
 						dna_hash = initial(dna_hash)
-						fingerprint_hash = initial(fingerprint_hash)
 						access = AGENT_CARD_DEFAULT_ACCESS
 						registered_user = null
 

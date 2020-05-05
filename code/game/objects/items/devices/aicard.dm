@@ -5,7 +5,6 @@
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	var/flush = null
 	origin_tech = Tc_PROGRAMMING + "=4;" + Tc_MATERIALS + "=4"

@@ -9,7 +9,6 @@
 	throwforce = 5.0
 	throw_speed = 5
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 1
 	max_amount = 60
 

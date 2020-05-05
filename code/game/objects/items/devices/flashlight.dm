@@ -6,7 +6,6 @@
 	item_state = "flashlight"
 	origin_tech = Tc_ENGINEERING + "=1"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	starting_materials = list(MAT_IRON = 50, MAT_GLASS = 20)
@@ -96,7 +95,6 @@
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
 	item_state = ""
-	flags = FPRINT
 	siemens_coefficient = 1
 	brightness_on = 2
 	has_sound = 0
@@ -135,7 +133,6 @@
 	item_state = "lamp"
 	brightness_on = 5
 	w_class = W_CLASS_LARGE
-	flags = FPRINT
 	siemens_coefficient = 1
 	starting_materials = null
 	on = 1

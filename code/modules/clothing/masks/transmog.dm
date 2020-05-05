@@ -3,7 +3,6 @@
 	desc = "It doesn't really resemble anything, though it gives you an eerie and intense feeling nonetheless."
 	icon_state = "morphing_mask"
 	item_state = "chapmask"
-	flags = FPRINT
 	body_parts_covered = FACE
 	w_class = W_CLASS_SMALL
 	mech_flags = MECH_SCAN_ILLEGAL

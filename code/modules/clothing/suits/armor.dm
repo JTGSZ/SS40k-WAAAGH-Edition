@@ -17,7 +17,6 @@
 		/obj/item/device/hailer,
 		)
 	body_parts_covered = FULL_TORSO
-	flags = FPRINT
 	heat_conductivity = ARMOUR_HEAT_CONDUCTIVITY
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6

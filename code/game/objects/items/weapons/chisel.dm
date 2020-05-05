@@ -10,7 +10,6 @@
 	w_class = W_CLASS_SMALL
 	starting_materials = list(MAT_IRON = 120)
 
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/use_name

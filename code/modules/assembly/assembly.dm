@@ -21,7 +21,6 @@ var/global/list/assembly_short_name_to_type = list() //Please, I beg you, don't 
 	desc = "A small electronic device that should never exist."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = ""
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_SMALL
 	starting_materials = list(MAT_IRON = 100)

@@ -5,7 +5,7 @@
 	icon_state = "jar"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30)
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	volume = 250
 	starting_materials = list(MAT_GLASS = CC_PER_SHEET_GLASS+250)
 	w_type = RECYK_GLASS

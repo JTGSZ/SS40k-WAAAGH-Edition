@@ -6,7 +6,6 @@
 	icon = 'icons/obj/inhaler.dmi'
 	icon_state = "inhaler"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	throwforce = 0
 	throw_speed = 4

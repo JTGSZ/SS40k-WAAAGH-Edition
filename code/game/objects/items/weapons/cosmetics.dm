@@ -3,7 +3,6 @@
 	desc = "A generic brand of lipstick."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "lipstick"
-	flags = FPRINT
 	w_class = W_CLASS_TINY
 	var/colour = "red"
 	var/open = 0
@@ -77,7 +76,6 @@
 	desc = "A generic brand of eyeshadow."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "eyeshadow_brush"
-	flags = FPRINT
 	w_class = W_CLASS_TINY
 	var/colour = "black"
 	var/open = 0
@@ -165,7 +163,6 @@
 	desc = "A can of sprayable hair dye. There is a dial on the top for color selection."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "hair_dye"
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 	var/color_r = 255
 	var/color_g = 255
@@ -266,7 +263,6 @@
 	desc = "A can of... invisibility? The label reads: \"Wears off after five minutes.\""
 	icon = 'icons/obj/items.dmi'
 	icon_state = "invisible_spray"
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 	var/permanent = 0
 	var/invisible_time = 5 MINUTES
@@ -421,7 +417,6 @@
 	desc = "Mirror mirror on the wall, who's the most robust of them all? Touching the mirror will bring out Nanotrasen's state of the art hair modification system."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocket_mirror"
-	flags = FPRINT
 	w_class = W_CLASS_TINY
 
 	var/shattered = 0
@@ -506,7 +501,6 @@
 	desc = "Deploys nanobots to your eyes to change their color."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "nanite_contact"
-	flags = FPRINT
 	w_class = W_CLASS_TINY
 	var/color_r = 255
 	var/color_g = 255

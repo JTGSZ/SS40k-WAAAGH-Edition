@@ -8,7 +8,7 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/guninhands_left.dmi', "right_hand" = 'icons/mob/in-hand/right/guninhands_right.dmi')
 	recoil = 1
 	slot_flags = SLOT_BELT
-	flags = FPRINT | NOREACT | OPENCONTAINER
+	flags = NOREACT | OPENCONTAINER
 	w_class = W_CLASS_MEDIUM
 	fire_delay = 1
 	fire_sound = 'sound/weapons/shotgun.ogg'
@@ -126,7 +126,7 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/items_lefthand.dmi', "right_hand" = 'icons/mob/in-hand/right/items_righthand.dmi')
 	origin_tech = Tc_COMBAT + "=1"
 	recoil = 0
-	flags = FPRINT | OPENCONTAINER
+	flags = OPENCONTAINER
 	fire_sound = 'sound/items/egg_squash.ogg'
 	max_reagents = 200
 	hard = -1

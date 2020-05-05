@@ -11,7 +11,6 @@
 	w_type = RECYK_ELECTRONIC
 	origin_tech = Tc_ENGINEERING + "=1"
 
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 

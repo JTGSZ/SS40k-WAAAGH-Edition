@@ -3,7 +3,6 @@
 	desc = "A festive holiday wreath"
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "wreath_bow"
-	flags = FPRINT
 	starting_materials = list(MAT_IRON = 2*CC_PER_SHEET_METAL)
 	melt_temperature = MELTPOINT_STEEL
 	w_type = RECYK_METAL

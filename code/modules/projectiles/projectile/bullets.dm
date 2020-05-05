@@ -744,7 +744,7 @@ obj/item/projectile/bullet/suffocationbullet
 	damage = 0
 	penetration = 0
 	embed = 0
-	flags = FPRINT | NOREACT
+	flags = NOREACT
 	custom_impact = 1
 	rotate = 0
 	var/hard = 0

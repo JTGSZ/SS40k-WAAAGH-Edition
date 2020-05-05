@@ -19,7 +19,6 @@
 	starting_materials = list(MAT_IRON = CC_PER_SHEET_METAL)
 	w_type = RECYK_METAL
 	throwforce = 14.0
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_MATERIALS + "=1"
 	melt_temperature = MELTPOINT_STEEL
@@ -72,7 +71,6 @@
 	starting_materials = list(MAT_IRON = CC_PER_SHEET_METAL, MAT_PLASMA = CC_PER_SHEET_PLASMA) // Was 7500, which doesn't make any fucking sense
 	perunit = 2875 //average of plasma and metal
 	throwforce = 15.0
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_MATERIALS + "=2"
 	w_type = RECYK_METAL
@@ -136,7 +134,6 @@
 	desc = "Large sheets of card, like boxes folded flat."
 	singular_name = "cardboard sheet"
 	icon_state = "sheet-card"
-	flags = FPRINT
 	origin_tech = Tc_MATERIALS + "=1"
 	starting_materials = list(MAT_CARDBOARD = CC_PER_SHEET_CARDBOARD)
 	w_type=RECYK_MISC
@@ -159,7 +156,6 @@ var/list/datum/stack_recipe/charcoal_recipes = list ()
 	desc = "Yum."
 	singular_name = "charcoal sheet"
 	icon_state = "sheet-charcoal"
-	flags = FPRINT
 	origin_tech = Tc_MATERIALS + "=1"
 	autoignition_temperature=AUTOIGNITION_WOOD
 
@@ -182,7 +178,6 @@ var/list/datum/stack_recipe/charcoal_recipes = list ()
 	singular_name = "brass sheet"
 	icon_state = "sheet-brass"
 	sheettype = "clockwork"
-	flags = FPRINT
 	origin_tech = Tc_ANOMALY + "=1"
 	starting_materials = list(MAT_BRASS = CC_PER_SHEET_BRASS)
 	mat_type = MAT_BRASS
@@ -196,7 +191,6 @@ var/list/datum/stack_recipe/charcoal_recipes = list ()
 	desc = "It's as if it's calling to be moulded into something greater."
 	singular_name = "replicant alloy"
 	icon_state = "sheet-alloy"
-	flags = FPRINT
 	origin_tech = Tc_ANOMALY + "=1"
 	starting_materials = list(MAT_RALLOY = CC_PER_SHEET_RALLOY)
 	mat_type = MAT_RALLOY

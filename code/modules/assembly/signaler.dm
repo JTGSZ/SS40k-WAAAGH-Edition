@@ -141,30 +141,11 @@
 	signal.data["message"] = "ACTIVATE"
 	radio_connection.post_signal(src, signal)
 
-	if(istype(loc, /obj/item/device/assembly_holder))
-		investigation_log(I_WIRES, "used as signaler in \a [loc]. Last touched by: [fingerprintslast], Last user processed: [key_name(usr)] - [format_frequency(frequency)]/[code]")
-	else
-		investigation_log(I_WIRES, "used as signaler. Last touched by: [fingerprintslast], Last user processed: [key_name(usr)] - [format_frequency(frequency)]/[code]")
-
-/*
-	for(var/obj/item/device/assembly/signaler/S in world)
-		if(!S)
-			continue
-		if(S == src)
-			continue
-		if((S.frequency == src.frequency) && (S.code == src.code))
-			spawn(0)
-				if(S)
-					S.pulse(0)
-	return 0*/
-
-
 /obj/item/device/assembly/signaler/pulse(var/radio = 0)
 	if(src.connected && src.wires)
 		connected.Pulse(src)
 	else
 		return ..(radio)
-
 
 /obj/item/device/assembly/signaler/receive_signal(datum/signal/signal)
 	if(!signal)

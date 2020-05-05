@@ -13,7 +13,6 @@
 	var/w_class = W_CLASS_MEDIUM
 	var/attack_delay = 10 //Delay between attacking with this item, in 1/10s of a second (default = 1 second)
 
-	flags = FPRINT
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/clothing_flags = 0
 	var/obj/item/offhand/wielded = null

@@ -9,7 +9,6 @@ var/global/list/obj/item/beacon/beacons = list()
 	var/code = "electronic"
 	var/frequency = 1459
 	origin_tech = Tc_BLUESPACE + "=1"
-	flags = FPRINT
 
 /obj/item/beacon/New()
 	..()

@@ -3,7 +3,7 @@
 	var/obj/item/weapon/gun/left
 	var/obj/item/weapon/gun/right
 	var/broken = FALSE
-	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND
+	flags = TWOHANDABLE | MUSTTWOHAND
 
 /obj/item/weapon/gun/akimbo/New(loc, var/obj/item/weapon/gun/in_left, var/obj/item/weapon/gun/in_right)
 	left = in_left

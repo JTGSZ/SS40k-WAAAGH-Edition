@@ -181,7 +181,6 @@ var/MAX_EXPLOSION_RANGE = 14
 
 //Item flags!
 #define PROXMOVE	1	// Will the code check us when we move or when something moves near us? Note that if the item doesn't have this flag, HasProximity() will never execute for it.
-#define FPRINT		2	// takes a fingerprint
 #define INVULNERABLE 8
 #define HEAR		16 // This flag is necessary to give an item (or mob) the ability to hear spoken messages! Mobs without a client still won't hear anything unless given HEAR_ALWAYS
 #define HEAR_ALWAYS 32 // Assign a virtualhearer to the mob even when no client is controlling it. (technically not an item flag, but related to the above)
@@ -454,7 +453,6 @@ var/global/list/BODY_COVER_VALUE_LIST=list("[HEAD]" = COVER_PROTECTION_HEAD,"[EY
 #define M_MORPH			105 	// changing appearance
 #define M_RESIST_HEAT	106 	// heat resistance
 #define M_HALLUCINATE	107 	// hallucinations
-#define M_FINGERPRINTS	108 	// no fingerprints
 #define M_NO_SHOCK		109 	// insulated hands
 #define M_DWARF			110 	// table climbing
 #define M_UNBURNABLE	111		// can't get set on fire

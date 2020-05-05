@@ -16,7 +16,7 @@
 
 	w_class = W_CLASS_LARGE
 
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 
 /obj/item/device/transfer_valve/examine(mob/user)
 	..()

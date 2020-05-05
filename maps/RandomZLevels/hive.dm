@@ -814,7 +814,7 @@ var/list/hive_pylons = list()
 	w_class = W_CLASS_LARGE
 	throw_range = 0
 	anchored = TRUE //Forces people to carry it by hand, no pulling!
-	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND
+	flags = TWOHANDABLE | MUSTTWOHAND
 
 
 //SASS - spherical anti-supermatter safeguard. Saves you from touching bluespace/supermatter

@@ -235,15 +235,6 @@
 	else
 		return "fire[fat]_s"
 
-/datum/dna/gene/basic/noprints
-	name = "No Prints"
-	activation_messages = list("Your fingers feel numb.")
-	deactivation_messages = list("Your fingers stop feeling numb.")
-	mutation = M_FINGERPRINTS
-
-/datum/dna/gene/basic/noprints/New()
-	block = NOPRINTSBLOCK
-
 /datum/dna/gene/basic/noshock
 	name = "Shock Immunity"
 	activation_messages = list("Your skin feels electric.")

@@ -18,7 +18,6 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 	var/obj/item/weapon/disk/nuclear/auth = null
 	var/removal_stage = 0 // 0 is no removal, 1 is covers removed, 2 is covers open,
 	                      // 3 is sealant open, 4 is unwrenched, 5 is removed from bolts.
-	flags = FPRINT
 	use_power = 0
 
 /obj/machinery/nuclearbomb/New()
@@ -311,7 +310,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 	name = "nuclear authentication disk"
 	desc = "Better keep this safe."
 	icon_state = "disk_nuke"
-	flags = FPRINT | TIMELESS
+	flags = TIMELESS
 	var/respawned = 0
 
 /obj/item/weapon/disk/nuclear/New()

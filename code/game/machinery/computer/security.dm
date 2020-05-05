@@ -68,7 +68,6 @@
 <th><A href='?src=\ref[src];choice=Sorting;sort=name'>Name</A></th>
 <th><A href='?src=\ref[src];choice=Sorting;sort=id'>ID</A></th>
 <th><A href='?src=\ref[src];choice=Sorting;sort=rank'>Rank</A></th>
-<th><A href='?src=\ref[src];choice=Sorting;sort=fingerprint'>Fingerprints</A></th>
 <th>Criminal Status</th>
 </tr>"}
 					if(!isnull(data_core.general))
@@ -97,7 +96,6 @@
 							dat += text("<tr style=[]><td><A href='?src=\ref[];choice=Browse Record;d_rec=\ref[]'>[]</a></td>", background, src, R, R.fields["name"])
 							dat += text("<td>[]</td>", R.fields["id"])
 							dat += text("<td>[]</td>", R.fields["rank"])
-							dat += text("<td>[]</td>", R.fields["fingerprint"])
 							dat += text("<td>[]</td></tr>", crimstat)
 						dat += "</table><hr width='75%' />"
 					dat += text("<A href='?src=\ref[];choice=Record Maintenance'>Record Maintenance</A><br><br>", src)
@@ -153,7 +151,6 @@
 <th>Name</th>
 <th>ID</th>
 <th>Rank</th>
-<th>Fingerprints</th>
 <th>Criminal Status</th>
 </tr>					"}
 						for(var/i=1, i<=Perp.len, i += 2)
@@ -182,7 +179,6 @@
 							dat += text("<tr style=[]><td><A href='?src=\ref[];choice=Browse Record;d_rec=\ref[]'>[]</a></td>", background, src, R, R.fields["name"])
 							dat += text("<td>[]</td>", R.fields["id"])
 							dat += text("<td>[]</td>", R.fields["rank"])
-							dat += text("<td>[]</td>", R.fields["fingerprint"])
 							dat += text("<td>[]</td></tr>", crimstat)
 						dat += "</table><hr width='75%' />"
 						dat += text("<br><A href='?src=\ref[];choice=Return'>Return to index.</A>", src)
@@ -268,7 +264,7 @@ What a mess.*/
 						screen = 1
 //RECORD FUNCTIONS
 			if("Search Records")
-				var/t1 = input("Search String: (Partial Name or ID or Fingerprints or Rank)", "Secure. records", null, null)  as text
+				var/t1 = input("Search String: (Partial Name or ID or Rank)", "Secure. records", null, null)  as text
 				if ((!( t1 ) || usr.stat || !( authenticated ) || usr.restrained() || !in_range(src, usr)))
 					return
 				Perp = new/list()
@@ -277,7 +273,7 @@ What a mess.*/
 				if(components.len > 5)
 					return //Lets not let them search too greedily.
 				for(var/datum/data/record/R in data_core.general)
-					var/temptext = R.fields["name"] + " " + R.fields["id"] + " " + R.fields["fingerprint"] + " " + R.fields["rank"]
+					var/temptext = R.fields["name"] + " " + R.fields["id"] + " " + R.fields["rank"]
 					for(var/i = 1, i<=components.len, i++)
 						if(findtext(temptext,components[i]))
 							var/prelist = new/list(2)
@@ -309,24 +305,6 @@ What a mess.*/
 					active2 = S
 					screen = 3
 
-/*			if ("Search Fingerprints")
-				var/t1 = input("Search String: (Fingerprint)", "Secure. records", null, null)  as text
-				if ((!( t1 ) || usr.stat || !( authenticated ) || usr.restrained() || (!in_range(src, usr)) && (!istype(usr, /mob/living/silicon))))
-					return
-				active1 = null
-				active2 = null
-				t1 = lowertext(t1)
-				for(var/datum/data/record/R in data_core.general)
-					if (lowertext(R.fields["fingerprint"]) == t1)
-						active1 = R
-				if (!( active1 ))
-					temp = text("Could not locate record [].", t1)
-				else
-					for(var/datum/data/record/E in data_core.security)
-						if ((E.fields["name"] == active1.fields["name"] || E.fields["id"] == active1.fields["id"]))
-							active2 = E
-					screen = 3	*/
-
 			if ("Print Record")
 				if (!( printing ))
 					printing = 1
@@ -334,7 +312,7 @@ What a mess.*/
 					var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( loc )
 					P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"])
+						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["p_stat"], active1.fields["m_stat"])
 					else
 						P.info += "<B>General Record Lost!</B><BR>"
 					if ((istype(active2, /datum/data/record) && data_core.security.Find(active2)))
@@ -409,7 +387,6 @@ What a mess.*/
 				G.fields["real_rank"] = "Unassigned"
 				G.fields["sex"] = "Male"
 				G.fields["age"] = "Unknown"
-				G.fields["fingerprint"] = "Unknown"
 				G.fields["p_stat"] = "Active"
 				G.fields["m_stat"] = "Stable"
 				G.fields["species"] = "Human"
@@ -434,12 +411,6 @@ What a mess.*/
 							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
 								return
 							active1.fields["id"] = t1
-					if("fingerprint")
-						if (istype(active1, /datum/data/record))
-							var/t1 = copytext(sanitize(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null)  as text),1,MAX_MESSAGE_LEN)
-							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
-								return
-							active1.fields["fingerprint"] = t1
 					if("sex")
 						if (istype(active1, /datum/data/record))
 							if (active1.fields["sex"] == "Male")

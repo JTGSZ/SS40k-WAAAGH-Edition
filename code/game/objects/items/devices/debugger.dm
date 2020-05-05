@@ -9,7 +9,6 @@
 	name = "debugger"
 	desc = "Used to debug electronic equipment."
 	icon_state = "hacktool-g"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 5.0
 	w_class = W_CLASS_SMALL

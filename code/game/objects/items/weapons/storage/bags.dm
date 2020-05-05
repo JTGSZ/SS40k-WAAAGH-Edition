@@ -20,7 +20,6 @@
 	display_contents_with_number = FALSE // UNStABLE AS FuCK, turn on when it stops crashing clients
 	use_to_pickup = TRUE
 	slot_flags = SLOT_BELT
-	flags = FPRINT
 
 // -----------------------------
 //          Trash bag
@@ -485,7 +484,6 @@ var/global/list/plantbag_colour_choices = list("plantbag", "green red stripe", "
 
 	desc = "You had an uncle who was obsessed with these once."
 
-	flags = FPRINT
 	w_class = W_CLASS_LARGE
 	storage_slots = 300
 	fits_max_w_class = 300 //There is no way this could go wrong, right?

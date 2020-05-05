@@ -282,7 +282,6 @@
 	icon_state = "pipe_tomahawk_broken"
 	item_state = "pipe_tomahawk_broken"
 	hitsound = "sound/weapons/smash.ogg"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_MASK
 	force = 5.0

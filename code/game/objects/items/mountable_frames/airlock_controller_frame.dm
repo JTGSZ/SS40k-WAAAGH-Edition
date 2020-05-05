@@ -6,7 +6,6 @@
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_control_build0"
 	mount_reqs = list("simfloor")
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/mounted/frame/airlock_controller/do_build(turf/on_wall, mob/user)

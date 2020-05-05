@@ -5,7 +5,6 @@
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = Tc_POWERSTORAGE + "=1"
-	flags = FPRINT
 	force = 5.0
 	throwforce = 5.0
 	throw_speed = 3

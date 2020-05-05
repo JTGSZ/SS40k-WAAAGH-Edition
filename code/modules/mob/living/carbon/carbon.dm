@@ -242,9 +242,6 @@
 		// BEGIN HUGCODE - N3X
 		else
 			var/datum/organ/external/S = src.get_organ(M.zone_sel.selecting)
-			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
-				var/mob/living/carbon/human/H = src
-				H.w_uniform.add_fingerprint(M)
 			if(M.zone_sel.selecting == "head" && !(!S || S.status & ORGAN_DESTROYED))
 				M.visible_message( \
 					"<span class='notice'>[M] pats [src]'s head.</span>", \

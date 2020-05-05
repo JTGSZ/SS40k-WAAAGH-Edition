@@ -18,7 +18,7 @@ var/list/obj/machinery/flasher/flashers = list()
 	min_harm_label = 15 //Seems low, but this is going by the sprite. May need to be changed for balance.
 	harm_label_examine = list("<span class='info'>A label is on the bulb, but doesn't cover it.</span>", "<span class='warning'>A label covers the bulb!</span>")
 
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 
 /obj/machinery/flasher/New()
 	..()

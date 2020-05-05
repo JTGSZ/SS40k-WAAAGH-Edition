@@ -13,7 +13,6 @@
 	throw_speed = 4
 	throw_range = 3
 	fire_delay = 5
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	caliber = list(ROCKETGRENADE = 1)
@@ -69,7 +68,6 @@
 	throw_speed = 4
 	throw_range = 3
 	fire_delay = 5
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	caliber = list(ROCKETGRENADE = 1)
@@ -98,7 +96,6 @@
 	origin_tech = Tc_MATERIALS + "=5;" + Tc_COMBAT + "=6;" + Tc_PROGRAMMING + "=4"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/guns_experimental.dmi', "right_hand" = 'icons/mob/in-hand/right/guns_experimental.dmi')
 	recoil = 1
-	flags = FPRINT
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
 	fire_delay = 2

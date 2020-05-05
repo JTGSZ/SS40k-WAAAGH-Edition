@@ -10,7 +10,6 @@
 	icon_state = "watertank"
 	density = 1
 	anchored = 0
-	flags = FPRINT
 	pressure_resistance = 2*ONE_ATMOSPHERE
 
 	var/amount_per_transfer_from_this = 10
@@ -398,7 +397,7 @@
 	icon_state = "metalbarrel"
 	desc = "Originally used to store liquids & powder. It is now used as a source of comfort. This one is made of metal."
 	layer = TABLE_LAYER
-	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND // If I end up being coherent enough to make it holdable in-hand
+	flags = TWOHANDABLE | MUSTTWOHAND // If I end up being coherent enough to make it holdable in-hand
 	throwforce = 40 // Ends up dealing 20~ brute when thrown because thank you, based throw damage formula
 	var/list/exiting = list() // Manages people leaving the barrel
 

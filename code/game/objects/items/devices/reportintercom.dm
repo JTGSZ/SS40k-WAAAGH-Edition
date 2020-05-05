@@ -5,7 +5,6 @@
 	icon_state = "intercom-open"
 	item_state = "intercom-open"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/used = 0

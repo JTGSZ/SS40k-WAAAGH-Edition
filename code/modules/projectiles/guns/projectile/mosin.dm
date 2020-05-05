@@ -8,7 +8,6 @@
 	max_shells = 5
 	w_class = W_CLASS_LARGE
 	force = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	caliber = list(POINT762X55 = 1)

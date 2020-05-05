@@ -4,7 +4,6 @@
 	icon_state = "stun baton"
 	item_state = "baton0"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
@@ -208,31 +207,18 @@
 		return ..()
 	if(!isliving(hit_atom) || !status)
 		return
-	var/client/foundclient = directory[ckey(fingerprintslast)]
-	var/mob/foundmob = foundclient.mob
 	var/mob/living/L = hit_atom
-	if(foundmob && ismob(foundmob))
-		foundmob.lastattacked = L
-		L.lastattacker = foundmob
 
 	L.Stun(stunforce)
 	L.Knockdown(stunforce)
 	L.apply_effect(stunforce, STUTTER)
 
-	L.visible_message("<span class='danger'>[L] has been stunned with [src] by [foundmob ? foundmob : "Unknown"]!</span>")
+	L.visible_message("<span class='danger'>[L] has been stunned with [src]!</span>")
 	playsound(loc, stunsound, 50, 1, -1)
 
 	deductcharge(hitcost)
 
 	L.forcesay(hit_appends)
-
-	foundmob.attack_log += "\[[time_stamp()]\]<font color='red'> Stunned [L.name] ([L.ckey]) with [name]</font>"
-	L.attack_log += "\[[time_stamp()]\]<font color='orange'> Stunned by thrown [src] by [istype(foundmob) ? foundmob.name : ""] ([istype(foundmob) ? foundmob.ckey : ""])</font>"
-	log_attack("<font color='red'>Flying [src.name], thrown by [istype(foundmob) ? foundmob.name : ""] ([istype(foundmob) ? foundmob.ckey : ""]) stunned [L.name] ([L.ckey])</font>" )
-	if(!iscarbon(foundmob))
-		L.LAssailant = null
-	else
-		L.LAssailant = foundmob
 
 /obj/item/weapon/melee/baton/emp_act(severity)
 	if(bcell)

@@ -3,7 +3,7 @@
 	desc = "This is a reinforced bowl, used for crushing stuff into reagents."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mortar"
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	volume = 50
 	amount_per_transfer_from_this = 5
 	//We want the all-in-one grinder audience

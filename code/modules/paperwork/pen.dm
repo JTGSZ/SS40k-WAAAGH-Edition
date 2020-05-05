@@ -212,7 +212,6 @@ var/paperwork_library
 	origin_tech = Tc_MATERIALS + "=1"
 	sharpness = 0.5
 	sharpness_flags = SHARP_TIP
-	flags = FPRINT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 0
 	w_class = W_CLASS_TINY
@@ -284,7 +283,7 @@ var/paperwork_library
  */
 /obj/item/weapon/pen/sleepypen
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_SYNDICATE + "=5"
 
@@ -308,7 +307,7 @@ var/paperwork_library
  * Parapens
  */
  /obj/item/weapon/pen/paralysis
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_SYNDICATE + "=5"
 

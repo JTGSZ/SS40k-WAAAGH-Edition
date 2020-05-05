@@ -12,9 +12,6 @@
 
 	light_color = LIGHT_COLOR_CYAN
 
-	flags = FPRINT
-
-
 /obj/machinery/space_heater/air_conditioner/New()
 	..()
 	cell = new(src)

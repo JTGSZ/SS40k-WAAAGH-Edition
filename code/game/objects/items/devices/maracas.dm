@@ -5,7 +5,6 @@
 	icon_state = "maracas"
 	item_state = "maracas"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 

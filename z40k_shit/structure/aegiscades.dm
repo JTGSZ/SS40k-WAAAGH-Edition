@@ -3,7 +3,6 @@
 	desc = "Parts of a larger piece of metal." //Spriting a barricade tbqh
 	icon = 'z40k_shit/icons/obj/barricadesmk2.dmi' //nmevermind lol
 	icon_state = "aegisline_parts"
-	flags = FPRINT
 	siemens_coefficient = 1
 	starting_materials = list(MAT_IRON = 3750)
 	w_type = RECYK_METAL

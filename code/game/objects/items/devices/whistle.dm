@@ -5,7 +5,6 @@
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	origin_tech = Tc_MAGNETS + "=1;" + Tc_COMBAT + "=1"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/nextuse = 0

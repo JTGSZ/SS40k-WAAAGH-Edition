@@ -9,7 +9,6 @@
 	throw_speed = 5
 	throw_range = 3
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	attack_verb = list("mops", "bashes", "bludgeons", "whacks", "slaps", "whips")
 
 /obj/item/weapon/mop/New()

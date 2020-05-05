@@ -69,7 +69,6 @@
 	name = "plasma tank"
 	desc = "Contains dangerous plasma. Do not inhale. Warning: extremely flammable."
 	icon_state = "plasma"
-	flags = FPRINT
 	slot_flags = null	//they have no straps!
 
 /obj/item/weapon/tank/plasma/New()
@@ -106,7 +105,6 @@
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
 	icon_state = "emergency"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_SMALL
 	force = 4.0

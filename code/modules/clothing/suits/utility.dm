@@ -62,7 +62,6 @@
 	name = "bomb hood"
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
-	flags = FPRINT
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 100, bio = 0, rad = 0)
 	body_parts_covered = FULL_HEAD|BEARD
 	siemens_coefficient = 0
@@ -76,7 +75,6 @@
 	w_class = W_CLASS_LARGE //Bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	flags = FPRINT
 	slowdown = HARDSUIT_SLOWDOWN_HIGH
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 100, bio = 0, rad = 0)
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -98,7 +96,6 @@
 	desc = "Use in case of very large bomb."
 	icon_state = "advancedeod_helmet"
 	item_state = "advancedeod_helmet"
-	flags = FPRINT
 	armor = list(melee = 80, bullet = 80, laser = 40,energy = 20, bomb = 100, bio = 0, rad = 0)
 	body_parts_covered = FULL_HEAD|BEARD
 	species_restricted = list("exclude",VOX_SHAPED)
@@ -113,7 +110,6 @@
 	w_class = W_CLASS_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	flags = FPRINT
 	body_parts_covered = FULL_TORSO|LEGS|FEET|ARMS
 	slowdown = HARDSUIT_SLOWDOWN_MED
 	armor = list(melee = 80, bullet = 80, laser = 40,energy = 20, bomb = 100, bio = 0, rad = 0)
@@ -128,7 +124,6 @@
 	name = "radiation hood"
 	icon_state = "rad"
 	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation."
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
 	species_fit = list(VOX_SHAPED, INSECT_SHAPED)

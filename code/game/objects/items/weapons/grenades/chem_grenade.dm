@@ -529,4 +529,4 @@ obj/item/weapon/grenade/chem_grenade/exgrenade/attackby(obj/item/weapon/W, mob/u
 	desc = "..."
 	icon_state = null
 	volume = 1000
-	flags = FPRINT  | OPENCONTAINER | NOREACT
+	flags = OPENCONTAINER | NOREACT

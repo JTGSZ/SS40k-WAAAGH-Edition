@@ -8,7 +8,6 @@
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	w_class = W_CLASS_LARGE
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	fits_max_w_class = W_CLASS_MEDIUM

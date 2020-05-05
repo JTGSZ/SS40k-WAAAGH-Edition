@@ -4,7 +4,6 @@
 	icon = 'icons/obj/vending_pack.dmi'
 	icon_state = "generic"
 	density = 1
-	flags = FPRINT
 	var/targetvendomat = /obj/machinery/vending
 	var/list/stock = list()
 	var/list/secretstock = list()
@@ -233,7 +232,6 @@
 	icon_state = "generic"
 	item_state = "syringe_kit"
 	w_class = W_CLASS_LARGE
-	flags = FPRINT
 
 	var/foldable = /obj/item/stack/sheet/cardboard
 	var/foldable_amount = 4
@@ -255,7 +253,6 @@
 	icon = 'icons/obj/storage/storage.dmi'
 	icon_state = "stackopack"
 	density = 1
-	flags = FPRINT
 
 /obj/structure/stackopacks/attack_hand(mob/user )
 	to_chat(user, "<span class='notice'>You need some wirecutters to remove the coil first!</span>")

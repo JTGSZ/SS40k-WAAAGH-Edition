@@ -3,7 +3,6 @@
 	desc = "A rod of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullrod"
 	item_state = "nullrod"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 15
 	throw_speed = 1
@@ -188,7 +187,7 @@
 	attack_verb = list("stabs", "pokes", "pierces", "cuts")
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
 	w_class = W_CLASS_LARGE
-	flags = TWOHANDABLE | FPRINT
+	flags = TWOHANDABLE
 	fluff_pickup = "skewer"
 
 /obj/item/weapon/nullrod/spear/update_wield(var/mob/user)

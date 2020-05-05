@@ -7,7 +7,6 @@
 	item_state = null
 	w_class = W_CLASS_MEDIUM
 	force = 5
-	flags = FPRINT
 	siemens_coefficient = 1
 	ejectshell = 0
 	caliber = null

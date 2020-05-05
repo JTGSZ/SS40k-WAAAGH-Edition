@@ -3,7 +3,6 @@
 	desc = "To stop that awful noise."
 	icon_state = "muzzle"
 	item_state = "muzzle"
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 	gas_transfer_coefficient = 0.90
 	species_fit = list(VOX_SHAPED, INSECT_SHAPED)
@@ -25,7 +24,6 @@
 	icon_state = "sterile"
 	item_state = "sterile"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 25, rad = 0)
@@ -37,13 +35,11 @@
 	name = "fake moustache"
 	desc = "Warning: moustache is fake."
 	icon_state = "fake-moustache"
-	flags = FPRINT
 	body_parts_covered = BEARD
 	hides_identity = HIDES_IDENTITY_ALWAYS
 
 //scarves (fit in in mask slot)
 /obj/item/clothing/mask/scarf
-	flags = FPRINT
 	actions_types = list(/datum/action/item_action/toggle_mask)
 	w_class = W_CLASS_SMALL
 	gas_transfer_coefficient = 0.90
@@ -75,7 +71,6 @@
 	desc = "LOADSAMONEY"
 	icon_state = "balaclava"
 	item_state = "balaclava"
-	flags = FPRINT
 	body_parts_covered = HIDEHAIR | MOUTH
 	w_class = W_CLASS_SMALL
 	species_fit = list(VOX_SHAPED, GREY_SHAPED)
@@ -100,7 +95,6 @@
 	desc = "A rubber pig mask."
 	icon_state = "pig"
 	item_state = "pig"
-	flags = FPRINT
 	body_parts_covered = FACE
 	w_class = W_CLASS_SMALL
 	siemens_coefficient = 0.9
@@ -111,7 +105,6 @@
 	icon_state = "horsehead"
 	item_state = "horsehead"
 	species_fit = list(INSECT_SHAPED)
-	flags = FPRINT
 	body_parts_covered = FACE
 	w_class = W_CLASS_SMALL
 	var/voicechange = 0
@@ -144,7 +137,6 @@
 	desc = "A plain porcelain mask that covers the entire face. Standard attire for particularly unspeakable religions. The eyes are wide shut."
 	icon_state = "chapmask"
 	item_state = "chapmask"
-	flags = FPRINT
 	body_parts_covered = FACE
 	w_class = W_CLASS_SMALL
 	gas_transfer_coefficient = 0.90

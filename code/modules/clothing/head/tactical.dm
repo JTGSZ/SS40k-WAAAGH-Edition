@@ -20,7 +20,6 @@
 	name = "Head of Security Hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
-	flags = FPRINT
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 25, bio = 10, rad = 0)
 	body_parts_covered = HEAD
 	species_fit = list()
@@ -43,7 +42,6 @@
 	name = "riot helmet"
 	desc = "It's a helmet specifically designed to protect against close range attacks."
 	icon_state = "riot"
-	flags = FPRINT
 	armor = list(melee = 82, bullet = 15, laser = 5,energy = 5, bomb = 5, bio = 2, rad = 0)
 	siemens_coefficient = 0.7
 	body_parts_covered = FULL_HEAD
@@ -53,7 +51,6 @@
 	name = "\improper SWAT helmet"
 	desc = "They're often used by highly trained Swat Members."
 	icon_state = "swat"
-	flags = FPRINT
 	item_state = "swat"
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	heat_conductivity = INS_HELMET_HEAT_CONDUCTIVITY

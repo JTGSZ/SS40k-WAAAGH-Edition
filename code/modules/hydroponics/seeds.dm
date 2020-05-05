@@ -3,7 +3,6 @@
 	name = "packet of seeds"
 	icon = 'icons/obj/hydroponics/seeds.dmi'
 	icon_state = "seed"
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 
 	var/seed_type

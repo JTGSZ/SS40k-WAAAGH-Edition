@@ -4,7 +4,6 @@
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "utilitybelt"
 	item_state = "utility"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whips", "lashes", "disciplines")
 	restraint_resist_time = 30 SECONDS

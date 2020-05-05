@@ -6,7 +6,6 @@
 	desc = "A shield adept at blocking blunt objects from connecting with the shield's wielder."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "riot"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	force = 5
@@ -87,7 +86,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "eshield0" // eshield1 for expanded
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/shields.dmi', "right_hand" = 'icons/mob/in-hand/right/shields.dmi')
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 3
 	throwforce = 5.0
@@ -136,7 +134,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	var/active = 0.0
-	flags = FPRINT
 	siemens_coefficient = 1
 	item_state = "electronic"
 	throwforce = 10.0

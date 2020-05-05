@@ -125,7 +125,6 @@
 	desc = "Can be replenished by a recharger"
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "osipr-magfull"
-	flags = FPRINT
 	force = 1
 	throwforce = 1
 	w_class = W_CLASS_SMALL
@@ -168,7 +167,6 @@
 	desc = "Secondary ammo for OSIPR."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "osipr-core"
-	flags = FPRINT
 	force = 1
 	throwforce = 1
 	w_class = W_CLASS_SMALL

@@ -6,7 +6,6 @@
 	icon_state = "chainsword"
 	item_state = "chainsword"
 	hitsound = 'z40k_shit/sounds/chainsword_swing.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	force = 40
@@ -60,7 +59,6 @@
 	icon_state = "shieldimp"
 	item_state = "shieldimp"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	force = 10
@@ -125,7 +123,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	sharpness = 1.5
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | INSULATED_EDGE | HOT_EDGE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_SYNDICATE + "=4"

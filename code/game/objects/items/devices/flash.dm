@@ -8,7 +8,6 @@
 	w_class = W_CLASS_TINY
 	throw_speed = 4
 	throw_range = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_MAGNETS + "=2;" + Tc_COMBAT + "=1"
 	min_harm_label = 15 //Multiple layers?

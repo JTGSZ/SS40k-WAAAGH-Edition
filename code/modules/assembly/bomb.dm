@@ -6,7 +6,7 @@
 	w_class = W_CLASS_MEDIUM
 	throw_speed = 2
 	throw_range = 4
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 	siemens_coefficient = 1
 	var/status = 0   //0 - not readied //1 - bomb finished with welder
 	var/obj/item/device/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device

@@ -3,7 +3,6 @@
 	casingsound = 'sound/weapons/shotgun_shell_bounce.ogg'
 	w_class = W_CLASS_LARGE
 	force = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	caliber = list(GAUGE12 = 1, GAUGEFLARE = 1)

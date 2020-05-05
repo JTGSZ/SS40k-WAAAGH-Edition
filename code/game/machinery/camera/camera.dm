@@ -12,7 +12,6 @@ var/list/camera_names=list()
 	idle_power_usage = 5
 	active_power_usage = 10
 	plane = ABOVE_HUMAN_PLANE
-	flags = FPRINT
 
 	var/datum/wires/camera/wires = null // Wires datum
 	var/list/network = list(CAMERANET_SS13)

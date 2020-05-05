@@ -563,7 +563,6 @@
 			mobpulled.start_pulling(secondarypull)
 	else
 		step(target, get_dir(target.loc, dest))
-	target.add_fingerprint(src)
 
 /mob/proc/movement_delay()
 	return (base_movement_tally() * movement_tally_multiplier())

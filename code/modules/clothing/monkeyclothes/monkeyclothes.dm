@@ -9,7 +9,6 @@
 	throw_speed = 2
 	throw_range = 5
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	slot_flags = SLOT_ICLOTHING
 	body_parts_covered = FULL_BODY
 

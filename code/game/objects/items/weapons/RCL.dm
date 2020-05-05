@@ -6,7 +6,6 @@
 	item_state = "rcl-0"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/electronics.dmi', "right_hand" = 'icons/mob/in-hand/right/electronics.dmi')
 	opacity = 0
-	flags = FPRINT
 	siemens_coefficient = 1 //Not quite as conductive as working with cables themselves
 	force = 5.0 //Plastic is soft
 	throwforce = 5.0

@@ -572,7 +572,6 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
 	icon = 'icons/mob/slimes.dmi'
 	icon_state = "grey slime extract"
-	flags = FPRINT
 	force = 1.0
 	w_class = W_CLASS_TINY
 	throwforce = 1.0
@@ -885,80 +884,6 @@ mob/living/carbon/slime/var/temperature_resistance = T0C+75
 	icon_state = "bottle14"
 	w_class = W_CLASS_TINY
 
-////////Adamantine Golem stuff I dunno where else to put it
-/*
-/obj/item/clothing/under/golem
-	name = "adamantine skin"
-	desc = "a golem's skin"
-	icon_state = "golem"
-	item_state = "golem"
-	_color = "golem"
-	has_sensor = 0
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	canremove = 0
-
-/obj/item/clothing/suit/golem
-	name = "adamantine shell"
-	desc = "a golem's thick outer shell"
-	icon_state = "golem"
-	item_state = "golem"
-	w_class = W_CLASS_LARGE//bulky item
-	gas_transfer_coefficient = 0.90
-	permeability_coefficient = 0.50
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS|HEAD
-	slowdown = 1.0
-	clothing_flags = ONESIZEFITSALL
-	pressure_resistance = 200 * ONE_ATMOSPHERE
-	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	heat_conductivity = SPACESUIT_HEAT_CONDUCTIVITY
-	canremove = 0
-	armor = list(melee = 80, bullet = 20, laser = 20, energy = 10, bomb = 0, bio = 0, rad = 0)
-
-/obj/item/clothing/shoes/golem
-	name = "golem's feet"
-	desc = "sturdy adamantine feet"
-	icon_state = "golem"
-	item_state = null
-	canremove = 0
-	clothing_flags = NOSLIP
-	slowdown = SHOES_SLOWDOWN+1
-
-/obj/item/clothing/mask/gas/golem
-	name = "golem's face"
-	desc = "the imposing face of an adamantine golem"
-	icon_state = "golem"
-	item_state = "golem"
-	canremove = 0
-	siemens_coefficient = 0
-
-/obj/item/clothing/mask/gas/golem/acidable()
-	return 0
-
-/obj/item/clothing/gloves/golem
-	name = "golem's hands"
-	desc = "strong adamantine hands"
-	icon_state = "golem"
-	item_state = null
-	siemens_coefficient = 0
-	canremove = 0
-
-
-/obj/item/clothing/head/space/golem
-	icon_state = "golem"
-	item_state = "dermal"
-	_color = "dermal"
-	name = "golem's head"
-	desc = "a golem's head"
-	canremove = 0
-	flags = FPRINT
-	pressure_resistance = 200 * ONE_ATMOSPHERE
-	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
-	armor = list(melee = 80, bullet = 20, laser = 20, energy = 10, bomb = 0, bio = 0, rad = 0)
-	heat_conductivity = SPACESUIT_HEAT_CONDUCTIVITY
-
-/obj/item/clothing/head/space/golem/acidable()
-	return 0
-*/
 /obj/effect/golem_rune
 	anchored = 1
 	desc = "a strange rune used to create golems. It glows when spirits are nearby."

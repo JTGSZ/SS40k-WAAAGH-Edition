@@ -48,7 +48,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 0 //no conduct
 	max_amount = 60
 	origin_tech = Tc_BIOTECH + "=1"
@@ -68,7 +67,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 0 //no conduct
 	max_amount = 60
 	sheet_type = /obj/item/stack/sheet/wood
@@ -125,7 +123,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 0 //no conduct
 	max_amount = 60
 
@@ -141,7 +138,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 0 //no conduct
 	max_amount = 60
 
@@ -156,7 +152,6 @@ obj/item/stack/tile/slime
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 1
 	max_amount = 60
 

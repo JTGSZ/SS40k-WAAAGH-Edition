@@ -135,7 +135,6 @@
 	item_state = "secure-r"
 	desc = "A large briefcase with a digital locking system."
 	origin_tech = Tc_MATERIALS + "=2;" + Tc_MAGNETS + "=2;" + Tc_PROGRAMMING + "=1"
-	flags = FPRINT
 	force = 8.0
 	throw_speed = 1
 	throw_range = 4
@@ -204,7 +203,6 @@
 	icon_opened = "safe0"
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
-	flags = FPRINT
 	force = 8.0
 	w_class = 8.0
 	fits_max_w_class = 8

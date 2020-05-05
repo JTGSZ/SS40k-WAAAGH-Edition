@@ -200,7 +200,6 @@
 	desc = "A device which employs mechanical energy (i.e.: spinning the crank) to restore electrical energy to a power cell."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "crankcharger"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 5.0
 	w_class = 2.0

@@ -5,7 +5,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "bolt"
 	item_state = "bolt"
-	flags = FPRINT
 	throwforce = 8
 	w_class = W_CLASS_MEDIUM
 	sharpness = 1
@@ -44,7 +43,6 @@
 	icon_state = "crossbow"
 	item_state = "crossbow-solid"
 	w_class = W_CLASS_HUGE
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT | SLOT_BACK
 

@@ -4,7 +4,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "trophy_mount"
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	w_type = RECYK_WOOD
 	frame_material = /obj/item/stack/sheet/wood
 	sheets_refunded = 2

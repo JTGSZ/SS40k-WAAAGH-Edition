@@ -12,7 +12,6 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	_color = "blackf"
-	flags = FPRINT
 	species_fit = list(GREY_SHAPED)
 
 /obj/item/clothing/under/color/blue

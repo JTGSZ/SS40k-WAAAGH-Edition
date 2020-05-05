@@ -950,7 +950,6 @@ var/global/list/loopModeNames=list(
 	desc = "In reality, the bulk of the disc serves only decorative purposes and the many songs are recorded on a very small microchip near the center."
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "vinyl"
-	flags = FPRINT
 	siemens_coefficient = 1
 	sharpness = 1
 	force = 7

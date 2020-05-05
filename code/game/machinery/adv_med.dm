@@ -23,7 +23,7 @@
 	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
 	var/delete
 	var/temphtml
-	flags = FPRINT | HEAR
+	flags = HEAR
 
 /obj/machinery/bodyscanner/New()
 	..()

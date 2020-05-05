@@ -6,7 +6,6 @@
 	item_state = ""	//no inhands by default
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/clothing_accessories.dmi', "right_hand" = 'icons/mob/in-hand/right/clothing_accessories.dmi')
 	_color = null
-	flags = FPRINT
 	slot_flags = 0
 	w_class = W_CLASS_SMALL
 	var/accessory_exclusion = DECORATION

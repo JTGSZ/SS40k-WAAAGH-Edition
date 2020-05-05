@@ -6,7 +6,6 @@
 	icon_state = "sword"
 	w_class = W_CLASS_MEDIUM
 	hitsound = "sound/weapons/bloodyslice.ogg"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 15

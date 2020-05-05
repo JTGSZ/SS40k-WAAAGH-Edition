@@ -68,7 +68,7 @@
 	force = 10
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacks", "chops", "cleaves", "tears", "cuts")
-	flags = FPRINT | TWOHANDABLE | SLOWDOWN_WHEN_CARRIED
+	flags = TWOHANDABLE | SLOWDOWN_WHEN_CARRIED
 	slowdown = FIREAXE_SLOWDOWN
 
 /obj/item/weapon/fireaxe/update_wield(mob/user)
@@ -114,7 +114,7 @@
 	sharpness = 2
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK //it's a really sharp blade m'kay
 	w_class = W_CLASS_LARGE
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 	mech_flags = MECH_SCAN_FAIL
 	origin_tech = Tc_MAGNETS + "=4;" + Tc_COMBAT + "=5"
 
@@ -191,7 +191,7 @@
 	item_state = "binoculars"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/newsprites_lefthand.dmi', "right_hand" = 'icons/mob/in-hand/right/newsprites_righthand.dmi')
 	gender = PLURAL
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_SMALL
 	var/event_key
@@ -231,7 +231,7 @@
 	throw_range = 5
 	attack_delay = 15 // Heavy.//Come on man that makes it useless (reduced it)
 	w_class = W_CLASS_LARGE
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 	mech_flags = MECH_SCAN_ILLEGAL
 	sharpness_flags = SHARP_BLADE | SERRATED_BLADE
 	origin_tech = Tc_COMBAT + "=6" + Tc_SYNDICATE + "=6"

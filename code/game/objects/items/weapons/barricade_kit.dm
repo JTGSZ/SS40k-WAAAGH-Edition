@@ -4,7 +4,6 @@
 	desc = "Used to create all sorts of wooden fortifications ever since carpentry was invented."
 	icon = 'icons/obj/barricade.dmi'
 	icon_state = "barricade_kit"
-	flags = FPRINT
 	w_class = W_CLASS_MEDIUM
 	force = 3
 	throwforce = 3

@@ -229,7 +229,6 @@
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/food/drinks,
 		/obj/item/device/detective_scanner,
-		/obj/item/weapon/f_card
 		)
 
 /obj/item/weapon/gripper/no_use //Used when you want to hold and put things in other things, but not able to 'use' the item

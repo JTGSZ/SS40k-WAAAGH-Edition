@@ -4,7 +4,6 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
 	icon_state = "cultblade"
 	item_state = "cultblade-old"
-	flags = FPRINT
 	w_class = W_CLASS_LARGE
 	force = 30
 	throwforce = 10
@@ -63,7 +62,6 @@
 	desc = "A set of armored robes worn by the followers of Nar-Sie."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
-	flags = FPRINT
 	allowed = list(/obj/item/weapon/tome_legacy,/obj/item/weapon/melee/legacy_cultblade)
 	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
 	siemens_coefficient = 0
@@ -76,7 +74,6 @@
 	icon_state = "magus"
 	item_state = "magus"
 	desc = "A helm worn by the followers of Nar-Sie."
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	armor = list(melee = 30, bullet = 30, laser = 30,energy = 20, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
@@ -86,7 +83,6 @@
 	desc = "A set of armored robes worn by the followers of Nar-Sie."
 	icon_state = "magusred"
 	item_state = "magusred"
-	flags = FPRINT
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
 	allowed = list(/obj/item/weapon/tome_legacy,/obj/item/weapon/melee/legacy_cultblade)
 	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)

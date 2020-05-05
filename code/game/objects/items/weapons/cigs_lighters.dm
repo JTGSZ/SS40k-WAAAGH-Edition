@@ -422,7 +422,6 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	desc = "A large roll of tobacco and... well, you're not quite sure. This thing's huge!"
 	icon_state = "cigar"
 	overlay_on = "cigarlit"
-	flags = FPRINT
 	slot_flags = SLOT_MASK
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	item_state = "cigar"
@@ -536,7 +535,6 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 /obj/item/clothing/mask/cigarette/pipe
 	name = "smoking pipe"
 	desc = "A pipe, for smoking. Probably made of meershaum or something."
-	flags = FPRINT
 	icon_state = "pipe"
 	item_state = "pipe"
 	slot_flags = SLOT_MASK

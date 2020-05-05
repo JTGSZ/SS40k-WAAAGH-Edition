@@ -3,7 +3,6 @@
 	desc = "A makeshift cannon. This primitive weapon uses centuries-old technology."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "cannon"
-	flags = FPRINT
 	var/fuel_level = 0
 	var/max_fuel = 10
 	var/loaded_item = null

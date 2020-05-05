@@ -27,7 +27,6 @@
 		if(user.drop_item(src))
 			to_chat(user, "<span class='notice'>You attach \the [src] to \the [C].</span>")
 			C.attach_accessory(L)
-			transfer_fingerprints(src,L)
 			forceMove(L)
 			L.source_vest = src
 			L.update_icon()
@@ -78,7 +77,6 @@
 	name = "pirate coat"
 	desc = "Yarr."
 	icon_state = "pirate"
-	flags = FPRINT
 	species_fit = list(VOX_SHAPED)
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
 
@@ -86,7 +84,6 @@
 	name = "pirate captain coat"
 	desc = "Yarr."
 	icon_state = "hgpirate"
-	flags = FPRINT
 	species_fit = list(VOX_SHAPED)
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
 
@@ -95,7 +92,6 @@
 	name = "cyborg suit"
 	desc = "Suit for a cyborg costume."
 	icon_state = "death"//broken on mob, item fine
-	flags = FPRINT
 	siemens_coefficient = 1
 	fire_resist = T0C+5200
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
@@ -104,7 +100,6 @@
 	name = "great coat"
 	desc = "A Nazi great coat."
 	icon_state = "nazi"//broken on mob, item fine
-	flags = FPRINT
 
 
 /obj/item/clothing/suit/johnny_coat
@@ -112,14 +107,12 @@
 	desc = "Johnny~~"
 	icon_state = "johnny"//broken on mob, item fine
 	item_state = "johnny"
-	flags = FPRINT
 
 
 /obj/item/clothing/suit/justice
 	name = "justice suit"
 	desc = "this pretty much looks ridiculous."
 	icon_state = "justice"
-	flags = FPRINT
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
 
 /obj/item/clothing/suit/judgerobe
@@ -155,7 +148,6 @@
 	item_state = "space_suit_syndicate"
 	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/tank/emergency_nitrogen,/obj/item/toy)
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
 	species_fit = list(INSECT_SHAPED)
@@ -166,7 +158,6 @@
 	item_state = "s-ninja_suit"
 	desc = "A plastic replica of a ninja suit, you'll look just like a real murderous space ninja in this! This is a toy, it is not made for use in space!"
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/tank/emergency_nitrogen,/obj/item/toy)
 	body_parts_covered = ARMS|LEGS|FULL_TORSO
 
@@ -280,19 +271,16 @@
 	name = "leather coat"
 	desc = "A long, thick black leather coat."
 	icon_state = "leathercoat"//broken completely
-	flags = FPRINT
 
 /obj/item/clothing/suit/browncoat
 	name = "brown leather coat"
 	desc = "A long, brown leather coat."
 	icon_state = "browncoat"//broken completely
-	flags = FPRINT
 
 /obj/item/clothing/suit/neocoat
 	name = "black coat"
 	desc = "A flowing, black coat."
 	icon_state = "neocoat"//broken completely
-	flags = FPRINT
 
 //actual suits
 
@@ -300,7 +288,6 @@
 	name = "cream suit"
 	desc = "A cream coloured, genteel suit."
 	icon_state = "creamsuit"//broken completely
-	flags = FPRINT
 
 //stripper
 
@@ -598,7 +585,6 @@
 	desc = "A traditional Japanese kimono."
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
-	flags = FPRINT
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
 
 /obj/item/clothing/suit/kimono/ronin
@@ -618,7 +604,6 @@
 	desc = "A set of armored robes worn by the followers of Ratvar"
 	icon_state = "clockwork"
 	item_state = "clockwork"
-	flags = FPRINT
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
 	allowed = list(/obj/item/weapon/storage/bible, /obj/item/weapon/nullrod/spear)
 
@@ -628,7 +613,6 @@
 	desc = "This inquisitor attire was made for new recruits, and has excellent straightforward defense. But not nearly enough to allow an ordinary man to stand any real chance against the the wicked."
 	icon_state = "coat-church"
 	item_state = "coat-church"
-	flags = FPRINT
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|IGNORE_INV
 	allowed = list(/obj/item/weapon/nullrod, /obj/item/weapon/storage/bible)
 	armor = list(melee = 40, bullet = 25, laser = 5, energy = 0, bomb = 0, bio = 0, rad = 0)
@@ -640,7 +624,6 @@
 	desc = "A rough apron made out of leather. It is commonly used by blacksmiths to shield them from the forge's embers."
 	icon_state = "apronleather"
 	item_state = "apronleather"
-	flags = FPRINT
 	body_parts_covered = FULL_TORSO|IGNORE_INV
 	allowed = list(/obj/item/weapon/hammer)
 	armor = list(melee = 10, bullet = 5, laser = 20, energy = 0, bomb = 10, bio = 0, rad = 0)

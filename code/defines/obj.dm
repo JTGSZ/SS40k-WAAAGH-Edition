@@ -413,7 +413,6 @@ var/global/list/PDA_Manifest = list()
 	throwforce = 0.0
 	throw_speed = 1
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/weapon/beach_ball/afterattack(atom/target, mob/user )

@@ -4,7 +4,7 @@
 	icon_state = "soundsynth"
 	item_state = "radio"
 	w_class = W_CLASS_TINY
-	flags = HEAR | FPRINT
+	flags = HEAR
 	var/speak_cooldown = 0.6 SECONDS
 	var/tmp/last_speak
 

@@ -9,7 +9,6 @@
 	w_class = W_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	attack_verb = list("rings", "dings")
 
@@ -249,7 +248,6 @@
 	w_class = W_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	starting_materials = list(MAT_IRON = 3750)
 	w_type = RECYK_METAL

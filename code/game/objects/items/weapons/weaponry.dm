@@ -3,7 +3,6 @@
 	name = "banhammer"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "toyhammer"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	throwforce = 0
 	w_class = W_CLASS_TINY
@@ -21,7 +20,6 @@
 	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
 	icon_state = "sord"
 	item_state = "sord"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 2
 	throwforce = 1
@@ -45,7 +43,6 @@
 	icon_state = "claymore"
 	item_state = null
 	hitsound = 'sound/weapons/bloodyslice.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	force = 40
@@ -74,7 +71,6 @@
 	icon_state = "katana"
 	item_state = null
 	hitsound = 'sound/weapons/bloodyslice.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 40
@@ -129,7 +125,6 @@ obj/item/weapon/wirerod
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
 	item_state = "rods"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 9
 	throwforce = 10
@@ -215,7 +210,7 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user )
 	icon_state = "tacknife"
 	item_state = "knife"
 	force = 10
-	flags = FPRINT | SLOWDOWN_WHEN_CARRIED
+	flags = SLOWDOWN_WHEN_CARRIED
 	slowdown = 0.999
 
 /obj/item/weapon/kitchen/utensil/knife/tactical/New()
@@ -242,7 +237,6 @@ obj/item/weapon/banhammer/admin
 	icon_state = "bone_hammer"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
 	hitsound = 'sound/weapons/heavysmash.ogg'
-	flags = FPRINT
 	siemens_coefficient = 0
 	slot_flags = null
 	force = 25
@@ -300,7 +294,6 @@ obj/item/weapon/banhammer/admin
 	icon_state = "bullwhip"
 	item_state = null
 	hitsound = "sound/weapons/whip_crack.ogg"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 15
 	var/whipitgood_bonus = 5 //energy dome bonus
@@ -336,7 +329,6 @@ obj/item/weapon/banhammer/admin
 	icon_state = "macuahuitl"
 	item_state = "macuahuitl"
 	hitsound = "sound/weapons/smash.ogg"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 2
 	sharpness = 0

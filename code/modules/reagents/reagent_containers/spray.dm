@@ -4,7 +4,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cleaner"
 	item_state = "cleaner"
-	flags = OPENCONTAINER|FPRINT
+	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = W_CLASS_SMALL
@@ -226,7 +226,7 @@
 	icon_state = "cleaner_noreact"
 	desc = "The label says 'Finally, a use for that pesky experimental bluespace technology for the whole house to enjoy!'\n\
 	A disclaimer towards the bottom states <span class = 'warning'>Warning: Do not use around the house, or in proximity of dogs|children|clowns</span>"
-	flags = OPENCONTAINER|FPRINT|NOREACT
+	flags = OPENCONTAINER||NOREACT
 	origin_tech = Tc_BLUESPACE + "=3;" + Tc_MATERIALS + "=5"
 	amount_per_transfer_from_this = 25
 

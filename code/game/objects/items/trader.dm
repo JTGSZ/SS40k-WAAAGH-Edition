@@ -233,7 +233,7 @@
 	desc = "The Donutgiver III. A twenty-five sprinkle headgear with mission-variable voice-programmed confections. It has the words SPRINKLE, JELLY, CHAOS and FAVORITE etched onto its sides."
 	icon_state = "helmet_sec"
 	item_state = "helmet"
-	flags = HEAR | FPRINT
+	flags = HEAR 
 	var/dna_profile = null
 	var/last_donut = 0
 
@@ -385,7 +385,6 @@
 	desc = "A device so ingenius there is no way the Vox invented it. Exploits volt-induced superposition to allow battering ram to fold into itself."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "modkit"
-	flags = FPRINT
 	siemens_coefficient = 0
 	w_class = W_CLASS_SMALL
 	origin_tech = Tc_COMBAT + "=5"
@@ -574,7 +573,7 @@
 	desc = "The head of an immortal lord of the night. If only he had the right straight man partner, he'd make a good half of a crime fighting duo."
 	w_class = W_CLASS_TINY
 	icon_state = "vamphead0"
-	flags = HEAR | FPRINT
+	flags = HEAR 
 	var/obj/effect/decal/cleanable/blood/located_blood
 	var/last_used = 0
 
@@ -758,7 +757,6 @@
 	desc = "All the equipment you need to replace that useless legroom with a useful bonus equipment slot on your mech."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "modkit"
-	flags = FPRINT
 	siemens_coefficient = 0
 	w_class = W_CLASS_SMALL
 	var/working = FALSE

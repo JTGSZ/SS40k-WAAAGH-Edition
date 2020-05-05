@@ -47,7 +47,6 @@
 	icon_state = "waiter"
 	item_state = "waiter"
 	_color = "waiter"
-	flags = FPRINT
 	species_fit = list(GREY_SHAPED)
 
 /obj/item/clothing/under/rank/mailman
@@ -105,7 +104,6 @@
 	w_class = W_CLASS_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
-	flags = FPRINT
 	heat_conductivity = INS_JUMPSUIT_HEAT_CONDUCTIVITY
 
 /obj/item/clothing/under/acj
@@ -116,7 +114,6 @@
 	desc = "it's a cybernetically enhanced jumpsuit used for administrative duties."
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	flags = FPRINT
 	armor = list(melee = 100, bullet = 100, laser = 100,energy = 100, bomb = 100, bio = 100, rad = 100)
 	siemens_coefficient = 0
 	heat_conductivity = INS_JUMPSUIT_HEAT_CONDUCTIVITY

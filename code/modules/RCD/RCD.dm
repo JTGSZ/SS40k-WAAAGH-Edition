@@ -5,8 +5,6 @@
 
 	icon                = 'icons/obj/RCD.dmi'
 	icon_state          = "rcd"
-
-	flags               = FPRINT
 	siemens_coefficient = 1
 	w_class             = W_CLASS_MEDIUM
 	force               = 10

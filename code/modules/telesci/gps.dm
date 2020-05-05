@@ -7,7 +7,6 @@ var/list/SPS_list = list()
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	origin_tech = Tc_BLUESPACE + "=2;" + Tc_MAGNETS + "=2"
 	var/base_name = "global positioning system"

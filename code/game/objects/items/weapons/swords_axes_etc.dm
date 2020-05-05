@@ -28,7 +28,6 @@
 	item_state = "classic_baton"
 	origin_tech = Tc_COMBAT + "=3"
 	mech_flags = MECH_SCAN_FAIL
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 10
 
@@ -86,7 +85,6 @@
 	icon_state = "telebaton_0"
 	item_state = "telebaton_0"
 	origin_tech = Tc_COMBAT + "=2"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_SMALL
 	force = 3
@@ -228,7 +226,6 @@
 	icon_state = "bone_sword"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
 	hitsound = "sound/weapons/bloodyslice.ogg"
-	flags = FPRINT
 	siemens_coefficient = 0
 	slot_flags = null
 	force = 18

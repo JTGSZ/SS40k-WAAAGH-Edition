@@ -12,7 +12,6 @@ Refactored AI modules by N3X15
 	icon_state = "std_mod"
 	item_state = "circuitboard"
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 5.0
 	w_class = W_CLASS_SMALL

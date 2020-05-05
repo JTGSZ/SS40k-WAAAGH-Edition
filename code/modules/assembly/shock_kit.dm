@@ -5,7 +5,6 @@
 	var/obj/item/clothing/head/helmet/part1 = null
 	var/obj/item/device/radio/electropack/part2 = null
 	w_class = W_CLASS_HUGE
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/assembly/shock_kit/Destroy()

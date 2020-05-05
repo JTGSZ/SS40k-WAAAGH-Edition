@@ -7,7 +7,7 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/drinkingglass.dmi', "right_hand" = 'icons/mob/in-hand/right/drinkingglass.dmi')
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "glassbottle"
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	var/gulp_size = 5 //This is now officially broken ... need to think of a nice way to fix it.
 	possible_transfer_amounts = list(5, 10, 25)
 	volume = 50
@@ -251,7 +251,7 @@
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = null
 	volume = 150
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	siemens_coefficient = 1
 
 /obj/item/weapon/reagent_containers/food/drinks/golden_cup/tournament_26_06_2011
@@ -605,7 +605,6 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/soda_cans
 	vending_cat = "carbonated drinks"
-	flags = FPRINT //Starts sealed until you pull the tab! Lacks OPENCONTAINER for this purpose
 	//because playsound(user, 'sound/effects/can_open[rand(1,3)].ogg', 50, 1) just wouldn't work. also so badmins can varedit these
 	var/list/open_sounds = list('sound/effects/can_open1.ogg', 'sound/effects/can_open2.ogg', 'sound/effects/can_open3.ogg')
 
@@ -901,7 +900,7 @@
 	origin_tech = Tc_MATERIALS + "=1"
 	amount_per_transfer_from_this = 10
 	volume = 100
-	flags = FPRINT  | OPENCONTAINER | NOREACT | SILENTCONTAINER
+	flags = OPENCONTAINER | NOREACT | SILENTCONTAINER
 	var/shaking = FALSE
 	var/obj/item/weapon/reagent_containers/food/drinks/shaker/reaction/reaction = null
 
@@ -938,7 +937,7 @@
 		shaking = FALSE
 
 /obj/item/weapon/reagent_containers/food/drinks/shaker/reaction
-	flags = FPRINT  | OPENCONTAINER | SILENTCONTAINER
+	flags = OPENCONTAINER | SILENTCONTAINER
 
 /obj/item/weapon/reagent_containers/food/drinks/discount_shaker
 	name = "\improper discount shaker"
@@ -947,7 +946,7 @@
 	origin_tech = Tc_MATERIALS + "=1"
 	amount_per_transfer_from_this = 10
 	volume = 100
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/food/drinks/thermos
 	name = "\improper Thermos"
@@ -1491,7 +1490,6 @@
 	smashtext = ""
 	desc = "A rag stuffed into a bottle."
 	slot_flags = SLOT_BELT
-	flags = FPRINT
 	molotov = 1
 	isGlass = 1
 	icon_state = "vodkabottle" //not strictly necessary for the "abstract" molotov type that the molotov-making-process copies variables from, but is used for pre-spawned molotovs

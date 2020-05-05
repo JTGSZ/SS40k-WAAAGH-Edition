@@ -14,7 +14,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 
 	var/list/biomancy_spells = list()
 	var/list/pyromancy_spells = list()

@@ -4,7 +4,6 @@
 	icon_state = "soundsynth"
 	item_state = "radio"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/tmp/spam_flag = 0 //To prevent mashing the button to cause annoyance like a huge idiot.

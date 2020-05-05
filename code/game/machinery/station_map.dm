@@ -231,7 +231,6 @@ var/list/station_holomaps = list()
 	name					= "portable station holomap"
 	desc					= "A virtual map of the surrounding station."
 	icon_state				= "station_map"
-	flags					= FPRINT
 	siemens_coefficient		= 1
 	force					= 5.0
 	w_class					= 2.0

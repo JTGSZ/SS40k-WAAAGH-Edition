@@ -2,7 +2,6 @@
 	name = "helmet"
 	icon_state = "helmet_sec"
 	item_state = "helmet"
-	flags = FPRINT
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	body_parts_covered = HEAD|EARS|EYES|MASKHEADHAIR
 	heat_conductivity = HELMET_HEAT_CONDUCTIVITY
@@ -82,7 +81,6 @@
 	desc = "Judge, Jury, and Executioner."
 	icon_state = "dredd-helmet"
 	item_state = "dredd-helmet"
-	flags = FPRINT
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	heat_conductivity = INS_HELMET_HEAT_CONDUCTIVITY
 	species_fit = list()
@@ -94,7 +92,6 @@
 	name = "\improper Thunderdome helmet"
 	desc = "<i>'Let the battle commence!'</i>"
 	icon_state = "thunderdome"
-	flags = FPRINT
 	item_state = "thunderdome"
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 25, bio = 10, rad = 0)
 	siemens_coefficient = 1
@@ -103,8 +100,6 @@
 	name = "gladiator helmet"
 	desc = "Ave, Imperator, morituri te salutant."
 	icon_state = "gladiator"
-	flags = FPRINT
-	item_state = "gladiator"
 	siemens_coefficient = 1
 
 /obj/item/clothing/head/helmet/roman
@@ -163,7 +158,6 @@
 	name = "DRN-001 Helmet"
 	desc = "The helmet of the DRN-001 model. A simple, sturdy blue helmet."
 	icon_state = "megahelmet"
-	flags = FPRINT
 	body_parts_covered = HEAD|EARS
 	item_state = "megahelmet"
 	siemens_coefficient = 1
@@ -172,7 +166,6 @@
 	name = "Prototype Helmet"
 	desc = "Shiny red helmet with white accents and a built in shaded visor that does absolutely nothing, nothing but look rad as hell."
 	icon_state = "protohelmet"
-	flags = FPRINT
 	item_state = "protohelmet"
 	siemens_coefficient = 1
 
@@ -180,7 +173,6 @@
 	name = "Broken Helmet"
 	desc = "The product of twelve years of work by an eccentric and brilliant loner. A helmet belonging to the perfect man; an unbeatable machine."
 	icon_state = "breakhelmet"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	item_state = "breakhelmet"
 	siemens_coefficient = 1
@@ -189,7 +181,6 @@
 	name = "Maverick Hunter Helmet"
 	desc = "Heavily armored upgrade to the DRN-001 model's helmet, now comes with a pointless red crystal thing!"
 	icon_state = "megaxhelmet"
-	flags = FPRINT
 	body_parts_covered = HEAD|EARS
 	item_state = "megaxhelmet"
 	siemens_coefficient = 1
@@ -198,7 +189,6 @@
 	name = "Digouter Helmet"
 	desc = "A sturdy helmet, fortified to protect from falling rocks or buster shots."
 	icon_state = "volnutthelmet"
-	flags = FPRINT
 	body_parts_covered = HEAD|EARS
 	item_state = "volnutthelmet"
 	armor = list(melee = 50, bullet = 40, laser = 40,energy = 40, bomb = 5, bio = 0, rad = 0)
@@ -208,7 +198,6 @@
 	name = "Sniper Helmet"
 	desc = "Helmet belonging to one of the many mass produced 'Joe' type robots."
 	icon_state = "joehelmet"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	item_state = "joehelmet"
 	siemens_coefficient = 1
@@ -217,7 +206,6 @@
 	name = "Doomguy's helmet"
 	desc = ""
 	icon_state = "doom"
-	flags = FPRINT
 	item_state = "doom"
 	body_parts_covered = FULL_HEAD|BEARD
 	armor = list(melee = 50, bullet = 40, laser = 40,energy = 40, bomb = 5, bio = 0, rad = 0)
@@ -230,7 +218,6 @@
 	item_state = "knight_green"
 	body_parts_covered = FULL_HEAD|BEARD
 	armor = list(melee = 20, bullet = 5, laser = 2,energy = 2, bomb = 2, bio = 2, rad = 0)
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/clothing/head/helmet/knight/blue
@@ -278,7 +265,6 @@
 	icon_state = "chainmail_head"
 	item_state = "chainmail_head"
 	armor = list(melee = 10, bullet = 15, laser = 2,energy = 2, bomb = 2, bio = 2, rad = 0)
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/clothing/head/helmet/snail_helm
@@ -288,5 +274,4 @@
 	item_state = "snail_helm"
 	armor = list(melee = 10, bullet = 5, laser = 2,energy = 2, bomb = 2, bio = 2, rad = 0)
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/hats.dmi', "right_hand" = 'icons/mob/in-hand/right/hats.dmi')
-	flags = FPRINT
 	siemens_coefficient = 1

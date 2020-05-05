@@ -16,7 +16,6 @@
 	var/frequency = 1451
 	var/broadcasting = null
 	var/listening = 1.0
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_SMALL
 	item_state = "electronic"

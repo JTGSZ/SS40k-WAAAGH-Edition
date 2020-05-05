@@ -403,28 +403,6 @@
 	block = COLDBLOCK
 	..()
 
-/obj/item/weapon/dnainjector/nofail/noprints
-	name = "DNA-Injector (No Prints)"
-	desc = "Better than a pair of budget insulated gloves."
-	datatype = DNA2_BUF_SE
-	value = 0xFFF
-	//block = 2
-
-/obj/item/weapon/dnainjector/nofail/noprints/initialize()
-	block = NOPRINTSBLOCK
-	..()
-
-/obj/item/weapon/dnainjector/nofail/antinoprints
-	name = "DNA-Injector (Anti-No Prints)"
-	desc = "Not quite as good as a pair of budget insulated gloves."
-	datatype = DNA2_BUF_SE
-	value = 0x001
-	//block = 2
-
-/obj/item/weapon/dnainjector/nofail/antinoprints/initialize()
-	block = NOPRINTSBLOCK
-	..()
-
 /obj/item/weapon/dnainjector/nofail/insulation
 	name = "DNA-Injector (Shock Immunity)"
 	desc = "Better than a pair of real insulated gloves."
@@ -1357,7 +1335,6 @@
         /obj/item/weapon/dnainjector/nofail/runfast,
         /obj/item/weapon/dnainjector/nofail/morph,
         /obj/item/weapon/dnainjector/nofail/cold,
-        /obj/item/weapon/dnainjector/nofail/noprints,
         /obj/item/weapon/dnainjector/nofail/insulation,
         /obj/item/weapon/dnainjector/nofail/midgit,
         /obj/item/weapon/dnainjector/nofail/sober,

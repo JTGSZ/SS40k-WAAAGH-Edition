@@ -1,7 +1,6 @@
 /obj/item/clothing/head/leather
 	name = "leather cap"
 	desc = "Crafted by hand, should stop a good knock on the head, but don't expect much from a glorified old rugby helmet."
-	flags = FPRINT
 	icon_state = "helmet_leather"
 	item_state = "helmet_leather"
 	body_parts_covered = HEAD|EARS

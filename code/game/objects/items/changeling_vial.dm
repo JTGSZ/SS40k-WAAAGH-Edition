@@ -3,7 +3,6 @@
 	desc = "An old, dusty vial. The secure cap on the top doesn't look like it will be easy to remove."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "secure_vial"
-	flags = FPRINT
 	w_class = 1
 	var/genomes_to_give = 10 //seeing as the new changeling won't have had a whole round to prepare, they get some genomes free
 

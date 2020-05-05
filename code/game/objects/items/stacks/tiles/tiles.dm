@@ -11,7 +11,6 @@
 	throwforce = 10
 	throw_speed = 4
 	throw_range = 20
-	flags = FPRINT
 	siemens_coefficient = 1
 	max_amount = 60
 	var/active

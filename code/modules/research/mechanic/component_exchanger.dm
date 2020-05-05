@@ -8,7 +8,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "comp_exchanger"
 	gender = NEUTER
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_SMALL
 	item_state = "electronic"

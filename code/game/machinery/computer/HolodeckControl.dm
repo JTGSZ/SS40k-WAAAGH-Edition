@@ -552,7 +552,7 @@
 	throw_range = 5
 	throwforce = 0
 	w_class = W_CLASS_SMALL
-	flags = FPRINT | NOBLOODY
+	flags = NOBLOODY
 	var/active = 0
 
 /obj/item/weapon/holo/esword/green/New()

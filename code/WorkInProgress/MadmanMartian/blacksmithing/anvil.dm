@@ -11,7 +11,7 @@
 	icon_state = "anvil"
 	impactsound = 'sound/misc/clang.ogg'
 	layer = TABLE_LAYER
-	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND
+	flags = TWOHANDABLE | MUSTTWOHAND
 	density = 1
 	force = 40 //as much as a wielded fireaxe
 	throwforce = 40

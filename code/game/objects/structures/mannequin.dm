@@ -17,7 +17,7 @@
 	anchored = 1
 	plane = ABOVE_HUMAN_PLANE
 	layer = VEHICLE_LAYER
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 	var/trueForm = /mob/living/simple_animal/hostile/mannequin
 	var/pedestal = /obj/item/trash/mannequin
 	var/datum/species/species
@@ -1207,7 +1207,7 @@
 	anchored = 1
 	plane = ABOVE_HUMAN_PLANE
 	layer = VEHICLE_LAYER
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 	trueForm = /mob/living/simple_animal/hostile/mannequin/cult
 	species_type = /datum/species/human
 

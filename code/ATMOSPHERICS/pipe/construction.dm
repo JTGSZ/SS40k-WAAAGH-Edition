@@ -62,7 +62,6 @@ var/global/list/heat_pipes = list(PIPE_HE_STRAIGHT, PIPE_HE_BENT, PIPE_JUNCTION,
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	item_state = "buildpipe"
-	flags = FPRINT
 	w_class = W_CLASS_MEDIUM
 	level = 2
 
@@ -91,7 +90,6 @@ var/global/list/heat_pipes = list(PIPE_HE_STRAIGHT, PIPE_HE_BENT, PIPE_JUNCTION,
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	item_state = "buildpipe"
-	flags = FPRINT
 	w_class = W_CLASS_MEDIUM
 	level = 2
 
@@ -563,7 +561,6 @@ var/list/manifold_pipes = list(PIPE_MANIFOLD4W, PIPE_INSUL_MANIFOLD4W, PIPE_HE_M
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "meter"
 	item_state = "buildpipe"
-	flags = FPRINT
 	w_class = W_CLASS_LARGE
 
 	var/layer_to_make = PIPING_LAYER_DEFAULT
@@ -602,7 +599,6 @@ var/list/manifold_pipes = list(PIPE_MANIFOLD4W, PIPE_INSUL_MANIFOLD4W, PIPE_HE_M
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor0"
 	item_state = "buildpipe"
-	flags = FPRINT
 	w_class = W_CLASS_LARGE
 
 /obj/item/pipe_gsensor/attackby(var/obj/item/weapon/W, var/mob/user )

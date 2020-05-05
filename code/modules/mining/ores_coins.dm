@@ -282,7 +282,7 @@
 	item_state = "Gibtonite ore"
 	w_class = W_CLASS_LARGE
 	throw_range = 0
-	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND
+	flags = TWOHANDABLE | MUSTTWOHAND
 	var/primed = 0
 	var/det_time = 100
 	var/det_quality = 1 //How pure this gibtonite is, determines the explosion produced by it and is derived from the det_time of the rock wall it was taken from, higher shipping_value = better
@@ -365,7 +365,6 @@
 	name = "coin"
 	desc = "Long phased out in favor of galactic credits."
 	icon_state = "coin"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 1
 	throwforce = 1

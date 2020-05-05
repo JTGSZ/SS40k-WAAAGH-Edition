@@ -4,7 +4,6 @@
 	name = "\improper CentComm. hat"
 	icon_state = "centcom"
 	desc = "It's good to be emperor."
-	flags = FPRINT
 	item_state = "centhat"
 	siemens_coefficient = 0.9
 
@@ -13,7 +12,6 @@
 	icon_state = "hairflower"
 	desc = "Smells nice."
 	item_state = "hairflower"
-	flags = FPRINT
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
@@ -26,7 +24,6 @@
 	desc = "It's an amish looking hat."
 	icon_state = "tophat"
 	item_state = "that"
-	flags = FPRINT
 	siemens_coefficient = 0.9
 	wizard_garb = 5 //Treat this as a % chance to be a magic hat to start. It becomes TRUE/FALSE later.
 	var/timer
@@ -61,19 +58,16 @@
 	name = "redcoat's hat"
 	icon_state = "redcoat"
 	desc = "<i>'I guess it's a redhead.'</i>"
-	flags = FPRINT
 
 /obj/item/clothing/head/mailman
 	name = "mailman's hat"
 	icon_state = "mailman"
 	desc = "<i>'Right-on-time'</i> mail service head wear."
-	flags = FPRINT
 
 /obj/item/clothing/head/plaguedoctorhat
 	name = "plague doctor's hat"
 	desc = "These were once used by Plague doctors. They're pretty much useless."
 	icon_state = "plaguedoctor"
-	flags = FPRINT
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	sterility = 100
@@ -88,7 +82,6 @@
 	name = "nurse's hat"
 	desc = "It allows quick identification of trained medical personnel."
 	icon_state = "nursehat"
-	flags = FPRINT
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/syndicatefake
@@ -96,7 +89,6 @@
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	desc = "A plastic replica of a syndicate agent's space helmet, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD
 	siemens_coefficient = 2.0
 
@@ -105,7 +97,6 @@
 	icon_state = "s-ninja"
 	item_state = "s-ninja"
 	desc = "A plastic replica of a space ninja's hood, you'll look just like a real murderous space ninja in this! This is a toy, it is not made for use in space!"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	siemens_coefficient = 2.0
 
@@ -113,7 +104,6 @@
 	name = "cueball helmet"
 	desc = "A large, featureless white orb mean to be worn on your head. How do you even see out of this thing?"
 	icon_state = "cueball"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	item_state="cueball"
 
@@ -122,7 +112,6 @@
 	desc = "It's a green bandana with some fine nanotech lining."
 	icon_state = "greenbandana"
 	item_state = "greenbandana"
-	flags = FPRINT
 
 /obj/item/clothing/head/beret/highlander
 	name = "highlander's beret"
@@ -136,7 +125,6 @@
 	desc = "A helmet made out of a box."
 	icon_state = "cardborg_h"
 	item_state = "cardborg_h"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	starting_materials = list(MAT_CARDBOARD = 3750)
 	w_type=RECYK_MISC
@@ -150,7 +138,6 @@
 	desc = "fight for what's righteous!"
 	icon_state = "justicered"
 	item_state = "justicered"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 
 /obj/item/clothing/head/justice/blue
@@ -173,7 +160,6 @@
 	name = "rabbit ears"
 	desc = "Wearing these makes you looks useless, and only good for your sex appeal."
 	icon_state = "bunny"
-	flags = FPRINT
 
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
@@ -214,28 +200,24 @@
 	icon_state = "bowler_hat"
 	item_state = "bowler_hat"
 	desc = "For that industrial age look."
-	flags = FPRINT
 
 /obj/item/clothing/head/beaverhat
 	name = "beaver hat"
 	icon_state = "beaver_hat"
 	item_state = "beaver_hat"
 	desc = "Like a top hat, but made of beavers."
-	flags = FPRINT
 
 /obj/item/clothing/head/boaterhat
 	name = "boater hat"
 	icon_state = "boater_hat"
 	item_state = "boater_hat"
 	desc = "Goes well with celery."
-	flags = FPRINT
 
 /obj/item/clothing/head/squatter_hat
 	name = "slav squatter hat"
 	icon_state = "squatter_hat"
 	item_state = "squatter_hat"
 	desc = "Cyka blyat."
-	flags = FPRINT
 
 /obj/item/clothing/head/fedora
 	name = "\improper fedora"
@@ -243,7 +225,6 @@
 	item_state = "fedora"
 	actions_types = list(/datum/action/item_action/tip_fedora)
 	desc = "A great hat ruined by being within fifty yards of you."
-	flags = FPRINT
 	species_fit = list(INSECT_SHAPED)
 
 /obj/item/clothing/head/fedora/OnMobLife(var/mob/living/carbon/human/wearer)
@@ -284,7 +265,6 @@
 	icon_state = "fez"
 	item_state = "fez"
 	desc = "Put it on your monkey, make lots of cash money."
-	flags = FPRINT
 
 //end bs12 hats
 
@@ -339,7 +319,6 @@
 	desc = "No one cares who you are until you put on the mask."
 	icon_state = "bmhead"
 	item_state = "bmhead"
-	flags = FPRINT
 	body_parts_covered = HEAD|EARS|EYES
 
 /obj/item/clothing/head/stalhelm
@@ -347,35 +326,30 @@
 	desc = "Ein Helm, um die Nazi-Interesse an fremden Raumstationen zu sichern."
 	icon_state = "stalhelm"
 	item_state = "stalhelm"
-	flags = FPRINT
 
 /obj/item/clothing/head/panzer
 	name = "Panzer Cap"
 	desc = "Ein Hut passen nur für die größten Tanks."
 	icon_state = "panzercap"
 	item_state = "panzercap"
-	flags = FPRINT
 
 /obj/item/clothing/head/naziofficer
 	name = "Officer Cap"
 	desc = "Ein Hut von Offizieren in der Nazi-Partei getragen."
 	icon_state = "officercap"
 	item_state = "officercap"
-	flags = FPRINT
 
 /obj/item/clothing/head/russobluecamohat
 	name = "russian blue camo beret"
 	desc = "A symbol of discipline, honor, and lots and lots of removal of some type of skewered food."
 	icon_state = "russobluecamohat"
 	item_state = "russobluecamohat"
-	flags = FPRINT
 
 /obj/item/clothing/head/russofurhat
 	name = "russian fur hat"
 	desc = "Russian winter got you down? Maybe your enemy, but not you!"
 	icon_state = "russofurhat"
 	item_state = "russofurhat"
-	flags = FPRINT
 
 /obj/item/clothing/head/lordadmiralhat
 	name = "lord admiral's hat"
@@ -388,28 +362,24 @@
 	desc = "A hat fit for a fool."
 	icon_state = "jesterhat"
 	item_state = "jesterhat"
-	flags = FPRINT
 
 /obj/item/clothing/head/libertyhat
 	name = "liberty top hat"
 	desc = "Show everyone just how patriotic you are."
 	icon_state = "libertyhat"
 	item_state = "libertyhat"
-	flags = FPRINT
 
 /obj/item/clothing/head/maidhat
 	name = "maid headband"
 	desc = "Do these even do anything besides look cute?"
 	icon_state = "maidhat"
 	item_state = "maidhat"
-	flags = FPRINT
 
 /obj/item/clothing/head/maidhat
 	name = "maid headband"
 	desc = "Do these even do anything besides look cute?"
 	icon_state = "maidhat"
 	item_state = "maidhat"
-	flags = FPRINT
 
 /obj/item/clothing/head/mitre
 	name = "mitre"
@@ -454,7 +424,6 @@
 	icon_state = "xmashat"
 	item_state = "xmashat"
 	desc = "A crappy paper hat that you are REQUIRED to wear."
-	flags = FPRINT
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/head/pajamahat
@@ -494,21 +463,18 @@
 	icon_state = "clockwork"
 	item_state = "clockwork"
 	desc = "A hood worn by the followers of Ratvar."
-	flags = FPRINT
 
 /obj/item/clothing/head/franken_bolt
 	name = "neck bolts"
 	desc = "The result of extreme medical malpractice to save a patient, or a trip to the robotics lab."
 	icon_state = "neckbolts"
 	item_state = "neckbolts"
-	flags = FPRINT
 
 /obj/item/clothing/head/alien_antenna
 	name = "alien antennae"
 	desc = "Take us to your leader/captain/clown."
 	icon_state = "antennae"
 	item_state = "antennae"
-	flags = FPRINT
 
 /obj/item/clothing/head/elfhat
 	name = "elf hat"

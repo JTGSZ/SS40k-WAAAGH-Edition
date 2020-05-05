@@ -4,7 +4,6 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
 	var/uses = 4.0
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 	item_state = "paper"
 	throw_speed = 4

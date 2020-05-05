@@ -3,7 +3,6 @@
 	desc = "Some rods. Can be used for building, or something."
 	singular_name = "metal rod"
 	icon_state = "rods"
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_MEDIUM
 	force = 9.0

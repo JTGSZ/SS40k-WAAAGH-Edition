@@ -2,7 +2,6 @@
 	name = "hard hat"
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
 	icon_state = "hardhat0_yellow"
-	flags = FPRINT
 	item_state = "hardhat0_yellow"
 	light_power = 1.5
 	var/brightness_on = 4 //luminosity when on
@@ -33,7 +32,6 @@
 	item_state = "hardhat0_red"
 	_color = "red"
 	name = "firefighter helmet"
-	flags = FPRINT
 	heat_conductivity = INS_HELMET_HEAT_CONDUCTIVITY
 	pressure_resistance = 3 * ONE_ATMOSPHERE
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -43,7 +41,6 @@
 	item_state = "hardhat0_white"
 	_color = "white"
 	name = "white hard hat"
-	flags = FPRINT
 	pressure_resistance = 3 * ONE_ATMOSPHERE
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 

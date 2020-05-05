@@ -284,7 +284,7 @@
 	name = "time release pill"
 	desc = "A pill which will not be metabolized until all of the sugar inside metabolizes. By extension, the chemicals inside do not react with one another until entering the body. Unlike other pills, it is specially designed to be compatible with droppers and syringes."
 	icon_state = "pill7" //grey oblong
-	flags = FPRINT | NOREACT
+	flags = NOREACT
 
 /obj/item/weapon/reagent_containers/pill/time_release/ingest(mob/M )
 	if(!reagents)
@@ -339,7 +339,7 @@
 
 
 /obj/item/weapon/reagent_containers/pill/random/maintenance
-	flags = FPRINT | NOREACT
+	flags = NOREACT
 	possible_combinations = list(
 		list(SYNTHOCARISOL = 10, BICARIDINE = 10) = 2, // = 2 means 2 times as common, = 0.5 means 50% as common
 		list(KELOTANE = 10, DERMALINE = 10) = 2,

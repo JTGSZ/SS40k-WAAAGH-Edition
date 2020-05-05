@@ -21,7 +21,7 @@
 
 	wires = WIRE_PULSE | WIRE_RECEIVE
 
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 
 	secured = 0
 

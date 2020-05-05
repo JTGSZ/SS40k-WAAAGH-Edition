@@ -14,7 +14,6 @@ var/list/arcane_tomes = list()
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	var/state = TOME_CLOSED
 	var/can_flick = 1
@@ -496,7 +495,6 @@ var/list/arcane_tomes = list()
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
-	flags = FPRINT
 	w_class = W_CLASS_LARGE
 	force = 30
 	throwforce = 10
@@ -589,7 +587,6 @@ var/list/arcane_tomes = list()
 	pixel_y = -16 * PIXEL_MULTIPLIER
 	icon_state = "soulblade"
 	item_state = "soulblade"
-	flags = FPRINT
 	w_class = W_CLASS_LARGE
 	force = 30//30 brute, plus 5 burn
 	throwforce = 20
@@ -1020,7 +1017,6 @@ var/list/arcane_tomes = list()
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/cultstuff.dmi', "right_hand" = 'icons/mob/in-hand/right/cultstuff.dmi')
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
-	flags = FPRINT
 	allowed = list(/obj/item/weapon/melee/cultblade,/obj/item/weapon/melee/soulblade,/obj/item/weapon/tome,/obj/item/weapon/talisman,/obj/item/weapon/blood_tesseract)
 	armor = list(melee = 50, bullet = 30, laser = 30,energy = 20, bomb = 25, bio = 25, rad = 0)
 	siemens_coefficient = 0
@@ -1136,7 +1132,6 @@ var/list/arcane_tomes = list()
 	icon_state = "magus"
 	item_state = "magus"
 	desc = "A helm."
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	armor = list(melee = 30, bullet = 30, laser = 30,energy = 20, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
@@ -1146,7 +1141,6 @@ var/list/arcane_tomes = list()
 	desc = "A set of armored robes."
 	icon_state = "magusred"
 	item_state = "magusred"
-	flags = FPRINT
 	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
 	allowed = list(/obj/item/weapon/tome,/obj/item/weapon/melee/cultblade)
 	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)

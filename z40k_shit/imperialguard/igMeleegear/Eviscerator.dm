@@ -23,7 +23,7 @@
 	sharpness = 50
 	sharpness_flags = SHARP_TIP | SHARP_BLADE | CHOPWOOD | CUT_WALL | CUT_AIRLOCK //it's a really sharp blade m'kay
 	w_class = W_CLASS_LARGE
-	flags = FPRINT | TWOHANDABLE | MUSTTWOHAND
+	flags = TWOHANDABLE | MUSTTWOHAND
 	hitsound = 'z40k_shit/sounds/chainsword_evishit.ogg'
 	fire_sound = null
 	var/revvin_on = FALSE //Are we currently on?

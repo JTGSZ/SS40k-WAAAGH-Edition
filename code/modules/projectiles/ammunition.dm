@@ -3,7 +3,6 @@
 	desc = "A bullet casing."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "s-casing"
-	flags = FPRINT
 	siemens_coefficient = 1
 	throwforce = 1
 	w_class = W_CLASS_TINY
@@ -45,7 +44,6 @@
 	desc = "A box of ammo."
 	icon_state = "357"
 	icon = 'icons/obj/ammo.dmi'
-	flags = FPRINT
 	siemens_coefficient = 1
 	item_state = "syringe_kit"
 	starting_materials = list(MAT_IRON = 50000)

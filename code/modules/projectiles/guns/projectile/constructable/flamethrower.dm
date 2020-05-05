@@ -5,7 +5,6 @@
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/items_lefthand.dmi', "right_hand" = 'icons/mob/in-hand/right/items_righthand.dmi')
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 3.0
 	throwforce = 10.0

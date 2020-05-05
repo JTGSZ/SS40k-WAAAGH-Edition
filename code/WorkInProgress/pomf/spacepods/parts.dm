@@ -5,7 +5,6 @@
 /obj/item/pod_parts/core
 	name="Space Pod Core"
 	icon_state = "core"
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_MATERIALS + "=4;" + Tc_PLASMATECH + "=3;" + Tc_BLUESPACE + "=2;" + Tc_ENGINEERING + "=3"
 

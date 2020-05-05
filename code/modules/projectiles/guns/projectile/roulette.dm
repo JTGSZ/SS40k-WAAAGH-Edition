@@ -7,7 +7,6 @@
 	w_class = W_CLASS_SMALL
 	starting_materials = list(MAT_IRON = 1000)
 	w_type = RECYK_METAL
-	flags = FPRINT
 	siemens_coefficient = 1
 	ejectshell = 0
 	caliber = null

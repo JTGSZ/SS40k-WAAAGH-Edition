@@ -4,7 +4,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "fuse_bomb_5"
 	item_state = "fuse_bomb"
-	flags = FPRINT
 	var/fuse_lit = 0
 	var/seconds_left = 5
 

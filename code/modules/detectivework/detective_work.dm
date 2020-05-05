@@ -72,8 +72,7 @@ var/const/FINGERPRINT_COMPLETE = 6	//This is the output of the stringpercent(pri
 	circuit = "/obj/item/weapon/circuitboard/forensic_computer"
 	light_color = LIGHT_COLOR_RED
 
-//Here's the structure for files: each entry is a list, and entry one in that list is the string of their
-//full and scrambled fingerprint.  This acts as the method to arrange evidence.  Each subsequent entry is list
+//Here's the structure for files: each entry is a list, and entry one in that list is the string of their shit
 //in the form (from entries):
 //	1: Object
 //	2: All prints on the object
@@ -180,25 +179,6 @@ var/const/FINGERPRINT_COMPLETE = 6	//This is the output of the stringpercent(pri
 							scanning = I
 			else
 				to_chat(usr, "Invalid Object Rejected.")
-		if("card")  //Processing a fingerprint card.
-			var/mob/M = usr
-			var/obj/item/I = M.get_active_hand()
-			if(!(I && istype(I,/obj/item/weapon/f_card)))
-				I = card
-			if(I && istype(I,/obj/item/weapon/f_card))
-				card = I
-				if(!card.fingerprints)
-					card.fingerprints = list()
-				if(card.amount > 1 || !card.fingerprints.len)
-					to_chat(usr, "<span class='warning'>ERROR: No prints/too many cards.</span>")
-					if(card.loc == src)
-						card.forceMove(src.loc)
-					card = null
-					return
-				if(M.drop_item(I, src))
-					process_card()
-			else
-				to_chat(usr, "<span class='warning'>Invalid Object Rejected.</span>")
 		if("database") //Viewing all records in each database
 			canclear = 1
 			if(href_list["delete_record"])
@@ -394,11 +374,7 @@ var/const/FINGERPRINT_COMPLETE = 6	//This is the output of the stringpercent(pri
 			else
 				to_chat(usr, "ERROR.  Database not found!<br>")
 		if("scan")
-			if(istype(scanning,/obj/item/weapon/f_card))
-				card = scanning
-				scanning = initial(scanning)
-				process_card()
-			else if(scanning)
+			if(scanning)
 				scan_process = 3
 				scan_data = "Scanning [scanning]: 25% complete"
 				updateDialog()
@@ -433,18 +409,7 @@ var/const/FINGERPRINT_COMPLETE = 6	//This is the output of the stringpercent(pri
 							scan_data += "Blood type: [scanning.blood_DNA[blood]]\nDNA: [blood]<br><br>"
 					else
 						scan_data += "No Blood Found<br><br>"
-					if(!scanning.fingerprints)
-						scan_data += "No Fingerprints Found<br><br>"
-					else
-						scan_data += "Isolated [scanning.fingerprints.len] Fingerprints.  Loaded into database.<br>"
 						add_data(scanning)
-
-					if(!scanning.suit_fibers)
-						scan_data += "No Fibers/Materials Located<br>"
-					else
-						scan_data += "Fibers/Materials Found:<br>"
-						for(var/data in scanning.suit_fibers)
-							scan_data += "- [data]<br>"
 
 					var/is_scanner = istype(scanning, /obj/item/device/detective_scanner)
 					if(istype(scanning, /obj/item/device/pda))
@@ -455,8 +420,6 @@ var/const/FINGERPRINT_COMPLETE = 6	//This is the output of the stringpercent(pri
 					if(is_scanner)
 						scan_data += "<br><b>Data transfered from \the [scanning] to Database.</b><br>"
 						add_data_scanner(scanning)
-					else if(!scanning.fingerprints)
-						scan_data += "<br><b><a href='?src=\ref[src];operation=add'>Add to Database?</a></b><br>"
 			else
 				temp = "Scan Failed: No Object"
 
@@ -628,28 +591,6 @@ var/const/FINGERPRINT_COMPLETE = 6	//This is the output of the stringpercent(pri
 		CRASH("Fucking hell.  Something went wrong, and it tried to update a null print or something.  Tell SkyMarshal (and give him this call stack)")
 	return
 
-/obj/machinery/computer/forensic_scanning/proc/process_card()	//Same as above, but for fingerprint cards
-	if(card.fingerprints && !(card.amount > 1) && islist(card.fingerprints) && files && files.len)
-		to_chat(usr, "You insert the card, and it is destroyed by the machinery in the process of comparing prints.")
-		var/found = 0
-		for(var/master_print in card.fingerprints)
-			var/list/data_entry = files[master_print]
-			if(data_entry)
-				found = 1
-				data_entry[1] = master_print
-		if(found)
-			to_chat(usr, "The machinery finds it can complete a match.")
-		else
-			to_chat(usr, "No match found.")
-		qdel(card)
-		card = null
-	else
-		to_chat(usr, "<span class='warning'>ERROR: No prints/too many cards.</span>")
-		if(card.loc == src)
-			card.forceMove(src.loc)
-		card = null
-		return
-	return
 
 /obj/machinery/computer/forensic_scanning/proc/delete_record(var/atom_ref)	//Deletes an entry in the misc database at the given location
 	if(misc && misc.len)

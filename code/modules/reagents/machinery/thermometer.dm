@@ -3,7 +3,6 @@
 	desc = "A device that measures temperature using the expansion of mercury when exposed to heat."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "therm_mercury"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_TINY
 	starting_materials = list(MAT_GLASS = 500)

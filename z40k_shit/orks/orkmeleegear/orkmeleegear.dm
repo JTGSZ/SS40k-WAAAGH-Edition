@@ -10,7 +10,6 @@
 	icon_state = "choppa"
 	item_state = "choppa"
 	hitsound = 'sound/weapons/bloodyslice.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	force = 35
@@ -66,7 +65,6 @@
 	icon_state = "nobshield"
 	item_state = "nobshield"
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	force = 15

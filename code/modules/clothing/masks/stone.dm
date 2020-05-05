@@ -3,7 +3,6 @@
 	desc = "An old, cracked stone mask. Its mouth seems to sport a pair of fangs."
 	icon_state = "stone"
 	item_state = "stone"
-	flags = FPRINT
 	body_parts_covered = FACE
 	w_class = 2
 	siemens_coefficient = 0 //it's made of stone, after all

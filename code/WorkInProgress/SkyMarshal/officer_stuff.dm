@@ -3,15 +3,13 @@
 
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
-	desc = "A black beret adorned with the shield—a silver kite shield with an engraved sword—of the Nanotrasen security forces, announcing to the world that the wearer is a defender of Nanotrasen."
+	desc = "A black beret adorned with the shieldï¿½a silver kite shield with an engraved swordï¿½of the Nanotrasen security forces, announcing to the world that the wearer is a defender of Nanotrasen."
 	icon_state = "centcomofficerberet"
-	flags = FPRINT
 
 /obj/item/clothing/head/beret/centcom/captain
 	name = "captains beret"
-	desc = "A white beret adorned with the shield—a cobalt kite shield with an engraved sword—of the Nanotrasen security forces, worn only by those captaining a vessel of the Nanotrasen Navy."
+	desc = "A white beret adorned with the shieldï¿½a cobalt kite shield with an engraved swordï¿½of the Nanotrasen security forces, worn only by those captaining a vessel of the Nanotrasen Navy."
 	icon_state = "centcomcaptain"
-	flags = FPRINT
 
 /obj/item/clothing/shoes/centcom
 	name = "dress shoes"

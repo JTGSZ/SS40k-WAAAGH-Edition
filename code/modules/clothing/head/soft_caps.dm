@@ -2,7 +2,6 @@
 	name = "cargo cap"
 	desc = "It's a baseball hat in a tasteless yellow color."
 	icon_state = "cargosoft"
-	flags = FPRINT
 	item_state = "helmet"
 	_color = "cargo"
 	var/flipped = 0

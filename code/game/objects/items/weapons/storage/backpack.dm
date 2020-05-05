@@ -10,7 +10,6 @@
 	icon_state = "backpack"
 	item_state = "backpack"
 	w_class = W_CLASS_LARGE
-	flags = FPRINT
 	slot_flags = SLOT_BACK	//ERROOOOO
 	fits_max_w_class = W_CLASS_MEDIUM
 	max_combined_w_class = 21

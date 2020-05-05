@@ -22,7 +22,6 @@ effective or pretty fucking useless.
 	w_class = W_CLASS_TINY
 	throw_speed = 4
 	throw_range = 10
-	flags = FPRINT
 	siemens_coefficient = 1
 	item_state = "electronic"
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_COMBAT + "=3;" + Tc_SYNDICATE + "=3"

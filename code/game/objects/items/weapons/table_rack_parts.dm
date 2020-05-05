@@ -17,7 +17,6 @@
 	starting_materials = list(MAT_IRON = 3750)
 	w_type = RECYK_METAL
 	melt_temperature=MELTPOINT_STEEL
-	flags = FPRINT
 	siemens_coefficient = 1
 	attack_verb = list("slams", "bashes", "batters", "bludgeons", "thrashes", "whacks")
 	var/table_type = /obj/structure/table
@@ -106,7 +105,6 @@
 	starting_materials = list(MAT_IRON = 7500)
 	w_type = RECYK_METAL
 	melt_temperature=MELTPOINT_STEEL
-	flags = FPRINT
 	siemens_coefficient = 1
 	table_type = /obj/structure/table/reinforced
 
@@ -162,7 +160,6 @@
 	starting_materials = list(MAT_GLASS = 3750)
 	w_type = RECYK_GLASS
 	melt_temperature=MELTPOINT_GLASS
-	flags = FPRINT
 	siemens_coefficient = 0 //copying from glass sheets and shards even if its bad balance
 	table_type = /obj/structure/table/glass
 
@@ -180,7 +177,6 @@
 	starting_materials = list(MAT_PLASMA = 3750)
 	w_type = RECYK_GLASS
 	melt_temperature=MELTPOINT_PLASMA
-	flags = FPRINT
 	siemens_coefficient = 0 //copying from glass sheets and shards even if its bad balance
 	table_type = /obj/structure/table/glass/plasma
 
@@ -210,7 +206,6 @@
 	desc = "Parts of a rack."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "rack_parts"
-	flags = FPRINT
 	siemens_coefficient = 1
 	starting_materials = list(MAT_IRON = 3750)
 	w_type = RECYK_METAL

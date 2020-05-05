@@ -28,7 +28,7 @@
 	icon_state = "chempack"
 	item_state = null
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/chempack.dmi', "right_hand" = 'icons/mob/in-hand/right/chempack.dmi')
-	flags = OPENCONTAINER|FPRINT
+	flags = OPENCONTAINER
 	slot_flags = SLOT_BACK
 	throwforce = 3
 	w_class = W_CLASS_LARGE

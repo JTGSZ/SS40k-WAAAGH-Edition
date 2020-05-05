@@ -16,7 +16,7 @@ var/global/list/paint_types = subtypesof(/datum/reagent/paint)
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(10,20,25,30,50,100,150)
 	volume = 150
-	flags = FPRINT | OPENCONTAINER
+	flags = OPENCONTAINER
 	var/paint_type = ""
 
 /obj/item/weapon/reagent_containers/glass/paint/suicide_act(mob/user)

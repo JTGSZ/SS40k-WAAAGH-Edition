@@ -68,7 +68,6 @@
 	desc = "Use this to send crates to cargo telepads."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "rcs"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 10
 	throwforce  = 10

@@ -66,7 +66,7 @@ datum/reagent/chemical_waste
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = list(1, 2)
 	volume = 2
-	flags = FPRINT | OPENCONTAINER
+	flags = OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/glass/solution_tray/mop_act(obj/item/weapon/mop/M, mob/user)
 	return 1

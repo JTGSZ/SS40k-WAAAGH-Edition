@@ -8,7 +8,6 @@
 	starting_materials = list(MAT_IRON = 10000, MAT_GLASS = 5000)
 	melt_temperature = MELTPOINT_STEEL
 	w_type = RECYK_METAL
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_TINY
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_BIOTECH + "=1"
@@ -40,7 +39,6 @@
 	item_state = "hemostat"
 	starting_materials = list(MAT_IRON = 5000, MAT_GLASS = 2500)
 	w_type = RECYK_METAL
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_TINY
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_BIOTECH + "=1"
@@ -69,7 +67,6 @@
 	item_state = "cautery"
 	starting_materials = list(MAT_IRON = 5000, MAT_GLASS = 2500)
 	w_type = RECYK_ELECTRONIC
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_TINY
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_BIOTECH + "=1"
@@ -125,7 +122,6 @@
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	starting_materials = list(MAT_IRON = 15000, MAT_GLASS = 10000)
 	w_type = RECYK_ELECTRONIC
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 15.0
 	w_class = W_CLASS_MEDIUM
@@ -154,7 +150,6 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/surgery_tools.dmi', "right_hand" = 'icons/mob/in-hand/right/surgery_tools.dmi')
 	item_state = "scalpel"
 	hitsound = "sound/weapons/bladeslice.ogg"
-	flags = FPRINT
 	siemens_coefficient = 1
 	sharpness = 1.5
 	sharpness_flags = SHARP_TIP | SHARP_BLADE
@@ -275,7 +270,6 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/surgery_tools.dmi', "right_hand" = 'icons/mob/in-hand/right/surgery_tools.dmi')
 	item_state = "saw3"
 	hitsound = 'sound/weapons/circsawhit.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	sharpness = 1
 	sharpness_flags = SHARP_BLADE | SERRATED_BLADE | CHOPWOOD

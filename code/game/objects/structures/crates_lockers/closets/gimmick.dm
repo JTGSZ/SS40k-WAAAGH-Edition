@@ -44,7 +44,6 @@
 	var/coats = 4
 	density = 0
 	anchored = 1
-	flags = FPRINT
 	layer = ABOVE_OBJ_LAYER
 
 /obj/structure/hanger_rail/attack_hand(var/mob/user,params,proximity)

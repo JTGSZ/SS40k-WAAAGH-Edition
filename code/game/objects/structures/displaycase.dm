@@ -225,7 +225,7 @@
 			healthcheck()
 		else if(!locked)
 			if(ishuman(user))
-				to_chat(user, "<span class='notice'>You press your thumb against the fingerprint scanner, and deactivate the hoverfield built into the case.</span>")
+				to_chat(user, "<span class='notice'>You press your thumb against the scanner, and deactivate the hoverfield built into the case.</span>")
 				if(occupant)
 					dump()
 				else

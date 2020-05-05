@@ -7,7 +7,6 @@
 	icon = 'icons/mecha/mech_construct.dmi'
 	icon_state = "blank"
 	w_class = W_CLASS_GIANT
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_PROGRAMMING + "=2;" + Tc_MATERIALS + "=2"
 
@@ -16,7 +15,6 @@
 	name="Mecha Chassis"
 	icon_state = "backbone"
 	var/datum/construction/construct
-	flags = FPRINT
 	siemens_coefficient = 1
 
 /obj/item/mecha_parts/chassis/attackby(obj/item/W, mob/user )
@@ -422,7 +420,6 @@
 	icon_state = "std_mod"
 	item_state = "circuitboard"
 	board_type = OTHER
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 5.0
 	w_class = W_CLASS_SMALL

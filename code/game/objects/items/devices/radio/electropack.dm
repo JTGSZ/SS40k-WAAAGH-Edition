@@ -5,7 +5,6 @@
 	item_state = "electropack"
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_POWERSTORAGE + "=2"
 	frequency = 1449
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_HUGE

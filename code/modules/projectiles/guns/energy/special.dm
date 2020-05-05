@@ -7,7 +7,6 @@
 	fire_sound = 'sound/weapons/ion.ogg'
 	origin_tech = Tc_COMBAT + "=2;" + Tc_MAGNETS + "=4"
 	w_class = W_CLASS_LARGE
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	charge_cost = 100
@@ -73,7 +72,6 @@
 	icon_state = "staffofchange"
 	item_state = "staffofchange"
 	fire_sound = 'sound/weapons/radgun.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
@@ -242,7 +240,6 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "deathwand"
 	item_state = "deathwand"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	force = 15
 	throw_speed = 1
@@ -345,7 +342,7 @@
 	item_state = "staffswap"
 	icon_state = "staff_swap"
 	projectile_type = "/obj/item/projectile/swap"
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 
 /obj/item/weapon/gun/energy/staff/swapper/update_wield(mob/user)
 	..()

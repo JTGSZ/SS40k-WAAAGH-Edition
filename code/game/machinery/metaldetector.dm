@@ -21,7 +21,7 @@
 
 	req_access = list(access_security)
 
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 	machine_flags = WRENCHMOVE | FIXED2WORK | EMAGGABLE
 
 	//List of weapons that metaldetector will not flash for, also copypasted in secbot.dm and ed209bot.dm

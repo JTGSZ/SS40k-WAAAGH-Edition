@@ -5,7 +5,6 @@
 	icon_state = "polaroid"
 	item_state = "polaroid"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_ENGINEERING + "=1"

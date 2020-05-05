@@ -3,7 +3,6 @@
 	desc = "Should anything ever go wrong..."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "red_phone"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 3.0
 	throwforce = 2.0
@@ -16,25 +15,6 @@
 /obj/item/weapon/phone/suicide_act(mob/user)
 	to_chat(viewers(user), "<span class='danger'>[user] wraps the cord of the [src.name] around \his neck! It looks like \he's trying to commit suicide.</span>")
 	return(SUICIDE_ACT_OXYLOSS)
-
-/*/obj/item/weapon/syndicate_uplink
-	name = "station bounced radio"
-	desc = "Remain silent about this..."
-	icon = 'icons/obj/radio.dmi'
-	icon_state = "radio"
-	var/temp = null
-	var/uses = 10.0
-	var/selfdestruct = 0.0
-	var/traitor_frequency = 0.0
-	var/mob/currentUser = null
-	var/obj/item/device/radio/origradio = null
-	flags = FPRINT  | CONDUCT | ONBELT
-	w_class = W_CLASS_SMALL
-	item_state = "radio"
-	throw_speed = 4
-	throw_range = 20
-	m_amt = 100
-	origin_tech = Tc_MAGNETS + "=2;" + Tc_SYNDICATE + "=3"*/
 
 /obj/item/weapon/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
@@ -119,7 +99,6 @@
 	origin_tech = Tc_MATERIALS + "=1"
 	icon_state = "cane"
 	item_state = "stick"
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 5.0
 	throwforce = 7.0
@@ -152,27 +131,12 @@
 /obj/item/weapon/dummy/blob_act()
 	return
 
-
-/*
-/obj/item/weapon/game_kit
-	name = "Gaming Kit"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "game_kit"
-	var/selected = null
-	var/board_stat = null
-	var/data = ""
-	var/base_url = "http://svn.slurm.us/public/spacestation13/misc/game_kit"
-	item_state = "sheet-metal"
-	w_class = W_CLASS_HUGE
-*/
-
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "handcuff"
-	flags = FPRINT
 	siemens_coefficient = 1
 	throwforce = 0
 	w_class = W_CLASS_MEDIUM
@@ -185,7 +149,6 @@
 	gender = NEUTER
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "bolas"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 2
@@ -403,7 +366,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "beartrap0"
 	desc = "A trap used to catch bears and other legged creatures."
-	flags = FPRINT
 	origin_tech = Tc_MATERIALS + "=1"
 	starting_materials = list(MAT_IRON = 50000)
 	w_type = RECYK_METAL
@@ -647,7 +609,7 @@
 /obj/item/weapon/batteringram
 	name = "battering ram"
 	desc = "A hydraulic compression/spreader-type mechanism which, when applied to a door, will charge before rapidly expanding and dislodging frames."
-	flags = TWOHANDABLE | MUSTTWOHAND | FPRINT
+	flags = TWOHANDABLE | MUSTTWOHAND
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "ram"
 	item_state = "ram"
@@ -664,7 +626,7 @@
 
 /obj/item/weapon/batteringram/attackby(var/obj/item/I, mob/user )
 	if(istype(I,/obj/item/weapon/ram_kit))
-		flags &= ~MUSTTWOHAND //Retains FPRINT and TWOHANDABLE
+		flags &= ~MUSTTWOHAND //Retains  and TWOHANDABLE
 		icon_state = "ram-upgraded"
 		qdel(I)
 	else
@@ -698,14 +660,13 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	attack_verb = list("warns", "cautions", "smashes")
 
 /obj/item/weapon/caution/proximity_sign
 	var/timing = 0
 	var/armed = 0
 	var/timepassed = 0
-	flags = FPRINT | PROXMOVE
+	flags = PROXMOVE
 
 /obj/item/weapon/caution/proximity_sign/attack_self(mob/user )
 	if(ishuman(user))
@@ -776,7 +737,6 @@
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
 	var/obj/item/device/radio/origradio = null
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	item_state = "radio"
@@ -799,7 +759,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	attack_verb = list("bludgeons", "whacks", "disciplines")
 
 /obj/item/weapon/staff/broom
@@ -808,7 +767,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "broom"
 	item_state = "broom0"
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 
 /obj/item/weapon/staff/broom/update_wield(mob/user)
 	..()
@@ -866,7 +825,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 
 /obj/item/weapon/wire
 	desc = "This is just a simple piece of regular insulated wire."
@@ -890,7 +848,6 @@
 	//icon_state = "std_module"
 	w_class = W_CLASS_SMALL
 	item_state = "electronic"
-	flags = FPRINT
 	siemens_coefficient = 1
 	var/mtype = 1						// 1=electronic 2=hardware
 
@@ -933,22 +890,9 @@
 	desc = "Meat that appears... strange..."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "meat"
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_TINY
 	origin_tech = Tc_BIOTECH + "=2"
-
-/*
-/obj/item/weapon/cigarpacket
-	name = "Pete's Cuban Cigars"
-	desc = "The most robust cigars on the planet."
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cigarpacket"
-	item_state = "cigarpacket"
-	w_class = W_CLASS_TINY
-	throwforce = 2
-	var/cigarcount = 6
-	flags = ONBELT  */
 
 /obj/item/weapon/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."
@@ -957,15 +901,6 @@
 	icon_state = "wire1"
 
 	var/obj/machinery/machine
-
-/*
-/obj/item/weapon/research//Makes testing much less of a pain -Sieve
-	name = "research"
-	icon = 'icons/obj/stock_parts.dmi'
-	icon_state = "capacitor"
-	desc = "A debug item for research."
-	origin_tech = Tc_MATERIALS + "=8;" + Tc_PROGRAMMING + "=8;" + Tc_MAGNETS + "=8;" + Tc_POWERSTORAGE + "=8;" + Tc_BLUESPACE + "=8;" + Tc_COMBAT + "=8;" + Tc_BIOTECH + "=8;" + Tc_SYNDICATE + "=8"
-*/
 
 /obj/item/weapon/ectoplasm
 	name = "ectoplasm"

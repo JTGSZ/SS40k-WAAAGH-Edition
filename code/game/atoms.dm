@@ -10,7 +10,7 @@ var/global/list/ghdel_profiling = list()
 	var/ghost_write = 0 // Only aghosts can write
 	var/blessed=0 // Chaplain did his thing. (set by bless() proc, which is called by holywater)
 
-	var/flags = FPRINT
+	var/flags
 	var/flow_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -565,8 +565,6 @@ its easier to just keep the beam vertical.
 		return
 	if(isnull(M.key))
 		return
-	if (!(flags & FPRINT))
-		return
 	if((fingerprintslastTS == time_stamp()) && (fingerprintslast == M.key)) //otherwise holding arrow on airlocks spams fingerprints onto it
 		return
 	if (ishuman(M))
@@ -577,12 +575,6 @@ its easier to just keep the beam vertical.
 		//Fibers~
 		add_fibers(M)
 
-		//He has no prints!
-		if (M_FINGERPRINTS in M.mutations)
-			fingerprintshidden += "\[[time_stamp()]\] (Has no fingerprints) Real name: [M.real_name], Key: [M.key]"
-			fingerprintslast = M.key
-			fingerprintslastTS = time_stamp()
-			return 0		//Now, lets get to the dirty work.
 		//First, make sure their DNA makes sense.
 		var/mob/living/carbon/human/H = M
 		if (!istype(H.dna, /datum/dna) || !H.dna.uni_identity || (length(H.dna.uni_identity) != 32))
@@ -675,8 +667,6 @@ its easier to just keep the beam vertical.
 		M.dna = new /datum/dna(null)
 		M.dna.real_name = M.real_name
 	M.check_dna()
-	if (!( src.flags ) & FPRINT)
-		return FALSE
 	if(!blood_DNA || !istype(blood_DNA, /list))	//if our list of DNA doesn't exist yet (or isn't a list) initialise it.
 		blood_DNA = list()
 	blood_color = DEFAULT_BLOOD

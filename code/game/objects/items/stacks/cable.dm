@@ -31,7 +31,6 @@ var/global/list/datum/stack_recipe/cable_recipes = list ( \
 	throw_range = 5
 	starting_materials = list(MAT_IRON = CC_PER_SHEET_METAL)
 	w_type = RECYK_METAL
-	flags =  FPRINT
 	siemens_coefficient = 1.5 //Extra conducting
 	slot_flags = SLOT_BELT
 	item_state = "coil_red"

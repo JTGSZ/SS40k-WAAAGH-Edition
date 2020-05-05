@@ -7,7 +7,6 @@
 	item_state = null
 	w_class = W_CLASS_LARGE
 	force = 20
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BACK
 	ejectshell = 0

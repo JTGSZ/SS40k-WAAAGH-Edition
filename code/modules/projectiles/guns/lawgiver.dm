@@ -123,7 +123,7 @@ var/list/lawgiver_modes = list(
 	starting_materials = list(MAT_IRON = 1000)
 	w_type = RECYK_METAL
 	recoil = 0
-	flags = HEAR | FPRINT
+	flags = HEAR
 	var/magazine_type = /obj/item/ammo_storage/magazine/lawgiver
 	var/datum/lawgiver_mode/firing_mode_datum
 	var/firing_mode = LAWGIVER_STUN

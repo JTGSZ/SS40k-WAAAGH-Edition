@@ -11,7 +11,6 @@
 /obj/item/weapon/planning_frame
 	name = "planning frame"
 	desc = "A large circuit board with slots for AI modules. Used for planning a law set."
-	flags = FPRINT
 	siemens_coefficient = 1
 	force = 5.0
 	w_class = W_CLASS_SMALL

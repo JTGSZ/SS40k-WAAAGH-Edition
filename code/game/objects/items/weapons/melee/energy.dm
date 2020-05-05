@@ -32,7 +32,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	siemens_coefficient = 1
 	origin_tech = Tc_COMBAT + "=3"
 	attack_verb = list("attacks", "chops", "cleaves", "tears", "cuts")
@@ -65,7 +64,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_SYNDICATE + "=4"
 	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
 	var/dualsaber_type = /obj/item/weapon/melee/energy/sword/dualsaber
@@ -220,7 +218,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = W_CLASS_SMALL
-	flags = FPRINT | TWOHANDABLE
+	flags = TWOHANDABLE
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_SYNDICATE + "=4"
 	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/swords_axes.dmi', "right_hand" = 'icons/mob/in-hand/right/swords_axes.dmi')
@@ -337,7 +335,6 @@
 	throw_speed = 8
 	throw_range = 8
 	w_class = W_CLASS_MEDIUM
-	flags = FPRINT
 	mech_flags = MECH_SCAN_ILLEGAL
 	siemens_coefficient = 1
 	origin_tech = Tc_COMBAT + "=3" + Tc_SYNDICATE + "=3"

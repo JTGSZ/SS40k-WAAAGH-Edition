@@ -25,7 +25,6 @@ var/REMOTETALKBLOCK = 0
 var/MORPHBLOCK = 0
 var/COLDBLOCK = 0
 var/HALLUCINATIONBLOCK = 0
-var/NOPRINTSBLOCK = 0
 var/SHOCKIMMUNITYBLOCK = 0
 var/SMALLSIZEBLOCK = 0
 
@@ -132,7 +131,6 @@ var/LACTOSEBLOCK = 0
 	MORPHBLOCK         = getAssignedBlock("MORPH",         numsToAssign, DNA_HARDER_BOUNDS, good=1)
 	COLDBLOCK          = getAssignedBlock("COLD",          numsToAssign, DNA_HARDER_BOUNDS, good=1)
 	HALLUCINATIONBLOCK = getAssignedBlock("HALLUCINATION", numsToAssign)
-	NOPRINTSBLOCK      = getAssignedBlock("NOPRINTS",      numsToAssign, DNA_HARD_BOUNDS, good=1)
 	SHOCKIMMUNITYBLOCK = getAssignedBlock("SHOCKIMMUNITY", numsToAssign, DNA_HARD_BOUNDS, good=1)
 	SMALLSIZEBLOCK     = getAssignedBlock("SMALLSIZE",     numsToAssign, DNA_HARD_BOUNDS, good=1)
 

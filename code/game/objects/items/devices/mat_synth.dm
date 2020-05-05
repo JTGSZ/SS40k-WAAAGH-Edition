@@ -11,7 +11,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "mat_synthoff"
 
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_MEDIUM
 	origin_tech = Tc_ENGINEERING + "=4;" + Tc_MATERIALS + "=5;" + Tc_POWERSTORAGE + "=3"

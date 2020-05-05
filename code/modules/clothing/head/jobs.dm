@@ -4,7 +4,6 @@
 	desc = "a stylish hat for a stylish stylist."
 	icon_state = "barber"
 	item_state = "barber"
-	flags = FPRINT
 	siemens_coefficient = 0.9
 
 //Bartender
@@ -14,7 +13,6 @@
 	icon_state = "chef"
 	item_state = "chef"
 	desc = "The commander in chef's head wear."
-	flags = FPRINT
 	siemens_coefficient = 0.9
 
 //Captain: This probably shouldn't be space-worthy
@@ -22,7 +20,6 @@
 	name = "captain's hat"
 	icon_state = "captain"
 	desc = "It's good being the king."
-	flags = FPRINT
 	item_state = "caphat"
 	siemens_coefficient = 0.9
 	heat_conductivity = HELMET_HEAT_CONDUCTIVITY
@@ -33,7 +30,6 @@
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings."
 	icon_state = "capcap"
-	flags = FPRINT
 	body_parts_covered = HEAD
 	heat_conductivity = SPACESUIT_HEAT_CONDUCTIVITY
 	siemens_coefficient = 0.9
@@ -59,7 +55,6 @@
 	name = "beret"
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
-	flags = FPRINT
 	siemens_coefficient = 0.9
 
 //Security
@@ -67,7 +62,6 @@
 	name = "security beret"
 	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."
 	icon_state = "beret_badge"
-	flags = FPRINT
 
 //Medical
 /obj/item/clothing/head/surgery

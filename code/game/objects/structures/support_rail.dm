@@ -5,7 +5,6 @@
 	icon_state = "rail"
 	density = 0
 	anchored = 1
-	flags = FPRINT
 	siemens_coefficient = 1
 	pressure_resistance = 5*ONE_ATMOSPHERE
 	layer = DECAL_LAYER

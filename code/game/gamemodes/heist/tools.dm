@@ -8,7 +8,6 @@
 	icon='icons/obj/surgery.dmi'
 	icon_state = "organ_remover"
 	item_state = "electronic"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 3

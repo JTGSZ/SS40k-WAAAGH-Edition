@@ -112,12 +112,6 @@
 
 		// Begin BS12 momentum-transfer code.
 
-		var/client/assailant = directory[ckey(O.fingerprintslast)]
-		var/mob/M
-
-		if(assailant && assailant.mob && istype(assailant.mob,/mob))
-			M = assailant.mob
-
 		if(speed >= EMBED_THROWING_SPEED)
 			var/obj/item/weapon/W = O
 			var/momentum = speed/2
@@ -141,21 +135,10 @@
 
 		//Log stuf!
 
-		if(!O.fingerprintslast)
-			return
 		var/throwByName = "an unknown inanimate object"
-		if(M)
-			throwByName = M.name
-			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [src.name] ([src.ckey]) with a thrown [O] (speed: [speed])</font>")
-		src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a thrown [O], last touched by [throwByName] ([assailant.ckey]) (speed: [speed])</font>")
-
+		src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a thrown [O], last touched by [throwByName] (speed: [speed])</font>")
 		if(!src.isDead() && src.ckey) //Message admins if the hit mob is alive and has a ckey
-			msg_admin_attack("[src.name] ([src.ckey]) was hit by a thrown [O], last touched by [throwByName] ([assailant.ckey]) (speed: [speed]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
-
-		if(!iscarbon(M))
-			src.LAssailant = null
-		else
-			src.LAssailant = M
+			msg_admin_attack("[src.name] ([src.ckey]) was hit by a thrown [O], last touched by [throwByName] (speed: [speed]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 
 /*
 	Ear and eye protection

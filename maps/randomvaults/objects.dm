@@ -735,7 +735,7 @@
 	var/list/potential_codewords = list()
 	var/encrypted_codephrase
 	var/triggered
-	flags = FPRINT | HEAR
+	flags = HEAR
 
 /obj/machinery/power/magtape_deck/syndicate/New()
 	..()

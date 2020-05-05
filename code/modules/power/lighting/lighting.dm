@@ -570,7 +570,6 @@ var/global/list/obj/machinery/light/alllights = list()
 
 /obj/item/weapon/light
 	icon = 'icons/obj/lighting.dmi'
-	flags = FPRINT
 	force = 2
 	throwforce = 5
 	w_class = W_CLASS_TINY

@@ -6,7 +6,6 @@
 	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
-	flags = FPRINT
 	var/mode = 1
 	var/charge_cost = 50
 	var/charge_tick = 0

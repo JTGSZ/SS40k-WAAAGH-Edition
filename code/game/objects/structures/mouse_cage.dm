@@ -7,7 +7,7 @@
 	density = 1
 	anchored = 0
 	pressure_resistance = 5
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 
 	var/lock_type = /datum/locking_category/buckle/cage
 

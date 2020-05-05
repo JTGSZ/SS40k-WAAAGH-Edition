@@ -20,7 +20,7 @@
 	icon_state = "ert"
 	item_state = "ert"
 	_color = "ert"
-	flags = FPRINT  | ONESIZEFITSALL
+	flags = ONESIZEFITSALL
 
 /obj/item/clothing/under/ert/New()
 	..()

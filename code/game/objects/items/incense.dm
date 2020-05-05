@@ -355,7 +355,6 @@
 	throw_range = 5
 	w_class = W_CLASS_MEDIUM
 	force = 2.5
-	flags = FPRINT
 	vending_cat = "incense material"
 	var/fragrance = null
 	var/adjective = null
@@ -444,7 +443,6 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/incense.dmi', "right_hand" = 'icons/mob/in-hand/right/incense.dmi')
 	item_state = "thurible"
 	hitsound = 'sound/weapons/toolbox.ogg'
-	flags = FPRINT
 	siemens_coefficient = 1
 	//slot_flags = SLOT_BELT once I get assed to do the belt sprites
 	damtype = BRUTE

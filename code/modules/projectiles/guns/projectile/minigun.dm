@@ -8,7 +8,7 @@
 	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/guns_experimental.dmi', "right_hand" = 'icons/mob/in-hand/right/guns_experimental.dmi')
 	recoil = 1
 	slot_flags = null
-	flags = FPRINT | TWOHANDABLE | SLOWDOWN_WHEN_CARRIED
+	flags = TWOHANDABLE | SLOWDOWN_WHEN_CARRIED
 	slowdown = MINIGUN_SLOWDOWN_NONWIELDED
 	w_class = W_CLASS_HUGE//we be fuckin huge maaan
 	fire_delay = 0
@@ -89,7 +89,6 @@
 	desc = "An oversized bullet casing."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "gatling-casing"
-	flags = FPRINT
 	siemens_coefficient = 1
 	throwforce = 1
 	w_class = W_CLASS_TINY

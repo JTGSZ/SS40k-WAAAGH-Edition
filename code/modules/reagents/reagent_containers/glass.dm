@@ -12,7 +12,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,50)
 	volume = 50
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	layer = ABOVE_OBJ_LAYER
 	var/opaque = FALSE //when true no reagent filling overlay is applied to the icon.
 	//This is absolutely terrible
@@ -232,7 +232,7 @@
 	icon_state = "beakernoreact"
 	starting_materials = list(MAT_GLASS = 500)
 	volume = 50
-	flags = FPRINT  | OPENCONTAINER | NOREACT
+	flags = OPENCONTAINER | NOREACT
 	origin_tech = Tc_BLUESPACE + "=3;" + Tc_MATERIALS + "=4"
 	opaque = TRUE
 
@@ -252,7 +252,7 @@
 	volume = 200
 	w_type = RECYK_GLASS
 	possible_transfer_amounts = list(5,10,15,25,30,50,100,200)
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 	origin_tech = Tc_BLUESPACE + "=2;" + Tc_MATERIALS + "=3"
 	opaque = TRUE
 
@@ -361,7 +361,7 @@
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,25,30,50,100,150)
 	volume = 150
-	flags = FPRINT | OPENCONTAINER
+	flags = OPENCONTAINER
 	slot_flags = SLOT_HEAD
 
 /obj/item/weapon/reagent_containers/glass/bucket/mop_act(obj/item/weapon/mop/M, mob/user)
@@ -456,7 +456,6 @@
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60)
 	volume = 120
-	flags = FPRINT
 
 /obj/item/weapon/reagent_containers/glass/dispenser
 	name = "reagent glass"
@@ -464,7 +463,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "beaker0"
 	amount_per_transfer_from_this = 10
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/glass/dispenser/surfactant
 	name = "reagent glass (surfactant)"
@@ -485,7 +484,7 @@
 	volume = 75
 	w_type = RECYK_GLASS
 	amount_per_transfer_from_this = 10
-	flags = FPRINT  | OPENCONTAINER
+	flags = OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/glass/kettle/red
 	icon_state = "kettle_red"

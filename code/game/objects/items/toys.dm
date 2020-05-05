@@ -145,7 +145,6 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "revolver"
 	item_state = "gun"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_MEDIUM
@@ -198,7 +197,6 @@
 	desc = "There are 7 caps left! Make sure to recyle the box in an autolathe when it gets empty."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "357-7"
-	flags = FPRINT
 	siemens_coefficient = 1
 	w_class = W_CLASS_TINY
 	starting_materials = list(MAT_IRON = 10, MAT_GLASS = 10)
@@ -226,7 +224,6 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
-	flags = FPRINT
 	w_class = W_CLASS_SMALL
 	attack_verb = list("attacks", "strikes", "hits")
 	var/bullets = 5
@@ -331,7 +328,6 @@
 	desc = "Its nerf or nothing! Ages 8 and up."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamdart"
-	flags = FPRINT
 	w_class = W_CLASS_TINY
 
 /obj/effect/foam_dart_dummy
@@ -354,7 +350,6 @@
 	item_state = "sword0"
 	var/active = 0
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	attack_verb = list("attacks", "strikes", "hits")
 
 /obj/item/toy/sword/attack_self(mob/user)
@@ -380,7 +375,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "katana"
 	item_state = "katana"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
@@ -517,7 +511,7 @@
  * Syndie stealthy smokebombs!
 */
 /obj/item/toy/snappop/smokebomb
-	flags = FPRINT | NO_THROW_MSG
+	flags = NO_THROW_MSG
 	origin_tech = Tc_COMBAT + "=1;" + Tc_SYNDICATE + "=1"
 
 /obj/item/toy/snappop/smokebomb/pop()
@@ -712,7 +706,6 @@
 	icon_state = "megaphone"
 	item_state = "radio"
 	w_class = W_CLASS_TINY
-	flags = FPRINT
 	siemens_coefficient = 1
 
 	var/spamcheck = 0

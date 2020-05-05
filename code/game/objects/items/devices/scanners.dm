@@ -17,7 +17,6 @@ BREATHALYZER
 	name = "\improper T-ray scanner"
 	desc = "A terahertz-ray emitter and scanner that can pick up the faintest traces of energy, used to detect the invisible."
 	icon_state = "t-ray0"
-	flags = FPRINT
 	slot_flags = SLOT_BELT
 	w_class = W_CLASS_SMALL
 	item_state = "electronic"
@@ -87,7 +86,6 @@ BREATHALYZER
 	icon_state = "health"
 	item_state = "healthanalyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -321,7 +319,6 @@ Subject's pulse: ??? BPM"})
 	icon_state = "atmos"
 	item_state = "analyzer"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -421,7 +418,7 @@ Subject's pulse: ??? BPM"})
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT | OPENCONTAINER
+	flags = OPENCONTAINER
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -501,7 +498,6 @@ Subject's pulse: ??? BPM"})
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = W_CLASS_SMALL
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -548,7 +544,6 @@ Subject's pulse: ??? BPM"})
 	icon_state = "idle"
 	item_state = "analyzer"
 	desc = "A hand-held scanner that is able to determine the amount of ethanol in the breath of the subject."
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	throwforce = 3

@@ -6,7 +6,6 @@
 	density = 1
 	anchored = 0
 	pressure_resistance = ONE_ATMOSPHERE*5
-	flags = FPRINT
 	autoignition_temperature = AUTOIGNITION_WOOD
 	fire_fuel = 3
 	var/obj/item/clothing/suit/suit = null

@@ -15,7 +15,6 @@
 
 	w_class = W_CLASS_TINY
 	item_state = "electronic"
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 

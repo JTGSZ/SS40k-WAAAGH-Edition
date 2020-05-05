@@ -123,7 +123,6 @@
 	icon = 'icons/obj/storage/storage.dmi'
 	icon_state = "deliverycrateSmall"
 	var/sortTag
-	flags = FPRINT
 
 /obj/item/delivery/New(turf/loc, var/obj/item/target = null, var/size = 2)
 	..()
@@ -173,7 +172,6 @@
 	name = "large parcel"
 	density = 1
 	w_class = W_CLASS_GIANT //Someone was going to find a way to exploit this some day
-	flags = FPRINT
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 /obj/item/delivery/large/New(turf/loc, atom/movable/target)

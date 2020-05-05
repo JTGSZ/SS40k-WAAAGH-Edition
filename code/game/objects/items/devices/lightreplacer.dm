@@ -11,7 +11,6 @@
 	icon_state = "lightreplacer0"
 	item_state = "electronic"
 
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_MATERIALS + "=2"

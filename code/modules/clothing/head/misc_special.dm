@@ -18,7 +18,6 @@
 	name = "welding helmet"
 	desc = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	icon_state = "weldingup"
-	flags = FPRINT
 	item_state = "welding"
 	starting_materials = list(MAT_IRON = 3000, MAT_GLASS = 1000)
 	w_type = RECYK_MISC
@@ -64,8 +63,6 @@
 	name = "cake-hat"
 	desc = "It's tasty looking!"
 	icon_state = "cake0"
-	flags = FPRINT
-	body_parts_covered = HEAD|EYES
 	light_power = 0.5
 	var/onfire = 0.0
 	var/status = 0
@@ -147,7 +144,6 @@
 	icon_state = "hardhat0_pumpkin"//Could stand to be renamed
 	item_state = "hardhat0_pumpkin"
 	_color = "pumpkin"
-	flags = FPRINT
 	body_parts_covered = FULL_HEAD|BEARD
 	var/brightness_on = 2 //luminosity when on
 	var/on = 0
@@ -173,7 +169,6 @@
 	name = "kitty ears"
 	desc = "A pair of kitty ears. Meow!"
 	icon_state = "kitty"
-	flags = FPRINT
 	var/haircolored = TRUE
 	var/cringe = FALSE
 	var/anime = FALSE

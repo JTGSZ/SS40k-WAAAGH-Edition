@@ -9,7 +9,6 @@
 	item_state = null
 	w_class = W_CLASS_MEDIUM
 	force = 5
-	flags = FPRINT
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	origin_tech = Tc_MATERIALS + "=1;" + Tc_ENGINEERING + "=1;" + Tc_BLUESPACE + "=1"
