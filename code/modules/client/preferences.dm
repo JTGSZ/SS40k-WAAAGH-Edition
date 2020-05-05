@@ -183,7 +183,6 @@ var/const/MAX_SAVE_SLOTS = 8
 	var/gen_record = ""
 	var/disabilities = 0 // NOW A BITFIELD, SEE ABOVE
 
-	var/nanotrasen_relation = "Neutral"
 	var/bank_security = 1			//for bank accounts, 0-2, no-pin,pin,pin&card
 
 
@@ -295,7 +294,6 @@ var/const/MAX_SAVE_SLOTS = 8
 	<b>Organs:</b> <a href='byond://?_src_=prefs;subsection=organs;task=menu'>Set</a><br>
 	<b>Underwear:</b> [gender == MALE ? "<a href ='?_src_=prefs;preference=underwear;task=input'>[underwear_m[underwear]]</a>" : "<a href ='?_src_=prefs;preference=underwear;task=input'>[underwear_f[underwear]]</a>"]<br>
 	<b>Backpack:</b> <a href ='?_src_=prefs;preference=bag;task=input'>[backbaglist[backbag]]</a><br>
-	<b>Nanotrasen Relation</b>:<br><a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a><br>
 	<b>Flavor Text:</b><a href='byond://?src=\ref[user];preference=flavor_text;task=input'>Set</a><br>
 	<b>Character records:</b>
 	[jobban_isbanned(user, "Records") ? "Banned" : "<a href=\"byond://?src=\ref[user];preference=records;record=1\">Set</a>"]<br>
@@ -1324,11 +1322,6 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 					var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference")  as null|anything in backbaglist
 					if(new_backbag)
 						backbag = backbaglist.Find(new_backbag)
-
-				if("nt_relation")
-					var/new_relation = input(user, "Choose your relation to NT. Note that this represents what others can find out about your character by researching your background, not what your character actually thinks.", "Character Preference")  as null|anything in list("Loyal", "Supportive", "Neutral", "Skeptical", "Opposed")
-					if(new_relation)
-						nanotrasen_relation = new_relation
 
 				if("bank_security")
 					var/new_bank_security = input(user, BANK_SECURITY_EXPLANATION, "Character Preference")  as null|anything in bank_security_text2num_associative

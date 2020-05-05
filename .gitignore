@@ -29,9 +29,6 @@ info.json
 /analysis
 /code-fixed
 
-# Player preferences
-players2.sqlite
-
 # New CMC Minimap images.
 /data/minimaps/*
 

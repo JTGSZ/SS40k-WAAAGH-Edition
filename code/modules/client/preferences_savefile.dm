@@ -327,7 +327,6 @@ SELECT
     players.gen_record,
     players.player_alt_titles,
     players.disabilities,
-    players.nanotrasen_relation,
     players.bank_security,
     jobs.player_ckey,
     jobs.player_slot,
@@ -420,7 +419,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	gen_record			= preference_list["gen_record"]
 	player_alt_titles	= player_alt_list2
 	disabilities		= text2num(preference_list["disabilities"])
-	nanotrasen_relation	= preference_list["nanotrasen_relation"]
 	bank_security 		= preference_list["bank_security"]
 
 	r_hair				= text2num(preference_list["hair_red"])
@@ -475,8 +473,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		species = "Human"
 	if(isnull(language))
 		language = "None"
-	if(isnull(nanotrasen_relation))
-		nanotrasen_relation = initial(nanotrasen_relation)
 	if(isnull(bank_security))
 		bank_security = initial(bank_security)
 	if(!first_name)
@@ -611,7 +607,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	S["skill_specialization"] >> skill_specialization
 	S["organ_data"]			>> organ_data
 
-	S["nanotrasen_relation"] >> nanotrasen_relation
 	S["bank_security"] >> bank_security
 	//S["skin_style"]			>> skin_style
 
@@ -622,8 +617,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		species = "Human"
 	if(isnull(language))
 		language = "None"
-	if(isnull(nanotrasen_relation))
-		nanotrasen_relation = initial(nanotrasen_relation)
 	if(isnull(bank_security))
 		bank_security = initial(bank_security)
 
@@ -755,17 +748,17 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	check.Add("SELECT player_ckey FROM players WHERE player_ckey = ? AND player_slot = ?", ckey, slot)
 	if(check.Execute(db))
 		if(!check.NextRow())
-			q.Add("INSERT INTO players (player_ckey,player_slot,ooc_notes,first_name,last_name,real_name, random_name,    gender, age, species, language, flavor_text, med_record, sec_record, gen_record, player_alt_titles, disabilities, nanotrasen_relation, bank_security, random_body)\
-			                    VALUES (?,          ?,          ?,        ?,         ?,        ?,         ?,              ?,      ?,   ?,       ?,        ?,           ?,          ?,          ?,          ?,                 ?,            ?,                   ?,             ?)",
-			                            ckey,       slot,       metadata, first_name,last_name,real_name, be_random_name, gender, age, species, language, flavor_text, med_record, sec_record, gen_record, altTitles,         disabilities, nanotrasen_relation, bank_security, be_random_body)
+			q.Add("INSERT INTO players (player_ckey,player_slot,ooc_notes,first_name,last_name,real_name, random_name,    gender, age, species, language, flavor_text, med_record, sec_record, gen_record, player_alt_titles, disabilities,  bank_security, random_body)\
+			                    VALUES (?,          ?,          ?,        ?,         ?,        ?,         ?,              ?,      ?,   ?,       ?,        ?,           ?,          ?,          ?,          ?,                 ?,                     ?,             ?)",
+			                            ckey,       slot,       metadata, first_name,last_name,real_name, be_random_name, gender, age, species, language, flavor_text, med_record, sec_record, gen_record, altTitles,         disabilities, bank_security, be_random_body)
 			if(!q.Execute(db))
 				message_admins("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				WARNING("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				return 0
 			to_chat(user, "Created Character")
 		else
-			q.Add("UPDATE players SET ooc_notes=?,first_name=?,last_name=?,real_name=?,random_name=?,  gender=?,age=?,species=?,language=?,flavor_text=?,med_record=?,sec_record=?,gen_record=?,player_alt_titles=?,disabilities=?,nanotrasen_relation=?,bank_security=?,random_body=?   WHERE player_ckey = ? AND player_slot = ?",\
-									  metadata,   first_name,  last_name,  real_name,  be_random_name, gender,  age,  species,  language,  flavor_text,  med_record,  sec_record,  gen_record,  altTitles,          disabilities,  nanotrasen_relation,  bank_security,  be_random_body,       ckey,               slot)
+			q.Add("UPDATE players SET ooc_notes=?,first_name=?,last_name=?,real_name=?,random_name=?,  gender=?,age=?,species=?,language=?,flavor_text=?,med_record=?,sec_record=?,gen_record=?,player_alt_titles=?,disabilities=?,bank_security=?,random_body=?   WHERE player_ckey = ? AND player_slot = ?",\
+									  metadata,   first_name,  last_name,  real_name,  be_random_name, gender,  age,  species,  language,  flavor_text,  med_record,  sec_record,  gen_record,  altTitles,          disabilities,  bank_security,  be_random_body,       ckey,               slot)
 			if(!q.Execute(db))
 				message_admins("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				WARNING("Error in save_character_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
@@ -900,7 +893,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	S["skills"]                << skills
 	S["skill_specialization"]  << skill_specialization
 	S["organ_data"]            << organ_data
-	S["nanotrasen_relation"]   << nanotrasen_relation
 	S["bank_security"]	       << bank_security
 	//Body
 	S["hair_red"]              << r_hair

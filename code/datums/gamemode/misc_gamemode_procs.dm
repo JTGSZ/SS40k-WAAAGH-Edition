@@ -61,12 +61,7 @@
 		if (man.mind.assigned_role == "MODE") // Wiz, nukies, ...
 			continue
 
-		if(man.client.prefs.nanotrasen_relation == "Opposed")
-			dudes += man
-		else if(man.client.prefs.nanotrasen_relation == "Skeptical" && prob(50))
-			dudes += man
-
-		else if( (man.mind.antag_roles[CULTIST] && prob(40)) || \
+		if( (man.mind.antag_roles[CULTIST] && prob(40)) || \
 				 (man.mind.antag_roles[CHANGELING] && prob(50)) || \
 				 (man.mind.antag_roles[TRAITOR] && prob(30)) || \
 				 (man.mind.antag_roles[HEADREV] && prob(30)) \

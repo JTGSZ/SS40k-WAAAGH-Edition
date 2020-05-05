@@ -90,32 +90,9 @@
 
 // NOTE: Commentted out was the code which showed the chance of someone being an antag. If you want to re-add it, just uncomment the code.
 
-/*
-/datum/intercept_text/proc/pick_mob()
-	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in player_list)
-		if (!man.mind)
-			continue
-		if (man.mind.assigned_role=="MODE")
-			continue
-		dudes += man
-	if(dudes.len==0)
-		return null
-	return pick(dudes)
-
-
-/datum/intercept_text/proc/pick_fingerprints()
-	var/mob/living/carbon/human/dude = src.pick_mob()
-	//if (!dude) return pick_fingerprints() //who coded that is totally crasy or just a traitor. -- rastaf0
-	if(dude)
-		return num2text(md5(dude.dna.uni_identity))
-	else
-		return num2text(md5(num2text(rand(1,10000))))
-*/
-
 /datum/intercept_text/proc/get_suspect()
 	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in player_list) if(man.client && man.client.prefs.nanotrasen_relation == "Opposed")
+	for(var/mob/living/carbon/human/man in player_list)
 		dudes += man
 	for(var/i = 0, i < max(player_list.len/10,2), i++)
 		dudes += pick(player_list)
