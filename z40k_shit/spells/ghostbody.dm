@@ -10,6 +10,7 @@
 	spell_flags = STATALLOWED | GHOSTCAST
 	invocation_type = SpI_NONE
 
+
 /spell/aoe_turf/ghost_body/New()
 	..()
 
@@ -27,7 +28,15 @@
 	if(!isobserver(user))
 		return
 	if("ghosticons_map" in user.client.screen_maps) //alright, the popup this object uses is already IN use, so the window is open. no point in doing any other work here, so we're good. 
-		return 
+		return
+	
+	var/client/C = user.client
+	var/curpotential = C.persist.potential
+	var/list/ghostbody_copy = list()
+	
+	for(var/obj/abstract/screen/viscons/ghostbodies/gbutton in ghostbody_buttons)
+		if(curpotential >= gbutton.potential_req)
+			ghostbody_copy += gbutton
 
 	user.client.setup_popup("ghostbodies",6,6,1,"black")
-	user.client.add_objs_to_map(ghostbody_buttons)
+	user.client.add_objs_to_map(ghostbody_copy)

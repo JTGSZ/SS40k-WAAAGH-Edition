@@ -25,6 +25,7 @@
 		if(curbod.colorable)
 			gbutton.colorable = TRUE
 		gbutton.given_body = "[curbod.icon_state]"
+		gbutton.potential_req = curbod.potential_req
 		gbutton.del_on_map_removal = FALSE
 		gbutton.assigned_map = "ghostbodies_map"
 		gbutton.vis_contents += curbod

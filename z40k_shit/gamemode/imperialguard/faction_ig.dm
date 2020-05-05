@@ -10,7 +10,7 @@
 	logo_state = "ig-logo"
 	hud_icons = list()
 
-	var/time_left = (30 MINUTES)/10
+	var/time_left =	(1 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 
@@ -78,11 +78,13 @@ var/ig_total_points = 0
 				if(R.antag.current.client)
 					var/client/C = R.antag.current.client
 					C.persist.potential += 1
-					spawn(1)
-						C.persist.save_persistence_sqlite(C.ckey,C,TRUE)
 		else
 			stage(FACTION_DEFEATED)
 			results = "The imperial guard has been beaten by the orks."
+			for(var/datum/role/R in members)
+				if(R.antag.current.client)
+					var/client/C = R.antag.current.client
+					C.persist.potential -= 1
 			
 /datum/faction/imperial_guard/proc/generate_string()
 	var/list/our_stars = list()

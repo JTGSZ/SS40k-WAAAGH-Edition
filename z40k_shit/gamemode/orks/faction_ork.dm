@@ -71,11 +71,13 @@ var/ork_total_points = 0
 				if(R.antag.current.client)
 					var/client/C = R.antag.current.client
 					C.persist.potential += 1
-					spawn(1)
-						C.persist.save_persistence_sqlite(C.ckey,C,TRUE)
 		else
 			stage(FACTION_DEFEATED)
 			results = "THE 'UMIES KRUMPED US."
+			for(var/datum/role/R in members)
+				if(R.antag.current.client)
+					var/client/C = R.antag.current.client
+					C.persist.potential -= 1
 			
 /datum/faction/ork_raiders/proc/generate_string()
 	var/list/our_stars = list()

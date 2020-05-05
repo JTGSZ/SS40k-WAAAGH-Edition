@@ -15,7 +15,8 @@
 	powerwords_display.icon_state = "dark128x42"
 	powerwords_display.screen_loc = ui_powerwords
 
-	mymob.client.screen += list(powerwords_display)
+	if(mymob.client)
+		mymob.client.screen += list(powerwords_display)
 
 /mob/living/carbon/human
 	var/wordhud_disp_holder = ""

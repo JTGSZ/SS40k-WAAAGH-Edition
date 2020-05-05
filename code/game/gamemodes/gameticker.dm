@@ -443,7 +443,7 @@ var/datum/controller/gameticker/ticker
 
 
 		spawn(50)
-			if (station_was_nuked)
+			if(station_was_nuked)
 				feedback_set_details("end_proper","nuke")
 				if(!delay_end && !watchdog.waiting)
 					to_chat(world, "<span class='notice'><B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B></span>")
@@ -461,7 +461,7 @@ var/datum/controller/gameticker/ticker
  
 			stat_collection.Process()
 
-			if (watchdog.waiting)
+			if(watchdog.waiting)
 				to_chat(world, "<span class='notice'><B>Server will shut down for an automatic update in [config.map_voting ? "[(restart_timeout/10)] seconds." : "a few seconds."]</B></span>")
 				if(config.map_voting)
 					sleep(restart_timeout) //waiting for a mapvote to end
@@ -514,6 +514,9 @@ var/datum/controller/gameticker/ticker
 	if(!ooc_allowed)
 		to_chat(world, "<B>The OOC channel has been automatically re-enabled!</B>")
 		ooc_allowed = TRUE
+	for(var/client/C in clients)
+		C.persist.save_persistence_sqlite(C.ckey,C,TRUE)
+	
 	scoreboard()
 	return 1
 

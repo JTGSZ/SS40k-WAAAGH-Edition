@@ -9,7 +9,6 @@
 	slot_flags = SLOT_BACK
 	w_class = W_CLASS_LARGE
 	species_fit = list("Ork", "Ork Nob")
-	var/usetime // cooldown holder for verb actions
 	var/wallcrashiterations = 4 // How many times are we going to destroy everything before we stop.
 	var/highinair = 0 //Am I flying, like real high?, If I am flying and the user pulls me off they will die.
 	var/stuntime = 5 //How much do I stun on collision.
@@ -168,10 +167,17 @@
 	background_icon_state = "bg_rustymetal"
 	button_icon_state = "jump"
 	desc = "Activate the jump pack to fly to high altitude. You may only take off or land outdoors."
+	var/usetime
 
 /datum/action/item_action/warhams/flight/Trigger()
 	var/obj/item/ork/jumppack/S = target
-	S.flight(owner)
+	if(world.time < usetime + 120)
+		to_chat(owner,"<span class='warning'> The jumppack is still charging!</span>")
+		return
+	else
+		S.flight(owner)
+		usetime = world.time
+
 
 /obj/item/ork/jumppack/proc/flight(mob/living/user)
 	if(!user.canmove || user.stat || user.restrained())
@@ -179,9 +185,6 @@
 	if(user.highflying)
 		to_chat(user,"<span class='notice'> You pulse the jump pack to land again.</span>")
 		flyland(user)
-		return
-	if(world.time < usetime + 120)
-		to_chat(user,"<span class='warning'> The jumppack is still charging!</span>")
 		return
 	if(!istype(user.loc, /turf/unsimulated/outside))
 		user.visible_message("<span class='danger'> [user] shoots into the air and hits their head on the ceiling!</span>")
@@ -191,17 +194,22 @@
 		return
 	to_chat(user, "<span class='warning'>You take off and jump high off the ground!</span>")
 	flyleap(user, leapduration) // We leap into the air.
-	usetime = world.time
-	
+
 /datum/action/item_action/warhams/hover
 	name = "Hover"
 	background_icon_state = "bg_rustymetal"
 	button_icon_state = "hover"
 	desc = "Hover with the jumppack."
+	var/usetime
 
 /datum/action/item_action/warhams/hover/Trigger()
 	var/obj/item/ork/jumppack/S = target
-	S.hover(owner)
+	if(world.time < usetime + 120)
+		to_chat(owner, "<span class='warning'>The Jumppack is still charging!</span>")
+		return
+	else
+		S.hover(owner)
+		usetime = world.time
 
 /obj/item/ork/jumppack/proc/hover(mob/living/user)
 	if(!user.canmove || user.stat || user.restrained())
@@ -209,9 +217,6 @@
 		return
 	if(user.highflying)
 		to_chat(user, "<span class='warning'>You can't stay up here forever!</span>")
-		return
-	if(world.time < usetime + 120)
-		to_chat(user, "<span class='warning'>The Jumppack is still charging!</span>")
 		return
 	if(!user.flying)
 		hoverleap(user)
@@ -223,10 +228,15 @@
 	background_icon_state = "bg_rustymetal"
 	button_icon_state = "jumprush"
 	desc = "Fly forward in a short potentially explosive burst."
+	var/usetime // cooldown holder for actions
 
 /datum/action/item_action/warhams/burstrush/Trigger()
 	var/obj/item/ork/jumppack/S = target
-	S.burstrush(owner)
+	if(world.time < usetime + 60)
+		to_chat(owner, "<span class='warning'> The jumppack is still charging!</span>")
+	else
+		S.burstrush(owner)
+		usetime = world.time
 
 /obj/item/ork/jumppack/proc/burstrush(mob/living/user)
 	if(!user.canmove || user.stat || user.restrained())
@@ -234,51 +244,47 @@
 	if(ismob(user))
 		if(user.highflying) 
 			return
-	if(world.time < usetime + 60)
-		to_chat(user, "<span class='warning'> The jumppack is still charging!</span>")
-		return
-	else
-		burning = TRUE
-		update_icon()
-		playsound(loc, 'z40k_shit/sounds/Jump_Pack1.ogg', 75, 0)
 
-		var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
-		S.time_to_live = 20 //2 seconds instead of full 10
+	burning = TRUE
+	update_icon()
+	playsound(loc, 'z40k_shit/sounds/Jump_Pack1.ogg', 75, 0)
 
-		for(var/i = 1 to wallcrashiterations) //We just loop this way.
-			var/movementdirection = user.dir
-			var/range = 1
-			user.Move(get_step(usr,movementdirection), movementdirection)
-			for(var/turf/simulated/wall/M in range(range, src.loc))									//Cool-Aid man 'OH YEAH!!!'
-				if(istype(M, /turf/simulated/wall) && !istype(M, /turf/simulated/wall/r_wall))
-					var/randomizer = pick('z40k_shit/sounds/wallsmash1.ogg','z40k_shit/sounds/wallsmash2.ogg', 'z40k_shit/sounds/wallsmash3.ogg')
-					playsound(loc, randomizer, 75, 0)
-					M.ex_act(1)
-				if(istype(M, /turf/simulated/wall/r_wall))
-					user.gib()
-					break
-			for(var/obj/structure/M in range(range, src.loc))
-				if(prob(25))
-					qdel(M)
-				else
-					user.Stun(stuntime)
-					user.Knockdown(knockdowntime)
-					break
-			for(var/turf/simulated/floor/M in range(range, src.loc))
-				M.burn_tile()
-			for(var/obj/machinery/M in range(range, src.loc))
+	var/obj/effect/effect/smoke/S = new /obj/effect/effect/smoke(get_turf(src))
+	S.time_to_live = 20 //2 seconds instead of full 10
+
+	for(var/i = 1 to wallcrashiterations) //We just loop this way.
+		var/movementdirection = user.dir
+		var/range = 1
+		user.Move(get_step(usr,movementdirection), movementdirection)
+		for(var/turf/simulated/wall/M in range(range, src.loc))									//Cool-Aid man 'OH YEAH!!!'
+			if(istype(M, /turf/simulated/wall) && !istype(M, /turf/simulated/wall/r_wall))
+				var/randomizer = pick('z40k_shit/sounds/wallsmash1.ogg','z40k_shit/sounds/wallsmash2.ogg', 'z40k_shit/sounds/wallsmash3.ogg')
+				playsound(loc, randomizer, 75, 0)
+				M.ex_act(1)
+			if(istype(M, /turf/simulated/wall/r_wall))
+				user.gib()
+				break
+		for(var/obj/structure/M in range(range, src.loc))
+			if(prob(25))
 				qdel(M)
-			for(var/mob/living/carbon/human/M in orange(range, src.loc))
-				M.Stun(stuntime)
-				M.Knockdown(knockdowntime)
-			playsound(loc, 'z40k_shit/sounds/Jump_Pack2.ogg', 75, 0)
-			user.Move(get_step(usr,movementdirection), movementdirection)
-			sleep(2)
+			else
+				user.Stun(stuntime)
+				user.Knockdown(knockdowntime)
+				break
+		for(var/turf/simulated/floor/M in range(range, src.loc))
+			M.burn_tile()
+		for(var/obj/machinery/M in range(range, src.loc))
+			qdel(M)
+		for(var/mob/living/carbon/human/M in orange(range, src.loc))
+			M.Stun(stuntime)
+			M.Knockdown(knockdowntime)
+		playsound(loc, 'z40k_shit/sounds/Jump_Pack2.ogg', 75, 0)
+		user.Move(get_step(usr,movementdirection), movementdirection)
+		sleep(2)
 
-		sleep(3)
-		playsound(loc, 'z40k_shit/sounds/Jump_Pack3.ogg', 75, 0) //We end our shit
-		user.Move(get_step(user,user.dir), user.dir)
-		burning = FALSE
-		update_icon()
-	usetime = world.time
-
+	sleep(3)
+	playsound(loc, 'z40k_shit/sounds/Jump_Pack3.ogg', 75, 0) //We end our shit
+	user.Move(get_step(user,user.dir), user.dir)
+	burning = FALSE
+	update_icon()
+	

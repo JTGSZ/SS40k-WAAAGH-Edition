@@ -363,6 +363,11 @@ Works together with spawning an observer, noted above.
 		ghost.key = key
 		if(ghost.client && !ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 			ghost.verbs -= /mob/dead/observer/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
+		if(ghost.client.persist)
+			var/client/C = ghost.client
+			ghost.icon_state = C.persist.ghost_form
+			ghost.color = rgb(C.persist.ghost_red,C.persist.ghost_green,C.persist.ghost_blue)
+		
 		return ghost
 
 /*
