@@ -84,11 +84,6 @@ var/datum/controller/gameticker/ticker
 			for(var/i=0, i<10, i++)
 				sleep(1)
 				vote.process()
-				watchdog.check_for_update()
-				//if(watchdog.waiting)
-//					to_chat(world, "<span class='notice'>Server update detected, restarting momentarily.</span>")
-					//watchdog.signal_ready()
-					//return
 			if (world.timeofday < (863800 -  delay_timetotal) &&  pregame_timeleft > 863950) // having a remaining time > the max of time of day is bad....
 				pregame_timeleft -= 864000
 			if(!going && !remaining_time)
@@ -224,8 +219,6 @@ var/datum/controller/gameticker/ticker
 		to_chat(world, "<span class='notice'><B>Enjoy the game!</B></span>")
 
 		send2maindiscord("**The game has started**")
-
-//		world << sound('sound/AI/welcome.ogg')// Skie //Out with the old, in with the new. - N3X15
 
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
@@ -406,14 +399,7 @@ var/datum/controller/gameticker/ticker
 		nanocoins_lastchange = world.time + rand(3000,15000)
 		nanocoins_rates = (rand(1,30))/10
 
-	/*emergency_shuttle.process()*/
-	watchdog.check_for_update()
-
 	var/force_round_end=0
-
-	// If server's empty, force round end.
-	if(watchdog.waiting && player_list.len == 0)
-		force_round_end=1
 
 	var/mode_finished = mode.check_finished() || (emergency_shuttle.location == 2 && emergency_shuttle.alert == 1) || force_round_end
 	if(!explosion_in_progress && mode_finished)
@@ -438,18 +424,17 @@ var/datum/controller/gameticker/ticker
 					choices.Add(key)
 				var/mapname=pick(choices)
 				vote.chosen_map = maps[mapname] // Hack, but at this point I could not give a shit.
-				watchdog.chosen_map = copytext(mapname,1,(length(mapname)))
-				log_game("Server chose [watchdog.chosen_map]!")
+				log_game("Server chose [vote.chosen_map]!")
 
 
 		spawn(50)
 			if(station_was_nuked)
 				feedback_set_details("end_proper","nuke")
-				if(!delay_end && !watchdog.waiting)
+				if(!delay_end)
 					to_chat(world, "<span class='notice'><B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B></span>")
 			else
 				feedback_set_details("end_proper","\proper completion")
-				if(!delay_end && !watchdog.waiting)
+				if(!delay_end)
 					to_chat(world, "<span class='notice'><B>Restarting in [restart_timeout/10] seconds</B></span>")
 
 			if(blackbox)
@@ -461,16 +446,7 @@ var/datum/controller/gameticker/ticker
  
 			stat_collection.Process()
 
-			if(watchdog.waiting)
-				to_chat(world, "<span class='notice'><B>Server will shut down for an automatic update in [config.map_voting ? "[(restart_timeout/10)] seconds." : "a few seconds."]</B></span>")
-				if(config.map_voting)
-					sleep(restart_timeout) //waiting for a mapvote to end
-				if(!delay_end)
-					watchdog.signal_ready()
-				else
-					to_chat(world, "<span class='notice'><B>An admin has delayed the round end</B></span>")
-					delay_end = 2
-			else if(!delay_end)
+			if(!delay_end)
 				sleep(restart_timeout)
 				if(!delay_end)
 					CallHook("Reboot",list())

@@ -1011,11 +1011,6 @@ var/global/floorIsLava = 0
 
 		CallHook("Reboot",list())
 
-		if (watchdog.waiting)
-			to_chat(world, "<span class='notice'><B>Server will shut down for an automatic update in a few seconds.</B></span>")
-			watchdog.signal_ready()
-			return
-
 		sleep(50)
 		world.Reboot()
 
@@ -1179,10 +1174,7 @@ var/global/floorIsLava = 0
 		if(ticker.delay_end == 2)
 			to_chat(world, "<font size=4><span class='danger'>World Reboot triggered by [key_name(usr)]!</font></span>")
 			log_admin("<font size=4><span class='danger'>World Reboot triggered by [key_name(usr)]!</font></span>")
-			if(watchdog.waiting)
-				watchdog.signal_ready()
-			else
-				world.Reboot()
+			world.Reboot()
 		ticker.delay_end = !ticker.delay_end
 		log_admin("[key_name(usr)] [ticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
 		message_admins("<span class='notice'>[key_name(usr)] [ticker.delay_end ? "delayed the round end" : "has made the round end normally"].</span>", 1)
@@ -1246,12 +1238,6 @@ var/global/floorIsLava = 0
 		blackbox.save_all_data_to_sql()
 
 	CallHook("Reboot",list())
-
-	if (watchdog.waiting)
-		to_chat(world, "<span class='notice'><B>Server will shut down for an automatic update in a few seconds.</B></span>")
-		watchdog.signal_ready()
-		return
-
 	world.Reboot()
 
 /datum/admins/proc/unprison(var/mob/M in mob_list)

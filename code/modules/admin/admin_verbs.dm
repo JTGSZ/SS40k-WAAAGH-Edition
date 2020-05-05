@@ -45,7 +45,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
-//	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage
 	/client/proc/Jump,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
@@ -76,12 +75,9 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_change_custom_event,
 	/client/proc/cmd_admin_rejuvenate,
 	/client/proc/check_customitem_activity,
-	// /client/proc/man_up,
-	// /client/proc/global_man_up,
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/allow_character_respawn,    /* Allows a ghost to respawn */
-	/client/proc/watchdog_force_restart,	/*forces restart using watchdog feature*/
 	/client/proc/manage_religions,
 	/client/proc/set_veil_thickness,
 	/client/proc/credits_panel,			/*allows you to customize the roundend credits before they happen*/
@@ -163,7 +159,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/gc_dump_hdl,
 	/client/proc/debug_pooling,
 	/client/proc/cmd_admin_list_open_jobs,
-	/proc/getbrokeninhands,
 	/client/proc/Debug2,
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/debug_controller,
@@ -196,7 +191,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/check_spiral,
 	/client/proc/check_striketeams,
 	/client/proc/cmd_admin_find_bad_blood_tracks,
-	/client/proc/debugNatureMapGenerator,
 	/client/proc/callatomproc,
 	/client/proc/view_runtimes,
 	/client/proc/cmd_mass_modify_object_variables,

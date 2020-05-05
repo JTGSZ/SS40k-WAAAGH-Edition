@@ -94,10 +94,6 @@
 		if(blackbox)
 			blackbox.save_all_data_to_sql()
 
-		if (watchdog.waiting)
-			to_chat(world, "<span class='notice'><B>Server will shut down for an automatic update in a few seconds.</B></span>")
-			watchdog.signal_ready()
-			return
 		sleep(300)
 		log_game("Rebooting due to universal collapse")
 		CallHook("Reboot",list())
