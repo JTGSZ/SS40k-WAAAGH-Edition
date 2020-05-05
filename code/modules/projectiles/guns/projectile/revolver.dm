@@ -91,8 +91,8 @@
 	icon_state = "mateba"
 	origin_tech = Tc_COMBAT + "=2;" + Tc_MATERIALS + "=2"
 	recoil = 3
-	
-	
+
+
 /obj/item/weapon/gun/projectile/nagant //revolver that simple mob russians use
 	name = "nagant revolver"
 	desc = "Just like in those neo-russian spy movies! Uses 7.62x38R ammo."
@@ -311,7 +311,7 @@
 	user.put_in_hands(B)
 	qdel(src)
 
-/obj/item/weapon/gun/projectile/banana/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+/obj/item/weapon/gun/projectile/banana/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0, var/use_shooter_turf = FALSE)
 	. = ..()
 	make_peel(user)
 

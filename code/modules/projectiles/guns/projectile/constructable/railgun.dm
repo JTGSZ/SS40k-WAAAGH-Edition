@@ -248,7 +248,7 @@
 		else if(strength == 90)
 			B.penetration = 10
 		in_chamber = B
-		
+
 		if(Fire(A,user,params, "struggle" = struggle))
 			loadedammo = null
 			if(strength >= 200)
@@ -294,14 +294,14 @@
 /obj/item/weapon/gun/projectile/railgun/preloaded
 	var/ammotype = /obj/item/weapon/coin/iron
 	var/capacitortype = /obj/item/weapon/stock_parts/capacitor/adv/super
-	
+
 /obj/item/weapon/gun/projectile/railgun/preloaded/New()
 	..()
 	loadedassembly = new /obj/item/weapon/rail_assembly(src)
 	rails_secure = 1
 	loadedammo = new ammotype(src)
 	loadedcapacitor = new capacitortype(src)
-	loadedcapacitor.stored_charge = loadedcapacitor.maximum_charge 
+	loadedcapacitor.stored_charge = loadedcapacitor.maximum_charge
 
 /obj/item/weapon/gun/projectile/railgun/preloaded/godslayer
 	ammotype = /obj/item/weapon/nullrod

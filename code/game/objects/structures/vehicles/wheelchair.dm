@@ -87,7 +87,6 @@
 
 	return available_hands
 
-	return 1
 	/*var/left_hand_exists = 1
 	var/right_hand_exists = 1
 

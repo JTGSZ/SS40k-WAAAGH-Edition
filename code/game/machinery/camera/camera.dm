@@ -111,7 +111,7 @@ var/list/camera_names=list()
 	var/basename=A.name
 	var/nethash=english_list(network)
 	var/suffix = 0
-	while(!suffix || (nethash+c_tag in camera_names))
+	while(!suffix || ((nethash+c_tag) in camera_names))
 		c_tag = "[basename]"
 		if(suffix)
 			c_tag += " [suffix]"
@@ -437,7 +437,6 @@ var/list/camera_messages = list()
 	for(var/obj/machinery/camera/C in oview(4, M))
 		if(C.can_use())	// check if camera disabled
 			return C
-			break
 	return null
 
 /proc/near_range_camera(var/mob/M)
@@ -446,7 +445,6 @@ var/list/camera_messages = list()
 	for(var/obj/machinery/camera/C in range(4, M))
 		if(C.can_use())	// check if camera disabled
 			return C
-			break
 
 	return null
 

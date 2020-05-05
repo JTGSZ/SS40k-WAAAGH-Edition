@@ -36,7 +36,7 @@
 /obj/item/weapon/spellbook/oneuse/proc/recoil(mob/user )
 	user.visible_message("<span class='warning'>[src] glows in a black light!</span>")
 
-/obj/item/weapon/spellbook/oneuse/proc/onlearned(mob/user )
+/obj/item/weapon/spellbook/oneuse/proc/onlearned(mob/user)
 	used = 1
 	user.visible_message("<span class='caution'>[src] glows dark for a second!</span>")
 
@@ -49,9 +49,9 @@
 	icon_state ="bookfireball"
 	desc = "This book feels warm to the touch."
 
-/obj/item/weapon/spellbook/oneuse/fireball/recoil(mob/user )
+/obj/item/weapon/spellbook/oneuse/fireball/recoil(mob/user)
 	..()
-	explosion(user.loc, -1, 0, 2, 3, 0, flame_range = 2)
+	explosion(user.loc, -1, 0, 2, 3, 0)
 	qdel(src)
 
 /obj/item/weapon/spellbook/oneuse/smoke
@@ -60,7 +60,7 @@
 	icon_state ="booksmoke"
 	desc = "This book is overflowing with the dank arts."
 
-/obj/item/weapon/spellbook/oneuse/smoke/recoil(mob/living/user )
+/obj/item/weapon/spellbook/oneuse/smoke/recoil(mob/living/user)
 	..()
 	to_chat(user, "<span class='caution'>Your stomach rumbles...</span>")
 	if(user.nutrition)

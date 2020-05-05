@@ -192,7 +192,7 @@
 	to_chat(user, "<span class='notice'>You will now raise [raisetype < 2 ? (raisetype ? "skeletal" : "zombified") : "unknown"] minions from corpses.</span>")
 	next_change = world.timeofday + 30
 
-/obj/item/weapon/gun/energy/staff/necro/afterattack(atom/target, mob/user, proximity)
+/obj/item/weapon/gun/energy/staff/necro/afterattack(atom/A, mob/living/user, flag, params, struggle = 0)
 	if(!ishuman(target) || !charges || get_dist(target, user) > 7)
 		return 0
 	var/mob/living/carbon/human/H = target
@@ -446,7 +446,7 @@
 			modifystate = "floraemag"
 			update_icon()
 
-/obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, flag)
+/obj/item/weapon/gun/energy/floragun/afterattack(atom/A, mob/living/user, flag, params, struggle = 0)
 	if(flag && istype(target,/obj/machinery/portable_atmospherics/hydroponics))
 		var/obj/machinery/portable_atmospherics/hydroponics/tray = target
 		if(process_chambered())

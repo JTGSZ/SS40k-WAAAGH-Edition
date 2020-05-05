@@ -158,15 +158,15 @@
 	change_dir(direction)
 	return 1
 	
-/obj/structure/bed/chair/AltClick(mob/user )
+/obj/structure/bed/chair/AltClick(mob/user)
 	buckle_chair(user,user)	
 
-/obj/structure/bed/chair/MouseDropTo(mob/M, mob/user )
+/obj/structure/bed/chair/MouseDropTo(mob/M, mob/user)
 	buckle_chair(M,user)
 
-/obj/structure/bed/chair/proc/buckle_chair(mob/M, mob/user )
+/obj/structure/bed/chair/proc/buckle_chair(mob/M, mob/user)
 	if(!istype(M))
-		return ..()
+		return
 
 	var/mob/living/carbon/human/target = null
 	if(ishuman(M))
@@ -181,7 +181,7 @@
 				"<span class='notice'>[M.name] has no butt, and slides right out of [src]!</span>",\
 				"Having no butt, you slide right out of the [src]",\
 				"You hear metal clanking.")
-				
+
 			M.Knockdown(5)
 			M.Stun(5)
 		else
@@ -217,10 +217,10 @@
 /obj/structure/bed/chair/wood/pew/left
 	icon_state = "bench_left"
 
-/obj/structure/bed/chair/wood/pew/right/
+/obj/structure/bed/chair/wood/pew/right
 	icon_state = "bench_right"
 
-/obj/structure/bed/chair/wood/pew/mid/ // mid refers to a straight couch part
+/obj/structure/bed/chair/wood/pew/mid // mid refers to a straight couch part
 	icon_state = "bench_mid"
 
 

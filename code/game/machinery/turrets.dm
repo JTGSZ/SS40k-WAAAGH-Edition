@@ -86,8 +86,8 @@
 		qdel(src)
 	return
 
-/obj/machinery/turret/proc/check_target(var/atom/movable/T )
-	if( T && T in protected_area.turretTargets )
+/obj/machinery/turret/proc/check_target(var/atom/movable/T)
+	if(T && (T in protected_area.turretTargets))
 		var/area/area_T = get_area(T)
 		if( !area_T || (area_T.type != protected_area.type) )
 			protected_area.Exited(T)
@@ -414,14 +414,14 @@
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
 
-/obj/machinery/turretid/attack_ai(mob/user )
+/obj/machinery/turretid/attack_ai(mob/user)
 	add_hiddenprint(user)
 	if(!ailock || isAdminGhost(user))
 		return attack_hand(user)
 	else
 		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing [src].</span>")
 
-/obj/machinery/turretid/attack_hand(mob/user )
+/obj/machinery/turretid/attack_hand(mob/user)
 	if(!user.Adjacent(src))
 		if(!issilicon(user) && !isAdminGhost(user))
 			to_chat(user, "<span class='notice'>You are too far away.</span>")
@@ -561,7 +561,7 @@
 	return
 
 
-/obj/structure/turret/gun_turret/attack_hand(mob/user )
+/obj/structure/turret/gun_turret/attack_hand(mob/user)
 	user.set_machine(src)
 	var/dat = {"<html>
 					<head><title>[src] Control</title></head>
@@ -579,12 +579,12 @@
 	onclose(user, "turret")
 	return
 
-/obj/structure/turret/gun_turret/attack_ai(mob/user )
+/obj/structure/turret/gun_turret/attack_ai(mob/user)
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 
-/obj/structure/turret/gun_turret/attack_alien(mob/living/user )
+/obj/structure/turret/gun_turret/attack_alien(mob/living/user)
 	user.do_attack_animation(src, user)
 	user.visible_message("[user] slashes at [src]", "You slash at [src]")
 	src.take_damage(15)
@@ -636,12 +636,12 @@
 	var/target = null
 	if(scan_for["human"])
 		for(var/mob/living/carbon/human/M in oview(scan_range,src))
-			if(M.stat || M.isStunned() || M in exclude)
+			if(M.stat || M.isStunned() || (M in exclude))
 				continue
 			pos_targets += M
 	if(scan_for["cyborg"])
 		for(var/mob/living/silicon/M in oview(scan_range,src))
-			if(M.stat || M.lying || M in exclude)
+			if(M.stat || M.lying || (M in exclude))
 				continue
 			pos_targets += M
 	if(scan_for["mecha"])
@@ -651,7 +651,7 @@
 			pos_targets += M
 	if(scan_for["alien"])
 		for(var/mob/living/carbon/alien/M in oview(scan_range,src))
-			if(M.stat || M.lying || M in exclude)
+			if(M.stat || M.lying || (M in exclude))
 				continue
 			pos_targets += M
 	if(pos_targets.len)
