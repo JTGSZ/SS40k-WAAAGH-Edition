@@ -19,7 +19,6 @@
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user )
-	add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/computer/HolodeckControl/attack_paw(var/mob/user )

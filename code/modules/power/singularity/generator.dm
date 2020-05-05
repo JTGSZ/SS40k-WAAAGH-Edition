@@ -28,5 +28,4 @@
 	qdel(src)
 
 /obj/machinery/the_singularitygen/wrenchAnchor(var/mob/user, var/obj/item/I)
-	src.add_hiddenprint(user)
 	. = ..()

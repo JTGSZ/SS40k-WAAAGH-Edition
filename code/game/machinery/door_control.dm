@@ -36,7 +36,6 @@
 	machine_flags = EMAGGABLE | MULTITOOL_MENU
 
 /obj/machinery/door_control/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	if(wires & 2)
 		return src.attack_hand(user)
 	else
@@ -131,7 +130,6 @@
 	attack_hand(L)
 
 /obj/machinery/driver_button/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/driver_button/attack_paw(mob/user )

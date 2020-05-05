@@ -397,14 +397,12 @@
 // This is broken, see attack_ai.
 /obj/structure/closet/attack_robot(mob/living/silicon/robot/user )
 	if(isMoMMI(user) || HAS_MODULE_QUIRK(user, required_quirk))
-		src.add_hiddenprint(user)
 		
 		return src.attack_hand(user)
 	..(user)
 
 /obj/machinery/closet/attack_ai(mob/user )
 	if(isMoMMI(user))
-		src.add_hiddenprint(user)
 		
 		return src.attack_hand(user)
 	..(user)

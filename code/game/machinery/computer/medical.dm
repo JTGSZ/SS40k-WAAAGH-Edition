@@ -25,7 +25,6 @@
 	light_color = LIGHT_COLOR_BLUE
 
 /obj/machinery/computer/med_data/attack_ai(user )
-	add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/computer/med_data/attack_paw(user )

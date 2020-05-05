@@ -153,7 +153,6 @@ var/list/all_doors = list()
 		denied()
 
 /obj/machinery/door/attack_ai(mob/user )
-	add_hiddenprint(user)
 	attack_hand(user)
 
 /obj/machinery/door/attack_paw(mob/user )

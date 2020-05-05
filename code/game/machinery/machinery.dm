@@ -395,12 +395,10 @@ Class Procs:
 		log_adminghost("[key_name(usr)] screwed with [src] ([href])!")
 
 	
-	src.add_hiddenprint(usr)
 
 	return handle_multitool_topic(href,href_list,usr)
 
-/obj/machinery/attack_ai(mob/user )
-	src.add_hiddenprint(user)
+/obj/machinery/attack_ai(mob/user)
 	if(isrobot(user))
 		// For some reason attack_robot doesn't work
 		// This is to stop robots from using cameras to remotely control machines.
@@ -409,15 +407,14 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_ghost(mob/user )
-	src.add_hiddenprint(user)
+/obj/machinery/attack_ghost(mob/user)
 	var/ghost_flags=0
 	if(ghost_read)
 		ghost_flags |= PERMIT_ALL
 	if(canGhostRead(usr,src,ghost_flags))
 		return src.attack_ai(user)
 
-/obj/machinery/attack_paw(mob/user )
+/obj/machinery/attack_paw(mob/user)
 	return src.attack_hand(user)
 
 /obj/machinery/attack_hand(mob/user, var/ignore_brain_damage = 0)

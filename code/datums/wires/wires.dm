@@ -125,7 +125,6 @@ var/list/wireColours = list("red", "blue", "green", "black", "orange", "brown", 
 					I = SW.deployed
 			else
 				I = L.get_active_hand()
-			holder.add_hiddenprint(L)
 			if(href_list["cut"]) // Toggles the cut/mend status
 				if(iswirecutter(I) || isswitchtool(I))
 					var/colour = href_list["cut"]

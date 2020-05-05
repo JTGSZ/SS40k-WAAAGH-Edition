@@ -251,7 +251,6 @@
 
 
 /obj/machinery/magnetic_controller/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/magnetic_controller/attack_hand(mob/user )

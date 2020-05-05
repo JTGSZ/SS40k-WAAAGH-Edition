@@ -415,7 +415,6 @@
 			to_chat(user, "<span class='warning'>Access denied.</span>")
 
 /obj/machinery/turretid/attack_ai(mob/user)
-	add_hiddenprint(user)
 	if(!ailock || isAdminGhost(user))
 		return attack_hand(user)
 	else
@@ -580,7 +579,6 @@
 	return
 
 /obj/structure/turret/gun_turret/attack_ai(mob/user)
-	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 

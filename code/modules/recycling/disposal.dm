@@ -208,7 +208,6 @@
 
 // ai as human but can't flush
 /obj/machinery/disposal/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	ui_interact(user)
 
 // human interact with machine

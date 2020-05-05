@@ -385,7 +385,6 @@
 			C.resting = 1
 			C.update_canmove()
 
-		add_fingerprint(C)
 
 	O.forceMove(loc)
 	to_chat(user, "<span class='warning'>You move \the [O] on top of \the [src]</span>")

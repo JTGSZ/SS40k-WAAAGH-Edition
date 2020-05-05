@@ -48,7 +48,6 @@ var/list/obj/machinery/camera/cyborg_cams = list(
 	..()
 
 /obj/machinery/computer/security/attack_ai(var/mob/user)
-	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 

@@ -105,7 +105,6 @@
 		var/mob/living/L = usr
 		if(href_list["action"])
 			var/obj/item/I = L.get_active_hand()
-			holder.add_hiddenprint(L)
 			if(href_list["fuse"]) // Toggles the fuse/unfuse status
 				if(issolder(I))
 					var/obj/item/weapon/solder/S = I

@@ -17,7 +17,6 @@ var/list/climatecomps = list()
 	..()
 
 /obj/machinery/computer/climate/attack_ai(var/mob/user )
-	add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/computer/climate/attack_hand(var/mob/user )

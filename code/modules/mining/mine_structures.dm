@@ -153,7 +153,6 @@
 /obj/structure/hanging_lantern/attack_ghost(var/mob/user)
 	if(!can_spook())
 		return
-	add_hiddenprint(user)
 	flicker(1)
 	investigation_log(I_GHOST, "|| was made to flicker by [key_name(user)][user.locked_to ? ", who was haunting [user.locked_to]" : ""]")
 

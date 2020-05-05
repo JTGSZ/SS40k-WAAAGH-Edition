@@ -37,7 +37,6 @@
 	updateUsrDialog()
 
 /obj/machinery/computer/smelting/attack_ai(mob/user)
-	add_hiddenprint(user)
 	interact(user)
 
 /obj/machinery/computer/smelting/attack_hand(mob/user)

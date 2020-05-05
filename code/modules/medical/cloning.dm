@@ -179,12 +179,13 @@
 			healthstring = "ERROR"
 		return healthstring
 
-/obj/machinery/cloning/clonepod/attack_ai(mob/user )
-	add_hiddenprint(user)
+/obj/machinery/cloning/clonepod/attack_ai(mob/user)
 	return attack_hand(user)
-/obj/machinery/cloning/clonepod/attack_paw(mob/user )
+
+/obj/machinery/cloning/clonepod/attack_paw(mob/user)
 	return attack_hand(user)
-/obj/machinery/cloning/clonepod/attack_hand(mob/user )
+
+/obj/machinery/cloning/clonepod/attack_hand(mob/user)
 	if ((isnull(occupant)) || (stat & NOPOWER))
 		return
 	if ((!isnull(occupant)) && (occupant.stat != 2))

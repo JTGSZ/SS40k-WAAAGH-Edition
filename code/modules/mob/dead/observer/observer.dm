@@ -919,7 +919,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.basecolor = doodle_color
 		W.update_icon()
 		W.message = message
-		W.add_hiddenprint(src)
 		W.visible_message("<span class='warning'>Invisible fingers crudely paint something in blood on [T]...</span>")
 
 

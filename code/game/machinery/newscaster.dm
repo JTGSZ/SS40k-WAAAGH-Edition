@@ -212,11 +212,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				playsound(src, 'sound/effects/Glasshit.ogg', 100, 1)
 			update_icon()
 
-/obj/machinery/newscaster/attack_ai(mob/user )
-	add_hiddenprint(user)
+/obj/machinery/newscaster/attack_ai(mob/user)
 	return attack_hand(user)
 
-/obj/machinery/newscaster/attack_hand(mob/user )            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
+/obj/machinery/newscaster/attack_hand(mob/user)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
 
 	if(buildstage != 1)
 		return

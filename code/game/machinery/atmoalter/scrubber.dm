@@ -166,7 +166,6 @@
 	return air_contents
 
 /obj/machinery/portable_atmospherics/scrubber/attack_ai(var/mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/scrubber/attack_paw(var/mob/user )

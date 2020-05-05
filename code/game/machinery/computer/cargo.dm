@@ -137,8 +137,7 @@ For vending packs, see vending_packs.dm*/
 	..()
 
 
-/obj/machinery/computer/supplycomp/attack_ai(var/mob/user )
-	add_hiddenprint(user)
+/obj/machinery/computer/supplycomp/attack_ai(var/mob/user)
 	return attack_hand(user)
 
 /obj/machinery/computer/supplycomp/proc/check_restriction(mob/user)
@@ -472,11 +471,10 @@ For vending packs, see vending_packs.dm*/
 /obj/machinery/computer/ordercomp/initialize()
 	reconnect_database()
 
-/obj/machinery/computer/ordercomp/attack_ai(var/mob/user )
-	add_hiddenprint(user)
+/obj/machinery/computer/ordercomp/attack_ai(var/mob/user)
 	return attack_hand(user)
 
-/obj/machinery/computer/ordercomp/attack_hand(var/mob/user )
+/obj/machinery/computer/ordercomp/attack_hand(var/mob/user)
 	if(..())
 		return
 	current_acct = get_account_info(user, linked_db)

@@ -101,7 +101,6 @@
 	mixing_chamber.reagents.handle_reactions()
 
 /obj/machinery/vaporizer/attack_ai(var/mob/user )
-	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/vaporizer/attack_paw(var/mob/user )

@@ -31,7 +31,6 @@
 	..()
 
 /obj/machinery/computer/secure_data/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/computer/secure_data/attack_paw(mob/user )

@@ -290,7 +290,6 @@
 
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/canister/attack_paw(var/mob/user )
@@ -300,7 +299,6 @@
 	return src.ui_interact(user)
 
 /obj/machinery/portable_atmospherics/canister/attack_alien(var/mob/living/carbon/alien/user )
-	src.add_hiddenprint(user)
 	health -= rand(15, 30)
 	user.visible_message("<span class='danger'>\The [user] slashes away at \the [src]!</span>", \
 						 "<span class='danger'>You slash away at \the [src]!</span>")
@@ -405,8 +403,6 @@
 				src.icon_state = colors[label]
 				src.name = "Canister: [label]"
 
-	
-	src.add_hiddenprint(usr)
 	update_icon()
 
 	return 1

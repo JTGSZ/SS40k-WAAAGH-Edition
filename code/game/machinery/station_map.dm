@@ -121,7 +121,6 @@ var/list/station_holomaps = list()
 /obj/machinery/station_map/attack_ghost(var/mob/user)
 	if(!can_spook())
 		return FALSE
-	add_hiddenprint(user)
 	flick("station_map_activate", src)
 
 /obj/machinery/station_map/attack_ai(var/mob/living/silicon/robot/user)

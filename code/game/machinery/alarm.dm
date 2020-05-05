@@ -1187,7 +1187,6 @@ FIRE ALARM
 			src.alarm()			// added check of detector status here
 
 /obj/machinery/firealarm/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/firealarm/bullet_act(BLAH)

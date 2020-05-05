@@ -365,7 +365,6 @@ var/list/shuttle_log = list()
 	return 1
 
 /obj/machinery/computer/communications/attack_ai(var/mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/computer/communications/attack_paw(var/mob/user )

@@ -279,7 +279,6 @@
 	if(istype(user,/mob/living/simple_animal/construct/armoured))
 		shake(1, 3)
 		playsound(src, 'sound/weapons/heavysmash.ogg', 75, 1)
-		add_hiddenprint(user)
 		breakdown()
 		return 1
 	return 0
@@ -299,6 +298,5 @@
 		user.do_attack_animation(src, user)
 		visible_message("<span class='warning'>\The [user] slashes at \the [src]!</span>")
 		playsound(src, 'sound/weapons/slash.ogg', 100, 1)
-		add_hiddenprint(user)
 	else
 		attack_hand(user)

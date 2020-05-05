@@ -39,7 +39,6 @@
 		A.send_poweralert(src)
 
 /obj/machinery/computer/station_alert/attack_ai(mob/user)
-	src.add_hiddenprint(user)
 	
 	if(stat & (BROKEN|NOPOWER))
 		return

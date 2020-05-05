@@ -184,7 +184,7 @@ var/list/camera_names=list()
 	src.view_range = num
 	cameranet.updateVisibility(src, 0)
 
-/obj/machinery/camera/attack_paw(mob/living/carbon/alien/humanoid/user )
+/obj/machinery/camera/attack_paw(mob/living/carbon/alien/humanoid/user)
 	if(!istype(user))
 		return
 	if(!status)
@@ -194,7 +194,6 @@ var/list/camera_names=list()
 	user.do_attack_animation(src, user)
 	visible_message("<span class='warning'>\The [user] slashes at [src]!</span>")
 	playsound(src, 'sound/weapons/slash.ogg', 100, 1)
-	add_hiddenprint(user)
 	deactivate(user,0)
 
 #define MAX_CAMERA_MESSAGES 15
@@ -363,19 +362,15 @@ var/list/camera_messages = list()
 		if (!(src.status))
 			if(user)
 				visible_message("<span class='warning'>[user] has deactivated [src]!</span>")
-				add_hiddenprint(user)
 			else
 				visible_message("<span class='warning'> \The [src] deactivates!</span>")
 			playsound(src, 'sound/items/Wirecutter.ogg', 50, 1)
-			add_hiddenprint(user)
 		else
 			if(user)
 				visible_message("<span class='warning'> [user] has reactivated [src]!</span>")
-				add_hiddenprint(user)
 			else
 				visible_message("<span class='warning'> \The [src] reactivates!</span>")
 			playsound(src, 'sound/items/Wirecutter.ogg', 50, 1)
-			add_hiddenprint(user)
 		cameranet.updateVisibility(src, 0)
 	// now disconnect anyone using the camera
 	//Apparently, this will disconnect anyone even if the camera was re-activated.

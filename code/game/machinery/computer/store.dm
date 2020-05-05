@@ -105,7 +105,6 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/merch/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/computer/merch/proc/make_div(var/store_ID)

@@ -313,7 +313,6 @@ USE THIS CHEMISTRY DISPENSER FOR MAPS SO THEY START AT 100 ENERGY
 			return
 
 /obj/machinery/chem_dispenser/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/chem_dispenser/attack_paw(mob/user )

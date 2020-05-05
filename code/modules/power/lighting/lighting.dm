@@ -422,7 +422,6 @@ var/global/list/obj/machinery/light/alllights = list()
 /obj/machinery/light/attack_ghost(mob/user)
 	if(!can_spook())
 		return
-	src.add_hiddenprint(user)
 	src.flicker(1)
 	investigation_log(I_GHOST, "|| was made to flicker by [key_name(user)][user.locked_to ? ", who was haunting [user.locked_to]" : ""]")
 	return
@@ -432,7 +431,6 @@ var/global/list/obj/machinery/light/alllights = list()
 	// attack_robot is flaky.
 	if(isMoMMI(user))
 		return attack_hand(user)
-	src.add_hiddenprint(user)
 	src.flicker(1)
 	return
 

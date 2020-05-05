@@ -61,7 +61,6 @@
 				if(do_after(user, src, construction_length))
 					user.visible_message("<span class='notice'>[user] secures \the [src].</span>", \
 					"<span class='notice'>You secure \the [src].</span>")
-					add_hiddenprint(user)
 					
 					anchored = 1
 					update_icon()
@@ -73,7 +72,6 @@
 				anchored = !anchored //Unachor it if anchored, or opposite
 				user.visible_message("<span class='notice'>[user] [anchored ? "" : "un"]secures \the [src].</span>", \
 				"<span class='notice'>You [anchored ? "" : "un"]secure \the [src].</span>")
-				add_hiddenprint(user)
 				
 				update_icon()
 
@@ -97,7 +95,6 @@
 		if(do_after(user, src, construction_length))
 			user.visible_message("<span class='warning'>[user] unsecures \the [src]'s internal support struts.</span>", \
 			"<span class='notice'>You unsecure \the [src]'s internal support struts.</span>")
-			add_hiddenprint(user)
 			
 			state = 1
 			update_icon()
@@ -109,7 +106,6 @@
 		if(do_after(user, src, construction_length))
 			user.visible_message("<span class='notice'>[user] secures \the [src]'s internal support struts.</span>", \
 			"<span class='notice'>You secure \the [src]'s internal support struts.</span>")
-			add_hiddenprint(user)
 			
 			state = 2
 			update_icon()
@@ -121,7 +117,6 @@
 		if(do_after(user, src, construction_length))
 			user.visible_message("<span class='warning'>[user] removes \the [src]'s internal support struts.</span>", \
 			"<span class='notice'>You remove \the [src]'s internal support struts.</span>")
-			add_hiddenprint(user)
 			
 			getFromPool(/obj/item/stack/rods, get_turf(src), 2)
 			state = 0
@@ -142,7 +137,6 @@
 			O.use(2)
 			user.visible_message("<span class='notice'>[user] inserts internal support struts into \the [src].</span>", \
 			"<span class='notice'>You insert internal support struts into \the [src].</span>")
-			add_hiddenprint(user)
 			
 			state = 1
 			update_icon()
@@ -154,7 +148,6 @@
 		if(do_after(user, src, construction_length))
 			user.visible_message("<span class='warning'>[user] dislodges \the [src].</span>", \
 			"<span class='notice'>You dislodge \the [src].</span>")
-			add_hiddenprint(user)
 			
 			anchored = 0
 			update_icon()
@@ -274,8 +267,6 @@
 					Tsrc.ChangeTurf(wallpath)
 					qdel(src)
 				return
-
-		add_hiddenprint(usr)
 
 	else if((W.sharpness_flags & (CUT_WALL)) && user.a_intent == I_HURT)
 		user.visible_message("<span class='warning'>[user] begins slicing through \the [src]!</span>", \

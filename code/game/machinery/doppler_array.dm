@@ -23,7 +23,6 @@ var/list/doppler_arrays = list()
 	return src.attack_hand(user)
 
 /obj/machinery/computer/bhangmeter/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/computer/bhangmeter/attack_hand(mob/user )

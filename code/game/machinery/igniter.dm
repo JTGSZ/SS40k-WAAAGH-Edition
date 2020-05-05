@@ -16,7 +16,6 @@ var/global/list/igniters = list()
 	ghost_write = 0
 
 /obj/machinery/igniter/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/igniter/attack_paw(mob/user )
@@ -160,7 +159,6 @@ var/global/list/igniters = list()
 	..(severity)
 
 /obj/machinery/ignition_switch/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/ignition_switch/attack_paw(mob/user )

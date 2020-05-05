@@ -26,7 +26,6 @@ var/prison_shuttle_timeleft = 0
 		attack_hand(user)
 
 /obj/machinery/computer/prison_shuttle/attack_ai(var/mob/user )
-	add_hiddenprint(user)
 	return attack_hand(user)
 
 

@@ -39,16 +39,15 @@
 	processing_objects.Remove(src)
 	..()
 
-/obj/item/device/radio/intercom/attack_ai(mob/user )
-	add_hiddenprint(user)
-	
+/obj/item/device/radio/intercom/attack_ai(mob/user)
+
 	spawn (0)
 		attack_self(user)
 
-/obj/item/device/radio/intercom/attack_paw(mob/user )
+/obj/item/device/radio/intercom/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/item/device/radio/intercom/attack_hand(mob/user )
+/obj/item/device/radio/intercom/attack_hand(mob/user)
 	
 	spawn (0)
 		attack_self(user)

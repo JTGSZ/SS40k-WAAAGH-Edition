@@ -632,7 +632,6 @@
 	return
 
 /obj/machinery/suit_storage_unit/attack_ai(mob/user)
-	add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/suit_storage_unit/attack_paw(mob/user)

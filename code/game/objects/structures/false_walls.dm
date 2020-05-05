@@ -145,7 +145,6 @@
 
 /obj/structure/falsewall/attack_ai(mob/user )
 	if(isMoMMI(user))
-		src.add_hiddenprint(user)
 		attack_hand(user)
 
 /obj/structure/falsewall/attack_hand(mob/user )
@@ -255,7 +254,6 @@
 
 /obj/structure/falserwall/attack_ai(mob/user )
 	if(isMoMMI(user))
-		src.add_hiddenprint(user)
 		attack_hand(user)
 
 /obj/structure/falserwall/attack_hand(mob/user )

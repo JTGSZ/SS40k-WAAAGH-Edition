@@ -632,7 +632,6 @@ var/global/num_vending_terminals = 1
 	return attack_hand(user)
 
 /obj/machinery/vending/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/vending/proc/GetProductLine(var/datum/data/vending_product/P)

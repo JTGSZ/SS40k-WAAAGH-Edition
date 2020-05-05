@@ -178,7 +178,6 @@ var/global/list/battery_online =	list(
 		update_icon()
 
 /obj/machinery/power/battery/attack_ai(mob/user)
-	src.add_hiddenprint(user)
 	
 	ui_interact(user)
 

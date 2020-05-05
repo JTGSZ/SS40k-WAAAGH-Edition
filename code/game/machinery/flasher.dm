@@ -138,7 +138,6 @@ var/list/obj/machinery/flasher/flashers = list()
 			src.overlays += image(icon = icon, icon_state = "[base_state]-s")
 
 /obj/machinery/flasher_button/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/flasher_button/attack_paw(mob/user )

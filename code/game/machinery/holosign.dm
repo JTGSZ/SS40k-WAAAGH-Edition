@@ -59,7 +59,6 @@ var/list/obj/machinery/holosign/holosigns = list()
 	active_power_usage = 4
 
 /obj/machinery/holosign_switch/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/holosign_switch/attack_paw(mob/user )

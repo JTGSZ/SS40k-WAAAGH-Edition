@@ -558,38 +558,6 @@ its easier to just keep the beam vertical.
 /atom/proc/hitby(var/atom/movable/AM)
 	. = isobserver(AM)
 
-/atom/proc/add_hiddenprint(mob/M )
-	if(isnull(M))
-		return
-	if(isnull(M.key))
-		return
-	if (!(flags & FPRINT))
-		return
-	if((fingerprintslastTS == time_stamp()) && (fingerprintslast == M.key)) //otherwise holding arrow on airlocks spams fingerprints onto it
-		return
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if (!istype(H.dna, /datum/dna))
-			return 0
-		if (H.gloves)
-			fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []",H.real_name, H.key)
-			fingerprintslast = H.key
-			fingerprintslastTS = time_stamp()
-			return 0
-		if (!( src.fingerprints ))
-			fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",H.real_name, H.key)
-			fingerprintslast = H.key
-			fingerprintslastTS = time_stamp()
-			return 1
-	else
-		var/ghost = ""
-		if (isobserver(M))
-			ghost = isAdminGhost(M) ? "ADMINGHOST" : "GHOST"
-		fingerprintshidden += text("\[[time_stamp()]\] [ghost ? "([ghost])" : ""] Real name: [], Key: []",M.real_name, M.key)
-		fingerprintslast = M.key
-		fingerprintslastTS = time_stamp()
-	return
-
 /atom/proc/add_fingerprint(mob/living/M )
 	if(isnull(M))
 		return

@@ -39,7 +39,6 @@
 	return optablef
 
 /obj/machinery/computer/operating/attack_ai(user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/computer/operating/attack_paw(user )
