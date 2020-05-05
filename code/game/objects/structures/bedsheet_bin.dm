@@ -41,7 +41,6 @@ LINEN BINS
 
 //todo: hold one if possible?
 //todo: coloring and molotov coloring?
-//todo: finger prints?
 //todo: more cutting tools?
 //todo: sharp thing code/game/objects/objs.dm
 

@@ -1413,14 +1413,6 @@ var/mob/dview/tview/tview_mob = new()
 /proc/print_runtime(exception/e)
 	world.log << "[time_stamp()] Runtime detected\n[e] at [e.file]:[e.line]\n [e.desc]"
 
-/proc/transfer_fingerprints(atom/A,atom/B)//synchronizes the fingerprints between two atoms. Useful when you have two different atoms actually being different states of a same object.
-	if(!A || !B)
-		return
-	B.fingerprints = A.fingerprints
-	B.fingerprintshidden = A.fingerprintshidden
-	B.fingerprintslast = A.fingerprintslast
-	B.suit_fibers = A.suit_fibers
-
 //Checks if any of the atoms in the turf are dense
 //Returns 1 is anything is dense, 0 otherwise
 /turf/proc/has_dense_content()

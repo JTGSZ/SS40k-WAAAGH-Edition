@@ -37,8 +37,6 @@
 		return
 	if(loc != user)
 		return
-	if(istype(A,/obj/machinery/computer/forensic_scanning)) //breaks shit.
-		return
 
 	var/list/blood_DNA_found    = src.extract_blood(A)
 
@@ -154,8 +152,6 @@
 	if(!in_range(A,user))
 		return
 	if(loc != user)
-		return
-	if(istype(A,/obj/machinery/computer/forensic_scanning)) //breaks shit.
 		return
 
 	var/list/blood_DNA_found = src.extract_blood(A)

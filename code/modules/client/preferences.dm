@@ -167,10 +167,6 @@ var/const/MAX_SAVE_SLOTS = 8
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = RETURN_TO_LOBBY
 
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list() // skills can range from 0 to 3
-
 	// maps each organ to either null(intact), "cyborg" or "amputated"
 	// will probably not be able to do this for head and torso ;)
 	var/list/organ_data = list()
@@ -1617,9 +1613,6 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 
 	character.my_appearance.h_style = h_style
 	character.my_appearance.f_style = f_style
-
-
-	character.skills = skills
 
 	// Destroy/cyborgize organs
 

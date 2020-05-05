@@ -320,11 +320,7 @@
 	desc = "A circuit board for running a computer used to operate the Telescience Telepad."
 	build_path = /obj/machinery/computer/telescience
 	origin_tech = Tc_PROGRAMMING + "=3;" + Tc_BLUESPACE + "=2"
-/obj/item/weapon/circuitboard/forensic_computer
-	name = "Circuit board (Forensics Console)"
-	desc = "A circuit board for running a computer used to scan objects and view data from portable scanners."
-	build_path = /obj/machinery/computer/forensic_scanning
-	origin_tech = Tc_PROGRAMMING + "=2"
+
 /obj/item/weapon/circuitboard/pda_terminal
 	name = "Circuit board (PDA Terminal)"
 	desc = "A circuit board for running a computer used to download applications to PDAs."

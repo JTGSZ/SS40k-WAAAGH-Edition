@@ -79,8 +79,6 @@ var/list/bad_gremlin_items = list()
 			bad_gremlin_items.Add(M.type)
 			return FALSE
 		if(NPC_TAMPER_ACT_NOMSG)
-			//Don't create a visible message
-			M.add_custom_fibers("Hairs from a gremlin.", 0)
 			return TRUE
 
 		else
@@ -92,7 +90,6 @@ var/list/bad_gremlin_items = list()
 			"<span class='danger'>\The [src] turns a small valve on \the [M].</span>"))
 
 	//Add a clue for detectives to find. The clue is only added if no such clue already existed on that machine
-	M.add_custom_fibers("Hairs from a gremlin.", 0)
 	return TRUE
 
 /mob/living/simple_animal/hostile/gremlin/proc/stand_still(var/tick_amount)

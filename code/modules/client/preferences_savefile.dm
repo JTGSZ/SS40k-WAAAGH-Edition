@@ -531,10 +531,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 		WARNING("[__LINE__]: datum/preferences/load_save_sqlite has returned")
 		return 0
 
-	if(!skills)
-		skills = list()
-	if(!used_skillpoints)
-		used_skillpoints= 0
 	if(isnull(disabilities))
 		disabilities = 0
 	if(!player_alt_titles)
@@ -602,9 +598,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	//S["be_special"]			>> be_special
 	S["disabilities"]		>> disabilities
 	S["player_alt_titles"]		>> player_alt_titles
-	S["used_skillpoints"]	>> used_skillpoints
-	S["skills"]				>> skills
-	S["skill_specialization"] >> skill_specialization
 	S["organ_data"]			>> organ_data
 
 	S["bank_security"] >> bank_security
@@ -657,10 +650,6 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	job_engsec_med = sanitize_integer(job_engsec_med, 0, 65535, initial(job_engsec_med))
 	job_engsec_low = sanitize_integer(job_engsec_low, 0, 65535, initial(job_engsec_low))
 
-	if(!skills)
-		skills = list()
-	if(!used_skillpoints)
-		used_skillpoints= 0
 	if(isnull(disabilities))
 		disabilities = 0
 	if(!player_alt_titles)
@@ -887,11 +876,7 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	S["sec_record"]            << sec_record
 	S["gen_record"]            << gen_record
 	S["player_alt_titles"]     << player_alt_titles
-//	S["be_special"]            << be_special
 	S["disabilities"]          << disabilities
-	S["used_skillpoints"]      << used_skillpoints
-	S["skills"]                << skills
-	S["skill_specialization"]  << skill_specialization
 	S["organ_data"]            << organ_data
 	S["bank_security"]	       << bank_security
 	//Body

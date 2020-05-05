@@ -242,15 +242,15 @@
 /obj/item/potion/zombie/imbibe_effect(mob/living/carbon/human/user)
 	user.become_zombie_after_death = 2
 
-/obj/item/potion/zombie/impact_atom(atom/target)
-	var/mob/M = get_last_player_touched()
-	var/list/L = get_all_mobs_in_dview(get_turf(src))
+/obj/item/potion/zombie/throw_impact(atom/hit_atom, mob/user)
+	..()
+	var/list/L = get_all_mobs_in_dview(get_turf(hit_atom))
 	for(var/mob/living/carbon/human/H in L)
 		if(H.isDeadorDying())
 			if(isjusthuman(H))
-				H.make_zombie(M)
+				H.make_zombie(user)
 			else
-				new /mob/living/simple_animal/hostile/necro/skeleton(get_turf(H), M, H.mind)
+				new /mob/living/simple_animal/hostile/necro/skeleton(get_turf(H), user, H.mind)
 				H.gib()
 
 /obj/item/potion/fullness
@@ -437,30 +437,24 @@
 		if(organ)
 			H.remove_internal_organ(H,organ,H.get_organ(LIMB_CHEST))
 
-/obj/item/potion/teleport/impact_atom(atom/target)
-	var/mob/M = get_last_player_touched()
-	if(!M)
+/obj/item/potion/teleport/throw_impact(atom/hit_atom, mob/user)
+	..()
+	if(!user)
 		return
-	M.unlock_from()
-	var/turf/T = get_turf(src)
-	if(T)
-		M.forceMove(T)
-		playsound(T, 'sound/effects/phasein.ogg', 50, 1)
-
-/obj/item/potion/teleport/impact_mob(mob/target)
-	var/mob/M = get_last_player_touched()
-	if(!M)
-		return
-	M.unlock_from()
-	target.unlock_from()
-	var/turf/T1 = get_turf(M)
-	var/turf/T2 = get_turf(target)
-	if(T1)
-		target.forceMove(T1)
-		playsound(T1, 'sound/effects/phasein.ogg', 50, 1)
-	if(T2)
-		M.forceMove(T2)
-		playsound(T2, 'sound/effects/phasein.ogg', 50, 1)
+	user.unlock_from()
+	if(ismob(hit_atom))
+		var/mob/living/M = hit_atom
+		var/turf/T1 = get_turf(user)
+		var/turf/T2 = get_turf(M)
+		if(T1)
+			playsound(T1, 'sound/effects/phasein.ogg', 50, 1)
+			M.forceMove(T1)
+		if(T2)
+			user.forceMove(T2)
+			playsound(T2, 'sound/effects/phasein.ogg', 50, 1)
+	else
+		user.forceMove(hit_atom)
+		playsound(hit_atom, 'sound/effects/phasein.ogg', 50, 1)
 
 /obj/item/potion/fireball
 	name = "bottled fireball"

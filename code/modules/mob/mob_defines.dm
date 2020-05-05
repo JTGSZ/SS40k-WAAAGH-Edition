@@ -6,7 +6,6 @@
 
 	w_type = RECYK_BIOLOGICAL
 
-//	flags = NOREACT
 	flags = HEAR | PROXMOVE
 	var/datum/mind/mind
 	var/list/datum/action/actions = list()

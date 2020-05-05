@@ -12,10 +12,6 @@ var/global/list/ghdel_profiling = list()
 
 	var/flags
 	var/flow_flags = 0
-	var/list/fingerprints
-	var/list/fingerprintshidden
-	var/fingerprintslast = null
-	var/fingerprintslastTS = null
 	var/list/blood_DNA
 	var/blood_color
 	var/had_blood //Something was bloody at some point.
@@ -558,92 +554,6 @@ its easier to just keep the beam vertical.
 /atom/proc/hitby(var/atom/movable/AM)
 	. = isobserver(AM)
 
-/atom/proc/add_fingerprint(mob/living/M )
-	if(isnull(M))
-		return
-	if(isAI(M))
-		return
-	if(isnull(M.key))
-		return
-	if((fingerprintslastTS == time_stamp()) && (fingerprintslast == M.key)) //otherwise holding arrow on airlocks spams fingerprints onto it
-		return
-	if (ishuman(M))
-		//Add the list if it does not exist.
-		if(!fingerprintshidden)
-			fingerprintshidden = list()
-
-		//Fibers~
-		add_fibers(M)
-
-		//First, make sure their DNA makes sense.
-		var/mob/living/carbon/human/H = M
-		if (!istype(H.dna, /datum/dna) || !H.dna.uni_identity || (length(H.dna.uni_identity) != 32))
-			if(!istype(H.dna, /datum/dna))
-				H.dna = new /datum/dna(null)
-				H.dna.real_name = H.real_name
-				H.dna.flavor_text = H.flavor_text
-		H.check_dna()
-
-		//Now, deal with gloves.
-		if (H.gloves && H.gloves != src)
-			fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []", H.real_name, H.key)
-			fingerprintslast = H.key
-			fingerprintslastTS = time_stamp()
-			H.gloves.add_fingerprint(M)
-
-		//Deal with gloves the pass finger/palm prints.
-		if(H.gloves != src)
-			if(prob(75) && istype(H.gloves, /obj/item/clothing/gloves/latex))
-				return 0
-			else if(H.gloves && !istype(H.gloves, /obj/item/clothing/gloves/latex))
-				return 0
-
-		//More adminstuffz
-		var/ghost = ""
-		if (isobserver(M))
-			ghost = isAdminGhost(M) ? "ADMINGHOST" : "GHOST"
-		fingerprintshidden += text("\[[time_stamp()]\] [ghost ? "([ghost]) " : ""]Real name: [], Key: []", M.real_name, M.key)
-		fingerprintslast = M.key
-		fingerprintslastTS = time_stamp()
-
-		//Make the list if it does not exist.
-		if(!fingerprints)
-			fingerprints = list()
-
-		//Hash this shit.
-		var/full_print = md5(H.dna.uni_identity)
-
-		// Add the fingerprints
-		fingerprints[full_print] = full_print
-
-		return 1
-	else
-		//Smudge up dem prints some
-		if(fingerprintslast != M.key)
-			fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []", M.real_name, M.key)
-			fingerprintslast = M.key
-			fingerprintslastTS = time_stamp()
-
-	//Cleaning up shit.
-	if(fingerprints && !fingerprints.len)
-		del(fingerprints)
-	return
-
-
-/atom/proc/transfer_fingerprints_to(var/atom/A)
-	if(!istype(A.fingerprints,/list))
-		A.fingerprints = list()
-	if(!istype(A.fingerprintshidden,/list))
-		A.fingerprintshidden = list()
-
-	//skytodo
-	//A.fingerprints |= fingerprints            //detective
-	//A.fingerprintshidden |= fingerprintshidden    //admin
-	if(fingerprints)
-		A.fingerprints |= fingerprints.Copy()            //detective
-	if(fingerprintshidden && istype(fingerprintshidden))
-		A.fingerprintshidden |= fingerprintshidden.Copy()    //admin	A.fingerprintslast = fingerprintslast
-
 //Atomic level procs to be used elsewhere.
 /atom/proc/apply_luminol(var/atom/A)
 	return had_blood
@@ -825,11 +735,6 @@ its easier to just keep the beam vertical.
 
 /atom/proc/to_bump()
 	return
-
-/atom/proc/get_last_player_touched()	//returns a reference to the mob of the ckey that last touched the atom
-	for(var/client/C in clients)
-		if(uppertext(C.ckey) == uppertext(fingerprintslast))
-			return C.mob
 
 /atom/proc/initialize()
 	flags |= ATOM_INITIALIZED
