@@ -184,3 +184,10 @@
 	sound = 'sound/ambience/spookyspace2.ogg'
 
 //Music - TODO, refactor this once the background music part of the Subsystem is done.
+
+//Personal ambience
+/datum/ambience/beach
+	//Attribution: SoundSilk.com, Stephen Geisel
+	sound = 'sound/ambience/Soundsilk-Ambient-waves.ogg'
+	length = 36 SECONDS
+	prob_fire = 100
