@@ -41,7 +41,7 @@
 	interact(user)
 
 /obj/machinery/computer/smelting/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 
 	if(stat & (NOPOWER | BROKEN) && id) //Power out/this thing is broken, but at least allow the guy to take his ID out if it's still in there.
 		id.forceMove(get_turf(src))

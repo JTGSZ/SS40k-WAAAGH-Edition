@@ -241,7 +241,6 @@
 		F.material_type = material_type
 		user.put_in_hands(F)
 		
-		F.add_fingerprint(user)
 		use(1)
 		if (src && usr.machine==src)
 			spawn(0) src.interact(usr)

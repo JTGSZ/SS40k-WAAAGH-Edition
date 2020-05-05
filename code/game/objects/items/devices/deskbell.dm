@@ -81,7 +81,7 @@
 	if(anchored)
 		disease_contact(user,HANDS)
 		ring()
-	add_fingerprint(user)
+	
 	return
 
 /obj/item/device/deskbell/proc/ring()

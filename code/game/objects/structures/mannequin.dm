@@ -268,7 +268,7 @@
 				var/obj/item/I = clothing[item_slot]
 				user.put_in_hands(I)
 				clothing[item_slot] = null
-				add_fingerprint(user)
+				
 				to_chat(user, "<span class='info'>You pick up \the [I] from \the [src].</span>")
 		else
 			if(clothing[item_slot])
@@ -277,7 +277,7 @@
 						var/obj/item/I = clothing[item_slot]
 						user.put_in_hands(I)
 						clothing[item_slot] = item_in_hand
-						add_fingerprint(user)
+						
 						to_chat(user, "<span class='info'>You switch \the [item_in_hand] and \the [I] on the [src].</span>")
 					else
 						to_chat(user, "<span class='warning'>You can't drop that!</span>")
@@ -287,7 +287,7 @@
 				if(canEquip(user, item_slot,item_in_hand))
 					if(user.drop_item(item_in_hand,src))
 						clothing[item_slot] = item_in_hand
-						add_fingerprint(user)
+						
 						to_chat(user, "<span class='info'>You place \the [item_in_hand] on \the [src].</span>")
 					else
 						to_chat(user, "<span class='warning'>You can't drop that!</span>")
@@ -791,7 +791,6 @@
 			var/mannequin_type = available_sculptures[chosen_sculpture]
 			var/obj/structure/mannequin/M = new mannequin_type(T)
 			M.anchored = anchored
-			M.add_fingerprint(user)
 			user.visible_message("[user.name] finishes \the [M].","You finish \the [M].")
 			qdel(src)
 		return 1

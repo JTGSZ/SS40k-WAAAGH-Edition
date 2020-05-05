@@ -93,7 +93,7 @@
 	//loc.loc check is for making possible renaming photos in clipboards
 	if(!usr.isUnconscious() && Adjacent(usr))
 		name = "photo[(n_name ? text("- '[n_name]'") : null)]"
-	add_fingerprint(usr)
+	
 
 
 /*

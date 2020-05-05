@@ -119,7 +119,7 @@
 		return 1 // resolved for click code!
 
 	/*if (iswirecutter(W))
-		add_fingerprint(user)
+		
 		src.disable = !src.disable
 		if (src.disable)
 			user.visible_message("<span class='warning'>[user] has disconnected the detector array!</span>", "<span class='warning'>You disconnect the detector array!</span>")

@@ -39,7 +39,7 @@
 		..()
 
 /obj/structure/centrifuge/attack_hand(mob/user )
-	add_fingerprint(user)
+	
 	if(cans.len || beaker)
 		for(var/obj/item/O in cans)
 			O.forceMove(src.loc)
@@ -62,7 +62,7 @@
 		to_chat(usr, "<span class='warning'>\The [src] needs an active container and multiple passive containers to work.</span>")
 		return
 
-	add_fingerprint(usr)
+	
 	to_chat(usr, "<span class='notice'>\The [src] groans as it spits out containers.</span>")
 	while(cans.len>0 && beaker.reagents.reagent_list.len>0)
 		var/obj/item/weapon/reagent_containers/C = cans[1]

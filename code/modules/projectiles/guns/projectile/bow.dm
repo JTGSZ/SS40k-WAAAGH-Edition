@@ -191,7 +191,7 @@
 /obj/item/weapon/crossbow/proc/Fire(atom/target, mob/living/user, params, reflex = 0)
 
 
-	add_fingerprint(user)
+	
 
 	var/turf/curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)

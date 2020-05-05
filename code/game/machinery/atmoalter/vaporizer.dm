@@ -186,7 +186,7 @@
 		screen = 0
 		if(!collapse())
 			to_chat(usr,"<span class='warning'>\The [src] must be off and unlocked to collapse.</span>")
-	add_fingerprint(usr)
+	
 	update_icon()
 	nanomanager.update_uis(src)
 	return 1

@@ -436,7 +436,6 @@ var/list/telesci_warnings = list(
 			else
 				visible_message("<span class='notice'>\The [src] beeps as its cell is removed.</span>")
 				cell.forceMove(get_turf(src))
-			cell.add_fingerprint(usr)
 			cell.updateicon()
 			src.cell = null
 			update_icon()

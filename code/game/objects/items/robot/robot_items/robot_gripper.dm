@@ -24,7 +24,6 @@
 			if(feedback)
 				to_chat(user, "<span class='notice'>You collect \the [I].</span>")
 			I.loc = src
-			I.add_fingerprint(user)
 			wrapped = I
 			update_icon()
 			return TRUE

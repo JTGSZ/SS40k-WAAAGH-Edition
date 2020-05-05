@@ -183,12 +183,11 @@ They can only use one tool at a time, they can't choose modules, and they have 1
 		return ..()
 
 /mob/living/silicon/robot/mommi/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 
 	if(opened && !wiresexposed && (!isMoMMI(user)))
 		if(cell)
 			cell.updateicon()
-			cell.add_fingerprint(user)
 			user.put_in_active_hand(cell)
 			to_chat(user, "You remove \the [cell].")
 			cell = null

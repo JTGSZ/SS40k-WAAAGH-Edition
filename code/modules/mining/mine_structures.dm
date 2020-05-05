@@ -42,7 +42,6 @@
 		"<span class='notice'>You take \the [lantern] off of the \the [src].</span>")
 		playsound(src, 'sound/machines/click.ogg', 20, 1)
 		lantern.forceMove(user.loc)
-		lantern.add_fingerprint(user)
 		user.put_in_hands(lantern)
 		lantern = null
 		update()
@@ -57,7 +56,7 @@
 
 /obj/structure/hanging_lantern/attackby(obj/item/weapon/W, mob/user )
 
-	add_fingerprint(user)
+	
 
 	if(W.is_wrench(user) && !busy)
 		if(lantern)

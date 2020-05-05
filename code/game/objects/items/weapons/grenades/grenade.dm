@@ -19,7 +19,7 @@
 		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
 
 		activate(user)
-		add_fingerprint(user)
+		
 		spawn(5)
 			prime(user)
 		return 0
@@ -60,7 +60,7 @@
 			to_chat(user, "<span class='attack'>You prime \the [name]! [det_time/10] seconds!</span>")
 
 			activate(user)
-			add_fingerprint(user)
+			
 			if(iscarbon(user))
 				var/mob/living/carbon/C = user
 				C.throw_mode_on()
@@ -112,7 +112,7 @@
 			return
 		det_time = new_time SECONDS
 		to_chat(user, "<span class = 'notice'>The detonation time is now [det_time/10] seconds.</span>")
-		add_fingerprint(user)
+		
 	..()
 	return
 

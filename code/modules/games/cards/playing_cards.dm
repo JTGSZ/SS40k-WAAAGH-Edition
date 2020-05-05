@@ -186,7 +186,7 @@
 			if(OI.hand_index && M.put_in_hand_check(src, OI.hand_index))
 				M.u_equip(src, 0)
 				M.put_in_hand(OI.hand_index, src)
-				add_fingerprint(usr)
+				
 				to_chat(usr, "<span class='notice'>You pick up the deck.</span>")
 
 			return

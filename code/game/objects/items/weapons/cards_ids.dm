@@ -229,7 +229,7 @@
 	user.visible_message("[user] shows you: [bicon(src)] [name]: assignment: [assignment]",\
 		"You flash your ID card: [bicon(src)] [name]: assignment: [assignment]")
 	user.delayNextAttack(1 SECONDS)
-	add_fingerprint(user)
+	
 
 /obj/item/weapon/card/id/GetAccess()
 	return (access | base_access)

@@ -158,7 +158,7 @@
 	if(usr.isUnconscious())
 		return
 	src.go_out(usr)
-	add_fingerprint(usr)
+	
 	return
 
 

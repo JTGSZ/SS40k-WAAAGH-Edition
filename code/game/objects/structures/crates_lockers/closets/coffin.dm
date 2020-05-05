@@ -73,7 +73,7 @@
 		return FALSE
 
 	if(is_locking(mob_lock_type))
-		add_fingerprint(user)
+		
 
 		var/mob/M = get_locked(mob_lock_type)[1]
 		var/success = unlock_atom(M)
@@ -136,7 +136,7 @@
 			"You hear metal clanking.")
 
 	playsound(src, 'sound/misc/buckle_click.ogg', 50, 1)
-	add_fingerprint(user)
+	
 
 	if (!M.alphas["coffin_invis"])
 		M.alphas.Add("coffin_invis")

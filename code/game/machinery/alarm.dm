@@ -905,7 +905,7 @@ var/global/list/airalarm_presets = list(
 				AA.rcon_setting = rcon_setting
 		return 1
 
-	add_fingerprint(usr)
+	
 
 	//testing(href)
 	if(href_list["command"])
@@ -1552,7 +1552,7 @@ var/global/list/firealarms = list() //shrug
 					time = min(max(round(time), 0), 120)
 	updateUsrDialog()
 
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/alarm/npc_tamper_act(mob/living/L)

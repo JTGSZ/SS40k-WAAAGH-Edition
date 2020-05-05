@@ -48,7 +48,7 @@
 		swirlie.apply_damage(8, BRUTE, LIMB_HEAD, used_weapon = name)
 		playsound(src, 'sound/weapons/tablehit1.ogg', 50, TRUE)
 		add_attacklogs(user, swirlie, "slammed the toilet seat")
-		add_fingerprint(user)
+		
 		add_fingerprint(swirlie)
 		return
 
@@ -119,7 +119,7 @@
 						GM.forcesay(list("-BLERGH", "-BLURBL", "-HURGBL"))
 						playsound(src, 'sound/misc/toilet_flush.ogg', 50, TRUE)
 						GM.visible_message("<span class='danger'>[user] gives [GM.name] a swirlie!</span>", "<span class='userdanger'>[user] gives you a swirlie!</span>", "You hear a toilet flushing.")
-						add_fingerprint(user)
+						
 						add_fingerprint(GM)
 						watersource.reagents.reaction(GM, TOUCH)
 
@@ -134,7 +134,7 @@
 					GM.adjustBruteLoss(8)
 					playsound(src, 'sound/weapons/tablehit1.ogg', 50, TRUE)
 					add_attacklogs(user, GM, "slammed into the toilet")
-					add_fingerprint(user)
+					
 					add_fingerprint(GM)
 					return
 			else
@@ -291,7 +291,7 @@
 						watertemp = "cool"
 				user.visible_message("<span class='warning'>[user] adjusts \the [src]'s temperature with \a [I.name].</span>",
 				"<span class='notice'>You adjust \the [src]'s temperature with \a [I.name], the water is now [watertemp].</span>")
-				add_fingerprint(user)
+				
 	else
 		if(I.is_wrench(user))
 			user.visible_message("<span class='warning'>[user] starts adjusting the bolts on \the [src].</span>", \

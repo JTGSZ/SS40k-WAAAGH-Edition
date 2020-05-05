@@ -205,7 +205,7 @@
 			interact(master.loc)
 		else
 			updateDialog()
-	add_fingerprint(usr)
+	
 
 /obj/item/device/radio/proc/isWireCut(var/index)
 	return wires.IsIndexCut(index)
@@ -584,7 +584,7 @@
 		C.amount = 3
 	updateDialog()
 	update_icon()
-	add_fingerprint(user)
+	
 
 /obj/item/device/radio/update_icon()
 	..()

@@ -48,7 +48,7 @@
 /obj/machinery/computer/operating/attack_hand(mob/user )
 	if(..())
 		return
-	add_fingerprint(user)
+	
 
 	if(stat & (BROKEN|NOPOWER))
 		return

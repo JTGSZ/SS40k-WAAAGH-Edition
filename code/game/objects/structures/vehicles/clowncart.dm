@@ -81,7 +81,7 @@
 	if (istype(W, /obj/item/weapon/bikehorn))
 		if(honk + 20 > world.timeofday)
 			return
-		add_fingerprint(user)
+		
 		user.visible_message("<span class='notice'>[user] honks at [src].</span>", \
 		"<span class='notice'>You honk at [src].</span>", \
 		"<span class='notice'>You hear honking.</span>")

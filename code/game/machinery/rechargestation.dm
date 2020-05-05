@@ -269,7 +269,7 @@
 	if (usr.stat != 0)
 		return
 	src.go_out()
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/recharge_station/verb/move_inside()

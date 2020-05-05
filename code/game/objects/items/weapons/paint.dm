@@ -147,7 +147,7 @@ var/global/list/paint_types = subtypesof(/datum/reagent/paint)
 			if("black")
 				color = "333333"
 		icon_state = "paint_[t1]"
-		add_fingerprint(user)
+		
 		return
 
 

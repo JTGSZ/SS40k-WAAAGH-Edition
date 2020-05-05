@@ -116,7 +116,7 @@
 
 	go_out(ejector = usr)
 
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/dna_scannernew/crowbarDestroy(mob/user, obj/item/weapon/crowbar/I)
@@ -698,7 +698,7 @@
 	if(irradiating) // Make sure that it isn't already irradiating someone...
 		return 0 // don't update uis
 
-	add_fingerprint(usr)
+	
 
 	if (href_list["selectMenuKey"])
 		selected_menu_key = href_list["selectMenuKey"]

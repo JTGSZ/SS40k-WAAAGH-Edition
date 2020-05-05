@@ -372,8 +372,6 @@
 		hub.engaged = 0
 		hub.update_icon()
 	visible_message("<span class='notice'>[count] teleporter[count>1?"s":""] disengaged!</span>", range = 2)
-	if(user)
-		
 	src.engaged = 0
 	return
 

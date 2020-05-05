@@ -24,7 +24,6 @@
 
 	if(user.drop_item(I, src))
 		holstered = I
-		holstered.add_fingerprint(user)
 		user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
 		update_icon()
 		return 1
@@ -41,7 +40,6 @@
 
 	if(user.put_in_active_hand(holstered) || user.put_in_inactive_hand(holstered))
 		unholster_message(user)
-		holstered.add_fingerprint(user)
 		holstered = null
 		update_icon()
 	else

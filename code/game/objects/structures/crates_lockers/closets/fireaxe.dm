@@ -165,7 +165,7 @@
 			visible_message("<span class='notice'>[user] takes [fireaxe] from [src].</span>", \
 			"<span class='notice'>You take [fireaxe] from [src].</span>")
 			fireaxe = null
-			add_fingerprint(user)
+			
 			update_icon()
 		else
 			if(smashed)

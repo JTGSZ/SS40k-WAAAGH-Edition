@@ -164,7 +164,6 @@ var/global/list/datum/stack_recipe/cable_recipes = list ( \
 	//Set up the new cable
 	C.d1 = 0 //It's a O-X node cable
 	C.d2 = dirn
-	C.add_fingerprint(user)
 	C.update_icon()
 
 	//Create a new powernet with the cable, if needed it will be merged later

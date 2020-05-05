@@ -147,7 +147,7 @@
 	if (!in_range(src, usr))
 		return TRUE
 
-	add_fingerprint(usr)
+	
 	add_hiddenprint(usr)
 	return FALSE
 
@@ -252,7 +252,7 @@
 		if(isliving(loc))
 			return
 		//user.next_move = max(user.next_move+2,world.time + 2)
-	add_fingerprint(user)
+	
 	if(can_pickup(user) && !user.put_in_active_hand(src))
 		forceMove(get_turf(user))
 
@@ -954,7 +954,7 @@
 	else
 		M.LAssailant = user
 
-	add_fingerprint(user)
+	
 
 	if(istype(M, /mob/living/carbon/human))
 
@@ -1343,7 +1343,7 @@ var/global/list/image/blood_overlays = list()
 	if(OI.hand_index && usr.put_in_hand_check(src, OI.hand_index) && !src.prepickup(usr))
 		usr.u_equip(src, TRUE)
 		usr.put_in_hand(OI.hand_index, src)
-		add_fingerprint(usr)
+		
 
 /obj/item/proc/pre_throw()
 	return

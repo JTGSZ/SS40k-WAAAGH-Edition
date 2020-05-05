@@ -102,7 +102,7 @@
 			user.take_organ_damage(5,5)
 			return
 		toggleActive(user)
-		add_fingerprint(user)
+		
 		return
 	..()
 
@@ -350,7 +350,7 @@
 
 /obj/item/weapon/melee/energy/hfmachete/attack_self(mob/living/user)
 	toggleActive(user)
-	add_fingerprint(user)
+	
 
 /obj/item/weapon/melee/energy/hfmachete/proc/toggleActive(mob/user, var/togglestate = "")
 	switch(togglestate)

@@ -78,7 +78,7 @@
 	return 0
 
 /obj/item/weapon/reagent_containers/glass/mortar/attack_hand(mob/user )
-	add_fingerprint(user)
+	
 	if(user.get_inactive_hand() != src)
 		return ..()
 	if(crushable)

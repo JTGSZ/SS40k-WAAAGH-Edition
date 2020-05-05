@@ -620,7 +620,7 @@ var/list/cyborg_list = list()
 				visible_message("<span class='attack'>[user] fixes some dents on [src]!</span>")
 			else
 				to_chat(user, "<span class='warning'>[src] is far too damaged for [WT] to have any effect!</span>")
-			add_fingerprint(user)
+			
 		else
 			to_chat(user, "Need more welding fuel!")
 			return
@@ -911,7 +911,7 @@ var/list/cyborg_list = list()
 	M.unarmed_attack_mob(src)
 
 /mob/living/silicon/robot/attack_hand(mob/living/user)
-	add_fingerprint(user)
+	
 
 	if(opened && !wiresexposed && (!istype(user, /mob/living/silicon)))
 		var/datum/robot_component/cell_component = components["power cell"]
@@ -919,7 +919,6 @@ var/list/cyborg_list = list()
 			cell.electronics_damage = cell_component.electronics_damage
 			cell.brute_damage = cell_component.brute_damage
 			cell.updateicon()
-			cell.add_fingerprint(user)
 			user.put_in_hands(cell)
 			user.visible_message("<span class='warning'>[user] removes [src]'s [cell.name].</span>", \
 			"<span class='notice'>You remove [src]'s [cell.name].</span>")

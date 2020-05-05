@@ -335,7 +335,7 @@
 				"<span class='notice'>[user] climbs onto \the [src]!</span>",
 				"<span class='notice'>You climb onto \the [src]!</span>")
 			lock_atom(user, /datum/locking_category/adminbus)
-			add_fingerprint(user)
+			
 			playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 /obj/structure/bed/chair/vehicle/adminbus/manual_unbuckle(mob/user )

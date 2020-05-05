@@ -53,7 +53,7 @@
 		return
 
 	if(!user.restrained() && (user.size > SIZE_TINY))
-		add_fingerprint(user)
+		
 		SwitchState()
 	return
 
@@ -218,7 +218,7 @@
 
 /obj/machinery/door/mineral/resin/TryToSwitchState(atom/user)
 	if(isalien(user) && !operating)
-		add_fingerprint(user)
+		
 		SwitchState()
 
 /obj/machinery/door/mineral/resin/bullet_act(var/obj/item/projectile/Proj)

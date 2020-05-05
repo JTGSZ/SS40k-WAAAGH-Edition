@@ -489,7 +489,7 @@
 				if(dropping.locked_to || user.restrained() || !user.canmove)
 					return
 				user.visible_message("[user] hoists \the [dropping] into \the [src].", "You hoist \the [dropping] into \the [src].")
-				add_fingerprint(user)
+				
 				dropping.forceMove(src)
 				update_icon()
 		return
@@ -533,7 +533,7 @@
 		user.visible_message("[user] stuffed \the [target] into \the [src]!", "You stuffed \the [target] into \the [src]!")
 		log_attack("<span class='warning'>[key_name(user)] stuffed [key_name(target)] into a disposal unit/([src]).</span>")
 
-	add_fingerprint(user)
+	
 	target.forceMove(src)
 	update_icon()
 

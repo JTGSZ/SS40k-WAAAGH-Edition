@@ -368,7 +368,7 @@ Subject's pulse: ??? BPM"})
 	var/turf/T = A
 	var/datum/gas_mixture/environment = T.return_air()
 	to_chat(user, output_gas_scan(environment, T, 1, CELL_VOLUME))
-	add_fingerprint(user)
+	
 
 //If human_standard is enabled, the message will be formatted to show which values are dangerous
 //If unit_vol is specified, it will output the values for that volume of the scanned gas. Really for analyzing areas.

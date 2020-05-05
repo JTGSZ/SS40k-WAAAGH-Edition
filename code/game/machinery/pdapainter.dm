@@ -93,7 +93,7 @@ Feel free to do whatever with this if you think it lacks.
 			if(istype(P))
 				if(user.drop_item(P, src))
 					storedpda = P
-					//P.add_fingerprint(usr)
+					//P.
 					update_icon()
 
 /obj/machinery/pdapainter/attack_hand(mob/user )

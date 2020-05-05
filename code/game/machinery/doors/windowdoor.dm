@@ -297,7 +297,7 @@
 			take_damage(aforce)
 		return
 
-	add_fingerprint(user)
+	
 	if(!requiresID())
 		//don't care who they are or what they have, act as if they're NOTHING
 		user = null
@@ -320,7 +320,7 @@
 	door_animate("spark")
 	sleep(6)
 	open()
-	add_fingerprint(user)
+	
 	return TRUE
 
 /obj/machinery/door/window/npc_tamper_act(mob/living/L)

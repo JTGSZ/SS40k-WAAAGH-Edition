@@ -110,7 +110,6 @@
 			P.New(P.loc, pipe_type=p_type, dir=p_dir)
 			P.setPipingLayer(layer_to_make)
 			P.update()
-			P.add_fingerprint(usr)
 			wait = 1
 			spawn(10)
 				wait = 0
@@ -258,7 +257,6 @@ Nah
 				if(7)
 					C.ptype = 8
 					C.setDensity(TRUE)
-			C.add_fingerprint(usr)
 			C.update()
 			wait = 1
 			spawn(15)

@@ -99,7 +99,7 @@
 		return
 
 
-	add_fingerprint(usr)
+	
 	usr.set_machine(src)
 
 	if(href_list["viewmachine"])

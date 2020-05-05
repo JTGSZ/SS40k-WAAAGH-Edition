@@ -231,8 +231,6 @@
 					to_chat(M, "Aargh it burns!")
 		. = TRUE //The attack always lands
 		M.updatehealth()
-	I.add_fingerprint(user)
-
 
 /obj/item/proc/on_attack(var/atom/attacked, var/mob/user)
 	if(!user.gcDestroyed)

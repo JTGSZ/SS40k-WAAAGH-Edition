@@ -24,8 +24,6 @@
 /obj/item/weapon/implantpad/attack_hand(mob/user )
 	if ((src.case && user.is_holding_item(src)))
 		user.put_in_active_hand(case)
-
-		src.case.add_fingerprint(user)
 		src.case = null
 
 		

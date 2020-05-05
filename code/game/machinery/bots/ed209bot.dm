@@ -155,7 +155,7 @@ Auto Patrol: []"},
 	if (..())
 		return
 	usr.set_machine(src)
-	add_fingerprint(usr)
+	
 	if(lasercolor && (istype(usr,/mob/living/carbon/human)))
 		var/mob/living/carbon/human/H = usr
 		if((lasercolor == "b") && iswearingredtag(H))//Opposing team cannot operate it

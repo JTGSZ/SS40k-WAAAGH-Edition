@@ -61,7 +61,7 @@
 	interact(user)
 
 /obj/machinery/power/solar/control/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 	interact(user)
 
 /obj/machinery/power/solar/control/process()

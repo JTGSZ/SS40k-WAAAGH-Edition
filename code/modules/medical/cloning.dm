@@ -406,7 +406,7 @@
 	if (usr.isUnconscious())
 		return
 	go_out()
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/cloning/clonepod/proc/go_out(var/exit = loc)
@@ -463,7 +463,7 @@
 	var/_occupant = occupant // occupant is null after go_out()
 	if(go_out(over_location))
 		visible_message("[usr] removes \the [_occupant] from \the [src].")
-		add_fingerprint(usr)
+		
 
 /obj/machinery/cloning/clonepod/proc/malfunction()
 	if(occupant)

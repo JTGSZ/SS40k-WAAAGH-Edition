@@ -165,7 +165,6 @@
 		if(isobserver(user))
 			return 0
 		cell.forceMove(loc)
-		cell.add_fingerprint(user)
 		cell.updateicon()
 
 		if(anchored)

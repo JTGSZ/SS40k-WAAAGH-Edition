@@ -53,7 +53,7 @@
 		return
 	if(coats)
 		to_chat(user,"<span class='notice'>You remove a pair of boots and a coat from the hanger.</span>")
-		add_fingerprint(user)
+		
 		var/winterboots = new /obj/item/clothing/shoes/winterboots(get_turf(src))
 		user.put_in_inactive_hand(winterboots)
 		var/wintercoat = new /obj/item/clothing/suit/storage/wintercoat(get_turf(src))

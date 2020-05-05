@@ -239,7 +239,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(..())
 		return
 	usr.set_machine(src)
-	add_fingerprint(usr)
+	
 
 	if(reject_bad_text(href_list["write"]))
 		dpt = ckey(href_list["write"]) //write contains the string of the receiving department's name

@@ -49,9 +49,8 @@
 		return
 
 	user.attack_log += "\[[time_stamp()]\] <span class='notice'>Has used [src.name] on \ref[target]</span>"
-	target.add_fingerprint(user)
-	
 
+	
 	if(istype(target, /obj/item) && smallpath)
 		if (amount >= 1)
 			var/obj/item/I = target
@@ -60,7 +59,6 @@
 				if(user.client)
 					user.client.screen -= target
 			target.forceMove(P)
-			P.add_fingerprint(user)
 			use(1)
 		else
 			to_chat(user, "<span class='warning'>You need more paper!</span>")
@@ -72,7 +70,6 @@
 		if(amount >= 3)
 			var/obj/item/P = new bigpath(get_turf(target.loc),target)
 			target.forceMove(P)
-			P.add_fingerprint(user)
 			use(3)
 		else
 			to_chat(user, "<span class='warning'>You need more paper!</span>")

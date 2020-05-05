@@ -284,7 +284,7 @@
 			updateUsrDialog()
 			update_icon()
 
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/suit_storage_unit/proc/toggleUV(mob/user)
@@ -482,7 +482,7 @@
 		return
 	eject_occupant(usr)
 
-	add_fingerprint(usr)
+	
 	updateUsrDialog()
 	update_icon()
 	return
@@ -513,7 +513,7 @@
 		occupant = usr
 		isopen = 0 //Close the thing after the guy gets inside
 		update_icon()
-		add_fingerprint(usr)
+		
 		updateUsrDialog()
 		return
 	else
@@ -568,7 +568,7 @@
 			M.forceMove(src)
 			occupant = M
 			isopen = 0 //close ittt
-			add_fingerprint(user)
+			
 			qdel(G)
 			G = null
 			updateUsrDialog()

@@ -101,7 +101,7 @@
 	update_icon()
 	for(var/obj/OO in src)
 		OO.forceMove(loc)
-	add_fingerprint(user)
+	
 	if(!(stat & (BROKEN|NOPOWER)))
 		set_light(light_range_on, light_power_on)
 	return
@@ -149,7 +149,7 @@
 	if(usr.isUnconscious())
 		return
 	go_out(ejector = usr)
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/bodyscanner/verb/move_inside()

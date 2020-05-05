@@ -149,7 +149,7 @@
 			auto_eject_after = !auto_eject_after
 		if(href_list["refresh"])
 			process()
-		add_fingerprint(usr)
+		
 	return
 
 /obj/machinery/sleeper/MouseDropTo(atom/movable/O, mob/user )
@@ -201,7 +201,7 @@
 	process()
 	for(var/obj/OO in src)
 		OO.forceMove(loc)
-	add_fingerprint(user)
+	
 	if(!(stat & (BROKEN|NOPOWER)))
 		set_light(light_range_on, light_power_on)
 	sedativeblock = TRUE
@@ -291,7 +291,7 @@
 	process()
 	for(var/obj/tar_obj in src)
 		tar_obj.forceMove(loc)
-	add_fingerprint(user)
+	
 	qdel(tar_grab)
 	if(!(stat & (BROKEN|NOPOWER)))
 		set_light(light_range_on, light_power_on)
@@ -421,7 +421,7 @@
 	if(usr.isUnconscious())
 		return
 	go_out(ejector = usr)
-	add_fingerprint(usr)
+	
 	set_light(0)
 	return
 
@@ -457,7 +457,7 @@
 		process()
 		for(var/obj/O in src)
 			qdel(O)
-		add_fingerprint(usr)
+		
 		if(!(stat & (BROKEN|NOPOWER)))
 			set_light(light_range_on, light_power_on)
 		update_icon()
@@ -615,7 +615,7 @@
 		name = "thermal homeostasis regulator"
 		available_options = list("Thermoregulate" = 50)
 		update_icon()
-	add_fingerprint(usr)
+	
 	updateUsrDialog()
 
 /obj/machinery/sleeper/mancrowave/process()

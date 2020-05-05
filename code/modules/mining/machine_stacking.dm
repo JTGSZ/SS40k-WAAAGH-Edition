@@ -23,7 +23,7 @@
 	interact(user)
 
 /obj/machinery/computer/stacking_unit/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 	interact(user)
 
 /obj/machinery/computer/stacking_unit/interact(mob/user)
@@ -63,7 +63,7 @@
 		return
 
 	usr.set_machine(src)
-	add_fingerprint(usr)
+	
 
 	if(href_list["release"])
 		var/list/signal_data = list("release" = href_list["release"])

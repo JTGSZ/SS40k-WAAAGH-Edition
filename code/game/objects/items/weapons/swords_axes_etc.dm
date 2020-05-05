@@ -122,7 +122,7 @@
 		force = initial(force) //not so robust now
 		attack_verb = list("hits", "punches")
 	playsound(src, 'sound/weapons/empty.ogg', 50, 1)
-	add_fingerprint(user)
+	
 
 	if(!blood_overlays["[type][icon_state]"])
 		generate_blood_overlay()

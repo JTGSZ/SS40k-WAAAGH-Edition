@@ -27,7 +27,7 @@ var/global/list/igniters = list()
 /obj/machinery/igniter/attack_hand(mob/user )
 	if(..())
 		return
-	add_fingerprint(user)
+	
 
 	use_power(50)
 	src.on = !( src.on )
@@ -117,7 +117,7 @@ var/global/list/igniters = list()
 	if(istype(W, /obj/item/device/detective_scanner))
 		return
 	if (W.is_screwdriver(user))
-		add_fingerprint(user)
+		
 		src.disable = !src.disable
 		if (src.disable)
 			user.visible_message("<span class='warning'>[user] has disabled the [src]!</span>", "<span class='warning'>You disable the connection to the [src].</span>")

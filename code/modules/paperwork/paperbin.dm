@@ -75,7 +75,7 @@
 	else
 		to_chat(user, "<span class='notice'>[src] is empty!</span>")
 
-	add_fingerprint(user)
+	
 	return
 
 

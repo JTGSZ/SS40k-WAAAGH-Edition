@@ -91,10 +91,7 @@ It also must be positive. Technically it can be 0 without breaking physics, but 
 
 
 /obj/machinery/atmospherics/binary/heat_pump/toggle_status(mob/user)
-	if(issilicon(user))
-		add_hiddenprint(user)
-	else
-		add_fingerprint(user)
+
 	. = ..()
 	update_status()
 

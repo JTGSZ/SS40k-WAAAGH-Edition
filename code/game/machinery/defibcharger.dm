@@ -30,7 +30,7 @@ obj/machinery/recharger/defibcharger/wallcharger // obj/machinery/recharger/defi
 	RefreshParts()
 
 obj/machinery/recharger/defibcharger/wallcharger/attack_hand(mob/user )
-	add_fingerprint(user)
+	
 
 	if(charging)
 		charging.update_icon()

@@ -47,7 +47,7 @@
 	attack_hand(user)
 
 /obj/machinery/computer/rust_fuel_control/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 	interact(user)
 
 /obj/machinery/computer/rust_fuel_control/interact(mob/user)

@@ -63,7 +63,7 @@
 	coins_per_sheet = initial(coins_per_sheet) * (i / 2) //Better coin ratio, it's something.
 
 /obj/machinery/mineral/mint/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 	if(stat & (NOPOWER | BROKEN))
 		if(user.machine == src)
 			user.unset_machine(src)

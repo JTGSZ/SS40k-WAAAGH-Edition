@@ -42,7 +42,6 @@
 		return
 	if(istype(target,/turf/simulated/wall))
 		var/turf/simulated/wall/W = target
-		W.add_fingerprint(user)
 		if(!W.engraving)
 			var/engraving_name = sanitize(input(usr, "Depicted on the wall is an image of ...", "Basic engraving", null) as null | text)
 			if(!engraving_name)

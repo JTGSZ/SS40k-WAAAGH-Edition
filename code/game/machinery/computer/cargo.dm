@@ -292,7 +292,7 @@ For vending packs, see vending_packs.dm*/
 /obj/machinery/computer/supplycomp/Topic(href, href_list)
 	if(..())
 		return 1
-	add_fingerprint(usr)
+	
 	current_acct = get_account_info(usr, linked_db)
 	var/idname
 	var/datum/money_account/account
@@ -541,7 +541,7 @@ For vending packs, see vending_packs.dm*/
 /obj/machinery/computer/ordercomp/Topic(href, href_list)
 	if(..())
 		return 1
-	add_fingerprint(usr)
+	
 	current_acct = get_account_info(usr, linked_db)
 	var/idname
 	var/datum/money_account/account

@@ -85,7 +85,7 @@
 			return
 	unlock_atom(M)
 
-	add_fingerprint(user)
+	
 
 /obj/structure/bed/guillotine/buckle_mob(mob/M, mob/user, var/do_after_done = FALSE)
 	if(!Adjacent(user) || user.incapacitated() || istype(user, /mob/living/silicon/pai) || user == victim)
@@ -143,7 +143,7 @@
 					return
 			else
 				return
-	add_fingerprint(user)
+	
 
 	lock_atom(M, mob_lock_type)
 

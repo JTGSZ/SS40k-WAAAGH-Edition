@@ -135,7 +135,7 @@
 	if(..())
 		return 1
 
-	add_fingerprint(user)
+	
 
 	if(charging && Adjacent(user))
 		charging.appearance = appearance_backup

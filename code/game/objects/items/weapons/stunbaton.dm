@@ -149,7 +149,7 @@
 			user.simple_message("<span class='warning'>[src] is out of charge.</span>",
 				"<span class='warning'>[src] refuses to obey you.</span>")
 
-	add_fingerprint(user)
+	
 
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user)
 	if(status && clumsy_check(user) && prob(50))

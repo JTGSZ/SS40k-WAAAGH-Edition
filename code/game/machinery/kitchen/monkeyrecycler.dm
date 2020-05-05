@@ -107,5 +107,5 @@
 		return
 	if(!ishigherbeing(user) && !isrobot(user))
 		return
-	add_fingerprint(user)
+	
 	process_monkey(O,user)

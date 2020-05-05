@@ -793,7 +793,7 @@
 	else
 		disconnect_capacitor()
 		to_chat(user, "<span class='notice'>You halt \the [src.name]'s charging process.</span>")
-	add_fingerprint(user)
+	
 
 /obj/machinery/power/secured_capacitor/examine(mob/user)
 	..()

@@ -388,7 +388,7 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 	if(href_list["toggle_controls"])
 		controls = !controls
 
-	add_fingerprint(usr)
+	
 	return 1 // update UIs attached to this object
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/detach()
@@ -653,7 +653,7 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 	for(var/obj/item/I in M.held_items)
 		M.drop_item(I) // to avoid visual fuckery bobing. Doesn't do anything to items with cant_drop to avoid magic healing tube abuse.
 	//M.metabslow = 1
-	add_fingerprint(usr)
+	
 	update_icon()
 	nanomanager.update_uis(src)
 	M.ExtinguishMob()
@@ -725,7 +725,7 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 		if (user.isUnconscious() || istype(user, /mob/living/simple_animal))
 			return
 		go_out(ejector = user)
-	add_fingerprint(user)
+	
 
 /obj/machinery/atmospherics/unary/cryo_cell/CtrlClick(mob/user) // CtrlClick = less common action = retrieving the beaker
 	remove_beaker(user)
@@ -738,7 +738,7 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 		return
 	if(beaker)// If there is, effectively, a beaker
 		detach()
-	add_fingerprint(user)
+	
 
 /datum/data/function/proc/reset()
 	return

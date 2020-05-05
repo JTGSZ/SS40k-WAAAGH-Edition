@@ -583,7 +583,6 @@
 
 /obj/item/folding_chair/attack_self(mob/user)
 	unfolded.forceMove(user.loc)
-	unfolded.add_fingerprint(user)
 	unfolded.dir = user.dir
 	user.drop_item(src, force_drop = 1)
 	forceMove(unfolded)

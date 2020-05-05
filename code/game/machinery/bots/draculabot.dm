@@ -100,7 +100,7 @@
 	if(..())
 		return TRUE
 	usr.set_machine(src)
-	add_fingerprint(usr)
+	
 	if(href_list["power"] && allowed(usr))
 		if(on)
 			turn_off()

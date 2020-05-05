@@ -171,7 +171,7 @@
 			Fire(usr)
 
 /obj/structure/bed/chair/vehicle/wheelchair/wheelchair_assembly/cannon/proc/Fire(mob/living/user )
-	add_fingerprint(user)
+	
 	var/target = null
 	switch(dir)
 		if(1)

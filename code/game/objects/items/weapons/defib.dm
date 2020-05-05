@@ -63,7 +63,7 @@
 			update_icon()
 	else
 		to_chat(user, "<span class='warning'>[src] is out of charges.</span>")
-	add_fingerprint(user)
+	
 	return
 
 /obj/item/weapon/melee/defibrillator/update_wield(mob/user)

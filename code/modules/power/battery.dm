@@ -179,11 +179,11 @@ var/global/list/battery_online =	list(
 
 /obj/machinery/power/battery/attack_ai(mob/user)
 	src.add_hiddenprint(user)
-	add_fingerprint(user)
+	
 	ui_interact(user)
 
 /obj/machinery/power/battery/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 	ui_interact(user)
 
 /obj/machinery/power/battery/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open=NANOUI_FOCUS)

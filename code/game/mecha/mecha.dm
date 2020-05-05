@@ -1278,7 +1278,7 @@
 	if(usr != occupant)
 		return
 	src.go_out()
-	add_fingerprint(usr)
+	
 	return
 
 /obj/mecha/verb/lock_direction()
@@ -1307,7 +1307,7 @@
 					visible_message("<span class='notice'>[occupant.name] woke up and pushed [usr] away.</span>")
 					return
 				go_out(over_location)
-				add_fingerprint(usr)
+				
 		return
 	for(var/atom/movable/A in over_location.contents)
 		if(A.density)
@@ -1316,7 +1316,7 @@
 			return
 	if(istype(over_location))
 		go_out(over_location)
-	add_fingerprint(usr)
+	
 
 /obj/mecha/proc/empty_bad_contents() //stuff that shouldn't be there, possibly caused by the driver dropping it while inside the mech
 	for(var/obj/O in src)

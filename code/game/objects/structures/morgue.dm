@@ -416,7 +416,7 @@
 				A.forceMove(src.connected)
 		src.connected.connected = null
 		src.connected.update()
-		add_fingerprint(user)
+		
 		//SN src = null
 		qdel(src)
 

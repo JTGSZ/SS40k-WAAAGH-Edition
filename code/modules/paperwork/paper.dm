@@ -93,7 +93,7 @@
 	var/n_name = copytext(sanitize(input(usr, "What would you like to label [src]?", "Paper Labelling", null)  as text), 1, MAX_NAME_LEN)
 	if((loc == usr && !usr.isUnconscious()))
 		name = "paper[(n_name ? text("- '[n_name]'") : null)]"
-	add_fingerprint(usr)
+	
 	return
 
 /obj/item/weapon/paper/attack_self(mob/living/user )
@@ -337,7 +337,7 @@
 	else if(P.is_hot())
 		src.ashify_item(user)
 		return 1 //no fingerprints, paper is gone
-	add_fingerprint(user)
+	
 	return ..()
 
 /obj/item/proc/ashify_item(mob/user)

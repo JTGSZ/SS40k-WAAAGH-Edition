@@ -31,7 +31,6 @@
 		var/obj/item/stack/rods/V  = W
 		var/obj/item/stack/sheet/glass/RG = new rglass()
 		RG.forceMove(user.loc) //This is because new() doesn't call forceMove, so we're forcemoving the new sheet to make it stack with other sheets on the ground.
-		RG.add_fingerprint(user)
 		V.use(1)
 		var/obj/item/stack/sheet/glass/G = src
 		src = null

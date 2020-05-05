@@ -26,8 +26,7 @@
 		qdel(src)
 	if(istype(O, /obj/item/weapon/paper))
 		if(notices < 5)
-			O.add_fingerprint(user)
-			add_fingerprint(user)
+			
 			user.drop_item(O,src, force_drop = 1)
 			notices++
 			icon_state = "nboard0[notices]"	//update sprite
@@ -52,8 +51,7 @@
 		var/obj/item/P = locate(href_list["remove"])
 		if((P && P.loc == src))
 			P.forceMove(get_turf(src))	//dump paper on the floor because you're a clumsy fuck
-			P.add_fingerprint(usr)
-			add_fingerprint(usr)
+			
 			notices--
 			icon_state = "nboard0[notices]"
 
@@ -66,7 +64,7 @@
 			var/pen_index = usr.find_held_item_by_type(/obj/item/weapon/pen)
 			if(pen_index)
 				var/obj/item/weapon/pen/pen = usr.held_items[pen_index]
-				add_fingerprint(usr)
+				
 				P.attackby(pen, usr)
 			else
 				to_chat(usr, "<span class='notice'>You'll need something to write with!</span>")

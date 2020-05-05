@@ -265,7 +265,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 			if(X)
 				X.name = "reinforced [old_name]"
 				X.dismantle_type = old_type
-				X.add_fingerprint(user)
 
 	if (istype(W, /obj/item/weapon/pickaxe))
 		if(user.loc != get_turf(user))

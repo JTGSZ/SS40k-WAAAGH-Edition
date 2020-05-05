@@ -101,7 +101,7 @@
 			visible_message("<span class='warning'>[user] rips [src] in a single, decisive motion!</span>" )
 			playsound(src, 'sound/items/poster_ripped.ogg', 100, 1)
 			rip()
-			add_fingerprint(user)
+			
 		if("No")
 			return
 

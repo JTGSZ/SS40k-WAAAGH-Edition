@@ -223,7 +223,6 @@
 		if(held)
 			to_chat(user, "<span class='notice'>You detach \the [held] and \the [src] switches to cutting mode.</span>")
 			used_item.playtoolsound(src, 10)
-			held.add_fingerprint(user)
 			held.forceMove(get_turf(src))
 			held = null
 			heat_production = 0

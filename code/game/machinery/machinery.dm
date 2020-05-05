@@ -566,7 +566,7 @@ Class Procs:
 /obj/machinery/attackby(var/obj/item/O, var/mob/user)
 	..()
 
-	add_fingerprint(user)
+	
 
 	if(istype(O, /obj/item/weapon/card/emag) && machine_flags & EMAGGABLE)
 		var/obj/item/weapon/card/emag/E = O

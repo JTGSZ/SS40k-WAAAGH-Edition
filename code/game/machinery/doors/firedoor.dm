@@ -411,8 +411,6 @@ var/global/list/alert_overlays_global = list()
 				close()
 
 /obj/machinery/door/firedoor/open(mob/user)
-	if(user)
-		add_fingerprint(user)
 	if(!loc || blocked)
 		return
 	..()

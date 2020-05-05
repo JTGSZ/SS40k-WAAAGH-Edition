@@ -140,7 +140,7 @@ var/list/all_doors = list()
 	if(user.last_airflow > world.time - zas_settings.Get(/datum/ZAS_Setting/airflow_delay)) //Fakkit
 		return
 
-	add_fingerprint(user)
+	
 
 	if(!requiresID())
 		user = null
@@ -165,7 +165,7 @@ var/list/all_doors = list()
 	if(isobserver(user)) //Adminghosts don't want to toggle the door open, they want to see the AI interface
 		return
 
-	add_fingerprint(user)
+	
 
 	if (!requiresID())
 		user = null

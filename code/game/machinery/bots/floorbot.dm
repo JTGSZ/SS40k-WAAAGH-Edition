@@ -139,7 +139,7 @@ var/global/list/floorbot_targets=list()
 	if(..())
 		return
 	usr.set_machine(src)
-	add_fingerprint(usr)
+	
 	switch(href_list["operation"])
 		if("start")
 			if (on)

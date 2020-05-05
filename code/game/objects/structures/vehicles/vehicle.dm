@@ -102,7 +102,7 @@
 	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0))
-			add_fingerprint(user)
+			
 			user.visible_message("<span class='notice'>[user] has fixed some of the dents on \the [src].</span>", "<span class='notice'>You fix some of the dents on \the [src]</span>")
 			health += 20
 			HealthCheck()
@@ -240,7 +240,7 @@
 	lock_atom(M, /datum/locking_category/buckle/chair/vehicle)
 	M.throw_alert(SCREEN_ALARM_BUCKLE, /obj/abstract/screen/alert/object/buckled, new_master = src)
 
-	add_fingerprint(user)
+	
 
 	for (var/datum/action/action in vehicle_actions)
 		if (action.owner && action.owner != user)

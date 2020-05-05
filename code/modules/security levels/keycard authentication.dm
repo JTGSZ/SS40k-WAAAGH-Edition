@@ -124,7 +124,7 @@ var/global/list/obj/machinery/keycard_auth/authenticators = list()
 		reset()
 
 	updateUsrDialog()
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/keycard_auth/proc/reset()

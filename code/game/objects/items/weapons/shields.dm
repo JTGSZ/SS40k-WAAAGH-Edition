@@ -126,7 +126,7 @@
 	icon_state = "eshield[active]"
 	item_state = "eshield[active]"
 	user.regenerate_icons()
-	add_fingerprint(user)
+	
 	return
 
 

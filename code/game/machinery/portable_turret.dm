@@ -836,11 +836,11 @@ Status: []<BR>"},
 	return Parent_Turret.attack_ai(user)
 
 /obj/machinery/porta_turret_cover/attackby(obj/item/W, mob/user )
-	add_fingerprint(user)
+	
 	return Parent_Turret.attackby(W, user)
 
 /obj/machinery/porta_turret_cover/attack_hand(mob/user )
-	add_fingerprint(user)
+	
 	return Parent_Turret.attack_hand(user)
 
 /obj/machinery/porta_turret/stationary

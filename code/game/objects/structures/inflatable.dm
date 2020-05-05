@@ -15,7 +15,7 @@
 	if(!istype(user.loc, /turf))
 		return
 
-	add_fingerprint(user)
+	
 	if(user.drop_item(src))
 		inflating = TRUE
 		anchored = 1
@@ -124,7 +124,7 @@
 
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>This inflatable structure is damaged beyond use.</span>")
-	add_fingerprint(user)
+	
 
 /obj/structure/inflatable
 	name = "inflatable"
@@ -280,7 +280,7 @@
 	if(busy)
 		return
 
-	add_fingerprint(user)
+	
 	if(is_open)
 		Close()
 	else

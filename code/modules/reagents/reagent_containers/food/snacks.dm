@@ -353,7 +353,7 @@
 		if(user.drop_item(W, src))
 			to_chat(user, "<span class='notice'>You slip \the [W] inside [src].</span>")
 
-		add_fingerprint(user)
+		
 		contents += W
 		return 1 //No afterattack here
 

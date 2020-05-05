@@ -74,7 +74,7 @@ var/list/obj/machinery/holosign/holosigns = list()
 	
 	if(stat & (NOPOWER|BROKEN))
 		return
-	add_fingerprint(user)
+	
 
 	use_power(5)
 

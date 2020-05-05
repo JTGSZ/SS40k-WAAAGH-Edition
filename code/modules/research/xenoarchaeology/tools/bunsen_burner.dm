@@ -73,12 +73,12 @@
 					var/reagent_transfer = R.reagents.trans_id_to(src, possible_fuel, 10)
 					if(reagent_transfer)
 						to_chat(user, "<span class='notice'>You transfer [reagent_transfer]u of [possible_fuel] from \the [R] to \the [src]</span>")
-						add_fingerprint(user)
+						
 						return
 		else
 			if(!held_container && user.drop_item(W, src))
 				to_chat(user, "<span class='notice'>You put \the [held_container] onto \the [src].</span>")
-				add_fingerprint(user)
+				
 				load_item(W)
 				return 1 // avoid afterattack() being called
 	if(W.is_wrench(user))
@@ -153,7 +153,7 @@
 		held_container.forceMove(src.loc)
 		held_container.attack_hand(user)
 		held_container = null
-		add_fingerprint(user)
+		
 	else
 		toggle()
 

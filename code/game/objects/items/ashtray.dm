@@ -36,7 +36,7 @@
 				to_chat(user, "<span class='notice'>You place [cig] in [src] without even lighting it. Why would you do that?</span>")
 			else if (cig.lit == -1)
 				visible_message("<span class='notice'>[user] places [cig] in [src].</span>")
-		add_fingerprint(user)
+		
 		if (contents.len == max_butts)
 			icon_state = icon_full
 			desc = empty_desc + " It's stuffed full."

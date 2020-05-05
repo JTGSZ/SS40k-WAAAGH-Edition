@@ -7,8 +7,7 @@
 	icon_state = "bodybag_folded"
 
 /obj/item/bodybag/attack_self(mob/user)
-	var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(user.loc)
-	R.add_fingerprint(user)
+	new /obj/structure/closet/body_bag(user.loc)
 	qdel(src)
 
 
@@ -121,8 +120,7 @@
 	icon_state = "bodybag_folded"
 
 /obj/item/bodybag/cryobag/attack_self(mob/user)
-	var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
-	R.add_fingerprint(user)
+	new /obj/structure/closet/body_bag/cryobag(user.loc)
 	qdel(src)
 
 /obj/structure/closet/body_bag/cryobag

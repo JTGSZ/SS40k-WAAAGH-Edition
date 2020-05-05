@@ -371,7 +371,7 @@
 		icon_state = "sword0"
 		item_state = "sword0"
 		w_class = W_CLASS_SMALL
-	add_fingerprint(user)
+	
 	return
 
 /obj/item/toy/katana

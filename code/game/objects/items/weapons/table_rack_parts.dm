@@ -241,7 +241,6 @@
 			return
 
 /obj/item/weapon/rack_parts/attack_self(mob/user)
-	var/obj/structure/rack/R = new /obj/structure/rack(user.loc)
-	R.add_fingerprint(user)
+	new /obj/structure/rack(user.loc)
 	user.drop_item(src, force_drop = 1)
 	qdel(src)

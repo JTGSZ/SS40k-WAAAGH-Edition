@@ -161,7 +161,7 @@ var/global/list/available_paintings = list(
 
 	to_chat(user, "<span class='notice'>You hang the [src] on \the [on_wall]...</span>")
 
-	add_fingerprint(user)
+	
 
 	//declaring D because otherwise if P gets 'deconstructed' we lose our reference to P.resulting_poster
 	var/obj/structure/painting/P = new(user.loc)
@@ -309,7 +309,7 @@ var/global/list/available_paintings = list(
 /obj/structure/painting/attack_hand(mob/user)
 	to_chat(user, "<span class='notice'>You pick up \the [src]...</span>")
 
-	add_fingerprint(user)
+	
 
 	var/obj/item/mounted/frame/painting/P = new(loc)
 	P.paint = icon_state

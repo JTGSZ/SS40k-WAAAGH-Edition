@@ -41,7 +41,7 @@
 
 /obj/item/device/radio/intercom/attack_ai(mob/user )
 	add_hiddenprint(user)
-	add_fingerprint(user)
+	
 	spawn (0)
 		attack_self(user)
 
@@ -49,7 +49,7 @@
 	return attack_hand(user)
 
 /obj/item/device/radio/intercom/attack_hand(mob/user )
-	add_fingerprint(user)
+	
 	spawn (0)
 		attack_self(user)
 

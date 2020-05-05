@@ -106,7 +106,6 @@
 		usr.before_take_item(S)
 		if(put_in_hand && istype(O,/obj/item))
 			usr.put_in_hands(O)
-	O.add_fingerprint(usr)
 	//BubbleWrap - so newly formed boxes are empty //This is pretty shitcode but I'm not fixing it because even if sloth is a sin I am already going to hell anyways
 	if (istype(O, /obj/item/weapon/storage) )
 		for(var/obj/item/I in O)

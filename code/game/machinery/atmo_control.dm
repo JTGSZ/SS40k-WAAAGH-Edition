@@ -511,7 +511,7 @@ font-weight:bold;
 	if(..())
 		return 1
 
-	add_fingerprint(usr)
+	
 
 	if(href_list["out_set_pressure"])
 		var/response=input(usr,"Set new pressure, in kPa. \[0-[50*ONE_ATMOSPHERE]\]") as num

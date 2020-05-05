@@ -338,6 +338,6 @@ var/specops_shuttle_timeleft = 0
 	else if (href_list["mainmenu"])
 		temp = null
 
-	add_fingerprint(usr)
+	
 	updateUsrDialog()
 	return

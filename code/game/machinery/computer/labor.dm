@@ -182,7 +182,7 @@ var/list/labor_console_categories = list(
 		else if(href_list["cancel"])
 			cancel_swipe()
 
-		add_fingerprint(usr)
+		
 		updateUsrDialog()
 
 /obj/machinery/computer/labor/proc/is_valid_job(title)

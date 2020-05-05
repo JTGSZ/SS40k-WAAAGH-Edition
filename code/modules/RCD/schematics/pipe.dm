@@ -388,7 +388,6 @@
 	var/obj/item/pipe/P = getFromPool(/obj/item/pipe, A, pipe_id, thisdir)
 	P.setPipingLayer(thislayer)
 	P.update()
-	P.add_fingerprint(user)
 
 /datum/rcd_schematic/pipe/select(var/mob/user, var/datum/rcd_schematic/old_schematic)
 	if(!istype(old_schematic, /datum/rcd_schematic/pipe))
@@ -433,8 +432,6 @@
 	C.dir	= thisdir
 	C.ptype	= actual_id
 	C.update()
-
-	C.add_fingerprint(user)
 
 var/global/list/disposalpipeID2State = list(
 	"pipe-s",

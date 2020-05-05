@@ -282,7 +282,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	var/updateAfter = 1 //STOP
 
-	add_fingerprint(usr)
+	
 
 	if(isLocked() && !allowed(usr))
 		to_chat(usr, "Unauthorized Access.")

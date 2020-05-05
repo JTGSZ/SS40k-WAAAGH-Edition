@@ -134,7 +134,7 @@
 	else
 		visible_message("<span class='warning'>[C] has been laid on the operating table by [user].</span>")
 
-	add_fingerprint(user)
+	
 
 /obj/machinery/optable/attackby(obj/item/weapon/W, mob/living/carbon/user )
 	if(W.is_wrench(user))

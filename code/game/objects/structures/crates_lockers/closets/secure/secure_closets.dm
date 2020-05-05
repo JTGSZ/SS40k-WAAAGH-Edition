@@ -124,7 +124,7 @@
 /obj/structure/closet/secure_closet/attack_hand(mob/user)
 	if(!Adjacent(user))
 		return
-	add_fingerprint(user)
+	
 
 	if(!toggle() && locked)
 		return togglelock(user)

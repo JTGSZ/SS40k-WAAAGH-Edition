@@ -96,7 +96,7 @@
 		flush_count++
 
 /obj/machinery/disposal/compactor/attackby(var/obj/item/I, var/mob/user)
-	add_fingerprint(user)
+	
 	if(I.is_wrench(user)) //We want this to be a high level operation, before any of the place in bin code or disassemble bin code
 		wrenchAnchor(user, I)
 		power_change()

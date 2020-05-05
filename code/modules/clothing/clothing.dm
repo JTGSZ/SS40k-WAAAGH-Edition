@@ -57,7 +57,6 @@
 		if(user.drop_item(I, src))
 			to_chat(user, "<span class='notice'>You attach [A] to [src].</span>")
 			attach_accessory(A)
-			A.add_fingerprint(user)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			H.update_inv_by_slot(slot_flags)
@@ -310,9 +309,8 @@
 
 	user.u_equip(src,0)
 
-	if (O)
+	if(O)
 		user.put_in_hands(O)
-		O.add_fingerprint(user)
 
 /obj/item/clothing/ears/earmuffs
 	name = "earmuffs"

@@ -48,7 +48,7 @@
 		primed_by = "[user] ([user.ckey])"
 
 		activate()
-		add_fingerprint(user)
+		
 		if(iscarbon(user))
 			var/mob/living/carbon/C = user
 			C.throw_mode_on()

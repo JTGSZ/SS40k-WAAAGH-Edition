@@ -750,7 +750,7 @@ About the new airlock wires panel:
 		if(usr.stat || usr.restrained() || (usr.size < SIZE_SMALL))
 			//testing("Returning: Not adminghost, stat=[usr.stat], restrained=[usr.restrained()], small=[usr.small]")
 			return
-	add_fingerprint(usr)
+	
 
 	if(href_list["hack"])
 		hack(usr)
@@ -1037,7 +1037,7 @@ About the new airlock wires panel:
 					else
 						to_chat(usr, text("Door bolt lights are already enabled!"))
 
-	add_fingerprint(usr)
+	
 	update_icon()
 	updateUsrDialog()
 
@@ -1255,7 +1255,7 @@ About the new airlock wires panel:
 			operating = -1
 	else
 		..(I, user)
-	add_fingerprint(user)
+	
 	return
 
 /obj/machinery/door/airlock/proc/bashed_in(var/mob/user)

@@ -85,7 +85,7 @@
 	if(.)
 		return
 
-	add_fingerprint(usr)
+	
 
 	if(href_list["nextTag"])
 		currTag = clamp(text2num(href_list["nextTag"]), 0, destinations.len)

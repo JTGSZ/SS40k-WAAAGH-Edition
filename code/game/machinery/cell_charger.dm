@@ -111,7 +111,6 @@
 				qdel(src) //It exploded, rip
 			return
 		usr.put_in_hands(charging)
-		charging.add_fingerprint(user)
 		charging.updateicon()
 		src.charging = null
 		user.visible_message("<span class='notice'>[user] removes the cell from [src].</span>", "<span class='notice'>You remove the cell from [src].</span>")

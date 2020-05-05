@@ -316,7 +316,7 @@ var/list/camera_messages = list()
 					to_chat(O, "[U] holds <a href='byond://?src=\ref[src];message_id=[key]'>[W]</a> up to one of the cameras ...")
 	else
 		..()
-		add_fingerprint(user)
+		
 		user.delayNextAttack(8)
 		if(user.a_intent == I_HELP)
 			visible_message("<span class='notice'>[user] gently taps [src] with [W].</span>")

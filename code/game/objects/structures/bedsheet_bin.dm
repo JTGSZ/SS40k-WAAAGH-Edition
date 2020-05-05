@@ -221,7 +221,7 @@ LINEN BINS
 			hidden = null
 
 
-	add_fingerprint(user)
+	
 
 /obj/structure/bedsheetbin/attack_tk(mob/user )
 	if(amount >= 1)
@@ -244,4 +244,4 @@ LINEN BINS
 			hidden = null
 
 
-	add_fingerprint(user)
+	

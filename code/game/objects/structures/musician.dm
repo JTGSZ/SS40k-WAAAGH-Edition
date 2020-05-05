@@ -210,7 +210,6 @@
 			ui.close()
 		return
 	//nanomanager.send_message(src, "instrument", "messageReceived", null, usr)
-	instrumentObj.add_fingerprint(usr)
 	if(href_list["newsong"])
 		lines = new()
 		tempo = sanitize_tempo(5) // default 120 BPM

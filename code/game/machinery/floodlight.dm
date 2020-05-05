@@ -41,7 +41,6 @@
 			return
 
 /obj/machinery/floodlight/attack_ai(mob/user )
-	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/floodlight/attack_paw(mob/user )
@@ -51,7 +50,6 @@
 	if(panel_open && cell)
 		if(ishuman(user) || isMoMMI(user)) //Allow MoMMIs to do it, too
 			user.put_in_hands(cell)
-			cell.add_fingerprint(user)
 			cell.updateicon()
 			cell = null
 			user.visible_message("<span class='notice'>[user] removes \the [src]'s power cell</span>", \

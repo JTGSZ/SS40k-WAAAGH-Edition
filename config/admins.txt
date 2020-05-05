@@ -5,7 +5,9 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-Major Mike Tyson - Devmin
+Major Mike Tyson - Game Master
 burntdevil - Game Master
 TheCannonMan - Game Master
 Buchse - Game Master
+Impromptu Cover - Game Master
+jingleheimer - Game Master

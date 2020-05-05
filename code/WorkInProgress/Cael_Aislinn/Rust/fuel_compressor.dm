@@ -16,7 +16,7 @@ var/const/max_assembly_amount = 300
 	attack_hand(user)
 
 /obj/machinery/rust_fuel_compressor/attack_hand(mob/user)
-	add_fingerprint(user)
+	
 	/*if(stat & (BROKEN|NOPOWER))
 		return*/
 	interact(user)

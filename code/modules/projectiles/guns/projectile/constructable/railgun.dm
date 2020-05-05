@@ -274,7 +274,7 @@
 		update_icon()
 
 /obj/item/weapon/gun/projectile/railgun/proc/throw_ammo(atom/target, mob/living/user )
-	add_fingerprint(user)
+	
 
 	var/turf/curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)

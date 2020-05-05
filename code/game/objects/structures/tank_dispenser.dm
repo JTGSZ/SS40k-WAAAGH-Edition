@@ -112,7 +112,7 @@
 				usr.put_in_hands(P)
 				to_chat(usr, "<span class='notice'>You take [P] out of [src].</span>")
 				update_icon()
-		add_fingerprint(usr)
+		
 		updateUsrDialog()
 	else
 		usr << browse(null, "window=dispenser")

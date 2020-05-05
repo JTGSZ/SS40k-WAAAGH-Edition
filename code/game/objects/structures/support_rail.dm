@@ -40,7 +40,7 @@
 /obj/structure/support_rail/attack_hand(mob/user )
 	if(supported_mob) //Anyone can force you to let go
 		letgo()
-		add_fingerprint(user)
+		
 	else
 		supported_mob = user
 		user.visible_message(
@@ -49,5 +49,5 @@
 		user.forceMove(src.loc)
 		user.dir = src.dir
 		user.update_canmove()
-		add_fingerprint(user)
+		
 	return

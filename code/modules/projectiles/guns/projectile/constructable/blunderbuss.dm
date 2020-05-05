@@ -225,7 +225,7 @@
 				explode(user)
 				return
 
-	add_fingerprint(user)
+	
 
 	var/turf/curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)

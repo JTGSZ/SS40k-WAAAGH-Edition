@@ -477,7 +477,7 @@ var/global/list/obj/machinery/light/alllights = list()
 	if(!Adjacent(user))
 		return
 
-	add_fingerprint(user)
+	
 
 	if(!current_bulb)
 		to_chat(user, "There is no [fitting] in this light.")
@@ -503,7 +503,6 @@ var/global/list/obj/machinery/light/alllights = list()
 			return				// if burned, don't remove the light
 
 	current_bulb.update()
-	current_bulb.add_fingerprint(user)
 
 	if(!user.put_in_active_hand(current_bulb)) //puts it in our active hand if possible
 		current_bulb.forceMove(get_turf(user))

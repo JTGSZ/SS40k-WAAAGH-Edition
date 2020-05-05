@@ -195,7 +195,6 @@
 			src.New()
 			emagged = 0
 
-	holder.add_fingerprint(usr)
 	holder.updateUsrDialog()
 
 

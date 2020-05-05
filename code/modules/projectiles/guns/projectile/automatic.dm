@@ -306,7 +306,6 @@
 			to_chat(user, "<span class='warning'>You need to remove the magazine first!</span>")
 		else
 			var/obj/item/weapon/vectorreceiver/R = receiver
-			R.add_fingerprint(user)
 			R.forceMove(get_turf(src))
 			receiver = null
 			to_chat(user, "<span class='notice'>You push the bolts out of \the [R] and remove it from \the [src].</span>")

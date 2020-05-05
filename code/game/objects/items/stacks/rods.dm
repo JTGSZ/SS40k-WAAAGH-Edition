@@ -141,7 +141,6 @@
 		if(!Grille)
 			Grille = new(user.loc)
 		to_chat(user, "<span class='notice'>You assembled a grille!</span>")
-		Grille.add_fingerprint(user)
 		use(2)
 
 

@@ -41,7 +41,7 @@
 	user.visible_message("[user] flashes their: [bicon(src)] [name]",\
 		"You flash your debit card: [bicon(src)] [name]")
 	user.delayNextAttack(1 SECONDS)
-	add_fingerprint(user)
+	
 
 /obj/item/weapon/card/debit/attackby(var/obj/O, var/mob/user)
 	. = ..()

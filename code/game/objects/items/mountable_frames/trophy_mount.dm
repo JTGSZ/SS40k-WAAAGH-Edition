@@ -100,7 +100,7 @@
 		to_chat(user, "<span class='warning'>You can't let go of \the [src]!</span>")
 		return
 	user.visible_message("\The [user] hangs \the [src] on \the [on_wall].", "You hang \the [src] on \the [on_wall].")
-	add_fingerprint(user)
+	
 	var/obj/structure/trophy_mount/T = new(get_turf(src))
 	T.name = name
 	T.desc = desc
@@ -142,7 +142,7 @@
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 		if(do_after(user, src,10))
 			to_chat(user, "You pry \the [initial(name)] off of the wall.")
-			add_fingerprint(user)
+			
 			var/obj/item/mounted/frame/trophy_mount/T = new(get_turf(user))
 			if(held_item)
 				held_item.forceMove(T)

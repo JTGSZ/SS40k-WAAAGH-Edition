@@ -47,7 +47,7 @@
 			"<span class='notice'>You take the [initial(G.name)] off the [src].</span>")
 			qdel(src)
 	else if(W)
-		add_fingerprint(user)
+		
 		user.delayNextAttack(10)
 		health -= W.force
 		healthcheck()

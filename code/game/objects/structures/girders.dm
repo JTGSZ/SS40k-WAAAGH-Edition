@@ -62,7 +62,7 @@
 					user.visible_message("<span class='notice'>[user] secures \the [src].</span>", \
 					"<span class='notice'>You secure \the [src].</span>")
 					add_hiddenprint(user)
-					add_fingerprint(user)
+					
 					anchored = 1
 					update_icon()
 		else if(state == 1 || state == 2) //Clearly a reinforced girder
@@ -74,7 +74,7 @@
 				user.visible_message("<span class='notice'>[user] [anchored ? "" : "un"]secures \the [src].</span>", \
 				"<span class='notice'>You [anchored ? "" : "un"]secure \the [src].</span>")
 				add_hiddenprint(user)
-				add_fingerprint(user)
+				
 				update_icon()
 
 	else if(istype(W, /obj/item/weapon/pickaxe))
@@ -98,7 +98,7 @@
 			user.visible_message("<span class='warning'>[user] unsecures \the [src]'s internal support struts.</span>", \
 			"<span class='notice'>You unsecure \the [src]'s internal support struts.</span>")
 			add_hiddenprint(user)
-			add_fingerprint(user)
+			
 			state = 1
 			update_icon()
 
@@ -110,7 +110,7 @@
 			user.visible_message("<span class='notice'>[user] secures \the [src]'s internal support struts.</span>", \
 			"<span class='notice'>You secure \the [src]'s internal support struts.</span>")
 			add_hiddenprint(user)
-			add_fingerprint(user)
+			
 			state = 2
 			update_icon()
 
@@ -122,7 +122,7 @@
 			user.visible_message("<span class='warning'>[user] removes \the [src]'s internal support struts.</span>", \
 			"<span class='notice'>You remove \the [src]'s internal support struts.</span>")
 			add_hiddenprint(user)
-			add_fingerprint(user)
+			
 			getFromPool(/obj/item/stack/rods, get_turf(src), 2)
 			state = 0
 			update_icon()
@@ -143,7 +143,7 @@
 			user.visible_message("<span class='notice'>[user] inserts internal support struts into \the [src].</span>", \
 			"<span class='notice'>You insert internal support struts into \the [src].</span>")
 			add_hiddenprint(user)
-			add_fingerprint(user)
+			
 			state = 1
 			update_icon()
 
@@ -155,7 +155,7 @@
 			user.visible_message("<span class='warning'>[user] dislodges \the [src].</span>", \
 			"<span class='notice'>You dislodge \the [src].</span>")
 			add_hiddenprint(user)
-			add_fingerprint(user)
+			
 			anchored = 0
 			update_icon()
 
@@ -173,9 +173,7 @@
 						S.use(2)
 						user.visible_message("<span class='warning'>[user] creates a false wall!</span>", \
 						"<span class='notice'>You create a false wall. Push on it to open or close the passage.</span>")
-						var/obj/structure/falsewall/FW = new /obj/structure/falsewall (src.loc)
-						FW.add_hiddenprint(user)
-						FW.add_fingerprint(user)
+						new /obj/structure/falsewall (src.loc)
 						qdel(src)
 					else
 						to_chat(user, "<span class='warning'>There is too much air moving through the gap!  The door wouldn't stay closed if you built it.</span>")
@@ -196,10 +194,7 @@
 						var/turf/Tsrc = get_turf(src)
 						if(!istype(Tsrc))
 							return 0
-						var/turf/simulated/wall/X = Tsrc.ChangeTurf(/turf/simulated/wall)
-						if(X)
-							X.add_hiddenprint(user)
-							X.add_fingerprint(user)
+						Tsrc.ChangeTurf(/turf/simulated/wall)
 						qdel(src)
 					return
 
@@ -214,9 +209,7 @@
 						S.use(2)
 						user.visible_message("<span class='warning'>[user] creates a false reinforced wall!</span>", \
 						"<span class='notice'>You create a false reinforced wall. Push on it to open or close the passage.</span>")
-						var/obj/structure/falserwall/FW = new /obj/structure/falserwall(src.loc)
-						FW.add_hiddenprint(user)
-						FW.add_fingerprint(user)
+						new /obj/structure/falserwall(src.loc)
 						qdel(src)
 					else
 						to_chat(user, "<span class='warning'>There is too much air moving through the gap!  The door wouldn't stay closed if you built it.</span>")
@@ -238,8 +231,6 @@
 					var/turf/Tsrc = get_turf(src)
 					var/turf/simulated/wall/r_wall/X = Tsrc.ChangeTurf(/turf/simulated/wall/r_wall)
 					if(X)
-						X.add_hiddenprint(user)
-						X.add_fingerprint(user)
 						X.d_state = 4 //Reinforced wall not finished yet, but since we're changing to a turf, need to transfer desired variables
 						X.update_icon() //Tell our reinforced wall to update its icon
 					qdel(src)
@@ -258,9 +249,7 @@
 					S.use(2)
 					user.visible_message("<span class='warning'>[user] creates a false wall!</span>", \
 					"<span class='notice'>You create a false wall. Push on it to open or close the passage.</span>")
-					var/obj/structure/falsewall/FW = new F (src.loc)
-					FW.add_hiddenprint(user)
-					FW.add_fingerprint(user)
+					new F (src.loc)
 					qdel(src)
 				else
 					to_chat(user, "<span class='warning'>There is too much air moving through the gap!  The door wouldn't stay closed if you built it.</span>")
@@ -282,10 +271,7 @@
 					user.visible_message("<span class='notice'>[user] finishes installing plating to \the [src].</span>", \
 					"<span class='notice'>You finish installing plating to \the [src].</span>")
 					var/turf/Tsrc = get_turf(src)
-					var/turf/simulated/wall/mineral/X = Tsrc.ChangeTurf(wallpath)
-					if(X)
-						X.add_hiddenprint(user)
-						X.add_fingerprint(user)
+					Tsrc.ChangeTurf(wallpath)
 					qdel(src)
 				return
 

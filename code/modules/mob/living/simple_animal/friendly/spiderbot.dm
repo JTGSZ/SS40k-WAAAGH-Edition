@@ -92,7 +92,7 @@
 				health += pick(1,1,1,2,2,3)
 				if(health > maxHealth)
 					health = maxHealth
-				add_fingerprint(user)
+				
 				for(var/mob/W in viewers(user, null))
 					W.show_message(text("<span class='warning'>[user] has spot-welded some of the damage to [src]!</span>"), 1)
 			else

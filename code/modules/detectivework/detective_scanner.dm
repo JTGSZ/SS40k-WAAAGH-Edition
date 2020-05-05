@@ -28,9 +28,6 @@
 			//W = null
 			qdel(W)
 			W = null
-		add_fingerprint(user)
-		if (W)
-			W.add_fingerprint(user)
 	return
 
 /obj/item/device/detective_scanner/attack(mob/living/carbon/human/M, mob/user )

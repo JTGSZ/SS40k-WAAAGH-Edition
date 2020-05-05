@@ -60,5 +60,5 @@
 		O.name = sanitize((input(user, "What would you like to label \the [O]?", "Medal Labelling", null)  as text), 1, MAX_NAME_LEN)
 		if((loc == user && user.isUnconscious()))
 			O.name = "medal"
-		add_fingerprint(user)
+		
 	..()

@@ -85,12 +85,10 @@ var/list/ladders = list()
 				user.visible_message("<span class='notice'>[user] climbs up \the [src]!</span>", \
 									 "<span class='notice'>You climb up \the [src]!</span>")
 				climb(user, get_turf(up))
-				up.add_fingerprint(user)
 			if("Down")
 				user.visible_message("<span class='notice'>[user] climbs down \the [src]!</span>", \
 									 "<span class='notice'>You climb down \the [src]!</span>")
 				climb(user, get_turf(down))
-				down.add_fingerprint(user)
 			if("Cancel")
 				return
 
@@ -98,18 +96,16 @@ var/list/ladders = list()
 		user.visible_message("<span class='notice'>[user] climbs up \the [src]!</span>", \
 							 "<span class='notice'>You climb up \the [src]!</span>")
 		climb(user, get_turf(up))
-		up.add_fingerprint(user)
 
 	else if(down)
 		user.visible_message("<span class='notice'>[user] climbs down \the [src]!</span>", \
 							 "<span class='notice'>You climb down \the [src]!</span>")
 		climb(user, get_turf(down))
-		down.add_fingerprint(user)
 
 	else
 		to_chat(user, "<span class='notice'>This ladder is broken!</span>")
 
-	add_fingerprint(user)
+	
 
 /obj/structure/ladder/attack_paw(mob/user )
 	return attack_hand(user)

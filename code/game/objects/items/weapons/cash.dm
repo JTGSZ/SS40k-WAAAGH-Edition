@@ -42,7 +42,6 @@ var/global/list/moneytypes = list(
 		C.copy_evidences(src)
 		user.put_in_hands(C)
 		
-		C.add_fingerprint(user)
 		amount--
 		if(amount<=0)
 			qdel(src)

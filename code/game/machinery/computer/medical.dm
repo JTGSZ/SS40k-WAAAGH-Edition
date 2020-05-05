@@ -535,7 +535,7 @@
 					P.name = "paper- 'Medical Record'"
 					printing = null
 
-	add_fingerprint(usr)
+	
 	updateUsrDialog()
 	return
 

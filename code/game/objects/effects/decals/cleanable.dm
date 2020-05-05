@@ -143,7 +143,7 @@ var/list/infected_cleanables = list()
 //obj/effect/decal/cleanable/attack_hand(mob/living/carbon/human/user)
 //	..()
 //	if (amount && istype(user))
-//		add_fingerprint(user)
+//		
 //		if (user.gloves)
 //			return
 //		var/taken = rand(1,amount)

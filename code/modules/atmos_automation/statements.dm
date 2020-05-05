@@ -180,7 +180,6 @@ var/global/automation_types=typesof(/datum/automation) - /datum/automation
 		parent.updateUsrDialog()
 		return 1
 
-	parent.add_fingerprint(usr)
 
 	return 0 // 1 if handled
 

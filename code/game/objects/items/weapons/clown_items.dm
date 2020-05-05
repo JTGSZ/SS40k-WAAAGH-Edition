@@ -105,15 +105,10 @@
 	user.gib()
 
 /obj/item/weapon/bikehorn/attack_self(mob/user )
-	if(honk())
-		add_fingerprint(user)
+	honk()
+
 
 /obj/item/weapon/bikehorn/afterattack(atom/target, mob/user, proximity_flag)
-	//hitsound takes care of that
-	//if(proximity_flag && istype(target, /mob)) //for honking in the chest
-		//honk()
-		//return
-
 	if(!proximity_flag && istype(target, /mob) && honk()) //for skilled honking at a range
 		target.visible_message(\
 			"<span class='notice'>[user] honks \the [src] at \the [target].</span>",\

@@ -52,7 +52,7 @@
 
 
 /obj/item/device/flashlight/attack(mob/living/M, mob/living/user )
-	add_fingerprint(user)
+	
 	if(on && user.zone_sel.selecting == "eyes")
 
 		if((clumsy_check(user) || user.getBrainLoss() >= 60) && prob(50))	//too dumb to use flashlight properly

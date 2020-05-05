@@ -81,7 +81,7 @@
 		source_light.forceMove(get_turf(src))
 		if(user)
 			user.put_in_hands(source_light)
-		add_fingerprint(user)
+		
 		transfer_fingerprints(src,source_light)
 		source_light = null
 	update_brightness(attached_to)

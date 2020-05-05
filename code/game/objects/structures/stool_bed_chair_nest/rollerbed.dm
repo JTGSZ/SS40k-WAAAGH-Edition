@@ -36,7 +36,7 @@
 		return ..()
 
 	else if(is_locking(iv_lock_type))
-		add_fingerprint(user)
+		
 		var/obj/machinery/iv_drip/IV = get_locked(iv_lock_type)[1]
 		if(unlock_atom(IV))
 			user.visible_message(
@@ -82,7 +82,7 @@
 
 	if(lock_atom(IV, iv_lock_type))
 		playsound(src, 'sound/misc/buckle_click.ogg', 40, 1)
-		add_fingerprint(user)
+		
 		user.visible_message(
 			"<span class='notice'>[user] attaches \the [IV] from \the [src].</span>",
 			"You attach \the [IV] from \the [src].",
@@ -105,8 +105,7 @@
 	w_class = W_CLASS_LARGE // Can't be put in backpacks. Oh well.
 
 /obj/item/roller/attack_self(mob/user)
-	var/obj/structure/bed/roller/R = new bed_type(user.loc)
-	R.add_fingerprint(user)
+	new bed_type(user.loc)
 	qdel(src)
 
 /obj/item/roller/borg

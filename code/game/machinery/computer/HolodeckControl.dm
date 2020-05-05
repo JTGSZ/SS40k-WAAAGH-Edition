@@ -587,7 +587,7 @@
 		w_class = W_CLASS_SMALL
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
-	add_fingerprint(user)
+	
 	return
 
 //BASKETBALL OBJECTS

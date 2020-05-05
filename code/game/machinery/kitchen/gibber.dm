@@ -166,7 +166,7 @@ obj/machinery/gibber/New()
 	if (usr.isUnconscious())
 		return
 	src.go_out()
-	add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/gibber/proc/go_out()

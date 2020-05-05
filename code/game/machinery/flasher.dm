@@ -51,7 +51,7 @@ var/list/obj/machinery/flasher/flashers = list()
 //Don't want to render prison breaks impossible
 /obj/machinery/flasher/attackby(obj/item/weapon/W, mob/user )
 	if (iswirecutter(W))
-		add_fingerprint(user)
+		
 		src.disable = !src.disable
 		if (src.disable)
 			user.visible_message("<span class='warning'>[user] has disconnected the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect the [src]'s flashbulb!</span>")
@@ -126,7 +126,7 @@ var/list/obj/machinery/flasher/flashers = list()
 
 /obj/machinery/flasher/portable/attackby(obj/item/weapon/W, mob/user )
 	if (W.is_wrench(user))
-		add_fingerprint(user)
+		
 		src.anchored = !src.anchored
 
 		if (!src.anchored)

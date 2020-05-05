@@ -42,7 +42,7 @@
 	else
 		to_chat(user, "<span class='notice'>The [src] is empty!</span>")
 		update_icon()
-	add_fingerprint(user)
+	
 	return
 
 

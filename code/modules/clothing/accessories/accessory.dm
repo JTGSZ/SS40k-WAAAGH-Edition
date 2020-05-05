@@ -48,7 +48,7 @@
 	forceMove(get_turf(user || src))
 	if(user)
 		user.put_in_hands(src)
-		add_fingerprint(user)
+		
 
 /obj/item/clothing/accessory/proc/on_accessory_interact(mob/user, delayed = 0)
 	if(!attached_to)
@@ -333,7 +333,7 @@
 		source_vest.forceMove(get_turf(src))
 		if(user)
 			user.put_in_hands(source_vest)
-		add_fingerprint(user)
+		
 		transfer_fingerprints(src,source_vest)
 		source_vest = null
 	qdel(src)

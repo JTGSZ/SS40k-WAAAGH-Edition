@@ -24,7 +24,6 @@
 		return
 
 	if(internal)
-		internal.add_fingerprint(user)
 		internal = null
 		if(internals) //This is the HUD icon, these variables have WAY too similar names
 			internals.icon_state = "internal0"
@@ -57,7 +56,6 @@
 					to_chat(user, "<span class='warning'>You don't have \an [breathes] tank.</span>")
 				return
 		internal = T
-		T.add_fingerprint(user)
 		if(internals)
 			internals.icon_state = "internal1"
 		if(user != src)

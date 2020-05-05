@@ -245,7 +245,7 @@
 	if(scanning || splicing || burning)
 		return FALSE
 
-	add_fingerprint(usr)
+	
 
 	if(href_list["erase_buffer"])
 		memorybank = null

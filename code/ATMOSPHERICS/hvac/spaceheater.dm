@@ -144,7 +144,6 @@
 				if(istype(C))
 					if(user.drop_item(C, src))
 						cell = C
-						C.add_fingerprint(usr)
 						user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
 		else
 			to_chat(user, "The hatch must be open to insert a power cell.")
@@ -280,7 +279,6 @@
 				if(panel_open && cell && !usr.get_active_hand())
 					cell.updateicon()
 					usr.put_in_hands(cell)
-					cell.add_fingerprint(usr)
 					cell = null
 					usr.visible_message("<span class='notice'>[usr] removes the power cell from \the [src].</span>", "<span class='notice'>You remove the power cell from \the [src].</span>")
 
@@ -290,7 +288,6 @@
 					if(istype(C))
 						if(usr.drop_item(C, src))
 							cell = C
-							C.add_fingerprint(usr)
 
 							usr.visible_message("<span class='notice'>[usr] inserts a power cell into \the [src].</span>", "<span class='notice'>You insert the power cell into \the [src].</span>")
 

@@ -113,7 +113,7 @@
 		to_chat(user, "The chamber hasn't built up enough pressure yet!")
 		return 0
 
-	add_fingerprint(user)
+	
 
 	if(istype(user, /mob/living))
 		var/mob/living/M = user
