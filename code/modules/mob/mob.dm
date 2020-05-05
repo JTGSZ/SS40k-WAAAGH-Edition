@@ -1258,13 +1258,13 @@ Use this proc preferably at the end of an equipment loadout
 	set name = "Respawn"
 	set category = "OOC"
 
-	if (!( abandon_allowed ))
+	if(!(abandon_allowed))
 		to_chat(usr, "<span class='notice'> Respawn is disabled.</span>")
 		return
-	if ((stat != 2 || !( ticker )))
+	if((stat != 2 || !(ticker)))
 		to_chat(usr, "<span class='notice'> <B>You must be dead to use this!</B></span>")
 		return
-	if (ticker.mode.name == "meteor" || ticker.mode.name == "epidemic") //BS12 EDIT
+	if(ticker.mode.name == "meteor" || ticker.mode.name == "epidemic") //BS12 EDIT
 		to_chat(usr, "<span class='notice'> Respawn is disabled.</span>")
 		return
 	else

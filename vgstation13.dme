@@ -2740,6 +2740,7 @@
 #include "z40k_shit\systems\experimental\visconpooling.dm"
 #include "z40k_shit\systems\experimental\viscon_effects\barricade_effects.dm"
 #include "z40k_shit\systems\experimental\viscon_effects\ghostbody_effects.dm"
+#include "z40k_shit\systems\persistentchar\dbdebugverbs.dm"
 #include "z40k_shit\systems\persistentchar\persistcontroller.dm"
 #include "z40k_shit\systems\persistentchar\persistmenu.dm"
 #include "z40k_shit\turfs\footprintholder.dm"

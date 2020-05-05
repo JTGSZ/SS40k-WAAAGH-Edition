@@ -99,6 +99,12 @@
 		healths.icon_state = "health7"
 	dizziness = 0
 	remove_jitter()
+	if(client)
+		var/client/C = client
+		C.persist.potential -= 1
+		C.persist.save_persistence_sqlite(C.ckey,C,FALSE)
+		to_chat(src, "<span class='bad'> You feel the possibilities fade from you.</span>.")
+
 
 	//If we have brain worms, dump 'em.
 	var/mob/living/simple_animal/borer/B=has_brain_worms()
@@ -107,15 +113,6 @@
 		to_chat(B.host_brain, "<span class='danger'>Just before your body passes, you feel a brief return of sensation.  You are now in control...  And dead.</span>")
 		do_release_control(0)
 
-	//Check for heist mode kill count.
-	//if(ticker.mode && ( istype( ticker.mode,/datum/game_mode/heist) ) )
-		//Check for last assailant's mutantrace.
-		/*if( LAssailant && ( istype( LAssailant,/mob/living/carbon/human ) ) )
-			var/mob/living/carbon/human/V = LAssailant
-			if (V.dna && (V.dna.mutantrace == "vox"))
-				*/ //Not currently feasible due to terrible LAssailant tracking.
-//		to_chat(world, "Vox kills: [vox_kills]")
-		//vox_kills++ //Bad vox. Shouldn't be killing humans.
 	if(ishuman(LAssailant))
 		var/mob/living/carbon/human/H=LAssailant
 		if(H.mind)

@@ -10,7 +10,7 @@
 	logo_state = "ig-logo"
 	hud_icons = list()
 
-	var/time_left =	(1 MINUTES)/10
+	var/time_left =	(30 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 
@@ -40,7 +40,7 @@ var/ig_total_points = 0
 
 /datum/faction/imperial_guard/AdminPanelEntry()
 	. = ..()
-	. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
+	. += "<br/> Time left: <b>[num2text((time_left /(60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
 
 /datum/faction/imperial_guard/OnPostSetup()
 	..()

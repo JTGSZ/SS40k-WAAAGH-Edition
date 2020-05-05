@@ -19,33 +19,34 @@
 	var/list/tier_somewhat_rare = list()
 	var/list/tier_super_rare = list()
 
-	for(var/mob/living/carbon/human/H in player_list)
+	spawn(20 SECONDS)
+		for(var/mob/living/carbon/human/H in player_list)
+	
+			players += H
+			var/job_string = H.mind.assigned_role
+			var/datum/job/muh_job = job_master.GetJob(job_string)
+			//ar/datum/job/muh_job = H.mind.assigned_role
 
-		players += H
-		var/job_string = H.mind.assigned_role
-		var/datum/job/muh_job = job_master.GetJob(job_string)
-		//ar/datum/job/muh_job = H.mind.assigned_role
+			//tiers include women and children
+			switch(muh_job.relationship_chance)
+				if(HUMAN_COMMON)
+					tier_common += H
+				if(HUMAN_UNCOMMON)
+					tier_uncommon += H
+				if(HUMAN_SOMEWHAT_RARE)
+					tier_somewhat_rare += H
+				if(HUMAN_SUPER_RARE)
+					tier_super_rare += H
 
-		//tiers include women and children
-		switch(muh_job.relationship_chance)
-			if(HUMAN_COMMON)
-				tier_common += H
-			if(HUMAN_UNCOMMON)
-				tier_uncommon += H
-			if(HUMAN_SOMEWHAT_RARE)
-				tier_somewhat_rare += H
-			if(HUMAN_SUPER_RARE)
-				tier_super_rare += H
-
-	//form common relationships
-	form_relationships(tier_common, tier_common, 1)
-	form_relationships(tier_uncommon, tier_uncommon, 1)
-	form_relationships(tier_somewhat_rare, tier_somewhat_rare, 1)
-	form_relationships(tier_super_rare, tier_super_rare, 1)
-	//form uncommon relationships
-	form_relationships(tier_common, tier_uncommon, 0)
-	form_relationships(tier_uncommon, tier_somewhat_rare, 0)
-	form_relationships(tier_somewhat_rare, tier_super_rare, 0)
+		//form common relationships
+		form_relationships(tier_common, tier_common, 1)
+		form_relationships(tier_uncommon, tier_uncommon, 1)
+		form_relationships(tier_somewhat_rare, tier_somewhat_rare, 1)
+		form_relationships(tier_super_rare, tier_super_rare, 1)
+		//form uncommon relationships
+		form_relationships(tier_common, tier_uncommon, 0)
+		form_relationships(tier_uncommon, tier_somewhat_rare, 0)
+		form_relationships(tier_somewhat_rare, tier_super_rare, 0)
 
 /datum/relationships/proc/form_relationships(var/list/list1, var/list/list2, var/common = 1)
 	var/probability = 0
@@ -164,5 +165,5 @@
 /datum/relationships/proc/print_to_mind()
 	for(var/mob/living/carbon/human/H in players)
 		for(var/mob/living/carbon/human/HH in H.relationships)
-			to_chat(H.mind, "[HH.real_name] is your [H.relationships[HH.real_name]].")
-			H.store_memory("[HH.real_name] is your [H.relationships[HH.real_name]].")
+			to_chat(H.mind, "<B><span class='average'>[HH.real_name] is your [H.relationships[HH.real_name]]</span></B>.")
+			H.store_memory("<B>[HH.real_name] is your [H.relationships[HH.real_name]].</B>")
