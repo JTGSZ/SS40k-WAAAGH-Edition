@@ -259,7 +259,6 @@
 
 					var/pipetype = dpipetype()
 					var/obj/structure/disposalpipe/P = new pipetype(src.loc)
-					src.transfer_fingerprints_to(P)
 					P.base_icon_state = base_state
 					P.dir = dir
 					P.dpdir = dpdir
@@ -276,13 +275,11 @@
 
 				else if(ptype==6) // Disposal bin
 					var/obj/machinery/disposal/P = new /obj/machinery/disposal(src.loc)
-					src.transfer_fingerprints_to(P)
 					P.mode = 0 // start with pump off
 
 				else if(ptype==7) // Disposal outlet
 
 					var/obj/structure/disposaloutlet/P = new /obj/structure/disposaloutlet(src.loc)
-					src.transfer_fingerprints_to(P)
 					P.dir = dir
 					var/obj/structure/disposalpipe/trunk/Trunk = locate() in loc
 					Trunk.linked = P
@@ -290,7 +287,6 @@
 				else if(ptype==8) // Disposal outlet
 
 					var/obj/machinery/disposal/deliveryChute/P = new /obj/machinery/disposal/deliveryChute(src.loc)
-					src.transfer_fingerprints_to(P)
 					P.dir = dir
 
 				qdel(src)

@@ -60,7 +60,6 @@
 			H.eye_blurry = max(H.eye_blurry, rand(3,8))
 			H.eye_blind = max(H.eye_blind, rand(1,3))
 			H.drop_hands(get_turf(H))
-		log_attack("<font color='red'>[hit_atom] ([H ? H.ckey : "what"]) was pocketsanded by ([src.fingerprintslast])</font>")
 	else
 		T = get_turf(hit_atom)
 

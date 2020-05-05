@@ -75,7 +75,6 @@
 			var/obj/item/stack/rods/R = W
 			R.use(1)
 			arrow = new /obj/item/weapon/arrow/rod(src)
-			arrow.fingerprintslast = src.fingerprintslast
 			arrow.forceMove(src)
 			icon_state = "crossbow-nocked"
 			user.visible_message("[user] haphazardly jams [arrow] into [src].","You jam [arrow] into [src].")

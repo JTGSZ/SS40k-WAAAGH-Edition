@@ -265,7 +265,6 @@
 									"<span class='notice'>You hear a ratchet.</span>")
 
 			var/obj/structure/flora/pottedplant/claypot/S = new(get_turf(C))
-			transfer_fingerprints(C, S)
 			qdel(C)
 
 			if(seed.large)

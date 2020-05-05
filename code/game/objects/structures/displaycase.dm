@@ -141,7 +141,7 @@
 	return
 
 /obj/structure/displaycase/npc_tamper_act(mob/living/L)
-	dump() //Screw fingerprints checking and other crap, gremlin magic
+	dump()
 
 /obj/structure/displaycase/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item/weapon/card/id))
@@ -225,14 +225,6 @@
 			healthcheck()
 		else if(!locked)
 			if(ishuman(user))
-				if(!ue)
-					to_chat(user, "<span class='notice'>You press your thumb against the fingerprint scanner, registering your identity with the case.</span>")
-					ue = getPrint(user)
-					return
-				if(ue!=getPrint(user))
-					to_chat(user, "<span class='rose'>Access denied.</span>")
-					return
-
 				to_chat(user, "<span class='notice'>You press your thumb against the fingerprint scanner, and deactivate the hoverfield built into the case.</span>")
 				if(occupant)
 					dump()

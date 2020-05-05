@@ -328,7 +328,7 @@ var/list/uplink_items = list()
 
 /datum/uplink_item/stealthy_tools/dnascrambler
 	name = "DNA Scrambler"
-	desc = "A single-use syringe that will instantly and permanently randomize the appearance and name of the person injected including an unique genetic UI+UE, fingerprints and DNA sequence. While the new identity is perfect, it will not be registered to the crew manifest and the ID card will not update."
+	desc = "A single-use syringe that will instantly and permanently randomize the appearance and name of the person injected including an unique genetic UI+UE, and DNA sequence. While the new identity is perfect, it will not be registered to the crew manifest and the ID card will not update."
 	item = /obj/item/weapon/dnascrambler
 	cost = 4
 

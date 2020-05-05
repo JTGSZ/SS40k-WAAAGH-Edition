@@ -1410,7 +1410,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		U << browse(null, "window=pda")
 		return
 
-	add_fingerprint(U)
 	U.set_machine(src)
 
 	switch(href_list["choice"])
@@ -2367,7 +2366,7 @@ obj/item/device/pda/AltClick()
 		return 1
 	return 0
 
-/obj/item/device/pda/attack(mob/living/carbon/C, mob/living/user )
+/obj/item/device/pda/attack(mob/living/carbon/C, mob/living/user)
 	if(istype(C))
 		switch(scanmode)
 
@@ -2375,13 +2374,6 @@ obj/item/device/pda/AltClick()
 				healthanalyze(C,user,0)
 
 			if(SCANMODE_FORENSIC)
-				if (!istype(C:dna, /datum/dna))
-					to_chat(user, "<span class='notice'>No fingerprints found on [C]</span>")
-				else if(!istype(C, /mob/living/carbon/monkey))
-					if(!isnull(C:gloves))
-						to_chat(user, "<span class='notice'>No fingerprints found on [C]</span>")
-				else
-					to_chat(user, text("<span class='notice'>[C]'s Fingerprints: [md5(C.dna.uni_identity)]</span>"))
 				if ( !(C:blood_DNA) )
 					to_chat(user, "<span class='notice'>No blood found on [C]</span>")
 					if(C:blood_DNA)

@@ -1400,7 +1400,6 @@
 	B.icon = I
 
 	user.put_in_active_hand(B)
-	src.transfer_fingerprints_to(B)
 	playsound(src, "shatter", 70, 1)
 
 	qdel(src)
@@ -1450,7 +1449,6 @@
 	Q.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
 	Q.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
 	B.icon = Q
-	src.transfer_fingerprints_to(B)
 	playsound(src, "shatter", 70, 1)
 	qdel(src)
 
@@ -1534,7 +1532,6 @@
 //  different flavor text for different means of lighting
 //  new fire overlay - current is edited version of the IED one
 //  a chance to not break, if desired
-//  fingerprints appearing on the object, which might already happen, and the shard
 //  belt sprite and new hand sprite
 //	ability to put out with water or otherwise
 //	burn out after a time causing the contents to ignite

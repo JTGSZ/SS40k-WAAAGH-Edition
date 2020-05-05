@@ -44,8 +44,6 @@
 
 	if(M)
 		investigate_text += " in \a [A], carried by [M.real_name] ([M.key])<br />"
-	else
-		investigate_text += " in \a [A], last touched by [(A.fingerprintslast ? A.fingerprintslast : "N/A (Last user processed: [usr ? usr.ckey : "N/A"])")]<br />"
 
 	I.write(investigate_text)
 
@@ -53,8 +51,6 @@
 		var/admin_text = "[name] reaction [alert_admins == 2 ? "([holder.get_reagent_ids(1)])" : "([amt]u total combined)"] at [formatJumpTo(T)]"
 		if(M)
 			admin_text += " in \a [A] (<A HREF='?_src_=vars;Vars=\ref[A]'>VV</A>), carried by [M.real_name] ([M.key]) (<A HREF='?_src_=holder;adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</A>)"
-		else
-			admin_text += " in \a [A] (<A HREF='?_src_=vars;Vars=\ref[A]'>VV</A>), last touched by [(A.fingerprintslast ? A.fingerprintslast : "N/A (Last user processed: [usr.ckey])")]"
 		message_admins(admin_text, 0, 1)
 	return investigate_text
 

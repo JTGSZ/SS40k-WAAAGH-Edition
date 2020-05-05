@@ -304,9 +304,6 @@
 	new_closet.welded = src.welded
 	new_closet.locked = src.locked
 
-	new_closet.fingerprints = src.fingerprints
-	new_closet.fingerprintshidden = src.fingerprintshidden
-
 	new_closet.electronics = src.electronics
 	new_closet.req_access = src.req_access
 	new_closet.req_one_access = src.req_one_access

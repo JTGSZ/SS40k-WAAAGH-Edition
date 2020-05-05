@@ -800,7 +800,6 @@ var/global/floorIsLava = 0
 			<A href='?src=\ref[src];secretsadmin=check_antagonist'>Show current traitors and objectives</A><BR>
 			<BR>
 			<A href='?src=\ref[src];secretsadmin=DNA'>List DNA (Blood)</A><BR>
-			<A href='?src=\ref[src];secretsadmin=fingerprints'>List Fingerprints</A><BR>
 			<BR>
 			<A href='?src=\ref[src];secretsadmin=clear_bombs'>Remove all bombs currently in existence</A><BR>
 			<A href='?src=\ref[src];secretsadmin=list_bombers'>Bombing List</A><BR>

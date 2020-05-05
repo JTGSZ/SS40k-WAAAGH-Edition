@@ -243,7 +243,6 @@ var/global/list/datum/stack_recipe/cable_recipes = list ( \
 		C.d1 = nd1
 		C.d2 = nd2
 
-		C.add_fingerprint()
 		C.update_icon()
 
 		C.mergeConnectedNetworks(C.d1) //Merge the powernets

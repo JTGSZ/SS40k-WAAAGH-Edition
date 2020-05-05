@@ -210,7 +210,6 @@ var/list/camera_messages = list()
 		assembly.anchored = TRUE
 		assembly.state = 1
 		assembly.forceMove(loc)
-		transfer_fingerprints(src, assembly)
 		assembly.update_icon()
 		assembly = null
 	qdel(src)

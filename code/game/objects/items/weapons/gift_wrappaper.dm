@@ -169,7 +169,6 @@
 	var/obj/item/I = new gift_type(M)
 	M.u_equip(src,0)
 	M.put_in_hands(I)
-	I.add_fingerprint(M)
 	to_chat(M, "<span class='notice'>You unwrapped \a [I]!</span>")
 	qdel(src)
 	return
@@ -185,7 +184,6 @@
 	var/obj/item/I = new gift_type(M)
 	M.u_equip(src,0)
 	M.put_in_hands(I)
-	I.add_fingerprint(M)
 	to_chat(M, "<span class='notice'>You unwrapped \a [I]! Tasty!</span>")
 	qdel(src)
 	return
@@ -207,7 +205,6 @@
 	var/obj/item/I = new gift_type(M)
 	M.u_equip(src,0)
 	M.put_in_hands(I)
-	I.add_fingerprint(M)
 	to_chat(M, "<span class='notice'>You unwrapped \a [I]! Looks comfy!</span>")
 	qdel(src)
 	return
@@ -257,7 +254,6 @@
 	var/obj/item/I = new gift_type(M)
 	M.u_equip(src,0)
 	M.put_in_hands(I)
-	I.add_fingerprint(M)
 
 	var/additional_info = ""
 	if(istype(I,/obj/item/device/fuse_bomb))

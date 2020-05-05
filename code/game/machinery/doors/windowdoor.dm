@@ -340,7 +340,6 @@
 /obj/machinery/door/window/proc/make_assembly()
 	// Windoor assembly
 	var/obj/structure/windoor_assembly/WA = new assembly_type(loc)
-	transfer_fingerprints_to(WA)
 	set_assembly(WA)
 	return WA
 

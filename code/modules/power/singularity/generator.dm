@@ -12,18 +12,8 @@
 	machine_flags = WRENCHMOVE | FIXED2WORK
 
 /obj/machinery/the_singularitygen/process()
-	if (energy < 200)
+	if(energy < 200)
 		return
-
-	var/prints=""
-
-	if (fingerprintshidden)
-		prints=", all touchers: "
-		for(var/line in fingerprintshidden)
-			prints += ",[line] "
-
-	log_admin("New singularity made[prints]. Last touched by [fingerprintslast].")
-	message_admins("New singularity made[prints]. Last touched by [fingerprintslast].")
 	new /obj/machinery/singularity(get_turf(src), 50)
 	qdel(src)
 

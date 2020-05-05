@@ -1228,7 +1228,6 @@
 		W.basecolor = (hand_blood_color) ? hand_blood_color : DEFAULT_BLOOD
 		W.update_icon()
 		W.message = message
-		W.add_fingerprint(src)
 
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	. = 1

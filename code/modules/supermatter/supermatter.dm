@@ -130,28 +130,16 @@
 			return explode()
 
 /obj/machinery/power/supermatter/shard/singularity_act(current_size, obj/machinery/singularity/S)
-	var/super = FALSE
-	var/prints = ""
-	if(src.fingerprintshidden)
-		prints = ", all touchers: [list2params(src.fingerprintshidden)]"
 	if(current_size == STAGE_FIVE)
 		S.expand(STAGE_SUPER, 1)
-		super = TRUE
-	log_admin("[super ? "New super singularity made" : "Singularity gained 15000 energy"] by eating a SM shard with prints: [prints]. Last touched by [src.fingerprintslast].")
-	message_admins("[super ? "New super singularity made" : "Singularity gained 15000 energy"] by eating a SM shard with prints: [prints]. Last touched by [src.fingerprintslast].")
 	qdel(src)
 	return 15000
 
 /obj/machinery/power/supermatter/singularity_act(current_size, obj/machinery/singularity/S)
-	var/prints = ""
-	if(src.fingerprintshidden)
-		prints = ", all touchers: [list2params(src.fingerprintshidden)]"
 	if(current_size == STAGE_SUPER) // and this is to go even further beyond
 		if(!istype(universe,/datum/universal_state/supermatter_cascade))
 			SetUniversalState(/datum/universal_state/supermatter_cascade)
 		S.expand(STAGE_SSGSS, 1)
-	log_admin("New SSGSS made by eating a SM crystal with prints: [prints]. Last touched by [src.fingerprintslast].")
-	message_admins("New SSGSS made by eating a SM crystal with prints: [prints]. Last touched by [src.fingerprintslast].")
 	qdel(src)
 	return 20000
 

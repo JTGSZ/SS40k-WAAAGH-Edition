@@ -82,7 +82,6 @@
 		if(user)
 			user.put_in_hands(source_light)
 		
-		transfer_fingerprints(src,source_light)
 		source_light = null
 	update_brightness(attached_to)
 	attached_to = null

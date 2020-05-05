@@ -155,8 +155,7 @@
 									"<span class='notice'>You hear some digging.</span>")
 			for(var/atom/movable/I in contents)
 				I.forceMove(loc)
-			var/obj/item/claypot/C = new(loc)
-			transfer_fingerprints(src, C)
+			new /obj/item/claypot(loc)
 			qdel(src)
 
 	else if(istype(O,/obj/item/weapon/reagent_containers/food/snacks/grown) || istype(O,/obj/item/weapon/grown))

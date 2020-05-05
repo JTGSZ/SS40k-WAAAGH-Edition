@@ -226,9 +226,6 @@
 				t_him = "him"
 			else if (src.gender == FEMALE)
 				t_him = "her"
-			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
-				var/mob/living/carbon/human/H = src
-				H.w_uniform.add_fingerprint(M)
 			src.sleeping = max(0,src.sleeping-5)
 			if(src.sleeping == 0)
 				src.resting = 0

@@ -186,12 +186,6 @@
 		else if(isliving(whodunnit))
 			log_str += "opened by [key_name(whodunnit)](<A HREF='?_src_=holder;adminmoreinfo=\ref[whodunnit]'>?</A>). "
 
-		var/mob/mob = get_mob_by_key(src.fingerprintslast)
-		var/last_touch_info = ""
-		if(mob)
-			last_touch_info = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[mob]'>?</A>)"
-		log_str += "Last touched by: [src.fingerprintslast][last_touch_info] - Last user processed: [key_name(usr)]"
-
 		bombers += log_str
 		message_admins(log_str, 0, 1)
 		log_game(log_str)

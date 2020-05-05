@@ -275,16 +275,14 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	..()
 	if(reagentholder.is_open_container() && !ismob(reagentholder) && reagentholder.reagents)
 		if(reagentholder.reagents.has_reagent(SACID) || reagentholder.reagents.has_reagent(PACID)) //Dumping into acid, a dumb idea
-			var/atom/new_butt = new type_butt(get_turf(reagentholder))
-			transfer_fingerprints_to(new_butt)
+			new type_butt(get_turf(reagentholder))
 			processing_objects.Remove(src)
 			to_chat(user, "<span class='warning'>Half of \the [src] dissolves with a nasty fizzle as you dip it into \the [reagentholder].</span>")
 			user.drop_item(src, force_drop = 1)
 			qdel(src)
 			return
 		if(reagentholder.reagents.has_reagent(WATER) && lit) //Dumping a lit cigarette into water, the result is obvious
-			var/atom/new_butt = new type_butt(get_turf(reagentholder))
-			transfer_fingerprints_to(new_butt)
+			new type_butt(get_turf(reagentholder))
 			processing_objects.Remove(src)
 			to_chat(user, "<span class='warning'>\The [src] fizzles as you dip it into \the [reagentholder].</span>")
 			user.drop_item(src, force_drop = 1)
@@ -357,8 +355,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	var/datum/gas_mixture/env = location.return_air()
 	if(smoketime <= 0 | env.molar_density(GAS_OXYGEN) < (5 / CELL_VOLUME))
 		if(!inside_item)
-			var/atom/new_butt = new type_butt(location) //Spawn the cigarette butt
-			transfer_fingerprints_to(new_butt)
+			new type_butt(location) //Spawn the cigarette butt
 		lit = 0 //Actually unlight the cigarette so that the lighting can update correctly
 		update_brightness()
 		if(ismob(loc))
@@ -388,8 +385,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 	if(lit)
 		user.visible_message("<span class='notice'>[user] calmly drops and treads on the lit [name], putting it out.</span>")
 		var/turf/T = get_turf(src)
-		var/atom/new_butt = new type_butt(T)
-		transfer_fingerprints_to(new_butt)
+		new type_butt(T)
 		lit = 0 //Needed for proper update
 		update_brightness()
 		qdel(src)

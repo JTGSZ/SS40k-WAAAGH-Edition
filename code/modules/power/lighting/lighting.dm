@@ -69,7 +69,6 @@
 					newlight = new /obj/machinery/light/small/built(src.loc)
 
 			newlight.dir = src.dir
-			src.transfer_fingerprints_to(newlight)
 			qdel(src)
 			return
 	..()
@@ -249,9 +248,6 @@ var/global/list/obj/machinery/light/alllights = list()
 			if(current_bulb.rigged)
 				if(current_bulb.status == LIGHT_OK && trigger)
 
-					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-					message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-
 					explode()
 			else if( prob( min(60, current_bulb.switchcount*current_bulb.switchcount*0.01) ) )
 				if(current_bulb.status == LIGHT_OK && trigger)
@@ -331,9 +327,6 @@ var/global/list/obj/machinery/light/alllights = list()
 
 				if(on && current_bulb.rigged)
 
-					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-					message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-
 					explode()
 			else
 				to_chat(user, "This type of light requires a [fitting].")
@@ -379,9 +372,6 @@ var/global/list/obj/machinery/light/alllights = list()
 			new /obj/item/stack/cable_coil(get_turf(src.loc), 1, "red")
 			newlight.dir = src.dir
 			newlight.stage = 1
-			newlight.fingerprints = src.fingerprints
-			newlight.fingerprintshidden = src.fingerprintshidden
-			newlight.fingerprintslast = src.fingerprintslast
 			qdel(src)
 			return
 

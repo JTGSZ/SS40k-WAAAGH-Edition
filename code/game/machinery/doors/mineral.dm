@@ -317,7 +317,6 @@
 	if (ismob(user))
 		var/mob/M = user
 		if(isanycultist(M) && !operating)
-			add_fingerprint(M)
 			SwitchState()
 
 /obj/machinery/door/mineral/cult/cultify()

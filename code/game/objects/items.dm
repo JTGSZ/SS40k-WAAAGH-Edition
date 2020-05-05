@@ -250,7 +250,6 @@
 		if(isliving(loc))
 			return
 		//user.next_move = max(user.next_move+2,world.time + 2)
-	add_fingerprint(user)
 	if(can_pickup(user) && !user.put_in_active_hand(src))
 		forceMove(get_turf(user))
 
@@ -951,8 +950,6 @@
 		M.LAssailant = null
 	else
 		M.LAssailant = user
-
-	add_fingerprint(user)
 
 	if(istype(M, /mob/living/carbon/human))
 

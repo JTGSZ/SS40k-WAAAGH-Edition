@@ -168,8 +168,6 @@ var/global/list/available_paintings = list(
 	P.icon_state = paint
 	P.update_painting()
 
-	transfer_fingerprints(src, P)
-
 	var/pDir = get_dir(user,on_wall)
 	if(pDir & NORTH)
 		P.pixel_y = WORLD_ICON_SIZE
@@ -314,8 +312,6 @@ var/global/list/available_paintings = list(
 	var/obj/item/mounted/frame/painting/P = new(loc)
 	P.paint = icon_state
 	P.update_painting()
-
-	transfer_fingerprints(src, P)
 
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1)
 

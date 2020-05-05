@@ -76,7 +76,6 @@
 			to_chat(O, "<span class='warning'>[src] launches a razor-sharp quill at [target]!</span>")
 
 	var/obj/item/weapon/arrow/quill/Q = new(loc)
-	Q.fingerprintslast = src.ckey
 	Q.throw_at(target,10,30)
 	quills--
 

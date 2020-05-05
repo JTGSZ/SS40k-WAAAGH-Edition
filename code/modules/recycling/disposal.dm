@@ -126,7 +126,6 @@
 					return
 				to_chat(user, "You sliced the floorweld off the disposal unit.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)
-				src.transfer_fingerprints_to(C)
 				C.ptype = 6 // 6 = disposal unit
 				C.anchored = 1
 				C.setDensity(TRUE)
@@ -450,8 +449,7 @@
 		var/obj/item/I = mover
 		if(istype(I, /obj/item/weapon/dummy) || istype(I, /obj/item/projectile))
 			return
-		var/mob/mob = get_mob_by_key(mover.fingerprintslast)
-		if(prob(75) || (mob && mob.reagents.get_sportiness()>=5))
+		if(prob(75))
 			I.forceMove(src)
 			for(var/mob/M in viewers(src))
 				M.show_message("\the [I] lands in \the [src].", 1)
@@ -987,7 +985,6 @@
 			C.ptype = 9
 		if("pipe-j2s")
 			C.ptype = 10
-	src.transfer_fingerprints_to(C)
 	C.change_dir(dir)
 	C.setDensity(FALSE)
 	C.anchored = 1
@@ -1611,7 +1608,6 @@
 				return
 			to_chat(user, "You sliced the floorweld off the disposal outlet.")
 			var/obj/structure/disposalconstruct/C = new (src.loc)
-			src.transfer_fingerprints_to(C)
 			C.ptype = 7 // 7 =  outlet
 			C.update()
 			C.anchored = 1

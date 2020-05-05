@@ -1094,7 +1094,6 @@ Use this proc preferably at the end of an equipment loadout
 			P = M.locked_to
 
 	if(!P.anchored)
-		P.add_fingerprint(src)
 
 		// If we're pulling something then drop what we're currently pulling and pull this instead.
 		if(pulling)

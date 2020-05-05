@@ -84,7 +84,6 @@
 		U.unset_machine()
 		return
 
-	add_fingerprint(U)
 	U.set_machine(src)
 
 	switch(href_list["choice"])//Now we switch based on choice.

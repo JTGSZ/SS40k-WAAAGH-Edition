@@ -567,8 +567,7 @@
 		return
 
 	to_chat(user, "<span class='notice'>You fold \the [src] flat.</span>")
-	var/folded = new src.foldable(get_turf(src),foldable_amount)
-	transfer_fingerprints_to(folded)
+	new src.foldable(get_turf(src),foldable_amount)
 	qdel(src)
 
 /obj/item/weapon/storage/proc/can_see_contents()

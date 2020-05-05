@@ -293,7 +293,6 @@
 			if(occupant)
 				to_chat(occupant, "[M.name] captured!")
 		to_chat(M, "<span class='notice'>Welcome aboard \the [src]. Please keep your hands and arms inside the bus at all times.</span>")
-		src.add_fingerprint(M)
 	else if(isbot(A))
 		var/obj/machinery/bot/B = A
 		if(B.flags & INVULNERABLE)

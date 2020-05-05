@@ -462,7 +462,6 @@ trans_to_atmos(var/datum/gas_mixture/target, var/amount=1, var/multiplier=1, var
 						//Logging inside chem_grenade.dm, prime()
 					else if	(istype(my_atom, /mob/living/carbon/human) && !quiet)
 						my_atom.visible_message("<span class='notice'>[my_atom] shudders a little.</span>","<span class='notice'>You shudder a little.</span>")
-						//Since the are no fingerprints to be had here, we'll trust the attack logs to log this
 					else
 						if(!quiet)
 							my_atom.visible_message("<span class='notice'>[bicon(my_atom)] The solution begins to bubble.</span>")

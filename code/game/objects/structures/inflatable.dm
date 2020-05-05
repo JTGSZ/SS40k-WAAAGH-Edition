@@ -46,8 +46,7 @@
 
 /obj/item/inflatable/proc/inflate(mob/user)
 	playsound(loc, 'sound/items/zip.ogg', 75, 1)
-	var/obj/structure/inflatable/R = new deploy_path(get_turf(src))
-	transfer_fingerprints_to(R)
+	new deploy_path(get_turf(src))
 	visible_message("<span class='notice'>\The [src] inflates.</span>")
 	qdel(src)
 
@@ -102,16 +101,9 @@
 	T.ChangeTurf(/turf/simulated/floor/inflatable)
 	qdel(src)
 
-/*/obj/item/inflatable/shelter/attack_self(mob/user)
-	user.anchored = 1 Previously, this would anchor the user in place until it inflated and put them inside
-	..()
-	spawn()
-		user.anchored = 0*/
-
 /obj/item/inflatable/shelter/inflate(mob/user)
 	playsound(loc, 'sound/items/zip.ogg', 75, 1)
-	var/obj/structure/inflatable/shelter/R = new deploy_path(get_turf(src))
-	transfer_fingerprints_to(R)
+	new deploy_path(get_turf(src))
 	visible_message("<span class='notice'>\The [src] inflates.</span>")
 	//R.enter_shelter(user)
 	qdel(src)
@@ -212,11 +204,10 @@
 
 /obj/structure/inflatable/proc/deflate(var/violent=0, var/deflatespeed = 50)
 	playsound(loc, 'sound/machines/hiss.ogg', 75, 1)
-	var/obj/item/inflatable/remains
 	if(violent)
 		visible_message("[src] rapidly deflates!")
 		if(spawn_undeployed)
-			remains = new /obj/item/inflatable/torn(loc)
+			new /obj/item/inflatable/torn(loc)
 	else
 		if(!undeploy_path || deflating)
 			return
@@ -225,9 +216,7 @@
 		sleep(deflatespeed)
 		visible_message("\The [src] fully deflates.")
 		if(spawn_undeployed)
-			remains = new undeploy_path(loc)
-	if(remains)
-		transfer_fingerprints_to(remains)
+			new undeploy_path(loc)
 	for(var/atom/movable/AM in src)
 		AM.forceMove(src.loc)
 	qdel(src)

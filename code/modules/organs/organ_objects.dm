@@ -395,12 +395,5 @@
 	// Pass over the blood.
 	reagents.trans_to(O, reagents.total_volume)
 
-	if(fingerprints)
-		O.fingerprints = fingerprints.Copy()
-	if(fingerprintshidden)
-		O.fingerprintshidden = fingerprintshidden.Copy()
-	if(fingerprintslast)
-		O.fingerprintslast = fingerprintslast
-
 	user.put_in_active_hand(O)
 	qdel(src)

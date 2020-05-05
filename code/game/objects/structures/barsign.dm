@@ -1,6 +1,5 @@
 /*
  * TODO:
- * Decide if we need fingerprints on this obj
  * Decide which other mob can use this
  * Sprite bar sign that is destroyed
  * Sprite bar sign that is unpowered

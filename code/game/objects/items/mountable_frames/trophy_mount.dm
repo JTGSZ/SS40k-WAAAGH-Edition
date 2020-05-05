@@ -110,7 +110,6 @@
 		held_item = null
 		T.params_list = params_list
 	T.overlays += appearance
-	transfer_fingerprints(src, T)
 	var/direction = get_dir(user,on_wall)
 	if(direction & NORTH)
 		T.pixel_y = WORLD_ICON_SIZE
@@ -149,7 +148,6 @@
 				T.mount_item(held_item)
 				held_item = null
 				T.params_list = params_list
-			transfer_fingerprints(src, T)
 			qdel(src)
 
 /obj/structure/trophy_mount/Destroy()

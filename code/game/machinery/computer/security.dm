@@ -119,7 +119,6 @@
 						Sex: <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>\n	\
 						Age: <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>\n	\
 						Rank: <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>\n	\
-						Fingerprint: <A href='?src=\ref[src];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>\n	\
 						Physical Status: [active1.fields["p_stat"]]<BR>\n	\
 						Mental Status: [active1.fields["m_stat"]]<BR></td>	\
 						<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4>	\

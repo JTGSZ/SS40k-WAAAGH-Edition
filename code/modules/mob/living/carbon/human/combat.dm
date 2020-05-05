@@ -6,14 +6,9 @@
 #endif
 
 /mob/living/carbon/human/grabbed_by(mob/living/grabber)
-	if(ishuman(grabber) && w_uniform)
-		w_uniform.add_fingerprint(grabber)
 	return ..()
 
 /mob/living/carbon/human/disarmed_by(mob/living/disarmer)
-	if(ishuman(disarmer) && w_uniform)
-		w_uniform.add_fingerprint(disarmer)
-
 	for(var/obj/item/weapon/gun/G in held_items)
 		var/index = is_holding_item(G)
 		var/chance = (index == active_hand ? 40 : 20)
@@ -216,9 +211,6 @@
 	
 
 /mob/living/carbon/human/unarmed_attacked(mob/living/attacker, damage, damage_type, zone)
-	if(ishuman(attacker) && w_uniform)
-		w_uniform.add_fingerprint(attacker)
-
 	if(zone == "head")
 		var/chance = 0.5 * damage
 		if(attacker.mutations.Find(M_HULK))

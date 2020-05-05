@@ -452,8 +452,8 @@
 	if(subscreen == 1)
 		dat += "<CENTER><B>Medical Record</B></CENTER><BR>"
 		if ((istype(medicalActive1, /datum/data/record) && data_core.general.Find(medicalActive1)))
-			dat += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>",
-			 medicalActive1.fields["name"], medicalActive1.fields["id"], medicalActive1.fields["sex"], medicalActive1.fields["age"], medicalActive1.fields["fingerprint"], medicalActive1.fields["p_stat"], medicalActive1.fields["m_stat"])
+			dat += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>",
+			 medicalActive1.fields["name"], medicalActive1.fields["id"], medicalActive1.fields["sex"], medicalActive1.fields["age"], medicalActive1.fields["p_stat"], medicalActive1.fields["m_stat"])
 		else
 			dat += "<pre>Requested medical record not found.</pre><BR>"
 		if ((istype(medicalActive2, /datum/data/record) && data_core.medical.Find(medicalActive2)))
@@ -489,7 +489,7 @@
 	if(subscreen == 1)
 		dat += "<h3>Security Record</h3>"
 		if ((istype(securityActive1, /datum/data/record) && data_core.general.Find(securityActive1)))
-			dat += text("Name: <A href='?src=\ref[];field=name'>[]</A> ID: <A href='?src=\ref[];field=id'>[]</A><BR>\nSex: <A href='?src=\ref[];field=sex'>[]</A><BR>\nAge: <A href='?src=\ref[];field=age'>[]</A><BR>\nRank: <A href='?src=\ref[];field=rank'>[]</A><BR>\nFingerprint: <A href='?src=\ref[];field=fingerprint'>[]</A><BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", src, securityActive1.fields["name"], src, securityActive1.fields["id"], src, securityActive1.fields["sex"], src, securityActive1.fields["age"], src, securityActive1.fields["rank"], src, securityActive1.fields["fingerprint"], securityActive1.fields["p_stat"], securityActive1.fields["m_stat"])
+			dat += text("Name: <A href='?src=\ref[];field=name'>[]</A> ID: <A href='?src=\ref[];field=id'>[]</A><BR>\nSex: <A href='?src=\ref[];field=sex'>[]</A><BR>\nAge: <A href='?src=\ref[];field=age'>[]</A><BR>\nRank: <A href='?src=\ref[];field=rank'>[]</A><BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", src, securityActive1.fields["name"], src, securityActive1.fields["id"], src, securityActive1.fields["sex"], src, securityActive1.fields["age"], src, securityActive1.fields["rank"], securityActive1.fields["p_stat"], securityActive1.fields["m_stat"])
 		else
 			dat += "<pre>Requested security record not found,</pre><BR>"
 		if ((istype(securityActive2, /datum/data/record) && data_core.security.Find(securityActive2)))

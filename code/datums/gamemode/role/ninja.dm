@@ -103,7 +103,7 @@
 	throw_range = 20
 	force = 4
 	throwforce = 30
-	flags = NO_THROW_MSG //No fingerprints, no throw message
+	flags = NO_THROW_MSG //no throw message
 	w_class = W_CLASS_SMALL
 	max_amount = 10
 

@@ -75,7 +75,6 @@ obj/structure/windoor_assembly/Destroy()
 	windoor.dir = dir
 	windoor.base_state = (facing == "l" ? "left" : "right")
 	windoor.icon_state = windoor.base_state
-	transfer_fingerprints_to(windoor)
 	set_windoor_electronics(windoor)
 	return windoor
 

@@ -630,7 +630,6 @@
 		L.reset_view(src)
 		L.stop_pulling()
 		L.forceMove(src)
-		src.add_fingerprint(L)
 		adjust_occupants(L, STATUS_ADD)
 		return 1
 	return 0

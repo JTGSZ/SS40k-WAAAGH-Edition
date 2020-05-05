@@ -235,10 +235,6 @@ var/list/special_fruits = list()
 		thingsweinjected += "[injecting]u of [rid]"
 		. = 1
 
-	if(. && fingerprintshidden && fingerprintshidden.len)
-		H.investigation_log(I_CHEMS, "was stung by \a [src], transfering [english_list(thingsweinjected)] - all touchers: [english_list(src.fingerprintshidden)]")
-
-
 /obj/item/weapon/reagent_containers/food/snacks/grown/proc/do_fruit_teleport(atom/hit_atom, mob/M, var/potency)	//Does this need logging?
 	var/datum/zLevel/L = get_z_level(src)
 	if(!L || L.teleJammed)

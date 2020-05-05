@@ -72,7 +72,6 @@
 								ID: [active1.fields["id"]]<BR>\n	\
 								Sex: <A href='?src=\ref[src];field=sex'>[active1.fields["sex"]]</A><BR>\n	\
 								Age: <A href='?src=\ref[src];field=age'>[active1.fields["age"]]</A><BR>\n	\
-								Fingerprint: <A href='?src=\ref[src];field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>\n	\
 								Physical Status: <A href='?src=\ref[src];field=p_stat'>[active1.fields["p_stat"]]</A><BR>\n	\
 								Mental Status: <A href='?src=\ref[src];field=m_stat'>[active1.fields["m_stat"]]</A><BR></td><td align = center valign = top> \
 								Photo:<br><img src=front.png height=64 width=64 border=5><img src=side.png height=64 width=64 border=5></td></tr></table>"
@@ -245,12 +244,6 @@
 				var/a1 = active1
 				var/a2 = active2
 				switch(href_list["field"])
-					if("fingerprint")
-						if (istype(active1, /datum/data/record))
-							var/t1 = copytext(sanitize(input("Please input fingerprint hash:", "Med. records", active1.fields["fingerprint"], null)  as text),1,MAX_MESSAGE_LEN)
-							if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active1 != a1))
-								return
-							active1.fields["fingerprint"] = t1
 					if("sex")
 						if (istype(active1, /datum/data/record))
 							if (active1.fields["sex"] == "Male")
@@ -519,7 +512,7 @@
 					var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( loc )
 					P.info = "<CENTER><B>Medical Record</B></CENTER><BR>"
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"])
+						P.info += text("Name: [] ID: []<BR>\nSex: []<BR>\nAge: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["sex"], active1.fields["age"], active1.fields["p_stat"], active1.fields["m_stat"])
 					else
 						P.info += "<B>General Record Lost!</B><BR>"
 					if ((istype(active2, /datum/data/record) && data_core.medical.Find(active2)))

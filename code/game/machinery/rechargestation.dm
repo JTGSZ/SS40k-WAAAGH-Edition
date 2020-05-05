@@ -294,7 +294,6 @@
 		R.client.eye = src
 	R.forceMove(src)
 	src.occupant = R
-	src.add_fingerprint(R)
 	build_icon()
 	src.use_power = 2
 	if(isrobot(R))

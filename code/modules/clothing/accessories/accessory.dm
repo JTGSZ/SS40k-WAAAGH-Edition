@@ -334,7 +334,6 @@
 		if(user)
 			user.put_in_hands(source_vest)
 		
-		transfer_fingerprints(src,source_vest)
 		source_vest = null
 	qdel(src)
 

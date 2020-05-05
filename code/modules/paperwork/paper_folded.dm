@@ -65,7 +65,6 @@
 	return
 
 /obj/item/weapon/p_folded/proc/processunfolding(mob/user)
-	transfer_fingerprints(src, unfolded)
 
 	user.drop_item(src, force_drop = 1) //drop the item first to free our hand, but don't delete it yet because it contains the unfolding result.
 

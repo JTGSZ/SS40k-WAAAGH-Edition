@@ -1166,7 +1166,6 @@
 		H.unlock_from()
 		H.forceMove(src)
 		src.occupant = H
-		src.add_fingerprint(H)
 		src.forceMove(src.loc)
 		src.log_append_to_last("[H] moved in as pilot.")
 		src.icon_state = src.initial_icon

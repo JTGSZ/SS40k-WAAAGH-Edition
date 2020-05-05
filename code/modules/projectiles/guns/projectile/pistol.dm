@@ -216,7 +216,7 @@
 
 /obj/item/weapon/gun/projectile/automag
 	name = "\improper Automag VI"
-	desc = "It also doubles as a fingerprint removal tool."
+	desc = "It also doubles as a witness removal tool."
 	icon_state = "automag"
 	max_shells = 7
 	caliber = list(POINT357 = 1)
@@ -234,7 +234,7 @@
 
 /obj/item/weapon/gun/projectile/automag/prestige
 	name = "\improper Prestige Automag VI"
-	desc = "It also doubles as a fingerprint removal tool. This one is made to look more like the original AutomagIV from the 20th century."
+	desc = "It also doubles as a witness removal tool. This one is made to look more like the original AutomagIV from the 20th century."
 	icon_state = "automag-prestige"
 
 /obj/item/weapon/gun/projectile/automag/prestige/update_icon()

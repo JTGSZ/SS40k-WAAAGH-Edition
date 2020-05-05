@@ -48,8 +48,6 @@
 		swirlie.apply_damage(8, BRUTE, LIMB_HEAD, used_weapon = name)
 		playsound(src, 'sound/weapons/tablehit1.ogg', 50, TRUE)
 		add_attacklogs(user, swirlie, "slammed the toilet seat")
-		
-		add_fingerprint(swirlie)
 		return
 
 	if(cistern && !open)
@@ -120,7 +118,6 @@
 						playsound(src, 'sound/misc/toilet_flush.ogg', 50, TRUE)
 						GM.visible_message("<span class='danger'>[user] gives [GM.name] a swirlie!</span>", "<span class='userdanger'>[user] gives you a swirlie!</span>", "You hear a toilet flushing.")
 						
-						add_fingerprint(GM)
 						watersource.reagents.reaction(GM, TOUCH)
 
 						if(!GM.internal && GM.losebreath <= 30)
@@ -135,7 +132,6 @@
 					playsound(src, 'sound/weapons/tablehit1.ogg', 50, TRUE)
 					add_attacklogs(user, GM, "slammed into the toilet")
 					
-					add_fingerprint(GM)
 					return
 			else
 				to_chat(user, "<span class='warning'>You need a tighter grip.</span>")

@@ -51,7 +51,6 @@
 				I.assignment = C.assignment
 				I.blood_type = C.blood_type
 				I.dna_hash = C.dna_hash
-				I.fingerprint_hash = C.fingerprint_hash
 				//I.pin = C.pin
 				//replace old ID
 				qdel(C)

@@ -106,7 +106,6 @@
 	if(!H)
 		return
 
-	var/fingerprints = num2text(md5(H.dna.uni_identity))
 	var/traitor_name = H.real_name
 	var/prob_right_dude = rand(1, 100)
 
@@ -115,13 +114,9 @@
 		It would be in your best interests to suspect everybody, as these undercover operatives could have implants which trigger them to have their memories removed until they are needed. He, or she, could even be a high ranking officer.
 		After some investigation, we "}
 	if(prob(50))
-
 		src.text += {"are [prob_right_dude]% sure that [traitor_name] may have been involved, and should be closely observed.
 			<BR>Note: This group are known to be untrustworthy, so do not act on this information without proper discourse."}
-	else
 
-		src.text += {"discovered the following set of fingerprints ([fingerprints]) on sensitive materials, and their owner should be closely observed.
-			However, these could also belong to a current Cent. Com employee, so do not act on this without reason."}
 /datum/intercept_text/proc/build_cult(datum/mind/correct_person)
 	var/name_1 = pick(src.org_names_1)
 	var/name_2 = pick(src.org_names_2)
