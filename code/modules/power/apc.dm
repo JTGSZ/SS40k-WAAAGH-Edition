@@ -385,7 +385,7 @@
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 /obj/machinery/power/apc/attackby(obj/item/W, mob/living/user)
 
-	src.add_fingerprint(user)
+	
 
 	if (iswiretool(W) && wiresexposed)
 		wires.Interact(user)
@@ -629,7 +629,7 @@
 	if (!can_use(user))
 		return
 	if(!isobserver(user))
-		src.add_fingerprint(user)
+		
 		if(usr == user && opened)
 			if(cell && Adjacent(user))
 				if(isAI(user))

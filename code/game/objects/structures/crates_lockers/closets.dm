@@ -493,7 +493,7 @@
 		step_towards(O, src.loc)
 	if(show_message && user != O)
 		user.show_viewers("<span class='danger'>[user] stuffs [O] into [src]!</span>")
-	src.add_fingerprint(user)
+	
 	return 1
 
 /obj/structure/closet/relaymove(mob/user )
@@ -516,7 +516,7 @@
 /obj/structure/closet/attack_hand(mob/user )
 	if(!Adjacent(user))
 		return
-	src.add_fingerprint(user)
+	
 
 	var/mob/living/L = user
 	if(src.opened==0 && L && L.client && L.hallucinating()) //If the closet is CLOSED and user is hallucinating
@@ -563,7 +563,7 @@
 
 // tk grab then use on self
 /obj/structure/closet/attack_self_tk(mob/user )
-	src.add_fingerprint(user)
+	
 
 	if(!src.toggle(user))
 		to_chat(usr, "<span class='notice'>It won't budge!</span>")

@@ -204,7 +204,7 @@ Frequency:
 	P2.owner = user
 	portals += P1
 	portals += P2
-	src.add_fingerprint(user)
+	
 
 	charge = max(charge - HANDTELE_PORTAL_COST,0)
 	if(!recharging)

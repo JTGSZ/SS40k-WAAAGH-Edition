@@ -85,7 +85,7 @@
 		close_up()
 	else
 		open_up()
-	src.add_fingerprint(user)
+	
 	update()
 	return
 
@@ -141,7 +141,7 @@
 			dir=4
 	if (istype(P, /obj/item/weapon/pen))
 		set_tiny_label(user, " - '", "'", maxlength=32)
-	src.add_fingerprint(user)
+	
 
 /obj/structure/morgue/relaymove(mob/user )
 	if (user.isUnconscious())
@@ -305,13 +305,13 @@
 		else
 			qdel(src.connected)
 			src.connected = null
-	src.add_fingerprint(user)
+	
 	update()
 
 /obj/structure/crematorium/attackby(P, mob/user )
 	if (istype(P, /obj/item/weapon/pen))
 		set_tiny_label(user, " - '", "'", maxlength=32)
-	src.add_fingerprint(user)
+	
 
 /obj/structure/crematorium/relaymove(mob/user )
 	if (user.stat || locked)

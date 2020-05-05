@@ -102,7 +102,7 @@ var/global/list/rnd_machines = list()
 			usr.unset_machine()
 		return 1
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	src.updateUsrDialog()
 
 //Called when the hack wire is toggled in some way

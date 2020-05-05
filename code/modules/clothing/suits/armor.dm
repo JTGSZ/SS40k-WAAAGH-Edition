@@ -232,7 +232,7 @@
 		to_chat(user, "<span class='notice'>The reactive armor is now inactive.</span>")
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
-		src.add_fingerprint(user)
+		
 	return
 
 /obj/item/clothing/suit/armor/reactive/on_block(damage, atom/movable/blocked)

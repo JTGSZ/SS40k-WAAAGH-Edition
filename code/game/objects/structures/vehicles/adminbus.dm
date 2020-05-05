@@ -345,7 +345,7 @@
 			"<span class='notice'>[M.name] unbuckles \himself!</span>",
 			"You unbuckle yourself from \the [src].")
 		unlock_atom(M)
-		src.add_fingerprint(user)
+		
 	else
 		if(door_mode)
 			if(locate(user) in passengers)

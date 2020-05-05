@@ -240,7 +240,7 @@
 		F.copy_evidences(src)
 		F.material_type = material_type
 		user.put_in_hands(F)
-		src.add_fingerprint(user)
+		
 		F.add_fingerprint(user)
 		use(1)
 		if (src && usr.machine==src)

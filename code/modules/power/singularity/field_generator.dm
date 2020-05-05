@@ -98,7 +98,7 @@ var/global/list/obj/machinery/field_generator/field_gen_list = list()
 				turn_on()
 				investigation_log(I_SINGULO,"<font color='green'>activated</font> by [user.key].")
 
-				src.add_fingerprint(user)
+				
 	else
 		to_chat(user, "The [src] needs to be firmly secured to the floor first.")
 		return 0

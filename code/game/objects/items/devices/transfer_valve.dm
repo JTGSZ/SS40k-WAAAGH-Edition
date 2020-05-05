@@ -127,7 +127,7 @@
 				attached_device.attack_self(usr)
 
 		src.attack_self(usr)
-		src.add_fingerprint(usr)
+		
 		return
 	return
 

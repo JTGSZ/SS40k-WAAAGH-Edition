@@ -213,7 +213,7 @@
 		if(occupant)
 			dump()
 			to_chat(user, "<span class='danger'>You smash your fist into the delicate electronics at the bottom of the case, and deactivate the hoverfield permanently.</span>")
-			src.add_fingerprint(user)
+			
 			update_icon()
 	else
 		if(user.a_intent == I_HURT)

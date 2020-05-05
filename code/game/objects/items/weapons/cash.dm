@@ -41,7 +41,7 @@ var/global/list/moneytypes = list(
 		var/obj/item/weapon/spacecash/C = new src.type(user, new_amount=1)
 		C.copy_evidences(src)
 		user.put_in_hands(C)
-		src.add_fingerprint(user)
+		
 		C.add_fingerprint(user)
 		amount--
 		if(amount<=0)

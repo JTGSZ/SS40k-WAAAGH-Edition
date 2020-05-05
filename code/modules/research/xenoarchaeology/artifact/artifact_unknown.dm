@@ -105,7 +105,7 @@
 		to_chat(user, "<b>You touch [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 		return
 
-	src.add_fingerprint(user)
+	
 	on_attackhand.Invoke(list(user, "TOUCH"))
 	to_chat(user, "<b>You touch [src].</b>")
 

@@ -74,7 +74,7 @@
 		return 1
 
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 
 	// the template actually can send a {'refresh': 1} update, but
 	// we don't give a shit because we do scanscrubbers() either way

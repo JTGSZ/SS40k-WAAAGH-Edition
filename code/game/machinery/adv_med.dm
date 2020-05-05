@@ -171,7 +171,7 @@
 	update_icon()
 	for(var/obj/O in src)
 		qdel(O)
-	src.add_fingerprint(usr)
+	
 	if(!(stat & (BROKEN|NOPOWER)))
 		set_light(light_range_on, light_power_on)
 	return
@@ -222,7 +222,7 @@
 	M.reset_view()
 	src.occupant = M
 	update_icon()
-	src.add_fingerprint(user)
+	
 	qdel(G)
 	if(!(stat & (BROKEN|NOPOWER)))
 		set_light(light_range_on, light_power_on)

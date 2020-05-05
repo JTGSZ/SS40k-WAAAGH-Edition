@@ -62,7 +62,7 @@
 		usr.unset_machine()
 		return 1
 	else
-		src.add_fingerprint(usr)
+		
 		usr.set_machine(src)
 
 		if(href_list["compact"])

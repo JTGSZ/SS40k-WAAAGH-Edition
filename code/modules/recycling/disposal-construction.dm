@@ -184,7 +184,7 @@
 /obj/structure/disposalconstruct/attackby(var/obj/item/I, var/mob/user)
 	var/nicetype = "pipe"
 	var/ispipe = 0 // Indicates if we should change the level of this pipe
-	src.add_fingerprint(user)
+	
 	switch(ptype)
 		if(6)
 			nicetype = "disposal bin"

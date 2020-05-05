@@ -297,7 +297,7 @@
 			usr.machine = null
 			return
 
-		src.add_fingerprint(usr)
+		
 	src.updateUsrDialog()
 	return
 

@@ -287,5 +287,5 @@
 		user.show_message("<span class='notice'>\t Components are OK.</span>",1)
 	if(H.emagged && prob(5))
 		user.show_message("<span class='warning'>\t ERROR: INTERNAL SYSTEMS COMPROMISED</span>",1)
-	src.add_fingerprint(user)
+	
 	return

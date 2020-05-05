@@ -104,7 +104,7 @@
 	if(href_list["back"])
 		screenstate = 0
 
-	src.add_fingerprint(usr)
+	
 	src.updateUsrDialog()
 	return
 

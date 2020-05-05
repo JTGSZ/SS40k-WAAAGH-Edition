@@ -36,7 +36,7 @@
 /obj/machinery/artifact_analyser/attack_hand(var/mob/user )
 	if(..())
 		return
-	src.add_fingerprint(user)
+	
 	interact(user)
 
 /obj/machinery/artifact_analyser/interact(mob/user)

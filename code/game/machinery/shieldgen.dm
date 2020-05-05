@@ -387,7 +387,7 @@
 		user.visible_message("[user] turned the shield generator on.", \
 			"You turn on the shield generator.", \
 			"You hear heavy droning.")
-	src.add_fingerprint(user)
+	
 
 /obj/machinery/shieldwallgen/process()
 	spawn(100)
@@ -497,7 +497,7 @@
 			to_chat(user, "<span class='warning'>Access denied.</span>")
 
 	else
-		src.add_fingerprint(user)
+		
 		visible_message("<span class='warning'>The [src.name] has been hit with the [W.name] by [user.name]!</span>")
 
 /obj/machinery/shieldwallgen/proc/cleanup(var/NSEW)

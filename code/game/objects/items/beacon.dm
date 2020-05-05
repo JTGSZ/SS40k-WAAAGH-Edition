@@ -35,7 +35,7 @@ var/global/list/obj/item/beacon/beacons = list()
 		src.code = t
 	if (!( src.code ))
 		src.code = "beacon"
-	src.add_fingerprint(usr)
+	
 	return
 
 // SINGULO BEACON SPAWNER

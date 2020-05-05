@@ -131,7 +131,7 @@
 			else
 				src.current_temperature = max((FREEZER_MIN_TEMPERATURE + temp_offset), src.current_temperature+amount)
 	src.updateUsrDialog()
-	src.add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/atmospherics/unary/cold_sink/freezer/process()
@@ -302,7 +302,7 @@
 			else
 				src.current_temperature = max(HEATER_MIN_TEMPERATURE, src.current_temperature+amount)
 	src.updateUsrDialog()
-	src.add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/atmospherics/unary/heat_reservoir/heater/process()

@@ -216,7 +216,7 @@
 		user.unset_machine()
 
 /obj/machinery/space_heater/attack_hand(mob/user )
-	src.add_fingerprint(user)
+	
 	interact(user)
 
 /obj/machinery/space_heater/interact(mob/user )

@@ -38,7 +38,7 @@
 		src.name = text("Data Disk- '[]'", t)
 	else
 		src.name = "Data Disk"
-	src.add_fingerprint(usr)
+	
 	return
 
 /obj/item/weapon/card/data/clown

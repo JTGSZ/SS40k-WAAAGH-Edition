@@ -74,7 +74,7 @@ var/list/poddoors = list()
 		return FALSE
 
 /obj/machinery/door/poddoor/attackby(obj/item/weapon/C, mob/user )
-	src.add_fingerprint(user)
+	
 	if (!( iscrowbar(C) || (istype(C, /obj/item/weapon/fireaxe) && C.wielded == 1) ))
 		return
 	if ((density && (stat & NOPOWER) && !( operating )))

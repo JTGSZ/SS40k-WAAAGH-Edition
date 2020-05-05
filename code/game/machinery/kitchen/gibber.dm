@@ -113,7 +113,7 @@ obj/machinery/gibber/New()
 
 	user.visible_message("<span class='warning'>[user] starts to put [G.affecting] into the gibber!</span>", \
 		drugged_message = "<span class='warning'>[user] starts dancing with [G.affecting] near the gibber!</span>")
-	src.add_fingerprint(user)
+	
 	if(do_after(user, src, 30) && G && G.affecting && !occupant)
 		user.visible_message("<span class='warning'>[user] stuffs [G.affecting] into the gibber!</span>", \
 			drugged_message = "<span class='warning'>[G.affecting] suddenly disappears! How did \he do that?</span>")
@@ -139,7 +139,7 @@ obj/machinery/gibber/New()
 		to_chat(user, "<span class='warning'>Subject may not have abiotic items on.</span>")
 		return
 
-	src.add_fingerprint(user)
+	
 
 	user.visible_message("<span class='warning'>[user] starts climbing into the [src].</span>", \
 		"<span class='warning'>You start climbing into the [src].</span>", \

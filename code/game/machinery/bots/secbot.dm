@@ -147,7 +147,7 @@ Auto Patrol: []"},
 	if(..())
 		return 1
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	if((href_list["power"]) && (src.allowed(usr)))
 		if(src.on)
 			turn_off()

@@ -290,7 +290,7 @@
 	src.desc += " It is broken."
 	src.mode = SYRINGE_BROKEN
 	src.add_blood(target)
-	src.add_fingerprint(usr)
+	
 	src.update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/restock()

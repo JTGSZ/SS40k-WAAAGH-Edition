@@ -209,7 +209,7 @@
 	if(isobserver(user) && !canGhostWrite(user,src,"toggles"))
 		to_chat(user, "<span class='warning'>Nope.</span>")
 		return
-	src.add_fingerprint(usr)
+	
 	if (src.open)
 		src.close()
 	else
@@ -221,7 +221,7 @@
 	if(isobserver(user) && !canGhostWrite(user,src,"toggles"))
 		to_chat(user, "<span class='warning'>Nope.</span>")
 		return
-	src.add_fingerprint(usr)
+	
 	if (src.open)
 		src.close()
 	else

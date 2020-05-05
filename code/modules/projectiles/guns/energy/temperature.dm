@@ -49,7 +49,7 @@
 	if (..())
 		return
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 
 	if(href_list["temp"])
 		var/amount = text2num(href_list["temp"])
@@ -59,7 +59,7 @@
 			src.target_temperature = max(0, src.target_temperature+amount)
 	if (istype(src.loc, /mob))
 		attack_self(src.loc)
-	src.add_fingerprint(usr)
+	
 	return
 
 

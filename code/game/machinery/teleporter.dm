@@ -50,7 +50,7 @@
 			src.locked = L
 			one_time_use = 1
 
-			src.add_fingerprint(usr)
+			
 	return
 
 /obj/machinery/computer/teleporter/examine(var/mob/user)
@@ -361,7 +361,7 @@
 		hub.update_icon()
 		use_power(teleport_power_usage)
 	visible_message("<span class='notice'>[count] teleporter[count>1?"s":""] engaged!</span>", range = 2)
-	src.add_fingerprint(usr)
+	
 	src.engaged = 1
 	return
 
@@ -373,7 +373,7 @@
 		hub.update_icon()
 	visible_message("<span class='notice'>[count] teleporter[count>1?"s":""] disengaged!</span>", range = 2)
 	if(user)
-		src.add_fingerprint(user)
+		
 	src.engaged = 0
 	return
 
@@ -396,7 +396,7 @@
 	//	spawn(30)
 	//		hub.accurate = wasaccurate
 	//		visible_message("<span class='notice'>Test fire completed.</span>", range = 2)
-	//src.add_fingerprint(usr)
+	//
 	//return
 
 /obj/machinery/teleport/hub/emergency

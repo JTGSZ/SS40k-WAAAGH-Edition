@@ -252,7 +252,7 @@
 							if(R.mind.special_role)
 								R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
 
-		src.add_fingerprint(usr)
+		
 	src.updateUsrDialog()
 	return
 

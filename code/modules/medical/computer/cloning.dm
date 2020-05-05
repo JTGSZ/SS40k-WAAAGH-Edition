@@ -402,7 +402,7 @@
 					active_record.dna.species = pick(available_species)
 				else
 					active_record.dna.species = species_of_victim
-	src.add_fingerprint(usr)
+	
 	src.updateUsrDialog()
 	return
 

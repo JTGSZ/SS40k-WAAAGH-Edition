@@ -99,7 +99,7 @@
 		to_chat(user, "<span class='warning'>You don't have any hands!</span>")
 		return
 
-	src.add_fingerprint(user)
+	
 	if(mode<=0) // It's off
 		if(I.is_screwdriver(user))
 			if(contents.len > 0)
@@ -221,7 +221,7 @@
 		to_chat(usr, "<span class='warning'>The disposal units power is disabled.</span>")
 		return
 	*/
-	src.add_fingerprint(user)
+	
 	ui_interact(user)
 
 // user interaction
@@ -262,7 +262,7 @@
 		usr.unset_machine()
 		return 1
 	else
-		src.add_fingerprint(usr)
+		
 		usr.set_machine(src)
 
 		if(href_list["close"])
@@ -957,7 +957,7 @@
 
 	if(!deconstructable)
 		return
-	src.add_fingerprint(user)
+	
 	if(iswelder(I))
 		var/obj/item/weapon/weldingtool/W = I
 		to_chat(user, "You start slicing the disposal pipe.")
@@ -1456,7 +1456,7 @@
 		return		// prevent interaction with T-scanner revealed pipes
 	if(!deconstructable)
 		return
-	src.add_fingerprint(user)
+	
 	if(iswelder(I))
 		var/obj/item/weapon/weldingtool/W = I
 		to_chat(user, "You start slicing the disposal pipe.")
@@ -1592,7 +1592,7 @@
 /obj/structure/disposaloutlet/attackby(var/obj/item/I, var/mob/user)
 	if(!I || !user || !deconstructable)
 		return
-	src.add_fingerprint(user)
+	
 	if(I.is_screwdriver(user))
 		if(mode==0)
 			mode=1

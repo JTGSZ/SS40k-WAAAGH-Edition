@@ -28,7 +28,7 @@
 		src.case.add_fingerprint(user)
 		src.case = null
 
-		src.add_fingerprint(user)
+		
 		update()
 	else
 		return ..()
@@ -87,7 +87,7 @@
 			for(var/mob/M in viewers(1, src))
 				if (M.client)
 					src.attack_self(M)
-		src.add_fingerprint(usr)
+		
 	else
 		usr << browse(null, "window=implantpad")
 		return

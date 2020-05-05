@@ -71,7 +71,7 @@ var/list/obj/machinery/holosign/holosigns = list()
 	return src.attack_hand(user)
 
 /obj/machinery/holosign_switch/attack_hand(mob/user )
-	src.add_fingerprint(usr)
+	
 	if(stat & (NOPOWER|BROKEN))
 		return
 	add_fingerprint(user)

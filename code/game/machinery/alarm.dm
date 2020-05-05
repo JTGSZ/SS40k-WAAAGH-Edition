@@ -1033,7 +1033,7 @@ var/global/list/airalarm_presets = list(
 		return 1
 
 /obj/machinery/alarm/attackby(obj/item/W, mob/user )
-	src.add_fingerprint(user)
+	
 
 	switch(buildstage)
 		if(2)
@@ -1226,7 +1226,7 @@ FIRE ALARM
 		attackby(AM,user)
 
 /obj/machinery/firealarm/attackby(obj/item/W, mob/user )
-	src.add_fingerprint(user)
+	
 
 	if (istype(W,/obj/item/inflatable/shelter))
 		qdel(W)
@@ -1394,7 +1394,7 @@ FIRE ALARM
 
 		src.updateUsrDialog()
 
-		src.add_fingerprint(usr)
+		
 	else
 		usr << browse(null, "window=firealarm")
 		return

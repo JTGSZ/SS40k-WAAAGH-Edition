@@ -1000,7 +1000,7 @@ var/global/num_vending_terminals = 1
 	else if (href_list["delete_slogan_line"] && edit_mode && product_slogans.len > 0)
 		product_slogans -= product_slogans[text2num(href_list["delete_slogan_line"])]
 
-	src.add_fingerprint(usr)
+	
 	src.updateUsrDialog()
 
 /obj/machinery/vending/proc/deleteEntry(datum/data/vending_product/R)

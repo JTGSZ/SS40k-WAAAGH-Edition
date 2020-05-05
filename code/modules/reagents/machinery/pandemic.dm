@@ -154,7 +154,7 @@
 		src.updateUsrDialog()
 		return
 
-	src.add_fingerprint(usr)
+	
 	return
 
 /obj/machinery/computer/pandemic/proc/detach()

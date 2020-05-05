@@ -162,7 +162,7 @@
 	usr.reset_view()
 	src.occupant = usr
 	src.icon_state = "scanner_1"
-	src.add_fingerprint(usr)
+	
 
 /obj/machinery/dna_scannernew/MouseDropTo(atom/movable/O, mob/user )
 	if(!ismob(O)) //mobs only
@@ -268,7 +268,7 @@
 		if(G.affecting.locked_to)
 			return
 		put_in(G.affecting)
-		src.add_fingerprint(user)
+		
 		qdel(G)
 		return 1
 	return ..()

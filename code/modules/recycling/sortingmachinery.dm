@@ -320,7 +320,7 @@
 			usr.unset_machine()
 		return 1
 
-	src.add_fingerprint(usr)//After close, else it wouldn't make sense.
+	//After close, else it wouldn't make sense.
 
 /obj/machinery/sorting_machine/multitool_menu(var/mob/user, var/obj/item/device/multitool/P)
 	return {"

@@ -183,7 +183,7 @@
 	if (flag)
 		return
 
-	src.add_fingerprint(user)
+	
 	if (src.bullets < 1)
 		user.show_message("<span class = 'danger'>*click* *click*</span>", 2)
 		playsound(user, 'sound/weapons/empty.ogg', 100, 1)
@@ -306,7 +306,7 @@
 
 
 /obj/item/toy/crossbow/attack(mob/M, mob/user)
-	src.add_fingerprint(user)
+	
 
 // ******* Check
 

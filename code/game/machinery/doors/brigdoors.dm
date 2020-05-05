@@ -189,7 +189,7 @@
 		if(href_list["fc"])
 			for(var/obj/machinery/flasher/F in targets)
 				F.flash()
-	src.add_fingerprint(usr)
+	
 	src.updateUsrDialog()
 	src.update_icon()
 	if(src.timing)

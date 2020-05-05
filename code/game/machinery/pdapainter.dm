@@ -102,7 +102,7 @@ Feel free to do whatever with this if you think it lacks.
 	if(!ishigherbeing(user))
 		return
 
-	src.add_fingerprint(user)
+	
 	if(storedpda)
 		var/chosenPDA
 		chosenPDA = input(user, "Select your color.", "PDA Painting") as null|anything in colorlist

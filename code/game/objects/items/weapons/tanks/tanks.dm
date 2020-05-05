@@ -98,7 +98,7 @@
 		user.visible_message("<span class='attack'>[user] has used [W] on [bicon(icon)] [src]</span>", "<span class='attack'>You use \the [W] on [bicon(icon)] [src]</span>")
 		var/obj/item/device/analyzer/analyzer = W
 		user.show_message(analyzer.output_gas_scan(src.air_contents, src, 0), 1)
-		src.add_fingerprint(user)
+		
 	else if (istype(W, /obj/item/clothing/gloves/latex) || (istype(W, /obj/item/toy/balloon) && !istype(W, /obj/item/toy/balloon/inflated)))
 		if(air_contents.return_pressure() >= ONE_ATMOSPHERE)
 			to_chat(user, "You inflate \the [W] using \the [src].")
@@ -198,7 +198,7 @@
 				else
 					to_chat(usr, "<span class='notice'>You need something to connect to \the [src].</span>")
 
-	src.add_fingerprint(usr)
+	
 	return 1
 
 

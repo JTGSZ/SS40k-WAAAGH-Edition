@@ -44,7 +44,7 @@
 			user.take_organ_damage(2*force)
 		return
 /*this is already called in ..()
-	src.add_fingerprint(user)
+	
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
 
@@ -72,7 +72,7 @@
 			M.LAssailant = null
 		else
 			M.LAssailant = user
-		src.add_fingerprint(user)
+		
 
 		for(var/mob/O in viewers(M))
 			if (O.client)
@@ -168,7 +168,7 @@
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [target.name] ([target.ckey])</font>")
 			log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [target.name] ([target.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
-			src.add_fingerprint(user)
+			
 
 			target.visible_message("<span class='danger'>[target] has been stunned with \the [src] by [user]!</span>",\
 				drugged_message="<span class='notice'>[user] smacks [target] with the fishing rod!</span>")
@@ -219,7 +219,7 @@
 		src.sharpness = initial(src.sharpness)
 		src.sharpness_flags = initial(src.sharpness_flags)
 		src.armor_penetration = initial(armor_penetration)
-	src.add_fingerprint(user)
+	
 	return
 
 /obj/item/weapon/melee/bone_sword

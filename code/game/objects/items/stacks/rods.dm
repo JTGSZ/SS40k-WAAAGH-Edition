@@ -107,7 +107,7 @@
 
 
 /obj/item/stack/rods/attack_self(mob/user )
-	src.add_fingerprint(user)
+	
 
 	if(!active) //Start click drag construction
 		active = getFromPool(/obj/abstract/screen/draggable, src, user)

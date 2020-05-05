@@ -72,7 +72,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/door_control/attack_hand(mob/user )
-	src.add_fingerprint(usr)
+	
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -164,7 +164,7 @@
 
 /obj/machinery/driver_button/attack_hand(mob/user )
 
-	src.add_fingerprint(usr)
+	
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)

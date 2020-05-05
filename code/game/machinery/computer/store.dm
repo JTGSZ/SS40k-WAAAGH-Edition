@@ -141,7 +141,7 @@
 	if(..())
 		return
 
-	src.add_fingerprint(usr)
+	
 
 	switch(href_list["choice"])
 		if ("buy")

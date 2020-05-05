@@ -125,7 +125,7 @@ proc/move_mining_shuttle()
 /obj/machinery/computer/mining_shuttle/attack_hand(user )
 	if(..(user))
 		return
-	src.add_fingerprint(usr)
+	
 	var/dat = "<center>Mining shuttle:<br> <b><A href='?src=\ref[src];move=[1]'>Send</A></b></center>"
 	user << browse("[dat]", "window=miningshuttle;size=200x100")
 
@@ -133,7 +133,7 @@ proc/move_mining_shuttle()
 	if(..())
 		return
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	if(href_list["move"])
 		if(ticker.mode.name == "blob")
 			if(ticker.mode:declared)

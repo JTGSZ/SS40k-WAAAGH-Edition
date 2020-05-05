@@ -127,7 +127,7 @@
 	if(..())
 		return
 	usr.machine = src
-	src.add_fingerprint(usr)
+	
 	if ((href_list["power"]) && (src.allowed(usr)))
 		if (src.on)
 			turn_off()

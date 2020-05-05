@@ -101,7 +101,7 @@
 		return 1
 
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	if(href_list["make"])
 		if(!wait)
 			var/p_type = text2num(href_list["make"])
@@ -135,7 +135,7 @@
 	return
 
 /obj/machinery/pipedispenser/attackby(var/obj/item/W, var/mob/user )
-	src.add_fingerprint(usr)
+	
 	if (istype(W, /obj/item/pipe) || istype(W, /obj/item/pipe_meter) || istype(W, /obj/item/pipe_gsensor))
 		if(user.drop_item(W, src))
 			to_chat(usr, "<span class='notice'>You put [W] back to [src].</span>")
@@ -230,7 +230,7 @@ Nah
 	if(..())
 		return
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	if(href_list["dmake"])
 		if(!anchored || !usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 			usr << browse(null, "window=pipedispenser")

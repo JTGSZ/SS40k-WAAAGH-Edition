@@ -41,7 +41,7 @@
 /obj/machinery/keyfab/attackby(obj/item/K, mob/user)
 	..()
 	if(ishigherbeing(user))
-		src.add_fingerprint(user)
+		
 		if((stat & (BROKEN|NOPOWER)))
 			to_chat(user, "<span class='notice'>\The [src] is unresponsive.</span>")
 			return
@@ -59,7 +59,7 @@
 /obj/machinery/keyfab/attack_hand(mob/user)
 	..()
 	if(ishigherbeing(user))
-		src.add_fingerprint(user)
+		
 		if((stat & (BROKEN|NOPOWER)))
 			to_chat(user, "<span class='notice'>\The [src] is unresponsive.</span>")
 			return

@@ -163,7 +163,7 @@
 	user.visible_message("<span class='notice'>[user] pushes \the [src].</span>", \
 	"<span class='notice'>You push \the [src] but nothing happens!</span>")
 	playsound(src, 'sound/weapons/Genhit.ogg', 25, 1)
-	src.add_fingerprint(user)
+	
 	return ..()
 
 /turf/simulated/wall/proc/attack_rotting(mob/user )

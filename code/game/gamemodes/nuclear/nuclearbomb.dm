@@ -40,7 +40,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 		if (istype(O, /obj/item/weapon/disk/nuclear))
 			usr.drop_item(O, src, force_drop = 1)
 			src.auth = O
-			src.add_fingerprint(user)
+			
 			return
 
 	if (src.anchored)
@@ -240,7 +240,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 					else
 						visible_message("<span class='warning'>The anchoring bolts slide back into the depths of [src].</span>")
 
-		src.add_fingerprint(usr)
+		
 		for(var/mob/M in viewers(1, src))
 			if ((M.client && M.machine == src))
 				src.attack_hand(M)

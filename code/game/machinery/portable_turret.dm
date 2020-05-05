@@ -146,7 +146,7 @@ Status: []<BR>"},
 	if (..())
 		return
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	if ((href_list["power"]) && (src.allowed(usr)))
 		if(on && emagged)
 			to_chat(usr, "<span class='warning'>The turret isn't responding!</span>")

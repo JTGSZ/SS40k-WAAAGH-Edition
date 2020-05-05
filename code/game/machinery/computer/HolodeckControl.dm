@@ -293,7 +293,7 @@
 				log_game("[key_name(usr)] restored the holodeck's safeties")
 				visible_message("<span class='notice'>Holodeck safeties have been restored. Simulation programs are now safe to use again.</span>")
 
-		src.add_fingerprint(usr)
+		
 	src.updateUsrDialog()
 	return
 

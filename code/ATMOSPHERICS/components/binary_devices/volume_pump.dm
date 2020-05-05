@@ -150,7 +150,7 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/volume_pump/attack_hand(user)
 	if(..())
 		return
-	src.add_fingerprint(usr)
+	
 	if(!src.allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return

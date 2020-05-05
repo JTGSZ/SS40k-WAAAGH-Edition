@@ -267,7 +267,7 @@
 		visible_message("<span class='warning'>[user] hits the [src] with a [W]!</span>")
 		investigation_log(I_ATMOS, "<span class='danger'>was smacked with \a [W] by [key_name(user)]</span>")
 		src.health -= W.force
-		src.add_fingerprint(user)
+		
 		healthcheck()
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/weapon/tank/jetpack))
@@ -405,7 +405,7 @@
 				src.icon_state = colors[label]
 				src.name = "Canister: [label]"
 
-	src.add_fingerprint(usr)
+	
 	src.add_hiddenprint(usr)
 	update_icon()
 

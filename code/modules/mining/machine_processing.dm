@@ -150,7 +150,7 @@
 		return
 
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 
 	if(href_list["close"])
 		usr.unset_machine(src)

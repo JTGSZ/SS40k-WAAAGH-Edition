@@ -31,7 +31,7 @@
 	to_chat(user, "<span class='info'>[mode]</span>")
 
 /obj/machinery/light_construct/attackby(obj/item/weapon/W, mob/user )
-	src.add_fingerprint(user)
+	
 	if (W.is_wrench(user))
 		if (src.stage == 1)
 			W.playtoolsound(src, 75)
@@ -317,7 +317,7 @@ var/global/list/obj/machinery/light/alllights = list()
 			to_chat(user, "There is a [fitting] already inserted.")
 			return
 		else
-			src.add_fingerprint(user)
+			
 			var/obj/item/weapon/light/L = W
 			if(L.fitting == fitting)
 				if(!user.drop_item(L, src))

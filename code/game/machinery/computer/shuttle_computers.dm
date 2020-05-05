@@ -203,7 +203,7 @@
 		return
 
 	user.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	var/shuttle_name = "Unknown shuttle"
 	var/dat
 
@@ -294,7 +294,7 @@
 		return
 
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	if(href_list["move"])
 		if(!shuttle)
 			to_chat(usr, "<span class = 'warning'>No shuttle detected.</span>")

@@ -217,7 +217,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		if(src.d1 && W.is_conductor()) // d1 determines if this is a cable end
 			shock(user, 50, W.siemens_coefficient)
 
-	src.add_fingerprint(user)
+	
 
 /obj/structure/cable/attack_animal(mob/M)
 	if(isanimal(M))

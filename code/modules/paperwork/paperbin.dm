@@ -36,7 +36,7 @@
 						bag.remove_from_storage(src)
 					usr.u_equip(src, 0)
 					usr.put_in_hand(OI.hand_index, src)
-					src.add_fingerprint(usr)
+					
 
 			else if(istype(over_object,/mob/living)) //We're being dragged on a living mob's sprite...
 				if(usr == over_object) //It's the user!

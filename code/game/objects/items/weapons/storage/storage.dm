@@ -478,7 +478,7 @@
 	else
 		..()
 		close_all()
-	src.add_fingerprint(user)
+	
 
 /obj/item/weapon/storage/attack_paw(mob/user )
 	return attack_hand(user)

@@ -129,7 +129,7 @@
 
 	investigation_log(I_ATMOS,"was [state ? "opened (straight)" : "closed (side)"] by [key_name(usr)]")
 
-	src.add_fingerprint(usr)
+	
 	update_icon(0,1)
 	sleep(10)
 	if (src.state)

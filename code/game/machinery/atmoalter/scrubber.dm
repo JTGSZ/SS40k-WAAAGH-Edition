@@ -232,7 +232,7 @@
 				scrub_o2 = !scrub_o2
 		return 1
 
-	src.add_fingerprint(usr)
+	
 	return 1
 
 /obj/machinery/portable_atmospherics/scrubber/AltClick()

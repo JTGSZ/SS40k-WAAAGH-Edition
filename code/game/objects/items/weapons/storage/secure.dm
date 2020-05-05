@@ -80,7 +80,7 @@
 /obj/item/weapon/storage/secure/MouseDropFrom(over_object, src_location, over_location)
 	if (locked)
 		if(Adjacent(usr))
-			src.add_fingerprint(usr)
+			
 		return
 	..()
 
@@ -130,7 +130,7 @@
 				src.code += text("[]", href_list["type"])
 				if (length(src.code) > 5)
 					src.code = "ERROR"
-		src.add_fingerprint(usr)
+		
 		showInterface(usr) //refresh!
 
 // -----------------------------
@@ -173,7 +173,7 @@
 			if (M.s_active == src)
 				src.close(M)
 		src.orient2hud(user)
-	src.add_fingerprint(user)
+	
 
 /obj/item/weapon/storage/secure/briefcase/attackby(var/obj/item/weapon/W, var/mob/user)
 	..()

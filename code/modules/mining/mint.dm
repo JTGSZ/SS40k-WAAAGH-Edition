@@ -151,7 +151,7 @@
 	if(.)
 		return
 	usr.set_machine(src)
-	src.add_fingerprint(usr)
+	
 	var/turf/out_T = get_step(src, out_dir)
 
 	if(href_list["close"])

@@ -38,7 +38,7 @@
 		return..()
 
 /obj/machinery/artifact_harvester/attack_hand(var/mob/user )
-	src.add_fingerprint(user)
+	
 	interact(user)
 
 /obj/machinery/artifact_harvester/interact(var/mob/user )

@@ -114,7 +114,7 @@ BREATHALYZER
 			user.show_message("<span class='game say'><b>\The [src] beeps</b>, \"It's dead, Jim.\"</span>", MESSAGE_HEAR,"<span class='notice'>\The [src] glows black.</span>")
 		else
 			to_chat(user, "<span class='notice'>\The [src] glows [pick("red", "green", "blue", "pink")]! You wonder what that would mean.</span>")
-	src.add_fingerprint(user)
+	
 
 
 /obj/item/device/healthanalyzer/afterattack(var/atom/A, var/mob/user)
@@ -349,7 +349,7 @@ Subject's pulse: ??? BPM"})
 
 	to_chat(user, output_gas_scan(environment, location, 1, unit_vol))
 
-	src.add_fingerprint(user)
+	
 	return
 
 /obj/item/device/analyzer/scope

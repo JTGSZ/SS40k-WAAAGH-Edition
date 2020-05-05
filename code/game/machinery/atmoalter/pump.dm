@@ -157,7 +157,7 @@
 		target_pressure = clamp(target_pressure+diff, pressuremin, pressuremax)
 		update_icon()
 
-	src.add_fingerprint(usr)
+	
 	return 1
 
 /obj/machinery/portable_atmospherics/pump/AltClick()

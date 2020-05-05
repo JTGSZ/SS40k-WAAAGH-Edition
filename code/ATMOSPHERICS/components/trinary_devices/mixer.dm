@@ -83,7 +83,7 @@ obj/machinery/atmospherics/trinary/mixer/process()
 obj/machinery/atmospherics/trinary/mixer/attack_hand(user)
 	if(..())
 		return
-	src.add_fingerprint(usr)
+	
 	if(!src.allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return

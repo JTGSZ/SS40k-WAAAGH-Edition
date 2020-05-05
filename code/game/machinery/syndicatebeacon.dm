@@ -94,7 +94,7 @@
 				to_chat(M, "<B>Objective #[obj_count]</B>: [OBJ.explanation_text]")
 				obj_count++
 
-	src.add_fingerprint(usr)
+	
 	src.updateUsrDialog()
 
 

@@ -146,7 +146,7 @@
 	if(user.stat && !isAdminGhost(user))
 		return
 
-	src.add_fingerprint(user)
+	
 	if(state == 2)
 		if(!get_powernet())
 			to_chat(user, "<span class='warning'>\The [src] isn't connected to a wire.</span>")
