@@ -1240,7 +1240,7 @@ Use this proc preferably at the end of an equipment loadout
 // See carbon/human
 /mob/proc/can_show_flavor_text()
 	return FALSE
-
+ 
 /mob/proc/print_flavor_text()
 	if(!flavor_text)
 		return
@@ -1250,9 +1250,9 @@ Use this proc preferably at the end of an equipment loadout
 	if(findtext(msg, "http:") || findtext(msg, "https:") || findtext(msg, "www."))
 		return "<font color='#ffa000'><b><a href='?src=\ref[src];show_flavor_text=1'>Show flavor text</a></b></font>"
 	if(length(msg) <= 32)
-		return "<font color='#ffa000'><b>[msg]</b></font>"
+		return "<font color='#0051ff'><b>[msg]</b></font>"
 	else
-		return "<font color='#ffa000'><b>[copytext(msg, 1, 32)]...<a href='?src=\ref[src];show_flavor_text=1'>More</a></b></font>"
+		return "<font color='#ee06ee'><a href='?src=\ref[src];show_flavor_text=1'>Show Flavor Text</a></b></font>"
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"
