@@ -7,7 +7,7 @@
 	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
 
-/obj/structure/punching_bag/attack_hand(mob/user )
+/obj/structure/punching_bag/attack_hand(mob/user)
 	flick("[icon_state]2", src)
 	playsound(loc, pick(hit_sounds), 25, 1, -1)
 
@@ -28,7 +28,7 @@
 	desc = "A bop bag in the shape of a goofy clown."
 	icon_state = "bopbag"
 
-/obj/structure/punching_bag/clown/attack_hand(mob/user )
+/obj/structure/punching_bag/clown/attack_hand(mob/user)
 	..()
 	playsound(loc, 'sound/items/bikehorn.ogg', 50, 1, -1)
 
@@ -40,7 +40,7 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/stacklifter/attack_hand(mob/user, params, proximity)
+/obj/structure/stacklifter/attack_hand(mob/living/user, params, proximity)
 	if(!proximity)
 		return
 	if(in_use)
@@ -64,6 +64,9 @@
 			sleep(3)
 			playsound(user, 'sound/effects/spring.ogg', 60, 1)
 
+		if(user.attribute_strength <= 11)
+			user.stat_increase(ATTR_STRENGTH,40)
+
 		playsound(user, 'sound/machines/click.ogg', 60, 1)
 		in_use = 0
 		animate(user, pixel_y = pixel_y, time = 3)
@@ -79,7 +82,7 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/weightlifter/attack_hand(mob/user, params, proximity)
+/obj/structure/weightlifter/attack_hand(mob/living/user, params, proximity)
 	if(!proximity)
 		return
 	if(in_use)
@@ -113,6 +116,8 @@
 		playsound(user, 'sound/machines/click.ogg', 60, 1)
 		in_use = 0
 		animate(user, pixel_y = pixel_y, time = 3)
+		if(user.attribute_strength <= 11)
+			user.stat_increase(ATTR_STRENGTH,40)
 		var/finishmessage = pick("You feel stronger!","You feel like you can take on the world!","You feel robust!","You feel indestructible!")
 		icon_state = "fitnessweight"
 		overlays -= W

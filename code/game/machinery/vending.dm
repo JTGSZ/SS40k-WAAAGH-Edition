@@ -98,18 +98,6 @@ var/global/num_vending_terminals = 1
 	var/mini_icon = null
 	var/assignedholiday = null //Add an item to the 'specials' list to make it only show up on a certain holiday
 
-/* TODO: Add this to deconstruction for vending machines
-/obj/item/compressed_vend
-	name = "compressed sale cartridge"
-	desc = "A compressed matter variant used to load vending machines."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "rcd"
-	item_state = "rcdammo"
-	var/list/products
-	var/list/contraband
-	var/list/premium
-*/
-
 /obj/machinery/vending/cultify()
 	new /obj/structure/cult_legacy/forge(loc)
 	..()

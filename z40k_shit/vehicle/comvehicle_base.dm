@@ -19,7 +19,6 @@
 	density = 1 //Dense. To raise the heat.
 	opacity = 0
 	anchored = 1
-	infra_luminosity = 15
 	internal_gravity = 1 // Can move in 0-gravity
 	layer = VEHICLE_LAYER
 	plane = ABOVE_HUMAN_PLANE

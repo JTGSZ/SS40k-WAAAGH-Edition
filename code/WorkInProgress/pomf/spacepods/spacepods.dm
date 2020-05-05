@@ -21,7 +21,6 @@
 	opacity = 0
 	anchored = 1
 	layer = ABOVE_DOOR_LAYER
-	infra_luminosity = 15
 	internal_gravity = 1 // Can move in 0-gravity
 	var/passenger_limit = 1 //Upper limit for how many passengers are allowed
 	var/passengers_allowed = 1 //If the pilot allows people to jump in the side seats.
