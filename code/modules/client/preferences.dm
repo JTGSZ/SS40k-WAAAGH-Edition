@@ -103,7 +103,6 @@ var/const/MAX_SAVE_SLOTS = 8
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
-	var/ooccolor = "#b82e00"
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
 	var/UI_style_color = "#ffffff"
@@ -1320,11 +1319,6 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 					else
 						to_chat(user,"Your species doesn't have different skin tones. Yet?")
 						return
-
-				if("ooccolor")
-					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference") as color|null
-					if(new_ooccolor)
-						ooccolor = new_ooccolor
 
 				if("bag")
 					var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference")  as null|anything in backbaglist

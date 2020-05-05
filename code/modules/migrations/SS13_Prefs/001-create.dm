@@ -119,7 +119,6 @@
 	sql={"CREATE TABLE "client" (
 	`ID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	`ckey`	INTEGER UNIQUE,
-	`ooc_color`	TEXT,
 	`lastchangelog`	TEXT,
 	`UI_style`	TEXT,
 	`default_slot`	INTEGER,

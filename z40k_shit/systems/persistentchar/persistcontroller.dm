@@ -16,6 +16,7 @@ But the preferences menu and other stuff will need cleaned up and such.
 	var/ghost_red = 0
 	var/ghost_green = 0
 	var/ghost_blue = 0
+	var/ooc_color = "#002eb8"
 	var/persistenceloaded = 0
 
 /*
@@ -26,9 +27,10 @@ But the preferences menu and other stuff will need cleaned up and such.
 	Step by Step instructions for - How to do things the bad way.
 	1. Change the above persistdb to something randomly named.
 	2. Uncomment the below.
-	3. Write via the verb.
-	4. Delete the random db file it made.
-	5. Change filename to the db you just wrote the table into.
+	3. Delete the old persistence.sqlite
+	3. Go ingame, click Write_new_database in commands.
+	4. Delete the random db from the original change.
+	5. Change filename back to persistence.sqlite.
 
 	If you need debugging information, go visit the dbdebugverb.dm file.
 */
@@ -43,14 +45,15 @@ But the preferences menu and other stuff will need cleaned up and such.
 	`ghost_form`	TEXT,
 	`ghost_red`		INTEGER,
 	`ghost_green`	INTEGER,
-	`ghost_blue`	INTEGER
+	`ghost_blue`	INTEGER,
+	`ooc_color`		TEXT
 );"}
 
 	Q.Add(sql)
 	Q.Execute(persistdb)
-*/
 
-	
+
+*/
 /datum/interactive_persistence/New(client/C)
 	client=C
 	if(istype(C))
@@ -76,16 +79,16 @@ But the preferences menu and other stuff will need cleaned up and such.
 	check.Add("SELECT ckey FROM persistence WHERE ckey = ?", ckey)
 	if(check.Execute(persistdb))
 		if(!check.NextRow())
-			q.Add("INSERT into persistence (ckey, potential, ghost_form, ghost_red, ghost_green, ghost_blue)\
-			 VALUES (?,		?,			?,			?,		?,			?)",\
-					ckey, potential, ghost_form, ghost_red, ghost_green, ghost_blue)
+			q.Add("INSERT into persistence (ckey, potential, ghost_form, ghost_red, ghost_green, ghost_blue, ooc_color)\
+									 VALUES (?,		?,			?,			?,			?,			?,			?)",\
+											ckey, potential, ghost_form, ghost_red, ghost_green, ghost_blue, ooc_color)
 			if(!q.Execute(persistdb))
 				message_admins("Error in save_persistence_sqlite [__FILE__] ln:[__LINE__] #: [q.Error()] - [q.ErrorMsg()]")
 				WARNING("Error in save_persistence_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
 				return 0
 		else
-			q.Add("UPDATE persistence SET potential=?,ghost_form=?,ghost_red=?,ghost_green=?,ghost_blue=? WHERE ckey = ?",\
-										potential, 	ghost_form,		ghost_red,	ghost_green,	ghost_blue,		ckey)
+			q.Add("UPDATE persistence SET potential=?,ghost_form=?,ghost_red=?,ghost_green=?,ghost_blue=?,ooc_color=? WHERE ckey = ?",\
+										potential, 	ghost_form,		ghost_red,	ghost_green,	ghost_blue,ooc_color,	ckey)
 			if(!q.Execute(persistdb))
 				message_admins("Error in save_persistence_sqlite [__FILE__] ln:[__LINE__] #: [q.Error()] - [q.ErrorMsg()]")
 				WARNING("Error in save_persistence_sqlite [__FILE__] ln:[__LINE__] #:[q.Error()] - [q.ErrorMsg()]")
@@ -125,6 +128,7 @@ But the preferences menu and other stuff will need cleaned up and such.
 	ghost_red 	= text2num(persistence_one["ghost_red"])
 	ghost_green = text2num(persistence_one["ghost_green"])
 	ghost_blue 	= text2num(persistence_one["ghost_blue"])
+	ooc_color 	= persistence_one["ooc_color"]
 
 	if(isnull(ghost_form))
 		ghost_form = "ghost_standard"
@@ -133,6 +137,7 @@ But the preferences menu and other stuff will need cleaned up and such.
 	ghost_red 	= sanitize_integer(ghost_red, 0, 255, initial(ghost_red))
 	ghost_green	= sanitize_integer(ghost_green, 0, 255, initial(ghost_green))
 	ghost_blue	= sanitize_integer(ghost_blue, 0, 255, initial(ghost_blue))
+	ooc_color	= sanitize_hexcolor(ooc_color, initial(ooc_color))
 
 	return 1
 

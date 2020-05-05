@@ -26,7 +26,7 @@
 	desc = "Its a bunch of GhooOoOoosts"
 	icon_state = "god"
 	vis_flags = VIS_INHERIT_ID
-	potential_req = 30
+	potential_req = 50
 
 /obj/effect/overlay/viscons/ghostbody/king
 	name = "Ghostbodies"
@@ -154,4 +154,10 @@
 	vis_flags = VIS_INHERIT_ID
 	potential_req = 12
 
+/obj/effect/overlay/viscons/ghostbody/applejack
+	name = "Ghostbodies"
+	desc = "Its a bunch of GhooOoOoosts"
+	icon_state = "Applejack"
+	vis_flags = VIS_INHERIT_ID
+	potential_req = 20
 

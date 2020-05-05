@@ -27,7 +27,6 @@
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtimes = 0                // Logs all runtimes.
 	var/sql_enabled = 1					// for sql switching
-	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
 	var/allow_vote_mode = 0				// allow votes to change mode
 	var/allow_admin_jump = 1			// allows admin jumping
@@ -312,9 +311,6 @@
 
 				if ("log_hrefs")
 					config.log_hrefs = 1
-
-				if("allow_admin_ooccolor")
-					config.allow_admin_ooccolor = 1
 
 				if ("allow_vote_restart")
 					config.allow_vote_restart = 1
