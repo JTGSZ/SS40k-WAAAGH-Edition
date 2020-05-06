@@ -48,7 +48,7 @@
 				"Mek" = list(/obj/item/weapon/storage/belt/ork/basicbelt/stikkbombs)
 			),
 			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
-			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack/kustomshootabelts,
+			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack/mekpack,
 			slot_r_hand = list(
 				"Mek" = list(/obj/item/weapon/gun/projectile/automatic/kustomshoota)
 			),

@@ -369,113 +369,6 @@
 /mob/proc/scorestats(var/completions)
 	var/dat = completions
 	dat += {"<BR><h2>Round Statistics and Score</h2>"}
-
-	/*
-
-	if(ticker.mode.name == "nuclear emergency")
-		var/foecount = 0
-		var/crewcount = 0
-		var/diskdat = ""
-		var/bombdat = null
-		for(var/datum/mind/M in ticker.mode:syndicates)
-			foecount++
-		for(var/mob/living/C in mob_list)
-			if(!istype(C,/mob/living/carbon/human) || !istype(C,/mob/living/silicon/robot) || !istype(C,/mob/living/silicon/ai))
-				continue
-			if(C.stat == DEAD)
-				continue
-			if(!C.client)
-				continue
-			crewcount++
-
-		for(var/obj/item/weapon/disk/nuclear/N in world)
-			if(!N)
-				continue
-			var/atom/disk_loc = N.loc
-			while(!istype(disk_loc, /turf))
-				if(istype(disk_loc, /mob))
-					var/mob/M = disk_loc
-					diskdat += "Carried by [M.real_name] "
-				if(istype(disk_loc, /obj))
-					var/obj/O = disk_loc
-					diskdat += "in \a [O.name] "
-				disk_loc = disk_loc.loc
-			diskdat += "in [disk_loc.loc]"
-			break // Should only need one go-round, probably
-
-		for(var/obj/machinery/nuclearbomb/nuke in machines)
-			if(nuke.r_code == "Nope")
-				continue
-			var/turf/T = NUKE.loc
-			bombdat = T.loc
-			if(istype(T,/area/syndicate_station) || istype(T,/area/wizard_station) || istype(T,/area/solar/) || istype(T,/area))
-				nukedpenalty = 1000
-			else if (istype(T,/area/security/main) || istype(T,/area/security/brig) || istype(T,/area/security/armory) || istype(T,/area/security/checkpoint2))
-				nukedpenalty = 50000
-			else if (istype(T,/area/engine))
-				nukedpenalty = 100000
-			else
-				nukedpenalty = 10000
-			break
-		if(!diskdat)
-			diskdat = "Uh oh. Something has fucked up! Report this."
-
-		<B>Final Location of Nuke:</B> [bombdat]<BR>
-		<B>Final Location of Disk:</B> [diskdat]<BR><BR>
-
-		dat += {"<B><U>MODE STATS</U></B><BR>
-		<B>Number of Operatives:</B> [foecount]<BR>
-		<B>Number of Surviving Crew:</B> [crewcount]<BR>
-		<B>Final Location of Nuke:</B> [bombdat]<BR>
-		<B>Final Location of Disk:</B> [diskdat]<BR><BR>
-		<B>Operatives Arrested:</B> [score["arrested"]] ([score["arrested"] * 1000] Points)<BR>
-		<B>Operatives Killed:</B> [score["opkilled"]] ([score["opkilled"] * 250] Points)<BR>
-		<B>Station Destroyed:</B> [score["nuked"] ? "Yes" : "No"] (-[nukedpenalty] Points)<BR>
-		<B>All Operatives Arrested:</B> [score["allarrested"] ? "Yes" : "No"] (Score tripled)<BR>
-		<HR>"}
-//		<B>Nuclear Disk Secure:</B> [score["disc"] ? "Yes" : "No"] ([score["disc"] * 500] Points)<BR>
-
-	if(ticker.mode.name == "revolution")
-		var/foecount = 0
-		var/comcount = 0
-		var/revcount = 0
-		var/loycount = 0
-		for(var/datum/mind/M in ticker.mode:head_revolutionaries)
-			if(M.current && M.current.stat != 2)
-				foecount++
-		for(var/datum/mind/M in ticker.mode:revolutionaries)
-			if(M.current && M.current.stat != 2)
-				revcount++
-		for(var/mob/living/carbon/human/player in mob_list)
-			if(player.mind)
-				var/role = player.mind.assigned_role
-				if(role in list("General", "Commissar", "Head of Personnel", "Chief Engineer", "Research Director"))
-					if(player.stat != 2)
-						comcount++
-				else
-					if(player.mind in ticker.mode:revolutionaries)
-						continue
-					loycount++
-		for(var/mob/living/silicon/X in mob_list)
-			if (X.stat != 2)
-				loycount++
-		var/revpenalty = 10000
-
-		dat += {"<B><U>MODE STATS</U></B><BR>
-		<B>Number of Surviving Revolution Heads:</B> [foecount]<BR>
-		<B>Number of Surviving Command Staff:</B> [comcount]<BR>
-		<B>Number of Surviving Revolutionaries:</B> [revcount]<BR>
-		<B>Number of Surviving Loyal Crew:</B> [loycount]<BR><BR>
-		<B>Revolution Heads Arrested:</B> [score["arrested"]] ([score["arrested"] * 1000] Points)<BR>
-		<B>Revolution Heads Slain:</B> [score["opkilled"]] ([score["opkilled"] * 500] Points)<BR>
-		<B>Command Staff Slain:</B> [score["deadcommand"]] (-[score["deadcommand"] * 500] Points)<BR>
-		<B>Revolution Successful:</B> [score["traitorswon"] ? "Yes" : "No"] (-[score["traitorswon"] * revpenalty] Points)<BR>
-		<B>All Revolution Heads Arrested:</B> [score["allarrested"] ? "Yes" : "No"] (Score tripled)<BR>
-		<HR>"}
-
-	*/
-
-//	var/totalfunds = wagesystem.station_budget + wagesystem.research_budget + wagesystem.shipping_budget
 	dat += {"<B><U>GENERAL STATS</U></B><BR>
 
 	<U>THE GOOD:</U><BR>
@@ -499,12 +392,7 @@
 	<B>Bad diseases in living mobs:</B> [score["disease_bad"]] (-[score["disease_bad"] * 50] Points)<BR><BR>
 
 	<U>THE WEIRD</U><BR>"}
-/*	<B>Final Station Budget:</B> $[num2text(totalfunds,50)]<BR>"}
-	var/profit = totalfunds - 100000
-	if (profit > 0)
-		dat += "<B>Station Profit:</B> +[num2text(profit,50)]<BR>"
-	else if (profit < 0)
-		dat += "<B>Station Deficit:</B> [num2text(profit,50)]<BR>"}*/
+
 	dat += "<B>Food Eaten:</b> [score["foodeaten"]]<BR>"
 	dat += "<B>Times a Clown was Abused:</B> [score["clownabuse"]]<BR>"
 	dat += "<B>Number of Times Someone was Slipped: </B> [score["slips"]]<BR>"

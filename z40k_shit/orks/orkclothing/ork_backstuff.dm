@@ -45,3 +45,12 @@
 	new /obj/item/ammo_storage/box/piles/sluggabulletpile/max_pile(src)
 	new /obj/item/ammo_storage/box/piles/sluggabulletpile/max_pile(src)
 
+/obj/item/weapon/storage/backpack/ork/brownbackpack/mekpack/New()
+	..()
+	new /obj/item/ammo_storage/magazine/kustom_shoota_belt(src)
+	new /obj/item/weapon/taperoll(src)
+	new /obj/item/ammo_storage/magazine/kustom_shoota_belt(src)
+	new /obj/item/ammo_storage/magazine/kustom_shoota_belt(src)
+	new /obj/item/ammo_storage/box/piles/sluggabulletpile/max_pile(src)
+	new /obj/item/ammo_storage/box/piles/sluggabulletpile/max_pile(src)
+

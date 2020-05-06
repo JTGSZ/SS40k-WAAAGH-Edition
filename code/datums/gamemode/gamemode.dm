@@ -78,14 +78,6 @@
 		warning("Faction ([F]) could not set up properly with given population.")
 		qdel(F)
 		return null
-/*
-	Get list of available players
-	Get list of active factions
-	Loop through the players to see if they're available for certain factions
-		Not available if they
-			don't have their preferences set accordingly
-			already in another faction
-*/
 
 /datum/gamemode/proc/PopulateFactions()
 	var/list/available_players = get_ready_players()
