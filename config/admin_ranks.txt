@@ -30,5 +30,4 @@
 Game Admin		+@ +STEALTH +SOUNDS +DEBUG
 Game Master		+EVERYTHING
 
-Devmin			+EVERYTHING
-Hostmin			+EVERYTHING
+Server Instance	+EVERYTHING
