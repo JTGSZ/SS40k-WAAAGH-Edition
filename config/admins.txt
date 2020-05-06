@@ -11,3 +11,4 @@ TheCannonMan - Game Master
 Buchse - Game Master
 Impromptu Cover - Game Master
 jingleheimer - Game Master
+JTGSZserver - Server Instance
