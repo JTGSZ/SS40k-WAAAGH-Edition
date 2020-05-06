@@ -10,7 +10,7 @@
 	logo_state = "ork-logo"
 	hud_icons = list()
 
-	var/time_left = (30 MINUTES)/10
+	var/time_left = (40 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 

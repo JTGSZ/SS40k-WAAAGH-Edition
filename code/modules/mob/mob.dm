@@ -1263,31 +1263,28 @@ Use this proc preferably at the end of an equipment loadout
 	if((stat != 2 || !(ticker)))
 		to_chat(usr, "<span class='notice'> <B>You must be dead to use this!</B></span>")
 		return
-	if(ticker.mode.name == "meteor" || ticker.mode.name == "epidemic") //BS12 EDIT
-		to_chat(usr, "<span class='notice'> Respawn is disabled.</span>")
+
+	var/deathtime = world.time - src.timeofdeath
+	if(istype(src,/mob/dead/observer))
+		var/mob/dead/observer/G = src
+		if(G.has_enabled_antagHUD == 1 && config.antag_hud_restricted)
+			to_chat(usr, "<span class='notice'> <B>Upon using the antagHUD you forfeighted the ability to join the round.</B></span>")
+			return
+	var/deathtimeminutes = round(deathtime / 600)
+	var/pluralcheck = "minute"
+	if(deathtimeminutes == 0)
+		pluralcheck = ""
+	else if(deathtimeminutes == 1)
+		pluralcheck = " [deathtimeminutes] minute and"
+	else if(deathtimeminutes > 1)
+		pluralcheck = " [deathtimeminutes] minutes and"
+	var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
+	to_chat(usr, "You have been dead for[pluralcheck] [deathtimeseconds] seconds.")
+	if (deathtime < config.respawn_delay*600)
+		to_chat(usr, "You must wait [config.respawn_delay] minutes to respawn!")
 		return
 	else
-		var/deathtime = world.time - src.timeofdeath
-		if(istype(src,/mob/dead/observer))
-			var/mob/dead/observer/G = src
-			if(G.has_enabled_antagHUD == 1 && config.antag_hud_restricted)
-				to_chat(usr, "<span class='notice'> <B>Upon using the antagHUD you forfeighted the ability to join the round.</B></span>")
-				return
-		var/deathtimeminutes = round(deathtime / 600)
-		var/pluralcheck = "minute"
-		if(deathtimeminutes == 0)
-			pluralcheck = ""
-		else if(deathtimeminutes == 1)
-			pluralcheck = " [deathtimeminutes] minute and"
-		else if(deathtimeminutes > 1)
-			pluralcheck = " [deathtimeminutes] minutes and"
-		var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
-		to_chat(usr, "You have been dead for[pluralcheck] [deathtimeseconds] seconds.")
-		if (deathtime < config.respawn_delay*600)
-			to_chat(usr, "You must wait [config.respawn_delay] minutes to respawn!")
-			return
-		else
-			to_chat(usr, "You can respawn now, enjoy your new life!")
+		to_chat(usr, "You can respawn now, enjoy your new life!")
 
 	log_game("[usr.name]/[usr.key] used abandon mob.")
 
