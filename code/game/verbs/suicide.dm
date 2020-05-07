@@ -41,39 +41,21 @@
 			return 1
 
 /mob/living/carbon/human/attempt_suicide(forced = 0, suicide_set = 1)
-
 	if(!forced)
-
-		var/confirm = alert("Are you sure you want to commit suicide? This action cannot be undone and you will not able to be revived.", "Confirm Suicide", "Yes", "No")
-
-		if(confirm != "Yes")
-			return
-
 		if(stat != CONSCIOUS)
-			to_chat(src, "<span class='warning'>You can't commit suicide in this state!</span>")
+			to_chat(src, "<span class='warning'>You appear to be too like, not conscious.</span>")
 			return
 
-		if(istype(wear_mask, /obj/item/clothing/mask/happy))
-			to_chat(src, "<span class='sinister'>BUT WHY? I'M SO HAPPY!</span>")
-			return
-
-		var/mob/living/simple_animal/borer/B = has_brain_worms()
-		if(B && B.controlling) //Borer
-			to_chat(src, "<span class='warning'>You cannot commit suicide, your host is clinging to life enough to resist it.</span>")
-			return
-
-		if(!canmove || restrained()) //Just while I finish up the new 'fun' suiciding verb. This is to prevent metagaming via suicide
-			to_chat(src, "<span class='warning'>You can't commit suicide whilst restrained!</span>")
-			return
-
-		log_attack("<font color='red'>[key_name(src)] has committed suicide via the suicide verb.</font>")
-
-	if(suicide_set)
-		suiciding = 1
-
-	var/obj/item/held_item = get_active_hand()
-
-	if(!attempt_item_suicide(held_item)) //Failed to perform a special item suicide, go for normal stuff
+		var/obj/item/held_item = get_active_hand()
+		if(!attempt_item_suicide(held_item)) //Failed to perform a special item suicide, go for normal stuff
+			visible_message("<span class='danger'>[src] looks confused for a moment.</span>")
+			return // ha ha ha good luck idiot.
+		else
+			if(suicide_set)
+				suiciding = 1
+	else
+		if(suicide_set)
+			suiciding = 1
 		visible_message(pick("<span class='danger'>[src] is attempting to bite \his tongue off! It looks like \he's trying to commit suicide.</span>", \
 							 "<span class='danger'>[src] is jamming \his thumbs into \his eye sockets! It looks like \he's trying to commit suicide.</span>", \
 							 "<span class='danger'>[src] is twisting \his own neck! It looks like \he's trying to commit suicide.</span>", \

@@ -180,7 +180,7 @@
 	succumb_proc(0)
 
 /mob/living/proc/succumb_proc(var/gibbed = 0, var/from_deathgasp = FALSE)
-	if (src.health < 0 && stat != DEAD)
+	if(src.health < 0 && stat != DEAD)
 		src.attack_log += "[src] has succumbed to death with [health] points of health!"
 		src.apply_damage(maxHealth + src.health, OXY)
 		if(!from_deathgasp)
