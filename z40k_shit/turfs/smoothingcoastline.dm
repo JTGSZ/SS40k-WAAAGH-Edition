@@ -6,6 +6,7 @@
 	luminosity = 1
 	floragen = FALSE 
 	var/isedge
+	footprints = FALSE
 
 /turf/unsimulated/outside/smoothingcoastline/canSmoothWith() //Works
 	var/static/list/smoothables = list(
@@ -15,7 +16,6 @@
 
 /turf/unsimulated/outside/smoothingcoastline/New(loc)
 	..(loc)
-	icon = 'z40k_shit/icons/turfs/coastal2.dmi'
 
 	if(ticker && ticker.current_state >= GAME_STATE_PLAYING)
 		initialize()
