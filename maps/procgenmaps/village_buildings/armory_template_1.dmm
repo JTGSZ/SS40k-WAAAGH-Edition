@@ -1,6 +1,5 @@
 "a" = (/turf/simulated/wall/r_wall,/area/vault/warhammergen/neutral_town)
 "d" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/flare/syndicate,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/neutral_town)
-"f" = (/obj/structure/table/reinforced,/obj/machinery/light/he{dir = 4},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/neutral_town)
 "g" = (/obj/structure/table/reinforced,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/neutral_town)
 "h" = (/obj/structure/rack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/neutral_town)
 "i" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/nagant,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/neutral_town)
@@ -24,11 +23,11 @@ aaaaaa
 ahRkCa
 aFRRRs
 aNHRRa
-aBRRfa
+aBRRga
 awRRga
 aXRRga
 arRRga
-aiRRfa
+aiRRga
 ajRRga
 adRKWa
 aaaaaa

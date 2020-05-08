@@ -2,6 +2,7 @@
 	name = "footpath"
 	icon = 'z40k_shit/icons/turfs/dirtfootpath.dmi'
 	icon_state = "water"
+	dynamic_lighting = 0
 	floragen = FALSE
 	footprints = FALSE
 
@@ -9,6 +10,7 @@
 	name = "footpath"
 	icon = 'z40k_shit/icons/turfs/dirtfootpath.dmi'
 	icon_state = "sandwater7"
+	dynamic_lighting = 0
 	floragen = FALSE 
 	var/isedge
 

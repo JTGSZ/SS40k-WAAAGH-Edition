@@ -18,7 +18,6 @@
 "jk" = (/turf/simulated/wall/vault,/area/vault/warhammergen/ig_loot_area)
 "jv" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "jG" = (/obj/item/weapon/switchtool/surgery{pixel_x = 5; pixel_y = 10},/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
-"kt" = (/obj/machinery/light/he{dir = 1},/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "kD" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "kR" = (/obj/effect/landmark/start/IG_Cadian_Weapon_Specialist,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "mx" = (/obj/structure/closet/secure_closet/freezer/meat,/obj/item/weapon/reagent_containers/food/condiment/enzyme,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
@@ -47,7 +46,6 @@
 "yN" = (/obj/machinery/light/he{dir = 4},/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "yY" = (/obj/structure/table/reinforced,/obj/item/weapon/cell/lasgunmag,/obj/item/weapon/cell/lasgunmag,/obj/item/weapon/cell/lasgunmag,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "zr" = (/obj/machinery/light/he,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
-"zA" = (/obj/item/weapon/storage/fancy/flares,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "zS" = (/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "Ax" = (/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "Bu" = (/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -65,7 +63,6 @@
 "FN" = (/obj/structure/rack,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "FU" = (/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "FY" = (/obj/machinery/vending/dinnerware,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
-"Gq" = (/obj/structure/table/reinforced,/obj/item/device/flashlight/lamp,/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "GR" = (/obj/structure/rack,/obj/item/weapon/chainsword,/obj/item/weapon/chainsword,/obj/item/weapon/chainsword,/obj/item/weapon/chainsword,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "HE" = (/obj/machinery/chemheater,/obj/structure/table/reinforced,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "HT" = (/obj/structure/bed/roller/surgery,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
@@ -86,7 +83,6 @@
 "Pr" = (/obj/machinery/optable,/turf/simulated/floor{icon_state = "cmo"},/area/vault/warhammergen/cadianspawn)
 "PC" = (/obj/machinery/light/he{dir = 1},/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "Qq" = (/obj/machinery/chem_dispenser/mapping,/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
-"Rr" = (/obj/structure/table/reinforced,/obj/item/device/flashlight/lamp/green,/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "RK" = (/obj/structure/table/reinforced,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "RV" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor{dir = 10; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "Tk" = (/obj/structure/bed/chair/comfy,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
@@ -116,16 +112,16 @@ pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmJmPCJmdFJmJmPCJmJmpeoAiNoApewSsNkDTkwSpepe
 pepeJmJmJmJmJmJmdFJmJmJmJmJmpeoAoAoApewSoAoAoAwSpepe
 pepeJmJmJmJmJmJmxZJmJmJmJmJmpeoAoAoABSwSnwVEoAdHpepe
-pepeJmJmJmJmJmJmdFJmJmJmJmJmaboAoAoApewSGqoAoAwSpepe
+pepeJmJmJmJmJmJmdFJmJmJmJmJmaboAoAoApewSnwoAoAwSpepe
 pepeJmJmJmJmJmJmdFJmJmJmJmJmpeoAoAyNpewSwSwSwSwSpepe
 pepeJmJmJmJmJmJmpepepepepepepeoAoAoApepepepepepepepe
 pepeAxAxAxAxAxAxpejkjkjkjkjkpeoAoAoApesNsNEqvJoPpepe
 pepeAxAxAxAxAxAxpejkzSYLzSjkpeoAoAoApewSoAoAoANopepe
 pepeAxAxAxAxAxAxpejkzSzSzSjkpeoAoAoApewSnwTwoAgipepe
-pepepepepepeAxAxpejkzSzSzSjkpeoAoAoABSwSRroAoAYFpepe
+pepepepepepeAxAxpejkzSzSzSjkpeoAoAoABSwSnwoAoAYFpepe
 pepepepepepetftfpejkjkdrjkjkpepepepepewSwSwSYWwSpepe
-pepemQDtylivAxAxpepeqRLDFUjvktMTFNIZpepepepepepepepe
-pepemxAxqOAxAxAxpepeEvLDLDLDzAzAvkUQpeAxrqAxAxAxpepe
+pepemQDtylivAxAxpepeqRLDFUjvqRMTFNIZpepepepepepepepe
+pepemxAxqOAxAxAxpepeEvLDLDLDLDLDvkUQpeAxrqAxAxAxpepe
 pepeFYAxqOWaAxAxpepeEvLDEvEvEvEvvkyYpeNMNMAxNMNMpepe
 pepecdAxqOAxAxAxpepeGRLDdcLDLgLgLDcgpeErErAxErErpepe
 pepepOAxqOAxWaAxpepeGRLDiwiSBuJjJjRKpeAxAxAxAxCjpepe

@@ -3,7 +3,6 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "Floor3"
 	plane = PLATING_PLANE
-	//dynamic_lighting = 0
 
 //---Footprint vars-----------------	
 	var/footprints = TRUE //if false, do not set up a footprint parent, do not make footprints
@@ -16,24 +15,9 @@
 	can_border_transition = FALSE
 
 	//Do we allow the generator to spawn shit on this turf?
-	floragen = FALSE 
+	floragen = FALSE
 
-//-----------Lighting----------------
-	light_power = 3
-	light_range = 2
-	light_color = "#FFFFFF"
-
-/turf/unsimulated/outside/New()
-	..()
-
-	if(footprints)
-		footprint_parent = new /obj/effect/footprint_holder(src)
-		footprint_parent.color_holder = footprint_color
-	
-/turf/unsimulated/outside/Destroy()
-	if(footprint_parent)
-		qdel(footprint_parent)
-	..()
+	//var/turfverb = "dig out" //Going to use this for the action of digging a turf out.
 
 /turf/unsimulated/outside/initialize()
 
@@ -48,7 +32,7 @@
 			if(prob(20))
 				new/obj/effect/decal/cleanable/soot(src)
 
-/turf/unsimulated/outside/attack_paw(mob/user)
+/turf/unsimulated/outside/attack_paw(user )
 	return src.attack_hand(user)
 
 /turf/unsimulated/outside/add_dust()
@@ -64,6 +48,18 @@
 //--------------------OUTSIDE EFFECTS ------------------------------------
 
 /turf/unsimulated/outside/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0, var/allow = 1)
+	if(footprint_parent)
+		qdel(footprint_parent)
+	..()
+
+/turf/unsimulated/outside/New()
+	..()
+
+	if(footprints)
+		footprint_parent = new /obj/effect/footprint_holder(src)
+		footprint_parent.color_holder = footprint_color
+	
+/turf/unsimulated/outside/Destroy()
 	if(footprint_parent)
 		qdel(footprint_parent)
 	..()
