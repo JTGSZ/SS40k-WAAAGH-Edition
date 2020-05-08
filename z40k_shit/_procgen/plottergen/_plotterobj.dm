@@ -80,10 +80,10 @@ W(8)---- *****  ---- E(4)
 	//We step to the current direction
 	//step(src, HUR_DUR) //This replaces us just setting our location to BALLS
 	
-	for(var/turf/NIG in orange(1,src))
-		if(istype(NIG, /turf)) //No density check, WE CUTTIN THRU
-			new /turf/unsimulated/outside/water/deep(NIG)
-			new /area/warhammer/water(NIG)
+	for(var/turf/T in orange(1,src))
+		if(!istype(T, /turf/unsimulated/outside/water/deep)) //No density check, WE CUTTIN THRU
+			T.ChangeTurf(/turf/unsimulated/outside/water/deep)
+			T.set_area(/area/warhammer/water)
 
 /*
 	NODE LINER

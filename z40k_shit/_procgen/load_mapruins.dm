@@ -19,7 +19,7 @@
 //List of spawnable vaults is in code/modules/randomMaps/vault_definitions.dm
 
 /datum/loada_gen/proc/loada_generate_template()
-	var/area/space = get_space_area()
+	//var/area/space = get_space_area()
 
 	var/list/list_of_vaults = loada_get_map_elements()
 
@@ -30,8 +30,8 @@
 	var/area/A = locate(map.map_vault_area)
 	var/result = loada_populate_templates(A, amount = vault_number, population_density = POPULATION_SCARCE)
 
-	for(var/turf/TURF in A) //Replace all of the temporary areas with space
-		TURF.set_area(space)
+	//for(var/turf/TURF in A) //Replace all of the temporary areas with space
+	//	TURF.set_area(space)
 
 	message_admins("<span class='info'>Loaded [result] out of [vault_number] vaults.</span>")
 
