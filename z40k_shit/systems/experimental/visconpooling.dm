@@ -1,9 +1,11 @@
 //So, i'm going to try a vis_contents pooling system right here.
+//We will explore the different forms of it, and see how it goes.
 /datum/visconpooler
 	
 /datum/visconpooler/New()
 	load_barricades()
 	load_ghostbodies()
+	load_ghostbuttons()
 
 /datum/visconpooler/proc/load_barricades()
 	barricadepool[1] = new /obj/effect/overlay/viscons/aegisline/north
@@ -33,11 +35,24 @@
 		ghostbody_buttons.Add(gbutton)
 
 		p_height++
-		if(p_height >= 6)
+		if(p_height > 6)
 			p_height = 1
 			p_width++
-		if(p_width >= 6)
-			return
-		
-		
 
+/datum/visconpooler/proc/load_ghostbuttons()
+	var/p_width = 1
+	var/p_height = 1
+	
+	for(var/ourbutton in typesof(/obj/abstract/screen/viscons/ghostactions) - /obj/abstract/screen/viscons/ghostactions)
+		var/obj/abstract/screen/viscons/ghostactions/thebutton = new ourbutton
+		thebutton.del_on_map_removal = FALSE
+		thebutton.assigned_map = "ghostactions_map"
+		thebutton.screen_info = list(p_width,p_height)
+		ghost_actions.Add(thebutton)
+	
+		p_width++
+		if(p_width > 6)
+			p_width = 1
+			p_height++
+
+	

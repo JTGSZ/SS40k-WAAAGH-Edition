@@ -6,7 +6,7 @@
 			T = locate(curX, curY, 1)
 			if(istype(T, /turf/unsimulated/outside/sand))
 				if(locate(/turf/unsimulated/outside/water/deep) in oview(T, 1))
-					new /turf/unsimulated/outside/water/shallow(T)
+					T.ChangeTurf(/turf/unsimulated/outside/water/shallow)
 					new /area/warhammer/water(T)
 
 /datum/loada_gen/proc/CleanupSpace() //We clean space up
@@ -19,12 +19,14 @@
 			if(istype(T, /turf/space/)) //If T is a space turf
 				if(locate(/turf/unsimulated/outside/water/deep) in oview(T, 1))
 					if(prob(50)) //We have a 50% probability to be either shallow water or
-						new /turf/unsimulated/outside/water/shallow(T)
+						T.ChangeTurf(/turf/unsimulated/outside/water/shallow)
 						new /area/warhammer/water(T)
 					else
 						T.ChangeTurf(base_turf)
+						new /area/warhammer/desert
 				else
 					T.ChangeTurf(base_turf)
+					new /area/warhammer/desert
 
 /datum/loada_gen/proc/CreateCoastline()
 	var/turf/T
