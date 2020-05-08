@@ -1,6 +1,6 @@
 /obj/effect/footprint_holder
 	name = "footprint"
-	desc = "Brrr."
+	desc = "Footprints from something or another."
 	density = 0
 	anchored = 1
 	plane = ABOVE_TURF_PLANE

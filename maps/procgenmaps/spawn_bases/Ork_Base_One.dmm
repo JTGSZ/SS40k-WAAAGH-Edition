@@ -13,13 +13,16 @@
 "t" = (/obj/item/barbed_wire_handler,/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
 "u" = (/obj/structure/bed/chair/wood,/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
 "w" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
+"y" = (/obj/item/device/flashlight,/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
 "z" = (/obj/item/stack/sheet/wood/bigstack,/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
 "A" = (/obj/item/stack/sheet/metal/bigstack,/turf/unsimulated/outside/sand,/area/vault/warhammergen/orkspawn)
 "B" = (/turf/simulated/wall/r_wall,/area/vault/warhammergen/orkspawn)
+"C" = (/obj/item/device/flashlight,/turf/unsimulated/outside/sand,/area/vault/warhammergen/orkspawn)
 "D" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/orkspawn)
 "E" = (/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "I" = (/obj/effect/landmark/start/basicOrk,/turf/unsimulated/outside/sand,/area/vault/warhammergen/orkspawn)
 "J" = (/obj/effect/landmark/start/orkmek,/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
+"K" = (/obj/item/weapon/storage/fancy/flares,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "N" = (/obj/effect/landmark/start/basicOrk,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "P" = (/obj/machinery/light/he{dir = 1},/turf/unsimulated/outside/sand,/area/vault/warhammergen/orkspawn)
 "R" = (/turf/simulated/floor,/area/vault/warhammergen/orkspawn)
@@ -38,16 +41,16 @@ EUEEEEEEEEEEEUEENENE
 EUbEEEEEEiiiiiiiEEEE
 EpppDDBRRBVVVVViEEEE
 EDDPReDRRBVnanViENEE
-EDDRRRRRRBVnnnViEEEE
-EBRRRRDRRBVVYVVidNNE
+EDCRRRRRRBVnnnViEEEE
+EBRRRRCRRBVVYVVidNNE
 EwRqRRRRRBBwRwBiEEEE
 ERRRRIRRtuuRRRREEEEE
 ETRRDRRRtRRRqRzUUUUE
-EDDJRRoRcRRRqRREEEUE
+EDDJRRoRcRRRqRREEKUE
 EDDRRRRRDRRRRRpEEEUE
 EDgRDRRRDRcRRRDENEUE
-EDRRRRRAARRRDRpEEEUE
-EDRWRRDIDRRRsDpENEUE
+EDRRRRyAARRRDRpEEEUE
+EDRWRRDIDRRRsDpKNEUE
 EBBBBBDDADBBBBDEUEEE
 EEEEEEEEEEEEEEEEEEEE
 "}

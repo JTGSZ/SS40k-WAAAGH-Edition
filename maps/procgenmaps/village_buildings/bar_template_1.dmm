@@ -3,7 +3,7 @@
 "c" = (/obj/structure/table/woodentable,/obj/machinery/chem_dispenser/booze_dispenser/mapping{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "d" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/neutral_town)
 "e" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/vault/warhammergen/neutral_town)
-"f" = (/obj/machinery/cooking/candy,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"f" = (/obj/machinery/cooking/candy,/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "g" = (/obj/structure/fence,/obj/structure/fence/corner{dir = 8},/turf/unsimulated/outside/sand,/area/vault/warhammergen/neutral_town)
 "h" = (/obj/structure/table/reinforced,/obj/machinery/microwave{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "i" = (/obj/machinery/cooking/still,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
@@ -20,6 +20,7 @@
 "t" = (/obj/structure/table/woodentable,/obj/item/weapon/storage/box/drinkingglasses,/obj/item/weapon/storage/box/drinkingglasses,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "u" = (/obj/structure/fence{dir = 4},/turf/unsimulated/outside/sand,/area/vault/warhammergen/neutral_town)
 "v" = (/obj/structure/table/reinforced,/obj/item/weapon/kitchen/rollingpin,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"w" = (/obj/machinery/light/he,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "x" = (/obj/structure/table/reinforced,/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "y" = (/obj/item/weapon/reagent_containers/spray/cleaner,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "z" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
@@ -27,8 +28,9 @@
 "B" = (/obj/item/weapon/reagent_containers/glass/beaker/large,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "C" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "D" = (/obj/effect/landmark/start/chef,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
-"E" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"E" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "F" = (/obj/structure/table/woodentable,/obj/machinery/chem_dispenser/soda_dispenser/mapping{pixel_y = 10},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"G" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "H" = (/obj/machinery/cooking/cerealmaker,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "I" = (/obj/machinery/door/mineral/wood,/turf/unsimulated/outside/sand,/area/vault/warhammergen/neutral_town)
 "J" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
@@ -56,11 +58,11 @@ eddaiMylDllla
 eddIllDllBlza
 eddapPlSzlHCa
 aaaaaanaaxaaa
-allQlllFclRNa
+allQlGlFclRNa
 ajlKlrlllUlla
 alllljZjjjtaa
-abKllAAAAAAlW
+abKllAAAAAAGW
 aYlllllllllls
-alllllllllllL
+allwllllllllL
 aaoakJJJJJJqa
 "}

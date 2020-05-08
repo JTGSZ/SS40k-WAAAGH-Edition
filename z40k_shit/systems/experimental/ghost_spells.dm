@@ -107,14 +107,14 @@
 		return 0
 
 	var/mob/dead/observer/ghost = usr
-	ghost.hide_sprite()
+	ghost.jumptomob()
 
 /*		Hide Ghosts
 */
 /obj/abstract/screen/viscons/ghostactions/hide_ghosts
 	name = "Hide Ghosts"
 	desc = "Hides all the ghosts"
-	icon_state = "jump_to"
+	icon_state = "hide_ghosts"
 
 /obj/abstract/screen/viscons/ghostactions/hide_ghosts/Click(location, control, params)
 	if(..())
