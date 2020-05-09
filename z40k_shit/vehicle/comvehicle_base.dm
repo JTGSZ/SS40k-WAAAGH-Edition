@@ -73,7 +73,7 @@
 	var/position_1 = null
 
 /obj/complex_vehicle/New()
-	. = ..()
+	..()
 	handle_new_overlays()
 	bound_width = vehicle_width*WORLD_ICON_SIZE
 	bound_height = vehicle_height*WORLD_ICON_SIZE
@@ -84,10 +84,6 @@
 	for(var/path in chassis_actions) //Mark 1
 		var/cunts = new path(src) //We create the actions inside of this object. They should add themselve to held actions.
 		ES.action_storage += cunts
-
-
-	if(ticker && ticker.current_state >= GAME_STATE_PREGAME)
-		initialize()
 
 /obj/complex_vehicle/initialize()
 	..()
@@ -123,6 +119,7 @@
 //Mostly so we leave a husk instead of destroying the vehicle completely
 /obj/complex_vehicle/proc/break_this_shit()
 	var/origin = get_turf(src) // A holder for height
+	vehicle_broken_husk = TRUE //Making sure its stopped here and now doubly so.
 
 	if(ES.equipment_systems)
 		for(var/q=1 to vehicle_width+1)
@@ -347,29 +344,6 @@
 			for(var/datum/action/complex_vehicle_equipment/action in ES.action_storage)
 				action.Grant(new_pilot)
 
-/*
-/obj/complex_vehicle/proc/tight_fuckable_dickhole(var/mob/user, var/GIVIESorTAKIES)
-	var/pilot = get_pilot()
-	if(GIVIESorTAKIES) //GIVIES
-		occupants.Add(user) //WE GIVIES OCCUPANTS the USER
-		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage) //Our datum action holder
-			if(actions.pilot_only && get_pilot() != user) //IF THE ACTION IS PILOT ONLY AND USER IS NOT PILOT
-				actions.Remove(user)
-			actions.Grant(user) //We grant the user all the actions on ES.actions_storage
-
-		if(get_pilot() && pilot != get_pilot()) //NEW PILOT - Occurs if someone gets out and theres a passenger
-			var/mob/living/new_pilot = get_pilot()
-			if(!new_pilot)
-				return	
-			to_chat(new_pilot, "<span class = 'notice'>You are now the driver of \the [src].</span>")
-			for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
-				actions.Grant(new_pilot)
-	
-	else //TAKIES
-		occupants.Remove(user) //WE TAKIES the user OUT of OCCUPANTS
-		for(var/datum/action/complex_vehicle_equipment/actions in ES.action_storage)
-			actions.Remove(user) //They just left we take ALL the shit. 
- */
 /obj/complex_vehicle/proc/toggle_weapon(var/weapon_toggle, var/obj/item/device/vehicle_equipment/weaponry/mygun, var/datum/action/complex_vehicle_equipment/actionid)
 	if(usr!=get_pilot())
 		return

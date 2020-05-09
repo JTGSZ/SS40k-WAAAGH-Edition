@@ -20,7 +20,7 @@
 	desc = "Standard issue ranged weapon given to Guardsmen of the Imperial Guard."
 	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
 	icon_state = "lasgun100-nby-nscp"
-	item_state = "lasgun" //We jsut auto change neways
+	item_state = "lasgun-unwielded-nby-nscp" //We jsut auto change neways
 	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IG_lasgun_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IG_lasgun_right.dmi')
 	cell_type = "/obj/item/weapon/cell/lasgunmag" //Lasgunmag
 	fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
@@ -200,7 +200,7 @@
 
 /obj/item/weapon/gun/energy/lasgun/update_wield(mob/user)
 	..()
-	force = wielded ? 30 : 15
+	force = wielded ? 35 : 15
 	update_icon()
 
 /*
@@ -365,21 +365,21 @@
 
 /obj/item/projectile/beam/maxpower
 	name = "powerful laser"
-	damage = 30
+	damage = 45
 
 /obj/item/projectile/beam/maxpower/degraded
-	damage = 20
+	damage = 30
 	
 /obj/item/projectile/beam/medpower
 	name = "average laser"
-	damage = 15
+	damage = 25
 
 /obj/item/projectile/beam/medpower/degraded
-	damage = 10
+	damage = 15
 
 /obj/item/projectile/beam/lowpower
 	name = "low-power laser"
-	damage = 10
+	damage = 15
 
 /obj/item/projectile/beam/lowpower/degraded
-	damage = 5
+	damage = 10

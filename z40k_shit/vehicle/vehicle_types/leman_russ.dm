@@ -7,7 +7,7 @@
 	name = "Leman Russ"
 	icon_state = "lemanruss"
 	desc = "Its a LEMAN RUSS."
-	mainturret = /obj/complex_vehicle/complex_turret/demolisher/
+	mainturret = /obj/complex_vehicle/complex_turret/demolisher
 
 /*
 	LEMAN RUSS PUNISHER
@@ -15,7 +15,7 @@
 /obj/complex_vehicle/complex_chassis/leman_russ/punisher
 	name = "Leman Russ"
 	desc = "Its a Leman Russ."
-	mainturret = /obj/complex_vehicle/complex_turret/punisher/
+	mainturret = /obj/complex_vehicle/complex_turret/punisher
 	var/obj/item/device/vehicle_equipment/weaponry/heavybolter/HBOLT
 	
 

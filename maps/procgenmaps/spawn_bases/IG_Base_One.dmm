@@ -9,6 +9,7 @@
 "dF" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "dH" = (/obj/machinery/light/he{dir = 4},/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "er" = (/obj/effect/landmark/start/preacher,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
+"fD" = (/obj/item/weapon/crowbar/red,/obj/item/weapon/wrench,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "gi" = (/obj/structure/bed/chair/comfy/couch/left/lime{dir = 8},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "gV" = (/obj/item/weapon/storage/box/beakers,/turf/simulated/floor{dir = 8; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "hF" = (/obj/item/weapon/switchtool/surgery{pixel_x = 5; pixel_y = 10},/turf/simulated/floor{icon_state = "cmo"},/area/vault/warhammergen/cadianspawn)
@@ -99,6 +100,7 @@
 "Xa" = (/turf/simulated/floor{icon_state = "white"},/area/vault/warhammergen/cadianspawn)
 "Xt" = (/obj/effect/landmark/start/commissar,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "XK" = (/obj/item/stack/medical/advanced/bruise_pack,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
+"Yy" = (/obj/item/device/vehicle_equipment/dozer_blade,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "YF" = (/obj/machinery/light/he{dir = 4},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "YL" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "YW" = (/obj/item/weapon/bedsheet/black,/obj/structure/bed,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
@@ -107,11 +109,11 @@
 (1,1,1) = {"
 JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
 JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
-JmJmJmJmJmJmJmJmJmJmJmJmJmJmIMJmJmJmJmJmJmJmJmJmJmJm
+JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
-pepeJmJmJmJmPCJmdFJmJmPCJmJmpeoAiNoApewSsNkDTkwSpepe
+pepeJmJmJmJmPCJmdFJmJmPCJmIMpeoAiNoApewSsNkDTkwSpepe
 pepeJmJmJmJmJmJmdFJmJmJmJmJmpeoAoAoApewSoAoAoAwSpepe
 pepeJmJmJmJmJmJmxZJmJmJmJmJmpeoAoAoABSwSnwVEoAdHpepe
 pepeJmJmJmJmJmJmdFJmJmJmJmJmaboAoAoApewSnwoAoAwSpepe
@@ -130,15 +132,15 @@ pepepOAxqOAxWaAxpepeGRLDiwiSBuJjJjRKpeAxAxAxAxCjpepe
 pepeAxAxqOAxAxAxpepepeabpepepepepepepeNMNMAxNMNMpepe
 pepeAxqOqOAxAxAxdAqOsHAxrqAxdmrqAxAxpeErErAxErErpepe
 pepeJmAxAxAxAxAxAxXtAxAxkRAxAxerAxerpeAxAxAxAxAxpepe
-JmPCJmJmJmAxJmJmAxAxAxAxAxAxAxAxAxdmpeNMNMAxNMNMpepe
+IMPCJmJmJmAxJmJmAxAxAxAxAxAxAxAxAxdmpeNMNMAxNMNMpepe
 JmJmJmJmJmJmJmCUJmAxAxXtAxAxkRAxAxdmpexBxBAxErErpepe
-JmJmJmJmJmJmJmJmJmJmAxAxAxAxAxAxAxAxrqAxAxAxAxAxpepe
+IMJmJmJmJmJmJmJmJmJmAxAxAxAxAxAxAxAxrqAxAxAxAxAxpepe
 JmJmJmJmJmJmJmJmJmJmAxAxMFAxAxAxAxAxAxAxAxAxAxCjpepe
 JmJmJmJmJmJmJmJmpepepeabpepepepepepepeAxAxAxAxAxpepe
 JmJmJmEVJmJmJmJmpeQqornzyDIgMbMbdhUspexBxBAxAxAxpepe
 JmJmJmJmJmJmJmJmpeCnBYXaVjhFXaPrXaDJpeNMNMAxNMNMpepe
-JmJmJmJmJmJmJmJmpegVttBYZiXahFXaXaUEpeErErAxErErpepe
+JmJmJmJmJmYyJmfDpegVttBYZiXahFXaXaUEpeErErAxErErpepe
 JmJmJmJmJmJmJmJmpeRVHEjGHTXKWvHTzrImpeNMKOAxNMNMpepe
-JmJmJmJmJmJmIMJmpepepepepepepepepepepepepepepepepepe
-JmJmJmJmJmJmJmIMpepepepepepepepepepepepepepepepepepe
+JmJmJmJmJmJmJmJmpepepepepepepepepepepepepepepepepepe
+JmJmJmJmJmJmJmJmpepepepepepepepepepepepepepepepepepe
 "}

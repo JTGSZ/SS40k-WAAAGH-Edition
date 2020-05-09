@@ -122,7 +122,7 @@
 	if(pilot && oldhealth > health && !health)
 		var/mob/living/L = pilot
 		L.playsound_local(L, 'sound/effects/engine_alert1.ogg', 50, 0, 0, 0, 0)
-	if(health <= 0 && !vehicle_broken_husk)
+	if((health <= 0) && (!vehicle_broken_husk))
 		vehicle_broken_husk = TRUE
 		spawn(0)
 			var/mob/living/L = get_pilot()
