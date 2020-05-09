@@ -539,7 +539,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	nitrogen = MOLES_N2STANDARD
 	temperature = T20C
 
-
 /turf/unsimulated/floor/asteroid/air
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD

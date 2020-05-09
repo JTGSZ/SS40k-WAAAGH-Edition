@@ -25,8 +25,8 @@
 		qdel(src)
 
 /obj/structure/aegisline
-	name = "metal barricade"
-	desc = "A barricade made out of wood planks, it looks like it can take a few solid hits."
+	name = "Aegisline Barricade"
+	desc = "A metal barricade, taller than most and made to take a heavier brunt of hits while letting you retaliate.."
 	icon = 'z40k_shit/icons/obj/barricadesmk2.dmi'
 	icon_state = "aegisline"
 	anchored = 1

@@ -20,8 +20,8 @@
 
 	load_map_elements = list()
 
-	center_x = 150
-	center_y = 150
+	center_x = 125
+	center_y = 125
 	only_spawn_map_exclusive_vaults = FALSE
 	can_enlarge = FALSE
 

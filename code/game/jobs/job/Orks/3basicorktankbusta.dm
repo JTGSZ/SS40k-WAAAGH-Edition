@@ -3,7 +3,7 @@
 	flag = ORKTANKBUSTA
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 7
+	total_positions = 3
 	spawn_positions = 3
 	wage_payout = 0
 	supervisors = "da boss"

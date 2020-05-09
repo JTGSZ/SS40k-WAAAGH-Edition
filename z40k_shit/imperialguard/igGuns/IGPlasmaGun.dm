@@ -74,6 +74,7 @@
 	throw_speed = 1
 	fire_sound = null
 	flags = TWOHANDABLE | MUSTTWOHAND
+	slot_flags = null
 	var/gunheat = 0 //GUN HEAT, because its a fucking plasgun damn.
 	var/connection_type = 1 // 1 = No Connection, 2 = Cell connection, 3 = Ppack connection
 	actions_types = list(/datum/action/item_action/warhams/heavydef_swap_stance,

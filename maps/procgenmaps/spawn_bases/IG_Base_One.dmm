@@ -8,6 +8,7 @@
 "dA" = (/obj/machinery/light/he{dir = 1},/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "dF" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "dH" = (/obj/machinery/light/he{dir = 4},/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
+"er" = (/obj/effect/landmark/start/preacher,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "gi" = (/obj/structure/bed/chair/comfy/couch/left/lime{dir = 8},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "gV" = (/obj/item/weapon/storage/box/beakers,/turf/simulated/floor{dir = 8; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "hF" = (/obj/item/weapon/switchtool/surgery{pixel_x = 5; pixel_y = 10},/turf/simulated/floor{icon_state = "cmo"},/area/vault/warhammergen/cadianspawn)
@@ -16,7 +17,7 @@
 "iN" = (/obj/structure/clock,/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "iS" = (/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/nubarricade_parts,/obj/item/weapon/nubarricade_parts,/obj/item/weapon/nubarricade_parts,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "jk" = (/turf/simulated/wall/vault,/area/vault/warhammergen/ig_loot_area)
-"jv" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"jv" = (/obj/structure/table/reinforced,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "jG" = (/obj/item/weapon/switchtool/surgery{pixel_x = 5; pixel_y = 10},/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "kD" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "kR" = (/obj/effect/landmark/start/IG_Cadian_Weapon_Specialist,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
@@ -61,17 +62,18 @@
 "Ev" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "EV" = (/obj/complex_vehicle/complex_chassis/leman_russ/battlecannon,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "FN" = (/obj/structure/rack,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/obj/item/weapon/attachment/bayonet,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
-"FU" = (/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"FU" = (/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/item/barbed_wire_handler,/obj/structure/table/reinforced,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "FY" = (/obj/machinery/vending/dinnerware,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "GR" = (/obj/structure/rack,/obj/item/weapon/chainsword,/obj/item/weapon/chainsword,/obj/item/weapon/chainsword,/obj/item/weapon/chainsword,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "HE" = (/obj/machinery/chemheater,/obj/structure/table/reinforced,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "HT" = (/obj/structure/bed/roller/surgery,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "Ig" = (/obj/structure/closet/secure_closet/medical1,/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "Im" = (/obj/machinery/bioprinter,/turf/simulated/floor{dir = 6; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
-"IM" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
+"IM" = (/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "IZ" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Jj" = (/obj/structure/table/reinforced,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Jm" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"Kq" = (/obj/machinery/light/he{dir = 1},/obj/structure/table/reinforced,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "KO" = (/obj/machinery/light/he,/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "Lg" = (/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "LD" = (/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -105,7 +107,7 @@
 (1,1,1) = {"
 JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
 JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
-JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
+JmJmJmJmJmJmJmJmJmJmJmJmJmJmIMJmJmJmJmJmJmJmJmJmJmJm
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
@@ -120,14 +122,14 @@ pepeAxAxAxAxAxAxpejkzSYLzSjkpeoAoAoApewSoAoAoANopepe
 pepeAxAxAxAxAxAxpejkzSzSzSjkpeoAoAoApewSnwTwoAgipepe
 pepepepepepeAxAxpejkzSzSzSjkpeoAoAoABSwSnwoAoAYFpepe
 pepepepepepetftfpejkjkdrjkjkpepepepepewSwSwSYWwSpepe
-pepemQDtylivAxAxpepeqRLDFUjvqRMTFNIZpepepepepepepepe
+pepemQDtylivAxAxpepeqRLDFUjvKqMTFNIZpepepepepepepepe
 pepemxAxqOAxAxAxpepeEvLDLDLDLDLDvkUQpeAxrqAxAxAxpepe
 pepeFYAxqOWaAxAxpepeEvLDEvEvEvEvvkyYpeNMNMAxNMNMpepe
 pepecdAxqOAxAxAxpepeGRLDdcLDLgLgLDcgpeErErAxErErpepe
 pepepOAxqOAxWaAxpepeGRLDiwiSBuJjJjRKpeAxAxAxAxCjpepe
 pepeAxAxqOAxAxAxpepepeabpepepepepepepeNMNMAxNMNMpepe
-pepeAxqOqOAxAxAxdAqOsHAxrqIMdmrqIMAxpeErErAxErErpepe
-pepeJmAxAxAxAxAxAxXtAxAxkRAxAxAxAxAxpeAxAxAxAxAxpepe
+pepeAxqOqOAxAxAxdAqOsHAxrqAxdmrqAxAxpeErErAxErErpepe
+pepeJmAxAxAxAxAxAxXtAxAxkRAxAxerAxerpeAxAxAxAxAxpepe
 JmPCJmJmJmAxJmJmAxAxAxAxAxAxAxAxAxdmpeNMNMAxNMNMpepe
 JmJmJmJmJmJmJmCUJmAxAxXtAxAxkRAxAxdmpexBxBAxErErpepe
 JmJmJmJmJmJmJmJmJmJmAxAxAxAxAxAxAxAxrqAxAxAxAxAxpepe
@@ -137,6 +139,6 @@ JmJmJmEVJmJmJmJmpeQqornzyDIgMbMbdhUspexBxBAxAxAxpepe
 JmJmJmJmJmJmJmJmpeCnBYXaVjhFXaPrXaDJpeNMNMAxNMNMpepe
 JmJmJmJmJmJmJmJmpegVttBYZiXahFXaXaUEpeErErAxErErpepe
 JmJmJmJmJmJmJmJmpeRVHEjGHTXKWvHTzrImpeNMKOAxNMNMpepe
-JmJmJmJmJmJmJmJmpepepepepepepepepepepepepepepepepepe
-JmJmJmJmJmJmJmJmpepepepepepepepepepepepepepepepepepe
+JmJmJmJmJmJmIMJmpepepepepepepepepepepepepepepepepepe
+JmJmJmJmJmJmJmIMpepepepepepepepepepepepepepepepepepe
 "}

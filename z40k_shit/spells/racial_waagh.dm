@@ -7,7 +7,7 @@
 	hud_state = "racial_waagh"
 	spell_flags = INCLUDEUSER
 	charge_type = Sp_RECHARGE
-	charge_max = 100
+	charge_max = 190
 	invocation_type = SpI_NONE
 	range = 4
 	cast_sound = 'z40k_shit/sounds/waagh1.ogg'
@@ -18,10 +18,10 @@
 	for(var/T in targets)
 		var/mob/living/carbon/human/H = T
 		H.vis_contents += new /obj/effect/overlay/weak_green_circle(H,10)
-		H.movement_speed_modifier += 0.5
+		H.movement_speed_modifier += 0.2
 		healcounter++
 		spawn(3 SECONDS)
-			H.movement_speed_modifier -= 0.5
+			H.movement_speed_modifier -= 0.2
 			
 	if(healcounter >= 5)
 		for(var/T in targets)
@@ -51,11 +51,10 @@
 
 /spell/aoe_turf/waaagh1/choose_targets(var/mob/user = usr)
 	var/list/targets = list()
-	to_chat(user, "Its finding targets.")
 	for(var/mob/living/carbon/C in view(4, user))
-		to_chat(C, "Its finding targets.")
 		if(isork(C))
-			targets += C
+			if(C.stat != DEAD)
+				targets += C
 
 	if (!targets.len)
 		to_chat(user, "<span class='warning'>There are no targets.</span>")
@@ -72,7 +71,7 @@
 	hud_state = "racial_waagh"
 	spell_flags = INCLUDEUSER
 	charge_type = Sp_RECHARGE
-	charge_max = 100
+	charge_max = 150
 	invocation_type = SpI_NONE
 	range = 8
 	cast_sound = 'z40k_shit/sounds/waagh1.ogg'
@@ -96,7 +95,8 @@
 	var/list/targets = list()
 	for(var/mob/living/carbon/C in view(8, user))
 		if(isork(C))
-			targets += C
+			if(C.stat != DEAD)
+				targets += C
 
 	if (!targets.len)
 		to_chat(user, "<span class='warning'>There are no targets.</span>")

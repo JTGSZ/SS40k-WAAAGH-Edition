@@ -9,7 +9,7 @@ Instead we are going to use a object.
 
 var/list/objective_markers = list()
 var/list/mcguffin_items = list()
-var/list/choosable_jectie_items = typesof(/obj/mcguffins)-/obj/mcguffins
+var/list/choosable_jectie_items = typesof(/obj/item/mcguffins)-/obj/item/mcguffins
 
 /obj/jectie_time
 	name = "Objective Spawner"
@@ -40,7 +40,7 @@ var/list/choosable_jectie_items = typesof(/obj/mcguffins)-/obj/mcguffins
 			qdel(pick_jectie)
 			
 			var/ourobj = pick(choosable_jectie_items)
-			var/obj/mcguffins/spawned_obj = new ourobj(T)
+			var/obj/item/mcguffins/spawned_obj = new ourobj(T)
 			mcguffin_items += spawned_obj
 			CHECK_TICK
 
@@ -51,27 +51,27 @@ var/list/choosable_jectie_items = typesof(/obj/mcguffins)-/obj/mcguffins
 			qdel(qdeltime) //Time for some cleanup
 			CHECK_TICK
 
-/obj/mcguffins
+/obj/item/mcguffins
 	name = "Parent of uselessness"
 	desc = "If you see this somethings gone real bad, real fast."
 	icon = 'z40k_shit/icons/objective_mcguffins.dmi'
 
-/obj/mcguffins/skullcoin
+/obj/item/mcguffins/skullcoin
 	name = "Skull coin"
 	desc = "A spooky coin"
 	icon_state = "coin"
 
-/obj/mcguffins/imperial_truth
+/obj/item/mcguffins/imperial_truth
 	name = "Imperial Truth"
 	desc = "This version contains too much truth about the imperium."
 	icon_state = "book_imperial_truth"
 
-/obj/mcguffins/silver_emblem
+/obj/item/mcguffins/silver_emblem
 	name = "Silver Emblem"
 	desc = "Its silver, and a emblem"
 	icon_state = "silver_alt"
 
-/obj/mcguffins/goodluckcharm
+/obj/item/mcguffins/goodluckcharm
 	name = "Goodluck Charm"
 	desc = "Some would say it grants too much luck."
 	icon_state = "goodluck"

@@ -3,7 +3,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 
 /obj/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
-	desc = "Uh oh. RUN!!!!"
+	desc = "A wide array of Nuclear weapons still exist in the far future."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "nuclearbomb0"
 	density = 1
