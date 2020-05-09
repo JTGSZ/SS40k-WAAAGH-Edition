@@ -9,13 +9,11 @@
 	opacity = 1
 	density = 1
 	blocks_air = 1
-	//temperature = TCMB
 	var/mineral/mineral
 	var/last_act = 0
 	var/datum/geosample/geologic_data
 	var/excavation_level = 0
 	var/list/finds = list()//no longer null to prevent those pesky runtime errors
-//	var/next_rock = 0
 	var/archaeo_overlay = ""
 	var/excav_overlay = ""
 	var/obj/item/weapon/last_find
@@ -28,7 +26,6 @@
 	var/rockernaut = NONE
 	var/minimum_mine_time = 0
 	var/mining_difficulty = MINE_DIFFICULTY_NORM
-
 
 /turf/unsimulated/mineral/snow
 	icon_state = "snow_rock"
@@ -64,16 +61,6 @@
 	dismantle_type = /turf/unsimulated/mineral
 	girder_type = null
 	walltype = "rock_rf"
-
-/*turf/simulated/wall/r_rock/New()
-	..()
-	add_rock_overlay()
-
-/turf/simulated/wall/r_rock/proc/add_rock_overlay(var/image/img = image('icons/turf/rock_overlay.dmi', "rock_overlay",layer = SIDE_LAYER),var/offset=-4)
-	img.pixel_x = offset*PIXEL_MULTIPLIER
-	img.pixel_y = offset*PIXEL_MULTIPLIER
-	img.plane = BELOW_TURF_PLANE
-	overlays += img*/
 
 /turf/simulated/wall/r_rock/porous
 	name = "reinforced porous rock"
@@ -382,17 +369,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 				var/excav_quadrant = round(excavation_level / 25) + 1
 				excav_overlay = "overlay_excv[excav_quadrant]_[rand(1,3)]"
 				overlays += excav_overlay
-/*
-			//drop some rocks
-			next_rock += P.excavation_amount * 10
-			while(next_rock > 100)
-				next_rock -= 100
-				var/obj/item/stack/ore/O = new(src)
-				if(!geologic_data)
-					geologic_data = new/datum/geosample(src)
-				geologic_data.UpdateNearbyArtifactInfo(src)
-				O.geologic_data = geologic_data
-*/
 
 		else //Note : If the do_after() fails
 			busy = 0
@@ -556,10 +532,13 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	oxygen = 0.01
 	nitrogen = 0.01
 	temperature = TCMB
-	//icon_plating = "asteroid"
 	var/dug = 0       //0 = has not yet been dug, 1 = has already been dug
 	var/sand_type = /obj/item/stack/ore/glass
 	plane = PLATING_PLANE
+	oxygen = MOLES_O2STANDARD
+	nitrogen = MOLES_N2STANDARD
+	temperature = T20C
+
 
 /turf/unsimulated/floor/asteroid/air
 	oxygen = MOLES_O2STANDARD
