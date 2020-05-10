@@ -50,7 +50,7 @@
 			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
 			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack/mekpack,
 			slot_r_hand = list(
-				"Mek" = list(/obj/item/weapon/gun/projectile/automatic/kustomshoota)
+				"Mek" = list(/obj/item/weapon/gun/projectile/kustomshoota)
 			),
 		)
 	)

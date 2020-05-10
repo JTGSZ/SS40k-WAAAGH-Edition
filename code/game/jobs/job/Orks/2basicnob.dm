@@ -61,7 +61,7 @@
 			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
 			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack/kustomshootabelts,
 			slot_r_hand = list(
-				"Ork Nob" = list(/obj/item/weapon/gun/projectile/automatic/kustomshoota)
+				"Ork Nob" = list(/obj/item/weapon/gun/projectile/kustomshoota)
 			),
 		)
 	)

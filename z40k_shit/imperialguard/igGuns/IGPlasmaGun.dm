@@ -201,6 +201,7 @@
 //Fire action
 /obj/item/weapon/gun/ig_plasma_gun/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
 	var/atom/newtarget = target
+	var/plasdelay = 15
 
 	switch(connection_type)
 		if(1)
@@ -208,17 +209,17 @@
 		if(2)
 			if(my_cell.get_fuel() > 0)
 				if(istype(user.get_held_item_by_index(GRASP_RIGHT_HAND), src)) //right hand
-					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"rhand")
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,plasdelay,"rhand")
 				else //left hand
-					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"lhand")
-				sleep(20)
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,plasdelay,"lhand")
+				sleep(plasdelay)
 		if(3)
 			if(my_pack.get_fuel() > 0)
 				if(istype(user.get_held_item_by_index(GRASP_RIGHT_HAND), src)) //right hand
-					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"rhand")
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,plasdelay,"rhand")
 				else //left hand
-					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,20,"lhand")
-				sleep(20)
+					user.vis_contents += new /obj/effect/overlay/plasgun_charge(user,plasdelay,"lhand")
+				sleep(plasdelay)
 	
 	..(newtarget,user,params,reflex,struggle)
 
@@ -276,7 +277,7 @@
 	kill_count = 100
 	penetration = 20
 	layer = PROJECTILE_LAYER
-	damage = 60
+	damage = 90
 	icon = 'z40k_shit/icons/obj/projectiles.dmi'
 	icon_state = "plasma"
 	animate_movement = 2
@@ -291,7 +292,7 @@
 		return
 	if(plasgun.overcharged)
 		icon = 'z40k_shit/icons/obj/64x64projectiles.dmi'
-		damage = 100
+		damage = 140
 		kill_count = 20
 	else
 		icon = 'z40k_shit/icons/obj/projectiles.dmi'

@@ -227,7 +227,7 @@ var/const/MAX_SAVE_SLOTS = 8
 						sleep(1)
 					try_load_save_sqlite(theckey, C, default_slot)
 					return
-
+ 
 			while(!SS_READY(SShumans))
 				sleep(1)
 			randomize_appearance_for()
@@ -1101,9 +1101,8 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 	switch(href_list["task"])
 		if("random")
 			switch(href_list["preference"])
-				if("first_name")
+				if("name")
 					first_name = random_first_name(gender, species)
-				if("last_name")
 					last_name = random_last_name(gender, species)
 				if("age")
 					age = rand(AGE_MIN, AGE_MAX)
@@ -1381,9 +1380,7 @@ NOTE:  The change will take effect AFTER any current recruiting periods."}
 				if("p_speed")
 					parallax_speed = min(max(input(user, "Enter a number between 0 and 5 included (default=2)","Parallax Speed Preferences",parallax_speed),0),5)
 
-				if("first_name")
-					be_random_name = !be_random_name
-				if("last_name")
+				if("name")
 					be_random_name = !be_random_name
 
 				if("all")

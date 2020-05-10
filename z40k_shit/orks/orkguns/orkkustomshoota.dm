@@ -7,7 +7,7 @@
 	item_state = "tape"
 	w_class = W_CLASS_SMALL
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota
+/obj/item/weapon/gun/projectile/kustomshoota
 	name = "\improper Kustom Shoota"
 	desc = "A long but well defined shoota, ready for modifications."
 	icon = 'z40k_shit/icons/obj/orks/kustomgun.dmi'
@@ -17,7 +17,6 @@
 	origin_tech = Tc_COMBAT + "=5;" + Tc_MATERIALS + "=2"
 	w_class = W_CLASS_MEDIUM
 	max_shells = 25
-	burst_count = 5
 	caliber = list(ORKSCRAPBULLET = 1)
 	ammo_type = "/obj/item/ammo_casing/orkbullet"
 	mag_type = "/obj/item/ammo_storage/magazine/kustom_shoota_belt"
@@ -31,17 +30,18 @@
 	var/totalguncount = 1 //We are the gun anon.
 	var/projectile_type
 	var/cooldown = 0
-	var/basicbullets = 1 //Basic bullet types counting ourselves.
+	var/basicbullets = 3 //Basic bullet types counting ourselves.
 	var/laserbeams = 0 //Laser bullet types
 	var/shotgunpellets = 0 //Shotgun bullet types
 	var/taped = 1
+	fire_delay = 0
 	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/New()
+/obj/item/weapon/gun/projectile/kustomshoota/New()
 	..()
 	update_icon()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/verb/rename_gun() //I could add possession here later for funs.
+/obj/item/weapon/gun/projectile/kustomshoota/verb/rename_gun() //I could add possession here later for funs.
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun."
@@ -57,21 +57,21 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/isHandgun()
+/obj/item/weapon/gun/projectile/kustomshoota/isHandgun()
 	return FALSE //No Kustom Shoota Akimbo for us.
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/update_wield(mob/user)
+/obj/item/weapon/gun/projectile/kustomshoota/update_wield(mob/user)
 	..()
 	force = wielded ? 30 : 15
 	update_icon()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_hand(mob/user)
+/obj/item/weapon/gun/projectile/kustomshoota/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		RemoveMag(user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attack_self(mob/user) //Unloading (Need special handler for unattaching.)
+/obj/item/weapon/gun/projectile/kustomshoota/attack_self(mob/user) //Unloading (Need special handler for unattaching.)
 	if(user.get_active_hand() == src)
 		if(!wielded)
 			wield(user)
@@ -79,8 +79,8 @@
 		else
 			unwield(user)
 			src.update_wield(user)
-
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/examine(mob/user)
+ 
+/obj/item/weapon/gun/projectile/kustomshoota/examine(mob/user)
 	..()
 	if(basicbullets)
 		to_chat(user, "<span class='info'> There are currently [basicbullets] ballistics attached.</span>")
@@ -89,7 +89,7 @@
 	if(shotgunpellets)
 		to_chat(user, "<span class='info'> There are currently [shotgunpellets] shotguns attached.</span>")
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/attackby(obj/item/I, mob/user)
+/obj/item/weapon/gun/projectile/kustomshoota/attackby(obj/item/I, mob/user)
 	var/good2go = FALSE //Basically I don't really feel like doing ALL the guns atm
 	if(totalguncount > 29)
 		to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
@@ -126,7 +126,7 @@
 
 	..()
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/update_icon()
+/obj/item/weapon/gun/projectile/kustomshoota/update_icon()
 	..()
 	item_state = "kustom_shoota[wielded ? "-wielded" : "-unwielded"][shotgunpellets ? "-sg" : "-nsg"][laserbeams ? "-lsg" : "-nlsg"]"
 	icon_state = "kustom_shoota[shotgunpellets ? "-sg" : "-nsg"][laserbeams ? "-lsg" : "-nlsg"][stored_magazine ? "" : "-e"]"
@@ -135,15 +135,13 @@
 		H.update_inv_hands()
 	return
 
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/afterattack(atom/target, mob/living/user, flag, params, struggle = FALSE)
+/obj/item/weapon/gun/projectile/kustomshoota/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0)
+	..()
 	if(!cooldown)
 		makethepainstop(target, user, params, struggle)
 		return
 
-	else if(cooldown)
-		return
-
-/obj/item/weapon/gun/projectile/automatic/kustomshoota/proc/makethepainstop(atom/target, mob/living/user, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
+/obj/item/weapon/gun/projectile/kustomshoota/proc/makethepainstop(atom/target, mob/living/user, params, struggle = 0) //Burst fires don't work well except by calling Fire() multiple times
 	var/fucked_fire = FALSE //We set this if someone has fucked up firing.
 	if(!isork(user))
 		if(user.attribute_strength <= 12)

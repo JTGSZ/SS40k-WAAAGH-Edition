@@ -1,6 +1,6 @@
 /datum/crafting_recipes/kustom_shoota
 	title = "Kustom Shoota"
-	result_type = /obj/item/weapon/gun/projectile/automatic/kustomshoota
+	result_type = /obj/item/weapon/gun/projectile/kustomshoota
 	time = 3 SECONDS
 	build_desc = "30 Metal Sheets, 3 Shootas"
 	obj_desc = "A Kustom Shoota allows many guns to be attached to it."

@@ -143,18 +143,6 @@
 
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A, mob/user) 
-	//if(istype(A, /obj/item/gun_part/silencer) && src.gun_flags &SILENCECOMP)
-	//	if(!user.is_holding_item(src))	//if we're not in his hands
-	//		to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
-	//		return
-
-		//if(user.drop_item(A, src)) //put the silencer into the gun
-		//	to_chat(user, "<span class='notice'>You screw [A] onto [src].</span>")
-		//	silenced = A	//dodgy?
-		//	w_class = W_CLASS_MEDIUM
-		//	update_icon()
-		//	return 1
-
 	var/num_loaded = 0
 	if(istype(A, /obj/item/ammo_storage/magazine))
 		var/obj/item/ammo_storage/magazine/AM = A
