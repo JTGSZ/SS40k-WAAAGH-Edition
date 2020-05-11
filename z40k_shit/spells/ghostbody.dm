@@ -4,12 +4,14 @@
 	name = "Ghost Bodies"
 	desc = "For the ghost with the most."
 	panel = "Racial Abilities"
-	override_base = "grey"
 	hud_state = "boo"
 	charge_max = 20
 	spell_flags = STATALLOWED | GHOSTCAST
 	invocation_type = SpI_NONE
 
+	override_base = "basic_button"
+	override_icon = 'z40k_shit/icons/ghost_actions.dmi'
+	hud_state = "ghost_bodies"
 
 /spell/aoe_turf/ghost_body/New()
 	..()
