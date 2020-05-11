@@ -2,6 +2,10 @@
 	icon = 'z40k_shit/icons/screens.dmi'
 	icon_state = "blank"
 
+/obj/abstract/screen/viscons/Destroy()
+	message_admins("SOMETHING ATTEMPTED TO DELETE THE FUCKING BUTTON INSTANCES AGAIN.")
+	return
+
 
 /* Ghost Bodies
 */

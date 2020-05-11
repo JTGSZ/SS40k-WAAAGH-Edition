@@ -94,16 +94,6 @@
 	source_temperature = TEMPERATURE_PLASMA
 	sterility = 100
 
-/*
-/obj/item/weapon/cautery/laser/old //unused laser cautery. For the laser scalpel
-	name = "laser cautery"
-	desc = "A laser cautery"
-	icon_state = "lasercautery_old"
-	item_state = "laserscalpel2old"
-	force = 12.0
-	toolspeed = 0.5
-*/
-
 /obj/item/weapon/cautery/laser/tier2
 	name = "high-precision laser cautery"
 	desc = "A laser cautery module detached from a high-precision laser scalpel. You can attach it to a laser scalpel."
@@ -234,19 +224,6 @@
 		else
 			to_chat(user, "<span class='danger'>You can't let go of \the [used_item]!</span>")
 
-/*
-/obj/item/weapon/scalpel/laser/old //unused laser scalpel
-	name = "laser scalpel"
-	desc = "A laser scalpel."
-	icon_state = "scalpel_laser_old"
-	item_state = "laserscalpel2old"
-	toolspeed = 0.5
-
-/obj/item/weapon/scalpel/laser/old/New()
-	..()
-	icon_state = "scalpel_laser_old_off"
-	held = new /obj/item/weapon/cautery/laser/old(src)
-*/
 
 /obj/item/weapon/scalpel/laser/tier2
 	name = "high-precision laser scalpel"

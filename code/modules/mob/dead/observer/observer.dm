@@ -44,7 +44,6 @@
 	change_sight(adding = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF)
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	see_in_dark = 100
-	verbs += /mob/dead/observer/proc/dead_tele
 
 	// Our new boo spell.
 	add_spell(new /spell/aoe_turf/boo, "grey_spell_ready")
