@@ -86,6 +86,20 @@
 
 /obj/item/weapon/shield/orkshield/IsShield()
 	return 1
+ 
+/obj/item/weapon/shield/orkshield/prepickup(mob/living/user)
+	if(isork(user))
+		item_state = "nobshield"
+		update_icon()
+		return 0
+
+	if(user.attribute_strength >= 13)
+		item_state = "nobshield_nonork"
+		update_icon()
+		return 0
+	else
+		to_chat(user,"<span class='bad'> You lack the strength required to pick up this heavy metal object.</span>")
+		return 1
 
 /obj/item/weapon/shield/orkshield/attackby(obj/item/weapon/W, mob/user )
 	if(istype(W, /obj/item))

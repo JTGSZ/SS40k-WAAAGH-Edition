@@ -33,8 +33,11 @@ var/const/TRADER			=(1<<9)
 
 var/list/command_positions = list(
 	"General",
-	"Commissar",
 	"Ork Warboss",
+)
+
+var/list/secondary_command = list(
+	"Commissar",
 	"Ork Nob"
 )
 
