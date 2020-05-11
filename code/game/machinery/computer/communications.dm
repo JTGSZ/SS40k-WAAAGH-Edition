@@ -656,46 +656,10 @@ var/list/shuttle_log = list()
 				message_admins("[key_name_admin(G)] has made a captain announcement.", 1)
 
 /obj/machinery/computer/communications/Destroy()
-
-	for(var/obj/machinery/computer/communications/commconsole in machines)
-		if(istype(commconsole.loc,/turf) && commconsole != src && commconsole.z != map.zCentcomm)
-			return ..()
-
-	for(var/obj/item/weapon/circuitboard/communications/commboard in communications_circuitboards)
-		if((istype(commboard.loc,/turf) || istype(commboard.loc,/obj/item/weapon/storage)) && commboard.z != map.zCentcomm)
-			return ..()
-
-	for(var/mob/living/silicon/ai/shuttlecaller in player_list)
-		if(!shuttlecaller.stat && shuttlecaller.client && istype(shuttlecaller.loc,/turf) && shuttlecaller.z != map.zCentcomm)
-			return ..()
-
-	if(ticker.mode.name == "revolution" || ticker.mode.name == "AI malfunction")
-		return ..()
-
-	shuttle_autocall()
 	..()
 
 /obj/item/weapon/circuitboard/communications/New()
 	..()
-	communications_circuitboards.Add(src)
 
 /obj/item/weapon/circuitboard/communications/Destroy()
-	communications_circuitboards.Remove(src)
-	for(var/obj/machinery/computer/communications/commconsole in machines)
-		if(istype(commconsole.loc,/turf) && commconsole.z != map.zCentcomm)
-			return ..()
-
-	for(var/obj/item/weapon/circuitboard/communications/commboard in communications_circuitboards)
-		if((istype(commboard.loc,/turf) || istype(commboard.loc,/obj/item/weapon/storage)) && commboard != src && commboard.z != map.zCentcomm)
-			return ..()
-
-	for(var/mob/living/silicon/ai/shuttlecaller in player_list)
-		if(!shuttlecaller.stat && shuttlecaller.client && istype(shuttlecaller.loc,/turf) && shuttlecaller.z != map.zCentcomm)
-			return ..()
-
-	if(ticker.mode.name == "revolution" || ticker.mode.name == "AI malfunction")
-		return ..()
-
-	shuttle_autocall()
-
 	..()
