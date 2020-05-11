@@ -44,7 +44,6 @@
 	pda_slot = slot_l_store
 	id_type = /obj/item/weapon/card/id
 
-
 /datum/outfit/preacher/post_equip(var/mob/living/carbon/human/H)
 	H.add_language("Spooky") //SPOOK
 	ChooseReligion(H, FALSE) //Our mob, the second var is if we are a follower of Chaos.
@@ -54,10 +53,6 @@
 	preacher.AssignToRole(M.mind,TRUE)
 	preacher.mind_storage(M.mind)
  
-/datum/job/preacher/priority_reward_equip(var/mob/living/carbon/human/H)
-	. = ..()
-	H.equip_or_collect(new /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater(H.back), slot_in_backpack)
-
 /datum/outfit/preacher/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.attribute_strength = 12
 	H.attribute_agility = 10

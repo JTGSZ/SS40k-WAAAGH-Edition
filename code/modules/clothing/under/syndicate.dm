@@ -22,11 +22,9 @@
 
 /obj/item/clothing/under/syndicate/holomap/New()
 	..()
-	attach_accessory(new/obj/item/clothing/accessory/holomap_chip/operative(src))
 
 /obj/item/clothing/under/syndicate/commando/New()
 	..()
-	attach_accessory(new/obj/item/clothing/accessory/holomap_chip/elite(src))
 
 /obj/item/clothing/under/syndicate/tacticool
 	name = "\improper Tacticool turtleneck"

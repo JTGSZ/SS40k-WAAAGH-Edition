@@ -1312,7 +1312,6 @@
 	/obj/item/weapon/storage/pill_bottle/random,
 	/obj/item/weapon/gun/projectile/automatic/lockbox,
 	/obj/item/weapon/handcuffs,
-	/obj/item/clothing/accessory/holomap_chip/operative
 )
 
 //Theater///////////////////////////////////////////

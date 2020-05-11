@@ -456,13 +456,6 @@ NOTE:  You will only be polled about this role once per round. To change your ch
 	else
 		view = newView
 
-	if(mob && ishuman(mob))
-		var/mob/living/carbon/human/H = mob
-		var/obj/item/clothing/under/U = H.get_item_by_slot(slot_w_uniform)
-		if(istype(U))
-			for(var/obj/item/clothing/accessory/holomap_chip/HC in U.accessories)
-				HC.update_holomap()
-
 /client/verb/SwapSides()
 	set name = "swapsides"
 	set hidden = 1

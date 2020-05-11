@@ -11,7 +11,6 @@
 
 /obj/item/clothing/under/deathsquad/New()
 	..()
-	attach_accessory(new/obj/item/clothing/accessory/holomap_chip/deathsquad(src))
 
 /obj/item/clothing/under/ert
 	name = "nanotrasen holosuit"
@@ -24,4 +23,3 @@
 
 /obj/item/clothing/under/ert/New()
 	..()
-	attach_accessory(new/obj/item/clothing/accessory/holomap_chip/ert(src))

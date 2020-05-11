@@ -427,7 +427,6 @@
 	H.equip_to_slot_or_del(R, slot_ears)
 
 	var/obj/item/clothing/under/vox/vox_robes/uni = new /obj/item/clothing/under/vox/vox_robes(src)
-	uni.attach_accessory(new/obj/item/clothing/accessory/holomap_chip/raider(src))
 	H.equip_to_slot_or_del(uni, slot_w_uniform)
 
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/vox(src), slot_shoes) // REPLACE THESE WITH CODED VOX ALTERNATIVES.

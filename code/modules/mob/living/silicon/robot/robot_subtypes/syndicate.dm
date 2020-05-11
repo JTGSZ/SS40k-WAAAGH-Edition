@@ -7,7 +7,6 @@
 	startup_sound = 'sound/mecha/nominalsyndi.ogg'
 	startup_vary = FALSE
 	syndicate = TRUE
-	var/obj/item/clothing/accessory/holomap_chip/holochip = null
 
 /mob/living/silicon/robot/syndie/getModules()
 	return syndicate_robot_modules
@@ -19,10 +18,6 @@
 	..()
 	UnlinkSelf()
 	laws = new /datum/ai_laws/syndicate_override()
-
-	if(!holochip)
-		holochip = new /obj/item/clothing/accessory/holomap_chip/syndicate_robot(src)
-		holochip.equipped(src)
 
 /mob/living/silicon/robot/syndie/setup_PDA()
 	return

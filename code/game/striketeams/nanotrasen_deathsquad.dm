@@ -74,7 +74,6 @@
 	//Basic Uniform
 	if (leader)
 		var/obj/item/clothing/under/rank/centcom_officer/uni = new /obj/item/clothing/under/rank/centcom_officer(src)
-		uni.attach_accessory(new/obj/item/clothing/accessory/holomap_chip/deathsquad(src))
 		equip_to_slot_or_del(uni, slot_w_uniform)
 	else
 		equip_to_slot_or_del(new /obj/item/clothing/under/deathsquad(src), slot_w_uniform)

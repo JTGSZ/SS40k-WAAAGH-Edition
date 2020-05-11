@@ -60,7 +60,6 @@
 
 	//Basic Uniform
 	var/obj/item/clothing/under/syndicate/uni = new /obj/item/clothing/under/syndicate(src)
-	uni.attach_accessory(new/obj/item/clothing/accessory/holomap_chip/elite(src))
 	equip_to_slot_or_del(uni, slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(src), slot_l_store)
 	equip_to_slot_or_del(new /obj/item/weapon/grenade/empgrenade(src), slot_r_store)

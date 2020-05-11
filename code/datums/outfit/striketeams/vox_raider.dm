@@ -65,9 +65,6 @@
 	H.equip_to_slot_or_del(Wal, slot_wear_id)
 
 /datum/outfit/striketeam/voxraider/post_equip(var/mob/living/carbon/human/H)
-	// Accesories.
-	equip_accessory(H, /obj/item/clothing/accessory/holomap_chip/raider, /obj/item/clothing/under, 5)
-
 
 	if (chosen_spec == "Raider")
 		var/obj/item/weapon/crossbow/W = new(H)
