@@ -172,38 +172,6 @@
 
 	take_contents()
 
-	/* /vg/: Delete if there's no code in here we need.
-	var/itemcount = 0
-
-	//Cham Projector Exception
-	for(var/obj/effect/dummy/chameleon/AD in src.loc)
-		if(itemcount >= storage_capacity)
-			break
-		AD.forceMove(src)
-		itemcount++
-
-	for(var/obj/item/I in src.loc)
-		if(itemcount >= storage_capacity)
-			break
-		if(!I.anchored)
-			I.forceMove(src)
-			itemcount++
-
-	for(var/mob/M in src.loc)
-		if(itemcount >= storage_capacity)
-			break
-		if(istype (M, /mob/dead/observer))
-			continue
-		if(M.locked_to)
-			continue
-
-		if(M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-
-		M.forceMove(src)
-		itemcount++
-	*/
 	src.icon_state = src.icon_closed
 	src.opened = 0
 	setDensity(initial(density))
@@ -244,7 +212,6 @@
 				to_chat(user, "<span class='notice'>Wierd, the electronics won't fit.</span>")
 	else if(!has_lock_type)
 		to_chat(user, "<span class='notice'>There's no slot for the electronics</span>")
-
 
 /obj/structure/closet/proc/remove_lock(var/mob/user)
 	if(has_lockless_type)
@@ -287,8 +254,6 @@
 	req_one_access = null
 
 	return E
-
-
 
 // Might come handy for painting crates and lockers some day.
 // Using it to change from secure to non secure lockers for now
@@ -379,7 +344,6 @@
 		processing_objects.Remove(src)
 
 /obj/structure/closet/process()
-	//..()
 	for(var/obj/effect/beam/B in beams)
 		health -= B.get_damage()
 
@@ -557,8 +521,6 @@
 
 // tk grab then use on self
 /obj/structure/closet/attack_self_tk(mob/user )
-	
-
 	if(!src.toggle(user))
 		to_chat(usr, "<span class='notice'>It won't budge!</span>")
 
@@ -647,7 +609,6 @@
 		investigation_log(I_GHOST, "|| had its contents checked by [key_name(ghost)][ghost.locked_to ? ", who was haunting [ghost.locked_to]" : ""]")
 
 // -- Vox raiders.
-
 /obj/structure/closet/loot
 	name = "Loot closet"
 	desc = "Store the valuables here for a direct transfer to the shoal. We make much bluespace."
