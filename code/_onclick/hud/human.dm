@@ -326,6 +326,14 @@
 	mymob.bite_icon.alpha = ui_alpha
 	src.hotkeybuttons += mymob.bite_icon
 
+	mymob.bumpattack_icon = getFromPool(/obj/abstract/screen)
+	mymob.bumpattack_icon.name = "bumpattack"
+	mymob.bumpattack_icon.icon = ui_style
+	mymob.bumpattack_icon.icon_state = "act_bumpattack"
+	mymob.bumpattack_icon.screen_loc = ui_kick_bite
+	mymob.bumpattack_icon.color = ui_color
+	mymob.bumpattack_icon.alpha = ui_alpha
+
 	mymob.internals = getFromPool(/obj/abstract/screen)
 	mymob.internals.icon = ui_style
 	mymob.internals.icon_state = "internal0"
@@ -376,7 +384,16 @@
 
 	mymob.client.reset_screen()
 
-	mymob.client.screen += list(mymob.throw_icon, mymob.kick_icon, mymob.bite_icon, mymob.zone_sel, mymob.internals, mymob.healths, mymob.pullin, mymob.gun_setting_icon)
+	mymob.client.screen += list(mymob.throw_icon, 
+								mymob.kick_icon,
+								mymob.bite_icon, 
+								mymob.bumpattack_icon,
+								mymob.zone_sel, 
+								mymob.internals, 
+								mymob.healths, 
+								mymob.pullin, 
+								mymob.gun_setting_icon)
+	
 	mymob.client.screen += src.adding + src.hotkeybuttons
 	inventory_shown = 0
 

@@ -574,9 +574,9 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 	//Inertial Speed is handled in /mob/living/carbon/human/Life() and /mob/living/carbon/human/base_movement_tally()
 
 //Complex Bump Attacks
-/mob/living/carbon/human/to_bump(atom/movable/AM )
+/mob/living/carbon/human/to_bump(atom/movable/AM)
 	if(isliving(AM))
-		if(!bumpattack_cooldown)
+		if(!bumpattack_cooldown && bumpattacks)
 			var/obj/item/weapon/I = src.get_active_hand()
 			if(istype(I, /obj/item/weapon))
 				bumpattack_cooldown = TRUE
@@ -585,6 +585,17 @@ Overcharge action - overcharge		See: complexcombat.dm Line: 406
 				I.attack(AM, src)
 				return 1
 	..()
+
+//Bump attack toggle.
+/mob/living/carbon/human/proc/toggle_bumpattacks()
+	if(bumpattacks)
+		bumpattack_icon.icon_state = "act_bumpattack"
+		to_chat(src, "<span class='average'>You stop attacking when you bump into things.</span>")
+		bumpattacks = FALSE
+	else
+		bumpattack_icon.icon_state = "act_bumpattack_on"
+		to_chat(src, "<span class='average'>You get ready to attack when you collide with something.</span>")
+		bumpattacks = TRUE
 
 //Src is our guy, A is what we are clicking on, W is our object
 //Complex Clicks

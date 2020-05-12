@@ -23,13 +23,14 @@
 	var/objuration_mechanicum = FALSE //Causes Gun failures
 	var/warp_charges = 0 //Casting CDR/Funtime effects handler. See life.dm Line:149
 	var/chaos_tainted = FALSE //Are we currently tainted by chaos?
-	//var/list/spelltree_unlocked_list = list() //Spell trees that are currently unlocked.
+	var/bumpattacks = FALSE //We currently have bump attacks toggled on?
+	
 	var/list/spelltree_unlocked_list = list(
 		BIOMANCY = 1,
 		PYROMANCY	= 1,							
 		TELEKINESIS = 1,
 		TELEPATHY = 1
-		)
+		) //Spell trees that are currently unlocked.
 
 	var/soul_blazed = FALSE //We currently appended to?
 

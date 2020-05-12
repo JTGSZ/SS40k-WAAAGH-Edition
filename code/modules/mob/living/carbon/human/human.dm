@@ -1434,7 +1434,7 @@
 /mob/living/carbon/human/proc/set_attack_type(new_type = NORMAL_ATTACK)
 	kick_icon.icon_state = "act_kick"
 	bite_icon.icon_state = "act_bite"
-
+ 
 	if(attack_type == new_type)
 		attack_type = NORMAL_ATTACK
 		return

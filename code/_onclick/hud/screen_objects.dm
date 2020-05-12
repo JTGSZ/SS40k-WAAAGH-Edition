@@ -420,6 +420,11 @@
 				else
 					H.set_attack_type(ATTACK_BITE)
 
+		if("bumpattack")
+			var/mob/living/carbon/human/H = usr
+			H.toggle_bumpattacks()
+
+
 		if("drop")
 			usr.drop_item_v()
 
@@ -670,10 +675,6 @@
 			if(usr.locked_to && istype(usr.locked_to, /obj/structure/bed/chair/vehicle/adminbus))
 				var/obj/structure/bed/chair/vehicle/adminbus/A = usr.locked_to
 				A.Send_Home(usr)
-		/*if("Antag Madness!")
-			if(usr.locked_to && istype(usr.locked_to, /obj/structure/bed/chair/vehicle/adminbus))
-				var/obj/structure/bed/chair/vehicle/adminbus/A = usr.locked_to
-				A.Make_Antag(usr)*/
 		if("Give Infinite Laser Guns to the Passengers")
 			if(usr.locked_to && istype(usr.locked_to, /obj/structure/bed/chair/vehicle/adminbus))
 				var/obj/structure/bed/chair/vehicle/adminbus/A = usr.locked_to

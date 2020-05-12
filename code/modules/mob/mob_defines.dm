@@ -15,6 +15,7 @@
 	var/obj/abstract/screen/pullin = null
 	var/obj/abstract/screen/kick_icon = null
 	var/obj/abstract/screen/bite_icon = null
+	var/obj/abstract/screen/bumpattack_icon = null
 	var/obj/abstract/screen/visible = null
 	var/obj/abstract/screen/internals = null
 	var/obj/abstract/screen/i_select = null
