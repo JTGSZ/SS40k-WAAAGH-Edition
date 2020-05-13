@@ -28,14 +28,17 @@
 	my_atom.actions_types += RAGH
 
 /datum/attachment_system/proc/attachment_handler(var/obj/item/weapon/attachment/ATCH, var/going_in, var/mob/user)
-	var/boink
-	for(ATCH in attachments to ATCH.atch_total_limit)
-		boink++
-
-	if(boink >= ATCH.atch_total_limit)
-		to_chat(user,"This object cannot fit anymore of that attachment")
-
 	if(going_in)
+		var/boink
+		for(var/obj/item/weapon/attachment/CHEK in attachments)
+			if(istype(CHEK, ATCH))
+				boink++
+
+		if(ATCH.atch_total_limit)
+			if(boink >= ATCH.atch_total_limit)
+				to_chat(user,"This object cannot fit anymore of that attachment")
+				return 0
+
 		attachments += ATCH
 		if(ATCH.tied_action)
 			action_storage += ATCH.tied_action
@@ -53,6 +56,11 @@
 			my_atom.fire_sound = ATCH.fire_sound
 		if(ATCH.atch_effect_flags & TOGGLE_ACTION)  //Add the action to the source object
 			my_atom.actions_types |= ATCH.tied_action
+		
+		to_chat(user, "<span class='notice'>You attach [ATCH] to [my_atom].</span>")
+		user.drop_item(ATCH, my_atom)
+		my_atom.update_icon()
+		return 1
 
 	else //The inverse of going in, which is !going_in, or technically null
 		
@@ -77,6 +85,9 @@
 			initial_firesound = null
 		if(ATCH.atch_effect_flags & TOGGLE_ACTION) //Remove action from source object.
 			my_atom.actions_types.Remove(ATCH.tied_action)
+		
+		my_atom.update_icon()
+		return 1
 
 
 

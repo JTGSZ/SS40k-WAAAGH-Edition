@@ -365,14 +365,12 @@
 		return FALSE
 	else
 		return TRUE
-
+ 
 /obj/item/weapon/gun/attackby(var/obj/item/A, mob/user)
 	if(istype(A,/obj/item/weapon/attachment))
-		if(user.drop_item(A, src))
-			to_chat(user, "<span class='notice'>You insert the [A] into [src].</span>")
-			ATCHSYS.attachment_handler(A,TRUE,user)
-			update_icon()
-			return
+		ATCHSYS.attachment_handler(A,TRUE,user)
+		update_icon()
+		return
 	if(istype(A, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/G = A
 		if(isHandgun() && G.isHandgun())
