@@ -1330,7 +1330,7 @@ FIRE ALARM
 			stat |= NOPOWER
 			update_icon()
 
-/obj/machinery/firealarm/attack_hand(mob/user )
+/obj/machinery/firealarm/attack_hand(mob/user)
 	if((user.stat && !isobserver(user)) || stat & (NOPOWER|BROKEN))
 		return
 

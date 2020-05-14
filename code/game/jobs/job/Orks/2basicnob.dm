@@ -73,9 +73,9 @@
 	H.mind.store_memory("WAAAAAAAAGH!")
 
 /datum/outfit/orknob/handle_faction(var/mob/living/carbon/human/H)
-	var/datum/role/ork_raider/new_boss = new
-	new_boss.AssignToRole(H.mind,TRUE)
-	new_boss.mind_storage(H.mind)
+	var/datum/role/ork_raider/nob/new_nob = new
+	new_nob.AssignToRole(H.mind,TRUE)
+	new_nob.mind_storage(H.mind)
 
 /datum/outfit/orknob/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.add_spell(/spell/aoe_turf/waaagh1, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)

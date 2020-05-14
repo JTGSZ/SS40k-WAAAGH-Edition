@@ -105,7 +105,6 @@
 		C.persist.save_persistence_sqlite(C.ckey,C,FALSE)
 		to_chat(src, "<span class='bad'> You feel the possibilities fade from you.</span>.")
 
-
 	//If we have brain worms, dump 'em.
 	var/mob/living/simple_animal/borer/B=has_brain_worms()
 	if(B && B.controlling)
@@ -117,6 +116,25 @@
 		var/mob/living/carbon/human/H=LAssailant
 		if(H.mind)
 			H.mind.kills += "[name] ([ckey])"
+	
+	if(mind && (mind.antag_roles.len > 0))
+		if(!suiciding)
+			for(var/role in mind.antag_roles)
+				var/datum/role/R = mind.antag_roles[role]
+				if(istype(R,/datum/role/imperial_guard))
+					if(isgeneral(src))
+						ig_total_points -= 1000
+					if(iscommissar(src))
+						ig_total_points -= 500
+					if(isinquisitor(src))
+						ig_total_points -= 500
+					ig_total_points -= 25
+				if(istype(R,/datum/role/ork_raider))
+					if(iswarboss(src))
+						ork_total_points -= 1000
+					if(isnob(src))
+						ork_total_points -= 250
+					ork_total_points -= 25
 
 	if(!gibbed)
 		update_canmove()
@@ -127,9 +145,7 @@
 		if(!suiciding) //Cowards don't count
 			score["deadcrew"]++ //Someone died at this point, and that's terrible
 	if(ticker && ticker.mode)
-//		world.log << "k"
 		sql_report_death(src)
-		//ticker.mode.check_win() //Calls the rounds wincheck, mainly for wizard, malf, and changeling now
 	species.handle_death(src)
 	if(become_zombie_after_death && isjusthuman(src)) //2 if they retain their mind, 1 if they don't
 		spawn(30 SECONDS)

@@ -1,3 +1,4 @@
+
 /datum/faction/imperial_guard
 	name = "Imperial Guard"
 	desc = "Doing their best as humanity to survive as humanity under humanity."
@@ -10,7 +11,7 @@
 	logo_state = "ig-logo"
 	hud_icons = list()
 
-	var/time_left =	(40 MINUTES)/10
+	var/time_left =	(35 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 
@@ -19,38 +20,49 @@
 	//Do we gots the items
 	var/got_items = 0
 
-	//How much shit we killed
-	var/death_tally = 0
+//The victory Proc
+/datum/faction/imperial_guard/check_win()
+	if(!completed)
+		return 0
+	if(ork_total_points > ig_total_points)
+		return 0
 
-	//Our point total
-var/ig_total_points = 0
-
-/datum/faction/imperial_guard/forgeObjectives()
-
+	if(ig_total_points >= ork_total_points)
+		var/intrange = (abs(ig_total_points)-abs(ork_total_points))
+		if(intrange >= 2000)
+			to_chat(world, {"<FONT size = 5><B>Imperial Guard Major Victory!</B></FONT><br>
+			<B>The imperial guard routed the ork raid in this area.</B>"})
+			return 1
+		else
+			to_chat(world, {"<FONT size = 5><B>Imperial Guard Minor Victory!</B></FONT><br>
+			<B>The imperial guard brought the ork incursion to a halt, at notable cost.</B>"})
+			return 1
+	else
+		return 0
 
 /datum/faction/imperial_guard/GetScoreboard()
 	. = ..()
-	//. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
-	if (time_left < 0)
+	if(time_left <= 0)
 		. += "<br/> <span class='danger'>The raid has ended.</span>"
-	. += "<br/> The imperial guard killed <b>[death_tally] orks.</b>."
 	. += "<br/> The imperial guard secured <b>[got_items]</b> items."
 	. += "<br/> Total points: <b>[ig_total_points]</b>. <br/>"
 	. += results
 
 /datum/faction/imperial_guard/AdminPanelEntry()
 	. = ..()
-	. += "<br/> Time left: <b>[num2text((time_left /(60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
+	var/fucktime = round(time_left)
+	. += "<br/> Raid time left: [num2text((fucktime/60))] Minutes</b>"
 
 /datum/faction/imperial_guard/OnPostSetup()
 	..()
 
 /datum/faction/imperial_guard/process()
 	if(completed)
+		time_left = 0
 		return
 	. = ..()
 	time_left -= 2
-	if(time_left < 0 && completed == FALSE)
+	if((time_left <= 0) && (completed == FALSE))
 		completed = TRUE
 		for(var/datum/role/R in members)
 			to_chat(R.antag.current, "<span class='warning'>The raid is over.</span>")
@@ -58,28 +70,16 @@ var/ig_total_points = 0
 		var/area/points_area = locate(/area/vault/warhammergen/ig_loot_area)
 		for(var/obj/O in points_area)
 			if(is_type_in_list(O, mcguffin_items))
-				ig_total_points += 500
+				ig_total_points += 2000
 				got_items++
 
-		for(var/mob/player in mob_list)
-			if(isork(player))
-				if(player.stat == DEAD)
-					ig_total_points += 5
-					death_tally++
-					if(player.mind.assigned_role == "Ork Warboss")
-						ig_total_points += 1000
-					if(player.mind.assigned_role == "Ork Nob")
-						ig_total_points += 250
-		
 		if(ig_total_points >= ork_total_points)
-			stage(FACTION_VICTORY)
 			results = "The imperial guard has beaten the orks."
 			for(var/datum/role/R in members)
 				if(R.antag.current.client)
 					var/client/C = R.antag.current.client
 					C.persist.potential += 1
 		else
-			stage(FACTION_DEFEATED)
 			results = "The imperial guard has been beaten by the orks."
 			for(var/datum/role/R in members)
 				if(R.antag.current.client)
@@ -92,7 +92,3 @@ var/ig_total_points = 0
 		our_stars += "[lad.antag.key] as [lad.antag.name]"
 	return english_list(our_stars)
 
-/datum/faction/imperial_guard/check_win()
-	if(stage >= FACTION_VICTORY)
-		return 1
-	return 0

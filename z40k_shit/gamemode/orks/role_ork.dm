@@ -30,6 +30,7 @@
 	var/datum/faction/ork_raiders/orkraider = faction
 	if (!istype(orkraider))
 		return
-	var/dat = "Raid time left: [num2text((orkraider.time_left /(2*60)))]:[add_zero(num2text(orkraider.time_left/2 % 60), 2)]"
+	var/fucktime = round(orkraider.time_left)
+	var/dat = "Raid time left: [num2text((fucktime/60))] Minutes"
 	return dat
 	

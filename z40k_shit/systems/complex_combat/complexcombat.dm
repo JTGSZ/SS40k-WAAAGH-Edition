@@ -117,34 +117,35 @@ Its the process loop for the word combo chain system on the mob.
 /obj/item/weapon/dropped(mob/user)
 	..()
 	if(cursor_enabled)
-		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+		piercing_blow = FALSE
+		saw_execution = FALSE
 		cursor_enabled = FALSE
-		if(piercing_blow)
-			piercing_blow = FALSE
-		if(saw_execution)
-			saw_execution = FALSE
+		if(user.client)
+			user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+		
 
 //What occurs when a object is thrown.
 /obj/item/weapon/throw_impact(atom/hit_atom, mob/user)
 	..()
 	if(cursor_enabled)
-		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+		piercing_blow = FALSE
+		saw_execution = FALSE
 		cursor_enabled = FALSE
-		if(piercing_blow)
-			piercing_blow = FALSE
-		if(saw_execution)
-			saw_execution = FALSE
+		if(user.client)
+			user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+		
+
 
 //What occurs when a object is unequipped/stripped
 /obj/item/weapon/unequipped(mob/user)
 	..()
 	if(cursor_enabled)
-		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+		piercing_blow = FALSE
+		saw_execution = FALSE
 		cursor_enabled = FALSE
-		if(piercing_blow)
-			piercing_blow = FALSE
-		if(saw_execution)
-			saw_execution = FALSE
+		if(user.client)
+			user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+			
 
 //Occurs before the attack
 /obj/item/weapon/preattack(atom/target, mob/user, proximity_flag, click_parameters)

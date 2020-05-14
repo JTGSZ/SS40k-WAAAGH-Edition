@@ -30,6 +30,7 @@
 	var/datum/faction/imperial_guard/iguard = faction
 	if (!istype(iguard))
 		return
-	var/dat = "Raid time left: [num2text((iguard.time_left /(2*60)))]:[add_zero(num2text(iguard.time_left/2 % 60), 2)]"
+	var/fucktime = round(iguard.time_left)
+	var/dat = "Raid time left: [num2text((fucktime/60))] Minutes"
 	return dat
 	

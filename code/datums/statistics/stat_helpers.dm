@@ -61,8 +61,6 @@
 	if(M.mind)
 		if(M.mind.assigned_role && M.mind.assigned_role != "")
 			d.assigned_role = M.mind.assigned_role
-		// if(M.mind.special_role && M.mind.special_role != "")
-		// 	d.special_role = M.mind.special_role
 		if(M.mind.key)
 			d.key = ckey(M.mind.key) // To prevent newlines in keys
 		if(M.mind.name)

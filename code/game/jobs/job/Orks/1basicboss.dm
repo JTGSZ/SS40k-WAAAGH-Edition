@@ -52,7 +52,7 @@
 	H.mind.store_memory("WAAAAAAAAGH!")
 
 /datum/outfit/orkwarboss/handle_faction(var/mob/living/carbon/human/H)
-	var/datum/role/ork_raider/new_boss = new
+	var/datum/role/ork_raider/warboss/new_boss = new
 	new_boss.AssignToRole(H.mind,TRUE)
 	new_boss.mind_storage(H.mind)
 

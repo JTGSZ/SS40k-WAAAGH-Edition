@@ -10,7 +10,7 @@
 	logo_state = "ork-logo"
 	hud_icons = list()
 
-	var/time_left = (40 MINUTES)/10
+	var/time_left = (35 MINUTES)/10
 	//Are we completed or not
 	var/completed = FALSE
 
@@ -19,16 +19,30 @@
 	//Do we gots the items
 	var/got_items = 0
 
-	//Our point total
-var/ork_total_points = 0
+//The victory Proc
+/datum/faction/ork_raiders/check_win()
+	if(!completed)
+		return 0
+	if(ork_total_points < ig_total_points)
+		return 0
+		
 
-/datum/faction/ork_raiders/forgeObjectives()
-
+	if(ork_total_points > ig_total_points)
+		var/intrange = (abs(ork_total_points)-abs(ig_total_points))
+		if(intrange >= 2000)
+			to_chat(world, {"<FONT size = 5><B>Ork Major Victory!</B></FONT><br>
+			<B>The orks pillaged and looted everything along with racking up a high amount of corpses.</B>"})
+			return 1
+		else
+			to_chat(world, {"<FONT size = 5><B>Ork Minor Victory!</B></FONT><br>
+			<B>The Orks managed to loot, and kill enough to incur significant losses.</B>"})
+			return 1
+	else
+		return 0
 
 /datum/faction/ork_raiders/GetScoreboard()
 	. = ..()
-	//. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
-	if (time_left < 0)
+	if (time_left <= 0)
 		. += "<br/> <span class='danger'>The raid has ended.</span>"
 	. += "<br/> The orks looted <b>[got_items]</b> items."
 	. += "<br/> Total points: <b>[ork_total_points]</b>. <br/>"
@@ -36,17 +50,19 @@ var/ork_total_points = 0
 
 /datum/faction/ork_raiders/AdminPanelEntry()
 	. = ..()
-	. += "<br/> Time left: <b>[num2text((time_left /(2*60)))]:[add_zero(num2text(time_left/2 % 60), 2)]</b>"
+	var/fucktime = round(time_left)
+	. += "<br/> Raid time left: [num2text((fucktime/60))] Minutes</b>"
 
 /datum/faction/ork_raiders/OnPostSetup()
 	..()
 
 /datum/faction/ork_raiders/process()
 	if(completed)
+		time_left = 0
 		return
 	. = ..()
 	time_left -= 2
-	if(time_left < 0 && completed == FALSE)
+	if(time_left <= 0 && completed == FALSE)
 		completed = TRUE
 		for(var/datum/role/R in members)
 			to_chat(R.antag.current, "<span class='warning'>The raid is over.</span>")
@@ -54,25 +70,16 @@ var/ork_total_points = 0
 		var/area/points_area = locate(/area/vault/warhammergen/ork_loot_area)
 		for(var/obj/O in points_area)
 			if(is_type_in_list(O, mcguffin_items))
-				ork_total_points += 500
+				ork_total_points += 2000
 				got_items++
 
-		for(var/mob/player in mob_list)
-			if(player.stat == DEAD)
-				if(player.mind.assigned_role == "General")
-					ork_total_points += 1000
-				if(player.mind.assigned_role == "Commissar")
-					ork_total_points += 250
-
 		if(ig_total_points <= ork_total_points)
-			stage(FACTION_VICTORY)
 			results = "WE KRUMPED DA 'UMIES."
 			for(var/datum/role/R in members)
 				if(R.antag.current.client)
 					var/client/C = R.antag.current.client
 					C.persist.potential += 1
 		else
-			stage(FACTION_DEFEATED)
 			results = "THE 'UMIES KRUMPED US."
 			for(var/datum/role/R in members)
 				if(R.antag.current.client)

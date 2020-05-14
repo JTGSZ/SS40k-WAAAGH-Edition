@@ -3,14 +3,6 @@
 	mode.declare_completion()
 	completions += "[mode.dat]<HR>"
 
-	/*//Calls auto_declare_completion_* for all modes
-	for(var/handler in typesof(/datum/gamemode/proc))
-		if(findtext("[handler]","auto_declare_completion_"))
-			completions += "[call(mode, handler)()]"*/
-
-	//completions += "<br>[ert_declare_completion()]"
-	//completions += "<br>[deathsquad_declare_completion()]"
-
 	if(bomberman_mode)
 		completions += "<br>[bomberman_declare_completion()]"
 

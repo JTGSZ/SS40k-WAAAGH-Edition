@@ -123,31 +123,6 @@ var/global/global_anchor_bloodstone // Keeps track of what stone becomes the anc
 /datum/faction/bloodcult/minorVictoryText()
 	return "The cult completed its sacrificial ritual, but not in time to summon Nar-Sie."
 
-/*
-/datum/faction/bloodcult/process()
-	..()
-
-	if (change_cooldown > 0)
-		change_cooldown -= 1 SECONDS
-		if (change_cooldown <= 0)
-			var/datum/objective/bloodcult_sacrifice/O = locate() in objective_holder.objectives
-			if (O && !O.IsFulfilled())
-				O.failed_targets += O.sacrifice_target
-				spawn()
-					if (O.replace_target())
-						for(var/datum/role/cultist/C in members)
-							var/mob/M = C.antag.current
-							if (M)
-								to_chat(M,"<span class='danger'>The sacrifice wasn't performed in time.</span><b> A new target has been assigned. [O.explanation_text]</b>")
-								if (M == O.sacrifice_target)
-									to_chat(M,"<b>There is no greater honor than purposefuly relinquishing your body for the coming of Nar-Sie, but you may wait for another target to be selected should you be afraid of death.</b>")
-								else if (iscultist(O.sacrifice_target))
-									to_chat(M,"<b>Chance has rolled its dice, and one of ours was selected. If for whatever reasons you do not want to take their life, you will have to wait for a new selection.</b>")
-	if (target_change)
-		target_change = FALSE
-		change_cooldown = SACRIFICE_CHANGE_COOLDOWN
-*/
-
 /datum/faction/bloodcult/stage(var/new_act,var/A,var/forced=FALSE)
 	//This proc is called to update the faction's current objectives, and veil thickness
 	if (veil_thickness == CULT_MENDED)
