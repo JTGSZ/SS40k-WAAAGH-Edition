@@ -123,6 +123,9 @@ var/list/existing_vaults = list()
 /datum/map_element/vault/mapruins/listening
 	file_path = "maps/randomvaults/listening.dmm"
 
+/datum/map_element/vault/pretty_rad_clubhouse
+	file_path = "maps/randomvaults/pretty_rad_clubhouse.dmm"
+
 /datum/map_element/vault/mapruins/hivebot_crash
 	file_path = "maps/randomvaults/hivebot_crash.dmm"
 
