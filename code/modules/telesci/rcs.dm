@@ -67,6 +67,7 @@
 	name = "rapid-crate-sender (RCS)"
 	desc = "Use this to send crates to cargo telepads."
 	icon = 'icons/obj/telescience.dmi'
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/newsprites_lefthand.dmi', "right_hand" = 'icons/mob/in-hand/right/newsprites_righthand.dmi')
 	icon_state = "rcs"
 	siemens_coefficient = 1
 	force = 10
