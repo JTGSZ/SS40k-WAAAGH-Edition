@@ -49,7 +49,7 @@
 	id_type = /obj/item/weapon/card/id/hos
 
 /datum/outfit/commissar/post_equip(var/mob/living/carbon/human/H)
-	H.mind.store_memory("Frequencies list: <br/><b>Command:</b> [COMM_FREQ]<br/> <b>Security:</b> [SEC_FREQ]<br/>")
+	
 
 /datum/outfit/commissar/handle_faction(var/mob/living/M)
 	var/datum/role/imperial_guard/commissar/commissar = new

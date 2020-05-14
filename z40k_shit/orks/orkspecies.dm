@@ -79,6 +79,9 @@
 /datum/species/ork/gib(mob/living/carbon/human/H)
 	..()
 	H.default_gib()
+ 
+/datum/species/ork/makeName()
+	return capitalize(pick(ork_first)) + " " + capitalize(pick(ork_last))
 
 //This below segment normally belongs in human.dm
 /mob/living/carbon/human/ork/basicork/New(var/new_loc, delay_ready_dna = 0)
