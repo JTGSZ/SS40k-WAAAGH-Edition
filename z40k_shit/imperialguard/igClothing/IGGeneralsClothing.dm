@@ -6,4 +6,7 @@
 	item_state = "commanderarmor"//Check: Its there
 	body_parts_covered = UPPER_TORSO
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
+	allowed = list(/obj/item/weapon/gun/projectile/automatic/boltpistol,
+				/obj/item/weapon/chainsword
+				)
 	armor = list(melee = 65, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)

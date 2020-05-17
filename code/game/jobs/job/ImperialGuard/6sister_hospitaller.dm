@@ -28,10 +28,10 @@
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
 			slot_w_uniform_str = /obj/item/clothing/under/inquisitor,
-			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
-			slot_head_str = /obj/item/clothing/head/iguard/inqhat,
-			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/inq,
+			slot_shoes_str = /obj/item/clothing/shoes/sbattle/hospitaller_shoes,
+			slot_head_str = /obj/item/clothing/head/sbattle/hospitaller_head,
+			slot_gloves_str = /obj/item/clothing/gloves/sbattle/hospitaller_gloves,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/sbattle/hospitaller_suit,
 			slot_r_hand = /obj/item/weapon/powersword,
 			slot_l_hand = /obj/item/weapon/gun/projectile/automatic/boltpistol
 		),
@@ -69,7 +69,7 @@
 	inquisitor.mind_storage(M.mind)
 
 /datum/outfit/sister_hospitaller/handle_special_abilities(var/mob/living/carbon/human/H)
-	H.attribute_strength = 10
+	H.attribute_strength = 12
 	H.attribute_agility = 12
 	H.attribute_dexterity = 13
 	return 1
