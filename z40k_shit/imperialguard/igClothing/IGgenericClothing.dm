@@ -69,12 +69,18 @@
 	icon_state = "impbag" //Check: Its there
 	item_state = "impbag" //Check: Its there
 
+/obj/item/weapon/storage/backpack/iguard/trooperbag/New()
+	..()
+	new /obj/item/weapon/reagent_containers/hypospray/autoinjector/biofoam_injector(src)
+	new /obj/item/weapon/reagent_containers/hypospray/autoinjector/biofoam_injector(src)
+
 /obj/item/weapon/storage/backpack/iguard/stormtrooperbag
 	name = "Stormtrooper Backpack"
 	desc = "This backpack looks like one of the finest the imperial guard can offer."
 	icon_state = "stormp" //Check: Its there
 	item_state = "stormp" //Check: Its there
 
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/biofoam_injector
 /*
 	IMPERIAL GUARD BELTS
 						*/

@@ -19,7 +19,7 @@
 
 	circuit = "/obj/item/weapon/circuitboard/comm_server"
 
-	req_access = list(access_tcomsat)
+	req_access = list()
 
 
 /obj/machinery/computer/telecomms/server/attack_hand(mob/user )

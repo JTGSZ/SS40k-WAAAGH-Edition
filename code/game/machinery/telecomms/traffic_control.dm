@@ -21,7 +21,7 @@
 
 	light_color = LIGHT_COLOR_ORANGE
 
-	req_access = list(access_tcomsat)
+	req_access = list()
 
 /obj/machinery/computer/telecomms/traffic/proc/stop_editing()
 	if(editingcode)
