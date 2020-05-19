@@ -335,7 +335,7 @@
 		if(O.is_broken())
 			O.status &= ~ORGAN_BROKEN
 			O.perma_injury = 0
-			O.heal_damage(O.brute_dam - ((O.min_broken_damage * config.organ_health_multiplier) - 1))
+			O.heal_damage(O.brute_dam - ((O.min_broken_damage) - 1))
 			to_chat(src, "<span class='notice'>You've repaired the bones in your host's [hostlimb == LIMB_RIGHT_ARM ? "right" : "left"] hand.</span>")
 			to_chat(host, "<span class='notice'>You feel the bones in your [hostlimb == LIMB_RIGHT_ARM ? "right" : "left"] hand mend together.</span>")
 			chemicals -= 30
@@ -350,7 +350,7 @@
 				return
 		current_limb.status &= ~ORGAN_BROKEN
 		current_limb.perma_injury = 0
-		current_limb.heal_damage(current_limb.brute_dam - ((current_limb.min_broken_damage * config.organ_health_multiplier) - 1))
+		current_limb.heal_damage(current_limb.brute_dam - ((current_limb.min_broken_damage) - 1))
 		to_chat(src, "<span class='notice'>You've repaired the bones in your host's [hostlimb == LIMB_RIGHT_ARM ? "right" : "left"] arm.</span>")
 		to_chat(host, "<span class='notice'>You feel the bones in your [hostlimb == LIMB_RIGHT_ARM ? "right" : "left"] arm mend together.</span>")
 		chemicals -= 50

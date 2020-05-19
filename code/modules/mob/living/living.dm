@@ -1332,17 +1332,6 @@ Thanks.
 			if(!can_move_mob(tmob, 0, 0))
 				now_pushing = 0
 				return
-			//var/mob/living/carbon/human/H = null
-			/*if(ishuman(tmob))
-				H = tmob
-			if(H && ((M_FAT in H.mutations) || (H && H.species && H.species.anatomy_flags & IS_BULKY)))
-				var/mob/living/carbon/human/U = null
-				if(ishuman(src))
-					U = src 
-				if(prob(40) && !(U && ((M_FAT in U.mutations) || (U && U.species && U.species.anatomy_flags & IS_BULKY))))
-					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
-					now_pushing = 0
-					return*/
 
 			if(tmob.attribute_constitution > attribute_strength)
 				now_pushing = 0

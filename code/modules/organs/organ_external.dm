@@ -27,7 +27,7 @@
 	var/tmp/destspawn = 0 //Has it spawned the broken limb?
 	var/tmp/amputated = 0 //Whether this has been cleanly amputated, thus causing no pain
 	var/min_broken_damage = 30
-
+ 
 	var/datum/organ/external/parent
 	var/list/datum/organ/external/children
 
@@ -193,7 +193,7 @@
 		var/threshold_multiplier = 1
 		if(isslimeperson(owner))
 			threshold_multiplier = 0
-		if(config.limbs_can_break && get_health() >= max_damage * config.organ_health_multiplier * threshold_multiplier)
+		if(config.limbs_can_break && get_health() >= max_damage * threshold_multiplier)
 			if(isslimeperson(owner))
 				var/chance_multiplier = 1
 				if(istype(src, /datum/organ/external/head))
@@ -214,7 +214,7 @@
 					droplimb(1)
 					return
 
-		else if((config.limbs_can_break && sharp == 100) || ((sharp >= 2) && (config.limbs_can_break && brute_dam + burn_dam >= (max_damage * config.organ_health_multiplier)/sharp))) //items of exceptional sharpness are capable of severing the limb below its damage threshold, the necessary threshold scaling inversely with sharpness
+		else if((config.limbs_can_break && sharp == 100) || ((sharp >= 2) && (config.limbs_can_break && brute_dam + burn_dam >= (max_damage)/sharp))) //items of exceptional sharpness are capable of severing the limb below its damage threshold, the necessary threshold scaling inversely with sharpness
 			if(prob((5 * (brute * sharp)) * (sharp - 1))) //the same chance multiplier based on sharpness applies here as well
 				droplimb(1)
 				return
@@ -247,7 +247,7 @@
 	else
 		//If we can't inflict the full amount of damage, spread the damage in other ways
 		//How much damage can we actually cause?
-		var/can_inflict = max_damage * config.organ_health_multiplier - (brute_dam + burn_dam)
+		var/can_inflict = max_damage - (brute_dam + burn_dam)
 		if(can_inflict)
 			if(brute > 0)
 				//Inflict all burte damage we can
@@ -381,16 +381,21 @@
 
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
-	if(damage > 10 && type != BURN && local_damage > 20 && prob(damage) && is_organic() && !(species && species.anatomy_flags & NO_BLOOD))
-		var/internal_bleeding = 0
-		for(var/datum/wound/Wound in wounds)
-			if(Wound.internal)
-				internal_bleeding = 1
-				break
-		if(!internal_bleeding)
-			var/datum/wound/internal_bleeding/I = new (15)
-			wounds += I
-			owner.custom_pain("You feel something rip in your [display_name]!", 1)
+	if(type != BURN)
+		if(is_organic() && !(species && species.anatomy_flags & NO_BLOOD))
+			if(owner.attribute_constitution < 15)
+				var/IBprob = (30-(owner.attribute_constitution * 2))
+				if(damage > 20 && local_damage > 20 && prob(damage))
+					if(prob(IBprob))
+						var/internal_bleeding = 0 
+						for(var/datum/wound/Wound in wounds)
+							if(Wound.internal)
+								internal_bleeding = 1
+								break
+						if(!internal_bleeding)
+							var/datum/wound/internal_bleeding/I = new (15)
+							wounds += I
+							owner.custom_pain("You feel something rip in your [display_name]!", 1)
 
 	//Check whether we can add the wound to an existing wound
 	for(var/datum/wound/other in wounds)
@@ -450,11 +455,16 @@
 
 	//Bone fracurtes
 	var/datum/species/species = src.species || owner.species
-	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && is_organic() && !(species.anatomy_flags & NO_BONES))
-		src.fracture()
+	if(is_organic() && !(species.anatomy_flags & NO_BONES))
+		if(config.bones_can_break && brute_dam > min_broken_damage)
+			if(owner.attribute_constitution < 15)
+				var/breakprob = (30-(owner.attribute_constitution * 2))
+				if(prob(breakprob))
+					src.fracture()
+	
 	if(!is_broken())
 		perma_injury = 0
-
+ 
 	update_germs()
 
 	if(grasp_id)
@@ -1370,7 +1380,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	display_name = "left foot"
 	icon_name = "l_foot"
 	max_damage = 40
-	min_broken_damage = 15
+	min_broken_damage = 30
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 
@@ -1390,7 +1400,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	display_name = "right foot"
 	icon_name = "r_foot"
 	max_damage = 40
-	min_broken_damage = 15
+	min_broken_damage = 30
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
 
@@ -1410,7 +1420,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	display_name = "right hand"
 	icon_name = "r_hand"
 	max_damage = 40
-	min_broken_damage = 15
+	min_broken_damage = 30
 	body_part = HAND_RIGHT
 	grasp_id = GRASP_RIGHT_HAND
 	can_grasp = 1
@@ -1431,7 +1441,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	display_name = "left hand"
 	icon_name = "l_hand"
 	max_damage = 40
-	min_broken_damage = 15
+	min_broken_damage = 30
 	body_part = HAND_LEFT
 	grasp_id = GRASP_LEFT_HAND
 	can_grasp = 1

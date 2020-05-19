@@ -110,7 +110,6 @@
 	var/health_threshold_dead = -100
 	var/burn_damage_ash = 0
 
-	var/organ_health_multiplier = 1
 	var/organ_regeneration_multiplier = 1
 
 	var/bones_can_break = 0
@@ -589,8 +588,6 @@
 					config.run_speed = value
 				if("walk_speed")
 					config.walk_speed = value
-				if("organ_health_multiplier")
-					config.organ_health_multiplier = value / 100
 				if("organ_regeneration_multiplier")
 					config.organ_regeneration_multiplier = value / 100
 				if("bones_can_break")
