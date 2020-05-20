@@ -250,6 +250,14 @@ var/list/potential_bonus_items = list(
 
 
 /datum/faction/vox_shoal/proc/count_human_score(var/mob/living/carbon/human/H)
+	if (!H.mind)
+		if (H.old_assigned_role in command_positions)
+			total_points += 300
+		if (H.old_assigned_role in dept_objective)
+			total_points += 200
+			got_personnel++
+		return
+
 	if (H.mind.assigned_role in command_positions)
 		total_points += 300
 	if (H.mind.assigned_role in dept_objective)

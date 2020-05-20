@@ -63,9 +63,10 @@
 	H.first_name = "Sister"
 	H.real_name = "[H.first_name]" + " " + "[H.last_name]"
 	H.check_dna(H)
-	for(var/obj/item/weapon/card/id/I in items)
-		I.name = "[M.real_name]'s ID Card"
-		I.registered_name = M.real_name
+	if(H.wear_id)
+		var/obj/item/weapon/card/id/id = H.wear_id
+		id.name = "[H.real_name]'s ID Card"
+		id.registered_name = H.real_name
 
 
 /datum/outfit/sister_hospitaller/handle_faction(var/mob/living/M)
