@@ -170,7 +170,7 @@ var/global/datum/controller/radio/radio_controller
 			returnToPool(signal)
 			return 0
 
-	if (filter) //here goes some copypasta. It is for optimisation. -rastaf0
+	if(filter) //here goes some copypasta. It is for optimisation. -rastaf0
 		for(var/obj/device in devices[filter])
 			if(device == source)
 				continue
@@ -196,7 +196,7 @@ var/global/datum/controller/radio/radio_controller
 			//N_f++
 
 	else
-		for (var/next_filter in devices)
+		for(var/next_filter in devices)
 			//var/list/obj/DDD = devices[next_filter]
 			//Nt+=DDD.len
 			for(var/obj/device in devices[next_filter])

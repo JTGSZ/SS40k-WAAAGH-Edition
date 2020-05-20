@@ -7,7 +7,8 @@
 	body_parts_covered = FULL_TORSO|ARMS
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 	allowed = list(/obj/item/weapon/gun/projectile/automatic/boltpistol,
-			/obj/item/weapon/chainsword
+			/obj/item/weapon/chainsword,
+			/obj/item/weapon/powersword
 			)
 	armor = list(melee = 70, bullet = 80, laser = 70,energy = 25, bomb = 50, bio = 100, rad = 50)
 	canremove = FALSE
@@ -35,7 +36,8 @@
 	w_class = W_CLASS_LARGE
 	storage_slots = 7
 	can_only_hold = list(/obj/item/weapon/gun/projectile/automatic/boltpistol,
-					/obj/item/weapon/chainsword
+					/obj/item/weapon/chainsword,
+					/obj/item/weapon/powersword
 					)
 	canremove = FALSE
 

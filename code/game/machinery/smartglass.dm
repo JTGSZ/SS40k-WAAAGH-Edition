@@ -39,7 +39,7 @@
 
 /obj/machinery/smartglass_electronics/Destroy()
 	radio_controller.remove_object(src, frequency)
-	qdel(radio_connection)
+	Ourwindow = null
 	radio_connection = null
 	..()
 	

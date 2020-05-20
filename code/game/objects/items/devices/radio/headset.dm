@@ -1,5 +1,5 @@
 /obj/item/device/radio/headset
-	name = "radio headset"
+	name = "comm-bead"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	icon_state = "headset"
 	item_state = "headset"
@@ -73,7 +73,7 @@
 	recalculateChannels()
 
 /obj/item/device/radio/headset/headset_sec
-	name = "security radio headset"
+	name = "comm-bead"
 	desc = "This is used by your elite security force. To access the security channel, use :s."
 	icon_state = "sec_headset"
 	item_state = "headset"
@@ -83,7 +83,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_eng
-	name = "engineering radio headset"
+	name = "comm-bead"
 	desc = "When the engineers wish to chat like girls. To access the engineering channel, use :e. "
 	icon_state = "eng_headset"
 	item_state = "headset"
@@ -93,7 +93,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_rob
-	name = "robotics radio headset"
+	name = "comm-bead"
 	desc = "Made specifically for the roboticists who cannot decide between departments. To access the engineering channel, use :e. For research, use :n."
 	icon_state = "rob_headset"
 	item_state = "headset"
@@ -103,7 +103,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_med
-	name = "medical radio headset"
+	name = "comm-bead"
 	desc = "A headset for the trained staff of the medbay. To access the medical channel, use :m."
 	icon_state = "med_headset"
 	item_state = "headset"
@@ -113,7 +113,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_sci
-	name = "science radio headset"
+	name = "comm-bead"
 	desc = "A sciency headset. Like usual. To access the science channel, use :n."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -123,7 +123,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_medsci
-	name = "medical research radio headset"
+	name = "comm-bead"
 	desc = "A headset that is a result of the mating between medical and science. To access the medical channel, use :m. For science, use :n."
 	icon_state = "med_headset"
 	item_state = "headset"
@@ -133,7 +133,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_com
-	name = "command radio headset"
+	name = "comm-bead"
 	desc = "A headset with a commanding channel. To access the command channel, use :c."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -143,7 +143,7 @@
 	..()
 
 /obj/item/device/radio/headset/heads/captain
-	name = "captain's headset"
+	name = "comm-bead"
 	desc = "The headset of the boss. Channels are as follows: :c - command, :s - security, :e - engineering, :u - supply, :d - service, :m - medical, :n - science."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -153,7 +153,7 @@
 	..()
 
 /obj/item/device/radio/headset/heads/rd
-	name = "Research Director's headset"
+	name = "comm-bead"
 	desc = "Headset of the researching God. To access the science channel, use :n. For command, use :c."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -163,7 +163,7 @@
 	..()
 
 /obj/item/device/radio/headset/heads/hos
-	name = "head of security's headset"
+	name = "comm-bead"
 	desc = "The headset of the man who protects your worthless lifes. To access the security channel, use :s. For command, use :c."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -173,7 +173,7 @@
 	..()
 
 /obj/item/device/radio/headset/heads/ce
-	name = "chief engineer's headset"
+	name = "comm-bead"
 	desc = "The headset of the guy who is in charge of morons. To access the engineering channel, use :e. For command, use :c."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -183,7 +183,7 @@
 	..()
 
 /obj/item/device/radio/headset/heads/cmo
-	name = "chief medical officer's headset"
+	name = "comm-bead"
 	desc = "The headset of the highly trained medical chief. To access the medical channel, use :m. For command, use :c."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -193,7 +193,7 @@
 	..()
 
 /obj/item/device/radio/headset/heads/hop
-	name = "head of personnel's headset"
+	name = "comm-bead"
 	desc = "The headset of the guy who will one day be captain. Channels are as follows: :u - supply, :d - service, :c - command, :s - security"
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -203,7 +203,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_cargo
-	name = "supply radio headset"
+	name = "comm-bead"
 	desc = "A headset used by the QM and his slaves. To access the supply channel, use :u."
 	icon_state = "cargo_headset"
 	item_state = "headset"
@@ -213,7 +213,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_mining
-	name = "supply radio headset"
+	name = "comm-bead"
 	desc = "A headset used by the shaft miners to be yelled at from the QM and R&D at the same time. Channels are as follows: :u - supply, :n - science"
 	icon_state = "mine_headset"
 	item_state = "headset"
@@ -223,7 +223,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_service
-	name = "service radio headset"
+	name = "comm-bead"
 	desc = "A headset used by the chef, the bartender and the botanists to plan their poisoning of the entire crew. To access the service channel, use :d."
 	icon_state = "service_headset"
 	item_state = "headset"
@@ -233,7 +233,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_engsci
-	name = "research engineering radio headset"
+	name = "comm-bead"
 	desc = "A headset used to gossip about engineering to the science crew, and about science to the engineering crew. To access the engineering channel, use :e. For science, use :n."
 	icon_state = "eng_headset"
 	item_state = "headset"
@@ -243,7 +243,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_servsci
-	name = "research service radio headset"
+	name = "comm-bead"
 	desc = "A headset used to talk to botanists and scientists. To access the science channel, use :n. For service, use :d."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -253,7 +253,7 @@
 	..()
 
 /obj/item/device/radio/headset/headset_earmuffs
-	name = "headset earmuffs"
+	name = "comm-bead"
 	desc = "Protective earmuffs for sound technicians that allow one to speak on radio channels."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "headset_earmuffs"

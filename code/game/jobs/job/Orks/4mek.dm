@@ -22,6 +22,7 @@
 	outfit_name = "Basic Mek"
 	associated_job = /datum/job/basicmek
 	no_backpack = TRUE
+	no_id = TRUE
 
 	items_to_spawn = list(
 		"Default" = list(

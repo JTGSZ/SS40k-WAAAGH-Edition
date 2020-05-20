@@ -52,7 +52,7 @@
 
 	var/use_pref_bag = TRUE
 	var/no_backpack = FALSE
-	var/no_id = TRUE
+	var/no_id = FALSE
 	var/give_disabilities_equipment = TRUE
 	var/list/equip_survival_gear = list()
 

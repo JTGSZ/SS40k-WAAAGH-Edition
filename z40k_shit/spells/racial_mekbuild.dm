@@ -29,6 +29,7 @@
 				new/datum/crafting_recipes/rokkitlauncha,
 				new/datum/crafting_recipes/ork_jumppack,
 				new/datum/crafting_recipes/burnapack,
+				new/datum/crafting_recipes/mekanical_shouta
 				)
 
 /spell/aoe_turf/mekbuild/New()

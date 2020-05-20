@@ -30,7 +30,7 @@
 
 	items_to_spawn = list( 
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/heads/captain,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/commanderarmor,
@@ -44,9 +44,7 @@
 		/obj/item/weapon/implant/loyalty/,
 	)
 
-	pda_type = /obj/item/device/pda/captain
-	pda_slot = slot_l_store
-	id_type = /obj/item/weapon/card/id/gold
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/general/post_equip(var/mob/living/carbon/human/H)
 	to_chat(world, "<b>[H.real_name] is the General!</b>")

@@ -114,3 +114,12 @@
 	sheet_types = list(/obj/item/stack/sheet/metal = 40)
 	other_objects = list(/obj/structure/reagent_dispensers/fueltank = 2)
 
+/datum/crafting_recipes/mekanical_shouta
+	title = "Mekanical Shouta"
+	result_type = /obj/structure/mekanical_shouta
+	time = 10 SECONDS
+	build_desc = "40 Metal Sheets, 1 Power Cell(Battery)"
+	obj_desc = "Lets everyone hear you across the entire battlefield hella loud."
+	sheet_types = list(/obj/item/stack/sheet/metal = 40)
+	other_objects = list(/obj/item/weapon/cell = 1)
+

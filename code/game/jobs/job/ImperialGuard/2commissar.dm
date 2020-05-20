@@ -30,7 +30,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/heads/hos,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/commissar,
 			slot_head_str = /obj/item/clothing/head/iguard/commissarcap,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
@@ -44,9 +44,7 @@
 		/obj/item/weapon/implant/loyalty/,
 	)
 
-	pda_type = /obj/item/device/pda/heads/hos
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id/hos
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/commissar/post_equip(var/mob/living/carbon/human/H)
 	

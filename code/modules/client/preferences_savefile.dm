@@ -480,7 +480,7 @@ AND players.player_slot = ? ;"}, ckey, slot)
 	if(!last_name)
 		last_name = random_last_name(gender,species)
 	if(!real_name)
-		real_name = "first_name" + " " + "last_name"
+		real_name = "[first_name]" + " " + "[last_name]"
 
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	be_random_body	= sanitize_integer(be_random_body, 0, 1, initial(be_random_body))

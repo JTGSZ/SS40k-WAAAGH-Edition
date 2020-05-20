@@ -26,7 +26,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/inquisitor,
 			slot_shoes_str = /obj/item/clothing/shoes/sbattle/hospitaller_shoes,
 			slot_head_str = /obj/item/clothing/head/sbattle/hospitaller_head,
@@ -45,13 +45,12 @@
 		/obj/item/weapon/implant/loyalty/,
 	)
 
-	pda_type = /obj/item/device/pda/detective
-	pda_slot = slot_r_store
-	id_type = /obj/item/weapon/card/id/security
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/sister_hospitaller/post_equip(var/mob/living/carbon/human/H)
 	H.setGender(FEMALE)
 	H.my_appearance.h_style = "Bobcurl"
+	H.my_appearance.s_tone = -10
 	H.my_appearance.b_hair = 255
 	H.my_appearance.g_hair = 255
 	H.my_appearance.r_hair = 255
@@ -61,7 +60,12 @@
 	H.my_appearance.b_facial = 255
 	H.update_hair()
 	H.update_body()
+	H.first_name = "Sister"
+	H.real_name = "[H.first_name]" + " " + "[H.last_name]"
 	H.check_dna(H)
+	for(var/obj/item/weapon/card/id/I in items)
+		I.name = "[M.real_name]'s ID Card"
+		I.registered_name = M.real_name
 
 
 /datum/outfit/sister_hospitaller/handle_faction(var/mob/living/M)

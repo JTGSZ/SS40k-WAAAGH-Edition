@@ -27,7 +27,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/heads/captain,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/rank/chaplain,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_head_str = /obj/item/clothing/head/iguard/primarispsykertop,
@@ -37,9 +37,7 @@
 		)
 	)
 
-	pda_type = /obj/item/device/pda/chaplain
-	pda_slot = slot_l_store
-	id_type = /obj/item/weapon/card/id
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/primarispsyker/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Fuck you")

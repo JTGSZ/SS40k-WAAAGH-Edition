@@ -21,6 +21,7 @@
 	outfit_name = "Ork Warboss"
 	associated_job = /datum/job/orkwarboss
 	no_backpack = TRUE
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,

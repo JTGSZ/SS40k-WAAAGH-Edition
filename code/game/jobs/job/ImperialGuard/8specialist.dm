@@ -29,7 +29,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
 			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_helmet,
 			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_wepspec_boots,
@@ -46,9 +46,7 @@
 	implant_types = list(
 	)
 
-	pda_type = /obj/item/device/pda/warden
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id/security
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/IG_weapon_specialist/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <br/> <b>Security:</b> [SEC_FREQ]<br/>")

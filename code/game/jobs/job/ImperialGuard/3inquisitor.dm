@@ -33,7 +33,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/headset_sec,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/inquisitor,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
 			slot_head_str = /obj/item/clothing/head/iguard/inqhat,
@@ -50,9 +50,7 @@
 		/obj/item/weapon/implant/loyalty/,
 	)
 
-	pda_type = /obj/item/device/pda/detective
-	pda_slot = slot_r_store
-	id_type = /obj/item/weapon/card/id/security
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/inquisitor/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <b>Security:</b> [SEC_FREQ]<br/>")

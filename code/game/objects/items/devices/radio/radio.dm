@@ -297,7 +297,7 @@
 		if(voice != real_name)
 			voicemask = 1
 		speech.job = speech.speaker:get_assignment()
-
+ 
 	// --- Carbon Nonhuman ---
 	else if (iscarbon(speech.speaker)) // Nonhuman carbon mob
 		speech.job = "No id"
@@ -458,19 +458,6 @@
 	if (broadcasting)
 		if(get_dist(src, speech.speaker) <= canhear_range)
 			talk_into(speech)
-/*
-/obj/item/device/radio/proc/accept_rad(obj/item/device/radio/R, message)
-
-
-	if ((R.frequency == frequency && message))
-		return 1
-	else if
-
-	else
-		return null
-	return
-*/
-
 
 /obj/item/device/radio/proc/receive_range(freq, level)
 	// check if this radio can receive on the given frequency, and if so,
@@ -507,7 +494,7 @@
 		if (!accept)
 			return -1
 	return canhear_range
-
+ 
 /obj/item/device/radio/proc/send_hear(freq, level)
 
 

@@ -26,7 +26,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_ears_str = /obj/item/device/radio/headset/heads/captain,
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/rank/chaplain,
 			slot_shoes_str = /obj/item/clothing/shoes/laceup,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
@@ -40,9 +40,7 @@
 		/obj/item/weapon/implant/loyalty/,
 	)
 
-	pda_type = /obj/item/device/pda/chaplain
-	pda_slot = slot_l_store
-	id_type = /obj/item/weapon/card/id
+	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/preacher/post_equip(var/mob/living/carbon/human/H)
 	H.add_language("Spooky") //SPOOK
