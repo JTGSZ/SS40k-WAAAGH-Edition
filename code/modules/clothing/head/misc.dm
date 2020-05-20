@@ -514,7 +514,7 @@
 	icon_state = "pharaoh"
 	item_state = "pharaoh"
 	wizard_garb = TRUE
-	body_parts_covered = FULL_HEAD|HEAD|EARS
+	body_parts_covered = FULL_HEAD|HEAD|EARS|MASKHEADHAIR
 
 /obj/item/clothing/head/sombrero
 	name = "sombrero"

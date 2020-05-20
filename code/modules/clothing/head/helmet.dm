@@ -28,9 +28,9 @@
 	to_chat(user, "<span class = 'notice'>You flick \the [src] [state ? "down" : "up"].</span>")
 	switch(state)
 		if(1) //FACE COVERED
-			body_parts_covered = FULL_HEAD
+			body_parts_covered = FULL_HEAD|MASKHEADHAIR
 		if(0) //VISOR UP
-			body_parts_covered = HEAD|EARS
+			body_parts_covered = HEAD|EARS|MASKHEADHAIR
 	update_icon(user)
 
 /obj/item/clothing/head/helmet/visor/update_icon(mob/user)
@@ -108,7 +108,7 @@
 	armor = list(melee = 20, bullet = 0, laser = 20, energy = 10, bomb = 10, bio = 0, rad = 0)
 	icon_state = "roman"
 	item_state = "roman"
-	body_parts_covered = HEAD|EARS
+	body_parts_covered = HEAD|EARS|MASKHEADHAIR
 
 /obj/item/clothing/head/helmet/roman/legionaire
 	name = "roman legionaire helmet"
@@ -249,7 +249,7 @@
 	desc = "This piece of equipment can double as a pillow, a bowl, an emergency toilet, and sometimes as a helmet."
 	icon_state = "nr_helmet"
 	item_state = "nr_helmet"
-	body_parts_covered = EARS|HEAD
+	body_parts_covered = EARS|HEAD|MASKHEADHAIR
 	heat_conductivity = INS_HELMET_HEAT_CONDUCTIVITY
 
 /obj/item/clothing/head/helmet/police
