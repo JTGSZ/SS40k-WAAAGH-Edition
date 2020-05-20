@@ -280,7 +280,6 @@
 				if(W.is_wrench(user))
 					to_chat(user, "<span class='notice'>You deconstruct \the [src].</span>")
 					W.playtoolsound(src, 50)
-					//new /obj/item/stack/sheet/metal( get_turf(src.loc), 2)
 					var/obj/item/stack/sheet/metal/M = getFromPool(/obj/item/stack/sheet/metal, get_turf(src))
 					M.amount = 2
 					qdel(src)

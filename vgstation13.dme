@@ -2663,6 +2663,7 @@
 #include "z40k_shit\maphelpers\decals.dm"
 #include "z40k_shit\orks\backtankflamer.dm"
 #include "z40k_shit\orks\jumppack.dm"
+#include "z40k_shit\orks\mekanicalshouta.dm"
 #include "z40k_shit\orks\orkspecies.dm"
 #include "z40k_shit\orks\stikkbomb.dm"
 #include "z40k_shit\orks\orkclothing\ork_armor.dm"

@@ -32,6 +32,7 @@
 			slot_head_str = /obj/item/clothing/head/sbattle/hospitaller_head,
 			slot_gloves_str = /obj/item/clothing/gloves/sbattle/hospitaller_gloves,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/sbattle/hospitaller_suit,
+			slot_belt_str = /obj/item/weapon/storage/belt/sbattle/hospitaller_belt,
 			slot_r_hand = /obj/item/weapon/powersword,
 			slot_l_hand = /obj/item/weapon/gun/projectile/automatic/boltpistol
 		),

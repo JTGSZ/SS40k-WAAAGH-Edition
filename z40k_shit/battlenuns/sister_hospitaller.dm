@@ -10,6 +10,7 @@
 			/obj/item/weapon/chainsword
 			)
 	armor = list(melee = 70, bullet = 80, laser = 70,energy = 25, bomb = 50, bio = 100, rad = 50)
+	canremove = FALSE
 
 //------------HELMET-----------------
 /obj/item/clothing/head/sbattle/hospitaller_head
@@ -17,8 +18,9 @@
 	desc = "Its cloth that goes over the head"
 	icon_state = "hospitaller_hat" //Check: Its there
 	item_state = "hospitaller_hat" //Check: Its there
-	armor = list(melee = 30, bullet = 10, laser = 30,energy = 10, bomb = 25, bio = 0, rad = 0)
-	body_parts_covered = HEAD|EARS|EYES|MASKHEADHAIR
+	armor = list(melee = 40, bullet = 40, laser = 30,energy = 10, bomb = 25, bio = 0, rad = 0)
+	body_parts_covered = HEAD|EARS|EYES|HIDEHEADHAIR
+	canremove = FALSE
 
 //--------------BELT----------------
 /obj/item/weapon/storage/belt/sbattle/hospitaller_belt
@@ -29,11 +31,13 @@
 	max_combined_w_class = 200
 	fits_max_w_class = 5
 	body_parts_covered = LOWER_TORSO|LEGS
-	armor = list(melee = 10, bullet = 10, laser = 10,energy = 10, bomb = 10, bio = 10, rad = 0)
+	armor = list(melee = 30, bullet = 20, laser = 40,energy = 10, bomb = 10, bio = 10, rad = 0)
 	w_class = W_CLASS_LARGE
 	storage_slots = 7
-	can_only_hold = list()
-
+	can_only_hold = list(/obj/item/weapon/gun/projectile/automatic/boltpistol,
+					/obj/item/weapon/chainsword
+					)
+	canremove = FALSE
 
 /*
 	Shoes
@@ -45,3 +49,4 @@
 	item_state = "hospitaller_boots"
 	siemens_coefficient = 0.6
 	body_parts_covered = FEET
+	canremove = FALSE

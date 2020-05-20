@@ -11,3 +11,5 @@
 	body_parts_covered = HANDS
 	bonus_knockout = 17 //Slight knockout chance increase.
 	damage_added = 3 //Add 3 damage to unarmed attacks when worn
+	canremove = FALSE
+

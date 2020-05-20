@@ -441,6 +441,15 @@
 			if(trace_chemicals[chemID] <= 0)
 				trace_chemicals.Remove(chemID)
 
+				//Bone fracurtes
+		var/datum/species/species = src.species || owner.species
+		if(is_organic() && !(species.anatomy_flags & NO_BONES))
+			if(config.bones_can_break && brute_dam > min_broken_damage)
+				if(owner.attribute_constitution < 15)
+					var/breakprob = (30-(owner.attribute_constitution * 2))
+					if(prob(breakprob))
+						src.fracture()
+
 	//Dismemberment
 	if(status & ORGAN_DESTROYED)
 		if(!destspawn && config.limbs_can_break)
@@ -453,15 +462,6 @@
 			owner.update_body(1)
 			return
 
-	//Bone fracurtes
-	var/datum/species/species = src.species || owner.species
-	if(is_organic() && !(species.anatomy_flags & NO_BONES))
-		if(config.bones_can_break && brute_dam > min_broken_damage)
-			if(owner.attribute_constitution < 15)
-				var/breakprob = (30-(owner.attribute_constitution * 2))
-				if(prob(breakprob))
-					src.fracture()
-	
 	if(!is_broken())
 		perma_injury = 0
  
