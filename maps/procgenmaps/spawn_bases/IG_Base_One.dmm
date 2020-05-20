@@ -1,15 +1,16 @@
 "ab" = (/obj/machinery/door/airlock,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"am" = (/obj/effect/landmark/start/sister_hospitaller,/turf/simulated/floor{icon_state = "white"},/area/vault/warhammergen/cadianspawn)
 "cd" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "cg" = (/obj/structure/table/reinforced,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "dc" = (/obj/effect/landmark/start/commissar,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "dh" = (/obj/machinery/vending/medical,/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
-"dm" = (/obj/machinery/telecomms/hub/preset,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"dm" = (/obj/machinery/telecomms/hub/preset,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "dr" = (/obj/effect/decal/loot_pointer,/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "dA" = (/obj/machinery/light/he{dir = 1},/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "dF" = (/obj/structure/fence,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "dH" = (/obj/machinery/light/he{dir = 4},/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
-"er" = (/obj/machinery/telecomms/bus/preset_complete,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
-"ez" = (/obj/machinery/computer/telecomms/monitor,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"er" = (/obj/machinery/telecomms/bus/preset_complete,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
+"ez" = (/obj/machinery/computer/telecomms/monitor,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "fD" = (/obj/item/weapon/crowbar/red,/obj/item/weapon/wrench,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "gi" = (/obj/structure/bed/chair/comfy/couch/left/lime{dir = 8},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "gV" = (/obj/item/weapon/storage/box/beakers,/obj/structure/closet/secure_closet/chemical,/turf/simulated/floor{dir = 8; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
@@ -36,27 +37,29 @@
 "qO" = (/obj/structure/table/reinforced,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "qR" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "rq" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
+"su" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "sH" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "sN" = (/obj/structure/filingcabinet/filingcabinet,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "tf" = (/obj/machinery/door/airlock,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "tt" = (/obj/item/weapon/storage/box/beakers,/turf/simulated/floor{icon_state = "white"},/area/vault/warhammergen/cadianspawn)
 "vk" = (/obj/item/weapon/iguard/ig_powerpack,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "vJ" = (/obj/structure/bed/chair/comfy/couch/mid/lime,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
+"wb" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "wD" = (/obj/item/weapon/FixOVein,/turf/simulated/floor{icon_state = "white"},/area/vault/warhammergen/cadianspawn)
 "wS" = (/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "xB" = (/obj/effect/landmark/start/IG_Cadian_Sergeant,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "xZ" = (/obj/structure/fence/door/opened{dir = 4},/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
-"yi" = (/obj/machinery/telecomms/processor/preset_complete,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"yi" = (/obj/machinery/telecomms/processor/preset_complete,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "yl" = (/obj/machinery/light/he{dir = 1},/obj/structure/table/reinforced,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "yD" = (/obj/structure/bed/chair,/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "yN" = (/obj/machinery/light/he{dir = 4},/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "yY" = (/obj/structure/table/reinforced,/obj/item/weapon/cell/lasgunmag,/obj/item/weapon/cell/lasgunmag,/obj/item/weapon/cell/lasgunmag,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
-"zj" = (/obj/machinery/computer/telecomms/server,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"zj" = (/obj/machinery/computer/telecomms/server,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "zr" = (/obj/machinery/light/he,/obj/item/weapon/storage/firstaid/internalbleed,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "zS" = (/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
-"zY" = (/obj/machinery/telecomms/receiver/preset_complete,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"zY" = (/obj/machinery/telecomms/receiver/preset_complete,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "Ax" = (/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
-"Bu" = (/obj/machinery/computer/telecomms/traffic,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"Bu" = (/obj/machinery/computer/telecomms/traffic,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "BS" = (/obj/machinery/door/airlock,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "BY" = (/obj/effect/landmark/start/doctor,/turf/simulated/floor{icon_state = "white"},/area/vault/warhammergen/cadianspawn)
 "Cj" = (/obj/machinery/light/he{dir = 4},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
@@ -83,8 +86,8 @@
 "IZ" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Jj" = (/obj/structure/table/reinforced,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Jm" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
-"Jn" = (/obj/machinery/telecomms/broadcaster/preset_complete,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
-"Kg" = (/obj/machinery/light/he{dir = 1},/obj/machinery/telecomms/allinone,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
+"Jn" = (/obj/machinery/telecomms/broadcaster/preset_complete,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
+"Kg" = (/obj/machinery/light/he{dir = 1},/obj/machinery/telecomms/allinone,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "Kq" = (/obj/machinery/light/he{dir = 1},/obj/structure/table/reinforced,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "KO" = (/obj/machinery/light/he,/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "Lg" = (/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -119,6 +122,7 @@
 "YL" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
 "YW" = (/obj/item/weapon/bedsheet/black,/obj/structure/bed,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "Zi" = (/turf/simulated/floor{icon_state = "cmo"},/area/vault/warhammergen/cadianspawn)
+"Zo" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 
 (1,1,1) = {"
 JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
@@ -144,15 +148,15 @@ pepeFYAxqOWaAxAxpepeEvLDEvEvEvEvvkyYpeNMNMAxNMNMpepe
 pepecdAxqOAxAxAxpepeGRLDdcLDLgLgLDcgpeErErAxErErpepe
 pepepOAxqOAxWaAxpepeGRLDiwiSLDJjJjRKpeAxAxAxAxCjpepe
 pepeAxAxqOAxAxAxpepepeabpepekRpepepepeNMNMAxNMNMpepe
-pepeAxqOqOAxAxAxdAqOsHAxpeBuJmKgJmzYpeErErAxErErpepe
-pepeJmAxAxAxMQAxAxXtAxAxpeezJmJmJmerpeAxAxAxAxAxpepe
-IMPCJmJmJmAxJmJmHiAxAxAxpezjJmJnyidmpeNMNMAxNMNMpepe
+pepeAxqOqOAxAxAxdAqOsHAxpeBuAxKgAxzYpeErErAxErErpepe
+pepeJmAxAxAxMQAxAxXtAxAxpeezAxAxAxerpeAxAxAxAxAxpepe
+IMPCJmJmJmAxJmJmHiAxAxAxpezjAxJnyidmpeNMNMAxNMNMpepe
 JmJmJmJmJmJmJmCUJmAxAxXtpepepepepepepexBxBAxErErpepe
 IMJmJmJmJmJmJmJmJmJmMQAxAxrqAxAxAxAxrqAxAxAxAxAxpepe
 JmJmJmJmJmJmJmJmJmCNAxAxMFkGAxAxkGAxAxAxAxAxAxCjpepe
-JmJmJmJmJmJmJmJmpepepeabpepepepepepepeAxAxAxAxAxpepe
+JmJmJmJmJmJmJmJmpepepeabpewbsuZopepepeAxAxAxAxAxpepe
 JmJmJmEVJmJmJmJmpeQqornzyDIgMbLVdhUspexBxBAxAxAxpepe
-JmJmJmJmJmJmJmJmpeCnBYXaVjhFXaPrLjDJpeNMNMAxNMNMpepe
+JmJmJmJmJmJmJmJmpeCnBYXaVjhFamPrLjDJpeNMNMAxNMNMpepe
 JmJmJmJmJmYyJmfDpegVttBYZiXahFHNwDUEpeErErAxErErpepe
 JmJmJmJmJmJmJmJmpeRVHEjGHTXKWvHTzrImpeNMKOAxNMNMpepe
 JmJmJmJmJmJmJmJmpepepepepepepepepepepepepepepepepepe

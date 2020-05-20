@@ -33,6 +33,11 @@
 	icon_state = "commissar"
 	landmark_override = TRUE
 
+/obj/effect/landmark/start/sister_hospitaller
+	name = "Sister Hospitaller"
+	icon_state = "hospitaller"
+	landmark_override = TRUE
+
 /obj/effect/landmark/start/inquisitor
 	name = "Inquisitor"
 	icon_state = "inquisitor"
