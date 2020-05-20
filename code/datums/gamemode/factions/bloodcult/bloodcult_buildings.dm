@@ -1422,7 +1422,7 @@ var/list/bloodstone_list = list()
 		if (cult)
 			cult.fail()
 		if(anchor)
-			global_anchor_bloodstone -= src
+			global_anchor_bloodstone = null
 	..()
 
 /obj/structure/cult/bloodstone/attack_construct(var/mob/user)
