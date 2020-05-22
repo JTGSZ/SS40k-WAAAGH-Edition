@@ -102,9 +102,11 @@
 "PC" = (/obj/machinery/light/he{dir = 1},/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "Qq" = (/obj/machinery/chem_dispenser/mapping,/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "RK" = (/obj/structure/table/reinforced,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"RS" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "RV" = (/obj/structure/table/reinforced,/obj/machinery/reagentgrinder{pixel_y = 10},/turf/simulated/floor{dir = 10; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "Tk" = (/obj/structure/bed/chair/comfy,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "Tw" = (/obj/effect/landmark/start/inquisitor,/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
+"Tx" = (/obj/machinery/light/he,/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "Us" = (/obj/structure/closet/crate/medical/surgeonloot,/obj/item/weapon/storage/firstaid/fire,/turf/simulated/floor{dir = 5; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "UE" = (/obj/structure/table/glass,/obj/abstract/map/spawner/medical/pills,/obj/abstract/map/spawner/medical/pills,/obj/abstract/map/spawner/medical/drugs,/obj/abstract/map/spawner/medical/drugs,/turf/simulated/floor{dir = 4; icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "UQ" = (/obj/item/weapon/gun/ig_plasma_gun,/obj/item/weapon/gun/ig_plasma_gun,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
@@ -132,7 +134,7 @@ JmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJmJm
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
 pepeJmJmJmpepepepepepepepepepepepepepepepepepepepepe
-pepeJmJmJmJmPCJmdFJmJmPCJmIMpeoAiNoApewSsNkDTkwSpepe
+pepeJmJmJmJmPCJmdFJmJmPCJmIMpeRSiNoApewSsNkDTkwSpepe
 pepeJmJmJmJmJmJmdFJmJmJmJmJmpeoAoAoApewSoAoAoAwSpepe
 pepeJmJmJmJmJmJmxZJmJmJmJmJmpeoAoAoABSwSnwVEoAdHpepe
 pepeJmJmJmJmJmJmdFJmJmJmJmJmaboAoAoApewSnwoAoAwSpepe
@@ -140,8 +142,8 @@ pepeJmJmJmJmJmJmdFJmJmJmJmJmpeoAoAyNpewSwSwSwSwSpepe
 pepeJmJmJmJmJmJmpepepepepepepeoAoAoApepepepepepepepe
 pepeAxAxAxAxAxAxpejkjkjkjkjkpeoAoAoApesNsNEqvJoPpepe
 pepeAxAxAxAxAxAxpejkzSYLzSjkpeoAoAoApewSoAoAoANopepe
-pepeAxAxAxAxAxAxpejkzSzSzSjkpeoAoAoApewSnwTwoAgipepe
-pepepepepepeAxAxpejkzSzSzSjkpeoAoAoABSwSnwoAoAYFpepe
+pepeAxMFAxAxAxAxpejkzSzSzSjkpeoAoAoApewSnwTwoAgipepe
+pepepepepepeAxAxpejkzSzSzSjkpeTxoAoABSwSnwoAoAYFpepe
 pepepepepepetftfpejkjkdrjkjkpepepepepewSwSwSYWwSpepe
 pepemQDtylivAxAxpepeqRLDFUjvKqMTFNIZpepepepepepepepe
 pepemxAxqOAxAxAxpepeEvLDLDLDLDLDvkUQpeAxrqAxAxAxpepe

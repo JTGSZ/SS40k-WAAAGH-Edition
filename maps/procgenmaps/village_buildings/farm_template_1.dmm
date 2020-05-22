@@ -14,18 +14,19 @@
 "r" = (/obj/structure/fence/corner{dir = 1},/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
 "t" = (/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
 "u" = (/obj/structure/sink/puddle,/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
-"w" = (/obj/machinery/vending/hydronutrients,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"w" = (/obj/machinery/vending/hydronutrients,/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "x" = (/obj/machinery/chem_master,/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
 "z" = (/obj/structure/fence{dir = 4},/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
 "A" = (/obj/machinery/vending/engivend,/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
 "B" = (/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
-"C" = (/obj/machinery/chem_dispenser/mapping,/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
+"C" = (/obj/machinery/chem_dispenser/mapping,/obj/machinery/light/he{dir = 1},/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
 "D" = (/obj/machinery/vending/hydroseeds,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "E" = (/obj/item/weapon/storage/box/beakers,/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
 "F" = (/obj/item/weapon/pickaxe/shovel,/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
 "G" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "J" = (/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "K" = (/obj/road_node,/turf/unsimulated/outside/sand,/area/warhammer/desert)
+"N" = (/obj/structure/sink/puddle,/obj/machinery/light/he{dir = 1},/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
 "O" = (/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawnoff,/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
 "Q" = (/obj/structure/fence/corner,/turf/unsimulated/outside/vaultsand,/area/vault/warhammergen/neutral_town)
 "R" = (/obj/item/weapon/storage/box/buckshotshells,/turf/simulated/floor/carpet/floor_tile,/area/vault/warhammergen/neutral_town)
@@ -43,7 +44,7 @@ UJJJUEBBBU
 UJJJGBEBdU
 UpJeUcmRtU
 UUGUUUUUUU
-lunkuugAWl
+lunkNugAWl
 lnnnnnnnnl
 lbbbnnbbbl
 lnnnnknnnl

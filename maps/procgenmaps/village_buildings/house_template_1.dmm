@@ -5,13 +5,14 @@
 "h" = (/obj/machinery/vending/games,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "i" = (/obj/machinery/door/mineral/wood,/obj/road_node,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "k" = (/obj/structure/bed/chair/comfy/black,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
-"o" = (/obj/machinery/vending/hatdispenser,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"o" = (/obj/machinery/vending/hatdispenser,/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "r" = (/obj/machinery/fishtank/tank,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "t" = (/obj/item/weapon/chainsword,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "u" = (/obj/machinery/vending/chapel,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
-"v" = (/obj/structure/bed/chair/comfy/couch/left/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"v" = (/obj/structure/bed/chair/comfy/couch/left/red{dir = 4},/obj/machinery/light/he{dir = 8},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "x" = (/obj/structure/table/woodentable,/obj/item/binoculars,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "y" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
+"z" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "A" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "B" = (/obj/structure/bed,/obj/item/weapon/bedsheet/clown,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
 "C" = (/obj/machinery/washing_machine,/turf/simulated/floor/wood/floor_tile,/area/vault/warhammergen/neutral_town)
@@ -30,12 +31,12 @@
 
 (1,1,1) = {"
 aaaaaaaaaa
-aBbkaCrRoF
+aBzkaCrRoF
 abUbabbbby
 aXbbebbbbA
 abbtavKbba
 aaaaaZKbbi
-aXbuaDxbba
+aXzuaDxbba
 abfbebbbMa
 atJbaWhGTa
 aaaaaaaaaa

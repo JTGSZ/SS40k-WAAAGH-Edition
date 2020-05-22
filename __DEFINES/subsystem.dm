@@ -51,6 +51,7 @@
 #define SS_PRIORITY_SUN            3
 #define SS_PRIORITY_GARBAGE        2
 #define SS_PRIORITY_INACTIVITY     1
+#define SS_PRIORITY_LIGHTHOG	  -200
 
 #define SS_WAIT_WEATHER         	2 SECONDS
 #define SS_WAIT_MACHINERY           2 SECONDS //TODO move the rest of these to defines
@@ -76,6 +77,7 @@
 #define SS_DISPLAY_UNSPECIFIED     0
 #define SS_DISPLAY_SUN             10
 #define SS_DISPLAY_WEATHER         5
+#define SS_DISPLAY_LIGHTHOG		   15
 
 #define SS_TRASH                  "trash"
 #define SS_CLEANABLE              "cleanable_decals"
