@@ -21,7 +21,7 @@
 "iN" = (/obj/structure/clock,/turf/simulated/floor/carpet,/area/vault/warhammergen/cadianspawn)
 "iS" = (/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/aegisline_parts,/obj/item/weapon/nubarricade_parts,/obj/item/weapon/nubarricade_parts,/obj/item/weapon/nubarricade_parts,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "jk" = (/turf/simulated/wall/vault,/area/vault/warhammergen/ig_loot_area)
-"jv" = (/obj/structure/table/reinforced,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"jv" = (/obj/structure/table/reinforced,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/obj/item/weapon/storage/fancy/flares,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "jG" = (/obj/structure/closet/secure_closet/chemical,/turf/simulated/floor{icon_state = "whiteblue"},/area/vault/warhammergen/cadianspawn)
 "kD" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "kG" = (/obj/effect/landmark/start/preacher,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
@@ -37,7 +37,7 @@
 "pe" = (/turf/simulated/wall/r_wall,/area/vault/warhammergen/cadianspawn)
 "pO" = (/obj/structure/closet/secure_closet/freezer/meat,/obj/item/weapon/reagent_containers/food/drinks/flour,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "qO" = (/obj/structure/table/reinforced,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
-"qR" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"qR" = (/obj/machinery/light/he{dir = 1},/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "rq" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "su" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "sH" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
@@ -86,7 +86,7 @@
 "IZ" = (/obj/structure/rack,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/obj/item/weapon/gun/energy/lasgun,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Jj" = (/obj/structure/table/reinforced,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/obj/item/weapon/shield/IGshield,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Jm" = (/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
-"Kq" = (/obj/machinery/light/he{dir = 1},/obj/structure/table/reinforced,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
+"Kq" = (/obj/machinery/light/he{dir = 1},/obj/structure/table/reinforced,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/grenade/chem_grenade/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/obj/item/weapon/reagent_containers/spray/cleaner,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "KO" = (/obj/machinery/light/he,/obj/structure/bed,/obj/item/weapon/bedsheet/black,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "Lg" = (/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor,/area/vault/warhammergen/cadianspawn)
 "Lj" = (/obj/item/weapon/switchtool/surgery{pixel_x = 5; pixel_y = 10},/turf/simulated/floor{icon_state = "white"},/area/vault/warhammergen/cadianspawn)
@@ -123,6 +123,7 @@
 "Yy" = (/obj/item/device/vehicle_equipment/dozer_blade,/turf/unsimulated/outside/sand,/area/vault/warhammergen/cadianspawn)
 "YF" = (/obj/machinery/light/he{dir = 4},/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "YL" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor,/area/vault/warhammergen/ig_loot_area)
+"YM" = (/obj/item/device/flashlight/tactical,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
 "YW" = (/obj/item/weapon/bedsheet/black,/obj/structure/bed,/turf/simulated/floor/wood,/area/vault/warhammergen/cadianspawn)
 "Zi" = (/turf/simulated/floor{icon_state = "cmo"},/area/vault/warhammergen/cadianspawn)
 "Zo" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/engine/concrete,/area/vault/warhammergen/cadianspawn)
@@ -152,7 +153,7 @@ pepecdAxqOAxAxAxpepeGRLDdcLDLgLgLDcgpeErErAxErErpepe
 pepepOAxqOAxWaAxpepeGRLDiwiSLDJjJjRKpeAxAxAxAxCjpepe
 pepeAxAxqOAxAxAxpepepeabpepekRpepepepeNMNMAxNMNMpepe
 pepeAxqOqOAxAxAxdAqOsHAxpeWMAxWCcvmkpeErErAxErErpepe
-pepeJmAxAxAxMQAxAxXtAxAxpeVVAxAxAxeJpeAxAxAxAxAxpepe
+pepeJmAxAxAxMQAxAxXtAxAxpeVVAxYMAxeJpeAxAxAxAxAxpepe
 IMPCJmJmJmAxJmJmHiAxAxAxpeaSAxHhEfdmpeNMNMAxNMNMpepe
 JmJmJmJmJmJmJmCUJmAxAxXtpepepepepepepexBxBAxErErpepe
 IMJmJmJmJmJmJmJmJmJmMQAxAxrqAxAxAxAxrqAxAxAxAxAxpepe

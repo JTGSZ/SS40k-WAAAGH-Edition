@@ -10,6 +10,6 @@
 	armor = list(melee = 5, bullet = 5, laser = 5,energy = 0, bomb = 5, bio = 10, rad = 0)
 	body_parts_covered = HANDS
 	bonus_knockout = 17 //Slight knockout chance increase.
-	damage_added = 3 //Add 3 damage to unarmed attacks when worn
+	damage_added = 8
 	canremove = FALSE
 

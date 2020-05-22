@@ -50,14 +50,14 @@ Append - We load in some Fauna
 
 /datum/loada_gen/proc/loada_prototype_desert()
 
-	/*var/templatewatch = start_watch()
+	var/templatewatch = start_watch()
 	loada_generate_template()
 	log_startup_progress("Finished with generating templates in [stop_watch(templatewatch)]s.")
-*/
+
 	var/spawnwatch = start_watch()
 	loada_spawns()
 	log_startup_progress("Finished with generating spawns in [stop_watch(spawnwatch)]s.")
-/*
+
 	var/villagewatch = start_watch()
 	loada_village()
 	log_startup_progress("Finished with generating factionless town in [stop_watch(villagewatch)]s.")
@@ -81,4 +81,8 @@ Append - We load in some Fauna
 	var/jectiewatch = start_watch()
 	loada_objectivegen()
 	log_startup_progress("Finished placing objectives in [stop_watch(jectiewatch)]s")
-*/
+
+	var/faunawatch = start_watch()
+	loada_fauna()
+	log_startup_progress("Finished Placing Fauna in [stop_watch(faunawatch)]s")
+
