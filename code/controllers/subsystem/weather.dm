@@ -1,6 +1,6 @@
 var/datum/subsystem/weather/SSweather
 
-
+ 
 /datum/subsystem/weather
 	name          = "weather"
 	wait          = SS_WAIT_WEATHER

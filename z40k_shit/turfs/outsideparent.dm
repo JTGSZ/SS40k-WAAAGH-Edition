@@ -3,6 +3,7 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "Floor3"
 	plane = PLATING_PLANE
+	dynamic_lighting = 1
 
 //---Footprint vars-----------------	
 	var/footprints = TRUE //if false, do not set up a footprint parent, do not make footprints
