@@ -41,19 +41,19 @@ var/datum/subsystem/lighthog/SSLighthog
 			current_color = "#4d6f86"
 			timeOfDay = TOD_SUNRISE
 		if(TOD_SUNRISE)
-			current_color = "#ffd1b3"
+			current_color = "#fdc5a0"
 			timeOfDay = TOD_DAYTIME
 		if(TOD_DAYTIME)
 			current_color = "#FFFFFF"
 			timeOfDay = TOD_AFTERNOON
 		if(TOD_AFTERNOON)
-			current_color = "#fff2e6"
+			current_color = "#ffeedf"
 			timeOfDay = TOD_SUNSET
 		if(TOD_SUNSET)
 			current_color = "#75497e"
 			timeOfDay = TOD_NIGHTTIME
 		if(TOD_NIGHTTIME)
-			current_color = "#00111a"
+			current_color = "#002235"
 			timeOfDay = TOD_MORNING
 	
 	time2fire()

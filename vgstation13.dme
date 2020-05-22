@@ -2602,7 +2602,6 @@
 #include "maps\RandomZLevels\stationCollision.dm"
 #include "maps\RandomZLevels\tomb.dm"
 #include "maps\RandomZLevels\wildwest.dm"
-#include "z40k_shit\__SUBSYSTEMS\datum_lighthog.dm"
 #include "z40k_shit\__SUBSYSTEMS\global_light.dm"
 #include "z40k_shit\_procgen\load_mapruins.dm"
 #include "z40k_shit\_procgen\loada_master.dm"
