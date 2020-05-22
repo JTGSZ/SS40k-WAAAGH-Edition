@@ -25,12 +25,21 @@ var/datum/subsystem/lighthog/SSLighthog
 /datum/subsystem/lighthog/New()
 	NEW_SS_GLOBAL(SSLighthog)
 
+/datum/subsystem/lighthog/Initialize()
+	var/list/timestwopick = list(TOD_MORNING,
+								TOD_SUNRISE,
+								TOD_DAYTIME,
+								TOD_AFTERNOON,
+								TOD_SUNSET,
+								TOD_NIGHTTIME)
+	timeOfDay = pick(timestwopick)
+	..()
+
 /datum/subsystem/lighthog/fire(resumed = FALSE)
 	switch(timeOfDay)
 		if(TOD_MORNING)
 			current_color = "#4d6f86"
 			timeOfDay = TOD_SUNRISE
-			//hogpower = 5
 		if(TOD_SUNRISE)
 			current_color = "#ffd1b3"
 			timeOfDay = TOD_DAYTIME
@@ -41,19 +50,15 @@ var/datum/subsystem/lighthog/SSLighthog
 			current_color = "#fff2e6"
 			timeOfDay = TOD_SUNSET
 		if(TOD_SUNSET)
-			//current_color = "#ffcccc"
 			current_color = "#75497e"
 			timeOfDay = TOD_NIGHTTIME
-			//hogpower = 5
 		if(TOD_NIGHTTIME)
 			current_color = "#00111a"
 			timeOfDay = TOD_MORNING
 	
 	time2fire()
-//var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE
-//var/list/cardinal = list( NORTH, SOUTH, EAST, WEST )
+
 /datum/subsystem/lighthog/proc/time2fire()
-	//var/jumpa_y = 0
 	for(var/turf/T in world)
 		if(IsEven(T.x)) //If we are also even.
 			if(IsEven(T.y)) //If we are also even.
