@@ -48,16 +48,7 @@ var/datum/controller/gameticker/ticker
 #define LOBBY_TICKING 1
 #define LOBBY_TICKING_RESTARTED 2
 /datum/controller/gameticker/proc/pregame()
-	var/oursong = file(pick(
-		"sound/music/title1.mod",
-		"sound/music/title2.it",
-		"sound/music/title3.it",
-		"sound/music/title4.xm",
-		"sound/music/title5.xm",
-		"sound/music/title6.mod",
-		"sound/music/title7.mod",
-		"sound/music/title8.xm",
-		))
+	var/oursong = file("z40k_shit/sounds/music/strangesunset.ogg")
 
 	/*if(SNOW_THEME)
 		var/path = "sound/music/xmas/"
