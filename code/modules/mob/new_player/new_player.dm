@@ -339,9 +339,13 @@
 		if(!job.species_whitelist.Find(client.prefs.species))
 			to_chat(src, alert("[rank] is not available for [client.prefs.species]."))
 			return 0
+	if(job.species_blacklist.len)
+		if(job.species_blacklist.Find(client.prefs.species)) //Check if our species is in the blacklist
+			to_chat(src, alert("[rank] is not available for [client.prefs.species]."))
+			return 0
 	if(job.gender_blacklist.len)
 		if(job.gender_blacklist.Find(client.prefs.gender))
-			to_chat(src, alert("[rank] is not available for [client.prefs.species]s."))
+			to_chat(src, alert("[rank] is not available for [client.prefs.gender]s."))
 			return 0
 
 	job_master.AssignRole(src, rank, 1)
@@ -498,7 +502,10 @@ Round Duration: [round(hours)]h [round(mins)]m<br>"}
 				if(!job.species_whitelist.Find(client.prefs.species))
 					dat += "<s>[job.title] ([job.current_positions]) (Active: [active])</s><br>"
 					continue
-
+			if(job.species_blacklist.len)
+				if(job.species_blacklist.Find(client.prefs.species)) //Check if our species is in the blacklist
+					dat += "<s>[job.title] ([job.current_positions]) (Active: [active])</s><br>"
+					continue
 			if(job.priority)
 				dat += "<a style='color:red' href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active]) (Requested!)</a><br>"
 			else
