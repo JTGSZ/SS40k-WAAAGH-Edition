@@ -204,6 +204,8 @@
 /obj/structure/barricadeinvis/Cross(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
 	if(air_group || !height) //The mover is an airgroup
 		return 1 //We aren't airtight, only exception to PASSGLASS
+	if(istype(mover,/obj/item/projectile))
+		return 1
 	if(ismob(mover))
 		var/mob/M = mover
 		if(M.flying || M.highflying)
