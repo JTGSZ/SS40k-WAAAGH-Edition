@@ -27,7 +27,8 @@
 				continue
 			return
 	if(occupants.Find(usr))
-		move_outside(usr,T)
+		if(do_after(usr, usr, 4 SECONDS))
+			move_outside(usr,T)
 
 /obj/complex_vehicle/proc/click_action_control(atom/target,mob/user)
 	if(vehicle_broken_husk)

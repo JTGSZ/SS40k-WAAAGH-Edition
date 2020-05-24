@@ -10,6 +10,7 @@
 	icon = 'z40k_shit/icons/turfs/dirtfootpath.dmi'
 	icon_state = "sandwater7"
 	floragen = FALSE 
+	footprints = FALSE
 	var/isedge
 
 /turf/unsimulated/outside/smoothingfootpath/canSmoothWith() //Works

@@ -83,6 +83,12 @@
 /datum/species/ork/makeName()
 	return capitalize(pick(ork_first)) + " " + capitalize(pick(ork_last))
 
+/datum/species/ork/makeFirstName(var/gender,var/mob/living/carbon/C=null)
+	return capitalize(pick(ork_first))
+
+/datum/species/ork/makeLastName(var/gender,var/mob/living/carbon/C=null)
+	return capitalize(pick(ork_last))
+
 //This below segment normally belongs in human.dm
 /mob/living/carbon/human/ork/basicork/New(var/new_loc, delay_ready_dna = 0)
 	..(new_loc, "Ork")
