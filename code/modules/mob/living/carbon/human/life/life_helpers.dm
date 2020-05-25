@@ -91,65 +91,6 @@
 	var/max_protection = get_thermal_protection(get_thermal_protection_flags())
 	return min(thermal_protection,max_protection)
 
-
-/*
-/mob/living/carbon/human/proc/add_fire_protection(var/temp)
-	var/fire_prot = 0
-	if(head)
-		if(head.protective_temperature > temp)
-			fire_prot += (head.protective_temperature/10)
-	if(wear_mask)
-		if(wear_mask.protective_temperature > temp)
-			fire_prot += (wear_mask.protective_temperature/10)
-	if(glasses)
-		if(glasses.protective_temperature > temp)
-			fire_prot += (glasses.protective_temperature/10)
-	if(ears)
-		if(ears.protective_temperature > temp)
-			fire_prot += (ears.protective_temperature/10)
-	if(wear_suit)
-		if(wear_suit.protective_temperature > temp)
-			fire_prot += (wear_suit.protective_temperature/10)
-	if(w_uniform)
-		if(w_uniform.protective_temperature > temp)
-			fire_prot += (w_uniform.protective_temperature/10)
-	if(gloves)
-		if(gloves.protective_temperature > temp)
-			fire_prot += (gloves.protective_temperature/10)
-	if(shoes)
-		if(shoes.protective_temperature > temp)
-			fire_prot += (shoes.protective_temperature/10)
-
-	return fire_prot
-
-/mob/living/carbon/human/proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
-	if(nodamage)
-		return
-//	to_chat(world, "body_part = [body_part], exposed_temperature = [exposed_temperature], exposed_intensity = [exposed_intensity]")
-	var/discomfort = min(abs(exposed_temperature - bodytemperature)*(exposed_intensity)/2000000, 1.0)
-
-	if(exposed_temperature > bodytemperature)
-		discomfort *= 4
-
-	if(mutantrace == "plant")
-		discomfort *= TEMPERATURE_DAMAGE_COEFFICIENT * 2 //I don't like magic numbers. I'll make mutantraces a datum with vars sometime later. -- Urist
-	else
-		discomfort *= TEMPERATURE_DAMAGE_COEFFICIENT //Dangercon 2011 - now with less magic numbers!
-//	to_chat(world, "[discomfort]")
-
-	switch(body_part)
-		if(HEAD)
-			apply_damage(2.5*discomfort, BURN, LIMB_HEAD)
-		if(UPPER_TORSO)
-			apply_damage(2.5*discomfort, BURN, LIMB_CHEST)
-		if(LEGS)
-			apply_damage(0.6*discomfort, BURN, LIMB_LEFT_LEG)
-			apply_damage(0.6*discomfort, BURN, LIMB_RIGHT_LEG)
-		if(ARMS)
-			apply_damage(0.4*discomfort, BURN, LIMB_LEFT_ARM)
-			apply_damage(0.4*discomfort, BURN, LIMB_RIGHT_ARM)
-*/
-
 /mob/living/carbon/human/proc/get_covered_bodyparts()
 	var/covered = 0
 
@@ -168,10 +109,8 @@
 
 	return covered
 
-
 /mob/living/carbon/human/proc/randorgan()
 	var/randorgan = pick(organs_by_name)
-	//var/randorgan = pick(LIMB_HEAD,LIMB_CHEST,LIMB_GROIN)
 	return randorgan
 
 /mob/living/carbon/human/earprot()

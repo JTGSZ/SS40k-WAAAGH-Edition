@@ -14,15 +14,16 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 
 /spell/aoe_turf/waaagh1/cast(list/targets, mob/user)
-	var/healcounter
+	//var/healcounter
 	for(var/T in targets)
 		var/mob/living/carbon/human/H = T
 		H.vis_contents += new /obj/effect/overlay/weak_green_circle(H,10)
 		H.movement_speed_modifier += 0.2
-		healcounter++
+		//healcounter++
 		spawn(3 SECONDS)
 			H.movement_speed_modifier -= 0.2
-			
+
+	/*		
 	if(healcounter >= 5)
 		for(var/T in targets)
 			var/mob/living/carbon/human/H = T
@@ -45,7 +46,7 @@
 					O.status &= ~ORGAN_BROKEN
 					O.status &= ~ORGAN_SPLINTED
 					O.status &= ~ORGAN_BLEEDING
-	
+	*/
 	user.say("WAAAAGH!")
 	playsound(user, 'z40k_shit/sounds/waagh1.ogg', 100)
 

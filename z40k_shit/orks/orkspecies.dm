@@ -36,7 +36,7 @@
 	base_sensitivity_natural_limit = 100
 
 	has_organ = list(
-		"heart" =    /datum/organ/internal/heart,
+		"heart" =    /datum/organ/internal/heart/ork,
 		"lungs" =    /datum/organ/internal/lungs,
 		"brain" =    /datum/organ/internal/brain,
 		"eyes" =     /datum/organ/internal/eyes
@@ -55,7 +55,6 @@
 //	wear_mask_icons     = 'icons/mob/mask.dmi'
 	back_icons          = 'z40k_shit/icons/mob/orks/orkgearMOB.dmi'
 //	id_icons            = 'icons/mob/ids.dmi'
-
 
 /datum/species/ork/get_inventory_offsets()	//This is what you override if you want to give your species unique inventory offsets.
 	var/static/list/offsets = list(
@@ -138,7 +137,7 @@
 
 
 	has_organ = list(
-		"heart" =    /datum/organ/internal/heart,
+		"heart" =    /datum/organ/internal/heart/ork,
 		"lungs" =    /datum/organ/internal/lungs,
 		"brain" =    /datum/organ/internal/brain,
 		"eyes" =     /datum/organ/internal/eyes
@@ -232,7 +231,7 @@
 	base_sensitivity_natural_limit = 100
 
 	has_organ = list(
-		"heart" =    /datum/organ/internal/heart,
+		"heart" =    /datum/organ/internal/heart/ork,
 		"lungs" =    /datum/organ/internal/lungs,
 		"brain" =    /datum/organ/internal/brain,
 		"eyes" =     /datum/organ/internal/eyes
