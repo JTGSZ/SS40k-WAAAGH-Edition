@@ -13,6 +13,7 @@
 	minimal_access = list()
 	landmark_job_override = TRUE
 	outfit_datum = /datum/outfit/orkwarboss
+	must_be_map_enabled = 1
 
 	relationship_chance = XENO_NO_RELATIONS
 

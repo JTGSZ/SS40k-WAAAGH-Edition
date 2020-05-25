@@ -16,6 +16,7 @@
 	outfit_datum = /datum/outfit/orknob
 
 	relationship_chance = XENO_NO_RELATIONS
+	must_be_map_enabled = 1
 
 /datum/outfit/orknob
 

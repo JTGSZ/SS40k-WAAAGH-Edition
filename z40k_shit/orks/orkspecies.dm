@@ -1,3 +1,4 @@
+
 /datum/species/ork // /ss40k/ heres mr ork, or really their only gender should be male
 	name = "Ork"
 	icobase = 'icons/mob/human_races/r_ork.dmi'
@@ -9,7 +10,7 @@
 
 	eyes = "bald_s"
 
-	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN | IS_WHITELISTED
+	flags = NO_PAIN | HYPOTHERMIA_IMMUNE | NO_SCAN | NO_SKIN | NO_BLOOD| IS_WHITELISTED
 	anatomy_flags = HAS_LIPS | HAS_SWEAT_GLANDS
 
 	cold_level_1 = -1  // Cold damage level 1 below this point.
