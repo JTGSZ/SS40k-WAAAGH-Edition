@@ -205,7 +205,7 @@
 
 	if(W.flags & MUSTTWOHAND)
 		if(!W.wield(src, 1))
-			to_chat(src, "You need both hands to pick up \the [W].")
+			to_chat(src, "You need both hands for \the [W].")
 			return 0
 
 	if(W.cant_drop) //if the item can't be dropped

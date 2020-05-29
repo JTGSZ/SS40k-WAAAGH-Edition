@@ -207,6 +207,8 @@
 						icobase = 'icons/mob/human_races/r_ork.dmi'
 					if(BASICMEK)
 						icobase = 'icons/mob/human_races/r_ork.dmi'
+					if(ORKGRETCHIN)
+						icobase = 'icons/mob/human_races/r_orkgretchin.dmi'
 			else
 				icobase = 'icons/mob/human_races/r_ork.dmi'
 		else
@@ -287,11 +289,12 @@
 	if(!for_observer)
 		// Commenting this check so that, if all else fails, the preview icon is never naked. - N3X
 		//if(job_civilian_low & ASSISTANT) //This gives the preview icon clothes depending on which job(if any) is set to 'high'
-		clothes_s = new /icon(uniform_dmi, "grey_s")
-		clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
-		clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
-		if(current_species.name == "Ork") //Ss40k edit
-			clothes_s = new /icon(uniform_dmi, "orkuniform1_s") //Edit end - No naked orks on job pref.
+		if((current_species.name != "Ork"))
+			clothes_s = new /icon(uniform_dmi, "grey_s")
+			clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
+			clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
+		//if(current_species.name == "Ork") //Ss40k edit
+		//	clothes_s = new /icon(uniform_dmi, "orkuniform1_s") //Edit end - No naked orks on job pref.
 		//else
 		if(job_civilian_high)//I hate how this looks, but there's no reason to go through this switch if it's empty
 			switch(job_civilian_high)
@@ -428,7 +431,6 @@
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhat2"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
-
 
 	// Observers get tourist outfit.
 	else

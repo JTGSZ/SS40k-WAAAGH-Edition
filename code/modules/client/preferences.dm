@@ -451,7 +451,7 @@ var/const/MAX_SAVE_SLOTS = 8
 		else
 			return "High"
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("General", "AI"), widthPerColumn = 348, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 17, list/splitJobs = list("General", "AI"), widthPerColumn = 360, height = 620)
 	if(!job_master)
 		return
 
@@ -814,12 +814,6 @@ var/const/MAX_SAVE_SLOTS = 8
 			else//job = Never
 				SetJobDepartment(job, 4)
 
-		/*if(level < 4)
-			to_chat(world,"setting [job] to [level+1]")
-			SetJobDepartment(job,level+1)
-		else
-			to_chat(world,"setting [job] to 1");SetJobDepartment(job,1)
-*/
 	SetChoices(user)
 	return 1
 /datum/preferences/proc/ResetJobs()
@@ -917,11 +911,12 @@ var/const/MAX_SAVE_SLOTS = 8
 	return 1
 
 
-/datum/preferences/proc/SetDepartmentFlags(datum/job/job, level, new_flags)	//Sets a department's preference flags (job_medsci_high, job_engsec_med - those variables) to 'new_flags'.
-																		//First argument can either be a job, or the department's flag (ENGSEC, MISC, ...)
-																		//Second argument can be either text ("high", "MEDIUM", "LoW") or number (1-high, 2-med, 3-low)
+/datum/preferences/proc/SetDepartmentFlags(datum/job/job, level, new_flags)
+//Sets a department's preference flags (job_medsci_high, job_engsec_med - those variables) to 'new_flags'.
+//First argument can either be a job, or the department's flag (ENGSEC, MISC, ...)
+//Second argument can be either text ("high", "MEDIUM", "LoW") or number (1-high, 2-med, 3-low)
 
-																		//NOTE: If you're not sure what you're doing, be careful when using this proc.
+//NOTE: If you're not sure what you're doing, be careful when using this proc.
 
 	//Determine department flag
 	var/d_flag

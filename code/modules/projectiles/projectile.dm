@@ -178,7 +178,7 @@ var/list/impact_master = list()
 		msg_admin_attack("UNKNOWN/(no longer exists) shot UNKNOWN/(no longer exists) with a [type]. Wait what the fuck?")
 		log_attack("<font color='red'>UNKNOWN/(no longer exists) shot UNKNOWN/(no longer exists) with a [type]</font>")
 
-/obj/item/projectile/to_bump(atom/A )
+/obj/item/projectile/to_bump(atom/A)
 	if (!A)	//This was runtiming if by chance A was null.
 		return 0
 	if((A == firer) && !reflected)

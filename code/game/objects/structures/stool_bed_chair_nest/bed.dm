@@ -28,16 +28,16 @@
 		return 1
 	return ..()
 
-/obj/structure/bed/attack_paw(mob/user )
+/obj/structure/bed/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/structure/bed/attack_hand(mob/user )
+/obj/structure/bed/attack_hand(mob/user)
 	manual_unbuckle(user)
 
-/obj/structure/bed/attack_animal(mob/user )
+/obj/structure/bed/attack_animal(mob/user)
 	manual_unbuckle(user)
 
-/obj/structure/bed/attack_robot(mob/user )
+/obj/structure/bed/attack_robot(mob/user)
 	if(Adjacent(user))
 		manual_unbuckle(user)
 
@@ -47,7 +47,7 @@
 	else
 		return ..()
 
-/obj/structure/bed/AltClick(mob/user )
+/obj/structure/bed/AltClick(mob/user)
 	buckle_mob(user, user)
 
 /obj/structure/bed/proc/manual_unbuckle(var/mob/user)
@@ -83,7 +83,7 @@
 		M.clear_alert(SCREEN_ALARM_BUCKLE)
 		return TRUE
 
-/obj/structure/bed/proc/buckle_mob(mob/M, mob/user )
+/obj/structure/bed/proc/buckle_mob(mob/M, mob/user)
 	if(!Adjacent(user) || user.incapacitated() || istype(user, /mob/living/silicon/pai))
 		return
 

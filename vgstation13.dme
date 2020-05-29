@@ -2728,6 +2728,7 @@
 #include "z40k_shit\structure\aegiscades.dm"
 #include "z40k_shit\structure\barbedwire.dm"
 #include "z40k_shit\structure\barricades.dm"
+#include "z40k_shit\structure\mannedweapon.dm"
 #include "z40k_shit\systems\actionbuttons.dm"
 #include "z40k_shit\systems\button_crafting.dm"
 #include "z40k_shit\systems\genrelationships.dm"

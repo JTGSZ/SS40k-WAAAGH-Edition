@@ -16,6 +16,7 @@ var/const/ORKWARBOSS		=(1<<12)
 var/const/ORKTANKBUSTA		=(1<<13)
 var/const/BASICMEK			=(1<<14)
 var/const/SISTERHOSPITALLER =(1<<15)
+var/const/ORKGRETCHIN		=(1<<16)
 
 var/const/MEDSCI			=(1<<1)
 var/const/DOCTOR			=(1<<0)

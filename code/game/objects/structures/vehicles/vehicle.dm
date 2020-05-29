@@ -26,7 +26,7 @@
 	var/empstun = 0
 	var/health = 100
 	var/max_health = 100
-
+ 
 	plane = ABOVE_HUMAN_PLANE
 	layer = VEHICLE_LAYER
 
