@@ -1331,6 +1331,7 @@ var/list/has_died_as_golem = list()
 
 	has_organ = list(
 		"brain" =    /datum/organ/internal/brain/mushroom_brain,
+		"eyes" =     /datum/organ/internal/eyes/mushroom,
 		)
 
 	species_intro = "You are a Mushroom Person.<br>\
