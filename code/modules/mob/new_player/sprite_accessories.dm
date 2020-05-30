@@ -62,7 +62,7 @@
 	name = "Bald"
 	icon_state = "bald"
 	gender = MALE
-	species_allowed = list("Human","Manifested","Unathi","Grey","Plasmaman","Skellington","Diona","Muton","Golem","Skeletal Vox","Horror","Ghoul","Slime","Mushroom","Evolved Slime","Insectoid", "Ork")
+	species_allowed = list("Human","Manifested","Unathi","Grey","Plasmaman","Skellington","Diona","Muton","Golem","Skeletal Vox","Horror","Ghoul","Slime","Evolved Slime","Insectoid", "Ork")
 
 /datum/sprite_accessory/hair/short
 	name = "Short Hair"	  // try to capatilize the names please~
@@ -1027,3 +1027,23 @@
 	name = "Mohawk"
 	icon_state = "mohawk"
 
+/datum/sprite_accessory/hair/mush_plumphelmet
+	name = "Plump Helmet"
+	icon_state = "mush_plumphelmet"
+	species_allowed = list("Mushroom")
+
+/datum/sprite_accessory/hair/mush_amanita
+	name = "Amanita"
+	icon_state = "mush_amanita"
+	species_allowed = list("Mushroom")
+	additional_accessories = TRUE
+
+/datum/sprite_accessory/hair/mush_flat
+	name = "Flat Cap"
+	icon_state = "mush_flat"
+	species_allowed = list("Mushroom")
+
+/datum/sprite_accessory/hair/mush_chanterelle
+	name = "Chanterelle"
+	icon_state = "mush_chanterelle"
+	species_allowed = list("Mushroom")
