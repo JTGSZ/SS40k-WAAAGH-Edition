@@ -88,6 +88,18 @@
 /datum/outfit/proc/pre_equip(var/mob/living/carbon/human/H)
 	return
 
+/datum/outfit/proc/pre_equip_disabilities(var/mob/living/carbon/human/H, var/list/items_to_equip)
+	if (H.client.IsByondMember())
+		to_chat(H, "Thank you for supporting BYOND!")
+		items_to_collect[/obj/item/weapon/storage/box/byond] = GRASP_LEFT_HAND
+
+	if (!give_disabilities_equipment)
+		return
+	if (H.disabilities & ASTHMA)
+		items_to_collect[/obj/item/device/inhaler] = "Survival Box"
+	if (!items_to_equip[slot_glasses_str])
+		items_to_equip[slot_glasses_str] = /obj/item/clothing/glasses/regular
+
 /datum/outfit/proc/equip(var/mob/living/carbon/human/H)
 	if(!H || !H.mind)
 		return
@@ -98,9 +110,9 @@
 	if(!L) // Couldn't find the particular species
 		species = "Default"
 		L = items_to_spawn["Default"]
+	pre_equip_disabilities(H, L)
 
 	for(var/slot in L) //For var/slot in items to spawn Species Key
-
 		var/list/snowflake_items = special_snowflakes[species]
 
 		if(snowflake_items && (slot in snowflake_items[H.mind.role_alt_title])) // ex: special_snowflakes["Vox"]["Emergency responder"].
@@ -117,11 +129,11 @@
 			continue
 		slot = text2num(slot)
 		if(slot == 19)
-			H.put_in_hand(GRASP_LEFT_HAND, new obj_type(H))
+			H.put_in_hand(GRASP_LEFT_HAND, new obj_type(get_turf(H)))
 		else if(slot == 20)
-			H.put_in_hand(GRASP_RIGHT_HAND, new obj_type(H))
+			H.put_in_hand(GRASP_RIGHT_HAND, new obj_type(get_turf(H)))
 		else
-			H.equip_to_slot_or_del(new obj_type(H), slot, TRUE)
+			H.equip_to_slot_or_del(new obj_type(get_turf(H)), slot, TRUE)
 	
 	if(!no_backpack)
 		equip_backbag(H, species)
@@ -220,7 +232,7 @@
 		C.name = "[C.registered_name]'s ID Card ([C.assignment])" 
 		H.equip_or_collect(C, slot_wear_id) 
 		if(pda_type)
-			var/obj/item/device/pda/pda = new pda_type
+			var/obj/item/device/pda/pda = new pda_type(get_turf(H))
 			pda.owner = H.real_name
 			pda.ownjob = C.assignment
 			pda.name = "PDA-[H.real_name] ([pda.ownjob])"
@@ -240,11 +252,19 @@
 /datum/outfit/proc/handle_special_abilities(var/mob/living/carbon/human/H)
 	return 1
 
-// -- Work in progress !!
 /datum/outfit/proc/give_disabilities_equipment(var/mob/living/carbon/human/H)
 	if (!give_disabilities_equipment)
 		return
 	
+	//If a character can't stand because of missing limbs, equip them with a wheelchair
+	if(!H.check_stand_ability())
+		var/obj/structure/bed/chair/vehicle/wheelchair/W = new(H.loc)
+		W.buckle_mob(H,H)
+
+	if (H.glasses)
+		var/obj/item/clothing/glasses/G = H.glasses
+		G.prescription = 1
+
 	return 1
 
 // Strike teams have 2 particularities : a leader, and several specialised roles.

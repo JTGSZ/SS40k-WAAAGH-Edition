@@ -60,7 +60,7 @@
 
 #define MAX_ITEM_DEPTH	3 //how far we can recurse before we can't get an item
 
-/mob/proc/ClickOn( var/atom/A, var/params )
+/mob/proc/ClickOn(var/atom/A, var/params)
 	if(!click_delayer)
 		click_delayer = new
 	if(timestopped)
