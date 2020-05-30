@@ -8,6 +8,7 @@
 	deflect_chance = 25
 	damage_absorption = list("brute"=0.5,"fire"=0.7,"bullet"=0.45,"laser"=0.6,"energy"=0.7,"bomb"=0.7)
 	max_temperature = 60000
+	cell_type = /obj/item/weapon/cell/super
 	var/zoom = 0
 	var/thrusters = 0
 	var/smoke = 5
@@ -47,10 +48,6 @@
 	wreckage = /obj/effect/decal/mecha_wreckage/mauler
 
 /obj/mecha/combat/marauder/New()
-	if (ticker && ticker.current_state == GAME_STATE_PLAYING)
-		initialize()
-
-/obj/mecha/combat/marauder/initialize()
 	..()
 	new /obj/item/mecha_parts/mecha_equipment/weapon/energy/pulse(src)
 	new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack(src)
@@ -89,7 +86,6 @@
 	new /obj/item/mecha_parts/mecha_equipment/teleporter(src)
 	new /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay(src)
 	new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster(src)
-	return
 
 /obj/mecha/combat/marauder/relaymove(mob/user,direction)
 	stopMechWalking()
@@ -262,5 +258,3 @@
 					"}
 	return output
 
-/obj/mecha/combat/marauder/add_cell()
-	..(new /obj/item/weapon/cell/super)

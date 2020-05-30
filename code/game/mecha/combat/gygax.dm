@@ -39,6 +39,7 @@
 		"darkgygax",
 	)
 	paintable = 0
+	cell_type = /obj/item/weapon/cell/hyper
 
 /obj/mecha/combat/gygax/New()
 	..()
@@ -51,16 +52,6 @@
 	new /obj/item/mecha_parts/mecha_equipment/teleporter(src)
 	new /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay(src)
 	return
-
-/obj/mecha/combat/gygax/dark/add_cell(var/obj/item/weapon/cell/C=null)
-	if(C)
-		C.forceMove(src)
-		cell = C
-		return
-	cell = new(src)
-	cell.charge = 30000
-	cell.maxcharge = 30000
-
 
 /spell/mech/gygax/overload
 	name = "Overload"
