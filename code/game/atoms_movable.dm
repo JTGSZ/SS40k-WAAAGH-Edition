@@ -45,6 +45,9 @@
 	var/throwpass = 0
 	var/level = 2
 
+	// Change of z-level.
+	var/event/on_z_transition
+
 	// When this object moves. (args: loc)
 	var/event/on_moved
 	// When the object is qdel'd
@@ -69,6 +72,7 @@
 
 	on_destroyed = new("owner"=src)
 	on_moved = new("owner"=src)
+	on_z_transition = new("owner"=src)
 
 /atom/movable/Destroy()
 	var/turf/T = loc
@@ -79,6 +83,10 @@
 		returnToPool(materials)
 		materials = null
 
+	if(on_z_transition)
+		on_z_transition.holder = null
+		qdel(on_z_transition)
+		on_z_transition = null
 	if(on_moved)
 		on_moved.holder = null
 		on_moved = null
@@ -664,8 +672,8 @@
 		var/atom/movable/AM = master
 		master_moved_key = AM.on_moved.Add(src, follow_proc)
 		SetInitLoc()
-
-	master_destroyed_key = master.on_destroyed.Add(src, .proc/qdel_self)
+		master_destroyed_key = AM.on_destroyed.Add(src, .proc/qdel_self)
+	
 	verbs.len = 0
 
 /atom/movable/overlay/proc/qdel_self()
@@ -675,7 +683,7 @@
 	if(istype(master, /atom/movable))
 		var/atom/movable/AM = master
 		AM.on_moved.Remove(master_moved_key)
-	master.on_destroyed.Remove(master_destroyed_key)
+		AM.on_destroyed.Remove(master_destroyed_key)
 	master = null
 	return ..()
 

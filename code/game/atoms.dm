@@ -31,8 +31,6 @@ var/global/list/ghdel_profiling = list()
 	/////////////////////////////
 	// When density is changed
 	var/event/on_density_change
-	var/event/on_z_transition
-
 
 	var/labeled //Stupid and ugly way to do it, but the alternative would probably require rewriting everywhere a name is read.
 	var/min_harm_label = 0 //Minimum langth of harm-label to be effective. 0 means it cannot be harm-labeled. If any label should work, set this to 1 or 2.
@@ -158,28 +156,15 @@ var/global/list/ghdel_profiling = list()
 		densityChanged()
 	// Idea by ChuckTheSheep to make the object even more unreferencable.
 	invisibility = 101
-	if (on_density_change)
+	if(on_density_change)
 		on_density_change.holder = null
 		on_density_change = null
-	if(on_z_transition)
-		on_z_transition.holder = null
-		qdel(on_z_transition)
-		on_z_transition = null
 	if(istype(beams, /list) && beams.len)
 		beams.len = 0
-	/*if(istype(beams) && beams.len)
-		for(var/obj/effect/beam/B in beams)
-			if(B && B.target == src)
-				B.target = null
-			if(B.master && B.master.target == src)
-				B.master.target = null
-		beams.len = 0
-	*/
 	..()
 
 /atom/New()
 	on_density_change = new("owner"=src)
-	on_z_transition = new("owner"=src)
 	. = ..()
 	AddToProfiler()
 
@@ -195,7 +180,7 @@ var/global/list/ghdel_profiling = list()
 	else
 		return null
 
-/atom/proc/check_eye(user )
+/atom/proc/check_eye(user)
 	if (istype(user, /mob/living/silicon/ai)) // WHYYYY
 		return 1
 	return
@@ -203,7 +188,7 @@ var/global/list/ghdel_profiling = list()
 /atom/proc/on_reagent_change()
 	return
 
-/atom/proc/Bumped(AM )
+/atom/proc/Bumped(AM)
 	return
 
 /atom/proc/setDensity(var/density)
