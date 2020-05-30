@@ -271,11 +271,11 @@ macro "hotkeymode"
 	elem "CTRL+9"
 		name = "CTRL+9"
 		command = "StorageHotkey 9"
-	elem "A"
-		name = "A"
+	elem "Q"
+		name = "Q"
 		command = "MoveKey 8 1"
-	elem "A+UP"
-		name = "A+UP"
+	elem "Q+UP"
+		name = "Q+UP"
 		command = "MoveKey 8 0"
 	elem "D"
 		name = "D"
@@ -304,18 +304,6 @@ macro "hotkeymode"
 	elem "M"
 		name = "M"
 		command = "me"
-	elem "Q"
-		name = "Q"
-		command = ".northwest"
-	elem "CTRL+Q"
-		name = "CTRL+Q"
-		command = ".northwest"
-	elem "R"
-		name = "R"
-		command = ".southwest"
-	elem "CTRL+R"
-		name = "CTRL+R"
-		command = ".southwest"
 	elem "S"
 		name = "S"
 		command = "MoveKey 2 1"
@@ -325,11 +313,11 @@ macro "hotkeymode"
 	elem "T"
 		name = "T"
 		command = "say"
-	elem "W"
-		name = "W"
+	elem "Z"
+		name = "Z"
 		command = "MoveKey 1 1"
-	elem "W+UP"
-		name = "W+UP"
+	elem "Z+UP"
+		name = "Z+UP"
 		command = "MoveKey 1 0"
 	elem "X"
 		name = "X"
@@ -337,18 +325,12 @@ macro "hotkeymode"
 	elem "CTRL+X"
 		name = "CTRL+X"
 		command = ".northeast"
+	elem "SPACE"
+		name = "SPACE"
+		command = "Activate-Held-Object"
 	elem "Y"
-		name = "Y"
-		command = "Activate-Held-Object"
-	elem "CTRL+Y"
 		name = "CTRL+Y"
-		command = "Activate-Held-Object"
-	elem "Z"
-		name = "Z"
-		command = "Activate-Held-Object"
-	elem "CTRL+Z"
-		name = "CTRL+Z"
-		command = "Activate-Held-Object"
+		command = "Show-Held-Item"
 	elem "F1"
 		name = "F1"
 		command = "adminhelp"
@@ -395,73 +377,58 @@ menu "menu"
 		name = "&Client"
 		command = ""
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Quick screenshot\tF2"
 		command = ".screenshot auto"
 		category = "&Client"
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Save screenshot as...\tShift+F2"
 		command = ".screenshot"
 		category = "&Client"
 		saved-params = "is-checked"
-	elem 
-		name = ""
-		command = ""
-		category = "&Client"
-		saved-params = "is-checked"
-	elem 
-		name = "Reconnect"
-		command = ".reconnect"
-		category = "&Client"
-		saved-params = "is-checked"
-	elem 
+	elem
 		name = ""
 		command = ""
 		category = "&Client"
 		saved-params = "is-checked"
 	elem
-		name = "Stop Admin Music"
-		command = ".stop-admin-music"
+		name = "Reconnect"
+		command = ".reconnect"
 		category = "&Client"
 		saved-params = "is-checked"
-	elem 
-		name = ""
-		command = ""
-		category = "&Client"
-		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Quit"
 		command = ".quit"
 		category = "&Client"
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Display"
 		command = ""
 		saved-params = "is-checked"
-	elem "nearneighbor"
-		name = "&Nearest Neighbor"
+	elem "distort"
+		name = "&Distort"
 		command = ".winset \"mapwindow.map.zoom-mode=distort\""
 		category = "&Display"
-		group = "scaling"
 		can-check = true
+		group = "scaling"
 		saved-params = "is-checked"
-	elem "pointsampling"
-		name = "&Point Sampling"
+	elem "Normal"
+		name = "&Normal"
 		command = ".winset \"mapwindow.map.zoom-mode=normal\""
 		category = "&Display"
 		is-checked = true
 		can-check = true
 		group = "scaling"
-		saved-params = "is-checked"	
-	elem "bilinear"
-		name = "&Bilinear"
+		saved-params = "is-checked"
+	elem "blur"
+		name = "&Blur"
 		command = ".winset \"mapwindow.map.zoom-mode=blur\""
 		category = "&Display"
-		group = "scaling"
 		can-check = true
-		saved-params = "is-checked"	
-	elem 
+		group = "scaling"
+		saved-params = "is-checked"
+	elem
 		name = ""
 		command = ""
 		category = "&Display"
@@ -536,38 +503,18 @@ menu "menu"
 		category = "&Display"
 		can-check = true
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Help"
 		command = ""
 		saved-params = "is-checked"
-	elem 
+	elem
 		name = "&Admin help\tF1"
 		command = "adminhelp"
 		category = "&Help"
 		saved-params = "is-checked"
 	elem
-		name = "&Admin Who"
-		command = ".adminwho"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem 
 		name = "&Hotkeys"
-		command = ".hotkeys-help"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = ""
-		command = ""
-		category = "&Help"
-		saved-params = "is-checked"	
-	elem
-		name = "&Fix NanoUI"
-		command = ".fix-nanoui"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = "&Resend Resources"
-		command = ".resend-resources"
+		command = "hotkeys-help"
 		category = "&Help"
 		saved-params = "is-checked"
 	elem "sweet"
@@ -583,23 +530,6 @@ menu "menu"
 		name = "Special Roles"
 		command = "modifypreferences 2"
 		category = "Settings"
-		saved-params = "is-checked"
-	elem
-		name = ""
-		command = ""
-		category = "Settings"
-		saved-params = "is-checked"	
-	elem
-		name = "Jukebox Vol"
-		command = "set-volume"
-		category = "Settings"
-		saved-params = "is-checked"
-	elem
-		name = "Toggle Hotkey UI"
-		command = "toggle-hotkey-buttons"
-		category = "Settings"
-		is-checked = true
-		can-check = true
 		saved-params = "is-checked"
 	elem "server_menu"
 		name = "Server"
@@ -714,7 +644,7 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-maximized = true
-		icon = 'Display\\ss13_64.png'
+		icon = 'icons\\ss13_64.png'
 		macro = "macro"
 		menu = "menu"
 	elem "asset_cache_browser"
@@ -866,7 +796,6 @@ window "popupwindow"
 		size = 120x120
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
@@ -874,7 +803,7 @@ window "popupwindow"
 window "rpane"
 	elem "rpane"
 		type = MAIN
-		pos = 218,0
+		pos = 281,0
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
@@ -907,9 +836,18 @@ window "rpane"
 		saved-params = "splitter"
 		right = "outputwindow"
 		is-vert = false
+	elem "github"
+		type = BUTTON
+		pos = 468,0
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		saved-params = "is-checked"
+		text = "BugReport"
+		command = "Github-Report"
 	elem "special_button"
 		type = BUTTON
-		pos = 264,0
+		pos = 531,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
@@ -918,7 +856,24 @@ window "rpane"
 		command = ".winset \"rpanewindow.left=window1\""
 		group = "rpanemode"
 		button-type = pushbox
+	elem "mapb"
+		type = BUTTON
+		pos = 386,0
+		size = 80x16
+		anchor1 = none
+		anchor2 = none
+		saved-params = "is-checked"
+		text = "MapName"
+		command = "MapRender"
 	elem "hosttracker"
+		type = BROWSER
+		pos = 392,25
+		size = 1x1
+		anchor1 = none
+		anchor2 = none
+		is-visible = false
+		saved-params = ""
+	elem "hosttracker2"
 		type = BROWSER
 		pos = 392,25
 		size = 1x1
@@ -928,7 +883,7 @@ window "rpane"
 		saved-params = ""
 	elem "rulesb"
 		type = BUTTON
-		pos = 128,0
+		pos = 253,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
@@ -938,13 +893,33 @@ window "rpane"
 		group = "rpanemode"
 	elem "changelog"
 		type = BUTTON
-		pos = 192,0
+		pos = 316,0
 		size = 67x16
 		anchor1 = none
 		anchor2 = none
 		saved-params = "is-checked"
 		text = "Changelog"
 		command = "Changelog"
+		group = "rpanemode"
+	elem "forumb"
+		type = BUTTON
+		pos = 190,0
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		saved-params = "is-checked"
+		text = "Forum"
+		command = "forum"
+		group = "rpanemode"
+	elem "wikib"
+		type = BUTTON
+		pos = 127,0
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		saved-params = "is-checked"
+		text = "Wiki"
+		command = "wiki"
 		group = "rpanemode"
 	elem "textb"
 		type = BUTTON
@@ -961,7 +936,7 @@ window "rpane"
 		button-type = pushbox
 	elem "browseb"
 		type = BUTTON
-		pos = 328,0
+		pos = 580,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
