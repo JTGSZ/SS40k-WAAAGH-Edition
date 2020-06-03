@@ -2,7 +2,7 @@
 #define TRADE_SHUTTLE_COOLDOWN 200
 
 var/global/datum/shuttle/trade/trade_shuttle = new(starting_area = /area/shuttle/trade/start)
-
+ 
 /datum/shuttle/trade
 	name = "trade shuttle"
 	can_link_to_computer = LINK_FREE

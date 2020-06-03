@@ -19,7 +19,7 @@
 
 /datum/outfit/orkgretchin
 
-	outfit_name = "Ork Warboss"
+	outfit_name = "Gretchin"
 	associated_job = /datum/job/gretchin
 	no_backpack = TRUE
 	no_id = TRUE

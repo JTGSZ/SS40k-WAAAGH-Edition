@@ -31,5 +31,5 @@
 /datum/map/active/map_specific_init()
 
 ////////////////////////////////////////////////////////////////
-#include "maptestdesert.dmm"
+#include "desertgulch.dmm"
 #endif
