@@ -388,7 +388,9 @@
 		else if(A.pixel_x < -16)
 			change_dir(WEST)
 
+		StartMoving()
 		Facing()
+		EndMoving()
 		return
 
 	if(abs(dx) < abs(dy))
@@ -402,7 +404,9 @@
 		else
 			change_dir(WEST)
 
+	StartMoving()
 	Facing()
+	EndMoving()
 
 
 // File renamed to mouse.dm?
