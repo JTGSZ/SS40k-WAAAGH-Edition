@@ -1,7 +1,9 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to separate rooms."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'z40k_shit/icons/turfs/walls.dmi'
+	//icon = 'icons/turf/walls.dmi'
+	icon_state = "metal0"
 	var/mineral = "metal"
 	var/rotting = 0
 	var/health = 500 //40k EDIT - Walls Have Health now
@@ -25,7 +27,7 @@
 	soot_type = null
 
 	explosion_block = 1
-
+ 
 /turf/simulated/wall/canSmoothWith()
 	var/static/list/smoothables = list(
 		/turf/simulated/wall,
@@ -391,7 +393,7 @@
 	turf_animation('icons/effects/effects.dmi',"cultwall", 0, 0, MOB_LAYER-1, anim_plane = TURF_PLANE)
 	return
 
-/turf/simulated/wall/attack_construct(mob/user )
+/turf/simulated/wall/attack_construct(mob/user)
 	if(istype(user,/mob/living/simple_animal/construct/builder))
 		var/spell/aoe_turf/conjure/wall/S = locate() in user.spell_list
 		S.perform(user, 0, list(src))
