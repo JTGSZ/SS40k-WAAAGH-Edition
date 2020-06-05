@@ -3,7 +3,7 @@
 	name = "Rock"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
-	var/base_icon_state = "rock" // above is for mappers.
+	var/base_icon_state = "rock" //above is for mappers.
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
@@ -26,6 +26,8 @@
 	var/rockernaut = NONE
 	var/minimum_mine_time = 0
 	var/mining_difficulty = MINE_DIFFICULTY_NORM
+	
+	var/legacywalls = TRUE //Whether we are legacy or not.
 
 /turf/unsimulated/mineral/snow
 	icon_state = "snow_rock"
@@ -106,6 +108,8 @@
 var/list/icon_state_to_appearance = list()
 
 /turf/unsimulated/mineral/update_icon(var/mineral_name = "empty", var/use_overlay = TRUE) // feed in a mineral name to 'force' its appearance on an object.
+	if(!legacywalls)
+		scan_change(SOUTH)
 	if(mineral && mineral_name == "empty")
 		mineral_name = mineral.display_name
 	if(use_overlay && icon_state_to_appearance["[base_icon_state]-[mineral_name]"])
@@ -118,6 +122,9 @@ var/list/icon_state_to_appearance = list()
 		icon_state = base_icon_state
 		add_rock_overlay()
 		icon_state_to_appearance["[base_icon_state]-[mineral_name]"] = appearance
+
+/turf/unsimulated/mineral/proc/scan_change()
+	return
 
 /turf/unsimulated/mineral/proc/add_rock_overlay(var/image/img = image('icons/turf/rock_overlay.dmi', overlay_state,layer = SIDE_LAYER),var/offset=-4)
 	img.pixel_x = offset*PIXEL_MULTIPLIER
@@ -139,10 +146,10 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 		return
 	switch(severity)
 		if(3.0)
-			if (prob(75))
+			if(prob(75))
 				GetDrilled()
 		if(2.0)
-			if (prob(90))
+			if(prob(90))
 				GetDrilled()
 		if(1.0)
 			GetDrilled()
@@ -209,8 +216,7 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	name = "\improper [mineral.display_name] deposit"
 	update_icon()
 
-/turf/unsimulated/mineral/attackby(obj/item/weapon/W, mob/user )
-
+/turf/unsimulated/mineral/attackby(obj/item/weapon/W, mob/user)
 	if(busy)
 		return
 
@@ -253,52 +259,46 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 				X.name = "reinforced [old_name]"
 				X.dismantle_type = old_type
 
-	if (istype(W, /obj/item/weapon/pickaxe))
+	if(istype(W, /obj/item/weapon/pickaxe))
 		if(user.loc != get_turf(user))
 			return //if we aren't in the tile we are located in, return
 
 		var/obj/item/weapon/pickaxe/P = W
-
 		if(!istype(P))
 			return
-
 		if(!(P.diggables & DIG_ROCKS))
 			return
-
 		if(last_act + (MINE_DURATION * P.toolspeed) > world.time)//prevents message spam
 			return
 
 		last_act = world.time
-
 		P.playtoolsound(user, 20)
 
 		var/broke_find = FALSE
 		//handle any archaeological finds we might uncover
 		if (finds && finds.len != 0)
 			var/datum/find/top_find = finds[1]
-
 			var/exc_diff = excavation_level + P.excavation_amount - top_find.excavation_required
 
-			if (exc_diff > 0)
+			if(exc_diff > 0)
 				// Digging too far, probably breaking the artifact.
 				var/fail_message = "<b>[pick("There is a crunching noise","[W] collides with some different rock","Part of the rock face crumbles away","Something breaks under [W]")]</b>"
 				to_chat(user, "<span class='rose'>[fail_message].</span>")
 				broke_find = TRUE
 
 				var/destroy_prob = 50
-				if (exc_diff > 5)
+				if(exc_diff > 5)
 					destroy_prob = 95
 
-				if (prob(destroy_prob))
+				if(prob(destroy_prob))
 					finds.Remove(top_find)
-					if (prob(40))
+					if(prob(40))
 						artifact_debris()
 
 				else
 					excavate_find(5, top_find)
 
 		busy = 1
-
 		if(do_after(user, src, max((MINE_DURATION * P.toolspeed),minimum_mine_time)) && user)
 			busy = 0
 
@@ -306,33 +306,25 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 				var/datum/find/F = finds[1]
 				if(round(excavation_level + P.excavation_amount) == F.excavation_required)
 					excavate_find(100, F)
-
 				else if(excavation_level + P.excavation_amount > F.excavation_required - F.clearance_range)
 					excavate_find(0, F)
 
-			if( excavation_level + P.excavation_amount >= 100 )
-
+			if(excavation_level + P.excavation_amount >= 100)
 				var/obj/structure/boulder/B
 				var/artifact_destroyed = TRUE
 				if(artifact_find)
 					if(excavation_level > 0)
-
 						B = getFromPool(/obj/structure/boulder, src)
 						B.geological_data = geologic_data
-
 						B.artifact_find = artifact_find
 						B.investigation_log(I_ARTIFACT, "|| [artifact_find.artifact_find_type] - [artifact_find.artifact_id] found by [key_name(user)].")
 						artifact_destroyed = FALSE
-
 					else
 						artifact_debris(1)
-
 				else if(excavation_level > 0 && prob(15))
 					B = getFromPool(/obj/structure/boulder, src)
 					B.geological_data = geologic_data
-
 				GetDrilled(artifact_destroyed)
-
 				return
 
 			if(finds && finds.len)
@@ -349,7 +341,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 							polarstar = 2
 
 			excavation_level += P.excavation_amount
-
 			if(!archaeo_overlay && finds && finds.len)
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
@@ -357,7 +348,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 					overlays += archaeo_overlay
 
 			var/update_excav_overlay = 0
-
 			var/subtractions = 0
 			while(excavation_level - 25*(subtractions + 1) >= 0 && subtractions < 3)
 				subtractions++
@@ -372,7 +362,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 
 		else //Note : If the do_after() fails
 			busy = 0
-
 	else
 		return attack_hand(user)
 
@@ -415,6 +404,9 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 			var/mob/living/simple_animal/hostile/asteroid/rockernaut/boss/R = new(src)
 			if(mineral)
 				R.possessed_ore = mineral.ore
+	
+	if(!legacywalls)
+		scan_change(NORTH)
 	//destroyed artifacts have weird, unpleasant effects
 	//make sure to destroy them before changing the turf though
 	if(artifact_find && artifact_fail)
@@ -577,7 +569,7 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 			gets_dug()
 	return
 
-/turf/unsimulated/floor/asteroid/attackby(obj/item/weapon/W, mob/user )
+/turf/unsimulated/floor/asteroid/attackby(obj/item/weapon/W, mob/user)
 
 	if(!W || !user)
 		return 0
@@ -1135,9 +1127,7 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 			break
 	if(!sanity)
 		return
-
 	SpawnMonster(T)
-
 	T.ChangeTurf(floor_type) // TODO: FIX THIS
 
 /turf/unsimulated/floor/asteroid/cave/proc/SpawnMonster(var/turf/T)

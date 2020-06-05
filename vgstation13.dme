@@ -2768,6 +2768,8 @@
 #include "z40k_shit\turfs\weatherholder.dm"
 #include "z40k_shit\turfs\desertbiome\base_sand.dm"
 #include "z40k_shit\turfs\desertbiome\roadpath.dm"
+#include "z40k_shit\turfs\prototypes\f13roads.dm"
+#include "z40k_shit\turfs\prototypes\rockwall.dm"
 #include "z40k_shit\vehicle\comvehicle_base.dm"
 #include "z40k_shit\vehicle\comvehicle_click.dm"
 #include "z40k_shit\vehicle\comvehicle_damage.dm"

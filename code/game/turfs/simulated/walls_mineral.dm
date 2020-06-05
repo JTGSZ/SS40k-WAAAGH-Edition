@@ -1,6 +1,7 @@
 /turf/simulated/wall/mineral
 	name = "mineral wall"
 	desc = "This shouldn't exist"
+	icon = 'icons/turf/walls.dmi'
 	icon_state = ""
 	explosion_block = 1
 	var/last_event = 0
@@ -175,20 +176,6 @@
 	else if(istype(Proj,/obj/item/projectile/ion))
 		PlasmaBurn(500)
 	..()
-
-/*
-/turf/simulated/wall/mineral/proc/shock()
-	if (electrocute_mob(user, C, src))
-		spark(src, 5)
-		return 1
-	else
-		return 0
-
-/turf/simulated/wall/mineral/proc/attackby(obj/item/weapon/W, mob/user )
-	if((mineral == "gold") || (mineral == "silver"))
-		if(shocked)
-			shock()
-*/
 
 /turf/simulated/wall/mineral/clockwork
 	name = "clockwork wall"

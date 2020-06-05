@@ -1,7 +1,9 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to separate rooms."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'z40k_shit/icons/turfs/walls.dmi'
+	//icon = 'icons/turf/walls.dmi'
+	icon_state = "metal0"
 	var/mineral = "metal"
 	var/rotting = 0
 	var/health = 500 //40k EDIT - Walls Have Health now
@@ -25,7 +27,7 @@
 	soot_type = null
 
 	explosion_block = 1
-
+ 
 /turf/simulated/wall/canSmoothWith()
 	var/static/list/smoothables = list(
 		/turf/simulated/wall,
@@ -127,11 +129,10 @@
 			"<span class='attack'>You smash through \the [src].</span>")
 			return
 
-/turf/simulated/wall/attack_paw(mob/user )
-
+/turf/simulated/wall/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/turf/simulated/wall/attack_hand(mob/living/user )
+/turf/simulated/wall/attack_hand(mob/living/user)
 	user.delayNextAttack(8)
 	if(M_HULK in user.mutations)
 		user.do_attack_animation(src, user)
@@ -166,7 +167,7 @@
 	
 	return ..()
 
-/turf/simulated/wall/proc/attack_rotting(mob/user )
+/turf/simulated/wall/proc/attack_rotting(mob/user)
 	if(istype(src, /turf/simulated/wall/r_wall)) //I wish I didn't have to do typechecks
 		to_chat(user, "<span class='notice'>This [src] feels rather unstable.</span>")
 		return
@@ -177,7 +178,7 @@
 		dismantle_wall()
 		return
 
-/turf/simulated/wall/attackby(obj/item/weapon/W, mob/user )
+/turf/simulated/wall/attackby(obj/item/weapon/W, mob/user)
 	user.delayNextAttack(8)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
@@ -391,7 +392,7 @@
 	turf_animation('icons/effects/effects.dmi',"cultwall", 0, 0, MOB_LAYER-1, anim_plane = TURF_PLANE)
 	return
 
-/turf/simulated/wall/attack_construct(mob/user )
+/turf/simulated/wall/attack_construct(mob/user)
 	if(istype(user,/mob/living/simple_animal/construct/builder))
 		var/spell/aoe_turf/conjure/wall/S = locate() in user.spell_list
 		S.perform(user, 0, list(src))

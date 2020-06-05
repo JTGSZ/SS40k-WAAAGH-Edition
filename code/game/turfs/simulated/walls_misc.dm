@@ -1,6 +1,7 @@
 /turf/simulated/wall/cult
 	name = "wall"
 	desc = "The patterns engraved on the wall seem to shift as you try to focus on them. You feel sick"
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "cult"
 	walltype = "cult"
 	dismantle_type = /turf/simulated/floor/engine/cult
