@@ -33,3 +33,6 @@
 	if (mutual_handcuffs && mutual_handcuffed_to)
 		mutual_handcuffs.remove_mutual_cuff_events(mutual_handcuffed_to)
 	. = ..()
+
+/mob/living/carbon/proc/hasmouth()
+	return hasmouth
