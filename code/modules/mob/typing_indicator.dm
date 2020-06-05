@@ -4,7 +4,7 @@ I IS TYPIN'!'
 */
 
 // Ported from Baystation12 : https://github.com/Baystation12/Baystation12
-
+/*
 /mob
 	var/atom/movable/overlay/typing_indicator/typing_indicator = null
 
@@ -39,17 +39,17 @@ I IS TYPIN'!'
 /mob/Logout()
 	remove_typing_indicator()
 	. = ..()
-
+*/
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = 1
-	create_typing_indicator()
+	/*create_typing_indicator()
 	spawn(1 MINUTES)
-		remove_typing_indicator()
+		remove_typing_indicator()*/
 
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = 1
-	create_typing_indicator()
+	/*create_typing_indicator()
 	spawn(1 MINUTES)
-		remove_typing_indicator()
+		remove_typing_indicator()*/
