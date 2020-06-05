@@ -129,11 +129,10 @@
 			"<span class='attack'>You smash through \the [src].</span>")
 			return
 
-/turf/simulated/wall/attack_paw(mob/user )
-
+/turf/simulated/wall/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/turf/simulated/wall/attack_hand(mob/living/user )
+/turf/simulated/wall/attack_hand(mob/living/user)
 	user.delayNextAttack(8)
 	if(M_HULK in user.mutations)
 		user.do_attack_animation(src, user)
@@ -168,7 +167,7 @@
 	
 	return ..()
 
-/turf/simulated/wall/proc/attack_rotting(mob/user )
+/turf/simulated/wall/proc/attack_rotting(mob/user)
 	if(istype(src, /turf/simulated/wall/r_wall)) //I wish I didn't have to do typechecks
 		to_chat(user, "<span class='notice'>This [src] feels rather unstable.</span>")
 		return
@@ -179,7 +178,7 @@
 		dismantle_wall()
 		return
 
-/turf/simulated/wall/attackby(obj/item/weapon/W, mob/user )
+/turf/simulated/wall/attackby(obj/item/weapon/W, mob/user)
 	user.delayNextAttack(8)
 
 	if(istype(W,/obj/item/weapon/solder) && bullet_marks)
