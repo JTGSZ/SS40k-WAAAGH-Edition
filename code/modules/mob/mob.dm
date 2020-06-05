@@ -1623,6 +1623,12 @@ Use this proc preferably at the end of an equipment loadout
 
 /mob/forceMove(atom/destination,var/no_tp=0, var/harderforce = FALSE, glide_size_override = 0)
 	StartMoving()
+	. = ..()
+	EndMoving()
+
+//Like forceMove(), but for dirs! used in atoms_movable.dm, mainly with chairs and vehicles
+/mob/change_dir(new_dir, var/changer)
+	StartMoving()
 	..()
 	EndMoving()
 
