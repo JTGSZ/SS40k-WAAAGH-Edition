@@ -1,0 +1,23 @@
+diff a/code/game/machinery/suit_dispenser.dm b/code/game/machinery/suit_dispenser.dm	(rejected hunks)
+@@ -258,18 +258,18 @@ var/list/dispenser_presets = list()
+ 
+ /datum/suit/dorf/mining
+ 	name = "Mining"
+-	to_spawn = list(/obj/item/clothing/suit/space/rig/mining, /obj/item/clothing/head/helmet/space/rig/mining)
++	to_spawn = list(/obj/item/clothing/suit/space/rig/mining)
+ 
+ /*/datum/suit/dorf/head
+ 	amount = 1
+ 
+ /datum/suit/dorf/head/captain
+ 	name = "Captain"
+-	to_spawn = (/obj/item/clothing/suit/space/rig/captain,/obj/item/clothing/head/helmet/space/rig/capspace)
++	to_spawn = (/obj/item/clothing/suit/space/rig/captain)
+ 
+ /datum/suit/dorf/head/chiefengie
+ 	name = "Chief Engineer"
+-	to_spawn = (/obj/item/clothing/suit/space/rig/elite,/obj/item/clothing/head/helmet/space/rig/elite,/obj/item/clothing/shoes/magboots/elite)*/
++	to_spawn = (/obj/item/clothing/suit/space/rig/elite,/obj/item/clothing/shoes/magboots/elite)*/
+ 
+ 
+ /obj/machinery/suit_dispenser/dorf

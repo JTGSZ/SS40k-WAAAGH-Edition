@@ -2777,7 +2777,6 @@ var/global/num_vending_terminals = 1
 		if(user)
 			to_chat(user, "<span class='warning'>As you slide the card into the machine, you hear something unlocking inside. The machine emits an evil glow.</span>")
 			message_admins("[key_name_admin(user)] unlocked a Nazivend's DANGERMODE!")
-		contraband[/obj/item/clothing/head/helmet/space/rig/nazi] = 3
 		contraband[/obj/item/clothing/suit/space/rig/nazi] = 3
 		contraband[/obj/item/weapon/gun/energy/plasma/MP40k] = 4
 		src.build_inventory(contraband, 1)
@@ -2802,7 +2801,6 @@ var/global/num_vending_terminals = 1
 		/obj/item/clothing/head/naziofficer = 10,
 		/obj/item/clothing/suit/officercoat = 10,
 		/obj/item/clothing/under/officeruniform = 10,
-		/obj/item/clothing/head/helmet/space/rig/nazi = 3,
 		/obj/item/clothing/suit/space/rig/nazi = 3,
 		/obj/item/weapon/gun/energy/plasma/MP40k = 4,
 		)
@@ -2862,7 +2860,6 @@ var/global/num_vending_terminals = 1
 		if(user)
 			to_chat(user, "<span class='warning'>As you slide the card into the machine, you hear something unlocking inside. The machine emits an evil glow.</span>")
 			message_admins("[key_name_admin(user)] unlocked a Sovietvend's DANGERMODE!")
-		contraband[/obj/item/clothing/head/helmet/space/rig/soviet] = 3
 		contraband[/obj/item/clothing/suit/space/rig/soviet] = 3
 		contraband[/obj/item/weapon/gun/energy/laser/LaserAK] = 4
 		src.build_inventory(contraband, 1)
@@ -2891,7 +2888,6 @@ var/global/num_vending_terminals = 1
 		/obj/item/clothing/mask/balaclava = 4,
 		/obj/item/clothing/suit/russofurcoat = 4,
 		/obj/item/clothing/head/russofurhat = 4,
-		/obj/item/clothing/head/helmet/space/rig/soviet = 3,
 		/obj/item/clothing/suit/space/rig/soviet = 3,
 		/obj/item/weapon/gun/energy/laser/LaserAK = 4,
 		)

@@ -239,7 +239,6 @@
 	corpsegloves = /obj/item/clothing/gloves/swat
 	corpseradio = /obj/item/device/radio/headset
 	corpsemask = /obj/item/clothing/mask/gas/syndicate
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/syndi
 	corpseback = /obj/item/weapon/tank/jetpack/oxygen
 	corpsepocket1 = /obj/item/weapon/tank/emergency_oxygen
 	corpseid = 1
@@ -337,7 +336,6 @@
 /obj/effect/landmark/corpse/miner/rig
 	corpsesuit = /obj/item/clothing/suit/space/rig/mining
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/mining
 
 /obj/effect/landmark/corpse/clown
 	name = "Clown"
@@ -492,7 +490,6 @@
 	corpsesuit = /obj/item/clothing/suit/space/rig/medical
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/medical
 
 /obj/effect/landmark/corpse/cmo
 	name = "Chief Medical Officer"
@@ -523,7 +520,6 @@
 	corpsesuit = /obj/item/clothing/suit/space/rig
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig
 
 /obj/effect/landmark/corpse/atmostech
 	name = "Atmospheric Technician"
@@ -541,7 +537,6 @@
 	corpsesuit = /obj/item/clothing/suit/space/rig/atmos
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/atmos
 
 /obj/effect/landmark/corpse/mechanic
 	name = "Mechanic"
@@ -572,7 +567,6 @@
 	corpsesuit = /obj/item/clothing/suit/space/rig/elite
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/elite
 
 /obj/effect/landmark/corpse/scientist
 	name = "Scientist"
@@ -653,7 +647,6 @@
 	corpsesuit = /obj/item/clothing/suit/space/rig/security
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/security
 
 /obj/effect/landmark/corpse/detective
 	name = "Detective"
@@ -689,7 +682,6 @@
 	corpsesuit = /obj/item/clothing/suit/space/rig/security
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/security
 
 /obj/effect/landmark/corpse/headofpersonnel
 	name = "Head of Personnel"
@@ -872,7 +864,6 @@
 
 /obj/effect/landmark/corpse/nazi/spacetrooper
 	name = "Nazi Trooper"
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/nazi
 	corpsesuit = /obj/item/clothing/suit/space/rig/nazi
 
 //////////////////Admin Use//////////////////////////////
@@ -961,7 +952,6 @@
 
 /obj/effect/landmark/corpse/wizard/rig
 	corpsesuit = /obj/item/clothing/suit/space/rig/wizard
-	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/wizard
 	corpseback = /obj/item/weapon/tank/oxygen
 	corpsemask = /obj/item/clothing/mask/breath
 

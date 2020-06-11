@@ -238,19 +238,19 @@ var/list/dispenser_presets = list()
 
 /datum/suit/dorf/security
 	name = "Security"
-	to_spawn = list(/obj/item/clothing/head/helmet/space/rig/security,/obj/item/clothing/suit/space/rig/security)
+	to_spawn = list(/obj/item/clothing/suit/space/rig/security)
 
 /datum/suit/dorf/engineering
 	name = "Engineering"
-	to_spawn = list(/obj/item/clothing/head/helmet/space/rig,/obj/item/clothing/suit/space/rig)
+	to_spawn = list(/obj/item/clothing/suit/space/rig)
 
 /datum/suit/dorf/medical
 	name = "Medical"
-	to_spawn = list(/obj/item/clothing/head/helmet/space/rig/medical,/obj/item/clothing/suit/space/rig/medical)
+	to_spawn = list(/obj/item/clothing/suit/space/rig/medical)
 
 /datum/suit/dorf/atmos
 	name = "Atmospherics Technician"
-	to_spawn = list(/obj/item/clothing/head/helmet/space/rig/atmos,/obj/item/clothing/suit/space/rig/atmos)
+	to_spawn = list(/obj/item/clothing/suit/space/rig/atmos)
 
 /datum/suit/dorf/paramedic
 	name = "Paramedic"

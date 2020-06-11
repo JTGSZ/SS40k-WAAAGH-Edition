@@ -33,18 +33,15 @@
 /obj/abstract/loadout/proc/alter_items(var/list/items, var/mob/M)
 
 /obj/abstract/loadout/gemsuit
-	items_to_spawn = list(/obj/item/clothing/head/helmet/space/rig/wizard,
-						/obj/item/clothing/suit/space/rig/wizard,
+	items_to_spawn = list(/obj/item/clothing/suit/space/rig/wizard,
 						/obj/item/clothing/gloves/purple,
 						/obj/item/clothing/shoes/sandal)
 
 /obj/abstract/loadout/nazi_rigsuit
-	items_to_spawn = list(/obj/item/clothing/head/helmet/space/rig/nazi,
-						/obj/item/clothing/suit/space/rig/nazi)
+	items_to_spawn = list(/obj/item/clothing/suit/space/rig/nazi)
 
 /obj/abstract/loadout/soviet_rigsuit
-	items_to_spawn = list(/obj/item/clothing/head/helmet/space/rig/soviet,
-						/obj/item/clothing/suit/space/rig/soviet)
+	items_to_spawn = list(/obj/item/clothing/suit/space/rig/soviet)
 
 /obj/abstract/loadout/dredd_gear
 	items_to_spawn = list(/obj/item/clothing/under/darkred,
