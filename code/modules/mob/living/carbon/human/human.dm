@@ -278,6 +278,13 @@
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
 
+		if(is_wearing_item(/obj/item/clothing/suit/space/rig, slot_wear_suit))
+			var/obj/item/clothing/suit/space/rig/R = wear_suit
+			if(R.cell)
+				stat("\The [R.name]", "Charge: [R.cell.charge]")
+			if(R.activated)
+				stat("\The [R.name]", "Modules: [english_list(R.modules)]")
+
 		if(mind)
 			for(var/role in mind.antag_roles)
 				var/datum/role/R = mind.antag_roles[role]

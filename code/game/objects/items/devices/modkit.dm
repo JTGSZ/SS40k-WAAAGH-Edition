@@ -17,13 +17,10 @@
 	finished = new/list(2)
 
 	parts[1] =	1
-	original[1] = /obj/item/clothing/head/helmet/space/rig
-	finished[1] = /obj/item/clothing/head/cardborg
-	parts[2] =	1
-	original[2] = /obj/item/clothing/suit/space/rig
-	finished[2] = /obj/item/clothing/suit/cardborg
+	original[1] = /obj/item/clothing/suit/space/rig
+	finished[1] = /obj/item/clothing/suit/cardborg
 
-/obj/item/device/modkit/afterattack(obj/O, mob/user )
+/obj/item/device/modkit/afterattack(obj/O, mob/user)
 	if(get_dist(O,user) > 1)//For all those years you could use it at any range, what the actual fuck?
 		return
 
@@ -74,14 +71,11 @@
 	finished = new/list(3)
 
 	parts[1] =	1
-	original[1] = /obj/item/clothing/head/helmet/space/rig/security
-	finished[1] = /obj/item/clothing/head/helmet/space/rig/security/stormtrooper
-	parts[2] =	1
-	original[2] = /obj/item/clothing/suit/space/rig/security
-	finished[2] = /obj/item/clothing/suit/space/rig/security/stormtrooper
-	parts[3] =	3
-	original[3] = /obj/item/weapon/gun/energy/laser
-	finished[3] = /obj/item/weapon/gun/energy/laser/blaster
+	original[1] = /obj/item/clothing/suit/space/rig/security
+	finished[1] = /obj/item/clothing/suit/space/rig/security/stormtrooper
+	parts[2] =	3
+	original[2] = /obj/item/weapon/gun/energy/laser
+	finished[2] = /obj/item/weapon/gun/energy/laser/blaster
 
 // /vg/: Old atmos hardsuit.
 /obj/item/device/modkit/gold_rig
@@ -94,11 +88,8 @@
 	finished = new/list(2)
 
 	parts[1] =	1
-	original[1] = /obj/item/clothing/head/helmet/space/rig/atmos
-	finished[1] = /obj/item/clothing/head/helmet/space/rig/atmos/gold
-	parts[2] =	1
-	original[2] = /obj/item/clothing/suit/space/rig/atmos
-	finished[2] = /obj/item/clothing/suit/space/rig/atmos/gold
+	original[1] = /obj/item/clothing/suit/space/rig/atmos
+	finished[1] = /obj/item/clothing/suit/space/rig/atmos/gold
 
 /obj/item/device/modkit/fatsec_rig
 	name = "gut expansion hardsuit modification kit"
@@ -113,25 +104,16 @@
 	original[1] = /obj/item/clothing/suit/space/rig/security
 	finished[1] = /obj/item/clothing/suit/space/rig/security/fat
 
+/obj/item/device/modkit/syndi_commander
+	name = "syndicate commander hardsuit modification kit"
+	desc = "For showing who's the boss. Apply to hardsuit."
 
-/* /vg/ - Not needed
-/obj/item/device/modkit/tajaran
-	name = "tajara hardsuit modification kit"
-	desc = "A kit containing all the needed tools and parts to modify a hardsuit for another user. This one looks like it's meant for Tajara."
-
-/obj/item/device/modkit/tajaran/New()
+/obj/item/device/modkit/syndi_commander/New()
 	..()
-	parts = new/list(2)
-	original = new/list(2)
-	finished = new/list(2)
 
-	parts[1] =	1
-	original[1] = /obj/item/clothing/head/helmet/space/rig
-	finished[1] = /obj/item/clothing/head/helmet/space/rig/tajara
-	parts[2] =	1
-	original[2] = /obj/item/clothing/suit/space/rig
-	finished[2] = /obj/item/clothing/suit/space/rig/tajara
-*/
+	parts =	list(1) //less shitcode when you only got one part
+	original = list(/obj/item/clothing/suit/space/rig/syndi)
+	finished = list(/obj/item/clothing/suit/space/rig/syndi/commander)
 
 /obj/item/device/modkit/spur_parts
 	name = "suspicious set of metallic parts"
