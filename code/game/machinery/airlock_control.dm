@@ -173,7 +173,7 @@ obj/machinery/airlock_sensor/attack_hand(mob/user)
 	signal.transmission_method = 1 //radio signal
 	signal.data["tag"] = master_tag
 	signal.data["command"] = command
-
+	playsound(src,'sound/misc/click.ogg',30,0,-1)
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("airlock_sensor_cycle", src)
 
@@ -327,9 +327,10 @@ obj/machinery/access_button/update_icon()
 
 
 obj/machinery/access_button/attack_hand(mob/user)
-	
+	playsound(src,'sound/misc/click.ogg',30,0,-1)
 	if(!allowed(user))
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
+		playsound(src, 'sound/machines/buzz-two.ogg', 20, 0, -1)
 
 	else if(radio_connection)
 		var/datum/signal/signal = getFromPool(/datum/signal)
