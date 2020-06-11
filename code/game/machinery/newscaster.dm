@@ -77,7 +77,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/machinery/newscaster
 	name = "newscaster"
-	desc = "A standard Nanotrasen-licensed newsfeed handler for use in commercial space stations. All the news you absolutely have no use for, in one place!"
+	desc = "A odd newsfeed handler for this place. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "newscaster_normal"
 	var/buildstage = 1 // 1 = complete, 0 = unscrewed
@@ -239,7 +239,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			if(NEWSCASTER_MENU)
 
 				dat += {"Welcome to Newscasting Unit #[unit_no].<BR> Interface & News networks Operational.
-					<BR><FONT SIZE=1>property of Nanotrasen Inc</FONT>"}
+					<BR><FONT SIZE=1>property of your planetary governor</FONT>"}
 				if(news_network.wanted_issue)
 					dat+= "<HR><A href='?src=\ref[src];view_wanted=1'>Read Wanted Issue</A>"
 
@@ -258,7 +258,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					dat += {"<HR><B>Feed Security functions:</B><BR>
 						<BR><A href='?src=\ref[src];menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>
 						<BR><A href='?src=\ref[src];menu_censor_story=1'>Censor Feed Stories</A>
-						<BR><A href='?src=\ref[src];menu_censor_channel=1'>Mark Feed Channel with Nanotrasen D-Notice</A>"}
+						<BR><A href='?src=\ref[src];menu_censor_channel=1'>Mark Feed Channel with D-Notice</A>"}
 				dat+="<BR><HR>The newscaster recognises you as: <FONT COLOR='green'>[scanned_user]</FONT>"
 			if(NEWSCASTER_CHANNEL_LIST)
 				dat+= "Station Feed Channels<HR>"
@@ -362,7 +362,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<B>[viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[viewing_channel.author]</FONT>\]</FONT><HR>"
 				if(viewing_channel.censored)
 
-					dat += {"<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the station, and marked with a Nanotrasen D-Notice.<BR>
+					dat += {"<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the planet, and marked with a D-Notice.<BR>
 						No further feed story additions are allowed while the D-Notice is in effect.</FONT><BR><BR>"}
 				else
 					if( isemptylist(viewing_channel.messages) )
@@ -382,7 +382,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					<BR><A href='?src=\ref[src];setScreen=[NEWSCASTER_CHANNEL_LIST]'>Back</A>"}
 			if(NEWSCASTER_CENSORSHIP_MENU)
 
-				dat += {"<B>Nanotrasen Feed Censorship Tool</B><BR>
+				dat += {"<B>Feed Censorship Tool</B><BR>
 					<FONT SIZE=1>NOTE: Due to the nature of news Feeds, total deletion of a Feed Story is not possible.<BR>
 					Keep in mind that users attempting to view a censored feed will instead see the \[REDACTED\] tag above it.</FONT>
 					<HR>Select Feed channel to get Stories from:<BR>"}
@@ -394,7 +394,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<BR><A href='?src=\ref[src];setScreen=[NEWSCASTER_MENU]'>Cancel</A>"
 			if(NEWSCASTER_D_NOTICE_MENU)
 
-				dat += {"<B>Nanotrasen D-Notice Handler</B><HR>
+				dat += {"<B>D-Notice Handler</B><HR>
 					<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's
 					morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed
 					stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</FONT><HR>"}
@@ -423,7 +423,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=\ref[src];toggle_d_notice=\ref[viewing_channel]'>Bestow a D-Notice upon the channel</A>.<HR>"}
 				if(viewing_channel.censored)
 
-					dat += {"<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the station, and marked with a Nanotrasen D-Notice.<BR>
+					dat += {"<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the planet, and marked with a D-Notice.<BR>
 						No further feed story additions are allowed while the D-Notice is in effect.</FONT><BR><BR>"}
 				else
 					if( isemptylist(viewing_channel.messages) )
@@ -789,7 +789,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						screen = NEWSCASTER_WANTED_SUCCESS
 					else
 						if(news_network.wanted_issue.is_admin_message)
-							alert("The wanted issue has been distributed by a Nanotrasen higherup. You cannot edit it.","Ok")
+							alert("The wanted issue has been distributed by a higherup. You cannot edit it.","Ok")
 							return
 						news_network.wanted_issue.author = channel_name
 						news_network.wanted_issue.body = msg
@@ -807,7 +807,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		else if(href_list["cancel_wanted"])
 			if(news_network.wanted_issue.is_admin_message)
-				alert("The wanted issue has been distributed by a Nanotrasen higherup. You cannot take it down.","Ok")
+				alert("The wanted issue has been distributed by a higherup. You cannot take it down.","Ok")
 				return
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
@@ -826,7 +826,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				return
 			var/datum/feed_channel/FC = locate(href_list["censor_channel_author"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a Nanotrasen Officer. You cannot censor it.","Ok")
+				alert("This channel was created by a enforcement official. You cannot censor it.","Ok")
 				return
 			if(FC.author != "<B>\[REDACTED\]</B>")
 				FC.backup_author = FC.author
@@ -841,7 +841,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				return
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_author"])
 			if(MSG.is_admin_message)
-				alert("This message was created by a Nanotrasen Officer. You cannot censor its author.","Ok")
+				alert("This message was created by a enforcement official. You cannot censor its author.","Ok")
 				return
 			if(MSG.author != "<B>\[REDACTED\]</B>")
 				MSG.backup_author = MSG.author
@@ -856,7 +856,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				return
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_body"])
 			if(MSG.is_admin_message)
-				alert("This channel was created by a Nanotrasen Officer. You cannot censor it.","Ok")
+				alert("This channel was created by a enforcement official. You cannot censor it.","Ok")
 				return
 			if(MSG.img != null)
 				MSG.backup_img = MSG.img
@@ -885,7 +885,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				return
 			var/datum/feed_channel/FC = locate(href_list["toggle_d_notice"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a Nanotrasen Officer. You cannot place a D-Notice upon it.","Ok")
+				alert("This channel was created by a enforcement official. You cannot place a D-Notice upon it.","Ok")
 				return
 			FC.censored = !FC.censored
 			updateUsrDialog()
@@ -1042,8 +1042,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/item/weapon/newspaper
 	name = "newspaper"
-	desc = "An issue of The Griffon, the newspaper circulating aboard Nanotrasen Space Stations."
+	desc = "An issue of The Griffon, the newspaper circulating on this planet."
 	icon = 'icons/obj/bureaucracy.dmi'
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/books.dmi', "right_hand" = 'icons/mob/in-hand/right/books.dmi')
+	item_state = "newspaper"
 	icon_state = "newspaper"
 	force = 1 //Getting hit by rolled up newspapers hurts!
 	throwforce = 0
@@ -1064,15 +1066,22 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 
-/obj/item/weapon/newspaper/attack_self(mob/user )
+/obj/item/weapon/newspaper/attack_self(var/mob/user)
+	if (user.incapacitated())
+		return
 	if(ishuman(user))
+		item_state = "newspaper-open"
+		user.update_inv_hand(user.active_hand)
+		spawn (1 SECONDS)
+			if (!gcDestroyed)
+				item_state = "newspaper"
 		var/dat
 		pages = 0
 		switch(screen)
 			if(NEWSPAPER_TITLE_PAGE) //Cover
 
 				dat += {"<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</FONT></B></div>
-					<DIV ALIGN='center'><FONT SIZE=2>Nanotrasen-standard newspaper, for use on Nanotrasen Space Facilities</FONT></div><HR>"}
+					<DIV ALIGN='center'><FONT SIZE=2>Planet-standard newspaper, for use by the public.</FONT></div><HR>"}
 				if(isemptylist(news_content))
 					if(important_message)
 						dat+="Contents:<BR><ul><B><FONT COLOR='red'>**</FONT>Important Security Announcement<FONT COLOR='red'>**</FONT></B> <FONT SIZE=2>\[page [pages+2]\]</FONT><BR></ul>"
@@ -1231,21 +1240,23 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W, mob/user )
 		var/mob/living/silicon/ai_user = user
 		scanned_user = "[ai_user.name] ([ai_user.job])"
 	else if (isAdminGhost(user))
-		scanned_user = "Nanotrasen Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
+		scanned_user = "Enforcement Official #[rand(0,9)][rand(0,9)][rand(0,9)]"
 	else if (isobserver(user))
 		scanned_user = "Space-Time Anomaly #[rand(0,9)][rand(0,9)][rand(0,9)]"
 	masterController = user
 
 /obj/machinery/newscaster/proc/print_paper()
 	feedback_inc("newscaster_newspapers_printed",1)
-	var/obj/item/weapon/newspaper/NEWSPAPER = new /obj/item/weapon/newspaper
+	var/obj/item/weapon/newspaper/printed_issue = new /obj/item/weapon/newspaper(src)
 	for(var/datum/feed_channel/FC in news_network.network_channels)
-		NEWSPAPER.news_content += FC
+		printed_issue.news_content += FC
 	if(news_network.wanted_issue)
-		NEWSPAPER.important_message = news_network.wanted_issue
-	NEWSPAPER.forceMove(get_turf(src))
+		printed_issue.important_message = news_network.wanted_issue
+	anim(target = src, a_icon = icon, flick_anim = "newscaster_print", sleeptime = 30, offX = pixel_x, offY = pixel_y)
+	playsound(get_turf(src), "sound/effects/fax.ogg", 50, 1)
 	paper_remaining--
-	return
+	spawn(0.8 SECONDS)
+		printed_issue.forceMove(get_turf(src))
 
 /obj/machinery/newscaster/proc/newsAlert(channel)   //This isn't Agouri's work, for it is ugly and vile.
 	var/turf/T = get_turf(src)                      //Who the fuck uses spawn(600) anyway, jesus christ
