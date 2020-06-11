@@ -87,6 +87,7 @@
 	pressure_resistance = 200 * ONE_ATMOSPHERE
 	siemens_coefficient = 0.5
 	eyeprot = 1
+	body_parts_visible_override = BEARD
 
 /obj/item/clothing/head/helmet/thunderdome
 	name = "\improper Thunderdome helmet"
