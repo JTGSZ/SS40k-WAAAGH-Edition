@@ -5,13 +5,13 @@
 	footprints = FALSE
 
 /turf/unsimulated/outside/water/deep
-	name = "WATER DEEP"
+	name = "Deep Water"
 	icon_state = "water2"
 	turf_speed_multiplier = 2.8
 
 
 /turf/unsimulated/outside/water/shallow
-	name = "WATERSHALLOW"
+	name = "Shallow Water"
 	icon_state = "water"
 	turf_speed_multiplier = 1.4
 	var/isedge
