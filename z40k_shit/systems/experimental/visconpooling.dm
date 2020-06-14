@@ -4,8 +4,8 @@
 	
 /datum/visconpooler/New()
 	load_barricades()
-	load_ghostbodies()
-	load_ghostbuttons()
+//	load_ghostbodies()
+//	load_ghostbuttons()
 
 /datum/visconpooler/proc/load_barricades()
 	barricadepool[1] = new /obj/effect/overlay/viscons/aegisline/north
@@ -15,9 +15,7 @@
 	barricadepool[5] = new /obj/effect/overlay/viscons/aegisline/west_one
 	barricadepool[6] = new /obj/effect/overlay/viscons/aegisline/west_two
 
-
-
-/datum/visconpooler/proc/load_ghostbodies()
+/*/datum/visconpooler/proc/load_ghostbodies()
 	var/p_width = 1
 	var/p_height = 1
 	
@@ -54,5 +52,5 @@
 		if(p_width > 6)
 			p_width = 1
 			p_height++
-
+*/
 	

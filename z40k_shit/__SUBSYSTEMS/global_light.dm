@@ -59,7 +59,7 @@ var/datum/subsystem/lighthog/SSLighthog
 	time2fire()
 
 /datum/subsystem/lighthog/proc/time2fire()
-	for(var/turf/T in world)
+	for(var/turf/T in block(locate(1, 1, 1), locate(world.maxx, world.maxy, 1)))
 		if(IsEven(T.x)) //If we are also even.
 			if(IsEven(T.y)) //If we are also even.
 				if(istype(T, /turf/unsimulated/outside)) //If we are outside.
@@ -68,7 +68,7 @@ var/datum/subsystem/lighthog/SSLighthog
 					for(var/cdir in cardinal)
 						var/turf/TITTIES = get_step(T,cdir)
 						if(istype(TITTIES, /turf/unsimulated/outside)) //If we are outside.
-							T.set_light(hogrange,hogpower,current_color) //Set it, starlighto scanno
+							TITTIES.set_light(hogrange,hogpower,current_color) //Set it, starlighto scanno
 							break
 
 /*

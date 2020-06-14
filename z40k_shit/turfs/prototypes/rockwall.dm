@@ -1,12 +1,14 @@
 //See: mine_turfs.dm for our parent file.
 /turf/unsimulated/mineral/perspective_rock
 	name = "rock wall"
+	desc = "If you've seen one rock, you've more than like not seen them all."
 	icon = 'z40k_shit/icons/turfs/walls.dmi'
 	icon_state = "cliff_top"
 	base_icon_state = "cliff_top"
-	mined_type = /turf/unsimulated/outside/sand
+	mined_type = /turf/unsimulated/floor/asteroid/air
 	overlay_state = "perspective_cliff_overlay"
 	legacywalls = FALSE
+	var/rockbase = "cliff"
 
 /turf/unsimulated/mineral/perspective_rock/bottom //mostly a map helper honestly.
 	icon_state = "cliff_bottom"
@@ -16,22 +18,34 @@
 
 /turf/unsimulated/mineral/perspective_rock/scan_change(var/wherewegoin)
 	switch(wherewegoin)
-		if(SOUTH)
+		if(SOUTH) //IF what is south of us is not either of these, we turn into a cliff bottom.
 			var/turf/T = get_step(src,SOUTH)
-			if(!istype(T,/turf/unsimulated/mineral/perspective_rock))
-				base_icon_state = "cliff_bottom"
-				icon_state = "cliff_bottom"
+			if(!istype(T,/turf/unsimulated/mineral/perspective_rock) && !istype(T,/turf/simulated/wall))
+				base_icon_state = "[rockbase]_bottom"
+				icon_state = "[rockbase]_bottom"
 				opacity = 0
-		if(NORTH)
+		if(NORTH) //We have been mined, time to see if theres a perspective rock type north of us.
 			var/turf/T = get_step(src,NORTH)
 			if(istype(T,/turf/unsimulated/mineral/perspective_rock))
 				var/turf/unsimulated/mineral/US = T
-				US.base_icon_state = "cliff_bottom"
-				US.icon_state = "cliff_bottom"
+				US.base_icon_state = "[rockbase]_bottom"
+				US.icon_state = "[rockbase]_bottom"
 				US.opacity = 0
 
 /turf/unsimulated/mineral/add_rock_overlay()
 	return
+
+/turf/unsimulated/mineral/perspective_rock/bedrock
+	name = "Extremely Dense Rock Wall"
+	desc = "A wall of rocks that looks different to the other primary type, that would most likely take a monumental effort and time to cut apart."
+	icon_state = "densecliff_top"
+	base_icon_state = "densecliff_top"
+	mined_type = /turf/unsimulated/floor/asteroid/air/deepcave
+	overlay_state = "perspective_cliff_overlay"
+	mining_difficulty = MINE_DIFFICULTY_DENSE
+	minimum_mine_time = 99 SECONDS //GL HF
+	rockbase = "densecliff"
+
 /*	This unironically works at adding shadow borders, but fuck that shit yo.
 	var/image/img = image('z40k_shit/icons/turfs/turf_outline_overlays.dmi',"main",layer = SIDE_LAYER)
 	var/offset=-4

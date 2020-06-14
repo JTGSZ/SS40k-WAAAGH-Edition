@@ -38,7 +38,7 @@
 /turf/unsimulated/mineral/snow/New()
 	base_icon_state = pick("snow_rock","snow_rock1","snow_rock2","snow_rock3","snow_rock4")
 	..()
-
+ 
 /turf/unsimulated/mineral/underground
 	icon_state = "cave_wall"
 	base_icon_state = "cave_wall"
@@ -527,11 +527,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	var/dug = 0       //0 = has not yet been dug, 1 = has already been dug
 	var/sand_type = /obj/item/stack/ore/glass
 	plane = PLATING_PLANE
-	oxygen = MOLES_O2STANDARD
-	nitrogen = MOLES_N2STANDARD
-	temperature = T20C
-
-/turf/unsimulated/floor/asteroid/air
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
 	temperature = T20C

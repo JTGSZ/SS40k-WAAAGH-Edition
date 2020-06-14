@@ -12,9 +12,24 @@
 	override_icon = 'z40k_shit/icons/ghost_actions.dmi'
 	overlay_icon_state = "spell"
 	hud_state = "ghost_command"
+	var/list/ghost_actions = list()
 
 /spell/aoe_turf/ghost_actions/New()
 	..()
+	var/p_width = 1
+	var/p_height = 1
+	
+	for(var/ourbutton in typesof(/obj/abstract/screen/viscons/ghostactions) - /obj/abstract/screen/viscons/ghostactions)
+		var/obj/abstract/screen/viscons/ghostactions/thebutton = new ourbutton
+		thebutton.del_on_map_removal = FALSE
+		thebutton.assigned_map = "ghostactions_map"
+		thebutton.screen_info = list(p_width,p_height)
+		ghost_actions.Add(thebutton)
+	
+		p_width++
+		if(p_width > 6)
+			p_width = 1
+			p_height++
 
 /spell/aoe_turf/ghost_actions/Destroy()
 	..()
