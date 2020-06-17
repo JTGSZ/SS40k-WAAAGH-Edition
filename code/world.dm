@@ -1,5 +1,8 @@
 #define WORLD_ICON_SIZE 32
 #define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
+
+var/world_startup_time
+
 /world
 	mob = /mob/new_player
 	turf = /turf/space
@@ -12,6 +15,7 @@
 
 var/savefile/panicfile
 /world/New()
+	world_startup_time = world.timeofday
 	var/extools_path = system_type == MS_WINDOWS ? "byond-extools.dll" : "libbyond-extools.so"
 	if(fexists(extools_path))
 		call(extools_path, "maptick_initialize")()
