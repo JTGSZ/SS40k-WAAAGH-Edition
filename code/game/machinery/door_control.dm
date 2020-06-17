@@ -49,29 +49,14 @@
 	req_one_access = list()
 	playsound(src, "sparks", 100, 1)
 
-/obj/machinery/door_control/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/door_control/attackby(obj/item/weapon/W, mob/user)
 	..()
-	..()
-	/* For later implementation
-	if (W.is_screwdriver(user))
-	{
-		if(wiresexposed)
-			icon_state = "doorctrl0"
-			wiresexposed = 0
 
-		else
-			icon_state = "doorctrl-open"
-			wiresexposed = 1
-
-		return
-	}
-	*/
 	if(istype(W, /obj/item/device/detective_scanner))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/door_control/attack_hand(mob/user )
-	
+/obj/machinery/door_control/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -83,26 +68,25 @@
 	use_power(5)
 	icon_state = "doorctrl1"
 	
-
 	if(normaldoorcontrol)
 		for(var/obj/machinery/door/airlock/D in range(range, src))
 			if(D.id_tag == src.id_tag)
 				spawn(0)
-				if(specialfunctions & IDSCAN)
-					D.aiDisabledIdScanner = !D.aiDisabledIdScanner
-				if(specialfunctions & BOLTS)
-					if(!D.isWireCut(4) && D.arePowerSystemsOn())
-						D.toggle_bolts()
-						D.update_icon()
-				if(specialfunctions & SHOCK)
-					D.secondsElectrified = D.secondsElectrified ? 0 : -1
-				if(specialfunctions & SAFE)
-					D.safe = !D.safe
-				if(specialfunctions & OPEN)
-					if(D.density)
-						D.open()
-					else
-						D.close()
+					if(specialfunctions & IDSCAN)
+						D.aiDisabledIdScanner = !D.aiDisabledIdScanner
+					if(specialfunctions & BOLTS)
+						if(!D.isWireCut(4) && D.arePowerSystemsOn())
+							D.toggle_bolts()
+							D.update_icon()
+					if(specialfunctions & SHOCK)
+						D.secondsElectrified = D.secondsElectrified ? 0 : -1
+					if(specialfunctions & SAFE)
+						D.safe = !D.safe
+					if(specialfunctions & OPEN)
+						if(D.density)
+							D.open()
+						else
+							D.close()
 
 	else
 		for(var/obj/machinery/door/poddoor/M in poddoors)
@@ -129,13 +113,13 @@
 /obj/machinery/door_control/npc_tamper_act(mob/living/L)
 	attack_hand(L)
 
-/obj/machinery/driver_button/attack_ai(mob/user )
+/obj/machinery/driver_button/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/driver_button/attack_paw(mob/user )
+/obj/machinery/driver_button/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/driver_button/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/driver_button/attackby(obj/item/weapon/W, mob/user)
 	. = ..()
 	if(.)
 		return .
@@ -160,7 +144,7 @@
 	<li>[format_tag("ID Tag","id_tag")]</li>
 	</ul>"}
 
-/obj/machinery/driver_button/attack_hand(mob/user )
+/obj/machinery/driver_button/attack_hand(mob/user)
 
 	
 	if(stat & (NOPOWER|BROKEN))
