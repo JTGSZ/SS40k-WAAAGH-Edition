@@ -2634,6 +2634,8 @@ var/global/num_vending_terminals = 1
 	premium = list(
 		/obj/item/clothing/head/soft/rainbow = 1,
 		/obj/item/clothing/head/widehat_red =1,
+		/obj/item/clothing/head/beanie/rasta = 1,
+		/obj/item/clothing/head/beanie/waldo = 1
 		)
 
 	pack = /obj/structure/vendomatpack/hatdispenser
