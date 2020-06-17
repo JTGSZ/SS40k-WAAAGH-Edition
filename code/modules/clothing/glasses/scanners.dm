@@ -3,6 +3,7 @@
 	species_fit = list(GREY_SHAPED)
 	var/on = TRUE
 	var/list/color_matrix = null
+	glasses_fit = TRUE
 
 /obj/item/clothing/glasses/scanner/attack_self()
 	toggle()
@@ -107,6 +108,7 @@
 	color_matrix = list(0.8, 0, 0 ,\
 						0 , 1, 0 ,\
 						0 , 0, 0.8) //equivalent to #CCFFCC
+	glasses_fit = TRUE
 
 /obj/item/clothing/glasses/scanner/night/enable(var/mob/C)
 	see_invisible = initial(see_invisible)
@@ -130,6 +132,7 @@
 	see_invisible = SEE_INVISIBLE_MINIMUM
 	actions_types = list(/datum/action/item_action/toggle_goggles)
 	species_fit = list(VOX_SHAPED, GREY_SHAPED)
+	glasses_fit = TRUE
 
 /obj/item/clothing/glasses/scanner/meson/enable(var/mob/C)
 	var/area/A = get_area(src)
@@ -162,6 +165,8 @@
 	origin_tech = Tc_MAGNETS + "=3;" + Tc_ENGINEERING + "=3"
 	actions_types = list(/datum/action/item_action/toggle_goggles)
 	// vision_flags = SEE_OBJS
+
+	glasses_fit = TRUE
 
 	var/list/image/showing = list()
 	var/mob/viewing
