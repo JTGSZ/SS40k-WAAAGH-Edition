@@ -73,5 +73,20 @@ R - Right
 /turf/unsimulated/underground/imperial_rockcrete
 	name = "Rockcrete Slab"
 	desc = "A mixture made of stone and rock types native to this world, and binding agents. You can't remember seeing anyone lay any of this in your lifetime."
-	icon = 'z40k_shit/icons/turfs/imperial_roads.dmi'
+	icon = 'z40k_shit/icons/turfs/rockcrete_floors.dmi'
 	icon_state = "rockcrete_slab"
+
+/turf/unsimulated/underground/imperial_rockcrete/alt
+	icon_state = "rockcrete_slab2"
+
+/turf/unsimulated/underground/imperial_rockcrete/dmg1
+	icon_state = "rockcrete_slab_dmg1"
+
+/turf/unsimulated/underground/imperial_rockcrete/dmg2
+	icon_state = "rockcrete_slab_dmg2"
+
+/turf/unsimulated/underground/imperial_rockcrete/dmg3
+	icon_state = "rockcrete_slab_dmg3"
+
+/turf/unsimulated/underground/imperial_rockcrete/dmg4
+	icon_state = "rockcrete_slab_dmg4"

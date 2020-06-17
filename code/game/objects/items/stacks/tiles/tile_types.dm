@@ -72,7 +72,7 @@
 	sheet_type = /obj/item/stack/sheet/wood
 	material = "wood"
 
-/obj/item/stack/tile/wood/proc/build(turf/S )
+/obj/item/stack/tile/wood/proc/build(turf/S)
 	if(S.air)
 		var/datum/gas_mixture/GM = S.air
 		if(GM.pressure > HALF_ATM)
