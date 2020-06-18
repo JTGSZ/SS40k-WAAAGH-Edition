@@ -544,14 +544,9 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	icon_state = pick("cavefl_1","cavefl_2","cavefl_3","cavefl_4")
 
 /turf/unsimulated/floor/asteroid/New()
-	var/proper_name = name
 	..()
-
-	name = proper_name
-
 	if(prob(20) && icon_state == "asteroid")
 		icon_state = "asteroid[rand(0,12)]"
-
 
 /turf/unsimulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -629,7 +624,6 @@ turf/unsimulated/mineral/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_l
 	..()
 	qdel(floor_tile)
 	floor_tile = null
-	name = initial(name)
 	if(prob(20))
 		icon_state = "asteroid[rand(0,12)]"
 	icon_regular_floor = initial(icon_state)

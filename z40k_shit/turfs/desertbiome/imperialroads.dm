@@ -48,6 +48,8 @@ R - Right
 	name = "Metal Plates and a Gutter"
 	desc = "Metal seems to be in abundance unlike many other things."
 	icon = 'z40k_shit/icons/turfs/imperial_roads.dmi'
+	floragen = FALSE
+	footprints = FALSE
 
 /turf/unsimulated/outside/imperial_platewalk/sides
 	icon_state = "imp_metal_platewalk"

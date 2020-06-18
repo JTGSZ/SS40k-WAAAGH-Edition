@@ -25,18 +25,18 @@
 "ca" = (/obj/structure/fence/door,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "cd" = (/obj/structure/bed/chair/office{dir = 4},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor,/area/warhammer/desert)
 "ce" = (/obj/item/weapon/kitchen/rollingpin,/obj/machinery/cooking,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
-"cf" = (/turf/unsimulated/outside/imperial_platewalk/corners/west,/area/warhammer/desert)
+"cf" = (/obj/structure/bed,/obj/item/weapon/bedsheet/clown,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "cj" = (/obj/machinery/telecomms/processor/preset_one,/turf/simulated/floor/server,/area/warhammer/desert)
 "cl" = (/obj/structure/table,/obj/item/clothing/mask/gas,/obj/item/clothing/gloves/latex,/obj/item/weapon/storage/box/gloves,/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "cx" = (/obj/machinery/atmospherics/unary/tank/toxins{dir = 4},/obj/effect/decal/cleanable/soot,/turf/simulated/floor,/area/warhammer/desert)
-"cy" = (/obj/machinery/vending/games,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"cy" = (/obj/machinery/vending/shoedispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "cB" = (/obj/structure/closet/toolcloset,/turf/simulated/floor,/area/warhammer/desert)
 "cC" = (/obj/abstract/map/spawner/floorpill,/turf/simulated/floor/wood,/area/warhammer/desert)
 "cD" = (/obj/structure/bed/chair/comfy/couch/turn/inward/lime,/turf/simulated/floor/wood,/area/warhammer/desert)
 "cE" = (/obj/structure/bed/chair/comfy/couch/mid/lime,/turf/simulated/floor/wood,/area/warhammer/desert)
 "cF" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging{dir = 4},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "cO" = (/obj/machinery/vending/engivend,/turf/unsimulated/outside/sand,/area/warhammer/desert)
-"cS" = (/obj/machinery/fishtank/tank,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"cS" = (/obj/machinery/vending/suitdispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "cT" = (/obj/structure/table/woodentable,/turf/simulated/floor/carpet,/area/warhammer/desert)
 "cU" = (/turf/simulated/floor{dir = 1; icon_state = "whiteblue"},/area/warhammer/desert)
 "dg" = (/obj/structure/table,/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline{pixel_x = 7; pixel_y = -3},/obj/item/weapon/reagent_containers/glass/bottle/antitoxin{pixel_x = -4; pixel_y = -3},/obj/item/weapon/reagent_containers/syringe/inaprovaline{pixel_x = 3; pixel_y = -2},/obj/item/weapon/reagent_containers/glass/bottle/stoxin,/obj/item/weapon/reagent_containers/glass/bottle/toxin{pixel_x = 4; pixel_y = 2},/obj/item/weapon/reagent_containers/syringe/inaprovaline{pixel_x = 5; pixel_y = -2},/turf/simulated/floor{icon_state = "white"},/area/warhammer/desert)
@@ -73,7 +73,7 @@
 "fg" = (/obj/machinery/telecomms/broadcaster/preset_right,/turf/simulated/floor/server,/area/warhammer/desert)
 "fm" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/full/reinforced,/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/door/poddoor{density = 0; icon_state = "pdoor0"; id_tag = "Brig Cell"; name = "Security Blast Door"; opacity = 0},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "fp" = (/obj/structure/table,/obj/item/weapon/storage/pill_bottle/inaprovaline{pixel_x = 5; pixel_y = -5},/obj/item/weapon/storage/pill_bottle/inaprovaline{pixel_x = 7; pixel_y = -8},/obj/item/weapon/reagent_containers/glass/bottle/antitoxin{pixel_x = -6; pixel_y = -4},/obj/item/weapon/reagent_containers/glass/bottle/antitoxin{pixel_x = -3; pixel_y = -7},/obj/item/weapon/reagent_containers/glass/bottle{pixel_x = -6; pixel_y = 12},/obj/item/weapon/reagent_containers/glass/bottle{pixel_x = 0; pixel_y = 11},/obj/item/weapon/reagent_containers/glass/bottle{pixel_x = 6; pixel_y = 10},/obj/item/weapon/reagent_containers/syringe{pixel_x = -1; pixel_y = 6},/turf/simulated/floor{icon_state = "white"},/area/warhammer/desert)
-"fs" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood{broken = 1; icon_state = "wood-broken6"},/area/warhammer/desert)
+"fs" = (/obj/structure/bed/chair/comfy/black,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "fz" = (/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawnoff,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "fD" = (/obj/docking_port/shuttle{dir = 2},/turf/unsimulated/floor/asteroid,/area/shuttle/ork_rok/start)
 "fF" = (/obj/machinery/telecomms/server/presets/supply,/turf/simulated/floor/server,/area/warhammer/desert)
@@ -124,7 +124,7 @@
 "iH" = (/obj/structure/bed/chair/comfy/couch/right/lime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "iK" = (/obj/structure/table/reinforced,/turf/simulated/floor/carpet,/area/warhammer/desert)
 "iM" = (/obj/machinery/power/solar/panel{id_tag = "djstationsolar"; name = "DJ Station Solar Array"},/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/structure/cable,/turf/simulated/floor{icon_state = "solarpanel"},/area/djstation/solars)
-"iV" = (/obj/structure/bed/chair/comfy/couch/left/red{dir = 4},/obj/machinery/light/he{dir = 8},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"iV" = (/obj/machinery/washing_machine,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "iW" = (/obj/machinery/telecomms/bus/preset_one,/turf/simulated/floor/server,/area/warhammer/desert)
 "jh" = (/turf/simulated/floor/plating{dir = 3; icon_state = "asteroidwarning"},/area/warhammer/desert)
 "ji" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
@@ -132,7 +132,7 @@
 "jq" = (/obj/structure/bed/chair/office/light,/turf/simulated/floor{icon_state = "dark"},/area/djstation)
 "jx" = (/obj/docking_port/destination/ork_rok/starting_zone,/turf/space,/area)
 "jz" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/o2{pixel_x = 2; pixel_y = 6},/obj/item/weapon/storage/firstaid/o2{pixel_x = -2; pixel_y = 4},/turf/simulated/floor{icon_state = "whiteblue"},/area/warhammer/desert)
-"jA" = (/obj/machinery/vending/barber,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"jA" = (/obj/machinery/vending/games,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "jI" = (/obj/machinery/optable,/turf/simulated/floor{icon_state = "white"},/area/warhammer/desert)
 "jK" = (/obj/item/weapon/bedsheet/green,/obj/structure/bed,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
 "jQ" = (/obj/structure/filingcabinet/filingcabinet,/turf/simulated/floor/wood,/area/warhammer/desert)
@@ -197,7 +197,7 @@
 "oB" = (/obj/structure/cable{icon_state = "0-2"; d2 = 2},/obj/machinery/power/battery/smes{charge = 5e+006},/obj/effect/decal/warning_stripes{tag = "icon-warning (NORTH)"; icon_state = "warning"; dir = 1},/turf/simulated/floor/plating,/area/djstation)
 "oL" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor,/area/warhammer/desert)
 "oN" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = -3; pixel_y = 7},/obj/item/weapon/pen,/obj/item/weapon/pen,/obj/item/weapon/folder/yellow,/turf/simulated/floor/carpet,/area/warhammer/desert)
-"oT" = (/obj/machinery/washing_machine,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"oT" = (/obj/machinery/fishtank/tank,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "pf" = (/obj/machinery/telecomms/receiver/preset_right,/turf/simulated/floor/server,/area/warhammer/desert)
 "pl" = (/turf/space/transit/south,/area)
 "pn" = (/obj/machinery/atmospherics/pipe/simple/yellow/visible{dir = 6},/obj/structure/grille,/obj/structure/window/reinforced{dir = 4; one_way = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/warhammer/desert)
@@ -269,7 +269,7 @@
 "uf" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor,/area/warhammer/desert)
 "ui" = (/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "uj" = (/obj/structure/table,/obj/item/device/radio/intercom{dir = 8; freerange = 1; name = "Pirate Radio Listening Channel"},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
-"up" = (/turf/unsimulated/outside/imperial_platewalk/corners/east,/area/warhammer/desert)
+"up" = (/obj/effect/landmark/start/clown,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "uu" = (/obj/machinery/light{dir = 1},/obj/machinery/media/transmitter/broadcast/dj{heating_power = 0},/obj/effect/decal/warning_stripes{icon_state = "unloading"},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
 "uv" = (/obj/structure/table,/obj/item/weapon/storage/bag/chem{pixel_x = 6; pixel_y = 4},/obj/item/weapon/storage/bag/chem{pixel_x = 3; pixel_y = 0},/obj/item/weapon/reagent_containers/glass/beaker/large{pixel_x = -9; pixel_y = 4},/obj/item/weapon/reagent_containers/glass/beaker/large{pixel_x = -12; pixel_y = 2},/obj/structure/closet/wardrobe/chemistry_white,/turf/simulated/floor{icon_state = "white"},/area/warhammer/desert)
 "ux" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor,/area/warhammer/desert)
@@ -283,7 +283,7 @@
 "uY" = (/obj/structure/bed/chair/wood/pew/right{dir = 1},/turf/simulated/floor/wood,/area/warhammer/desert)
 "va" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/simulated/floor{icon_state = "showroomfloor"},/area/warhammer/desert)
 "vc" = (/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/obj/item/stack/sheet/mineral/phazon,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
-"vd" = (/obj/structure/bed/chair/comfy/couch/mid/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"vd" = (/obj/machinery/vending/autodrobe,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "vf" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/plating{dir = 6; icon_state = "asteroidwarning"},/area/warhammer/desert)
 "vp" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/djstation)
 "vB" = (/turf/simulated/floor/carpet{icon_state = "carpet-broken"},/area/warhammer/desert)
@@ -377,8 +377,8 @@
 "Dg" = (/obj/machinery/light/he{dir = 1},/turf/unsimulated/floor/asteroid,/area/shuttle/ork_rok/start)
 "Di" = (/obj/structure/table/woodentable,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Dp" = (/obj/effect/landmark/observer,/turf/unsimulated/outside/sand,/area/warhammer/desert)
-"Dr" = (/obj/machinery/vending/chapel,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
-"Du" = (/obj/machinery/vending/suitdispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Dr" = (/obj/structure/bed/chair/comfy/couch/left/red{dir = 4},/obj/machinery/light/he{dir = 8},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Du" = (/obj/machinery/vending/hatdispenser,/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Dw" = (/obj/machinery/door/airlock{id_tag = "Unit1"; name = "Unit 1"},/turf/simulated/floor,/area/warhammer/desert)
 "DE" = (/turf/simulated/floor{tag = "icon-darkred (NORTH)"; icon_state = "darkred"; dir = 1},/area/warhammer/desert)
 "DH" = (/obj/item/weapon/stool,/turf/simulated/floor{tag = "icon-darkred (EAST)"; icon_state = "darkred"; dir = 4},/area/warhammer/desert)
@@ -404,7 +404,7 @@
 "Fu" = (/turf/simulated/wall/rusty,/area/djstation)
 "Fx" = (/obj/effect/decal/imperial_road_effects/manhole_cover/cover_1,/turf/unsimulated/outside/imperial_road/road_side_one/north,/area/warhammer/desert)
 "Fz" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
-"FA" = (/obj/machinery/vending/shoedispenser,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"FA" = (/obj/machinery/vending/circus,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "FE" = (/obj/effect/decal/warning_stripes{dir = 4; icon_state = "unloading"},/obj/machinery/door/firedoor/border_only{dir = 2; name = "Firelock South"},/obj/machinery/door/window/brigdoor{dir = 2; id_tag = "Cell 1"; name = "Cell 1"; req_access_txt = "2"},/obj/machinery/door/poddoor{density = 0; icon_state = "pdoor0"; id_tag = "Brig Cell"; name = "Security Blast Door"; opacity = 0},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "FF" = (/obj/structure/fence,/turf/unsimulated/floor/asteroid/air,/area/warhammer/desert)
 "FH" = (/obj/structure/lattice,/turf/unsimulated/floor/asteroid/air,/area/warhammer/desert)
@@ -414,7 +414,7 @@
 "Gb" = (/obj/machinery/telecomms/hub/preset,/turf/simulated/floor/server,/area/warhammer/desert)
 "Gc" = (/obj/machinery/atmospherics/pipe/simple/yellow/visible{dir = 4},/obj/machinery/meter,/turf/simulated/floor,/area/warhammer/desert)
 "Gs" = (/obj/structure/bed/chair/comfy/couch/right/red{dir = 4},/turf/simulated/floor/wood,/area/warhammer/desert)
-"Gt" = (/obj/machinery/vending/autodrobe,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Gt" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Gu" = (/turf/simulated/floor{dir = 8; icon_state = "whiteblue"},/area/warhammer/desert)
 "GM" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging{dir = 9},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "GQ" = (/obj/structure/closet/secure_closet/hydroponics,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
@@ -428,8 +428,8 @@
 "Hz" = (/obj/machinery/vending/engineering,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "HA" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/simulated/floor/plating,/area/warhammer/desert)
 "HB" = (/obj/structure/table,/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/warhammer/desert)
-"HD" = (/obj/structure/bed,/obj/item/weapon/bedsheet/clown,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
-"HG" = (/turf/simulated/wall/mineral/wood,/area/warhammer/desert)
+"HD" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood{broken = 1; icon_state = "wood-broken6"},/area/warhammer/desert)
+"HG" = (/obj/machinery/vending/barber,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "HH" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/window/full/reinforced,/obj/machinery/door/poddoor{density = 0; icon_state = "pdoor0"; id_tag = "Brig Cell"; name = "Security Blast Door"; opacity = 0},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "HI" = (/obj/structure/closet/toolcloset,/turf/simulated/floor/plating{dir = 9; icon_state = "asteroidwarning"},/area/warhammer/desert)
 "HY" = (/obj/effect/decal/imperial_road_effects/manhole_cover/cover_1{pixel_x = 0; pixel_y = 16},/turf/unsimulated/outside/imperial_road/road_side_one/east,/area/warhammer/desert)
@@ -497,14 +497,14 @@
 "NR" = (/obj/effect/landmark/start/orkgretchin,/turf/unsimulated/floor/asteroid,/area)
 "NV" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/reagent_containers/food/condiment/enzyme,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Oi" = (/obj/structure/rack,/obj/item/weapon/choppa,/turf/simulated/floor,/area/warhammer/desert)
-"Ok" = (/obj/structure/bed/chair/comfy/couch/right/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Ok" = (/obj/structure/table/woodentable,/obj/item/binoculars,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Om" = (/obj/structure/table/reinforced,/obj/item/weapon/kitchen/utensil/knife/large/butch,/obj/item/weapon/reagent_containers/food/condiment/enzyme,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Oy" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/soot,/turf/unsimulated/floor/asteroid/plating{icon_state = "asteroidfloor"},/area/warhammer/desert)
 "OA" = (/obj/machinery/telecomms/server/presets/security,/obj/machinery/camera{name = "Telecomms Server Room"},/turf/simulated/floor/server,/area/warhammer/desert)
 "OD" = (/obj/item/stack/sheet/mineral/adamantine,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "OG" = (/obj/structure/table/woodentable,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor,/area/warhammer/desert)
 "OH" = (/obj/machinery/door_timer/cell_1{dir = 1; pixel_x = 0; pixel_y = 32},/turf/simulated/floor{tag = "icon-darkred (NORTH)"; icon_state = "darkred"; dir = 1},/area/warhammer/desert)
-"ON" = (/obj/structure/bed/chair/comfy/black,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"ON" = (/obj/structure/bed/chair/comfy/couch/mid/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "OO" = (/obj/machinery/atmospherics/pipe/manifold/insulated/visible/blue,/obj/effect/decal/cleanable/soot,/turf/simulated/floor,/area/warhammer/desert)
 "OT" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/djstation)
 "OZ" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor{icon_state = "grimy"},/area/djstation)
@@ -515,7 +515,7 @@
 "PA" = (/obj/effect/decal/imperial_road_effects/manhole_cover/cover_1,/turf/unsimulated/underground/imperial_road/road_side_one/north,/area/warhammer/desert)
 "PH" = (/obj/machinery/telecomms/server/presets/common,/turf/simulated/floor/server/one_atmosphere/bluegrid,/area/warhammer/desert)
 "PL" = (/obj/machinery/door/window{base_state = "left"; dir = 2; icon_state = "left"; name = "Testing Chamber"; req_access_txt = "47"},/obj/structure/window/reinforced/plasma{dir = 1},/obj/effect/decal/warning_stripes{tag = "icon-warning"; icon_state = "warning"},/obj/effect/decal/warning_stripes{dir = 8; icon_state = "unloading"},/turf/simulated/floor/plating,/area/warhammer/desert)
-"PP" = (/obj/structure/table/woodentable,/obj/item/binoculars,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"PP" = (/obj/structure/bed/chair/comfy/couch/right/red{dir = 4},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "PR" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock East"},/obj/machinery/door/airlock{id_tag = "Dorm1"; name = "Dorm 1"},/turf/simulated/floor/carpet{icon_state = "carpet8-0"},/area/warhammer/desert)
 "PT" = (/turf/simulated/floor{tag = "icon-darkred (WEST)"; icon_state = "darkred"; dir = 8},/area/warhammer/desert)
 "Qb" = (/turf/simulated/floor{icon_state = "freezerfloor"},/area/warhammer/desert)
@@ -541,7 +541,7 @@
 "Rw" = (/obj/structure/bed/chair/wood/pew/left{dir = 1},/turf/simulated/floor/wood{dir = 4},/area/warhammer/desert)
 "Rz" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging{dir = 10},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "RA" = (/obj/effect/decal/imperial_road_effects/manhole_cover/cover_4{pixel_x = 0; pixel_y = 16},/turf/unsimulated/outside/imperial_road/road_side_one/east,/area/warhammer/desert)
-"RG" = (/obj/structure/bed,/obj/item/weapon/bedsheet/mime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"RG" = (/obj/effect/landmark/start/mime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "RL" = (/obj/structure/bed/chair/office/dark{dir = 1},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "RM" = (/turf/simulated/floor/plating{dir = 4; icon_state = "asteroidwarning"},/area/warhammer/desert)
 "RO" = (/obj/machinery/telecomms/server/presets/engineering,/turf/simulated/floor/server,/area/warhammer/desert)
@@ -563,7 +563,7 @@
 "SK" = (/obj/machinery/biogenerator,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "SS" = (/obj/machinery/vending/hydroseeds,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "ST" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/full/reinforced,/obj/machinery/door/poddoor{density = 0; icon_state = "pdoor0"; id_tag = "Brig Cell"; name = "Security Blast Door"; opacity = 0},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
-"SU" = (/obj/effect/landmark/start/mime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"SU" = (/obj/structure/bed,/obj/item/weapon/bedsheet/mime,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Tc" = (/obj/structure/table,/obj/item/weapon/reagent_containers/glass/beaker/sulphuric{name = "beaker 'sulphuric acid'"},/obj/item/weapon/reagent_containers/dropper{pixel_y = -4},/obj/item/weapon/reagent_containers/glass/bottle/toxin,/obj/item/weapon/reagent_containers/glass/beaker/fuel,/obj/item/weapon/reagent_containers/glass/beaker/water,/obj/machinery/light{dir = 1},/obj/structure/extinguisher_cabinet{pixel_y = 32},/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "Tf" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'RADIOACTIVE AREA'"; icon_state = "radiation"; name = "RADIOACTIVE AREA"},/turf/simulated/wall/rusty,/area/djstation)
 "Tg" = (/obj/item/ammo_storage/box/piles/buckshotpile/max_pile,/turf/simulated/floor/carpet/floor_tile,/area/warhammer/desert)
@@ -604,7 +604,7 @@
 "Vk" = (/obj/effect/landmark/start/bartender,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "Vq" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood,/area/warhammer/desert)
 "Vs" = (/obj/structure/closet/emcloset,/obj/machinery/light_switch{pixel_y = 28},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
-"Vt" = (/obj/machinery/vending/hatdispenser,/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"Vt" = (/turf/simulated/wall/mineral/wood,/area/warhammer/desert)
 "VB" = (/turf/unsimulated/underground/imperial_road/road_side_two/north,/area/warhammer/desert)
 "VD" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/catwalk,/turf/unsimulated/outside/sand,/area/djstation/solars)
 "VK" = (/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/adamantine,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
@@ -618,11 +618,9 @@
 "Wh" = (/turf/simulated/wall/r_wall,/area/warhammer/desert)
 "Wt" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor{icon_state = "dark"},/area/warhammer/desert)
 "Wy" = (/turf/unsimulated/outside/imperial_road/road_side_two/south,/area/warhammer/desert)
-"WA" = (/obj/effect/landmark/start/clown,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
-"WB" = (/obj/machinery/vending/circus,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "WF" = (/obj/machinery/chem_master,/turf/simulated/floor{icon_state = "white"},/area/warhammer/desert)
 "WG" = (/obj/structure/table,/obj/machinery/cell_charger,/turf/simulated/floor{icon_state = "bar"},/area/djstation)
-"WL" = (/obj/machinery/light/he{dir = 1},/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
+"WL" = (/obj/machinery/vending/chapel,/turf/simulated/floor/wood/floor_tile,/area/warhammer/desert)
 "WN" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/djstation)
 "WP" = (/turf/simulated/floor/damaged{icon_state = "damaged4"},/area/warhammer/desert)
 "WT" = (/obj/structure/bed/chair/comfy,/turf/simulated/floor/wood,/area/warhammer/desert)
@@ -695,22 +693,22 @@ sKsKsKsKsKsKsKYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsK
 sKsKsKsKsKsKsKsKsKYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSChBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCezYSYSYSYSdGWhIRIRgaIRSbhBhBhBhBSbUiUiUiUiUiUiUiUiUiUiUiIiSCSCSCSCSCSCSCSCSCKGKGKGKGKGKGSCSCSCSCSCSCSCKGMeleVBtshBhBhBhBhBhBuBRQOiOingLUhBhBhBngWheVeVLULULUBXDYueUIHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKsKsKsKsKsKsKsKYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCwdjhjhjhjhvfSbWhSbSbWhSbhBSCSChBSbSbfRSbRezBzBzBzBzBzBnESbSCSCSCSCSCSCSCSCSCKGhVleVBTVKGSCSCSCSCSCSCSCKGMeleVBtshBhBhBhBizYfSCLULULULULVLUhBLULUufLULULULULULULULULUgDhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGMeleVBtsKGKGKGKGKGKGKGKGKGMeleVBtshBWhMvizSCLVLULUobLULULULUSCLULUSbLULULULUZULULULULUHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBbYyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFHrleVBbYyFyFyFyFyFyFyFyFyFcfleVBtsKGSbNadPEzEzLULUlkLUuzLUSCSCSCSCSbSbufSbNPNPNPSbtfSbHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBbYyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFHrleVBbYyFyFyFyFyFyFyFyFyFHrleVBtsKGSbNadPEzEzLULUlkLUuzLUSCSCSCSCSbSbufSbNPNPNPSbtfSbHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsKsKsKYGsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSChBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHYHmCVBUJUJUJUJUJUJUJUJUJUJUJleVBtsKGSbeIdPEzLUWPLVSbSbSbSCSCSbSbSbWhNGNGNGNGLULULULULUgDhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsKsKYGYGYGYGYGYGYGYGYGsKsKsKsKYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPwPmCVBYcYcYcYcYcYcYcYcYcYcYcleVBtsKGSbeIdPLUSCLUMOSbzstpSCvavazjzjWhNGNGNGNGNGLULULULUgDhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKYGYGYGYGYGYGYGYGYGYGYGYGYGsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBSChBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBTVTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNhVmCVBTVTNTNTNTNTNTNTNTNTNupleVBtsKGSbpydPobSCSCjUSbzsTBTBtpTBTBhXSbRYNGNGNGNGNGLULULUHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKYGYGYGYGYGYGYGYGYGYGYGYGYGsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBSChBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBTVTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNTNhVmCVBTVTNTNTNTNTNTNTNTNTNhVleVBtsKGSbpydPobSCSCjUSbzsTBTBtpTBTBhXSbRYNGNGNGNGNGLULULUHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGYGsKsKsKsKsKsKsKYGYGYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSChBhBhBhBhBSCSChBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBKGKGKGKGhBhBhBKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGKGMeXkVBtsKGKGKGKGKGKGKGKGKGMeleVBtsKGWhnVdPLULVSCmSSbzjTBtpTBTBTBzjWhHxHxHxHxHxNGLUHxHxHxHxHxHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSChBSCSChBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCKGKGSbSbSbSbSbSbSbSbSCSCSCSCSCSCKGMemCVBtsKGSbSbSbSbSbSbSbKGMeleVBtsKGWhhlRWLULUmSCGSbzjzjTBTBTBtpzjSbQVgZHBCeHxNGLUHxTZLVLVkoHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBSCSCSCSCSCSCSChBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSbSbSbSbSbSbSbSbSbSbSCSCSChBSCSCSCSCSCSCSCSCSCSCKGKGSbmGmGjQVqWTmGSbSCSCSCSCSCSCKGMemCVBtsKGSbDWyjyjyjMzSbKGMeleVBtsKGSbWhSbSbWhSbSbSbWhWhSbSbLUSbWhSbEMHsHsvYqONGLUmEEzLVSCLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSChBhBhBhBhBhBhBSChBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSbHDfsONSboTcSDuVtkdSCSChBhBhBhBSChBhBhBhBSCSCSCKGKGSbmGgxgFgFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbPTznznznmfSbKGMeleVBtsKGKGKGKGHxLULUngLULUqISgLULULUnyHxvBHsHsHsgDNGLUHxEzLVLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBSChBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSbUiWAUiSbUiUiUiUixrSChBhBhBhBhBhBhBhBhBhBhBSCSCKGKGvQmGmGoNgFvBhLSbSCSCSCSCSCSCKGMemCVBtsKGSbqtvZvZvZLjSbKGMeleVBtsKGKGKGKGHxlkLULULULULULULULULULUHxeQHspBpBgDNGLUHxCwSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBSbGtUiUivQUiUigxUiIiSChBhBhBhBhBhBhBhBhBhBhBhBSCKGKGSbmGmGiKpFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbFESbHHfmSTSbKGMeleVBtsKGKGKGKGWhLULULUNPNPNPNPNPNPNPNPHxHxHxHxHxHxNGNGHxHxHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBSbUiUigxSbiVDinoKiSbSCSbSbSbSbSbSbSbSbSbSbSbSbSbKGKGSbmGmGiKgFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbRhOHUbDEJhSbKGMeleVBtsKGKGKGKGHxLULULULULULUobLULUobobHxQVHsgZfOHxNGNGHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBSbSbSbSbSbvdDiUiUivQSCSbKimGmGmGmGgxSbmGmGmGmGSbKGKGSbKimGmGmGgfmGSbSCSCSCSCSCSCKGMemCVBtsKGSbPTbMzntFmfSbKGMeleVBtsKGKGKGKGLULULULULULULULVhzuzLUhzHxHsHsHsvYAvNGNGhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
-sKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBSbGtWLDrSbOkPPgxUiSbSCSbmGvBvBgFgFmGSbmGmGmGmGSbKGKGSbSbSbSbSbSbSbSbSCSCSCSCSCSCKGMemCVBtsKGSbPTznFYMxqsSbKGMeleVBtsKGKGKGKGLULULULULUobLVhzSChzhzSCHxHsHsvBHsgDNGNGhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
-sKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbSbSbSbSbSbhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKSbUiSUKivQUiUiUishSbSCSbmGvBRPgFgFmGwumGnomGmGSbKGKGSbmGjQjQnncEcDSbSCSCSCSCSCSCKGMemCVBtsKGSbPTznznznmfSbKGMeleVBtsKGKGKGKGWhLULUWPLUhzLVSCSCSCSCSCHxeQHspBTTHxNGNGHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
-sKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbLULULULUSbhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKSbUiRGUiHGjAcyFAWBSbhBSbmGgFgFgFgFmGSbkZmGmGmGSbKGKGSbmGmGgxmGmGCzSbSCSCSCSCSCSCKGMeinVBtsKGSbwsznznznDHSbKGMeleVBtsKGKGKGKGHxLULULULUobLVSCSCSCSCSCHxHxHxHxHxgDNGNGHxHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
-sKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbLULULULUSbhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKSbSbSbSbSbSbSbSbSbSbhBSbgxfGmGKimGcCSbFjwFmGmGSbKGKGSbmGmGgFgFgFqhSbSCSCSCSCSCSCKGMemCVBtsKGSbwsDTznXzmfmqKGHrleVBbYKGKGKGKGHxBjNPAILUobLVLVSCSCSCSCHxQVpBpBkbgDNGNGHxobSCLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsK
+sKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBSCSCSCSCSCSCSChBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSbSbSbSbSbSbSbSbSbSbSCSCSCSChBSCSCSCSCSCSCSCSCSCSCKGKGSbmGmGjQVqWTmGSbSCSCSCSCSCSCKGMemCVBtsKGSbDWyjyjyjMzSbKGMeleVBtsKGSbWhSbSbWhSbSbSbWhWhSbSbLUSbWhSbEMHsHsvYqONGLUmEEzLVSCLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSChBhBhBhBhBhBhBSChBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBSbcfHDfsSbiVoTcSDukdSCSCSChBhBhBhBSChBhBhBhBSCSCSCKGKGSbmGgxgFgFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbPTznznznmfSbKGMeleVBtsKGKGKGKGHxLULUngLULUqISgLULULUnyHxvBHsHsHsgDNGLUHxEzLVLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKYGYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGYGYGsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBSChBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBSbUiupUiSbUiUiUiUixrSCSChBhBhBhBhBhBhBhBhBhBhBSCSCKGKGvQmGmGoNgFvBhLSbSCSCSCSCSCSCKGMemCVBtsKGSbqtvZvZvZLjSbKGMeleVBtsKGKGKGKGHxlkLULULULULULULULULULUHxeQHspBpBgDNGLUHxCwSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBSbvdUiUivQUiUigxUiIiSChBhBhBhBhBhBhBhBhBhBhBhBhBSCKGKGSbmGmGiKpFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbFESbHHfmSTSbKGMeleVBtsKGKGKGKGWhLULULUNPNPNPNPNPNPNPNPHxHxHxHxHxHxNGNGHxHxHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBSbUiUigxSbDrDinoKiSbSChBSbSbSbSbSbSbSbSbSbSbSbSbSbKGKGSbmGmGiKgFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbRhOHUbDEJhSbKGMeleVBtsKGKGKGKGHxLULULULULULUobLULUobobHxQVHsgZfOHxNGNGHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBSbSbSbSbSbONDiUiUivQSChBSbKimGmGmGmGgxSbmGmGmGmGSbKGKGSbKimGmGmGgfmGSbSCSCSCSCSCSCKGMemCVBtsKGSbPTbMzntFmfSbKGMeleVBtsKGKGKGKGLULULULULULULULVhzuzLUhzHxHsHsHsvYAvNGNGhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
+sKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBSbvdGtWLSbPPOkgxUiSbSChBSbmGvBvBgFgFmGSbmGmGmGmGSbKGKGSbSbSbSbSbSbSbSbSCSCSCSCSCSCKGMemCVBtsKGSbPTznFYMxqsSbKGMeleVBtsKGKGKGKGLULULULULUobLVhzSChzhzSCHxHsHsvBHsgDNGNGhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
+sKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbSbSbSbSbSbhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKSbUiRGKivQUiUiUishSbhBhBSbmGvBRPgFgFmGwumGnomGmGSbKGKGSbmGjQjQnncEcDSbSCSCSCSCSCSCKGMemCVBtsKGSbPTznznznmfSbKGMeleVBtsKGKGKGKGWhLULUWPLUhzLVSCSCSCSCSCHxeQHspBTTHxNGNGHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
+sKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbLULULULUSbhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKSbUiSUUiVtHGjAcyFASbhBhBSbmGgFgFgFgFmGSbkZmGmGmGSbKGKGSbmGmGgxmGmGCzSbSCSCSCSCSCSCKGMeinVBtsKGSbwsznznznDHSbKGMeleVBtsKGKGKGKGHxLULULULUobLVSCSCSCSCSCHxHxHxHxHxgDNGNGHxHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsK
+sKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbLULULULUSbhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKSbSbSbSbSbSbSbSbSbSbhBhBSbgxfGmGKimGcCSbFjwFmGmGSbKGKGSbmGmGgFgFgFqhSbSCSCSCSCSCSCKGMemCVBtsKGSbwsDTznXzmfmqKGHrleVBbYKGKGKGKGHxBjNPAILUobLVLVSCSCSCSCHxQVpBpBkbgDNGNGHxobSCLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbLULULULUSbhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBSbSbSbSbSbSbSbSbFjwFmGmGvQKGKGSbmGmGoNgFgFhLSbSCSCSCSCSCSCKGMemCVBtsKGSbZLvZxkxkJBSbKGKGKGKGKGKGKGKGKGHxLULULULULUngobLVSCSCSCHxEMHsHsvYPRNGNGHxobobnwhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbLULULULUSbhBhBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBSbmGmGnomGmGmGSbFjwFmGmGSbKGKGSbKimGiKKAgFgFSbSCSCSCSCSCSCKGMemCVBtsKGSbSbSbSbSbSbSbHxZaHxHxHxHxHxHxHxHxHxHxHxHxHxgDHxHxSCSCHxHxHsHsHsHBHxNGNGmEEzLVSCLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsK
 sKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKYGYGYGYGhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBSbSbSbSbSbSbSbufSbSbSbSbSbSbhBhBSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBSbSbSbSbSbSbSbSbhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBSbgFgFgFgFgFmGSbGsmGmGKiSbKGKGvQmGmGiKgFgFgFSbSCSCSCSCSCSCKGMemCVBtsKGhBhBhBhBhBhBHxmWcUEsHxGWbUXRhqyzHxMHzouvbFWFtJgDLULUSCSCHxeQvBHBHBHxNGNGHxuzyVSCLVhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsK
