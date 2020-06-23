@@ -104,6 +104,10 @@
 	jingle	 		=	preference_list_client["jingle"]
 	window_flashing  =	text2num(preference_list_client["window_flashing"])
 	antag_objectives =  text2num(preference_list_client["antag_objectives"])
+	mob_chat_on_map 	 =  text2num(preference_list_client["mob_chat_on_map"])
+	max_chat_length 	 =  text2num(preference_list_client["max_chat_length"])
+	obj_chat_on_map 	 =  text2num(preference_list_client["obj_chat_on_map"])
+	no_goonchat_for_obj  =  text2num(preference_list_client["no_goonchat_for_obj"])
 	
 	lastchangelog	= 	sanitize_text(lastchangelog, initial(lastchangelog))
 	UI_style		= 	sanitize_inlist(UI_style, list("White", "Midnight","Orange","old"), initial(UI_style))
