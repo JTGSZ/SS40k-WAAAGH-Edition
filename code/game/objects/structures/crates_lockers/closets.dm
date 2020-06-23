@@ -50,7 +50,8 @@
 	for(var/path in to_spawn)
 		var/amount = to_spawn[path] || 1
 		for(var/i in 1 to amount)
-			new path(src)
+			var/atom/A = new path(src)
+			A.initialize()  // recursive
 
 /obj/structure/closet/basic
 	has_lock_type = /obj/structure/closet/secure_closet/basic
@@ -89,7 +90,7 @@
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet != src && !closet.wall_mounted)
 			return 0
-	
+
 	for(var/mob/living/carbon/carbon in src.loc)
 		if (carbon.mutual_handcuffs)
 			if (carbon.mutual_handcuffed_to.loc == src.loc || carbon.loc == src.loc)
