@@ -2,11 +2,6 @@
 	icon = 'z40k_shit/icons/screens.dmi'
 	icon_state = "blank"
 
-/obj/abstract/screen/viscons/Destroy()
-	message_admins("SOMETHING ATTEMPTED TO DELETE THE FUCKING BUTTON INSTANCES AGAIN.")
-	return
-
-
 /* Ghost Bodies
 */
 /obj/abstract/screen/viscons/ghostbodies
@@ -14,10 +9,6 @@
 	var/given_body = "god"
 	var/colorable = FALSE
 	var/potential_req = 0
-
-/obj/abstract/screen/viscons/ghostbodies/Destroy()
-	message_admins("SOMETHING ATTEMPTED TO DELETE THE FUCKING BUTTON INSTANCES AGAIN.")
-	return
 
 /obj/abstract/screen/viscons/ghostbodies/Click(location, control, params)
 	if(!usr)

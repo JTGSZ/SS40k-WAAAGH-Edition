@@ -3,10 +3,6 @@
 	icon = 'z40k_shit/icons/ghost_actions.dmi'
 	del_on_map_removal = FALSE
 
-/obj/abstract/screen/viscons/ghostactions/Destroy()
-	message_admins("SOMETHING ATTEMPTED TO DELETE THE FUCKING BUTTON INSTANCES AGAIN.")
-	return
-
 //Now we can just ..() the checks in
 /obj/abstract/screen/viscons/ghostactions/Click(location, control, params)
 	if(!usr)

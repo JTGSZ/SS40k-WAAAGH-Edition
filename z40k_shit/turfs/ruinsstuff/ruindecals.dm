@@ -154,3 +154,9 @@
 	desc = "Sometimes one must vent more than usual, and this seems fully adequate to handle all of it."
 	icon = 'z40k_shit/icons/turfs/64x64ruindecals.dmi'
 	icon_state = "bigvent"
+
+/obj/structure/geyser/unstable/bigboyventreal
+	name = "Large Circular Vent"
+	desc = "Sometimes one must vent more than usual, and this seems fully adequate to handle all of it."
+	icon = 'z40k_shit/icons/turfs/64x64ruindecals.dmi'
+	icon_state = "bigvent"

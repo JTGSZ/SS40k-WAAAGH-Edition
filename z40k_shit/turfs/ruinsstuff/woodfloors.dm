@@ -12,7 +12,7 @@
 /turf/simulated/floor/woodruin/wood
 	name = "Wood Floor"
 	desc = "Looks like its seen better days."
-	floor_tile
+	floor_tile = null
 	autoignition_temperature = AUTOIGNITION_WOOD
 	fire_fuel = 10
 	soot_type = null
@@ -47,7 +47,7 @@
 /turf/simulated/floor/woodruin/carpet
 	name = "Carpet"
 	desc = "This carpet has probably seen more action than you."
-	floor_tile
+	floor_tile = null
 
 /turf/simulated/floor/woodruin/carpet/New()
 	if(floor_tile)
@@ -58,7 +58,7 @@
 
 /turf/simulated/floor/woodruin/carpet/first
 	icon_state = "carpet"
-/turf/simulated/floor/woodruin/carpnet/one
+/turf/simulated/floor/woodruin/carpet/one
 	icon_state = "torncarpet1"
 /turf/simulated/floor/woodruin/carpet/two
 	icon_state = "torncarpet2"

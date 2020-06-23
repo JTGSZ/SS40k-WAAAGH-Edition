@@ -2775,6 +2775,7 @@
 #include "z40k_shit\turfs\prototypes\gentest.dm"
 #include "z40k_shit\turfs\prototypes\rockwall.dm"
 #include "z40k_shit\turfs\ruinsstuff\metalfloors.dm"
+#include "z40k_shit\turfs\ruinsstuff\ruindecals.dm"
 #include "z40k_shit\turfs\ruinsstuff\rustwalls.dm"
 #include "z40k_shit\turfs\ruinsstuff\woodfloors.dm"
 #include "z40k_shit\turfs\systems\footprintholder.dm"
