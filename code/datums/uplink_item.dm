@@ -932,7 +932,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/storage/box/syndie_kit/greytide
 	cost = 20
 	discounted_cost = 14
-	jobs_with_discount = list("Assistant")
+	jobs_with_discount = list()
 
 /datum/uplink_item/jobspecific/assistant/cheaptide
 	name = "Cheaptide Implant"
@@ -940,7 +940,7 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/storage/box/syndie_kit/cheaptide
 	cost = 12
 	discounted_cost = 8
-	jobs_with_discount = list("Assistant")
+	jobs_with_discount = list()
 
 /datum/uplink_item/jobspecific/assistant/pickpocketgloves
 	name = "Pickpocket's Gloves"
@@ -948,7 +948,7 @@ var/list/uplink_items = list()
 	item = /obj/item/clothing/gloves/black/thief
 	cost = 4
 	discounted_cost = 2
-	jobs_with_discount = list("Assistant")
+	jobs_with_discount = list()
 
 /datum/uplink_item/jobspecific/assistant/pickpocketglovestorage
 	name = "Pickpocket's Gloves with Storage"
@@ -956,4 +956,4 @@ var/list/uplink_items = list()
 	item = /obj/item/clothing/gloves/black/thief/storage
 	cost = 7
 	discounted_cost = 4
-	jobs_with_discount = list("Assistant")
+	jobs_with_discount = list()

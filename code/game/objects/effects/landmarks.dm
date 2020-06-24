@@ -41,7 +41,7 @@
 			latejoin += loc
 			qdel(src)
 		if("AssetJoinLate")
-			assistant_latejoin += loc
+			peasant_latejoin += loc
 			qdel(src)
 
 		//prisoners

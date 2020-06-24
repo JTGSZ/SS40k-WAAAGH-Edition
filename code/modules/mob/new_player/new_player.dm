@@ -386,7 +386,7 @@
 		Staticspawn_Latejoin(what_to_move, rank)
 	else
 		// TODO:  Job-specific latejoin overrides.
-		what_to_move.forceMove(pick((assistant_latejoin.len > 0 && rank == "Assistant") ? assistant_latejoin : latejoin))
+		what_to_move.forceMove(pick((peasant_latejoin.len > 0 && rank == "Peasant") ? peasant_latejoin : latejoin))
 
 	character.store_position()
 

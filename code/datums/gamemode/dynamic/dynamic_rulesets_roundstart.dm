@@ -405,8 +405,8 @@
 	if(old_AI.client.prefs.alternate_option == GET_RANDOM_JOB)
 		job_master.GiveRandomJob(old_AI)
 		return
-	else if(old_AI.client.prefs.alternate_option == BE_ASSISTANT)
-		job_master.AssignRole(old_AI, "Assistant")
+	else if(old_AI.client.prefs.alternate_option == BE_PEASANT)
+		job_master.AssignRole(old_AI, "Peasant")
 	else
 		to_chat(old_AI, "<span class='danger'>You have been returned to lobby due to your job preferences being filled.")
 		old_AI.ready = 0

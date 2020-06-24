@@ -29,7 +29,7 @@
 #define ENGINEERING_POSITIONS list( "Atmospheric Technician", "Mechanic")
 #define MEDICAL_POSITIONS list("Medical Doctor")
 #define SCIENCE_POSITIONS list("Scientist", "Roboticist", "Mechanic")
-#define CIVILIAN_POSITIONS list("Head of Personnel", "Bartender", "Botanist", "Chef", "Janitor", "Librarian", "Internal Affairs Agent", "Preacher", "Clown", "Mime", "Assistant")
+#define CIVILIAN_POSITIONS list("Head of Personnel", "Bartender", "Botanist", "Chef", "Janitor", "Librarian", "Internal Affairs Agent", "Preacher", "Clown", "Mime", "Peasant")
 #define CARGO_POSITIONS list("Head of Personnel", "Quartermaster", "Cargo Technician", "Shaft Miner")
 #define SECURITY_POSITIONS list("Commissar", "Sergeant", "Inquisitor", "Trooper")
 

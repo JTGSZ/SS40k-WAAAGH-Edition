@@ -134,7 +134,6 @@
 
 	var/use_recursive_explosions //Defines whether the server uses recursive or circular explosions.
 
-	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 	var/ghost_interaction = 0
 
@@ -466,9 +465,6 @@
 				if("alien_player_ratio")
 					limitalienplayers = 1
 					alien_to_human_ratio = text2num(value)
-
-				if("assistant_maint")
-					config.assistant_maint = 1
 
 				if("gateway_delay")
 					config.gateway_delay = text2num(value)

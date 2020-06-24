@@ -79,7 +79,7 @@ Crew Monitor by Paul, based on the holomaps by Deity
 		"Security Response Officer" = 221,
 		"Engineer Response Officer" = 222,
 		"Medical Response Officer" = 223,
-		"Assistant" = 999 //Unknowns/custom jobs should appear after civilians, and before assistants
+		"Peasant" = 999 //Unknowns/custom jobs should appear after civilians, and before assistants
 	)
 	
 	//DO touch, for mappers to varedit

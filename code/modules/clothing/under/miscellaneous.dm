@@ -444,7 +444,7 @@
 	icon_state = "soldieruniform"
 	item_state = "soldieruniform"
 	_color = "soldieruniform"
-
+ 
 /obj/item/clothing/under/squatter_outfit
 	name = "slav squatter tracksuit"
 	desc = "Cyka blyat."

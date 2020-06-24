@@ -530,7 +530,7 @@
 /mob/living/carbon/human/mind_initialize()
 	..()
 	if(!mind.assigned_role)
-		mind.assigned_role = "Assistant"	//defualt
+		mind.assigned_role = "Peasant"	//defualt
 
 //MONKEY
 /mob/living/carbon/monkey/mind_initialize()

@@ -191,7 +191,7 @@
 
 			var/clowncount = 0
 			var/mimecount = 0
-			var/assistantcount = 0
+			var/peasantcount = 0
 			var/chefcount = 0
 			var/chaplaincount = 0
 			var/lawyercount = 0
@@ -209,8 +209,8 @@
 					mimecount++
 				if(H.is_wearing_any(list(/obj/item/clothing/mask/gas/clown_hat, /obj/item/clothing/mask/gas/sexyclown)) || (H.mind && H.mind.assigned_role == "Clown"))
 					clowncount++
-				if(H.is_wearing_item(/obj/item/clothing/under/color/grey) || (H.mind && H.mind.assigned_role == "Assistant"))
-					assistantcount++
+				if(H.is_wearing_item(/obj/item/clothing/under/squatter_outfit) || (H.mind && H.mind.assigned_role == "Peasant"))
+					peasantcount++
 				if(H.is_wearing_item(/obj/item/clothing/head/chefhat) || (H.mind && H.mind.assigned_role == "Chef"))
 					chefcount++
 				if(H.is_wearing_any(list(/obj/item/clothing/suit/storage/lawyer, /obj/item/clothing/under/lawyer)) || (H.mind && H.mind.assigned_role == "Internal Affairs Agent"))
@@ -250,8 +250,8 @@
 				theme = "cooks"
 			
 			if(human_escapees.len)
-				if(assistantcount / human_escapees.len > 0.6 && human_escapees.len > 3)
-					episode_names += new /datum/episode_name/rare("[pick("GREY GOO", "RISE OF THE GREYTIDE")]", "Most of the survivors were Assistants, or at least dressed like one.", min(1500, assistantcount*200))
+				if(peasantcount / human_escapees.len > 0.6 && human_escapees.len > 3)
+					episode_names += new /datum/episode_name/rare("[pick("SQUATTERS RIGHTS", "RISE OF THE TRACKTIDE")]", "Most of the survivors were peasants, or at least dressed like one.", min(1500, peasantcount*200))
 				if(skeletoncount / human_escapees.len > 0.6 && human_escapees.len > 3)
 					episode_names += new /datum/episode_name/rare("SKELETON CREW", "Most of the survivors were literal skeletons.", min(1500, skeletoncount*350))
 				if(voxcount / human_escapees.len > 0.6 && human_escapees.len > 2)

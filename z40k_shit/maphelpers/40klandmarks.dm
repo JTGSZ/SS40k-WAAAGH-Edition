@@ -87,7 +87,7 @@
 
 //Civilians
 /obj/effect/landmark/start/assistant
-	name = "Assistant"
+	name = "Peasant"
 	icon_state = "civ_assistant"
 
 /obj/effect/landmark/start/bartender

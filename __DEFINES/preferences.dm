@@ -1,6 +1,6 @@
 //used in /datum/preferences/var/alternate_option
 #define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
+#define BE_PEASANT 1
 #define RETURN_TO_LOBBY 2
 
 // /datum/preferences/var/special_popup

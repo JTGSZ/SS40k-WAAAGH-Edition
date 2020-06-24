@@ -30,7 +30,7 @@ var/const/MINER				=(1<<4)
 var/const/PREACHER			=(1<<5)
 var/const/CLOWN				=(1<<6)
 var/const/MIME				=(1<<7)
-var/const/ASSISTANT			=(1<<8)
+var/const/PEASANT			=(1<<8)
 var/const/TRADER			=(1<<9)
 
 var/list/command_positions = list(

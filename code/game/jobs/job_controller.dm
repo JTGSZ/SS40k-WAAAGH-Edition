@@ -331,15 +331,15 @@ var/global/datum/controller/occupations/job_master
 	// Hand out random jobs to the people who didn't get any in the last check
 	// Also makes sure that they got their preference correct
 
-	//People who wants to be assistants, sure, go on.
-	Debug("DO, Running Assistant Check 1")
-	var/datum/job/assist = new /datum/job/assistant()
-	var/list/assistant_candidates = FindOccupationCandidates(assist, 3)
-	Debug("AC1, Candidates: [assistant_candidates.len]")
-	for(var/mob/new_player/player in assistant_candidates)
+	//People who wants to be peasants, sure, go on.
+	Debug("DO, Running peasants Check 1")
+	var/datum/job/assist = new /datum/job/peasant()
+	var/list/peasants_candidates = FindOccupationCandidates(assist, 3)
+	Debug("AC1, Candidates: [peasants_candidates.len]")
+	for(var/mob/new_player/player in peasants_candidates)
 		Debug("AC1 pass, Player: [player]")
-		AssignRole(player, "Assistant")
-		assistant_candidates -= player
+		AssignRole(player, "Peasant")
+		peasants_candidates -= player
 	Debug("DO, AC1 end")
 	
 	for(var/mob/new_player/player in unassigned)
@@ -352,9 +352,9 @@ var/global/datum/controller/occupations/job_master
 
 	// For those who wanted to be assistant if their preferences were filled, here you go.
 	for(var/mob/new_player/player in unassigned)
-		if(player.client.prefs.alternate_option == BE_ASSISTANT)
+		if(player.client.prefs.alternate_option == BE_PEASANT)
 			Debug("AC2 Assistant located, Player: [player]")
-			AssignRole(player, "Assistant")
+			AssignRole(player, "Peasant")
 
 	//For ones returning to lobby
 	for(var/mob/new_player/player in unassigned)
