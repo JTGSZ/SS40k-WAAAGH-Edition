@@ -281,7 +281,7 @@ USE THIS CHEMISTRY DISPENSER FOR MAPS SO THEY START AT 100 ENERGY
 		return
 	return ..()
 
-/obj/machinery/chem_dispenser/attackby(var/obj/item/weapon/D, var/mob/user ) //to be worked on
+/obj/machinery/chem_dispenser/attackby(var/obj/item/weapon/D, var/mob/user) //to be worked on
 
 	if(..())
 		return 1
@@ -312,13 +312,13 @@ USE THIS CHEMISTRY DISPENSER FOR MAPS SO THEY START AT 100 ENERGY
 			to_chat(user, "You can't add \a [D] to the machine while the panel is open.")
 			return
 
-/obj/machinery/chem_dispenser/attack_ai(mob/user )
+/obj/machinery/chem_dispenser/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/chem_dispenser/attack_paw(mob/user )
+/obj/machinery/chem_dispenser/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/chem_dispenser/attack_hand(mob/user )
+/obj/machinery/chem_dispenser/attack_hand(mob/user)
 	if(stat & BROKEN)
 		return
 
