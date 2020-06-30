@@ -9,7 +9,7 @@
 	if(!mob)
 		return
 
-	msg = utf8_sanitize(msg, src, MAX_MESSAGE_LEN)
+	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)
 		return
 
@@ -32,12 +32,6 @@
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
-		/*if(findtext(msg, "byond://"))
-			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
-			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
-			return
-		*/
 		if((copytext(msg, 1, 2) in list(".",";",":","#")) || (findtext(lowertext(copytext(msg, 1, 5)), "say")))
 			if(alert("Your message \"[msg]\" looks like it was meant for in game communication, say it in OOC?", "Meant for OOC?", "No", "Yes") != "Yes")
 				return
@@ -71,7 +65,7 @@
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	msg = to_utf8(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN), src)
+	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)
 		return
 
