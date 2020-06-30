@@ -780,6 +780,8 @@ var/list/beam_master = list()
 	..()
 
 /obj/item/projectile/beam/bison/proc/draw_ray(var/turf/lastloc)
+	if (gcDestroyed || disposed)
+		return
 	if(drawn)
 		return
 	drawn = 1
