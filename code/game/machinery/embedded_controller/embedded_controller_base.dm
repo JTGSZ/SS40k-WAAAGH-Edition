@@ -160,7 +160,7 @@
 	density = 0
 
 	// Setup parameters only
-	var/id_tag
+
 	var/tag_exterior_door
 	var/tag_interior_door
 	var/tag_airpump
@@ -270,10 +270,11 @@
 
 		if("buffer" in href_list)
 			if(istype(src, /obj/machinery/telecomms))
-				if(!hasvar(src, "id"))
+				var/obj/machinery/telecomms/T = src
+				if(!T.id) // Telecomms are identified by ID
 					to_chat(usr, "<span class='danger'>A red light flashes and nothing changes.</span>")
 					return
-			else if(!hasvar(src, "id_tag"))
+			else if(!id_tag)
 				to_chat(usr, "<span class='danger'>A red light flashes and nothing changes.</span>")
 				return
 			P.buffer = src

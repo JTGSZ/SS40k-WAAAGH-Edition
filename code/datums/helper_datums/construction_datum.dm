@@ -37,7 +37,11 @@
 	add_max_amounts()
 	return
 
-/datum/construction/proc/next_step(mob/user )
+/datum/construction/Destroy()
+	holder = null
+	return ..()
+	
+/datum/construction/proc/next_step(mob/user)
 	steps.len--
 	if(!steps.len)
 		spawn_result(user)
@@ -45,10 +49,10 @@
 		set_desc(steps.len)
 	return
 
-/datum/construction/proc/action(atom/used_atom,mob/user )
+/datum/construction/proc/action(atom/used_atom,mob/user)
 	return
 
-/datum/construction/proc/check_step(atom/used_atom,mob/user ) //check last step only
+/datum/construction/proc/check_step(atom/used_atom,mob/user) //check last step only
 	var/valid_step = is_right_key(user,used_atom)
 	if(valid_step)
 		assembling = 1
@@ -114,7 +118,7 @@
 	return 0
 
 
-/datum/construction/proc/spawn_result(mob/user )
+/datum/construction/proc/spawn_result(mob/user)
 	if(result)
 //		testing("[user] finished a [result]!")
 
@@ -200,7 +204,7 @@
 	index = steps.len
 	return
 
-/datum/construction/reversible/proc/update_index(diff as num, mob/user )
+/datum/construction/reversible/proc/update_index(diff as num, mob/user)
 	index+=diff
 	if(index==0)
 		spawn_result(user)
@@ -229,7 +233,7 @@
 	assembling = 0
 	return 0
 
-/datum/construction/reversible/check_step(atom/used_atom,mob/user )
+/datum/construction/reversible/check_step(atom/used_atom,mob/user)
 	var/diff = is_right_key(user,used_atom)
 	if(diff)
 		assembling = 1
