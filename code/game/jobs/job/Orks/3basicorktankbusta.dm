@@ -24,13 +24,6 @@
 	no_backpack = TRUE
 	no_id = TRUE
 
-	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/ork/brownbackpack,
-	)
-
 	items_to_spawn = list(
 		"Default" = list(
 			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,

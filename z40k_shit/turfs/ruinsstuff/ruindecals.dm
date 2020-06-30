@@ -4,6 +4,7 @@
 
 /obj/effect/decal/ruinshit
 	icon = 'z40k_shit/icons/turfs/ruindecals.dmi'
+	anchored = 1
 
 /*
 	Rubble Parent
@@ -160,3 +161,19 @@
 	desc = "Sometimes one must vent more than usual, and this seems fully adequate to handle all of it."
 	icon = 'z40k_shit/icons/turfs/64x64ruindecals.dmi'
 	icon_state = "bigvent"
+
+/*
+	Some F13 Windows I guess
+							*/
+
+/obj/effect/decal/ruinshit/falloutwindow
+	name = "Some Bars"
+	desc = "GEE THESE LOOK FAMILIAR"
+	icon_state = "ruinswindowbroken"
+	density = 1
+
+/obj/effect/decal/ruinshit/falloutwindowalt
+	name = "Some Bars"
+	desc = "GEE THESE LOOK FAMILIAR"
+	icon_state = "ruinswindowdestroyed"
+	density = 1

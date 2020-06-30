@@ -54,6 +54,8 @@
 	var/no_backpack = FALSE
 	var/no_id = FALSE
 	var/give_disabilities_equipment = TRUE
+	var/gender_gear = FALSE
+	
 	var/list/equip_survival_gear = list()
 
 	var/list/items_to_collect = list()
@@ -65,21 +67,6 @@
 	var/pda_type = null
 	var/id_type = null
 
-	//var/slot_l_hand = null
-	//var/slot_r_hand = null
-
-	// For job-slot combinations that require a bit more work than just equipping a string
-	// Formatting  : 
-	/*
-		special_snowflakes = list(
-			"Default" = list(
-				JOB_TITLE1 = list(slot1, slot2, ...),
-				JOB_TITLE2 = list(slot1, ...),
-				...
-			),
-			...,
-		)
-	*/
 	var/list/special_snowflakes = list()
 
 /datum/outfit/New()
@@ -124,7 +111,14 @@
 			var/list/L2 = obj_type
 			obj_type = L2[H.mind.role_alt_title]
 			if(islist(obj_type))
-				obj_type = pick(obj_type)
+				if(gender_gear) //This would mean that you would use gender as the key for the lists.
+					var/list/L3 = obj_type
+					obj_type = L3[H.gender]
+					if(islist(obj_type)) //rng select on list in list in list in list
+						obj_type = pick(obj_type)
+				else //same deal except we now aren't tied to a gender key in
+					obj_type = pick(obj_type)
+
 		if(!obj_type)
 			continue
 		slot = text2num(slot)

@@ -18,6 +18,7 @@
 	var/warp_speed = FALSE //We are currently in WARP INDUCED SPEED INCREASE (Aka extra attacks)
 	var/soul_blaze_melee = FALSE //Are we currently applying soul blaze?
 	var/respawn_modifier = 0 //How much is our respawn delayed cause we died?
+	var/datum/job_quest/job_quest = null //Basically do we currently have a job quest attached to us?
  
 /mob/living
 	var/stat_increase_cooldown = FALSE //A optional cooldown on stat increases

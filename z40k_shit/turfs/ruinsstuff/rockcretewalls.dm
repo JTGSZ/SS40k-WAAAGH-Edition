@@ -132,29 +132,19 @@ These shouldn't smooth since they are more or less so you can create detailed ma
 	icon_state = "ruins7"
 /turf/simulated/wall/rockcrete/backdrop/regruined/eight
 	icon_state = "ruins8"
+/turf/simulated/wall/rockcrete/backdrop/regruined/eightalt
+	icon_state = "ruins8alt"
 /turf/simulated/wall/rockcrete/backdrop/regruined/nine
 	icon_state = "ruins9"
 /turf/simulated/wall/rockcrete/backdrop/regruined/ten
 	icon_state = "ruins10"
-/turf/simulated/wall/rockcrete/backdrop/regruined/tenalt
-	icon_state = "ruins10alt"
 /turf/simulated/wall/rockcrete/backdrop/regruined/eleven
 	icon_state = "ruins11"
-/turf/simulated/wall/rockcrete/backdrop/regruined/elevenalt
-	icon_state = "ruins11alt"
 /turf/simulated/wall/rockcrete/backdrop/regruined/twelve
 	icon_state = "ruins12"
-/turf/simulated/wall/rockcrete/backdrop/regruined/twelvealt
-	icon_state = "ruins12alt"
 /turf/simulated/wall/rockcrete/backdrop/regruined/thirteen
 	icon_state = "ruins13"
-/turf/simulated/wall/rockcrete/backdrop/regruined/thirteenalt
-	icon_state = "ruins13alt"
 /turf/simulated/wall/rockcrete/backdrop/regruined/fourteen
 	icon_state = "ruins14"
-/turf/simulated/wall/rockcrete/backdrop/regruined/fourteenalt
-	icon_state = "ruins14alt"
 /turf/simulated/wall/rockcrete/backdrop/regruined/fifteen
 	icon_state = "ruins15"
-/turf/simulated/wall/rockcrete/backdrop/regruined/fifteenalt
-	icon_state = "ruins15alt"

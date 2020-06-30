@@ -125,11 +125,11 @@
 	icon_state = "2blue_3"
 
 /obj/structure/shipping_containers/left/bluethree
-	icon_state = "2blue_1"
+	icon_state = "3blue_1"
 /obj/structure/shipping_containers/middle/bluethree
-	icon_state = "2blue_2"
+	icon_state = "3blue_2"
 /obj/structure/shipping_containers/right/bluethree
-	icon_state = "2blue_3"
+	icon_state = "3blue_3"
 
 /obj/structure/shipping_containers/left/redtwo
 	icon_state = "2red_1"
@@ -151,6 +151,13 @@
 	icon_state = "2purple_2"
 /obj/structure/shipping_containers/right/purpletwo
 	icon_state = "2purple_3"
+
+/obj/structure/shipping_containers/left/purplethree
+	icon_state = "3purple_1"
+/obj/structure/shipping_containers/middle/purplethree
+	icon_state = "3purple_2"
+/obj/structure/shipping_containers/right/purplethree
+	icon_state = "3purple_3"
 
 /*
 	Armored Containers
