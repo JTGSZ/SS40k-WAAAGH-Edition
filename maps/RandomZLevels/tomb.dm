@@ -23,7 +23,7 @@
 	name = "great pyramid"
 	dynamic_lighting = 1
 
-
+ 
 /area/awaymission/tomb
 	base_turf_type = /turf/unsimulated/floor/asteroid/air
 

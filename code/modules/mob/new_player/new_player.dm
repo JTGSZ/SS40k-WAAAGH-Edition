@@ -274,9 +274,14 @@
 	to_chat(src, "<span class='notice'>Now teleporting.</span>")
 	observer.forceMove(O.loc)
 	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
-	if(client.persist)
-		observer.icon_state = client.persist.ghost_form
-		observer.color = rgb(client.persist.ghost_red,client.persist.ghost_green,client.persist.ghost_blue)
+
+	// Has to be done here so we can get our random icon.
+	if(client.prefs.be_random_body)
+		client.prefs.randomize_appearance_for() // No argument means just the prefs are randomized.
+	client.prefs.update_preview_icon(1)
+	observer.icon = client.prefs.preview_icon
+	observer.alpha = 127
+
 	if(client.prefs.be_random_name)
 		client.prefs.real_name = random_name(client.prefs.gender,client.prefs.species)
 	observer.real_name = client.prefs.real_name

@@ -36,7 +36,6 @@
 		qdel(src)
 
 /obj/item/weapon/crossbow
-
 	name = "powered crossbow"
 	desc = "A 2557AD twist on an old classic. Pick up that can."
 	icon = 'icons/obj/weapons.dmi'
@@ -58,7 +57,7 @@
 /obj/item/weapon/crossbow/get_cell()
 	return cell
 
-/obj/item/weapon/crossbow/attackby(obj/item/W, mob/user )
+/obj/item/weapon/crossbow/attackby(obj/item/W, mob/user)
 	if(!arrow)
 		if (istype(W,/obj/item/weapon/arrow))
 			if(!user.drop_item(W, src))
@@ -113,7 +112,7 @@
 	else
 		..()
 
-/obj/item/weapon/crossbow/attack_self(mob/living/user )
+/obj/item/weapon/crossbow/attack_self(mob/living/user)
 	if(tension)
 		if(arrow)
 			user.visible_message("[user] relaxes the tension on [src]'s string and removes [arrow].","You relax the tension on [src]'s string and remove [arrow].")
@@ -128,9 +127,7 @@
 	else
 		draw(user)
 
-/obj/item/weapon/crossbow/proc/draw(var/mob/user )
-
-
+/obj/item/weapon/crossbow/proc/draw(var/mob/user)
 	if(!arrow)
 		to_chat(user, "You don't have anything nocked to [src].")
 		return
@@ -186,10 +183,6 @@
 		spawn(0) Fire(target,user,params)
 
 /obj/item/weapon/crossbow/proc/Fire(atom/target, mob/living/user, params, reflex = 0)
-
-
-	
-
 	var/turf/curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)
 	if (!istype(targloc) || !istype(curloc))
