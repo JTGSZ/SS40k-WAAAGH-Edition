@@ -46,10 +46,13 @@ var/creating_arena = FALSE
 	var/manual_poltergeist_cooldown //var-edit this to manually modify a ghost's poltergeist cooldown, set it to null to reset to global
 
 /mob/dead/observer/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
+	if(started_as_observer && !isAdminGhost(src))
+		return 0
+	
 	var/mob/M = get_top_transmogrification()
 	if((get_dist(M.loc,loc) >= 4) && (!isAdminGhost(src)))
 		step_towards(src,M)
-		return
+		return 0
 
 /mob/dead/observer/New(var/mob/body=null, var/flags=1)
 	change_sight(adding = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF)
