@@ -183,7 +183,11 @@
 	set name = "Haunt" //Flavor name for following mobs
 	set desc = "Haunt a mob, stalking them everywhere they go."
 
-	var/list/mobs = getmobs()
+	var/list/mobs = list()
+	for(var/mob/M in player_list)
+		if(M && M.client)
+			mobs += M
+	//var/list/mobs = getmobs()
 	var/input = input("Please, select a mob!", "Haunt", null, null) as null|anything in mobs
 	var/mob/target = mobs[input]
 	manual_follow(target)
@@ -270,16 +274,6 @@
 
 		to_chat(src, "<span class='notice'>Temperature: [round(environment.temperature - T0C, 0.01)]&deg;C</span>")
 		to_chat(src, "<span class='notice'>Heat Capacity: [round(environment.heat_capacity() / tiles, 0.01)]</span>")
-
-/mob/dead/observer/verb/view_manfiest()
-	set name = "View Crew Manifest"
-	set category = "Ghost"
-
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += data_core.get_manifest()
-
-	src << browse(dat, "window=manifest;size=370x420;can_close=1")
 
 //Used for drawing on walls with blood puddles as a spooky ghost.
 /mob/dead/verb/bloody_doodle()
@@ -369,13 +363,6 @@
 		client.ghost_planemaster.alpha = 255
 		client.ghost_planemaster.mouse_opacity = 1
 		to_chat(src, "<span class='info'>Ghosts shown.</span>")
-
-/mob/dead/observer/verb/toggle_station_map()
-	set name = "Toggle Station Holomap"
-	set desc = "Toggle station holomap on your screen"
-	set category = "Ghost"
-
-	src.station_holomap.toggleHolomap(src, FALSE) // We don't need client.eye.
 
 /mob/dead/observer/verb/find_arena()
 	set category = "Ghost"

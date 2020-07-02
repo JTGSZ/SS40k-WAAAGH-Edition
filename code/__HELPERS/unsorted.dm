@@ -373,7 +373,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //Returns a list of all mobs with their name
 /proc/getmobs()
 
-
 	var/list/mobs = sortmobs()
 	var/list/names = list()
 	var/list/creatures = list()

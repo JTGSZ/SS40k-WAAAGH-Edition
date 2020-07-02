@@ -91,7 +91,7 @@
 	if(loc)
 		var/area/A = loc
 		A.area_turfs += src
-	for(var/atom/movable/AM  in src)
+	for(var/atom/movable/AM in src)
 		spawn( 0 )
 			src.Entered(AM)
 	if(opacity)

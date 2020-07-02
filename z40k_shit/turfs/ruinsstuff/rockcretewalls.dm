@@ -36,7 +36,7 @@
 	desc = "Not all rockcrete is equal as most things go, as you can see by the crumbling of this segment of it."
 	icon_state = "ruins0"
 	walltype = "ruins"
-
+ 
 /*
 	BACKDROP WALLS
 
@@ -45,6 +45,9 @@ These shouldn't smooth since they are more or less so you can create detailed ma
 /turf/simulated/wall/rockcrete/backdrop
 	name = "Backdrops"
 	desc = "A parent for walls that aren't supposed to smooth."
+
+/turf/simulated/wall/rockcrete/backdrop/New()
+	...()
 
 /turf/simulated/wall/rockcrete/backdrop/canSmoothWith()
 	return null

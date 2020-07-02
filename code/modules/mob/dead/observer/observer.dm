@@ -45,11 +45,16 @@ var/creating_arena = FALSE
 	var/pathogenHUD = FALSE
 	var/manual_poltergeist_cooldown //var-edit this to manually modify a ghost's poltergeist cooldown, set it to null to reset to global
 
+/mob/dead/observer/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, glide_size_override = 0)
+	var/mob/M = get_top_transmogrification()
+	if((get_dist(M.loc,loc) >= 4) && (!isAdminGhost(src)))
+		step_towards(src,M)
+		return
+
 /mob/dead/observer/New(var/mob/body=null, var/flags=1)
 	change_sight(adding = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF)
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	see_in_dark = 100
-	verbs += /mob/dead/observer/proc/dead_tele
 
 	// Our new boo spell.
 	add_spell(new /spell/aoe_turf/boo, "grey_spell_ready")
@@ -455,6 +460,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 					var/acronym = emergency_shuttle.location == 1 ? "ETD" : "ETA"
 					stat(null, "[acronym]-[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]")
 
+/*
 /mob/dead/observer/proc/dead_tele()
 	set category = "Ghost"
 	set name = "Teleport"
@@ -498,7 +504,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	usr.forceMove(pick(L))
 	if(locked_to)
 		manual_stop_follow(locked_to)
-
+*/
 
 //This is the ghost's follow verb with an argument
 /mob/dead/observer/proc/manual_follow(var/atom/movable/target)
