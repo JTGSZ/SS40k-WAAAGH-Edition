@@ -24,7 +24,7 @@
 	var/list/see = ..()
 	see &= enemies // Remove all entries that aren't in enemies
 	return see
-
+ 
 /mob/living/simple_animal/hostile/retaliate/inherit_mind(mob/living/simple_animal/from)
 	..()
 

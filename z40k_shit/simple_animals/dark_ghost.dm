@@ -71,7 +71,6 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 		src << "\red <b>You are too weak to form a physical manifestation!</b>"
 	else
 		var/mob/living/simple_animal/hostile/dark_ghost/M = new (get_turf(src))
-		M.fealty = master
 		M.visible_message("\red <b>A twisted countenance unfolds out of thin air!</b>")
 		M.key = src.key
 		spawn(3000) //If it hasn't been killed a bit later, it will run out of energy unless it happened to drain a corpse.
@@ -80,7 +79,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 				M.health -= 15
 				if(M.health <= 0)
 					M << "\red You have no remaining energy to sustain your corporeal form!"
-					M.Die()
+					M.death()
 
 /mob/living/simple_animal/hostile/dark_ghost
 	name = "tainted spirit"
@@ -167,7 +166,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 		return
 	..(damage)
 
-/mob/living/simple_animal/hostile/dark_ghost/Die()
+/mob/living/simple_animal/hostile/dark_ghost/death(gibbed)
 	src.visible_message("\red [src] dissolves into nothingness with a growl.","\red Your physical form is undone.","\red You hear an anguished growl!")
 	src.ghostize(0)
 	qdel(src)

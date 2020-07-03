@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/shadow  //A corrupted person to guard daemon weapons.
 	name = "Warped Guardsman"
 	desc = "A twisted, shadowed, and warp consumed creature that appears to have once been a regular human."
+	icon = 'z40k_shit/icons/mob/mobs.dmi'
 	icon_state = "shadow"
 	icon_living = "shadow"
 	icon_dead = "shadow_dead"
@@ -46,5 +47,5 @@
 	if(istype(L))
 		L << "\red The [src]'s spectral hands burn!"
 		if(prob(20))
-			L.Weaken(3)
+			L.apply_effects(0,3)
 			L.visible_message("<span class='danger'>\The [src] knocks down \the [L]!</span>")

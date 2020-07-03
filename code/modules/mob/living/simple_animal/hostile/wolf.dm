@@ -221,7 +221,7 @@
 			alpha_challenge = 0
 		else //Pack time!
 			alpha_challenge = 0 //Else he's likely to get fucked up by the rest of the pack now
-
+ 
 
 //For life, listen for any /obj/effect/decal/point objects in proximity. They have a reference to who pointed, and who's being pointed at.
 /mob/living/simple_animal/hostile/wolf/Life()

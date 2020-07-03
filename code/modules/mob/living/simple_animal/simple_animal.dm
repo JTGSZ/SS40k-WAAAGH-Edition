@@ -160,7 +160,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 
 /mob/living/simple_animal/proc/check_environment_susceptibility()
 	return TRUE
-
+ 
 /mob/living/simple_animal/Life()
 	if(timestopped)
 		return 0 //under effects of time magick
@@ -411,7 +411,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 	Proj.on_hit(src, 0)
 	return 0
 
-/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M )
+/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M)
 	. = ..()
 
 	switch(M.a_intent)
