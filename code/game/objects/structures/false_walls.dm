@@ -256,7 +256,7 @@
 	if(isMoMMI(user))
 		attack_hand(user)
 
-/obj/structure/falserwall/attack_hand(mob/user )
+/obj/structure/falserwall/attack_hand(mob/user)
 	if(opening)
 		return
 
@@ -287,7 +287,7 @@
 	var/junction=findSmoothingNeighbors()
 	icon_state = "rwall[junction]"
 
-/obj/structure/falserwall/attackby(obj/item/weapon/W, mob/user )
+/obj/structure/falserwall/attackby(obj/item/weapon/W, mob/user)
 	if(opening)
 		to_chat(user, "<span class='warning'>You must wait until the door has stopped moving.</span>")
 		return

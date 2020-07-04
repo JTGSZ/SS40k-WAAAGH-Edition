@@ -179,7 +179,7 @@
 	update_icon()
 	..()
 
-/obj/item/weapon/gun/projectile/attack_self(mob/user )
+/obj/item/weapon/gun/projectile/attack_self(mob/user)
 	if (target)
 		return ..()
 	if (loaded.len || stored_magazine)

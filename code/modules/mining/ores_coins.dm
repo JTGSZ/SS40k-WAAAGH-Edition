@@ -373,6 +373,11 @@
 	var/material=MAT_IRON // Ore ID, used with coinbags.
 	var/credits = 0 // How many credits is this coin worth?
 	var/sideup = "heads." //heads, tails or on its side?
+	var/sideone = "heads-up." //Side one
+	var/sidetwo = "tails-up." //Side two
+	var/icon_sides = FALSE //Do we have icons for each side?
+	var/icon_sideone = "" //If so then side one icon_state
+	var/icon_sidetwo = "" //Side two icon_state
 
 /obj/item/weapon/coin/New()
 	. = ..()
@@ -401,16 +406,20 @@
 	flipit.Scale(0.2,1)
 	animate(src, transform = flipit, time = 2, easing = QUAD_EASING)
 	if (pick(0,1))
-		sideup = "heads-up."
+		sideup = "[sideone]"
 		flipit.Scale(5,1)
 		flipit.Turn(rand(1,359))
 		animate(src, transform = flipit, time = 2, easing = QUAD_EASING)
+		if(icon_sides)
+			icon_state = "[icon_sideone]"
 	else
-		sideup = "tails-up."
+		sideup = "[sidetwo]"
 		flipit.Scale(5,1)
 		flipit.Invert()
 		flipit.Turn(rand(1,359))
 		animate(src, transform = flipit, time = 2, easing = QUAD_EASING)
+		if(icon_sides)
+			icon_state = "[icon_sidetwo]"
 	if (prob(0.1) || rigged)
 		flipit.Scale(0.2,1)
 		animate(src, transform = flipit, time = 2, easing = QUAD_EASING)

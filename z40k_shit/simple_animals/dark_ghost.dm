@@ -30,7 +30,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 	set desc = "Whisper in the ear of one of the living you stand over."
 
 	if(speaktime > world.time)
-		src << "\red You do not have the energy to do this yet."
+		to_chat(src, "<span class='warning'> You do not have the energy to do this yet.</span>")
 		return
 	var/mob/living/M = locate(/mob/living) in view(1, src)
 	if(M)
@@ -59,7 +59,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 
 	var/obj/effect/decal/cleanable/blood/B = locate(/obj/effect/decal/cleanable/blood) in view(1, src)
 	if(B)
-		B.visible_message("\red Something devours the [B]!", "\red You devour the [B].", "\red You hear a slurping sound.")
+		B.visible_message("<span class='warning'> Something devours the [B]!</span>", "<span class='warning'> You devour the [B].</span>", "<span class='warning'> You hear a slurping sound.</span>")
 		qdel(B)
 		manifestenergy += 1
 
@@ -68,10 +68,10 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 	set name = "Manifest"
 	set desc = "Use gathered energy to surface in the materium to serve your dark master."
 	if(manifestenergy < 10)
-		src << "\red <b>You are too weak to form a physical manifestation!</b>"
+		src << "<span class='warning'>You are too weak to form a physical manifestation!</span>"
 	else
 		var/mob/living/simple_animal/hostile/dark_ghost/M = new (get_turf(src))
-		M.visible_message("\red <b>A twisted countenance unfolds out of thin air!</b>")
+		M.visible_message("<span class='warning'> A twisted countenance unfolds out of thin air!</span>")
 		M.key = src.key
 		spawn(3000) //If it hasn't been killed a bit later, it will run out of energy unless it happened to drain a corpse.
 			if(M)

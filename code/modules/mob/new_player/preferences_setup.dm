@@ -324,7 +324,7 @@
 				if(MIME)
 					clothes_s = new /icon(uniform_dmi, "mime_s")
 					clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "lgloves"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "white"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/mask.dmi', "mime"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "beret"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "suspenders"), ICON_OVERLAY)
@@ -332,16 +332,12 @@
 
 		else if(job_medsci_high)
 			switch(job_medsci_high)
-				if(MIME)
-					clothes_s = new /icon(uniform_dmi, "mime_s")
-					clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "lgloves"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('icons/mob/mask.dmi', "mime"), ICON_OVERLAY)
-					clothes_s.Blend(new /icon('icons/mob/head.dmi', "beret"), ICON_OVERLAY)
-					clothes_s.Blend(new /icon(suit_dmi, "suspenders"), ICON_OVERLAY)
-					clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
-
-
+				if(DOCTOR)
+					clothes_s = new /icon(uniform_dmi, "medical_s")
+					clothes_s.Blend(new /icon(feet_dmi, "white"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/in-hand/left/items_lefthand.dmi', "firstaid"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon(suit_dmi, "labcoat_open"), ICON_OVERLAY)
+					clothes_s=blend_backpack(clothes_s,backbag,"satchel-med","medicalpack","courierbagmed")
 
 		else if(job_engsec_high)
 			switch(job_engsec_high)

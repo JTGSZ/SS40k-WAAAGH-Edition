@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	access = list(access_mime, access_theatre, access_maint_tunnels)
 	minimal_access = list(access_mime, access_theatre)
-	species_blacklist = list("Ork")
+	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/mime
 
 	relationship_chance = HUMAN_COMMON
@@ -37,27 +37,7 @@
 			slot_head_str = /obj/item/clothing/head/beret,
 			slot_wear_mask_str = /obj/item/clothing/mask/gas/mime,
 			slot_l_store_str = /obj/item/toy/crayon/mime,
-		),
-		/datum/species/plasmaman/ = list(
-			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/mime,
-			slot_shoes_str = /obj/item/clothing/shoes/mime,
-			slot_gloves_str = /obj/item/clothing/gloves/white,
-			slot_wear_suit_str = /obj/item/clothing/suit/space/plasmaman/mime,
-			slot_head_str = /obj/item/clothing/head/helmet/space/plasmaman/mime,
-			slot_wear_mask_str = /obj/item/clothing/mask/gas/mime,
-			slot_l_store_str = /obj/item/toy/crayon/mime,
-		),
-		/datum/species/vox/ = list(
-			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/mime,
-			slot_shoes_str = /obj/item/clothing/shoes/mime,
-			slot_gloves_str = /obj/item/clothing/gloves/white,
-			slot_wear_suit_str = /obj/item/clothing/suit/space/vox/civ,
-			slot_head_str = /obj/item/clothing/head/helmet/space/vox/civ,
-			slot_wear_mask_str = /obj/item/clothing/mask/gas/mime,
-			slot_l_store_str = /obj/item/toy/crayon/mime,
-		),
+		)
 	)
 
 	items_to_collect = list(
@@ -73,20 +53,14 @@
 	H.add_spell(new /spell/targeted/oathbreak/)
 	H.mind.miming = MIMING_OUT_OF_CHOICE
 	mob_rename_self(H,"mime")
+	
+	//Harlequin job quest
+	var/datum/job_quest/harlequin/harlequin = new()
+	H.job_quest = harlequin
+	harlequin.our_protagonist = H
+	H.add_spell(new /spell/targeted/concentrate)
 	return 1
-
-/datum/job/mime/priority_reward_equip(var/mob/living/carbon/human/H)
-	. = ..()
-	H.equip_or_collect(new /obj/item/weapon/reagent_containers/food/snacks/baguette(H.back), slot_in_backpack)
-
-/datum/job/mime/reject_new_slots()
-	if(!xtra_positions)
-		return FALSE
-	if(security_level == SEC_LEVEL_RAINBOW)
-		return FALSE
-	else
-		return "Rainbow Alert"
-
+ 
 //Mime's break vow spell, couldn't think of anywhere else to put this
 
 /spell/targeted/oathbreak

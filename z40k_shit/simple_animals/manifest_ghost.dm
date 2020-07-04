@@ -45,18 +45,18 @@
 	src.key = O.key
 
 /mob/living/simple_animal/hostile/manifest_ghost/death()
-	src << "\red Your manifest spirit in the warp is dispelled from this location."
+	to_chat(src,"<span class='warning'> Your manifest spirit in the warp is dispelled from this location.</span>")
 	enter_warp(src.ghostize(0))
 	qdel(src)
 
-/mob/living/simple_animal/hostile/manifest_ghost/attack_animal(mob/living/simple_animal/M as mob)
+/mob/living/simple_animal/hostile/manifest_ghost/attack_animal(mob/living/simple_animal/M)
 	if(M.melee_damage_upper == 0)
 		M.emote("[M.friendly] [src]")
 	else
 		if(M.attack_sound)
 			playsound(loc, M.attack_sound, 50, 1, 1)
 		for(var/mob/O in viewers(src, null))
-			O.show_message("\red <B>\The [M]</B> [M.attacktext] [src]!", 1)
+			O.show_message("<span class='warning'> \The [M] [M.attacktext] [src]!</span>", 1)
 		add_logs(M, src, "attacked", admin=0)
 		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
 		if(istype(M, /mob/living/simple_animal/hostile/retaliate/daemon)) //Even lesser daemonic beings are well suited to preying on the spirits of dead. The soul of a fallen should not be able to defeat an ebon geist.
@@ -80,4 +80,4 @@
 		M.loc = pick(destinations)
 	else
 		if(usr)
-			usr << "\red Stop breaking shit!"
+			to_chat(usr, "<span class='warning'> Stop breaking shit!</span>")

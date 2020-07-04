@@ -147,7 +147,7 @@
 		if(user.attribute_strength <= 12)
 			fucked_fire = TRUE
 	if(!taped)
-		user.visible_message("\red This needs to be taped up before it can be used!")
+		user.visible_message("<span class='warning'> This needs to be taped up before it can be used!</span>")
 		return
 	if(!cooldown) //If we are not on cooldown
 		if(getAmmo()) //If we have ammo

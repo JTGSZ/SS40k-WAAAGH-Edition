@@ -3060,6 +3060,18 @@ var/global/num_vending_terminals = 1
 		)
 	pack = /obj/structure/vendomatpack/chapelvend
 
+/obj/machinery/vending/chapel/attackby(obj/item/W, mob/living/user)
+	if(user.job_quest)
+		if(istype(user.job_quest,/datum/job_quest/harlequin))
+			var/datum/job_quest/harlequin/QST = user.job_quest
+			if(!QST.suit_achieved)
+				if(istype(W, /obj/item/weapon/coin/harlequin))
+					visible_message("<span class='info'>[src] dispenses a strange outfit.</span>")
+					new /obj/item/clothing/suit/armor/harlequin(user.loc)
+					QST.suit_achieved = TRUE
+					return
+	..()
+
 
 /obj/machinery/vending/trader	// Boxes are defined in trader.dm
 	name = "\improper Trader Supply"

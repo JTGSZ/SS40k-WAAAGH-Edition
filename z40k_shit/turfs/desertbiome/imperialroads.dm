@@ -80,6 +80,8 @@ R - Right
 	desc = "A mixture made of stone and rock types native to this world, and binding agents. You can't remember seeing anyone lay any of this in your lifetime."
 	icon = 'z40k_shit/icons/turfs/rockcrete_floors.dmi'
 	icon_state = "rockcrete_slab"
+	floragen = FALSE
+	footprints = FALSE
 
 /turf/unsimulated/outside/imperial_rockcrete/alt
 	icon_state = "rockcrete_slab2"

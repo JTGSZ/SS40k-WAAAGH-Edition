@@ -231,6 +231,9 @@ var/list/impact_master = list()
 		if(!def_zone)
 			visible_message("<span class='notice'>\The [src] misses [M] narrowly!</span>")
 			forcedodge = -1
+		else if(M.dodging)
+			visible_message("<span class='notice'>[M] weaves around \The [src]!</span>")
+			forcedodge = -1
 		else
 			if(!custom_impact)
 				if(silenced)
@@ -257,7 +260,7 @@ var/list/impact_master = list()
 					if(!iscarbon(firer))
 						BM.LAssailant = null
 				else
-					BM.LAssailant = firer
+					BM.LAssailant = firer 
 	if (!forcedodge)
 		forcedodge = A.bullet_act(src, def_zone) // searches for return value
 	if(forcedodge == -1) // the bullet passes through a dense object!

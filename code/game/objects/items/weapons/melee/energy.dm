@@ -93,7 +93,7 @@
 		active_state = base_state + _color
 	update_icon()
 
-/obj/item/weapon/melee/energy/sword/attack_self(mob/living/user )
+/obj/item/weapon/melee/energy/sword/attack_self(mob/living/user)
 	if(!(flags & TWOHANDABLE))
 		if (clumsy_check(user) && prob(50) && active) //only an on blade can cut
 			to_chat(user, "<span class='danger'>You accidentally cut yourself with [src]!</span>")

@@ -12,6 +12,12 @@
 	icon = 'z40k_shit/icons/40kareas.dmi'
 	dynamic_lighting = 1
 
+//Croneworld
+/area/warhammer/croneworld
+	name = "croneworld"
+	icon_state = "crone_world"
+	dynamic_lighting = 0
+
 /area/warhammer/maptestmk1
 	name = "maptestmk1"
 	icon_state = "maptestmk1"

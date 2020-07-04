@@ -78,7 +78,7 @@ for the negative portions. -Norc
 			U.factions += "SLAANESH"
 			U.purity--
 			var/obj/item/device/celebhacktool/C = new /obj/item/device/celebhacktool(U.loc)
-			U << "\red Hm? What's this? This [C] was also in our pocket."
+			to_chat(our_protagonist, "<span class='warning'> Hm? What's this? This [C] was also in our pocket.</span>")
 		if(-5)
 			U << text("<span class='notice'>Puff puff give, you know how this works.</span>")	//had to put this in because everyone kept spawning multiple ciggarettes and wondering why it wasn't working.
 		if(-6)
@@ -168,7 +168,7 @@ for the negative portions. -Norc
 			U.maxHealth = 250
 			U.health = 250
 			U.status_flags = CANPARALYSE|CANPUSH
-			src << "\red You feel stronger."
+			to_chat(our_protagonist, "<span class='warning'> You feel stronger.</span>")
 		if(-16)
 			U << "<span class='slaanesh'>So... Disciple... I have heard certain whispers of an escaped eldar in your location. This one managed to escape the care of the darker variant of its kind... I would be so pleased if you could capture this one. Crush their spirit stone and keep them in exquisite agony...</span>"
 			U.purity--

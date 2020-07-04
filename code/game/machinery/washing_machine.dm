@@ -20,6 +20,7 @@
 	//1 = hacked
 	var/gibs_ready = 0
 	var/obj/crayon
+	var/obj/item/weapon/pen/harlpen
 	var/speed_coefficient = 1
 	var/size_coefficient = 1
 	//Lists for each bin tier in order T1, T2, T3, T4. Whitelist doesn't change but its there for future proofing.
@@ -252,6 +253,14 @@
 		gibs_ready = 1
 	else
 		wash_state = 4
+	if(usr && ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		if(H.mind && H.mind.assigned_role == "Mime" && H.job_quest.alignment <= -20)
+			for(var/obj/item/clothing/under/mime/harlequin in contents)
+				for(var/obj/item/weapon/pen/P in contents)
+					if(harlequin)
+						qdel(harlequin)
+						new /obj/item/clothing/under/harlequin(src)
 	update_icon()
 
 /obj/machinery/washing_machine/AltClick(mob/user)
@@ -285,6 +294,8 @@
 			if(!crayon)
 				if(user.drop_item(W, src))
 					crayon = W
+	else if(istype(W,/obj/item/weapon/pen))
+		user.drop_item(W, src)
 	else if(istype(W,/obj/item/weapon/grab))
 		if(contents.len < (5 * size_coefficient))
 			if((wash_state == 1) && hacked)

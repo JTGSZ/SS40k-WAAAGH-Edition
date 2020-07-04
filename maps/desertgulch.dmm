@@ -8,7 +8,7 @@
 "ah" = (/obj/structure/bed/chair/comfy/couch/mid/black,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/woodruin/carpet/first,/area/warhammer/desert)
 "ai" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlaptriple/west,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
 "al" = (/obj/machinery/light/he,/obj/item/weapon/storage/firstaid/internalbleed,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
-"am" = (/obj/effect/decal/warp_storm{pixel_y = -97; pixel_x = -97},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"am" = (/obj/effect/decal/warp_storm{pixel_y = -97; pixel_x = -97},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "ap" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlap/north,/turf/unsimulated/floor/asteroid/air,/area/warhammer/desert)
 "aq" = (/obj/structure/shipping_containers/right/purple,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "ar" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/southwest,/turf/unsimulated/outside/imperial_road/road_side_one/west,/area/warhammer/desert)
@@ -354,7 +354,7 @@
 "iU" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/northeast,/turf/simulated/floor/woodruin/wood/dmgstate4,/area/warhammer/desert)
 "iV" = (/obj/machinery/washing_machine,/turf/simulated/floor/metalplating/metalplate/two,/area/warhammer/desert)
 "iW" = (/obj/machinery/telecomms/bus/preset_one,/turf/simulated/floor/server,/area/warhammer/desert)
-"iX" = (/obj/effect/decal/warp_storm{pixel_y = -147; pixel_x = -97},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"iX" = (/obj/effect/decal/warp_storm{pixel_y = -147; pixel_x = -97},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "jb" = (/obj/structure/sign/poster{pixel_y = 30},/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "jc" = (/obj/machinery/r_n_d/fabricator/mechanic_fab/autolathe/ammolathe,/turf/simulated/floor,/area/warhammer/desert)
 "je" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/north,/obj/effect/decal/ruinshit/rubble/rubbleedge/south,/turf/unsimulated/outside/sand,/area/warhammer/desert)
@@ -376,7 +376,7 @@
 "jz" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/o2{pixel_x = 2; pixel_y = 6},/obj/item/weapon/storage/firstaid/o2{pixel_x = -2; pixel_y = 4},/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "jA" = (/obj/machinery/vending/games,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "jB" = (/obj/item/weapon/table_parts/wood,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
-"jD" = (/turf/unsimulated/wall/cult,/area/awaymission/desert)
+"jD" = (/turf/unsimulated/wall/cult,/area/warhammer/croneworld)
 "jE" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/west,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "jF" = (/obj/effect/decal/ruinshit/rubble/rubblecorner/south,/turf/unsimulated/floor/asteroid/air,/area/warhammer/desert)
 "jI" = (/obj/machinery/optable,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
@@ -420,7 +420,7 @@
 "kQ" = (/turf/unsimulated/outside/imperial_platewalk/corners/east,/area/warhammer/desert)
 "kS" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlapcornershade/south,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "kU" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/northwest,/obj/effect/decal/ruinshit/rubble/overlapcorner/west,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
-"kV" = (/obj/effect/decal/warp_storm{pixel_y = -61; pixel_x = -96},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"kV" = (/obj/effect/decal/warp_storm{pixel_y = -61; pixel_x = -96},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "kW" = (/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/carpet,/area/warhammer/desert)
 "kX" = (/obj/structure/cable/yellow{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/warhammer/desert)
 "kZ" = (/obj/structure/bed/chair/comfy/couch/left/red{dir = 4},/turf/simulated/floor/woodruin/wood/regstate3,/area/warhammer/desert)
@@ -491,13 +491,13 @@
 "mS" = (/obj/structure/reagent_dispensers/cauldron/barrel/rng_barrels,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "mT" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/woodruin/wood/regstate2,/area/warhammer/desert)
 "mX" = (/obj/structure/table/reinforced,/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
-"mY" = (/obj/machinery/door/airlock/silver,/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"mY" = (/obj/machinery/door/airlock/silver,/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "na" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/west,/turf/unsimulated/underground/imperial_rockcrete,/area/warhammer/desert)
 "nb" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/southeast,/turf/simulated/floor/woodruin/wood/regstate2,/area/warhammer/desert)
 "nc" = (/obj/item/weapon/switchtool/surgery{pixel_x = 5; pixel_y = 10},/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "nd" = (/obj/structure/closet,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
 "ne" = (/obj/effect/decal/ruinshit/rubble/rubblecorner/south,/obj/effect/decal/ruinshit/rubble/rubblecorner/west,/turf/unsimulated/outside/sand,/area/warhammer/desert)
-"ng" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -121},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"ng" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -121},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "nh" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/abstract/map/spawner/misc/seeds,/turf/simulated/floor/metalplating/metalrivets/two,/area/warhammer/desert)
 "nj" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/east,/turf/unsimulated/outside/imperial_road/road_side_two/north,/area/warhammer/desert)
 "nk" = (/obj/effect/decal/ruinshit/rubble/rubblecorner/north,/obj/effect/decal/ruinshit/rubble/overlapcornershade/south,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
@@ -539,6 +539,7 @@
 "of" = (/obj/machinery/portable_atmospherics/canister/nitrogen,/turf/simulated/floor/metalplating/metalrivets/three,/area/warhammer/desert)
 "oi" = (/obj/structure/bed/chair/wood/pew/right{dir = 1},/turf/simulated/floor/metalplating/metalplate/two,/area/warhammer/desert)
 "ol" = (/obj/structure/fence,/obj/structure/fence/corner{dir = 8},/turf/unsimulated/floor/asteroid/air,/area/warhammer/desert)
+"om" = (/obj/effect/landmark/mimeequipmentdrop,/turf/simulated/floor/plating,/area/warhammer/desert)
 "oo" = (/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "op" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlap/east,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
 "oq" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/wrench/socket,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
@@ -685,7 +686,7 @@
 "rZ" = (/obj/structure/shipping_containers/left/purple,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
 "sa" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "sc" = (/obj/structure/bed/chair/comfy/couch/left/red,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
-"sd" = (/obj/effect/decal/warp_storm{pixel_y = -73; pixel_x = -120},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"sd" = (/obj/effect/decal/warp_storm{pixel_y = -73; pixel_x = -120},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "sf" = (/obj/effect/decal/ruinshit/rubble/rubbleslab,/obj/effect/decal/ruinshit/rubble/overlapcornershade/west,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "sg" = (/obj/item/weapon/bonegel,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "sh" = (/obj/structure/clock,/turf/simulated/floor/metalplating/metalplate/two,/area/warhammer/desert)
@@ -899,7 +900,7 @@
 "xM" = (/obj/structure/table,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/metalplating/metalplate/two,/area/warhammer/desert)
 "xN" = (/obj/machinery/door/mineral/wood,/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
 "xQ" = (/obj/item/weapon/spear/wooden,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/woodruin/carpet/first,/area/warhammer/desert)
-"xR" = (/turf/simulated/wall/vault,/area/awaymission/desert)
+"xR" = (/turf/simulated/wall/vault,/area/warhammer/croneworld)
 "xT" = (/turf/simulated/wall/rockcrete/backdrop/reinforced/three,/area/warhammer/desert)
 "xU" = (/obj/structure/reagent_dispensers/cauldron/barrel/rng_barrels,/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
 "xV" = (/obj/machinery/light/he/broken,/obj/effect/decal/ruinshit/rubble/rubblefull,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
@@ -1062,6 +1063,7 @@
 "Ce" = (/obj/machinery/door_control{id_tag = "Dorm3"; name = "Dorm 3 Door Bolt Control"; normaldoorcontrol = 1; pixel_x = 25; req_access_txt = "0"; specialfunctions = 4},/obj/structure/table,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/warhammer/desert)
 "Cf" = (/obj/machinery/light/he,/turf/simulated/floor/metalplating/metalplate/fouralt,/area/warhammer/desert)
 "Cg" = (/obj/structure/fence/door,/turf/unsimulated/outside/vaultsand,/area/warhammer/desert)
+"Ch" = (/obj/effect/landmark/mimefalsewall,/turf/simulated/wall/r_wall/rusty,/area/warhammer/desert)
 "Ci" = (/turf/simulated/floor/woodruin/carpet/twelve,/area/warhammer/desert)
 "Ck" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/metalplating/metalplate/fouralt,/area/warhammer/desert)
 "Cl" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/simulated/floor/metalplating/metalplate/five,/area/warhammer/desert)
@@ -1217,7 +1219,7 @@
 "Gk" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/woodruin/carpet/thirteen,/area/warhammer/desert)
 "Gl" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/south,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "Gn" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/northwest,/obj/effect/decal/ruinshit/rubble/overlapcornershade/north,/turf/unsimulated/outside/sand,/area/warhammer/desert)
-"Go" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -170},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"Go" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -170},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "Gp" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/item/weapon/shard{icon_state = "medium"},/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
 "Gq" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/item/trash/byond_box,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "Gs" = (/obj/structure/bed/chair/comfy/couch/right/red{dir = 4},/turf/simulated/floor/woodruin/wood/regstate1,/area/warhammer/desert)
@@ -1235,7 +1237,7 @@
 "GR" = (/obj/effect/decal/ruinshit/rubble/rubbleslab,/turf/simulated/floor/metalplating/metalplate/fouralt,/area/warhammer/desert)
 "GS" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/southwest,/obj/effect/decal/ruinshit/rubble/overlapcorner/east,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "GU" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlapcornershade/west,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
-"GV" = (/obj/effect/decal/warp_storm{pixel_y = -19; pixel_x = -46},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"GV" = (/obj/effect/decal/warp_storm{pixel_y = -19; pixel_x = -46},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "GW" = (/obj/structure/closet/secure_closet/medical1,/obj/item/weapon/storage/firstaid/fire,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "GX" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/grille,/turf/simulated/floor/plating,/area/warhammer/desert)
 "Hb" = (/obj/item/toy/gasha/fingerbox,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
@@ -1248,6 +1250,7 @@
 "Hj" = (/obj/structure/clock,/turf/simulated/floor/metalplating/metalplate/fouralt,/area/warhammer/desert)
 "Hk" = (/obj/machinery/power/terminal{dir = 1},/obj/structure/cable/yellow{icon_state = "0-2"; d2 = 2},/turf/simulated/floor/plating,/area/warhammer/desert)
 "Hm" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/fire{pixel_x = 2; pixel_y = 6},/obj/item/weapon/storage/firstaid/fire{pixel_x = -2; pixel_y = 4},/obj/item/device/radio/intercom/medbay{pixel_y = -30},/obj/effect/decal/cleanable/soot,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
+"Hn" = (/obj/item/device/soulstone/crone,/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "Hp" = (/obj/structure/cable/yellow{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable/yellow{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable/yellow{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "Hr" = (/turf/unsimulated/underground/imperial_platewalk/corners/west,/area/warhammer/desert)
 "Hs" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/warhammer/desert)
@@ -1295,6 +1298,7 @@
 "Io" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/southwest,/obj/effect/decal/ruinshit/rubble/overlapcorner/north,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
 "Ip" = (/obj/structure/bed/chair/comfy/couch/right/red{dir = 4},/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "Ir" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging,/turf/simulated/floor/server/one_atmosphere/bluegrid,/area/warhammer/desert)
+"Is" = (/obj/item/weapon/pen,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "It" = (/obj/effect/decal/ruinshit/rubble/rubblepillar,/obj/effect/decal/ruinshit/rubble/overlapcorner/east,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
 "Iu" = (/obj/machinery/light/he/burned,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "Iv" = (/turf/simulated/floor/metalplating/metalgrate/four,/area/warhammer/desert)
@@ -1419,7 +1423,7 @@
 "LQ" = (/obj/structure/sink/kitchen{pixel_y = 28},/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
 "LR" = (/obj/structure/fence/door,/turf/unsimulated/underground/imperial_road/road_side_two/north,/area/warhammer/desert)
 "LS" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
-"LT" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -96},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"LT" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -96},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "LU" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
 "LV" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/southwest,/turf/simulated/floor/woodruin/wood/regstate1,/area/warhammer/desert)
 "LW" = (/obj/structure/webwaygate,/turf/simulated/floor/plating,/area/warhammer/desert)
@@ -1432,7 +1436,7 @@
 "Mg" = (/obj/effect/decal/ruinshit/falloutwindowalt,/turf/simulated/floor/woodruin/wood/regstate2,/area/warhammer/desert)
 "Mi" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{dir = 4},/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "Mj" = (/obj/machinery/cooking/cerealmaker,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
-"Mk" = (/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"Mk" = (/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "Mm" = (/obj/structure/closet/crate/internals,/turf/simulated/floor/metalplating/metalgrate/five,/area/warhammer/desert)
 "Mr" = (/obj/machinery/cooking/grill,/turf/simulated/floor/metalplating/metalrivets/three,/area/warhammer/desert)
 "Mt" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlapdouble/north,/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/desert)
@@ -1496,6 +1500,7 @@
 "NQ" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlap/west,/obj/effect/decal/ruinshit/rubble/overlap/south,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/desert)
 "NR" = (/obj/effect/landmark/start/orkgretchin,/turf/unsimulated/floor/asteroid,/area)
 "NS" = (/obj/structure/table/woodentable,/obj/item/trash/bowl,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
+"NT" = (/obj/structure/table,/obj/item/weapon/pen,/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
 "NV" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/reagent_containers/food/drinks/flour,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/storage/fancy/egg_box,/obj/item/weapon/reagent_containers/food/condiment/enzyme,/turf/simulated/floor/metalplating/metalrivets/three,/area/warhammer/desert)
 "NX" = (/obj/machinery/computer/stacking_unit{stacker_tag = "mining_stacker"},/turf/simulated/floor/metalplating/metalplate/two,/area/warhammer/desert)
 "NY" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/turf/unsimulated/floor/asteroid/air,/area/warhammer/desert)
@@ -1646,7 +1651,7 @@
 "RZ" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/east,/turf/unsimulated/outside/imperial_platewalk/sides/west,/area/warhammer/desert)
 "Sa" = (/turf/simulated/floor{icon_state = "grimy"},/area/djstation)
 "Sb" = (/turf/simulated/wall/r_wall/rusty,/area/warhammer/desert)
-"Sc" = (/obj/effect/decal/warp_storm{pixel_y = -61; pixel_x = -96},/turf/simulated/wall/vault,/area/awaymission/desert)
+"Sc" = (/obj/effect/decal/warp_storm{pixel_y = -61; pixel_x = -96},/turf/simulated/wall/vault,/area/warhammer/croneworld)
 "Sd" = (/turf/unsimulated/underground/imperial_rockcrete/dmg1,/area/warhammer/desert)
 "Se" = (/obj/structure/shipping_containers/left/redtwo,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "Sf" = (/turf/simulated/floor/woodruin/carpet/fifteen,/area/warhammer/desert)
@@ -1719,8 +1724,9 @@
 "TM" = (/obj/item/weapon/soap,/turf/simulated/floor/metalplating/metalplate/five,/area/warhammer/desert)
 "TN" = (/turf/unsimulated/underground/imperial_platewalk/sides/north,/area/warhammer/desert)
 "TO" = (/obj/machinery/light/he{dir = 8},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/woodruin/carpet/first,/area/warhammer/desert)
+"TQ" = (/obj/effect/landmark/mimeopponentdrop,/turf/simulated/floor/plating,/area/warhammer/desert)
 "TR" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/stack/sheet/metal/bigstack,/turf/simulated/floor/metalplating/metalgrate/four,/area/warhammer/desert)
-"TS" = (/obj/structure/webwaygate,/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"TS" = (/obj/structure/webwaygate/Croneworld,/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "TT" = (/obj/structure/closet/secure_closet/personal,/obj/machinery/light/small,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/carpet{icon_state = "carpetnoconnect"},/area/warhammer/desert)
 "TU" = (/obj/structure/table/woodentable,/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/turf/simulated/floor/metalplating/metalrivets,/area/warhammer/desert)
 "TV" = (/turf/unsimulated/underground/imperial_platewalk/corners/north,/area/warhammer/desert)
@@ -1822,7 +1828,7 @@
 "Wr" = (/obj/structure/table/woodentable,/obj/machinery/chem_dispenser/booze_dispenser/mapping,/turf/simulated/floor/metalplating/metalpopout/three,/area/warhammer/desert)
 "Ws" = (/obj/effect/decal/ruinshit/rubble/rubblefull,/obj/effect/decal/ruinshit/rubble/overlapcorner/south,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
 "Wt" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/metalplating/metalgrate,/area/warhammer/desert)
-"Wu" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -166},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"Wu" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -166},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "Wv" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/northwest,/turf/simulated/floor/metalplating/metalplate,/area/warhammer/desert)
 "Wx" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/southeast,/turf/simulated/floor/metalplating/metalplate/fouralt,/area/warhammer/desert)
 "Wy" = (/turf/unsimulated/outside/imperial_road/road_side_two/south,/area/warhammer/desert)
@@ -1903,7 +1909,7 @@
 "Yx" = (/obj/effect/decal/ruinshit/rubble/rubbleedge/north,/obj/effect/decal/ruinshit/rubble/rubbleedge/southeast,/turf/unsimulated/outside/sand,/area/warhammer/desert)
 "Yy" = (/obj/effect/decal/ruinshit/rubble/rubblecorner/south,/turf/unsimulated/underground/imperial_rockcrete,/area/warhammer/desert)
 "Yz" = (/obj/structure/closet/toolcloset,/turf/simulated/floor/metalplating/metalrivets/three,/area/warhammer/desert)
-"YA" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -145},/turf/unsimulated/croneworldfloors/crone,/area/awaymission/desert)
+"YA" = (/obj/effect/decal/warp_storm{pixel_y = -51; pixel_x = -145},/turf/unsimulated/croneworldfloors/crone,/area/warhammer/croneworld)
 "YD" = (/obj/structure/shipping_containers/right/blue,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/desert)
 "YE" = (/turf/simulated/wall/rockcrete/backdrop/reinforced/four,/area/warhammer/desert)
 "YF" = (/turf/simulated/floor/woodruin/wood/dmgstate3,/area/warhammer/desert)
@@ -2062,8 +2068,8 @@ sKsKsKhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhB
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSbSbMeptVBtsSbSbhBhBhBhBhBhBhBhBhBHxHxHxHxHxHxhBhBSCSChBhBHxHxHxHxHxHxHxhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBHxexTBTBTBKOHxbiASASHxvZvZvZgDsFWPcQHxawDyXyHxWPWPHxuauaobHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCMeptVBtshBhBhBhBhBhBhBhBhBhBhBHxrArArArAHxhBhBSCSCSChBHxnGzAzAzAnGHxhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBHxHxgDHxHxHxHxZIvkASHxvZvZvZHxsFWPcQHxrThxMZHxWPWPHxuauaJrHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCMePAVBtshBhBhBhBhBhBhBhBhBhBhBHxvZpRpRvZHxhBhBhBSCSChBHxWnzAzAzAWnHxhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBsKsKsKsKsKhBhBhBsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBHxgDgDHxHxHxHxtLQQuauatLgDZIvkASHxvZvZvZgDHxHxHxHxHxHxMZHxWPWPHxNmuauaHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBSbSbSbSbSbSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCMeptVBtshBhBhBhBhBhBhBhBhBhBhBHxvZpRpRvZHxhBhBSCSCsvhBHxzAzAzAzAzAHxHxHxHxHxHxhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBsKsKhBhBhBhBhBhBhBsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBgDTXRFSmFPofHxtLuauauauaHxgGASASHxvZvZvZgDPTnZRtHxEciRdomqWPWPHxNmuajiHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
-sKsKsKhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSChBhBhBhBSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBfjtlSbhHavocZfSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCMeptVBtsSChBhBhBhBhBhBhBhBhBhBHxvZvZvZvZHxhBhBsvsvsvsvHxzABvzAzSzSHxYlvZFsTDHxhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBHxTXRFSmFPofHxuauauauauaHxASASASydvZvZvZHxPTPTPTHxHxHxdogDWPWPHxuauaQQHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKhBhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBhBSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSChBhBhBhBhBhBSbSbSbSbSbSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCMeptVBtshBhBhBhBhBhBhBhBhBhBhBHxvZpRpRIsHxhBhBSCSCsvhBHxzAzAzAzAzAHxHxHxHxHxHxhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBsKsKhBhBhBhBhBhBhBsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBgDTXRFSmFPofHxtLuauauauaHxgGASASHxvZvZvZgDPTnZRtHxEciRdomqWPWPHxNmuajiHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
+sKsKsKhBhBhBhBhBhBhBhBhBhBSCSCSCSCSCSCSCSChBhBhBhBSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBhBhBfjtlSbhHavocZfSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCMeptVBtsSChBhBhBhBhBhBhBhBhBhBHxvZvZvZvZHxhBhBsvsvsvsvHxzABvzANTzSHxYlvZFsTDHxhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBHxTXRFSmFPofHxuauauauauaHxASASASydvZvZvZHxPTPTPTHxHxHxdogDWPWPHxuauaQQHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBSCSCSCSChBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBSCSCSChBrwryoEcESbHkZfZfZfSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBMeptVBtsSChBhBhBhBhBhBhBHxHxHxHxHxHxxNHxHxHxHxHxsvsvsvHxHxHxlSHxHxHxYlvZvZvZHxhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBgDzyzyuauauaHxuauauauaQQHxASASASgDvZvZvZHxzKPTPTHxELnsmfgDWPWPHxuaQQQQHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBSCSCSCSChBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvtlITdodorySlSbqnZfZfBtSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBMeptVBtsSChBhBhBhBhBhBhBHxtKvZuXHxwazAoXVvFoYpHxsvsvsvsvBzsvsvsvsvCrvZvZvZvZHxhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBHxgDgDFBgDHxHxHxgDFBgDHxHxHxHxHxHxgDvZgDHxHxdbHxHxHxgDHxHxWPWPHxHxHxgDHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBSCSCSCSChBhBhBhBhBSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBhBhBhBhBhBhBhBtlyDyDyDyDtlsvsvcEMZxsdoLBoESbiINBZfBtSbhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBMeptVBtshBhBhBhBhBhBhBhBHxvZpRvZubPTzAzAzAzAzAHxsvsvsvsvsvsvsvsvsvHxjPvZTDvZHxhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKhBhBHxcGmfmfmfgjgjvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZvZHxWPLhHxhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsK
@@ -2167,7 +2173,7 @@ sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvraHxzARbzAzAHxvZvZvZvZvZmfIvdodosvsv
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvHxzAzAzAzAxNvZvZvZvZmfmfdomfHxrasvsvsvmliprshPsvsvsvrasvsvsvrasvsvPCCxpIsvsvsvPKsvsvsvsvsvHxntDJNpvgstHxsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooCSFuKJKKKJKvCSLGoooooooooooooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSbZfZfEhZfVpZfZfSbXUdomfdodomfmfdoRHJLJLLSrOlYlYzclYlYlYzqKGKGdllbOtYElYqpuuPTPTPTxTdoBcdododomSvZvZxThBBZSCSCSCSChBhBhBSCSCSCSCSCSCSChBhBhBsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBrasvHxRbzAzALcHxvZvZvZdoLZeiLZdoHxsvsvsvsvmliprshPsvsvsvsvsvPKsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvHxdomfvZvZvZHxsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooLGCSFuKJKKKJKvCSLGoooooooooooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSbZfaQqnZfaQZfZftfjEmfvZvZdovZvZHPLSTFLSLSLSLSLSxTrfhxMZcPKGKGxTPvPvPvPvSYuuPTcYqyxTdoeiIvdovZvZdoMSxThBSCSCSCSCSChBhBSCCFSCSCSCSCSCSChBhBsKsKsKbGbGbGbGbGbGbGbGbGbGbGsKsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvHxHxHxHxHxHxHxHxHxHxHxHxHxHxHxsvsvsvsvmliprshPsvsvsvsvsvsvsvPKsvsvsvsvsvrasvXosvsvsvsvsvsvHxmfIvdoOeOeHxsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooLGLGCSFuKJKKKJKvCSLGLGLGoooooooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBSbZfZfqnaQZfZfaQSbBeIPPStlfdKGQAfdlYlYlYlYlYlYlYqpMZoSKWMRKGKGxTPvPvPvPvOtPTPTPTPTxTvZdohUdovZeiVIMaxThBSCSCSCSCSCSCSCSCSCSCSCSCSCSCSChBhBsKsKsKbGUWUWLMUWUWbGPTPTnZbGsKsKsKsK
-sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvsvsvsvsvsvsvfbsvsvoJsvsvsvsvsvsvsvsvsvmliprshPsvsvraXosvsvfbPKsvsvsvsvsvsvsvrasvsvrasvsvsvHxmfdomfKBwvHxsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooCSCSCSCSCSMENqNCMEOTOZMECSCSCSCSCSoooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSbZfaQqnZfaQZfZfSboEfjUGdoUdKGKGUdLSLShBhBhBhBhBxTvmhxMZUdrpKGUdPvqdPvPvMRisPTPTbaxTvZvZvZdogjdododoxThBhBSCSCSCSCSCSCSCSCSCSCSCSCCFhBhBhBsKsKsKbGpuUWUWUWQwbGPTtyPTbGsKsKsKsK
+sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvsvsvsvsvsvsvfbsvsvoJsvsvsvsvsvsvsvsvsvmliprshPsvsvraXosvsvfbPKsvsvsvsvsvsvsvrasvsvrasvsvsvHxmfdomfKBwvHxsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooCSCSCSCSCSMENqNCMEOTOZMECSCSCSCSCSoooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBChomaQqnZfaQTQZfSboEfjUGdoUdKGKGUdLSLShBhBhBhBhBxTvmhxMZUdrpKGUdPvqdPvPvMRisPTPTbaxTvZvZvZdogjdododoxThBhBSCSCSCSCSCSCSCSCSCSCSCSCCFhBhBhBsKsKsKbGpuUWUWUWQwbGPTtyPTbGsKsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBXosvsvsvrasvsvsvsvsvsvsvsvsvfbsvsvsvsvsvsvmlzWrshPsvsvsvsvsvsvsvsvsvsvsvPKPKsvPKPKsvsvPKsvsvsvHxHxVPHxHxHxHxsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooCSPcPcPcPcQpQrRjRkRlRpQpPcPcPcPcCSoooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSbZfZfqnZfZfaQZfSboEoEXUdoSYKGKGxTFSLShBhBhBhBhBdllYlYlYfdnaKGfdlYlYlYlYpVlYlYlYlYFDlbtfYEzclYlYlYlYzqhBhBSCCFSCBZBZBZBZBZSCSCSCSCSChBhBhBsKsKsKbGpuUWUWTfTfbGuwPTHFbGsKsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvrFiprsLlsvsvsvoJsvsvsvsvsvsvsvsvrasvPKPKsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooCSTpTLTLTLUuUZVsVDVWWdUuWGWGWGWNCSoooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBSbhHpdbMZfaQZfaQSbXqXwXUdotfKGKGxTHTISLSRvhBhBhBxTLSLSLSLSnaKGvZrgCldovZSYuauaXDMBXmuauauaxTsKsKhBhBhBhBhBhBBZBZBZhBhBhBBZBZBZSCSChBhBhBsKsKsKsKbGbGdbbGbGbGbGbGdbbGbGsKsKsKsK
 sKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsvsvsvHxHxHxHxHxHxdomfdodomfdomfdodoHxHxHxHxHxHxsvsvsvsvsvsvfbsvsvsvsvsvsvsvrasvsvsvsvsvsvsvsvsvedooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooCSXMXMXMXMMEYnYsZhZBlNMEXMXMXMXMCSoooooooooooooooooooooooooohBhBhBhBhBhBsKsKsKsKsKsKsKsKsKhBhBhBhBhBhBhBhBSbHkZfaQZfZfZfZfSbtlaJNhmfMRtuAKxTmfKcmeLSLSLShBfdLSLSfjuVrBKGmfIvhxdodotfuauauauauauauauaxTsKsKsKhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBhBsKsKsKsKsKbGUWUWUWUWUWUWUWUWUWbGsKsKsKsK
@@ -2222,7 +2228,7 @@ NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
 NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRYAMkMkMkMkMkxRxRxRxRxRxRxRxRxRxRxRMkMkMkxRxRxRxRxRxRxRxRxRxRxRMkMkMkMkMkMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
 NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRMkMkMkMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkMkMkMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
 NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRMkMkMkMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkxRMkMkMkMkMkMkLTMkMkxRMkMkMkMkMkMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
-NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRYAMkMkMkMkMkxRMkMkMkMkMkMkMkMkMkmYMkMkMkmYMkMkMkMkMkMkMkMkMkxRMkMkMkMkGVMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
+NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRYAMkMkMkMkMkxRMkMkMkMkMkMkMkMkMkmYMkMkMkmYMkMkMkHnMkMkMkMkMkxRMkMkMkMkGVMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
 NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRxRxRxRmYxRxRxRMkMkMkMkMkMkMkMkMkxRMkMkMkxRMkMkMkMkMkMkMkMkMkxRxRxRxRmYxRxRxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
 NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRMkMkMkMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkMkMkMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM
 NMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMjDxRMkMkMkMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkxRMkMkMkMkMkMkMkMkMkxRMkMkMkMkMkMkxRjDNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNMNM

@@ -45,7 +45,7 @@
 	. =..()
 	var/mob/living/L = .
 	if(istype(L))
-		L << "\red The [src]'s spectral hands burn!"
+		to_chat(L,"<span class='warning'> The [src]'s spectral hands burn!</span>")
 		if(prob(20))
 			L.apply_effects(0,3)
 			L.visible_message("<span class='danger'>\The [src] knocks down \the [L]!</span>")
