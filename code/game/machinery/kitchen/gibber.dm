@@ -270,10 +270,10 @@ obj/machinery/gibber/New()
 	..()
 	overlays = null
 
-/obj/machinery/gibber/autogibber/attack_hand(mob/user )
+/obj/machinery/gibber/autogibber/attack_hand(mob/user)
 	Bumped(user)
 
-/obj/machinery/gibber/autogibber/attackby(var/obj/item/O, var/mob/user )
+/obj/machinery/gibber/autogibber/attackby(var/obj/item/O, var/mob/user)
 	Bumped(user)
 
 /obj/machinery/gibber/autogibber/Bumped(var/atom/A)

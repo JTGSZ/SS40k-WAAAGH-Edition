@@ -16,14 +16,18 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	var/uses = 0
 	var/trigger = "NOTHING"
 	var/list/compatible_mobs = list(/mob/living)
+
 /datum/item_effect/proc/item_init(var/obj/item/O)    //What the effect does to an object upon laying the curse on it.
-		O.item_effects.Add(src)
+	O.item_effects.Add(src)
+
 /datum/item_effect/proc/item_act(var/mob/living/M) //What the effect does to a human upon laying the curse on the human or activating it from an object.
-		M.item_effects.Add(src)
+	M.item_effects.Add(src)
+
 /datum/item_effect/proc/neutralize_obj(var/obj/item/O)
-		O.item_effects.Remove(src)
+	O.item_effects.Remove(src)
+
 /datum/item_effect/proc/neutralize_mob(var/mob/living/M)
-		M.item_effects.Remove(src)
+	M.item_effects.Remove(src)
 
 /datum/item_effect/New()
 	uses = max_uses
@@ -108,9 +112,11 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	desc = "Curses the item so that any victim who tries to pick it up will not be able to drop it, as it will be stuck to them."
 	charge = 200
 	compatible_mobs = list()
+
 /datum/item_effect/undroppable/item_init(var/obj/O)
 		O.flags |= NODROP
 		..()
+
 /datum/item_effect/undroppable/neutralize_obj(var/obj/O)
 		O.flags &= ~NODROP
 		..()
@@ -119,6 +125,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	name = "Fire Curse"
 	desc = "A curse that sets people on fire."
 	charge = 100
+
 /datum/item_effect/ignite/item_act(var/mob/living/M)
 	to_chat(M, "<span class='warning'> You burst into flames!</span>")
 	M.fire_stacks += 5
@@ -129,6 +136,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	desc = "NEEIGH"
 	charge = 250
 	compatible_mobs = list(/mob/living/carbon/human)
+
 /datum/item_effect/horseman/item_act(var/mob/living/carbon/human/M)
 	to_chat(M, "<span class='warning'>HOR-SIE HAS RISEN</span>")
 	var/obj/item/clothing/mask/horsehead/magichead = new /obj/item/clothing/mask/horsehead
@@ -202,6 +210,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /datum/item_effect/wormhole
 	name = "Wormhole Effect"
 	desc = "Produces a wormhole to a random teleportation beacon."
+
 /datum/item_effect/wormhole/item_act(var/mob/living/M)
 	var/list/L = list()
 	for(var/obj/item/device/radio/beacon/B in world)
@@ -243,6 +252,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	name = "Feast Effect"
 	desc = "Eats you."
 	compatible_mobs = list(/mob/living/carbon/human)
+
 /datum/item_effect/eating/item_act(var/mob/living/carbon/human/M)
 	to_chat(M, "<span class='warning'>A scream enters your mind and fades away!</span>")
 	spawn(50)
@@ -265,6 +275,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /datum/item_effect/hulk
 	name = "Hulk Effect"
 	desc = "Makes you big and strong."
+
 /datum/item_effect/hulk/item_act(var/mob/living/M)
 		M.mutations.Add(M_HULK)
 		M.update_mutations()
@@ -272,6 +283,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /datum/item_effect/tk
 	name = "Telekinesis Effect"
 	desc = "Makes you very clever."
+
 /datum/item_effect/tk/item_act(var/mob/living/M)
 		M.mutations.Add(M_TK)
 		M.update_mutations()
@@ -279,6 +291,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /datum/item_effect/radiate
 	name = "Radiation Effect"
 	desc = "Makes you get radiation problems."
+
 /datum/item_effect/tk/item_act(var/mob/living/M)
 		randmutb(M)
 		randmutb(M)
@@ -337,14 +350,14 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	desc = "Makes you call the dead."
 
 /datum/item_effect/raise/item_act(var/mob/living/M)
-		for(var/mob/dead/G in world)
-			if(G.mind && G.key)
-				G.loc = get_turf(M)
-				var/mob/living/S = new /mob/living/simple_animal/shade(M.loc)
-				S.name = "Spectre"
-				S.real_name = "Spectre"
-				G.mind.transfer_to(S)
-				S.key = G.key
+	for(var/mob/dead/G in world)
+		if(G.mind && G.key)
+			G.loc = get_turf(M)
+			var/mob/living/S = new /mob/living/simple_animal/shade(M.loc)
+			S.name = "Spectre"
+			S.real_name = "Spectre"
+			G.mind.transfer_to(S)
+			S.key = G.key
 
 /datum/item_effect/shieldwall
 	name = "Shield Wall Effect"
@@ -354,13 +367,14 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 		..()
 		duration = pick(50,100,300,600,1200,3000)
 /datum/item_effect/shieldwall/item_act(var/mob/living/M)
-		for(var/turf/simulated/floor/T in orange(4,M))
-			if(get_dist(M,T) == 4)
-				var/obj/effect/forcefield/field = new /obj/effect/forcefield(T)
-				spawn(duration)
-					del(field)
+	for(var/turf/simulated/floor/T in orange(4,M))
+		if(get_dist(M,T) == 4)
+			var/obj/effect/forcefield/field = new /obj/effect/forcefield(T)
+			spawn(duration)
+				qdel(field)
 
-/obj/item/var/shield_item = 0 //Quick way to make items block projectiles.
+/obj/item/
+	var/shield_item = 0 //Quick way to make items block projectiles.
 
 /obj/item/IsShield()
 	return (shield_item)
@@ -432,6 +446,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	set category = "item"
 	set name = "Unnatural Agility"
 	set src in usr
+
 	var/mob/living/carbon/human/U = usr
 	if(charge > 10)
 		charge -= 10
@@ -446,6 +461,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	set name = "Charge Agility"
 	set desc = "Pay the price in blood for more power..."
 	set src in usr
+
 	var/mob/living/carbon/human/U = usr
 	if(charge < 20)
 		charge += 5
@@ -654,6 +670,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /mob/living/simple_animal/shade/proc/telepathic_shout() //Why a bunch of tormented souls can really cause problems.
 	set category = "item"
 	set name = "Telepathic Shout"
+
 	var/mob/living/carbon/target = input("Choose what you wish to throw at.","item Throw") as mob in view(get_turf(src.item),7)
 	if(target && istype(target))
 		if(istype(src.item, /obj/item/weapon/slaanesh_blade))
@@ -746,6 +763,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	//Daemon also may heal/destun target player, telepath with them, and harm them.
 	spawn()
 		src.passive()
+
 /datum/item_effect/daemon_effect/proc/passive()
 	set background = BACKGROUND_ENABLED
 	while(1)

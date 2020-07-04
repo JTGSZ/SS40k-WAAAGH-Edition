@@ -4,6 +4,17 @@
 	var/attachpoint
 	var/list/salvage_items = list()
 	var/currently_cleansed = FALSE
+	var/currently_unanchored = FALSE
+
+/datum/salvage_structure/proc/unanchor_the_boys()
+	if(!currently_unanchored)
+		for(var/obj/structure/shipping_containers/YAYA in mybitches)
+			YAYA.anchored = FALSE
+			currently_unanchored = TRUE
+			spawn(10)
+				YAYA.anchored = TRUE
+		return 0
+	return 1
 
 /datum/salvage_structure/proc/unleash_contents(mob/user)
 	if(salvage_items.len)
@@ -42,6 +53,22 @@
 		for(var/obj/I in mybitches)
 			qdel(I)
 
+/datum/locking_category/shipping_container_left
+	x_offset       = -1
+
+/datum/locking_category/shipping_container_right
+	x_offset       = 1
+
+/obj/structure/shipping_containers/lock_atom(var/atom/movable/AM, var/datum/locking_category/category)
+	. = ..()
+	if(!.)
+		return
+
+/obj/structure/shipping_containers/unlock_atom(var/atom/movable/AM, var/datum/locking_category/category)
+	. = ..()
+	if(!.)
+		return
+
 /*
 	See: Salvage Lists for the actual drop lists
 	As to why, we can cut down drastically on lists, shits handled on the single datum per 3 objects anyways.
@@ -52,6 +79,8 @@
 	icon = 'z40k_shit/icons/obj/containers.dmi'
 	var/datum/salvage_structure/SLVS
 	density = 1
+	anchored = TRUE
+	bound_height = 64
 
 /obj/structure/shipping_containers/Destroy()
 	SLVS.cleanitup()
@@ -62,6 +91,12 @@
 	if(do_after(user, src, 50))
 		SLVS.unleash_contents(user)
 
+/obj/structure/shipping_containers/Bumped(atom/user)
+	if(ismob(user))
+		var/mob/living/L = user
+		if(L.attribute_strength >= 14)
+			SLVS.unanchor_the_boys()
+			
 //The middle will be special, it contains the primary datum and will be the scanning point.
 /obj/structure/shipping_containers/left
 /obj/structure/shipping_containers/middle
@@ -78,7 +113,10 @@
 		for(var/obj/structure/shipping_containers/SCONTZ in TURFZ)
 			SLVS.mybitches += SCONTZ
 			SCONTZ.SLVS = SLVS
-
+			if(istype(SCONTZ,/obj/structure/shipping_containers/left))
+				lock_atom(SCONTZ,/datum/locking_category/shipping_container_left)
+			else if(istype(SCONTZ, /obj/structure/shipping_containers/right))
+				lock_atom(SCONTZ,/datum/locking_category/shipping_container_right)
 /*
 	Clean Containers
 						*/

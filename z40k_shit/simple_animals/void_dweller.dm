@@ -2,8 +2,9 @@
 /mob/living/simple_animal/hostile/void_dweller
 	name = "void dweller"
 	desc = "A twisted, malevolent creature, cloaked in a tattered robe."
-	icon_state = "void_dweller"
-	icon_living = "void_dweller"
+	icon = 'z40k_shit/icons/mob/mobs.dmi'
+	icon_state = "ghost_dark"
+	icon_living = "ghost_dark"
 	speak_chance = 0
 	turns_per_move = 5
 	response_help = "thinks better of touching"
@@ -41,7 +42,7 @@
 		emote("is drawn towards \the [.]")
 		playsound(src.loc, 'sound/hallucinations/veryfar_noise.ogg', 50, 1)
 
-/mob/living/simple_animal/hostile/void_dweller/Die()
+/mob/living/simple_animal/hostile/void_dweller/death(gibbed)
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 50, 1)
 	emote("wails, collapsing in on itself until nothing remains..")
-	del(src)
+	qdel(src)

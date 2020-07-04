@@ -85,7 +85,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 	name = "tainted spirit"
 	real_name = "tainted spirit"
 	desc = "A malevolent presence."
-	icon = 'icons/mob/mob.dmi'
+	icon = 'z40k_shit/icons/mob/mobs.dmi'
 	icon_state = "ghost_dark"
 	icon_living = "ghost_dark"
 	icon_dead = "shade_dead"

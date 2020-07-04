@@ -1,6 +1,7 @@
 /obj/effect/decal/imperial_road_effects
 	icon = 'z40k_shit/icons/turfs/imperial_road_overlays.dmi'
 	pixel_x = 16
+	anchored = TRUE
 
 /obj/effect/decal/imperial_road_effects/roadhook
 	name = "Road hook"
