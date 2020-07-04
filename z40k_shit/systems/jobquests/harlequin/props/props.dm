@@ -13,7 +13,7 @@
 	icon = 'z40k_shit/icons/obj/clothing/hats.dmi'
 	icon_state = "harlequin"
 	item_state = "harlequin"
-	body_parts_covered = HEAD|MASKHEADHAIR
+	body_parts_covered = HEAD
 	armor = list(melee = 30, bullet = 25, laser = 25, energy = 100, bomb = 50, bio = 100, rad = 100)
 
 /obj/item/clothing/gloves/combat/harlequin

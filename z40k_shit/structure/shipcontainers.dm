@@ -54,10 +54,10 @@
 			qdel(I)
 
 /datum/locking_category/shipping_container_left
-	x_offset       = -1
+	x_offset = -1
 
 /datum/locking_category/shipping_container_right
-	x_offset       = 1
+	x_offset = 1
 
 /obj/structure/shipping_containers/lock_atom(var/atom/movable/AM, var/datum/locking_category/category)
 	. = ..()
@@ -91,12 +91,14 @@
 	if(do_after(user, src, 50))
 		SLVS.unleash_contents(user)
 
+/*
 /obj/structure/shipping_containers/Bumped(atom/user)
 	if(ismob(user))
 		var/mob/living/L = user
 		if(L.attribute_strength >= 14)
 			SLVS.unanchor_the_boys()
-			
+*/			
+
 //The middle will be special, it contains the primary datum and will be the scanning point.
 /obj/structure/shipping_containers/left
 /obj/structure/shipping_containers/middle
@@ -113,10 +115,10 @@
 		for(var/obj/structure/shipping_containers/SCONTZ in TURFZ)
 			SLVS.mybitches += SCONTZ
 			SCONTZ.SLVS = SLVS
-			if(istype(SCONTZ,/obj/structure/shipping_containers/left))
+		/*	if(istype(SCONTZ,/obj/structure/shipping_containers/left))
 				lock_atom(SCONTZ,/datum/locking_category/shipping_container_left)
 			else if(istype(SCONTZ, /obj/structure/shipping_containers/right))
-				lock_atom(SCONTZ,/datum/locking_category/shipping_container_right)
+				lock_atom(SCONTZ,/datum/locking_category/shipping_container_right)*/
 /*
 	Clean Containers
 						*/

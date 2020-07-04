@@ -161,6 +161,8 @@
 	desc = "Sometimes one must vent more than usual, and this seems fully adequate to handle all of it."
 	icon = 'z40k_shit/icons/turfs/64x64ruindecals.dmi'
 	icon_state = "bigvent"
+	density = 0
+	anchored = 1
 
 /*
 	Some F13 Windows I guess

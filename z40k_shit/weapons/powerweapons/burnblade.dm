@@ -9,7 +9,7 @@
 
 /obj/item/weapon/powersword/burning/attack(mob/living/M, mob/user)
 	..()
-	if(user.a_intent == "harm" && active)
+	if(active)
 		M.fire_stacks += 2
 		M.IgniteMob()
 		M.take_organ_damage(0, 10) //Yes, this is additional fire damage since it is a burning blade. But also notice how this ignores armor.

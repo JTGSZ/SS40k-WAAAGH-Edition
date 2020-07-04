@@ -15,7 +15,6 @@
 	var/activeforce = 30
 	var/onsound = 'sound/weapons/saberon.ogg'
 	var/base_state = "sword"
-	var/active_state = ""
 	actions_types = list(/datum/action/item_action/warhams/piercing_blow,
 					/datum/action/item_action/warhams/basic_swap_stance)
 	armor_penetration = 100
@@ -55,9 +54,6 @@
 
 /obj/item/weapon/powersword/New()
 	..()
-	_color = pick("red","blue","green","purple")
-	if(!active_state)
-		active_state = base_state + _color
 	update_icon()
 
 /obj/item/weapon/powersword/attack_self(mob/living/user)
@@ -105,10 +101,7 @@
 	update_icon()
 
 /obj/item/weapon/powersword/update_icon()
-	if(active && _color)
-		icon_state = active_state
-	else
-		icon_state = "[base_state][active]"
+	icon_state = "[base_state][active]"
 
 /obj/item/weapon/powersword/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	..()

@@ -13,20 +13,25 @@
 //	override_base = "const"
 
 /spell/targeted/stealth/cast(list/targets)
+	set waitfor = 0
 	for(var/mob/living/carbon/human/H in targets)
 		H.invisibility = INVISIBILITY_LEVEL_TWO
-		spawn(0)
-			anim(H.loc,H,'z40k_shit/icons/mob/mobs.dmi',,"cloak",,H.dir)
-		H.alpha = 0
-		H << "\blue You are now invisible to normal detection."
+		anim(H.loc,H,'z40k_shit/icons/mob/mobs.dmi',,"cloak",,H.dir)
+		H.alpha = 1
+		H.alphas["invisspell"] = 1
+		to_chat(H, "<span class='notice'> You are now invisible to normal detection.</span>")
+		
 		for(var/mob/O in oviewers(H))
 			O.show_message("[H.name] vanishes into thin air!",1)
-		sleep(120)
-		if(H)
-			spawn(0)
-				anim(H.loc,H,'z40k_shit/icons/mob/mobs.dmi',,"uncloak",,H.dir)
-			H.alpha = 255
-			H << "\blue You are now visible."
-			for(var/mob/O in oviewers(H))
-				O.show_message("[H.name] appears from thin air!",1)
+		
+	sleep(12 SECONDS)
+	
+	for(var/mob/living/carbon/human/H in targets)
+		anim(H.loc,H,'z40k_shit/icons/mob/mobs.dmi',,"uncloak",,H.dir)
+		H.alpha = initial(H.alpha)
+		H.alphas.Remove("invisspell")
+		to_chat(H, "<span class='notice'> You are now visible.</span>")
+		for(var/mob/O in oviewers(H))
+			O.show_message("[H.name] appears from thin air!",1)
 		H.invisibility = 0
+

@@ -4,9 +4,9 @@ Croneworlds Landmarks
 /obj/effect/landmark/cronespawner
 	name = "cronespawner"
 
-/obj/effect/landmark/costume/crone
+/obj/effect/landmark/cronespawner
 
-/obj/effect/landmark/costume/crone/New()
+/obj/effect/landmark/cronespawner/New()
 	var/landmarkrandom = rand(1, 19)
 	switch(landmarkrandom)
 		if(1)
@@ -15,7 +15,7 @@ Croneworlds Landmarks
 		if(2)
 			new /mob/living/simple_animal/hostile/shadow(loc)
 		if(3)
-			new /mob/living/simple_animal/hostile/necro/zombie(loc)
+			new /mob/living/simple_animal/hostile/necro/zombie/leatherman(loc)
 		if(4)
 			new /obj/item/clothing/head/ushanka(loc)
 		if(5)
