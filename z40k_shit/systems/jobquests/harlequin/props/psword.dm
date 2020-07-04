@@ -1,16 +1,15 @@
 /obj/item/weapon/powersword/harlequin
 	name = "Harlequin's Blade"
 	desc = "A harlequin's power sword."
-	icon_state = "harlequin_off"
+	icon_state = "harlequin0"
 	base_state = "harlequin"
 	throwforce = 30
+	force = 30
+	activeforce = 45
 	origin_tech = "combat=8"
 	parryprob = 250
 	parryduration = 10
 	var/slicecooldown = 0
-
-/obj/item/weapon/melee/energy/sword/pirate/can_combine_with(obj/item/W)
-	return 0
 
 /obj/item/weapon/powersword/harlequin/verb/slice()
 	set category = "Mime"

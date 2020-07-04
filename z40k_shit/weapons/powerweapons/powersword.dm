@@ -9,6 +9,7 @@
 	heat_production = 3500
 	source_temperature = TEMPERATURE_PLASMA
 	sterility = 0
+	force = 30
 	var/sharpness_on = 1.5 //so badmins can VV this!
 	var/active = 0
 	var/activeforce = 30
@@ -103,7 +104,7 @@
 		to_chat(user, "<span class='notice'> [src] can now be concealed.</span>")
 	update_icon()
 
-/obj/item/weapon/melee/energy/sword/update_icon()
+/obj/item/weapon/powersword/update_icon()
 	if(active && _color)
 		icon_state = active_state
 	else

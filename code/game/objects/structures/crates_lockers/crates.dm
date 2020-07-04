@@ -418,7 +418,7 @@
 
 	icon_state = icon_opened
 	src.opened = 1
-	setDensity(FALSE)
+//	setDensity(FALSE)
 	return 1
 
 /obj/structure/closet/crate/close()
@@ -432,7 +432,7 @@
 
 	icon_state = icon_closed
 	src.opened = 0
-	src.setDensity(TRUE)
+//	src.setDensity(TRUE)
 	return 1
 
 /obj/structure/closet/crate/insert(var/atom/movable/AM, var/include_mobs = 0)
@@ -458,7 +458,7 @@
 	AM.forceMove(src)
 	return 1
 
-/obj/structure/closet/crate/attack_hand(mob/user )
+/obj/structure/closet/crate/attack_hand(mob/user)
 	if(!Adjacent(user))
 		return
 	if(opened)
@@ -473,7 +473,7 @@
 		open()
 	return
 
-/obj/structure/closet/crate/secure/attack_hand(mob/user )
+/obj/structure/closet/crate/secure/attack_hand(mob/user)
 	if(!Adjacent(user))
 		return
 	if(locked && !broken)
@@ -500,7 +500,7 @@
 	else
 		to_chat(user, "<span class='notice'>Access Denied.</span>")
 
-/obj/structure/closet/crate/secure/attackby(obj/item/weapon/W, mob/user )
+/obj/structure/closet/crate/secure/attackby(obj/item/weapon/W, mob/user)
 	if ( istype(W, /obj/item/weapon/card/emag) && locked &&!broken)
 		overlays.len = 0
 		overlays += emag
@@ -557,10 +557,10 @@
 			else
 				overlays += greenlight
 
-/obj/structure/closet/crate/attack_paw(mob/user )
+/obj/structure/closet/crate/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/structure/closet/crate/attackby(obj/item/weapon/W, mob/user )
+/obj/structure/closet/crate/attackby(obj/item/weapon/W, mob/user)
 	if(opened)
 		return ..()
 	else if(istype(W, /obj/item/weapon/circuitboard/airlock) && src.has_lock_type)

@@ -75,10 +75,10 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 		M.key = src.key
 		spawn(3000) //If it hasn't been killed a bit later, it will run out of energy unless it happened to drain a corpse.
 			if(M)
-				M << "\red Your borrowed life force from absorbed blood runs out."
+				to_chat(M,"<span class='warning'> Your borrowed life force from absorbed blood runs out.</span>")
 				M.health -= 15
 				if(M.health <= 0)
-					M << "\red You have no remaining energy to sustain your corporeal form!"
+					to_chat(M, "<span class='warning'> You have no remaining energy to sustain your corporeal form!</span>")
 					M.death()
 
 /mob/living/simple_animal/hostile/dark_ghost
@@ -117,8 +117,8 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 		if(!(M_HUSK in M.mutations))
 			M.mutations.Add(M_HUSK)
 			M.update_mutations()
-			M.visible_message("\red The [src] desecrates [M]'s corpse!", "\red You drain energy from [M]'s corpse.", "\red You hear a slurping sound.")
-			src << "\red You feel energized!"
+			M.visible_message("<span class='warning'> The [src] desecrates [M]'s corpse!</span>", "<span class='warning'> You drain energy from [M]'s corpse.</span>", "<span class='warning'> You hear a slurping sound.</span>")
+			to_chat(usr, "<span class='warning'> You feel energized!</span>")
 			if(speed > -1)
 				speed -= 1
 			maxHealth += 20 //Not terribly potent. A spirit in theory could become not utterly useless with some skilled manipulation, but pretty much anyone with a lasgun will not be threatened.
@@ -129,7 +129,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 			melee_damage_upper += 6
 			energy += 1
 		else
-			src << "\red This corpse is a husk."
+			to_chat(usr, "<span class='warning'> This corpse is a husk.</span>")
 
 /mob/living/simple_animal/hostile/dark_ghost/verb/spectre() //Lets them expend some energy to make use of their part-ghost nature. This will let one of these spirits do well with allying themselves to one of the living or some such.
 	set category = "Ghost"
@@ -139,9 +139,9 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 	if(phased) return
 
 	if(!energy)
-		src << "\red You do not have the strength to exert such control over your material form!"
+		to_chat(usr, "<span class='warning'> You do not have the strength to exert such control over your material form!</span>")
 	else
-		src << "\red You move around other objects as if fully a spirit."
+		to_chat(usr, "<span class='warning'> You move around other objects as if fully a spirit.</span>")
 		energy -= 1
 		src.incorporeal_move = 1
 		phased = 1
@@ -154,7 +154,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 			melee_damage_upper = old_melee_damage_upper
 			src.incorporeal_move = 0
 			phased = 0
-			src << "\red You are no longer incorporeal."
+			to_chat(usr, "<span class='warning'> You are no longer incorporeal.</span>")
 
 /mob/living/simple_animal/hostile/dark_ghost/bullet_act(var/obj/item/projectile/Proj)
 	if(phased)
@@ -167,6 +167,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 	..(damage)
 
 /mob/living/simple_animal/hostile/dark_ghost/death(gibbed)
-	src.visible_message("\red [src] dissolves into nothingness with a growl.","\red Your physical form is undone.","\red You hear an anguished growl!")
+	src.visible_message("<span class='warning'> [src] dissolves into nothingness with a growl.</span>","<span class='warning'> Your physical form is undone.</span>","<span class='warning'> You hear an anguished growl!</span>")
 	src.ghostize(0)
 	qdel(src)
+	

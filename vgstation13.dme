@@ -2784,6 +2784,7 @@
 #include "z40k_shit\systems\experimental\viscon_effects\ghostbody_effects.dm"
 #include "z40k_shit\systems\jobquests\jobquests.dm"
 #include "z40k_shit\systems\jobquests\harlequin\harlequin.dm"
+#include "z40k_shit\systems\jobquests\harlequin\props\altsoulstone.dm"
 #include "z40k_shit\systems\jobquests\harlequin\props\coat.dm"
 #include "z40k_shit\systems\jobquests\harlequin\props\coin.dm"
 #include "z40k_shit\systems\jobquests\harlequin\props\haktool.dm"

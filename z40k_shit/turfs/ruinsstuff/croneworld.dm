@@ -13,3 +13,15 @@
 
 /turf/unsimulated/croneworldfloors/crone/ex_act(severity)
 	return
+
+/turf/simulated/wall/vaultstatic
+	icon_state = "rockvault"
+
+/turf/simulated/wall/vaultstatic/New()
+	..()
+
+/turf/simulated/wall/vaultstatic/relativewall()
+	return
+
+/turf/simulated/wall/vaultstatic/canSmoothWith()
+	return null

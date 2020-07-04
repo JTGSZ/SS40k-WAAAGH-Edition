@@ -22,7 +22,7 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 	if(target != M)
 		artifact_power.init_mob(M)
 		src.target = M
-		spirit << "\red <b>The new bearer of your spirit is [M]!</b>"
+		to_chat(spirit, "<span class='warning'> The new bearer of your spirit is [M]!</span>")
 /datum/artifact_effect/captured_soul/artifact_init(var/obj/item/O)
 	..()
 	myitem = O
@@ -70,24 +70,24 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 
 /obj/item/weapon/slaanesh_blade/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is falling on [src.name]! It looks like \he's trying to commit suicide.</span>")
-	user << "\red You hear the sound of laughter in your mind as darkness overtakes your consciousness."
+	to_chat(user, "<span class='warning'> You hear the sound of laughter in your mind as darkness overtakes your consciousness.</span>")
 	user.sleeping += 25 //Just making sure they pass out. By the time the slaaneshi gets the blade, they will probably not die from falling on their sword.
 	spawn(100)
 		user.visible_message("<span class='suicide'>You hear a hissing sound as a wave of exquisite pain washes over you.</span>") //Spooky slaaneshi shit.
-		user << "\red Your essence is consumed by [src]!" //If someone willingly sacrifices themselves with the blade, it becomes even more powerful than if you forcibly captured their soul.
+		to_chat(user, "<span class='warning'> Your essence is consumed by [src]!</span>") //If someone willingly sacrifices themselves with the blade, it becomes even more powerful than if you forcibly captured their soul.
 		src.force += 20
 		src.throwforce += 20
 		src.energy = 0 //Not much sorcery demanding a master's allegiance after the master kills themself. Then the blade is just free.
 		src.absorb_soul(null, user)
 	//return(BRUTELOSS)
 
-/obj/item/weapon/slaanesh_blade/attack(target as mob, mob/living/user as mob)
+/obj/item/weapon/slaanesh_blade/attack(target, mob/living/user)
 	if(istype(target,/mob/living/carbon))
 		var/mob/living/carbon/C = target
 		if(C == user)
-			user.visible_message("\red [user] slits their wrist with [src]!", \
-	"\red You draw your own blood to strengthen the sorcery in [src], bringing the inhabitant spirits under greater control.", \
-	"\red You hear a hissing sound.")
+			user.visible_message("<span class='warning'> [user] slits their wrist with [src]!</span>", \
+	"<span class='warning'> You draw your own blood to strengthen the sorcery in [src], bringing the inhabitant spirits under greater control.</span>", \
+	"<span class='warning'> You hear a hissing sound.</span>")
 			energy += 60
 			force += 1.0
 			throwforce += 1.0
@@ -95,19 +95,19 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 			return
 		if(C.stat == 2)
 			if(C.client)
-				user << "\red [src] greedily absorbs [C]'s essence!"
-				user << "\red [src] seems to hum with energy as [C]'s torment is soaked up by the blade!"
+				to_chat(user, "<span class='warning'> [src] greedily absorbs [C]'s essence!</span>")
+				to_chat(user, "<span class='warning'> [src] seems to hum with energy as [C]'s torment is soaked up by the blade!</span>")
 			src.absorb_soul(user, C)
 			playsound(loc, 'sound/hallucinations/wail.ogg', 50, 1, -1)
 		else
 			if(prob(src.artifact_effects.len*30))
-				user << "\red [src] overloads [C]'s senses and casts them into a breif coma."
+				to_chat(user, "<span class='warning'> [src] overloads [C]'s senses and casts them into a breif coma.</span>")
 				C.sleeping += 10
 	else if(istype(target,/mob/living/simple_animal)) //Still gibs animals, but gets less power from them.
 		var/mob/living/simple_animal/A = target
 		if(A.stat == 2)
-			user << "\red [src] accepts your sacrifice."
-			user << "\red [src] seems slightly energized."
+			to_chat(user, "<span class='warning'> [src] accepts your sacrifice.")
+			to_chat(user, "<span class='warning'> [src] seems slightly energized.")
 			src.force += 3.0
 			src.throwforce += 5.0
 			A.gib()
@@ -118,16 +118,16 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 	..()
 	if(isliving(hit_atom))
 		var/mob/living/vict = hit_atom
-		vict.visible_message("\red [src] swings in midair as if it had a mind of its own, pointing like a compass needle to [hit_atom]'s heart as its point slashes them!", \
-	"\red You feel a stabbing pain in your chest as [src] drives itself towards your heart!", \
-	"\red You hear the sound of steel slicing through flesh.")
+		vict.visible_message("<span class='warning'> [src] swings in midair as if it had a mind of its own, pointing like a compass needle to [hit_atom]'s heart as its point slashes them!</span>", \
+	"<span class='warning'> You feel a stabbing pain in your chest as [src] drives itself towards your heart!</span>", \
+	"<span class='warning'> You hear the sound of steel slicing through flesh.</span>")
 		if(iscarbon(vict) && vict.stat == 2)
 			src.absorb_soul(null, vict)
 
 /obj/item/weapon/slaanesh_blade/proc/absorb_soul(var/mob/living/carbon/user, var/mob/living/carbon/C)
 	if(!C.client)
 		if(user)
-			user << "\red This one's soul is not present. Sacrifice failed."
+			to_chat(user, "<span class='warning'> This one's soul is not present. Sacrifice failed.</span>")
 		return //No absorbing AFK people.
 	var/datum/artifact_effect/captured_soul/soul = new()
 	soul.victim = C

@@ -47,7 +47,10 @@ These shouldn't smooth since they are more or less so you can create detailed ma
 	desc = "A parent for walls that aren't supposed to smooth."
 
 /turf/simulated/wall/rockcrete/backdrop/New()
-	...()
+	..()
+
+/turf/simulated/wall/rockcrete/backdrop/relativewall()
+	return
 
 /turf/simulated/wall/rockcrete/backdrop/canSmoothWith()
 	return null
