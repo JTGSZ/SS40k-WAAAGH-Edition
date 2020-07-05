@@ -200,6 +200,7 @@
 	if(locked_to)
 		manual_stop_follow(locked_to)
 
+/*
 /mob/dead/observer/verb/jumptomob() //Moves the ghost instead of just changing the ghosts's eye -Nodrak
 	set category = "Ghost"
 	set name = "Jump to Mob"
@@ -233,6 +234,7 @@
 					manual_stop_follow(locked_to)
 			else
 				to_chat(A, "This mob is not located in the game world.")
+*/
 
 /mob/dead/observer/verb/toggle_darkness()
 	set name = "Toggle Darkness"
