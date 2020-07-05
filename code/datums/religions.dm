@@ -6,8 +6,8 @@
 	else if(H.mind.faith) // The user has a faith
 		var/datum/religion/R = H.mind.faith
 		return R.deity_name
-	else if(H.mind.assigned_role == "Clown")
-		return "Honkmother"
+	else if(H.mind.assigned_role == "Celebrity")
+		return "Yourself cause you are the best"
 	else if(H.mind.assigned_role == "Trader")
 		return "Shoalmother"
 	else if(!ishuman(H))

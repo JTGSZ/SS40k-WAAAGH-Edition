@@ -28,7 +28,7 @@ var/list/station_departments = list("Command", "Medical", "Engineering", "Scienc
 
 /datum/job/preacher/department = "Civilian"
 
-/datum/job/clown/department = "Civilian"
+/datum/job/celebrity/department = "Civilian"
 
 /datum/job/mime/department = "Civilian"
 

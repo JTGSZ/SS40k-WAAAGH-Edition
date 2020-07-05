@@ -861,21 +861,18 @@ var/list/uplink_items = list()
 	desc = "A fearsome piece of ancient Clown technology, the armor-piercing discarding sabonanas fired by this weapon shed their peels in flight, increasing their damage and creating a slipping hazard in their wake. Only those trained in the Clown arts may use this weapon without risking a severe malfunction."
 	item = /obj/item/weapon/gun/banannon
 	cost = 18
-	jobs_exclusive = list("Clown")
 
 /datum/uplink_item/jobspecific/clown_mime/bsword
 	name = "Energized Bananium Sword"
 	desc = "An ancient piece of technology from a lost civilization. This energy sword conceals perfectly into a banana hilt that will easily fool most, but becomes extremely lethal when activated. Two of these can be combined to create the ultimate power weapon, but only a Clown may safely handle such power for the glory of Clown-kind."
 	item = /obj/item/weapon/melee/energy/sword/bsword
 	cost = 8
-	jobs_exclusive = list("Clown")
 
 /datum/uplink_item/jobspecific/clown_mime/livingballoons
 	name = "Box of Living Long Balloons"
 	desc = "These modified balloons can be tied into special balloon animals, which will come to life and attack any nearby non-Clowns if a balloon is popped near them. Serious hazard if manipulated by those not versed in the Clown arts."
 	item = /obj/item/weapon/storage/box/balloons/long/living
 	cost = 6
-	jobs_exclusive = list("Clown")
 
 /datum/uplink_item/jobspecific/clown_mime/clowngrenade
 	name = "Banana Grenade"
@@ -883,7 +880,6 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/grenade/clown_grenade
 	cost = 6
 	discounted_cost = 5
-	jobs_with_discount = list("Clown")
 
 /datum/uplink_item/jobspecific/clown_mime/bananagun
 	name = "Banana Gun"
@@ -891,7 +887,6 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/gun/projectile/banana
 	cost = 4
 	discounted_cost = 2
-	jobs_with_discount = list("Clown")
 
 /datum/uplink_item/jobspecific/clown_mime/superglue
 	name = "Bottle of Superglue"
@@ -899,14 +894,12 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/glue
 	cost = 6
 	discounted_cost = 4
-	jobs_with_discount = list("Clown", "Mime")
 
 /datum/uplink_item/jobspecific/clown_mime/invisible_spray
 	name = "Can of Invisible Spray"
 	desc = "Spray something to render it invisible for five minutes! Can only be used once. Permanence not guaranteed when exposed to water, may not render all parts invisible, especially for humans."
 	item = /obj/item/weapon/invisible_spray
 	cost = 6
-	jobs_excluded = list("Clown", "Mime")
 
 /datum/uplink_item/jobspecific/clown_mime/invisible_spray/permanent
 	name = "Can of Permanent Invisible Spray"
@@ -914,14 +907,12 @@ var/list/uplink_items = list()
 	item = /obj/item/weapon/invisible_spray/permanent
 	cost = 4
 	jobs_excluded = list()
-	jobs_exclusive = list("Clown", "Mime")
 
 /datum/uplink_item/jobspecific/clown_mime/advancedmime
 	name = "Advanced Mime Gloves"
 	desc = "Grants the user the ability to periodically fire an invisible gun from their white gloves with two rounds in the chamber, dealing decent damage. Only real Mimes are trained in the art of firing this artefact silently when using the forbidden hand-gun technique."
 	item = /obj/item/clothing/gloves/white/advanced
 	cost = 12
-	jobs_exclusive = list("Mime")
 
 /datum/uplink_item/jobspecific/assistant
 	category = "Assistant Specials"

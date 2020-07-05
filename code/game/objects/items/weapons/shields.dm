@@ -106,7 +106,7 @@
 	else
 		return 0
 
-/obj/item/weapon/shield/energy/attack_self(mob/living/user )
+/obj/item/weapon/shield/energy/attack_self(mob/living/user)
 	if (clumsy_check(user) && prob(50))
 		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
 		user.take_organ_damage(5)

@@ -1,386 +1,21 @@
-//Works like curses, makes research more interesting. Random items (scattered on the snow?) that are actually regular objects with unique effects built in.
-//This may look suspiciously like curses code... The only reason I didn't outright inherit is because that is a misleading path name.
-//But hey, it isn't as if I am copying code for this since I wrote curse effects too.
-//What would be cool is if there was a machine that reverse engineered item effects and infused other objects with effects you find.
-//Some items should look like normal items, some should be ornate looking weapons that are probably daemonic, and some should look like bizarre alien gizmos.
-//NOTE: This is only a first draft of the system. I intend to make a lot more effects. And maybe let other people submit stuff for effects for consideration, since a single effect is quite easy to code.
-//-DrakeMarshall
 
-var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ignite,/datum/item_effect/horseman,/datum/item_effect/blind,/datum/item_effect/heal,/datum/item_effect/harm,/datum/item_effect/stone,/datum/item_effect/tele,/datum/item_effect/wormhole,/datum/item_effect/eating,/datum/item_effect/shield,/datum/item_effect/ominous,/datum/item_effect/fake,/datum/item_effect/hulk,/datum/item_effect/tk,/datum/item_effect/radiate,/datum/item_effect/raise,/datum/item_effect/shieldwall)
 
-/datum/item_effect
-	var/name = "generic effect"   //Name
-	var/desc = "doesn't exist"    //Help text
-	var/charge = 0                //How much energy the item uses, in spells determines charge time, in objects determines charge time for infusing the object with a effect.
-	var/max_uses = 25             //How many times the effect will activate until it wears off. Set to -1 or 0 for infinite.
-	var/uses = 0
-	var/trigger = "NOTHING"
-	var/list/compatible_mobs = list(/mob/living)
 
-/datum/item_effect/proc/item_init(var/obj/item/O)    //What the effect does to an object upon laying the curse on it.
-	O.item_effects.Add(src)
 
-/datum/item_effect/proc/item_act(var/mob/living/M) //What the effect does to a human upon laying the curse on the human or activating it from an object.
-	M.item_effects.Add(src)
 
-/datum/item_effect/proc/neutralize_obj(var/obj/item/O)
-	O.item_effects.Remove(src)
-
-/datum/item_effect/proc/neutralize_mob(var/mob/living/M)
-	M.item_effects.Remove(src)
-
-/datum/item_effect/New()
-	uses = max_uses
-
-/obj/item
-	var/list/item_effects = list()
-
-/mob
-	var/list/item_effects = list()
-
-/obj/item/attack_hand(mob/user)
-	if(item_effects)
-		for(var/datum/item_effect/C in item_effects)
-			if(C.trigger == "ATTACK_HAND")
-				if(!(C in user.item_effects))
-					C.item_act(user)
-					if(C.max_uses > 0)
-						C.uses -= 1
-						if(C.uses == 0)
-							item_effects.Remove(C)
-	..()
-
-/obj/item/attack_self(mob/user)
-	if(item_effects)
-		for(var/datum/item_effect/C in item_effects)
-			if(C.trigger == "ATTACK_SELF")
-				if(!(C in user.item_effects))
-					C.item_act(user)
-					if(C.max_uses > 0)
-						C.uses -= 1
-						if(C.uses == 0)
-							item_effects.Remove(C)
-	..()
-
-/obj/item/equipped(mob/user)
-	if(item_effects)
-		for(var/datum/item_effect/C in item_effects)
-			if(C.trigger == "EQUIP")
-				if(!(C in user.item_effects))
-					C.item_act(user)
-					if(C.max_uses > 0)
-						C.uses -= 1
-						if(C.uses == 0)
-							item_effects.Remove(C)
-	..()
-
-/obj/item/on_found(mob/user)
-	if(item_effects)
-		for(var/datum/item_effect/C in item_effects)
-			if(C.trigger == "FOUND")
-				if(!(C in user.item_effects))
-					C.item_act(user)
-					if(C.max_uses > 0)
-						C.uses -= 1
-						if(C.uses == 0)
-							item_effects.Remove(C)
-	..()
-
-/obj/item/attack(mob/living/M, mob/user)
-	if(item_effects)
-		for(var/datum/item_effect/C in item_effects)
-			if(C.trigger == "ATTACK")
-				if(!(C in user.item_effects))
-					C.item_act(user)
-					if(C.max_uses > 0)
-						C.uses -= 1
-						if(C.uses == 0)
-							item_effects.Remove(C)
-			if(C.trigger == "ATTACK_OTHER")
-				if(!(C in M.item_effects))
-					C.item_act(M)
-					if(C.max_uses > 0)
-						C.uses -= 1
-						if(C.uses == 0)
-							item_effects.Remove(C)
-	..()
-
-//here some of the curse effects since they can technically be items.
-
-/datum/item_effect/undroppable
-	name = "Undroppable Item"
-	desc = "Curses the item so that any victim who tries to pick it up will not be able to drop it, as it will be stuck to them."
-	charge = 200
-	compatible_mobs = list()
-
-/datum/item_effect/undroppable/item_init(var/obj/O)
-		O.flags |= NODROP
-		..()
-
-/datum/item_effect/undroppable/neutralize_obj(var/obj/O)
-		O.flags &= ~NODROP
-		..()
-
-/datum/item_effect/ignite
-	name = "Fire Curse"
-	desc = "A curse that sets people on fire."
-	charge = 100
-
-/datum/item_effect/ignite/item_act(var/mob/living/M)
-	to_chat(M, "<span class='warning'> You burst into flames!</span>")
-	M.fire_stacks += 5
-	M.IgniteMob()
-
-/datum/item_effect/horseman
-	name = "The Curse of the Horseman"
-	desc = "NEEIGH"
-	charge = 250
-	compatible_mobs = list(/mob/living/carbon/human)
-
-/datum/item_effect/horseman/item_act(var/mob/living/carbon/human/M)
-	to_chat(M, "<span class='warning'>HOR-SIE HAS RISEN</span>")
-	var/obj/item/clothing/mask/horsehead/magichead = new /obj/item/clothing/mask/horsehead
-	magichead.flags |= NODROP		//curses!
-	magichead.flags_inv = null	//so you can still see their face
-	magichead.voicechange = 1	//NEEEEIIGHH
-	if(!M.unEquip(M.wear_mask))
-		qdel(M.wear_mask)
-	M.equip_to_slot_if_possible(magichead, slot_wear_mask, 1, 1)
-	..() //Call ..() only when the effect has a neutralize proc and should not be able to act twice on one person.
-
-/datum/item_effect/horseman/neutralize_mob(var/mob/living/carbon/human/M) //This one needs a neutralize because it is a permanent effect otherwise. Ignite will probably be neutralized in more mundane ways anyway.
-	if(!M.unEquip(M.wear_mask))
-		qdel(M.wear_mask)
-	to_chat(M, "<span class='warning'> You hear the sound of a thousand neighs fading from your head...</span>")
-	..()
-
-/datum/item_effect/stone
-	name = "Petrification Curse"
-	desc = "A curse that turns people to stone, though only breifly."
-	charge = 400
-
-/datum/item_effect/stone/item_act(var/mob/living/M)
-	to_chat(M,"<span class='warning'>You suddenly feel very solid!</span>")
-	var/obj/structure/closet/statue/S = new /obj/structure/closet/statue(M.loc, M)
-	S.timer = 20
-	M.drop_item()
-
-/datum/item_effect/blind
-	name = "Blindness Effect"
-	desc = "A curse that robs a victim of their sight, for a time."
-	charge = 200
-
-/datum/item_effect/stone/item_act(var/mob/living/M)
-	to_chat(M,"<span class='warning'>You go blind!</span>")
-	M.eye_blind = 10
-
-/datum/item_effect/heal
-	name = "Healing Effect"
-	desc = "An effect that heals."
-	charge = 200
-
-/datum/item_effect/heal/item_act(var/mob/living/M)
-	to_chat(M,"<span class='warning'>You feel much better.</span>")
-	M.adjustOxyLoss(-25)
-	M.heal_organ_damage(25,0)
-	M.heal_organ_damage(0,25)
-	M.adjustToxLoss(-25)
-
-/datum/item_effect/harm
-	name = "Harming Effect"
-	desc = "An effect that harms."
-	charge = 200
-
-/datum/item_effect/harm/item_act(var/mob/living/M)
-	to_chat(M, "<span class='warning'>You feel an intense pain throughout all of your body!</span>")
-	M.adjustOxyLoss(10)
-	M.take_organ_damage(10,0)
-	M.take_organ_damage(0,10)
-	M.adjustToxLoss(10)
-
-/datum/item_effect/tele
-	name = "Teleportation Effect"
-	desc = "An effect that teleports."
-	charge = 200
-
-/datum/item_effect/tele/item_act(var/mob/living/M)
-	to_chat(M,"<span class='warning'>You suddenly appear somewhere else!</span>")
-	do_teleport(M, get_turf(M), 20, asoundin = 'sound/effects/phasein.ogg')
-
-/datum/item_effect/wormhole
-	name = "Wormhole Effect"
-	desc = "Produces a wormhole to a random teleportation beacon."
-
-/datum/item_effect/wormhole/item_act(var/mob/living/M)
-	var/list/L = list()
-	for(var/obj/item/device/radio/beacon/B in world)
-		L += B
-	if(!L.len)
-		return
-	var/chosen_beacon = pick(L)
-	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(M), chosen_beacon, lifespan=100)
-	J.target = chosen_beacon
-	try_move_adjacent(J)
-	playsound(src,'sound/effects/sparks4.ogg',50,1)
-
-/datum/item_effect/fake
-	name = "Fake Effect"
-	desc = "Makes a gullible person die."
-/datum/item_effect/fake/item_act(var/mob/living/M)
-	to_chat(M, "<span class='warning'> You feel invincible!</span>")
-
-/datum/item_effect/ominous
-	name = "Ominous Effect"
-	desc = "Makes a superstitious person spooked."
-/datum/item_effect/ominous/item_act(var/mob/living/M)
-	to_chat(M, "<span class='warning'> A scream enters your mind and fades away!</span>")
-
-/datum/item_effect/shield
-	name = "Shield Item"
-	desc = "Blesses an item to repell projectiles."
-	charge = 200
-	compatible_mobs = list()
-
-/datum/item_effect/shield/item_init(var/obj/item/O)
-	O.shield_item = 1
-	..()
-/datum/item_effect/shield/neutralize_obj(var/obj/item/O)
-	O.shield_item = 0
-	..()
-
-/datum/item_effect/eating
-	name = "Feast Effect"
-	desc = "Eats you."
-	compatible_mobs = list(/mob/living/carbon/human)
-
-/datum/item_effect/eating/item_act(var/mob/living/carbon/human/M)
-	to_chat(M, "<span class='warning'>A scream enters your mind and fades away!</span>")
-	spawn(50)
-		to_chat(M, "<span class='warning'> You are being eaten alive!</span>")
-		to_chat(M, "<span class='warning'> You can tell you don't have very long to live...</span>")
-		spawn(pick(6000,4800,7200)) //Still 8, 10, or 12 minutes. And if you manage to destroy the item, you *might * survive.
-			M.Drain()
-			to_chat(M, "<span class='warning'> You have been devoured by the curse!</span>")
-			to_chat(M, "<span class='warning'> You feel your spirit coalescing over your corpse...</span>")
-			spawn(150)
-				for(var/mob/living/L in range(7,M))
-					to_chat(L, "<span class='warning'> You hear insane laughter...</span>")
-					to_chat(L, "<span class='warning'> You hear a loud burp.</span>")
-				var/mob/living/S = new /mob/living/simple_animal/shade(M.loc) //Leaves them as a shade.
-				S.name = "Cursed Spirit"
-				if(M.mind)
-					M.mind.transfer_to(S)
-				M.gib()
-
-/datum/item_effect/hulk
-	name = "Hulk Effect"
-	desc = "Makes you big and strong."
-
-/datum/item_effect/hulk/item_act(var/mob/living/M)
-		M.mutations.Add(M_HULK)
-		M.update_mutations()
-
-/datum/item_effect/tk
-	name = "Telekinesis Effect"
-	desc = "Makes you very clever."
-
-/datum/item_effect/tk/item_act(var/mob/living/M)
-		M.mutations.Add(M_TK)
-		M.update_mutations()
-
-/datum/item_effect/radiate
-	name = "Radiation Effect"
-	desc = "Makes you get radiation problems."
-
-/datum/item_effect/tk/item_act(var/mob/living/M)
-		randmutb(M)
-		randmutb(M)
-		M.apply_effect(50,IRRADIATE,0)
-		M.update_mutations()
-
-/datum/item_effect/mindswap
-	name = "Mind Swap Effect"
-	desc = "Makes you switch minds with someone else."
-
-/datum/item_effect/mindswap/item_act(var/mob/living/M)
-	var/list/targets = list()
-	for(var/mob/C in range(9,M)) //Can include ghosts. Because that is basically possession
-		targets += C
-	if(length(targets))
-		var/mob/target = pick(targets)
-		var/mob/dead/observer/ghost
-		if(istype(target,/mob/living))
-			ghost = target.ghostize(0)
-		else
-			ghost = target
-		M.mind.transfer_to(target)
-		ghost.mind.transfer_to(M)
-		M.key = target.key
-		to_chat(M, "<span class='warning'> You don't feel like yourself, somehow...</span>")
-		to_chat(target, "<span class='warning'> You don't feel like yourself, somehow...</span>")
-
-/datum/item_effect/possess
-	name = "Possession Effect"
-	desc = "Makes you switch minds with someone else, but temporarily."
-
-/datum/item_effect/possess/item_act(var/mob/living/M)
-	var/list/targets = list()
-	for(var/mob/C in range(9,M))
-		targets += C
-	if(length(targets))
-		var/mob/target = pick(targets)
-		var/mob/dead/observer/ghost
-		if(istype(target,/mob/living))
-			ghost = target.ghostize(0)
-		else
-			ghost = target
-		M.mind.transfer_to(target)
-		ghost.mind.transfer_to(M)
-		M.key = target.key
-		to_chat(M, "<span class='warning'> You don't feel like yourself, somehow...</span>")
-		to_chat(target, "<span class='warning'> You don't feel like yourself, somehow...</span>")
-		spawn(150)
-			var/mob/dead/observer/ghost2 = target.ghostize(0)
-			M.mind.transfer_to(target)
-			ghost2.mind.transfer_to(M)
-			M.key = target.key
-
-/datum/item_effect/raise
-	name = "Summon Spectre Effect"
-	desc = "Makes you call the dead."
-
-/datum/item_effect/raise/item_act(var/mob/living/M)
-	for(var/mob/dead/G in world)
-		if(G.mind && G.key)
-			G.loc = get_turf(M)
-			var/mob/living/S = new /mob/living/simple_animal/shade(M.loc)
-			S.name = "Spectre"
-			S.real_name = "Spectre"
-			G.mind.transfer_to(S)
-			S.key = G.key
-
-/datum/item_effect/shieldwall
+/datum/item_artifact/shieldwall
 	name = "Shield Wall Effect"
 	desc = "Generates a wall of shields around the target."
 	var/duration = 1200
 	New()
 		..()
 		duration = pick(50,100,300,600,1200,3000)
-/datum/item_effect/shieldwall/item_act(var/mob/living/M)
+/datum/item_artifact/shieldwall/item_act(var/mob/living/M)
 	for(var/turf/simulated/floor/T in orange(4,M))
 		if(get_dist(M,T) == 4)
 			var/obj/effect/forcefield/field = new /obj/effect/forcefield(T)
 			spawn(duration)
 				qdel(field)
-
-/obj/item/
-	var/shield_item = 0 //Quick way to make items block projectiles.
-
-/obj/item/IsShield()
-	return (shield_item)
-
-/obj/item/IsReflect()
-	return (shield_item)
 
 /datum/item_power
 	var/name = ""
@@ -404,6 +39,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	set category = "item"
 	set name = "Planar Shift"
 	set src in usr
+
 	var/mob/living/carbon/human/U = usr
 	var/turf/destination = get_teleport_loc(U.loc,U,4,1,3,1,0,1) //A bit like phase jaunt but not as far.
 	var/turf/mobloc = get_turf(U.loc)//To make sure that certain things work properly below.
@@ -491,7 +127,6 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	M.sleeping = 0
 	M.AdjustParalysis(-5)
 	M.AdjustStunned(-5)
-	M.AdjustWeakened(-5)
 
 /datum/passive_effect/regen
 	name = "Regeneration"
@@ -501,7 +136,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	if(M.getOxyLoss()) 
 		M.adjustOxyLoss(-1)
 	if(M.getBruteLoss())
-		 M.heal_organ_damage(1,0)
+		M.heal_organ_damage(1,0)
 	if(M.getFireLoss()) 
 		M.heal_organ_damage(0,1)
 	if(M.getToxLoss()) 
@@ -528,40 +163,15 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /datum/passive_effect/speed/runmob(var/mob/living/carbon/M)
 	M.status_flags |= GOTTAGOFAST
 
-/datum/passive_effect/night
-	name = "Destruction of Evil"
-	desc = "Makes you destroy evil."
-
-/datum/passive_effect/night/runmob(var/mob/living/carbon/M)
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		if(!H.berserk && H.reagents.has_reagent("berserk"))
-			H.berserk = 1
-	M.reagents.add_reagent("berserk", 1)
-	if(prob(25)) //Should make them dodge often, but not always reliably.
-		M.reagents.add_reagent("atium", 1)
-	if(prob(15))
-		to_chat(M, "<span class='warning'> <b><i>Destroy evil.</b></i></span>")
-	if(prob(60))
-		var/obj/effect/effect/harmless_smoke/smoke = new /obj/effect/effect/harmless_smoke(get_turf(M))
-		smoke.icon_state = "warpshadow" //Should make the smoke dark.
-		smoke.alpha = 170 //Make it a little less opaque.
-	M.take_overall_damage(3, 3)
-	M.drowsyness = 0 //Probably not very helpful because it stops doing this once dropped, but hey.
-	M.sleeping = 0
-	M.AdjustParalysis(-5)
-	M.AdjustStunned(-5)
-	M.AdjustWeakened(-5)
-
 /mob/living/simple_animal/shade/
 	var/obj/item/item = null
 	var/item_charge = 25
 
 /mob/living/simple_animal/shade/proc/get_bearer()
-	for(var/datum/item_effect/captured_soul/E in src.item.item_effects)
+	for(var/datum/item_artifact/captured_soul/E in src.item.item_artifacts)
 		if(E.spirit == src)
 			return E.target
-	for(var/datum/item_effect/daemon_effect/E in src.item.item_effects)
+	for(var/datum/item_artifact/daemon_effect/E in src.item.item_artifacts)
 		if(E.spirit == src)
 			return E.target
 	return null
@@ -577,7 +187,6 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 		M.sleeping = 0
 		M.AdjustParalysis(-5)
 		M.AdjustStunned(-5)
-		M.AdjustWeakened(-5)
 		M.adjustToxLoss(-10)
 		M.adjustBruteLoss(-10)
 		M.adjustFireLoss(-10)
@@ -702,13 +311,13 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 		weapon.energy ++
 		to_chat(usr, "<span class='warning'> You exert your will to make it more difficult for other inhabitant souls of [src.item] to murder your bearer.</span>")
 
-/datum/item_effect/daemon_effect
+/datum/item_artifact/daemon_effect
 	name = "Daemon Effect"
 	desc = "Literally the essence of a daemon. Handle with caution, it will probably try to utterly destroy you."
 	charge = 0
 	max_uses = -1
 	uses = 1
-	trigger = "EQUIP"
+	trigger = IE_EQP
 	compatible_mobs = list(/mob/living/carbon)
 	var/datum/item_power/item_power
 	var/datum/passive_effect/passive_effect
@@ -717,13 +326,13 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	var/obj/item/myitem
 	var/chaosgod
 
-/datum/item_effect/daemon_effect/item_act(var/mob/living/M)
+/datum/item_artifact/daemon_effect/item_act(var/mob/living/M)
 	if(target != M)
 		item_power.init_mob(M)
 		src.target = M
 		to_chat(target, "<font color=\"purple\"> <i><b>Hello. You are in fact now bound to my will. Serve [chaosgod].</i></b></font>")
 
-/datum/item_effect/daemon_effect/item_init(var/obj/item/O)
+/datum/item_artifact/daemon_effect/item_init(var/obj/item/O)
 	..()
 	myitem = O
 	if(!chaosgod)  //Make these things randomize
@@ -764,7 +373,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	spawn()
 		src.passive()
 
-/datum/item_effect/daemon_effect/proc/passive()
+/datum/item_artifact/daemon_effect/proc/passive()
 	set background = BACKGROUND_ENABLED
 	while(1)
 		sleep(20)
@@ -812,56 +421,6 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 							to_chat(target, "<font color=\"purple\"> <i><b>Kill [person.name].</i></b></font>")
 							to_chat(spirit, "The item projects 'Kill [person.name].' to [target.name].")
 
-/datum/item_effect/daemon_effect/night //I have no idea why I decided to write this. It is inadvisable to put it anywhere, put it was a fun concept.
-	name = "Nightblood" //And you think YOUR inquisitors are scary...
-	desc = "Hello. Would you like to destroy some evil today?"
-	
-/datum/item_effect/daemon_effect/night/item_act(var/mob/living/M)
-	if(!M) 
-		return
-	if(target != M)
-		if(prob(70))
-			src.target = M
-			M << "<i><b>Hello. Would you like to destroy some evil today?</i></b>"
-		else
-			M << "<i><b>You feel incredibly sick.</i></b>"
-			M.Weaken(3)
-			M.adjustToxLoss(-3)
-			var/turf/T = get_turf(M)
-			T.add_vomit_floor(M)
-			playsound(M, 'sound/effects/splat.ogg', 50, 1)
-	
-/datum/item_effect/daemon_effect/night/item_init(var/obj/item/O)
-	O.item_effects.Add(src)
-	chaosgod = "Endowement"
-	myitem = O
-	passive_effect = new /datum/passive_effect/night
-	spirit = new /mob/living/simple_animal/shade(O.loc)
-	spirit.loc = O //put shade in object
-	spirit.status_flags |= GODMODE //So they won't die inside the stone somehow
-	spirit.canmove = 0//Can't move out of the object
-	spirit.item = O
-	spirit.key = null //Need to find a ghost.
-	spirit.name = "nightblood"
-	spirit.real_name = "nightblood"
-	spirit.speak_emote = list("telepathically intones")
-	spawn(20)
-		to_chat(spirit, "<b>You are nightblood. Your very essence and existence centers around the command \"Destroy Evil\", which you must follow at all costs. What exactly than is evil? Hell if I know. You are a sword, not a philosopher.</b>")
-	var/list/candidates = get_candidates(BE_TRAITOR)
-	if(candidates.len)
-		var/client/C = pick_n_take(candidates)
-		spirit.key = C.key
-	spirit.verbs.Add(/mob/living/simple_animal/shade/proc/showbearer,/mob/living/simple_animal/shade/proc/telepathbearer,/mob/living/simple_animal/shade/proc/telepathic_shout,/mob/living/simple_animal/shade/proc/healbearer,/mob/living/simple_animal/shade/proc/harmbearer)
-	spawn()
-		src.passive()
-
-/datum/item_effect/daemon_effect/night/passive()
-	set background = BACKGROUND_ENABLED
-	while(1)
-		sleep(20)
-		if(target)
-			passive_effect.runmob(src.target)
-
 /obj/item/xenoitem
 	name = "Generic item (ERROR)"
 	desc = "A small device that carries out the critically important task of never existing. Report this bug/heresy to Drake Marshall, Norc, or on the forums."
@@ -877,39 +436,39 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 /obj/item/xenoitem/New()
 	..()
 	var/art_effect = pick(item_PATHS)
-	var/datum/item_effect/E = new art_effect
+	var/datum/item_artifact/E = new art_effect
 	E.item_init(src)
-	var/item_trigger = pick("ATTACK_SELF","ATTACK_SELF","EQUIP","EQUIP","FOUND","ATTACK","ATTACK_OTHER","ATTACK_OTHER")
+	var/item_trigger = pick(IE_ATK_SELF,IE_ATK_SELF,IE_EQP,IE_EQP,IE_FOUND,IE_ATK,IE_ATK_OTHER,IE_ATK_OTHER)
 	src.trigger = item_trigger
 	E.trigger = item_trigger
 	force = pick(0,0,0,0,5,5,5,5,10,10,15,20)
 
 /obj/item/xenoitem/attack_hand(mob/user)
-	if(trigger == "ATTACK_HAND")
+	if(trigger == IE_ATK_HAND)
 		on = 1
 		update_icons()
 	..()
 
 /obj/item/xenoitem/attack_self(mob/user)
-	if(trigger == "ATTACK_SELF")
+	if(trigger == IE_ATK_SELF)
 		on = 1
 		update_icons()
 	..()
 
 /obj/item/xenoitem/equipped(mob/user)
-	if(trigger == "EQUIP")
+	if(trigger == IE_EQP)
 		on = 1
 		update_icons()
 	..()
 
 /obj/item/xenoitem/on_found(mob/user)
-	if(trigger == "FOUND")
+	if(trigger == IE_FOUND)
 		on = 1
 		update_icons()
 	..()
 
 /obj/item/xenoitem/attack(mob/living/M, mob/user)
-	if(trigger == "ATTACK" | trigger == "ATTACK_OTHER")
+	if(trigger == IE_ATK | trigger == IE_ATK_OTHER)
 		on = 1
 		update_icons()
 	..()
@@ -920,9 +479,9 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 		if("generic") //A regular item imbued with an item effect. Basically just technological curiousities or the castoff of ancient psykers.
 			var/item_path = pick(/obj/item/weapon/crowbar,/obj/item/weapon/weldingtool,/obj/item/weapon/wrench,/obj/item/weapon/screwdriver,/obj/item/weapon/wirecutters,/obj/item/weapon/weldingtool,/obj/item/device/soulstone,/obj/item/candle,/obj/item/xenos_claw)
 			A = new item_path(spawnloc)
-			var/effect_path = pick(item_PATHS)
-			var/datum/item_effect/E = new effect_path
-			E.trigger = pick("ATTACK_SELF","ATTACK_SELF","EQUIP","EQUIP","FOUND","ATTACK","ATTACK_OTHER","ATTACK_OTHER")
+			var/effect_path = pick(item_path)
+			var/datum/item_artifact/E = new effect_path
+			E.trigger = pick(IE_ATK_SELF,IE_ATK_SELF,IE_EQP,IE_EQP,IE_FOUND,IE_ATK,IE_ATK_OTHER,IE_ATK_OTHER)
 			E.item_init(A)
 			return A
 		if("daemon")  //An ornate weapon that corrupts the user and grants some varying powers. After the user dies, chooses a new user, so quite dangerous.
@@ -942,7 +501,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 			return A    //I haven't put this in yet.
 
 /proc/daemonize(var/obj/item/O,var/chaosgod = null) //Places the essence of a daemon in an object.
-	var/datum/item_effect/daemon_effect/daemon = new /datum/item_effect/daemon_effect
+	var/datum/item_artifact/daemon_effect/daemon = new /datum/item_artifact/daemon_effect
 	if(chaosgod)
 		daemon.chaosgod = chaosgod
 	daemon.item_init(O)
@@ -1013,12 +572,12 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	spawn(100)
 		user.visible_message("<span class='suicide'>BLOOD FOR THE BLOOD GOD</span>")
 		user.gib()
-	return(BRUTELOSS)
+	return (SUICIDE_ACT_BRUTELOSS)
 
 /obj/item/weapon/hellblade/attack(mob/living/M, mob/user)
 	..()
 	new /obj/effect/gibspawner/blood(M.loc)
-
+/*
 /obj/item/weapon/night
 	name = "nightblood"
 	desc = "A massive jet black sword. You feel the need to pick it up..."
@@ -1033,7 +592,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 
 /obj/item/weapon/night/New()
 	..()
-	var/datum/item_effect/daemon_effect/night/spirit = new /datum/item_effect/daemon_effect/night
+	var/datum/item_artifact/daemon_effect/night/spirit = new /datum/item_artifact/daemon_effect/night
 	spirit.item_init(src)
 
 /obj/item/weapon/night/IsShield()
@@ -1041,11 +600,11 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 
 /obj/item/weapon/night/dropped(mob/user)
 	..()
-	for(var/datum/item_effect/daemon_effect/night/spirit in src.item_effects) //Unbonds with them when dropped.
+	for(var/datum/item_artifact/daemon_effect/night/spirit in src.item_artifacts) //Unbonds with them when dropped.
 		spirit.target = null
 	if(iscarbon(user)) //Some backlash when dropped.
 		var/mob/living/carbon/M = user
-		M.Weaken(5)
+		M.apply_effect(3,WEAKEN)
 		M.adjustToxLoss(-5)
 		M.reagents.clear_reagents()
 		var/turf/T = get_turf(M)
@@ -1061,11 +620,11 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	desc = "Holds a sword."
 	icon_state = "night"
 	item_state = "katana"
-	can_hold = list(/obj/item/weapon/night)
-	max_w_class = 4
-	max_combined_w_class = 4
+	can_only_hold = list(/obj/item/weapon/night)
+	storage_slots = 2
+	max_combined_w_class = 200
 	attack_verb = list("beat")
-
+ 
 /obj/item/weapon/storage/belt/night/New()
 	..()
 	new /obj/item/weapon/night(src)
@@ -1078,7 +637,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	..()
 	usr.alpha = 255
 
-/obj/item/clothing/mask/gas/item
+/obj/item/clothing/mask/gas/artifact
 	name = "Crimson Mask"
 	desc = "The eerie countenance glows with a reddish light, humming with power..."
 	icon_state = "item"
@@ -1086,11 +645,11 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	var/weartime = 0
 	var/worn = 0
 
-/obj/item/clothing/mask/gas/item/New()
+/obj/item/clothing/mask/gas/artifact/New()
 	..()
 	processing_objects.Add(src)
 
-/obj/item/clothing/mask/gas/item/process()
+/obj/item/clothing/mask/gas/artifact/process()
 	if(ishuman(src.loc))
 		var/mob/living/carbon/human/H = src.loc
 		if(H.wear_mask == src)
@@ -1123,7 +682,7 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 	else
 		if(weartime > 0) weartime --
 
-/obj/item/clothing/mask/gas/item/dropped()
+/obj/item/clothing/mask/gas/artifact/dropped()
 	..()
 	spawn(5)
 		if(worn)
@@ -1133,13 +692,13 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 				H.visible_message("<span class='warning'> <b>[H] takes off the [src]!</b></span>")
 				to_chat(H, "<span class='warning'> You collapse!</span>")
 				H.Paralyse(weartime/5)
-				for(var/obj/effect/proc_holder/spell/targeted/devestate/D in H.mind.spell_list)
-					H.mind.spell_list.Remove(D)
+//				for(var/obj/effect/proc_holder/spell/targeted/devestate/D in H.mind.spell_list)
+//					H.mind.spell_list.Remove(D)
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.dodging = 0
 
-/obj/item/clothing/mask/gas/item/equipped()
+/obj/item/clothing/mask/gas/artifact/equipped()
 	..()
 	spawn(5) //Make sure we check this /after/ the mask's location is changed.
 		if(ishuman(src.loc))
@@ -1149,11 +708,12 @@ var/list/ITEM_PATHS = list(/datum/item_effect/undroppable,/datum/item_effect/ign
 				H.visible_message("<span class='warning'> <b>[H] takes off the [src]!</b></span>")
 				to_chat(H, "<span class='warning'> You collapse!</span>")
 				H.Paralyse(weartime/5)
-				for(var/obj/effect/proc_holder/spell/targeted/devestate/D in H.mind.spell_list)
-					H.mind.spell_list.Remove(D)
+//				for(var/obj/effect/proc_holder/spell/targeted/devestate/D in H.mind.spell_list)
+//					H.mind.spell_list.Remove(D)
 			if(H.wear_mask == src)
 				worn = 1
 				H.visible_message("<span class='warning'> <b>[H] puts on the [src]!</b></span>")
 				to_chat(H, "<span class='warning'> You feel a rush of power!</span>")
-				H.mind.spell_list += new /obj/effect/proc_holder/spell/targeted/devestate(null) //Basically a much more gory version of disintegrate.
+//				H.mind.spell_list += new /obj/effect/proc_holder/spell/targeted/devestate(null) //Basically a much more gory version of disintegrate.
 
+*/

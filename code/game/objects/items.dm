@@ -189,7 +189,7 @@
 		daemon.examine(user)
 
 
-/obj/item/attack_ai(mob/user )
+/obj/item/attack_ai(mob/user)
 	..()
 	if(isMoMMI(user))
 		var/in_range = in_range(src, user) || loc == user
@@ -203,7 +203,7 @@
 		var/mob/living/silicon/robot/R = user
 		R.activate_module(src)
 		R.hud_used.update_robot_modules_display()
-
+ 
 /obj/item/attack_hand(var/mob/user)
 	if (!user)
 		return
@@ -213,6 +213,17 @@
 		var/obj/item/weapon/storage/S = loc
 		if(!S.remove_from_storage(src, user))
 			return
+
+	//40k MARKED - ITEM_ARTIFACT
+	if(item_effects)
+		for(var/datum/item_artifact/C in item_effects)
+			if(C.trigger == IE_ATK_HAND)
+				if(!(C in user.item_effects))
+					C.item_act(user)
+					if(C.max_uses > 0)
+						C.uses -= 1
+						if(C.uses == 0)
+							item_effects.Remove(C)
 
 	throwing = FALSE
 	if (loc == user)
@@ -309,6 +320,15 @@
 
 // called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/wearer, mob/finder)
+	if(item_effects) //40k MARKED - ITEM_ARTIFACT
+		for(var/datum/item_artifact/C in item_effects)
+			if(C.trigger == IE_FOUND)
+				if(!(C in wearer.item_effects))
+					C.item_act(wearer)
+					if(C.max_uses > 0)
+						C.uses -= 1
+						if(C.uses == 0)
+							item_effects.Remove(C)
 	return
 
 // called after an item is placed in an equipment slot
@@ -324,6 +344,16 @@
 		var/datum/action/A = X
 		if(item_action_slot_check(slot, user)) //some items only give their actions buttons when in a specific slot.
 			A.Grant(user) //Marked
+
+	if(item_effects)
+		for(var/datum/item_artifact/C in item_effects)
+			if(C.trigger == IE_EQP)
+				if(!(C in user.item_effects))
+					C.item_act(user)
+					if(C.max_uses > 0)
+						C.uses -= 1
+						if(C.uses == 0)
+							item_effects.Remove(C)
 	return
 
 /obj/item/proc/item_action_slot_check(slot, mob/user)

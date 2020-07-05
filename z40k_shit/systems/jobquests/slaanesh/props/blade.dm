@@ -1,8 +1,8 @@
 /*
-A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of those it kills inside of itself, not a daemon.
+A slaanesh item. Much like a daemon weapon, but this one takes the souls of those it kills inside of itself, not a daemon.
 */
 
-/datum/artifact_effect/captured_soul
+/datum/item_effect/captured_soul
 	name = "Captured Soul"
 	desc = "The soul of some poor person trapped inside of an object, their psychic energy fueling whatever contraption they are forced into."
 	charge = 0
@@ -10,32 +10,34 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 	uses = 1
 	trigger = "EQUIP"
 	compatible_mobs = list(/mob/living/carbon)
-	var/datum/artifact_power/artifact_power //Gives a new verb to the user and/or captured soul.
+	var/datum/item_power/item_power //Gives a new verb to the user and/or captured soul.
 	var/datum/passive_effect/passive_effect //Gives a passive effect that improves the blade or the bearer.
 	var/mob/living/carbon/target
 	var/mob/living/carbon/victim
 	var/mob/living/simple_animal/shade/spirit
 	var/obj/item/myitem
 
-/datum/artifact_effect/captured_soul/artifact_act(var/mob/living/M)
-	if(!M) return
+/datum/item_effect/captured_soul/item_act(var/mob/living/M)
+	if(!M) 
+		return
 	if(target != M)
-		artifact_power.init_mob(M)
+		item_power.init_mob(M)
 		src.target = M
 		to_chat(spirit, "<span class='warning'> The new bearer of your spirit is [M]!</span>")
-/datum/artifact_effect/captured_soul/artifact_init(var/obj/item/O)
+
+/datum/item_effect/captured_soul/item_init(var/obj/item/O)
 	..()
 	myitem = O
-	var/active_path = pick(/datum/artifact_power/phase,/datum/artifact_power/dodge,/datum/artifact_power/tele,/datum/artifact_power/shield)
-	artifact_power = new active_path
+	var/active_path = pick(/datum/item_power/phase,/datum/item_power/dodge,/datum/item_power/tele,/datum/item_power/shield)
+	item_power = new active_path
 	var/passive_path = pick(/datum/passive_effect/unstunnable,/datum/passive_effect/regen,/datum/passive_effect/immunity,/datum/passive_effect/speed)
 	passive_effect = new passive_path
-	artifact_power.init(O)
+	item_power.init(O)
 	spirit = new /mob/living/simple_animal/shade(O.loc)
 	spirit.loc = O //put shade in object
 	spirit.status_flags |= GODMODE //So they won't die inside the stone somehow
 	spirit.canmove = 0//Can't move out of the object
-	spirit.artifact = O
+	spirit.item = O
 	spirit.name = victim.real_name
 	spirit.real_name = victim.real_name
 	spirit.key = victim.key
@@ -43,11 +45,11 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 	if(myitem.loc == victim) //Don't want to delete oneself because the victim is holding the blade (in the event of suicide when they have over 100 health and don't immediately fall down dead)
 		myitem.loc = get_turf(victim)
 	victim.dust()
-	spirit.verbs.Add(/mob/living/simple_animal/shade/proc/showbearer,/mob/living/simple_animal/shade/proc/telepathbearer,/mob/living/simple_animal/shade/proc/telepathic_shout,/mob/living/simple_animal/shade/proc/throw_artifact,/mob/living/simple_animal/shade/proc/healbearer,/mob/living/simple_animal/shade/proc/harmbearer,/mob/living/simple_animal/shade/proc/energize_weapon)
+	spirit.verbs.Add(/mob/living/simple_animal/shade/proc/showbearer,/mob/living/simple_animal/shade/proc/telepathbearer,/mob/living/simple_animal/shade/proc/telepathic_shout,/mob/living/simple_animal/shade/proc/throw_item,/mob/living/simple_animal/shade/proc/healbearer,/mob/living/simple_animal/shade/proc/harmbearer,/mob/living/simple_animal/shade/proc/energize_weapon)
 	spawn()
 		src.passive()
 	
-/datum/artifact_effect/captured_soul/proc/passive()
+/datum/item_effect/captured_soul/proc/passive()
 	set background = BACKGROUND_ENABLED
 	while(1)
 		sleep(20)
@@ -57,7 +59,7 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 /obj/item/weapon/slaanesh_blade
 	name = "bliss razor" //Temporary name. They will get to rename it.
 	desc = "A wickedly curved, jet black blade stained a deep royal purple. This blade hums and pulses with unearthly energies and bears a cetain inexplicable beauty and allure."
-	icon = 'icons/obj/artifacts.dmi'
+	icon = 'icons/obj/items.dmi'
 	icon_state = "slaanesh"
 	item_state = "pk_on"
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -79,7 +81,7 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 		src.throwforce += 20
 		src.energy = 0 //Not much sorcery demanding a master's allegiance after the master kills themself. Then the blade is just free.
 		src.absorb_soul(null, user)
-	//return(BRUTELOSS)
+	return (SUICIDE_ACT_BRUTELOSS)
 
 /obj/item/weapon/slaanesh_blade/attack(target, mob/living/user)
 	if(istype(target,/mob/living/carbon))
@@ -100,7 +102,7 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 			src.absorb_soul(user, C)
 			playsound(loc, 'sound/hallucinations/wail.ogg', 50, 1, -1)
 		else
-			if(prob(src.artifact_effects.len*30))
+			if(prob(src.item_effects.len*30))
 				to_chat(user, "<span class='warning'> [src] overloads [C]'s senses and casts them into a breif coma.</span>")
 				C.sleeping += 10
 	else if(istype(target,/mob/living/simple_animal)) //Still gibs animals, but gets less power from them.
@@ -129,9 +131,9 @@ A slaanesh artifact. Much like a daemon weapon, but this one takes the souls of 
 		if(user)
 			to_chat(user, "<span class='warning'> This one's soul is not present. Sacrifice failed.</span>")
 		return //No absorbing AFK people.
-	var/datum/artifact_effect/captured_soul/soul = new()
+	var/datum/item_effect/captured_soul/soul = new()
 	soul.victim = C
-	soul.artifact_init(src)
-	soul.artifact_act(user)
-	src.force += 10.0
-	src.throwforce += 10.0
+	soul.item_init(src)
+	soul.item_act(user)
+	src.force += 10
+	src.throwforce += 10

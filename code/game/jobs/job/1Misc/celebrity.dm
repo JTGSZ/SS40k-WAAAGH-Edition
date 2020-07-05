@@ -1,6 +1,6 @@
-/datum/job/clown
+/datum/job/celebrity
 	title = "Celebrity"
-	flag = CLOWN
+	flag = CELEBRITY
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
@@ -8,17 +8,15 @@
 	supervisors = "the head of personnel"
 	wage_payout = 15
 	selection_color = "#dddddd"
-	access = list(access_clown, access_theatre, access_maint_tunnels)
-	minimal_access = list(access_clown, access_theatre)
 	alt_titles = list("Jester")
 	species_blacklist = list("Ork")
-	outfit_datum = /datum/outfit/clown
+	outfit_datum = /datum/outfit/celebrity
 
 	relationship_chance = HUMAN_COMMON
 
-/datum/outfit/clown // Honk
+/datum/outfit/celebrity // Honk
 	outfit_name = "Celebrity"
-	associated_job = /datum/job/clown
+	associated_job = /datum/job/celebrity
 	use_pref_bag = FALSE
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/clown,

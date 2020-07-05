@@ -316,7 +316,7 @@
 					clothes_s.Blend(new /icon(feet_dmi, "laceups"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/back.dmi', "eviscerator_off"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "preacher_robe_t"), ICON_OVERLAY)
-				if(CLOWN)
+				if(CELEBRITY)
 					clothes_s = new /icon(uniform_dmi, "clown_s")
 					clothes_s.Blend(new /icon(feet_dmi, "clown"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/mask.dmi', "clown"), ICON_OVERLAY)
