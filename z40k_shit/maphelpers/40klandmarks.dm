@@ -95,7 +95,7 @@
 	icon_state = "civ_bartender"
 
 /obj/effect/landmark/start/clown
-	name = "Clown"
+	name = "Celebrity"
 	icon_state = "civ_clown"
 
 /obj/effect/landmark/start/mime

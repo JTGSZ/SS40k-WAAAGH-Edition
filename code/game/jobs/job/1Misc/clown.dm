@@ -1,5 +1,5 @@
 /datum/job/clown
-	title = "Clown"
+	title = "Celebrity"
 	flag = CLOWN
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -17,7 +17,7 @@
 	relationship_chance = HUMAN_COMMON
 
 /datum/outfit/clown // Honk
-	outfit_name = "Clown"
+	outfit_name = "Celebrity"
 	associated_job = /datum/job/clown
 	use_pref_bag = FALSE
 	backpack_types = list(
@@ -83,23 +83,3 @@
 	pda_slot = slot_belt
 	id_type = /obj/item/weapon/card/id/clown
 
-/datum/job/clown/priority_reward_equip(var/mob/living/carbon/human/H)
-	. = ..()
-	H.equip_or_collect(new /obj/item/weapon/coin/clown(H.back), slot_in_backpack)
-
-/datum/job/clown/reject_new_slots()
-	if(Holiday == APRIL_FOOLS_DAY)
-		return FALSE
-	if(!xtra_positions)
-		return FALSE
-	if(security_level == SEC_LEVEL_RAINBOW)
-		return FALSE
-	else
-		return "Rainbow Alert"
-
-/datum/job/clown/get_total_positions()
-	if(Holiday == APRIL_FOOLS_DAY)
-		spawn_positions = -1
-		return 99
-	else
-		return ..()
