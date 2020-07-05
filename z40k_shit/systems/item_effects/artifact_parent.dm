@@ -26,3 +26,36 @@
 /datum/item_artifact/proc/neutralize_mob(var/mob/living/M)
 	M.item_effects.Remove(src)
 	
+/*
+	Basically these just hand out abilities, they don't normally appear on stuff.
+*/
+/datum/item_power
+	var/name = ""
+	var/desc = ""
+
+/datum/item_power/proc/init(var/obj/O)
+	return
+
+/datum/item_power/proc/init_mob(var/mob/living/carbon/H)
+	return //If it modifies the person.
+
+/*
+	This is p extreme shitcode, I'll include a snippit below
+*/
+//Ex:
+/*
+	spawn()
+		src.passive()
+/our/object/proc/passive()
+	set background = BACKGROUND_ENABLED
+	while(1)
+		sleep(20)
+		if(target)
+			passive_effect.runmob(src.target)
+*/
+/datum/passive_effect
+	var/name = ""
+	var/desc = ""
+
+/datum/passive_effect/proc/runmob(var/mob/living/carbon/M)
+	return
