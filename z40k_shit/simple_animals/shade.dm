@@ -128,7 +128,7 @@
 		to_chat(user, "<span class='warning'>It appears to be dormant.</span>")
 
 ////////////////HUD//////////////////////
-
+ 
 /mob/living/simple_animal/shade/regular_hud_updates()
 	update_pull_icon() //why is this here?
 

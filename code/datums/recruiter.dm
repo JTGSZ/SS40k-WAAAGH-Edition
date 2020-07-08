@@ -37,8 +37,10 @@
 	currently_querying = list()
 
 	searching = 1
-
-	var/list/active_candidates = get_active_candidates(role)
+ 
+	//40k EDIT - This one would check preferences, the below should just ask all applicable ppl.
+	var/list/active_candidates = get_active_candidates(role) //This ones handled in game.dm at line 294.
+	//var/list/active_candidates = get_all_active_candidates(role) //this ones handled in roleshit.dm
 
 	for(var/mob/dead/observer/O in active_candidates)
 		if(!check_observer(O))

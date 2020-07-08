@@ -334,7 +334,7 @@
 	cast_delay = 0
 
 	blood_cost = 10
-
+ 
 /spell/soulblade/blade_boil/choose_targets(var/mob/user = usr)
 	var/obj/item/weapon/melee/soulblade/SB = user.loc
 	if (!ismob(SB.loc))
