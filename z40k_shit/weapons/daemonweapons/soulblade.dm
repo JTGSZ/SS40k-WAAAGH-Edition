@@ -41,7 +41,7 @@
 				qdel(C)
 		else
 			qdel(shade)
-	if (T)
+	if (T) 
 		var/obj/item/weapon/melee/cultblade/nocult/B = new (T)
 		B.Move(get_step_rand(T))
 		new /obj/item/device/soulstone(T)

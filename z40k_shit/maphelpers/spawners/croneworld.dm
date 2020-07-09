@@ -24,7 +24,7 @@ Croneworlds Landmarks
 			new /obj/item/clothing/head/helmet/gladiator(loc)
 			new /obj/item/weapon/metal_blade(loc)
 		if(7)
-			new /mob/living/simple_animal/hostile/retaliate/daemon/lesser/predator(loc) //Putting that instead of nightblood. Nightblood currently steals ghosts, and this is more dangerous.
+			new /mob/living/simple_animal/hostile/retaliate/warpentity/predator(loc) //Putting that instead of nightblood. Nightblood currently steals ghosts, and this is more dangerous.
 		if(8)
 			new /obj/item/weapon/chainsword/chaos_chainsword(loc)
 		if(9)
@@ -46,7 +46,7 @@ Croneworlds Landmarks
 		if(15)
 			new /obj/structure/closet/cabinet/medivault(loc)
 		if(16)
-			new /mob/living/simple_animal/hostile/retaliate/daemon/hulk(loc)
+			new /mob/living/simple_animal/hostile/retaliate/warpentity/hulk(loc)
 		if(17)
 			new /mob/living/simple_animal/hostile/humanoid/russian/ranged(loc)
 		if(18)

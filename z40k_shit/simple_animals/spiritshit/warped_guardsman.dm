@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/retaliate/daemon/lesser/guard
+/mob/living/simple_animal/hostile/retaliate/warpentity/lesser/guard
 	name = "Warped Guardsman"
 	desc = "A twisted, shadowed, and warp consumed creature that appears to have once been a regular human."
 	icon = 'icons/mob/mob.dmi'

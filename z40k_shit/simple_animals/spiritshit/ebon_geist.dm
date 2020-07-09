@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/retaliate/daemon/lesser/predator
+/mob/living/simple_animal/hostile/retaliate/warpentity/predator
 	name = "ebon geist"
 	real_name = "ebon geist"
 	attacktext = "tears into"

@@ -1,10 +1,10 @@
-/mob/living/simple_animal/hostile/retaliate/daemon/hulk
+/mob/living/simple_animal/hostile/retaliate/warpentity/hulk
 	name = "neverborn"
 	real_name = "neverborn"
 	maxHealth = 300
 	health = 300
 
-/mob/living/simple_animal/hostile/retaliate/daemon/hulk/Life()
+/mob/living/simple_animal/hostile/retaliate/warpentity/hulk/Life()
 	..()
 	for(var/mob/living/M in range(7, src))
 		if(M != src && M.stat != DEAD && !(M.faction == "void"))

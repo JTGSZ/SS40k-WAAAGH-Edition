@@ -1,5 +1,17 @@
 
 //40k MARKED - ITEM_ARTIFACT is the tag for our entries everywhere.
+//How this dumb system basically works.
+/* 
+These are our defines - They basically go into the trigger spot in place of the shitty strings.
+A loop runs in the relevant proc checking the item_artifact shit, and it all calls item_act on the datums.
+#define IE_ATK_SELF "attack_self"
+#define IE_EQP "equip"
+#define IE_FOUND "found"
+#define IE_ATK "attack"
+#define IE_ATK_OTHER "attack_other"
+#define IE_ATK_HAND "attack_hand"
+*/
+
 /datum/item_artifact
 	var/name = "generic effect"   //Name
 	var/desc = "doesn't exist"    //Help text
@@ -14,12 +26,16 @@
 /mob
 	var/list/item_effects = list()
 
-/datum/item_artifact/proc/item_init(var/obj/item/O)    //What the effect does to an object upon laying the curse on it.
+//Literally how you init a effect on a object I guess, It adds it to the item effects list. 
+//Can ..() and do other shit.
+/datum/item_artifact/proc/item_init(var/obj/item/O)    
 	O.item_effects.Add(src)
 
-/datum/item_artifact/proc/item_act(var/mob/living/M) //What the effect does to a human upon laying the curse on the human or activating it from an object.
+//This is what occurs when the trigger is activated.
+/datum/item_artifact/proc/item_act(var/mob/living/M) 
 	M.item_effects.Add(src)
 
+//These called when you remove the shits, I guess. Generally the shit jus disappears when you hit 0 uses.
 /datum/item_artifact/proc/neutralize_obj(var/obj/item/O)
 	O.item_effects.Remove(src)
 

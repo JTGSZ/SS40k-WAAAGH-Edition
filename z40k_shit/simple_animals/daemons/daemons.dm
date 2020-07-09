@@ -11,7 +11,8 @@
 	blinded = 0
 	anchored = 1	//  don't get pushed around
 	density = 0
-	invisibility = INVISIBILITY_OBSERVER //This is what makes it a proper spirit.
+	//invisibility = INVISIBILITY_OBSERVER //This is what makes it a proper spirit.
+	see_invisible = SEE_INVISIBLE_OBSERVER //Daemons can see into the immaterial world, I should think.
 	maxHealth = 500
 	health = 500
 	speak_emote = list("hisses")
@@ -46,26 +47,10 @@
 
 /mob/living/simple_animal/hostile/retaliate/daemon/Life()
 	..()
-	see_invisible = SEE_INVISIBLE_OBSERVER //Daemons can see into the immaterial world, I should think.
-	var/turf/T = get_turf(src)
-	if(T.holy)
-		adjustBruteLoss(20)
-		if(src.stat != DEAD)
-			src.visible_message("<span class='danger'>\the [src] hisses in agony over the holy water!</span>")
-	for(var/obj/item/clothing/tie/medal/gold/sealofpurity/S in range(1, T))
-		adjustBruteLoss(1)
-		if(prob(25))
-			if(src.stat != DEAD)
-				src.visible_message("<span class='danger'>\the [src] growls at the [S]!</span>")
-		if(prob(5))
-			if(invisibility != 0)
-				if(src.stat != DEAD)
-					src.visible_message("<span class='danger'>The holy power of the [S] forces \the [src] to materialize!</span>")
-					invisibility = 0
-					density = 1
-					spawn(25)
-						density = 0
-						invisibility = INVISIBILITY_OBSERVER
+	daemon_checks()
+
+/mob/living/simple_animal/hostile/retaliate/daemon/proc/daemon_checks()
+	return
 
 /mob/living/simple_animal/hostile/retaliate/daemon/Move(NewLoc, direct) //Daemons are blocked by psychic walls too.
 	var/turf/destination = get_step(get_turf(src),direct)
