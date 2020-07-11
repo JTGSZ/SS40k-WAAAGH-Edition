@@ -45,6 +45,11 @@
 
 	faction = "void"
 
+/mob/living/simple_animal/hostile/retaliate/daemon/examine(mob/user)
+	..()
+	if(!client)
+		to_chat(user, "<span class='warning'>The expression upon its face doesn't appear to have much intelligence showing.</span>")
+
 /mob/living/simple_animal/hostile/retaliate/daemon/Life()
 	..()
 	daemon_checks()

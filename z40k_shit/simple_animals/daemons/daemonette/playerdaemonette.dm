@@ -17,7 +17,7 @@
 	Welcome to a mix of copy pasted shitcode, we can hand the daemonette the hud in the weapon
 */
 
-/mob/living/simple_animal/hostile/retaliate/daemon/daemonette/Login()
+/mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/Login()
 	..()
 	hud_used.shade_hud()
 	if (istype(loc, /obj/item/weapon/daemonweapon))
@@ -28,7 +28,7 @@
 			gui_icons.soulblade_bloodbar,
 			)
 
-/mob/living/simple_animal/hostile/retaliate/daemon/daemonette/Life()
+/mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/Life()
 	if(timestopped)
 		return FALSE //under effects of time magick
 	..()
@@ -41,19 +41,39 @@
 		qdel (src)
 		return
 
-	if (istype(loc,/obj/item/weapon/melee/soulblade))
-		var/obj/item/weapon/melee/soulblade/SB = loc
+	if (istype(loc,/obj/item/weapon/daemonweapon))
+		var/obj/item/weapon/daemonweapon/SB = loc
 		if (istype(SB.loc,/obj/structure/cult/altar))
 			if (SB.blood < SB.maxblood)
 				SB.blood = min(SB.maxblood,SB.blood+5)//faster blood regen when planted on an altar
 			if (SB.health < SB.maxHealth)
 				SB.health = min(SB.maxHealth,SB.health+5)//and health regen on top
 		else if (istype(SB.loc,/mob/living))
-			var/mob/living/L = SB.loc
-			if (iscultist(L) && SB.blood < SB.maxblood)
+//			var/mob/living/L = SB.loc
+			if (SB.blood < SB.maxblood)
 				SB.blood++//no cap on blood regen when held by a cultist, no blood regen when held by a non-cultist (but there's a spell to take care of that)
 		else if (SB.blood < SB.maxregenblood)
 			SB.blood++
+
+/mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/regular_hud_updates()
+	update_pull_icon() //why is this here?
+
+	if(istype(loc, /obj/item/weapon/daemonweapon) && hud_used && gui_icons && gui_icons.soulblade_bloodbar)
+		var/obj/item/weapon/daemonweapon/SB = loc
+		if(healths2)
+			switch(SB.health)
+				if(-INFINITY to 18)
+					healths2.icon_state = "blade_reallynotok"
+				if(18 to 36)
+					healths2.icon_state = "blade_notok"
+				if(36 to INFINITY)
+					healths2.icon_state = "blade_ok"
+		var/matrix/M = matrix()
+		M.Scale(1,SB.blood/SB.maxblood)
+		var/total_offset = (60 + (100*(SB.blood/SB.maxblood))) * PIXEL_MULTIPLIER
+		hud_used.mymob.gui_icons.soulblade_bloodbar.transform = M
+		hud_used.mymob.gui_icons.soulblade_bloodbar.screen_loc = "WEST,CENTER-[8-round(total_offset/WORLD_ICON_SIZE)]:[total_offset%WORLD_ICON_SIZE]"
+		hud_used.mymob.gui_icons.soulblade_coverLEFT.maptext = "[SB.blood]"
 
 /mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/attack_animal(mob/living/simple_animal/M)
 	if(M.melee_damage_upper == 0)
@@ -89,8 +109,8 @@
 	death()
 
 /mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/death(var/gibbed = FALSE)
-	if(istype(loc, /obj/item/weapon/nullrod/sword/chaos))
-		var/obj/item/weapon/nullrod/sword/chaos/C = loc
-		C.possessed = FALSE
+	if(istype(loc, /obj/item/weapon/daemonweapon))
+		var/obj/item/weapon/daemonweapon/C = loc
+		C.daemon_inside = FALSE
 		C.icon_state = "talking_sword"
 	..(gibbed)

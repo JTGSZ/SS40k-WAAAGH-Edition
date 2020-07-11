@@ -10,6 +10,10 @@
 	var/daemon_inside = FALSE
 	var/last_ping_time = 0
 	var/ping_cooldown = 5 SECONDS
+	var/blood = 0
+	var/maxblood = 0
+	var/maxregenblood = 0
+	var/maxHealth = 0
  
 /obj/item/weapon/daemonweapon/attack_self(mob/living/user)
 	if(daemon_inside)

@@ -58,6 +58,10 @@
 	free_recruiter = null
 	..()
 
+//In the scenario someone thinks they can just stack welding fuel ontop of each other and detonate it over the blade
+/obj/item/weapon/daemonweapon/blissrazor/ex_act(severity)
+	return
+
 /obj/item/weapon/daemonweapon/blissrazor/attack_ghost(var/mob/dead/observer/O)
 	if(daemon_inside)
 		return

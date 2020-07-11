@@ -148,7 +148,7 @@
 	if(.)
 		if(warp_speed)
 			begin_shitting_images1()
-
+ 
 		if(shoes && istype(shoes, /obj/item/clothing/shoes))
 			var/obj/item/clothing/shoes/S = shoes
 			S.step_action()

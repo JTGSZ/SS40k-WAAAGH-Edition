@@ -484,7 +484,7 @@ var/global/list/damage_icon_parts = list()
 		//overlays_standing[TARGETED_LAYER]	= null
 	if(update_icons)
 		update_icons()
-
+ 
 /mob/living/carbon/human/update_fire(var/update_icons=1)
 	overlays -= obj_overlays[FIRE_LAYER]
 	if(on_fire)
@@ -1259,8 +1259,11 @@ var/global/list/damage_icon_parts = list()
 		O.color = I.color
 		O.pixel_x = -1*(check_dimensions.Width() - WORLD_ICON_SIZE)/2
 		O.pixel_y = -1*(check_dimensions.Height() - WORLD_ICON_SIZE)/2
-		O.layer = O.layer
-
+		if(I.layer_handling)
+			O.layer = FLOAT_LAYER - (TOTAL_LAYERS - DAMAGE_LAYER)
+		else
+			O.layer = O.layer
+ 
 		var/list/offsets = get_item_offset_by_index(index)
 
 		O.pixel_x += offsets["x"]

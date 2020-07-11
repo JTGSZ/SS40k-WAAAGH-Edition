@@ -1,11 +1,16 @@
 /datum/free_recruiter
 	var/client/our_boy = null //Where we put this shit into.
 	var/obj/item/master = null //What we are currently attached to
+	var/consentual = TRUE //Do we want consent?
 
 /datum/free_recruiter/proc/recruit_bitches()
 	var/list/possible_candidates = brute_get_candidates()
-	for(var/client/candidate in possible_candidates)
-		to_chat(candidate.mob, "<span class='recruit'> A special role is being requested. (<a href='?src=\ref[src];free_recruit=\ref[candidate.mob]'>Apply now!</a>)</span>")
+	if(consentual)
+		for(var/client/candidate in possible_candidates)
+			to_chat(candidate.mob, "<span class='recruit'> A special role is being requested. (<a href='?src=\ref[src];free_recruit=\ref[candidate.mob]'>Apply now!</a>)</span>")
+	else
+		our_boy = pick(possible_candidates)
+		master.plugin_ourboy(our_boy) //Make no mistake this is a client too.
 
 /datum/free_recruiter/Topic(href, href_list)
 	if(usr.stat != DEAD)
