@@ -168,7 +168,7 @@
 				for(var/i=1 to basicbullets)
 					if(fucked_fire)
 						targloc = get_step(user,turn(user.dir,rand(0,360)))
-					in_chamber = getFromPool(projectile_type, loc)
+					in_chamber = new projectile_type(loc)
 					fire_sound = 'z40k_shit/sounds/Shoota1.ogg'
 					Fire(targloc, user, params, struggle)
 			if(laserbeams >= 0) //Laserbeam shit
@@ -177,7 +177,7 @@
 				for(var/i=1 to laserbeams)
 					if(fucked_fire)
 						targloc = get_step(user,turn(user.dir,rand(0,360)))
-					in_chamber = getFromPool(projectile_type, loc)
+					in_chamber = new projectile_type(loc)
 					fire_sound = 'z40k_shit/sounds/Lasgun0.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)
@@ -187,7 +187,7 @@
 				for(var/i=1 to shotgunpellets)
 					if(fucked_fire)
 						targloc = get_step(user,turn(user.dir,rand(0,360)))
-					in_chamber = getFromPool(projectile_type, loc)
+					in_chamber = new projectile_type(loc)
 					fire_sound = 'z40k_shit/sounds/shotta.ogg'
 					Fire(targloc, user, params, struggle)
 					sleep(1)

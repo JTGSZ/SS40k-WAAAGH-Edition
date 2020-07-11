@@ -125,7 +125,3 @@
 /datum/locking_category/Destroy()
 	owner  = null
 	locked = null
-
-/datum/locking_category/resetVariables()
-	..()
-	locked = list()

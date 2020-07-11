@@ -9,7 +9,7 @@
 /obj/item/mounted/frame/attackby(obj/item/weapon/W, mob/user)
 	..()
 	if (W.is_wrench(user) && sheets_refunded)
-		var/obj/item/stack/sheet/S = getFromPool(frame_material, get_turf(src))
+		var/obj/item/stack/sheet/S = new frame_material(get_turf(src))
 		S.amount = sheets_refunded
 		qdel(src)
 		return TRUE

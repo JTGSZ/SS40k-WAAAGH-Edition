@@ -373,7 +373,7 @@
 	if(istype(src,/turf/simulated/floor))
 		var/turf/simulated/floor/F = src
 		if(F.floor_tile)
-			returnToPool(F.floor_tile)
+			qdel(F.floor_tile)
 			F.floor_tile = null
 		F = null
 

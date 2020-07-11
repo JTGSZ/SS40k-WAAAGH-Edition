@@ -9,7 +9,7 @@
 
 /datum/hud/proc/powerwords_hud()
 	// Display our currently active words.
-	powerwords_display = getFromPool(/obj/abstract/screen)
+	powerwords_display = new /obj/abstract/screen
 	powerwords_display.name = "POWER WORDS"
 	powerwords_display.icon = 'z40k_shit/icons/slightly_black_rectangle.dmi'
 	powerwords_display.icon_state = "dark128x42"

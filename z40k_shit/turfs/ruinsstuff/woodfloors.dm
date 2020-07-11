@@ -19,7 +19,7 @@
 	melt_temperature = 0 // Doesn't melt.
 
 /turf/simulated/floor/woodruin/wood/New()
-	floor_tile = getFromPool(/obj/item/stack/tile/wood,null)
+	floor_tile = new /obj/item/stack/tile/wood
 	..()
 
 /turf/simulated/floor/woodruin/wood/regstate1
@@ -51,9 +51,9 @@
 
 /turf/simulated/floor/woodruin/carpet/New()
 	if(floor_tile)
-		returnToPool(floor_tile)
+		qdel(floor_tile)
 		floor_tile = null
-	floor_tile = getFromPool(/obj/item/stack/tile/carpet, null)
+	floor_tile = new /obj/item/stack/tile/carpet
 	..()
 
 /turf/simulated/floor/woodruin/carpet/first

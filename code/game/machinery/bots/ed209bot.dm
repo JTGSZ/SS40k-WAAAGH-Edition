@@ -445,7 +445,7 @@ Auto Patrol: []"},
 
 	spark(src)
 
-	getFromPool(/obj/effect/decal/cleanable/blood/oil, loc)
+	new /obj/effect/decal/cleanable/blood/oil(loc)
 	qdel(src)
 
 
@@ -680,7 +680,7 @@ Auto Patrol: []"},
 		if(istype(Proj, /obj/item/projectile/beam/lasertag/red))
 			disabled = 1
 			//del (Proj)
-			returnToPool(Proj)
+			qdel(Proj)
 			sleep(100)
 			disabled = 0
 		else
@@ -689,7 +689,7 @@ Auto Patrol: []"},
 		if(istype(Proj, /obj/item/projectile/beam/lasertag/blue))
 			disabled = 1
 			//del (Proj)
-			returnToPool(Proj)
+			qdel(Proj)
 			sleep(100)
 			disabled = 0
 		else

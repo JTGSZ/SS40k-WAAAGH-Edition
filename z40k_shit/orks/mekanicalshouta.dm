@@ -21,7 +21,7 @@
 /obj/structure/mekanical_shouta/proc/healthcheck(var/mob/M, var/sound = 1)
 	if(health <= 0)
 		visible_message("<span class='warning'>[src] comes apart!</span>")
-		getFromPool(/obj/item/stack/sheet/metal, loc, rand(5,20))
+		new /obj/item/stack/sheet/metal(loc, rand(5,20))
 		setDensity(FALSE)
 		qdel(src)
 
@@ -51,7 +51,7 @@
 			user.visible_message("<span class='warning'>[user] finishes turning \the [src] back into parts.</span>", \
 			"<span class='notice'>You finish turning \the [src] back into parts.</span>")
 			busy = 0
-			getFromPool(/obj/item/stack/sheet/metal, loc, 50)
+			new /obj/item/stack/sheet/metal(loc, 50)
 			setDensity(FALSE)
 			qdel(src)
 			return

@@ -408,7 +408,7 @@ Auto Patrol: []"},
 
 	spark(src)
 
-	var/obj/effect/decal/cleanable/blood/oil/O = getFromPool(/obj/effect/decal/cleanable/blood/oil, src.loc)
+	var/obj/effect/decal/cleanable/blood/oil/O = new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	O.New(O.loc)
 	qdel(src)
 
@@ -565,7 +565,7 @@ Auto Patrol: []"},
 	for(var/i in parts)
 		new i(Tsec)
 	spark(src)
-	var/obj/effect/decal/cleanable/blood/oil/O = getFromPool(/obj/effect/decal/cleanable/blood/oil, src.loc)
+	var/obj/effect/decal/cleanable/blood/oil/O = new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	O.New(O.loc)
 	qdel(src)
 
