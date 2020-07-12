@@ -57,6 +57,7 @@
 /datum/fridge_pile/Destroy()
 	fridge.piles -= src.name
 	fridge = null
+	..()
 
 /datum/fridge_pile/proc/addAmount(var/amt)
 	amount += amt
