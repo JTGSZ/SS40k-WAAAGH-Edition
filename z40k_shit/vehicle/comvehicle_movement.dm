@@ -34,13 +34,13 @@
 				acceleration -= 25
 	
 		if(EAST)
-			src.dir = turn(src.dir, 90) //Tank controls
+			dir = turn(src.dir, 90) //Tank controls
 
 		if(WEST)
-			src.dir = turn(src.dir, -90) //Technically its reversed too
+			dir = turn(src.dir, -90) //Technically its reversed too
 
 	//This tries to keep us relatively centered
-	switch(src.dir)
+	switch(dir)
 		if(NORTH)
 			GT.pixel_x = -14
 			pixel_x = 0

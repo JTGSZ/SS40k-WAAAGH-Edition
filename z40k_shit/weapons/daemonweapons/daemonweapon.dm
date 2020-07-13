@@ -10,10 +10,12 @@
 	var/daemon_inside = FALSE
 	var/last_ping_time = 0
 	var/ping_cooldown = 5 SECONDS
-	var/blood = 0
-	var/maxblood = 0
-	var/maxregenblood = 0
-	var/maxHealth = 0
+/*	var/blood = 0
+	var/maxregenblood = 8//the maximum amount of blood you can regen by waiting around.
+	var/maxblood = 100
+	var/movespeed = 2//smaller = faster
+	health = 40
+	var/maxHealth = 40*/
  
 /obj/item/weapon/daemonweapon/attack_self(mob/living/user)
 	if(daemon_inside)

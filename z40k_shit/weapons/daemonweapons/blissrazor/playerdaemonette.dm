@@ -10,6 +10,7 @@
 	health = 20000
 	melee_damage_lower = 50
 	melee_damage_upper = 150
+	stop_automated_movement = TRUE
 
 //As odd as it sounds, I'm basically gonna make someone releasing a daemonette from the sword a awful idea.
 //Well unless you really want a 20k health daemonette walking around.
@@ -20,7 +21,7 @@
 /mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/Login()
 	..()
 	hud_used.shade_hud()
-	if (istype(loc, /obj/item/weapon/daemonweapon))
+	if (istype(loc, /obj/item/weapon/daemonweapon/blissrazor))
 		client.CAN_MOVE_DIAGONALLY = 1
 		client.screen += list(
 			gui_icons.soulblade_bgLEFT,
@@ -38,42 +39,48 @@
 			new /obj/item/weapon/ectoplasm (src.loc)
 		visible_message("<span class='warning'> [src] lets out a contented sigh as their form unwinds.</span>")
 		ghostize()
-		qdel (src)
+		qdel(src)
 		return
 
-	if (istype(loc,/obj/item/weapon/daemonweapon))
-		var/obj/item/weapon/daemonweapon/SB = loc
-		if (istype(SB.loc,/obj/structure/cult/altar))
-			if (SB.blood < SB.maxblood)
-				SB.blood = min(SB.maxblood,SB.blood+5)//faster blood regen when planted on an altar
-			if (SB.health < SB.maxHealth)
-				SB.health = min(SB.maxHealth,SB.health+5)//and health regen on top
-		else if (istype(SB.loc,/mob/living))
-//			var/mob/living/L = SB.loc
-			if (SB.blood < SB.maxblood)
-				SB.blood++//no cap on blood regen when held by a cultist, no blood regen when held by a non-cultist (but there's a spell to take care of that)
-		else if (SB.blood < SB.maxregenblood)
+	if(istype(loc,/obj/item/weapon/daemonweapon/blissrazor))
+		var/obj/item/weapon/daemonweapon/blissrazor/SB = loc
+		if(istype(SB.loc,/mob/living))
+			if(SB.blood < SB.maxblood)
+				SB.blood++
+		else if(SB.blood < SB.maxregenblood)
 			SB.blood++
 
 /mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/regular_hud_updates()
 	update_pull_icon() //why is this here?
 
-	if(istype(loc, /obj/item/weapon/daemonweapon) && hud_used && gui_icons && gui_icons.soulblade_bloodbar)
-		var/obj/item/weapon/daemonweapon/SB = loc
-		if(healths2)
+	if(istype(loc, /obj/item/weapon/daemonweapon/blissrazor) && hud_used && gui_icons && gui_icons.soulblade_bloodbar)
+		var/obj/item/weapon/daemonweapon/blissrazor/SB = loc
+/*		if(healths2)
 			switch(SB.health)
 				if(-INFINITY to 18)
 					healths2.icon_state = "blade_reallynotok"
 				if(18 to 36)
 					healths2.icon_state = "blade_notok"
 				if(36 to INFINITY)
-					healths2.icon_state = "blade_ok"
+					healths2.icon_state = "blade_ok"*/
 		var/matrix/M = matrix()
 		M.Scale(1,SB.blood/SB.maxblood)
 		var/total_offset = (60 + (100*(SB.blood/SB.maxblood))) * PIXEL_MULTIPLIER
 		hud_used.mymob.gui_icons.soulblade_bloodbar.transform = M
 		hud_used.mymob.gui_icons.soulblade_bloodbar.screen_loc = "WEST,CENTER-[8-round(total_offset/WORLD_ICON_SIZE)]:[total_offset%WORLD_ICON_SIZE]"
 		hud_used.mymob.gui_icons.soulblade_coverLEFT.maptext = "[SB.blood]"
+
+
+/mob/living/simple_animal/hostile/retaliate/daemon/daemonette/ClickOn(var/atom/A, var/params)
+	if (istype(loc, /obj/item/weapon/daemonweapon/blissrazor))
+		var/obj/item/weapon/daemonweapon/blissrazor/SB = loc
+		SB.dir = get_dir(get_turf(SB), A)
+		var/spell/soulblade/blade_spin/BS = locate() in spell_list
+		if(BS)
+			BS.perform(src)
+			return
+	..()
+
 
 /mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/attack_animal(mob/living/simple_animal/M)
 	if(M.melee_damage_upper == 0)
@@ -109,8 +116,8 @@
 	death()
 
 /mob/living/simple_animal/hostile/retaliate/daemon/daemonette/player/death(var/gibbed = FALSE)
-	if(istype(loc, /obj/item/weapon/daemonweapon))
-		var/obj/item/weapon/daemonweapon/C = loc
+	if(istype(loc, /obj/item/weapon/daemonweapon/blissrazor))
+		var/obj/item/weapon/daemonweapon/blissrazor/C = loc
 		C.daemon_inside = FALSE
-		C.icon_state = "talking_sword"
+		C.update_icon()
 	..(gibbed)

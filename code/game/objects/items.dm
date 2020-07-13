@@ -251,7 +251,7 @@
 /obj/item/requires_dexterity(mob/user)
 	return TRUE
 
-/obj/item/attack_paw(mob/user )
+/obj/item/attack_paw(mob/user)
 	if (istype(loc, /obj/item/weapon/storage))
 		for(var/mob/M in range(1, loc))
 			if (M.s_active == loc)
@@ -276,16 +276,16 @@
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/weapon/W, mob/user )
+/obj/item/attackby(obj/item/weapon/W, mob/user)
 	return ..()
 
 /obj/item/proc/talk_into(var/datum/speech/speech, var/channel=null)
 	return
 
-/obj/item/proc/moved(mob/user, old_loc )
+/obj/item/proc/moved(mob/user, old_loc)
 	return
 
-/obj/item/proc/dropped(mob/user )
+/obj/item/proc/dropped(mob/user)
 	reset_plane_and_layer()
 	if(wielded)
 		unwield(user)
@@ -311,11 +311,11 @@
 	return
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
-/obj/item/proc/on_exit_storage(obj/item/weapon/storage/S )
+/obj/item/proc/on_exit_storage(obj/item/weapon/storage/S)
 	return
 
 // called when this item is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
-/obj/item/proc/on_enter_storage(obj/item/weapon/storage/S )
+/obj/item/proc/on_enter_storage(obj/item/weapon/storage/S)
 	return
 
 // called when "found" in pockets and storage items. Returns 1 if the search should end.

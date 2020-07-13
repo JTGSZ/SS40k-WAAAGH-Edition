@@ -97,7 +97,7 @@
 			SB.blood++
 
 
-/mob/living/simple_animal/shade/attackby(var/obj/item/O, var/mob/user )  //Marker -Agouri
+/mob/living/simple_animal/shade/attackby(var/obj/item/O, var/mob/user)  //Marker -Agouri
 	user.delayNextAttack(8)
 	if(istype(O, /obj/item/device/soulstone) || istype(O, /obj/item/weapon/melee/soulblade))
 		O.transfer_soul("SHADE", src, user)
