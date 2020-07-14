@@ -356,7 +356,6 @@ var/global/list/damage_icon_parts = list()
 		update_icons()
 
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
-
 	var/fat
 	if(M_FAT in mutations)
 		fat = "fat"
@@ -376,30 +375,15 @@ var/global/list/damage_icon_parts = list()
 			continue
 		var/underlay=gene.OnDrawUnderlays(src,g,fat)
 		if(underlay)
-			//standing.underlays += underlay
 			O.underlays += underlay
 			add_image = 1
 	for(var/mut in mutations)
 		switch(mut)
-			/*if(M_RESIST_COLD)
-				standing.underlays	+= "fire[fat]_s"
-				add_image = 1
-			if(M_RESIST_HEAT)
-				standing.underlays	+= "cold[fat]_s"
-				add_image = 1
-			if(TK)
-				standing.underlays	+= "telekinesishead[fat]_s"
-				add_image = 1
-			*/
 			if(M_LASER)
-				//standing.overlays += image(icon = standing.icon, icon_state = "lasereyes_s")
 				O.overlays += image(icon = O.icon, icon_state = "lasereyes_s")
 				add_image = 1
 	if((M_RESIST_COLD in mutations) && (M_RESIST_HEAT in mutations))
 		if(!(src.species.name == "Vox") && !(src.species.name == "Skeletal Vox"))
-			//standing.underlays	-= "cold[fat]_s"
-			//standing.underlays	-= "fire[fat]_s"
-			//standing.underlays	+= "coldfire[fat]_s"
 			O.underlays	-= "cold[fat]_s"
 			O.underlays	-= "fire[fat]_s"
 			O.underlays	+= "coldfire[fat]_s"
@@ -407,25 +391,35 @@ var/global/list/damage_icon_parts = list()
 			O.underlays -= "coldvox_s"
 			O.underlays	-= "firevox_s"
 			O.underlays	+= "coldfirevox_s"
-
+    
 	//Cultist tattoos
-	if (mind && mind.GetRole(CULTIST))
+	if(mind && mind.GetRole(CULTIST))
 		var/datum/role/cultist/C = mind.GetRole(CULTIST)
 		add_image = 1
-		for (var/T in C.tattoos)
+		for(var/T in C.tattoos)
 			var/datum/cult_tattoo/tattoo = C.tattoos[T]
-			if (tattoo)
+			if(tattoo)
 				var/image/I = image(icon = 'icons/mob/cult_tattoos.dmi', icon_state = tattoo.icon_state)
 				I.blend_mode = BLEND_MULTIPLY
 				O.overlays += I
+
+	// /vg/ 40k marked - SHITCODE EXTRAVAGANZA ~ ~ 8::::::::::D ~o ~o ~o
+	if(mind && warp_mutations.len)
+		add_image = 1
+		for(var/datum/mutation/WM in warp_mutations)
+			if(WM.icon_state)
+				var/image/I = image(icon = 'z40k_shit/icons/mutations.dmi', icon_state = WM.icon_state)
+				I.blend_mode = BLEND_MULTIPLY
+				if(WM.overlay) 
+					O.overlays += I
+				else
+					O.underlays += I
 
 	if(add_image)
 		O.icon = standing
 		O.icon_state = standing.icon_state
 		obj_to_plane_overlay(O,MUTATIONS_LAYER)
-		//overlays_standing[MUTATIONS_LAYER]	= standing
-	//else
-		//overlays_standing[MUTATIONS_LAYER]	= null
+
 	if(update_icons)
 		update_icons()
 

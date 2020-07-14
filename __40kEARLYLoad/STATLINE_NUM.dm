@@ -14,6 +14,9 @@
 #define ATTR_WILLPOWER		"willpower"
 #define ATTR_SENSITIVITY	"sensitivity"
 
+/mob/living/carbon/human
+	var/list/warp_mutations = list()
+
 /mob
 	var/warp_speed = FALSE //We are currently in WARP INDUCED SPEED INCREASE (Aka extra attacks)
 	var/soul_blaze_melee = FALSE //Are we currently applying soul blaze?

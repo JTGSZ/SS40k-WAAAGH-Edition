@@ -2909,7 +2909,6 @@
 	specheatcap = 0.70
 
 /datum/reagent/hyperzine/on_mob_life(var/mob/living/M)
-
 	if(..())
 		return 1
 
@@ -2944,9 +2943,8 @@
 		var/timedmg = ((data - 60) / 2)
 		if (timedmg > 0)
 			dehypozine(H, timedmg, 1, 0)
-
+ 
 /datum/reagent/hypozine/on_mob_life(var/mob/living/M)
-
 	if(..())
 		return 1
 

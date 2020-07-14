@@ -114,8 +114,6 @@
 		//TODO: convert to greyscale.
 
 /obj/item/organ/internal/proc/update()
-
-
 	if(!organ_tag || !organ_type)
 		return
 

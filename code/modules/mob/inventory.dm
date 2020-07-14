@@ -299,7 +299,7 @@
 /mob/proc/drop_item(var/obj/item/to_drop, var/atom/Target, force_drop = 0) //Set force_drop to 1 to force the item to drop (even if it can't be dropped normally)
 
 	if(!candrop) //can't drop items while etheral
-		return 0
+		return 0 
 
 	if(!to_drop) //if we're not told to drop something specific
 		to_drop = get_active_hand() //drop what we're currently holding

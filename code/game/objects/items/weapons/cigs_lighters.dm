@@ -233,7 +233,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		return source_temperature
 	return 0
 
-/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W, mob/user )
+/obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W, mob/user)
 	..()
 
 	if(lit) //The cigarette is already lit
@@ -271,7 +271,7 @@ MATCHBOXES ARE ALSO IN FANCY.DM
 		light("<span class='notice'>[user] lights \his [name] with \the [W].</span>")
 	return
 
-/obj/item/clothing/mask/cigarette/afterattack(obj/reagentholder, mob/user )
+/obj/item/clothing/mask/cigarette/afterattack(obj/reagentholder, mob/user)
 	..()
 	if(reagentholder.is_open_container() && !ismob(reagentholder) && reagentholder.reagents)
 		if(reagentholder.reagents.has_reagent(SACID) || reagentholder.reagents.has_reagent(PACID)) //Dumping into acid, a dumb idea

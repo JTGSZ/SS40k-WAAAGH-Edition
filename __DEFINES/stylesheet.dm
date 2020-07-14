@@ -95,4 +95,10 @@ h1.alert, h2.alert		{color: #000000;}
 .whisper				{font-style:italic;color:#333333;}
 /* Recruiting stuff */
 .recruit 				{color: #5c00e6; font-weight: bold; font-style: italic;}
+/* /vg/ warhammer 40k */
+.nurgle				{color: #80C000;	font-style: italic; font-weight: bold;}
+.khorne				{color: #800000;	font-style: italic; font-weight: bold;}
+.slaanesh			{color: #950095;	font-style: italic; font-weight: bold;}
+.tzeentch			{color: #100080;	font-style: italic; font-weight: bold;}
+.orky		     	{color: #008000;  font-weight: bold;}
 "}

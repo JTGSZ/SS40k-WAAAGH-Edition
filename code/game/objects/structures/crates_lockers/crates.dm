@@ -196,6 +196,9 @@
 	greenlight = "largebing"
 	sparks = "largebinsparks"
 	emag = "largebinemag"
+	sound_effect_open = 'z40k_shit/sounds/misc_effects/bin_open.ogg'
+	sound_effect_close = 'z40k_shit/sounds/misc_effects/bin_close.ogg'
+
 
 /obj/structure/closet/crate/secure/bin/attackby(var/obj/item/weapon/W, var/mob/user)
     if(W.is_wrench(user) && wrenchable())
@@ -204,7 +207,7 @@
 
 /obj/structure/closet/crate/secure/bin/wrenchable()
     return TRUE
-
+ 
 /obj/structure/closet/crate/secure/large
 	name = "large crate"
 	desc = "A hefty metal crate with an electronic locking system."

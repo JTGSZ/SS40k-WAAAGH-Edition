@@ -25,11 +25,10 @@ Drugs are bad!
 	..()
 	reagents.add_reagent("lho", 20)
 
-
 /obj/item/clothing/mask/cigarette/celeb/process()
 	var/turf/location = get_turf(src)
 	var/mob/living/carbon/human/M = loc
-	var/list/factions = list("SLAANESH")
+	var/list/factions = list("Slaanesh")
 	if(isliving(loc))
 		M.IgniteMob()
 	smoketime--
@@ -37,8 +36,8 @@ Drugs are bad!
 		new type_butt(location)
 		processing_objects.Remove(src)
 		if(ismob(loc))
-			M << "<span class='notice'>Your [name] goes out.</span>"
-			M.unEquip(src, 1)	//un-equip it so the overlays can update //Force the un-equip so the overlays update
+			to_chat(M, "<span class='notice'>Your [name] goes out.</span>")
+			M.u_equip(src, 1)	//un-equip it so the overlays can update //Force the un-equip so the overlays update
 		qdel(src)
 		return
 	if(isliving(loc))
@@ -46,16 +45,25 @@ Drugs are bad!
 			thekey = M.ckey
 	if(location)
 		location.hotspot_expose(700, 5)
-	if(reagents && reagents.total_volume)	//	check if it has any reagents at all
-		handle_reagents()
-	if(!istype(M)) return //This was throwing runtime errors when the cig was lit and on the ground, cuz turf has no variable called ckey. -Drake
-
+	if(reagents && reagents.total_volume)	//Check if it has any reagents at all
+		if(iscarbon(M) && ((src == M.wear_mask) || (loc == M.wear_mask))) //If it's in the human/monkey mouth, transfer reagents to the mob
+			if(M.reagents.has_any_reagents(LEXORINS) || (M_NO_BREATH in M.mutations) || istype(M.loc, /obj/machinery/atmospherics/unary/cryo_cell))
+				reagents.remove_any(REAGENTS_METABOLISM)
+			else
+				if(prob(25)) //So it's not an instarape in case of acid
+					reagents.reaction(M, INGEST)
+				reagents.trans_to(M, 1)
+		else //Else just remove some of the reagents
+			reagents.remove_any(REAGENTS_METABOLISM)
+	if(!istype(M)) 
+		return //This was throwing runtime errors when the cig was lit and on the ground, cuz turf has no variable called ckey. -Drake
 	if(M.ckey != thekey)
 		active = 1
 	if((active) && (M.ckey == thekey))
-		M.purity--
-		M << "<span class='notice'>Nice. That was real nice. This has been a real inspiration. Now that we are in the correct frame of mind. Lets go back to the ship and see just how inspired we really are.</span>"
-		qdel(src)
+		if(M.job_quest)
+			M.job_quest.alignment --
+			to_chat(M,"<span class='notice'>Nice. That was real nice. This has been a real inspiration. Now that we are in the correct frame of mind. Lets go back to the ship and see just how inspired we really are.</span>")
+			qdel(src)
 	return
 
 /*
@@ -71,10 +79,10 @@ Guitar fun
 	force = 2
 	var/playing = 0
 
-/obj/item/weapon/guitar/attack_self(mob/user as mob)
+/obj/item/weapon/guitar/attack_self(mob/user)
 	interact(user)
 
-/obj/item/weapon/guitar/interact(mob/user as mob)
+/obj/item/weapon/guitar/interact(mob/user)
 
 	if(!user)
 		user << "What the? Who are you?"
@@ -89,7 +97,7 @@ Guitar fun
 
 	else
 		playing = 1
-		var/guitarsound = pick('sound/items/guitar1.ogg','sound/items/guitar1.ogg')
+		var/guitarsound = pick('z40k_shit/sounds/guitar1.ogg','z40k_shit/sounds/guitar2.ogg')
 		playsound(loc, guitarsound, 100, 0)
 		user << "Hmm... maybe you need some practice."
 		spawn (90)
@@ -101,7 +109,7 @@ Stage 1
 
 /obj/item/weapon/guitar/one
 
-/obj/item/weapon/guitar/one/attackby(obj/item/weapon/W as obj, mob/user as mob)							//stub for upgrades
+/obj/item/weapon/guitar/one/attackby(obj/item/weapon/W, mob/user)							//stub for upgrades
 	..()
 	if(istype(W, /obj/item/weapon/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -116,10 +124,10 @@ Stage 2
 /obj/item/weapon/guitar/two
 	desc = "A very expensive instrument. The rear cover has been opened and there appears to be enough space in here to fit a second powercell."
 
-/obj/item/weapon/guitar/two/attackby(obj/item/weapon/W as obj, mob/user as mob)						//after screwdriver comes powercell
+/obj/item/weapon/guitar/two/attackby(obj/item/weapon/W, mob/user)						//after screwdriver comes powercell
 	..()
-	if(istype(W, /obj/item/weapon/stock_parts/cell))
-		playsound(src.loc, 'sound/effects/bin_open.ogg', 50, 1)
+	if(istype(W, /obj/item/weapon/cell))
+		playsound(src.loc, 'z40k_shit/sounds/misc_effects/bin_open.ogg', 50, 1)
 		user << "Must... have... more.... power...."
 		new /obj/item/weapon/guitar/three(user.loc)
 		qdel(W)
@@ -133,7 +141,7 @@ Stage 3
 /obj/item/weapon/guitar/three
 	desc = "A heavilly modified Guitar. This one appears to be in need of a little bit of wire in order to optomize it's power consumption."
 
-/obj/item/weapon/guitar/three/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/guitar/three/attackby(obj/item/weapon/W, mob/user)
 	..()
 	if(istype(W, /obj/item/stack/cable_coil))														//then some wire
 		playsound(src.loc, 'sound/effects/zzzt.ogg', 50, 1)
@@ -151,7 +159,7 @@ Stage 4
 /obj/item/weapon/guitar/four
 	desc = "A very expensive instrument. The rear cover remains open."
 
-/obj/item/weapon/guitar/four/attackby(obj/item/weapon/W as obj, mob/user as mob)					//then a screwdriver again
+/obj/item/weapon/guitar/four/attackby(obj/item/weapon/W, mob/user)					//then a screwdriver again
 	..()
 	if(istype(W, /obj/item/weapon/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -173,10 +181,10 @@ Stage 5
 	item_state = "guitar2"
 	force = 2
 
-/obj/item/weapon/guitar/five/attack_self(mob/user as mob)
+/obj/item/weapon/guitar/five/attack_self(mob/user)
 	interact(user)
 
-/obj/item/weapon/guitar/five/interact(mob/user as mob)
+/obj/item/weapon/guitar/five/interact(mob/user)
 
 	if(!user)
 		user << "What the? Who are you?"
@@ -191,22 +199,22 @@ Stage 5
 
 	else
 		playing = 1
-		var/guitarsound = pick('sound/items/guitar3.ogg','sound/items/guitar4.ogg' , 'sound/items/guitar5.ogg')					//new sounds
+		var/guitarsound = pick('z40k_shit/sounds/guitar3.ogg','z40k_shit/sounds/guitar4.ogg' , 'z40k_shit/sounds/guitar5.ogg')					//new sounds
 		playsound(loc, guitarsound, 100, 0)
 		for(var/mob/living/M in hearers(4, user))								//AOE stun
 			if(prob(5))
 				user.say("THINGS WILL GET LOUND NOW!!!")
-			M << "Man that guy can ROCK!"
+			to_chat(M, "Man that guy can ROCK!")
 			if(iscarbon(M))
-				if(!M.mind || !M.mind.changeling)
+				if(!M.mind)
 					var/list/factions = list("SLAANESH")
 					if(length(factions & M.faction)) //We don't want it affecting the celeb himself. Or anyone, really, who is slaaneshi. -Drake
-						M << "You make it look easy!!"
+						to_chat(M, "You make it look easy!!")
 					else
 //						M.Weaken(4)
 						M.dizziness = max(M.dizziness-3, 0)
 				else
-					M << "That guy is using warp energy of some kind."								//callidus are excluded
+					to_chat(M, "That guy is using warp energy of some kind.")								//callidus are excluded
 
 		spawn (90)
 			playing = 0
@@ -245,13 +253,14 @@ Enjoy
 /obj/item/clothing/under/tentacles
 	name = "Tentacles"
 	desc = "A chaotic alteration of the flesh to manifest tentacles."
-	icon = 'icons/obj/corrupt.dmi'
-	icon_state = "slaanesh"
+	icon = 'z40k_shit/icons/obj/clothing/uniforms.dmi'
+	icon_state = "tentacles"
 	item_state = "tentacles"
 	_color = "tentacles"
 	has_sensor = 0
 	armor = list(melee = 15, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 0, rad = 25)
-	flags = STOPSPRESSUREDMAGE
+	pressure_resistance = 5 * ONE_ATMOSPHERE
+	body_parts_covered = ARMS|LEGS|FULL_TORSO|FEET|HANDS
 	canremove = FALSE
 
 /obj/item/clothing/under/tentacles/New()
