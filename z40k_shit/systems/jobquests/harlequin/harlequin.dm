@@ -22,7 +22,7 @@
 		if(-4)
 			to_chat(our_protagonist, "<span class='notice'>They gave you food and spoke low gothic. You don't look human, but you might as well be. The warp altered you. There was something... something else to remember. You need to focus.</span>")
 			alignment--
-			our_protagonist.add_spell(new /spell/targeted/focus)
+			our_protagonist.add_spell(new /spell/targeted/focus,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 		if(-5)
 			to_chat(our_protagonist, "<span class='notice'>It's gnawing at the back of your mind. Focus.</span>")
 		if(-7)
@@ -31,7 +31,7 @@
 		if(-8)
 			to_chat(our_protagonist, "<span class='notice'>Hiding. You are good at hiding. You've been hiding for a long long time. Not from humans. You've been hiding from THEM. They looked for you. They must have looked all over. Maybe thats why you are here now. Maybe you are tired of hiding. Perhaps you want to be found. Thats a dark thought. They'd kill you if they found you. You've become too much of a problem for them.</span>")
 			alignment--
-			our_protagonist.add_spell(new /spell/targeted/stealth)
+			our_protagonist.add_spell(new /spell/targeted/stealth,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 		if(-9)
 			to_chat(our_protagonist, "<span class='notice'>A dreamstone. That is what you need. If you want to cheat Slaanesh you must join the ranks of Ynnead. But where can we get a Spirit Stone on this desolate rock? There is one way... but it is dangerous. You'll need to find a multitool.</span>")
 			alignment--
@@ -75,7 +75,7 @@
 			to_chat(our_protagonist, "<span class='notice'>It's time to stop fighting the humans. Time to stop fighting your own kind. Time to end this worthless war. There is only one enemy here and it is Slaanesh. Cegorach did not abandon you. It is time for you to join him.</span>")
 			our_protagonist.status_flags = 0
 			our_protagonist.health = 200
-			our_protagonist.add_spell(new /spell/targeted/battle_dance)
+			our_protagonist.add_spell(new /spell/targeted/battle_dance,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 			alignment--
 		if(-16)
 			to_chat(our_protagonist, "<span class='notice'>This mask was a nice touch. It was just laying there on the floor and you put it on. It helped you to escape that place. But who are you in this grand dance of humans and necrons? Time to make another choice.</span>")
@@ -221,8 +221,8 @@
 					return
 		if(-35)
 			to_chat(our_protagonist, "<span class='notice'>The Exiles survived because they ran... but one can only run so far before they have to turn and fight. Time to hone these new skills.</span>")
-			our_protagonist.add_spell(new /spell/targeted/projectile/shrieker_cannon)
-			our_protagonist.add_spell(new /spell/targeted/swap)
+			our_protagonist.add_spell(new /spell/targeted/projectile/shrieker_cannon,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
+			our_protagonist.add_spell(new /spell/targeted/swap,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 //			H.mind.spell_list += new /obj/effect/proc_holder/spell/targeted/mime/trick(null)
 			for(var/spell/targeted/concentrate/spell in our_protagonist.spell_list)
 				our_protagonist.remove_spell(spell)

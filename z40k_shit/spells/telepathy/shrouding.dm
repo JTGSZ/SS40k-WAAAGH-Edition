@@ -2,6 +2,7 @@
 	name = "Shrouding"
 	abbreviation = "SHD"
 	desc = "Blessing - Shrouds area around caster in darkness"
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	hud_state = "shrouding"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

@@ -1,6 +1,7 @@
 /spell/targeted/enfeeble
 	name = "Enfeeble"
 	desc = "Malediction - Weakens the target and everyone around it."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	abbreviation = "ENF"
 	user_type = USER_TYPE_PSYKER
 	specialization = SSBIOMANCY

@@ -2,6 +2,7 @@
 	name = "Iron Arm"
 	abbreviation = "IA"
 	desc = "Blessing - Grants strength to the caster."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	hud_state = "iron_arm"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

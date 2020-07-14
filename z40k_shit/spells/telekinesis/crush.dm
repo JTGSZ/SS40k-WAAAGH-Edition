@@ -1,6 +1,7 @@
 /spell/targeted/crush
 	name = "Crush"
 	desc = "Witchfire(Profileless) - Attempts to Crush the target."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	abbreviation = "HMG"
 	user_type = USER_TYPE_PSYKER
 	specialization = SSTELEKINESIS

@@ -1,6 +1,8 @@
 /spell/targeted/concentrate
 	name = "Concentrate"
 	desc = "Stretch out with your senses."
+	override_base = "cult" //The area behind tied into the panel we are attached to
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	school = "mime"
 	panel = "Mime"
 	invocation_type = SpI_NONE

@@ -4,6 +4,7 @@
 	desc = "Makes ya faster (And heals if theres more than 4 orks around you)"
 	panel = "Racial Abilities"
 	override_base = "racial"
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	hud_state = "racial_waagh"
 	spell_flags = INCLUDEUSER
 	charge_type = Sp_RECHARGE

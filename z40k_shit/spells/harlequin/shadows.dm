@@ -1,6 +1,8 @@
 /spell/targeted/swap
 	name = "Shadows"
 	desc = "Move with dizzying speed and leave an image of yourself in your place."
+	override_base = "cult" //The area behind tied into the panel we are attached to
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	school = "mime"
 	panel = "Mime"
 	charge_max = 100

@@ -2,6 +2,7 @@
 	name = "Levitation"
 	abbreviation = "LVT"
 	desc = "Blessing - Makes everyone in range levitate."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	hud_state = "levitate"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

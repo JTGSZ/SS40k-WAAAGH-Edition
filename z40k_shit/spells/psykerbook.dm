@@ -29,9 +29,13 @@
 	..()
 
 //The motherfucker that adds spells motherfucker
-/obj/item/weapon/psychic_spellbook/proc/add_spell(var/spell/spell_to_add,var/mob/user)
-	user.add_spell(spell_to_add, iswizard = TRUE)
-
+/* Currently deprecated lol
+/obj/item/weapon/psychic_spellbook/proc/add_spell(var/spell/spell_to_add,var/mob/user, var/spellmaster)
+	if(spellmaster)
+		user.add_spell(spell_to_add,iswizard = TRUE,master_type = spellmaster)
+	else
+		user.add_spell(spell_to_add, iswizard = TRUE)
+*/
 /obj/item/weapon/psychic_spellbook/proc/use_psykpoints(amount, mob/living/user)
 	if(!user)
 		return 0
@@ -203,16 +207,20 @@
 		switch(href_list["primaris_spell"])
 			if(BIOMANCY)
 				L.spelltree_unlocked_list[BIOMANCY] += 1
-				add_spell(/spell/smite,L)
+				//add_spell(/spell/smite,L)
+				L.add_spell(new /spell/smite, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/biomancy)
 			if(PYROMANCY)
 				L.spelltree_unlocked_list[PYROMANCY] += 1
-				add_spell(/spell/targeted/projectile/dumbfire/fireball/inferno,L)
+				L.add_spell(new /spell/targeted/projectile/dumbfire/fireball/inferno, "cult_spell_ready", /obj/abstract/screen/movable/spell_master/pyromancy)
+				//add_spell(/spell/targeted/projectile/dumbfire/fireball/inferno,L)
 			if(TELEKINESIS)
 				L.spelltree_unlocked_list[TELEKINESIS] += 1
-				add_spell(/spell/aoe_turf/assail,L)
+				//add_spell(/spell/aoe_turf/assail,L)
+				L.add_spell(new /spell/aoe_turf/assail, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/telekinesis)
 			if(TELEPATHY)
 				L.spelltree_unlocked_list[TELEPATHY] += 1
-				add_spell(/spell/aoe_turf/psychic_shriek,L)
+				//add_spell(/spell/aoe_turf/psychic_shriek,L)
+				L.add_spell(new /spell/aoe_turf/psychic_shriek, "cult_spell_ready", /obj/abstract/screen/movable/spell_master/telepathy)
 		attack_self(usr)
 
 	if(href_list["rollbuy"])
@@ -222,7 +230,8 @@
 					if(use_psykpoints(1,L))
 						var/spell/suckit = pick(biomancy_spells)
 						biomancy_spells.Remove(suckit)
-						add_spell(suckit,L)
+						//add_spell(suckit,L)
+						L.add_spell(suckit, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/biomancy)
 					else
 						to_chat(L, "You currently have no points.")
 				else
@@ -232,7 +241,8 @@
 					if(use_psykpoints(1,L))
 						var/spell/suckit = pick(pyromancy_spells)
 						pyromancy_spells.Remove(suckit)
-						add_spell(suckit,L)
+						//add_spell(suckit,L)
+						L.add_spell(suckit, "cult_spell_ready", /obj/abstract/screen/movable/spell_master/pyromancy)
 					else
 						to_chat(L, "You currently have no points.")
 				else
@@ -242,7 +252,8 @@
 					if(use_psykpoints(1,L))
 						var/spell/suckit = pick(telekinesis_spells)
 						telekinesis_spells.Remove(suckit)
-						add_spell(suckit,L)
+						//add_spell(suckit,L)
+						L.add_spell(suckit, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/telekinesis)
 					else
 						to_chat(L, "You currently have no points.")
 				else
@@ -252,7 +263,8 @@
 					if(use_psykpoints(1,L))
 						var/spell/suckit = pick(telepathy_spells)
 						telepathy_spells.Remove(suckit)
-						add_spell(suckit,L)
+						//add_spell(suckit,L)
+						L.add_spell(suckit, "cult_spell_ready", /obj/abstract/screen/movable/spell_master/telepathy)
 					else
 						to_chat(L, "You currently have no points.")
 				else

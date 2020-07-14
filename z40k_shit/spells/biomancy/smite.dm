@@ -4,7 +4,7 @@
 	desc = "(Primaris)Witchfire - Shoot lightning from your fingertips."
 	user_type = USER_TYPE_WIZARD
 	charge_max = 100
-
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	spell_flags = WAIT_FOR_CLICK
 	charge_type = Sp_RECHARGE
 	invocation_type = SpI_NONE

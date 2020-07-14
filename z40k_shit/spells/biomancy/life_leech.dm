@@ -4,7 +4,7 @@
 	abbreviation = "LL"
 	user_type = USER_TYPE_PSYKER
 	specialization = SSBIOMANCY
-
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	proj_type = /obj/item/projectile/spell_projectile/life_leech
 	school = "evocation"
 	projectile_speed = 1

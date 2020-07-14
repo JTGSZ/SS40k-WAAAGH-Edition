@@ -10,7 +10,7 @@
 	charge_max = 3 MINUTES
 	invocation_type = SpI_NONE
 	hud_state = "telekine_dome"
-
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	range = 0
 	inner_radius = 0
 	warpcharge_cost = 140

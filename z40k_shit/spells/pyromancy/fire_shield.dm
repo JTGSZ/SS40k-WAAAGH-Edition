@@ -1,6 +1,7 @@
 /spell/aoe_turf/fire_shield
 	name = "Fire Shield"
 	desc = "Blessing - Grants fire resistance to all those around you and brings up a flaming barrier."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	user_type = USER_TYPE_PSYKER
 	specialization = SSPYROMANCY
 	school = "conjuration"

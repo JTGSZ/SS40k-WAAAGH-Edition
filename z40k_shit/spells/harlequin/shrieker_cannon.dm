@@ -1,6 +1,8 @@
 /spell/targeted/projectile/shrieker_cannon
 	name = "Shrieker Cannon"
 	desc = "Fire a shrieker cannon and then appear somewhere else."
+	override_base = "cult" //The area behind tied into the panel we are attached to
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	abbreviation = "SCNON"
 	school = "mime"
 	panel = "Mime"

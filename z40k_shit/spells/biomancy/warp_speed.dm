@@ -2,6 +2,7 @@
 	name = "Warp Speed"
 	abbreviation = "WSPD"
 	desc = "Blessing - Makes you move faster."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	hud_state = "warp_speed"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

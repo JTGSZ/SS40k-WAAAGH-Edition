@@ -1,6 +1,10 @@
 /spell/targeted/battle_dance
 	name = "Battle Dance"
 	desc = "Jump from person to person."
+	override_base = "cult" //The area behind tied into the panel we are attached to
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	//overlay_icon_state = "spell"
+	//hud_state = "slaanesh" //name of the icon used in generating the spell hud object ontop of the base
 	school = "mime"
 	panel = "Mime"
 	invocation_type = SpI_NONE

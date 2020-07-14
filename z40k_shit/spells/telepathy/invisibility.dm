@@ -3,6 +3,7 @@
 	name = "Invisibility"
 	abbreviation = "INV"
 	desc = "Blessing - Makes everyone in range invisible."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	hud_state = "invisibility"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

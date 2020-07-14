@@ -4,7 +4,7 @@
 	abbreviation = "GOKU"
 	user_type = USER_TYPE_PSYKER
 	specialization
-
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
 	charge_type = Sp_RECHARGE
 	charge_max = 500
 	spell_flags = 0

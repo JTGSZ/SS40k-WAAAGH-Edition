@@ -10,7 +10,7 @@
 	still_recharging_msg = "<span class='notice'>You ain't ready yet idiot..</span>"
 	
 	override_base = "basic_button"
-	override_icon = 'z40k_shit/icons/generic_action_buttons.dmi'
+	override_icon = 'z40k_shit/icons/buttons/generic_action_buttons.dmi'
 	hud_state = "mek_build"
 
 
