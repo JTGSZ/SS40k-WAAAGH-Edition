@@ -4,13 +4,15 @@ Drugs are bad!
 
 /obj/item/clothing/mask/cigarette/celeb
 	name = "fatty boom batty"
+	icon_state = "blunt"
+	overlay_on = "bluntlit"
 	desc = "From the agriworld 'Daronoco', the hard working Imperials have tirelessly worked the fields in order to bring you a stick of quality nicotene. Although some one seems to have mixed the contents of this premium ciggarette with cheap lho."
 	var/thekey = null
 	var/active = 0
 
 /obj/item/clothing/mask/cigarette/celeb/New()
 	..()
-	reagents.add_reagent("lho", 20)
+	//reagents.add_reagent("lho", 20)
 
 /obj/item/clothing/mask/cigarette/celeb/process()
 	var/turf/location = get_turf(src)

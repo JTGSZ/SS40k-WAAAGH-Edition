@@ -8,4 +8,5 @@ Celeb
 
 /obj/item/weapon/paper/crashclue
 	name = "Recon Report."
-	info = "//Intermediate report//<BR><BR>Squad seven reported that their patrol uncovered a shipwreck north of the outpost. Unable to investigate due to heavy snowfall but once the outpost is built it may warrant a second pass. One of the guardsmen said he heard some kind of music coming from the wreck. If the snow keeps up we'll just pass this along to the next detachment that gets stationed here. It's 50 paces north of the armory.//END// "
+	info = "//Intermediate report//<BR><BR>Squad seven reported that their patrol uncovered a odd ruin to the far south. Unable to investigate due to ork presence but once we have cleared the city it may warrant a second pass. One of the guardsmen said he heard some kind of music coming from the cavern. Well just pass this along to the next detachment that gets stationed here.//END// "
+	

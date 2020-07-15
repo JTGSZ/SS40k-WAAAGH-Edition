@@ -183,8 +183,11 @@
 				R.attack_hand()
 				for(var/obj/effect/landmark/mimeequipmentdrop/ME in landmarks_list)
 					new /obj/item/weapon/powersword/harlequin(get_turf(ME))
+					qdel(ME)
 				for(var/obj/effect/landmark/mimeopponentdrop/MO in landmarks_list)
 					new /mob/living/simple_animal/hostile/faithless/harlequin(get_turf(MO))
+					qdel(MO)
+				qdel(MF)
 				alignment--
 				return
 			to_chat(our_protagonist, "<span class='notice'>The power room. That underground area the humans built up has a power room. Something... Something there. Something was there before the humans were.</span>")

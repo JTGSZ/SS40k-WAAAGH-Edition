@@ -327,7 +327,7 @@
 	item_state = "nr_boots"
 	heat_conductivity = INS_ARMOUR_HEAT_CONDUCTIVITY
 
-obj/item/clothing/shoes/jackboots/cowboy
+/obj/item/clothing/shoes/jackboots/cowboy
 	name = "cowboy boots"
 	desc = "No snake in these boots."
 	icon_state = "cowboy"

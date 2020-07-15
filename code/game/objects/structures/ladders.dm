@@ -107,10 +107,10 @@ var/list/ladders = list()
 
 	
 
-/obj/structure/ladder/attack_paw(mob/user )
+/obj/structure/ladder/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/structure/ladder/attackby(obj/item/weapon/W, mob/user )
+/obj/structure/ladder/attackby(obj/item/weapon/W, mob/user)
 	if(isrobot(user))
 		return
 

@@ -4,10 +4,6 @@
 	icon_state = "x"
 	anchored = 1
 
-/obj/effect/landmark/mimefalsewall/New()
-	..()
-	invisibility = 100
-
 /obj/effect/landmark/mimeequipmentdrop //Spawns the blade.
 	name = "Mime Equipment Drop"
 	icon = 'icons/mob/screen1.dmi'

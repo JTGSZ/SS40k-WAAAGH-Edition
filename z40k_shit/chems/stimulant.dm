@@ -1,9 +1,3 @@
-/datum/reagent/hyperzine/cocaine
-	name = "Cocaine"
-	id = COCAINE
-	description = "Cocaine is a powerful nervous system stimulant."
-	color = "#FFFFFF" //rgb: 255, 255, 255
-
 /datum/reagent/stimulant
 	name = "Laserbrain Dust"
 	id = LASERBRAIN_DUST

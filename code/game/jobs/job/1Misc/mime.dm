@@ -58,8 +58,9 @@
 	var/datum/job_quest/harlequin/harlequin = new()
 	H.job_quest = harlequin
 	harlequin.our_protagonist = H
-	H.add_spell(new /spell/targeted/concentrate)
+	H.add_spell(new /spell/targeted/concentrate,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 	return 1
+	
  
 //Mime's break vow spell, couldn't think of anywhere else to put this
 

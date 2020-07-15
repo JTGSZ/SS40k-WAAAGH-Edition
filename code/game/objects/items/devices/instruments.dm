@@ -78,7 +78,7 @@
 	if(user)
 		user.update_inv_hands()
 
-/obj/item/device/instrument/guitar/attack_self(mob/user )
+/obj/item/device/instrument/guitar/attack_self(mob/user)
 	if(wielded) //can only play if you're two handing it
 		return ..()
 	wield(user)

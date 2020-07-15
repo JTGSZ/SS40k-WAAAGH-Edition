@@ -56,3 +56,9 @@ var/global/list/rngchemlistfulls = list(MUTATIONTOXIN,THERMITE,
 								STERILIZINE,TRICORDRAZINE,
 								PERIDAXON
 								)
+
+var/global/list/rngdrugbarrel = list(HYPERZINE,COCAINE,
+									HYPOZINE,LASERBRAIN_DUST,
+									SPACE_DRUGS,GLUE,
+									MINDBREAKER,OXYCODONE,
+									TRAMADOL,LUBE)

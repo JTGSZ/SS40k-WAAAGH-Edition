@@ -127,3 +127,12 @@
 				rngchem = pick(rngchemlistfulls)
 	
 	reagents.add_reagent(rngchem, 1000)
+
+/*
+	RNG DRUG BARRELS
+					*/
+/obj/structure/reagent_dispensers/cauldron/barrel/drug_barrel
+
+/obj/structure/reagent_dispensers/cauldron/barrel/drug_barrel/New()
+	var/rngchem = pick(rngdrugbarrel)
+	reagents.add_reagent(rngchem,1000)

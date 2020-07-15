@@ -579,7 +579,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/beer
 	name = "Space Beer"
-	desc = "Beer. In space."
+	desc = "Beer. From space."
 	icon_state = "beer"
 	vending_cat = "fermented"
 	molotov = -1 //can become a molotov

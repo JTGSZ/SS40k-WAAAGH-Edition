@@ -174,5 +174,5 @@
 	if (!target)
 		src.target = loc
 
-/obj/machinery/meter/turf/attackby(var/obj/item/weapon/W, var/mob/user )
+/obj/machinery/meter/turf/attackby(var/obj/item/weapon/W, var/mob/user)
 	return

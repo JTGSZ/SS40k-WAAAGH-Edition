@@ -22,10 +22,10 @@
 /mob/proc/is_fat()
 	return 0
 
-mob/proc/isincrit()
+/mob/proc/isincrit()
 	return 0
 
-mob/proc/get_heart()
+/mob/proc/get_heart()
 	return null
 
 /mob/proc/get_lungs()
@@ -40,7 +40,7 @@ mob/proc/get_heart()
 /mob/proc/get_appendix()
 	return null
 
-mob/proc/remove_internal_organ()
+/mob/proc/remove_internal_organ()
 	return null
 
 /mob/proc/get_broken_organs()
