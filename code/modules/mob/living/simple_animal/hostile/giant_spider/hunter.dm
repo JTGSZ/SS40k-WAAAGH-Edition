@@ -22,3 +22,6 @@
 
 /mob/living/simple_animal/hostile/giant_spider/hunter/dead
 	health = 0
+
+/mob/living/simple_animal/hostile/giant_spider/hunter/void
+	faction = "void"

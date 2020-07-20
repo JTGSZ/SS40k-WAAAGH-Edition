@@ -11,12 +11,12 @@
 	response_disarm = "cautiously shoves"
 	response_harm = "hits"
 	speed = 0
-	maxHealth = 40
-	health = 40
+	maxHealth = 100
+	health = 100
 
 	harm_intent_damage = 5
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	melee_damage_lower = 15
+	melee_damage_upper = 15
 	attacktext = "throws tendrils at"
 	attack_sound = 'sound/hallucinations/growl1.ogg'
 

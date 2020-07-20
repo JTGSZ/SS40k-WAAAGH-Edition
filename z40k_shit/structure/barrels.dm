@@ -29,7 +29,7 @@
 	for(var/atom/movable/AM in src)
 		AM.forceMove(loc)
 
-/obj/structure/reagent_dispensers/cauldron/barrel/attackby(obj/item/weapon/W, mob/user )
+/obj/structure/reagent_dispensers/cauldron/barrel/attackby(obj/item/weapon/W, mob/user)
 	if(W.is_wrench(user))
 		return
 	if(istype(W,/obj/item/weapon/grab))
@@ -132,7 +132,13 @@
 	RNG DRUG BARRELS
 					*/
 /obj/structure/reagent_dispensers/cauldron/barrel/drug_barrel
+	name = "Metal Barrel"
+	desc = "Who knows what mysteries it holds."
+	icon = 'z40k_shit/icons/obj/barrels.dmi'
+	icon_state = "barrel_4"
+	density = 1
 
 /obj/structure/reagent_dispensers/cauldron/barrel/drug_barrel/New()
+	. = ..()
 	var/rngchem = pick(rngdrugbarrel)
 	reagents.add_reagent(rngchem,1000)

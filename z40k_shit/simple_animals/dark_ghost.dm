@@ -106,6 +106,7 @@ Fealty is still a very, very large price to pay for power in one life, however. 
 	friendly = "passes through"
 	var/energy = 0
 	var/phased = 0
+	faction = "void"
 
 /mob/living/simple_animal/hostile/dark_ghost/verb/devour()
 	set category = "Ghost"

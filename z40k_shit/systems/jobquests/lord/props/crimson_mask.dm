@@ -7,6 +7,7 @@
 	var/weartime = 0
 	var/worn = 0
 	var/speed_modifier = 1
+	var/first_pickup = FALSE
 
 /obj/item/clothing/mask/gas/artifact/New()
 	..()
@@ -46,14 +47,19 @@
 /obj/item/clothing/mask/gas/artifact/equipped(mob/living/carbon/human/H, equipped_slot)
 	..()
 	if(istype(H) && H.get_item_by_slot(slot_wear_mask) == src && equipped_slot != null && equipped_slot == slot_wear_mask)
+		icon_state = "artifact"
+		item_state = "artifact"
 		H.movement_speed_modifier += speed_modifier
 		H.visible_message("<span class='warning'> <b>[H] puts on the [src]!</b></span>")
 		to_chat(H, "<span class='warning'> You feel a rush of power!</span>")
-		H.add_spell(new /spell/targeted/devastate, "ork_spell_ready")
+		if(istype(H.job_quest,/datum/job_quest/tzeetch_champion))
+			H.add_spell(new /spell/targeted/devastate, "ork_spell_ready")
 
 /obj/item/clothing/mask/gas/artifact/unequipped(mob/living/carbon/human/H, var/from_slot = null)
 	..()
 	if(from_slot == slot_wear_mask && istype(H))
+		icon_state = "artifact_noeffect"
+		item_state = "artifact_noeffect"
 		H.movement_speed_modifier -= speed_modifier
 		H.visible_message("<span class='warning'> [H] takes off the [src]!</span>")
 		H.Knockdown(weartime/5)
@@ -62,3 +68,8 @@
 		for(var/spell/targeted/devastate/spell in H.spell_list)
 			H.remove_spell(spell)
 
+/obj/item/clothing/mask/gas/artifact/pickup(var/mob/user)
+	if(first_pickup && quest_master.tzeentch_champion)
+		SS_Scenario.mask_is_active = TRUE
+		var/mob/living/carbon/human/H = quest_master.tzeentch_champion
+		to_chat(H, "<span class='tzeentch'> A certain object has entered your realm, fueled by the many sacrifices you have offered. Perhaps you should investigate this. </span>")

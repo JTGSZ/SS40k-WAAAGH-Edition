@@ -32,7 +32,7 @@
 
 	stop_automated_movement = 1
 
-	faction = list("void")
+	faction = "void"
 
 /mob/living/simple_animal/hostile/shadow/FindTarget()
 	. = ..()

@@ -17,7 +17,18 @@
 /obj/structure/traps/spiked_floortrap/New()
 	..()
 
+/obj/structure/traps/spiked_floortrap/Bumped(atom/AM)
+	if(istype(AM, /mob/living))
+		if(iscarbon(AM))
+			var/mob/living/carbon/M = AM
+			playsound(src, 'z40k_shit/sounds/spike_ring.ogg', 100, 1)
+			M.adjustBruteLoss(100)
+			M.Paralyse(30)
+			M.Knockdown(12)
+
 /obj/structure/traps/spiked_floortrap/Cross(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
+	if(!density)
+		return 1
 	if(air_group || !height) //The mover is an airgroup
 		return 1 //We aren't airtight, only exception to PASSGLASS
 	if(istype(mover,/obj/item/projectile))
@@ -26,13 +37,6 @@
 		var/mob/M = mover
 		if(M.flying || M.highflying)
 			return 1
-		if(iscarbon(M))
-			var/mob/living/carbon/MM = M
-			playsound(src, 'z40k_shit/sounds/spike_ring.ogg', 100, 1)
-			MM.adjustBruteLoss(100)
-			MM.Paralyse(30)
-			MM.Knockdown(12)
-			return 0
 	return 0
 
 /obj/structure/traps/spiked_floortrap/turn_my_ass_over()

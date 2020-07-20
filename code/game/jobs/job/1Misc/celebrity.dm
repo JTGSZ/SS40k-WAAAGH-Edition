@@ -36,6 +36,7 @@
 	var/datum/job_quest/slaanesh_champion/ourboy = new()
 	H.job_quest = ourboy
 	ourboy.our_protagonist = H
+	quest_master.slaanesh_champion = H
 	H.add_spell(new /spell/slaanesh/celebfall)
 	return 1
  

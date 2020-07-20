@@ -37,6 +37,7 @@
 #define SS_PRIORITY_VOTE           110
 #define SS_PRIORITY_FAST_OBJECTS   105
 #define SS_PRIORITY_OBJECTS        100
+#define SS_PRIORITY_SCENARIOS	   98
 #define SS_PRIORITY_POWER          95
 #define SS_PRIORITY_MACHINERY      90
 #define SS_PRIORITY_PIPENET        85
@@ -78,6 +79,7 @@
 #define SS_DISPLAY_SUN             10
 #define SS_DISPLAY_WEATHER         5
 #define SS_DISPLAY_LIGHTHOG		   15
+#define SS_DISPLAY_SCENARIOS	   20
 
 #define SS_TRASH                  "trash"
 #define SS_CLEANABLE              "cleanable_decals"

@@ -10,31 +10,13 @@
 	var/fire_projectile = /obj/item/projectile/fire_breath
 	var/fire_sound = 'z40k_shit/sounds/flamer.ogg'
 
-	var/last_fired
-	var/fire_cooldown = 2 SECONDS
 	currently_active = TRUE
-	
-//Fire blasts from this trap fire in a straight line, without expanding at the end
-/obj/structure/traps/fire_trap/no_spread
-	fire_projectile = /obj/item/projectile/fire_breath/straight
-
-/obj/structure/traps/fire_trap/no_spread/two_second
-	fire_cooldown = 3 SECONDS
 
 /obj/structure/traps/fire_trap/New()
 	..()
-	last_fired = world.time
-	processing_objects.Add(src)
 
 /obj/structure/traps/fire_trap/Destroy()
-	processing_objects.Remove(src)
 	..()
-
-/obj/structure/traps/fire_trap/process()
-	if(currently_active)
-		if(world.time > last_fired + fire_cooldown)
-			last_fired = world.time
-			turn_my_ass_over()
 
 /obj/structure/traps/fire_trap/turn_my_ass_over()
 	var/obj/item/projectile/A = new fire_projectile(get_turf(src))
@@ -55,6 +37,26 @@
 		A.OnFired()
 		A.process()
 
-/obj/structure/traps/fire_trap/synced
-	scenario_controller_timing = TRUE
-	scenario_controller_id = 1
+//Fire blasts from this trap fire in a straight line, without expanding at the end
+/obj/structure/traps/fire_trap/no_spread
+	fire_projectile = /obj/item/projectile/fire_breath/straight
+
+/obj/structure/traps/fire_trap/no_spread/tick_one
+	//Basically this fires off on tick 1
+/obj/structure/traps/fire_trap/no_spread/tick_one/New()
+	..()
+	scenario_order_one += src
+
+/obj/structure/traps/fire_trap/no_spread/tick_one/Destroy()
+	scenario_order_one -= src
+	..()
+	
+/obj/structure/traps/fire_trap/no_spread/tick_two
+	//This one fires off on tick 2
+/obj/structure/traps/fire_trap/no_spread/tick_two/New()
+	..()
+	scenario_order_two += src
+
+/obj/structure/traps/fire_trap/no_spread/tick_two/Destroy()
+	scenario_order_two -= src
+	..()

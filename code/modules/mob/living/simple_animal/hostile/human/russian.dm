@@ -35,3 +35,6 @@
 	projectiletype = /obj/item/projectile/bullet/midbullet2
 	projectilesound = 'sound/weapons/nagant.ogg'
 	casingtype = /obj/item/ammo_casing/c762x38r
+
+/mob/living/simple_animal/hostile/humanoid/russian/ranged/void
+	faction = "void"

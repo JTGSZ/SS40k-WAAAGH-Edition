@@ -8,12 +8,7 @@
 	teleport_z = 0
 
 /obj/effect/step_trigger/teleporter/Trigger(var/atom/movable/A)
-	if(map_scenario_controller.S1_currently_sealed)
-		return
-
 	if(teleport_x && teleport_y && teleport_z)
 		A.x = teleport_x
 		A.y = teleport_y
 		A.z = teleport_z
-
-	map_scenario_controller.tick_segment_one(A)

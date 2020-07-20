@@ -1,4 +1,21 @@
 
+/*
+	Day/Night based Lighting
+*/
+/obj/machinery/light/day_and_night
+	name = "time based lighting"
+
+/obj/machinery/light/day_and_night/New()
+	..()
+	day_and_night_lights += src
+
+/obj/machinery/light/day_and_night/Destroy()
+	day_and_night_lights -= src
+	..()
+
+/obj/machinery/light/day_and_night/industrial_orange
+	icon_state = "lhetube1"
+	spawn_with_bulb = /obj/item/weapon/light/tube/industrial_orange
 
 /*
 	Industrial Orange - Tube
@@ -23,8 +40,8 @@
 	base_state = "hetube"
 	starting_materials = list(MAT_GLASS = 300, MAT_IRON = 60)
 	brightness_range = 6
-	brightness_power = 1.5
-	brightness_color = "#f78c00"
+	brightness_power = 2
+	brightness_color = "#ffc070"
 	cost = 2
 
 /obj/item/weapon/light/tube/industrial_orange/broken
@@ -41,7 +58,7 @@
 	icon_state = "lbulb1"
 	fitting = "bulb"
 	desc = "A small lighting fixture."
-	spawn_with_bulb = /obj/item/weapon/light/bulb
+	spawn_with_bulb = /obj/item/weapon/light/bulb/red
 
 /obj/item/weapon/light/bulb/red
 	name = "high efficiency light bulb"

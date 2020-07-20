@@ -222,7 +222,6 @@ var/global/list/obj/machinery/light/alllights = list()
 	alllights -= src
 
 /obj/machinery/light/update_icon()
-
 	if(current_bulb)
 		switch(current_bulb.status)		// set icon_states
 			if(LIGHT_OK)

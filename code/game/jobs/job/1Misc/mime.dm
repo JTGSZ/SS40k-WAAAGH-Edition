@@ -58,6 +58,7 @@
 	var/datum/job_quest/harlequin/harlequin = new()
 	H.job_quest = harlequin
 	harlequin.our_protagonist = H
+	quest_master.harlequin = H
 	H.add_spell(new /spell/targeted/concentrate,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 	return 1
 	

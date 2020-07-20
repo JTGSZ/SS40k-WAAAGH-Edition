@@ -1,6 +1,5 @@
 /datum/job_quest/tzeetch_champion
 	title = "Retrieving A Heirloom - Crown Quest"
-	var/mask_out_of_dungeon = FALSE
 
 /datum/job_quest/tzeetch_champion/main_body()
 	switch(alignment)
@@ -36,19 +35,19 @@
 			to_chat(our_protagonist, "<span class='notice'> Mmm, but we both know that isn't enough to turn the tide in bringing prosperity to this land. Along with that you've been hearing whispers as of late. </span>")
 			alignment--
 		if(-7)
-			to_chat(our_protagonist, "<span class='tzeentch'> Your salvation lies in the place you rightfully belong. </span>")
+			to_chat(our_protagonist, "<span class='tzeentch'> Your salvation lies in a place that only exists in memories. </span>")
 			alignment--
 		if(-8)
-			to_chat(our_protagonist, "<span class='notice'> There it is again, a image of a white mask from a throne room fills your mind, similar to one that odd performer wears, but vastly different you feel. You aren't dumb though, clearly its telling you your rightful place is upon it, after-all that is where a Lord belongs.</span>")
+			to_chat(our_protagonist, "<span class='notice'> There it is again, you can vaguely recall a oddly less decrepit throne room. You aren't dumb though, clearly its clueing you in.</span>")
 			alignment--
 		if(-9)
-			to_chat(our_protagonist, "<span class='notice'> Alas, everytime you've tried to get into the throne room yourself. Something odd just prevents you from doing so, all the men you've sent have never returned either. Maybe today will be different </span>")
+			to_chat(our_protagonist, "<span class='notice'> Alas, everytime you've visited the old throne room yourself, theres nothing in particular going on there... Other than the usual giant spiders. Perhaps, you should just send more men to investigate, preferably a group of two minimum </span>")
 			alignment--
 		if(-10)
-			if(!mask_out_of_dungeon)
-				to_chat(our_protagonist, "<span class='notice'> Send someone to investigate and chart once more, your birthright lay deep in the south-east. </span>")
+			if(!SS_Scenario.mask_is_active)
+				to_chat(our_protagonist, "<span class='notice'> Send a patrol of at least two to investigate and chart once more, after-all it never hurts to reinvestigate to insure you've missed no details. </span>")
 			else
-				to_chat(our_protagonist, "<span class='notice'> You've felt the odd feeling, perhaps its the feeling of success. Oddly, you feel something calling out to you now. </span>")
+				to_chat(our_protagonist, "<span class='notice'> You feel a certain odd feeling, perhaps today is a turning point for better or worse in your life. Oddly, you feel something out in the wastes calling to you. Now if you sent that patrol, where is it? </span>")
 				alignment--
 		if(-11) //End
 			for(var/obj/item/clothing/mask/gas/artifact/evilmask in our_protagonist.contents)

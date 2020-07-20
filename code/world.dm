@@ -116,7 +116,6 @@ var/savefile/panicfile
 	data_core = new /obj/effect/datacore()
 	paiController = new /datum/paiController()
 	viscon_pooler = new /datum/visconpooler() //40k addition.
-	map_scenario_controller = new /datum/map_scenario_controller()
 
 	if(!setup_database_connection())
 		world.log << "Your server failed to establish a connection with the feedback database."

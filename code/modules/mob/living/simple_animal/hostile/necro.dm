@@ -492,6 +492,9 @@
 	can_evolve = 0
 	unique_name = 1
 
+/mob/living/simple_animal/hostile/necro/zombie/leatherman/void
+	faction = "void"
+
 /mob/living/simple_animal/hostile/necro/zombie/ghoul
 	name = "ghoul"
 	icon_state = "ghoul"

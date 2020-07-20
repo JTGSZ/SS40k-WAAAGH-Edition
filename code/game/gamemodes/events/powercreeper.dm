@@ -99,7 +99,7 @@
 					try_electrocution_turf(T, chosen_dir)
 
 /obj/structure/cable/powercreeper/Crossed(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
-	.=..()
+	. = ..()
 	if(isliving(mover))
 		try_electrocution(mover)
 
