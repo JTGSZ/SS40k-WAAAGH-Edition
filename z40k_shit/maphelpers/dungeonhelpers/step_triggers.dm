@@ -10,17 +10,13 @@
 /obj/effect/step_trigger/proc/Trigger(var/atom/movable/A)
 	return 0
 
-/obj/effect/step_trigger/Crossed(H )
+/obj/effect/step_trigger/Crossed(atom/movable/AM)
 	..()
-	if(!H)
+	if(istype(AM, /mob/dead/observer) && !affect_ghosts)
 		return
-	if(istype(H, /mob/dead/observer) && !affect_ghosts)
+	if(istype(AM, /obj/effect/beam))//those things aren't meant to get moved
 		return
-	if(istype(H, /obj/effect/beam))//those things aren't meant to get moved
-		return
-	Trigger(H)
-
-
+	Trigger(AM)
 
 /* Tosses things in a certain direction */
 
@@ -35,57 +31,53 @@
 	var/nostop = 0 // if 1: will only be stopped by teleporters
 	var/list/affecting = list()
 
-	Trigger(var/atom/A)
-		if(!A || !istype(A, /atom/movable) || isobserver(A))
+/obj/effect/step_trigger/thrower/Trigger(var/atom/A)
+	if(!A || !istype(A, /atom/movable) || isobserver(A))
+		return
+
+	var/atom/movable/AM = A
+	var/curtiles = 0
+	var/stopthrow = 0
+	for(var/obj/effect/step_trigger/thrower/T in orange(2, src))
+		if(AM in T.affecting)
 			return
-		var/atom/movable/AM = A
-		var/curtiles = 0
-		var/stopthrow = 0
-		for(var/obj/effect/step_trigger/thrower/T in orange(2, src))
-			if(AM in T.affecting)
-				return
 
-		if(ismob(AM))
-			var/mob/M = AM
-			if(immobilize)
-				M.canmove = 0
+	if(ismob(AM))
+		var/mob/M = AM
+		if(immobilize)
+			M.canmove = 0
 
-		affecting.Add(AM)
-		while(AM && !stopthrow)
-			if(tiles)
-				if(curtiles >= tiles)
-					break
-			if(AM.z != src.z)
+	affecting.Add(AM)
+	while(AM && !stopthrow)
+		if(tiles)
+			if(curtiles >= tiles)
 				break
+		if(AM.z != src.z)
+			break
+		curtiles++
+		sleep(speed)
 
-			curtiles++
+		// Calculate if we should stop the process
+		if(!nostop)
+			for(var/obj/effect/step_trigger/T in get_step(AM, direction))
+				if(T.stopper && T != src)
+					stopthrow = 1
+		else
+			for(var/obj/effect/step_trigger/teleporter/T in get_step(AM, direction))
+				if(T.stopper)
+					stopthrow = 1
 
-			sleep(speed)
+		if(AM)
+			var/predir = AM.dir
+			step(AM, direction)
+			if(!facedir)
+				AM.dir = predir
 
-			// Calculate if we should stop the process
-			if(!nostop)
-				for(var/obj/effect/step_trigger/T in get_step(AM, direction))
-					if(T.stopper && T != src)
-						stopthrow = 1
-			else
-				for(var/obj/effect/step_trigger/teleporter/T in get_step(AM, direction))
-					if(T.stopper)
-						stopthrow = 1
-
-			if(AM)
-				var/predir = AM.dir
-				step(AM, direction)
-				if(!facedir)
-					AM.dir = predir
-
-
-
-		affecting.Remove(AM)
-
-		if(ismob(AM))
-			var/mob/M = AM
-			if(immobilize)
-				M.canmove = 1
+	affecting.Remove(AM)
+	if(ismob(AM))
+		var/mob/M = AM
+		if(immobilize)
+			M.canmove = 1
 
 /obj/effect/step_trigger/thrower/north
 	dir = NORTH
@@ -111,12 +103,12 @@
 	var/teleport_y = 0
 	var/teleport_z = 0
 
-	Trigger(var/atom/movable/A)
-		if(teleport_x && teleport_y && teleport_z)
+/obj/effect/step_trigger/teleporter/Trigger(var/atom/movable/A)
+	if(teleport_x && teleport_y && teleport_z)
 
-			A.x = teleport_x
-			A.y = teleport_y
-			A.z = teleport_z
+		A.x = teleport_x
+		A.y = teleport_y
+		A.z = teleport_z
 
 /* Random teleporter, teleports atoms to locations ranging from teleport_x - teleport_x_offset, etc */
 
@@ -125,15 +117,15 @@
 	var/teleport_y_offset = 0
 	var/teleport_z_offset = 0
 
-	Trigger(var/atom/movable/A)
-		if(!istype(A))
-			return
-		if(teleport_x && teleport_y && teleport_z)
-			if(teleport_x_offset && teleport_y_offset && teleport_z_offset)
+/obj/effect/step_trigger/teleporter/random/Trigger(var/atom/movable/A)
+	if(!istype(A))
+		return
+	if(teleport_x && teleport_y && teleport_z)
+		if(teleport_x_offset && teleport_y_offset && teleport_z_offset)
 
-				A.x = rand(teleport_x, teleport_x_offset)
-				A.y = rand(teleport_y, teleport_y_offset)
-				A.z = rand(teleport_z, teleport_z_offset)
+			A.x = rand(teleport_x, teleport_x_offset)
+			A.y = rand(teleport_y, teleport_y_offset)
+			A.z = rand(teleport_z, teleport_z_offset)
 
 /obj/effect/step_trigger/teleporter/random/shuttle_transit
 	teleport_x = 25

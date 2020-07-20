@@ -581,7 +581,8 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 			adjustBruteLoss(30)
 
 /mob/living/simple_animal/adjustBruteLoss(damage)
-
+	if(status_flags & GODMODE)
+		return 0
 	if(INVOKE_EVENT(on_damaged, list("type" = BRUTE, "amount" = damage)))
 		return 0
 	if(skinned())

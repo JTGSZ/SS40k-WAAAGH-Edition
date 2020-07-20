@@ -3,7 +3,7 @@
 	alpha = 255
 	invisibility = 101
 	mouse_opacity = 0
-
+ 
 /obj/abstract/mover/transporter
 	icon_state = "transporter"
 	dir = SOUTH

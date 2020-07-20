@@ -334,7 +334,7 @@
 	item_state = "blindingspeed"
 	wizard_garb = 1
 	var/speed_modifier = 4
-
+ 
 /obj/item/clothing/shoes/blindingspeed/equipped(mob/living/carbon/human/H, equipped_slot)
 	..()
 	if(istype(H) && H.get_item_by_slot(slot_shoes) == src && equipped_slot != null && equipped_slot == slot_shoes)

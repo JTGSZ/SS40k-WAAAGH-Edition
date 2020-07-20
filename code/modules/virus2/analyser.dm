@@ -85,7 +85,6 @@
 	if(!user.can_poltergeist())
 		to_chat(user, "Your poltergeist abilities are still cooling down.")
 		return FALSE
-	add_hiddenprint(user)
 	icon_state = "analyser_processing"
 	flick("analyser_turnon",src)
 	set_light(2,2)

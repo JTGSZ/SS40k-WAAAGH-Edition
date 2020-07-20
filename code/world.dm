@@ -116,6 +116,7 @@ var/savefile/panicfile
 	data_core = new /obj/effect/datacore()
 	paiController = new /datum/paiController()
 	viscon_pooler = new /datum/visconpooler() //40k addition.
+	map_scenario_controller = new /datum/map_scenario_controller()
 
 	if(!setup_database_connection())
 		world.log << "Your server failed to establish a connection with the feedback database."
@@ -364,7 +365,7 @@ var/savefile/panicfile
 	//	s += "<b>[config.server_name]</b> &#8212; " //SORRY CONFIG-KUN -JTGSZ
 
 
-	s += "<b>>/vg/ 40k: <i>WAAAGH EDITION!</i></b>] - Periodically up for Tests, Come try it out.<br>"
+	s += "<b>>/vg/ 40k: <i>OVERHAUL 2 EDITION!</i></b>] - Periodically up for Tests, Come try it out.<br>"
 	s += "<br>"
 	s += " \[<a href=\"https://discord.gg/5F9sQDF\">Discord</a><br>"
 	

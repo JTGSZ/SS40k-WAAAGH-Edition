@@ -16,8 +16,9 @@
 	if(charge > 10)
 		charge -= 10
 		to_chat(U, "<span class='warning'> Glimpses of the future flood your mind as the powers of the warp expand your mind...</span>")
-		U.dodging = 1
-		spawn(150) U.dodging = 0
+		U.dodging = TRUE
+		spawn(150) 
+			U.dodging = FALSE
 	else
 		to_chat(U, "<span class='warning'> Not eneough energy!</span>")
 

@@ -48,7 +48,7 @@
 	mutations = list(M_CLUMSY)
 
 
-/mob/living/simple_animal/hostile/retaliate/faguette/to_bump(atom/movable/AM )
+/mob/living/simple_animal/hostile/retaliate/faguette/to_bump(atom/movable/AM)
 	if(now_pushing)
 		return
 	if(ismob(AM))
