@@ -11,8 +11,9 @@
 	var/syndie = 0
 	var/raider = 0
 	var/list/channels = list()
+	channels = list("Common" = 1)
 
-/obj/item/device/encryptionkey/attackby(obj/item/weapon/W, mob/user )
+/obj/item/device/encryptionkey/attackby(obj/item/weapon/W, mob/user)
 
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"
