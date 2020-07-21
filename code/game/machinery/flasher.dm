@@ -147,7 +147,7 @@ var/list/obj/machinery/flasher/flashers = list()
 	return src.attack_hand(user)
 
 /obj/machinery/flasher_button/attack_hand(mob/user )
-
+	playsound(src,'sound/misc/click.ogg',30,0,-1)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)

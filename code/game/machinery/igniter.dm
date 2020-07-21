@@ -1,4 +1,5 @@
 var/global/list/igniters = list()
+
 /obj/machinery/igniter
 	name = "igniter"
 	desc = "It's useful for igniting plasma."
@@ -14,15 +15,15 @@ var/global/list/igniters = list()
 	ghost_read = 0 // Deactivate ghost touching.
 	ghost_write = 0
 
-/obj/machinery/igniter/attack_ai(mob/user )
+/obj/machinery/igniter/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/igniter/attack_paw(mob/user )
+/obj/machinery/igniter/attack_paw(mob/user)
 	if ((ticker && ticker.mode.name == "monkey"))
 		return src.attack_hand(user)
 	return
 
-/obj/machinery/igniter/attack_hand(mob/user )
+/obj/machinery/igniter/attack_hand(mob/user)
 	if(..())
 		return
 	
@@ -60,7 +61,7 @@ var/global/list/igniters = list()
 	else
 		icon_state = "igniter0"
 
-/obj/machinery/igniter/attackby(var/obj/item/weapon/W, var/mob/user )
+/obj/machinery/igniter/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(iswelder(W) && src.assembly)
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class='notice'>You begin to cut \the [src] off the floor...</span>")
@@ -110,7 +111,7 @@ var/global/list/igniters = list()
 		icon_state = "[base_state]-p"
 //		src.sd_SetLuminosity(0)
 
-/obj/machinery/sparker/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/sparker/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/device/detective_scanner))
 		return
 	if (W.is_screwdriver(user))
@@ -156,17 +157,17 @@ var/global/list/igniters = list()
 	do_spark()
 	..(severity)
 
-/obj/machinery/ignition_switch/attack_ai(mob/user )
+/obj/machinery/ignition_switch/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/ignition_switch/attack_paw(mob/user )
+/obj/machinery/ignition_switch/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/ignition_switch/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/ignition_switch/attackby(obj/item/weapon/W, mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/ignition_switch/attack_hand(mob/user )
-
+/obj/machinery/ignition_switch/attack_hand(mob/user)
+	playsound(src,'sound/misc/click.ogg',30,0,-1)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)

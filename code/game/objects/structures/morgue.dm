@@ -73,15 +73,15 @@
 /obj/structure/morgue/alter_health() //???????????????
 	return src.loc
 
-/obj/structure/morgue/attack_paw(mob/user )
+/obj/structure/morgue/attack_paw(mob/user)
 	return src.attack_hand(user)
 
 /obj/structure/morgue/attack_robot(mob/living/silicon/robot/user)
 	if(HAS_MODULE_QUIRK(user, MODULE_CAN_HANDLE_MEDICAL))
 		attack_hand(user)
 
-/obj/structure/morgue/attack_hand(mob/user )
-	if (connected)
+/obj/structure/morgue/attack_hand(mob/user)
+	if(connected)
 		close_up()
 	else
 		open_up()
@@ -185,10 +185,10 @@
 	else
 		return ..()
 
-/obj/structure/m_tray/attack_paw(mob/user )
+/obj/structure/m_tray/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/obj/structure/m_tray/attack_hand(mob/user )
+/obj/structure/m_tray/attack_hand(mob/user)
 	if(connected)
 		connected.close_up()
 	else
@@ -198,7 +198,7 @@
 	if(HAS_MODULE_QUIRK(user, MODULE_CAN_HANDLE_MEDICAL))
 		attack_hand(user)
 
-/obj/structure/m_tray/MouseDropTo(atom/movable/O, mob/user )
+/obj/structure/m_tray/MouseDropTo(atom/movable/O, mob/user)
 	if (!istype(O) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
@@ -271,16 +271,10 @@
 /obj/structure/crematorium/alter_health()
 	return src.loc
 
-/obj/structure/crematorium/attack_paw(mob/user )
+/obj/structure/crematorium/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/obj/structure/crematorium/attack_hand(mob/user )
-//	if (cremating) AWW MAN! THIS WOULD BE SO MUCH MORE FUN ... TO WATCH
-//		user.show_message("<span class='warning'>Uh-oh, that was a bad idea.</span>", 1)
-//		to_chat(usr, "Uh-oh, that was a bad idea.")
-//		src:loc:poison += 20000000
-//		src:loc:firelevel = src:loc:poison
-//		return
+/obj/structure/crematorium/attack_hand(mob/user)
 	if (cremating)
 		to_chat(usr, "<span class='warning'>It's locked.</span>")
 		return
@@ -308,32 +302,29 @@
 	
 	update()
 
-/obj/structure/crematorium/attackby(P, mob/user )
+/obj/structure/crematorium/attackby(P, mob/user)
 	if (istype(P, /obj/item/weapon/pen))
 		set_tiny_label(user, " - '", "'", maxlength=32)
 	
 
-/obj/structure/crematorium/relaymove(mob/user )
+/obj/structure/crematorium/relaymove(mob/user)
 	if (user.stat || locked)
 		return
-	src.connected = new /obj/structure/c_tray( src.loc )
-	step(src.connected, SOUTH)
+	connected = new /obj/structure/c_tray(loc)
+	step(connected, SOUTH)
 	var/turf/T = get_step(src, SOUTH)
-	if (T.contents.Find(src.connected))
-		src.connected.connected = src
-		src.icon_state = "crema0"
+	if (T.contents.Find(connected))
+		connected.connected = src
+		icon_state = "crema0"
 		for(var/atom/movable/A  in src)
-			A.forceMove(src.connected.loc)
+			A.forceMove(connected.loc)
 			//Foreach goto(106)
-		src.connected.icon_state = "cremat"
+		connected.icon_state = "cremat"
 	else
-		qdel(src.connected)
-		src.connected = null
+		qdel(connected)
+		connected = null
 
 /obj/structure/crematorium/proc/cremate(mob/user)
-//	for(var/obj/machinery/crema_switch/O in src) //trying to figure a way to call the switch, too drunk to sort it out atm
-//		if(var/on == 1)
-//		return
 	if(cremating)
 		return //don't let you cremate something twice or w/e
 
@@ -345,13 +336,13 @@
 	else
 		var/inside = get_contents_in_object(src)
 
-		if (locate(/obj/item/weapon/disk/nuclear) in inside)
+		if(locate(/obj/item/weapon/disk/nuclear) in inside)
 			to_chat(user, "<SPAN CLASS='warning'>You get the feeling that you shouldn't cremate one of the items in the cremator.</SPAN>")
 			return
 		if(locate(/mob/living/simple_animal/scp_173) in inside)
 			to_chat(user, "<span class='warning'>You try to toggle the crematorium on, but all you hear is scraping stone.</span>")
 			return
-		for (var/mob/M in viewers(src))
+		for(var/mob/M in viewers(src))
 			if(!M.hallucinating())
 				M.show_message("<span class='warning'>You hear a roar as the crematorium activates.</span>", 1)
 			else
@@ -362,8 +353,8 @@
 		cremating = 1
 		update()
 
-		for (var/mob/living/M in inside)
-			if (M.stat!=2)
+		for(var/mob/living/M in inside)
+			if(M.stat!=2)
 				M.audible_scream()
 			//Logging for this causes runtimes resulting in the cremator locking up. Commenting it out until that's figured out.
 			//M.attack_log += "\[[time_stamp()]\] Has been cremated by <b>[user]/[user.ckey]</b>" //No point in this when the mob's about to be qdeleted
@@ -374,7 +365,7 @@
 			qdel(M)
 			M = null
 
-		for (var/obj/O in inside) //obj instead of obj/item so that bodybags and ashes get destroyed. We dont want tons and tons of ash piling up
+		for(var/obj/O in inside) //obj instead of obj/item so that bodybags and ashes get destroyed. We dont want tons and tons of ash piling up
 			qdel(O)
 
 		inside = null
@@ -406,35 +397,35 @@
 	else
 		return ..()
 
-/obj/structure/c_tray/attack_paw(mob/user )
+/obj/structure/c_tray/attack_paw(mob/user)
 	return src.attack_hand(user)
 
-/obj/structure/c_tray/attack_hand(mob/user )
-	if (src.connected)
+/obj/structure/c_tray/attack_hand(mob/user)
+	if(src.connected)
 		for(var/atom/movable/A  in src.loc)
 			if (!( A.anchored ))
 				A.forceMove(src.connected)
 		src.connected.connected = null
 		src.connected.update()
 		
-		//SN src = null
 		qdel(src)
 
-/obj/structure/c_tray/MouseDropTo(atom/movable/O, mob/user )
-	if ((!( istype(O, /atom/movable) ) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O)))
+/obj/structure/c_tray/MouseDropTo(atom/movable/O, mob/user)
+	if((!( istype(O, /atom/movable) ) || O.anchored || !user.Adjacent(O) || !user.Adjacent(src) || user.contents.Find(O)))
 		return
-	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
+	if(!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
 		return
 	O.forceMove(src.loc)
-	if (user != O)
+	if(user != O)
 		for(var/mob/B in viewers(user, 3))
-			if ((B.client && !( B.blinded )))
+			if((B.client && !( B.blinded )))
 				to_chat(B, text("<span class='warning'>[] stuffs [] into []!</span>", user, O, src))
 
-/obj/machinery/crema_switch/attack_hand(mob/user )
-	if (allowed(user))
-		for (var/obj/structure/crematorium/C in crematorium_list)
-			if (C.id == id)
+/obj/machinery/crema_switch/attack_hand(mob/user)
+	playsound(src,'sound/misc/click.ogg',30,0,-1)
+	if(allowed(user))
+		for(var/obj/structure/crematorium/C in crematorium_list)
+			if(C.id == id)
 				C.cremate(user)
 	else
 		to_chat(user, "<SPAN CLASS='alert'>Access denied.</SPAN>")
