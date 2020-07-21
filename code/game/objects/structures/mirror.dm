@@ -8,75 +8,110 @@
 	anchored = 1
 	var/shattered = 0
 
-
-/obj/structure/mirror/attack_hand(mob/user )
+/obj/structure/mirror/proc/can_use(mob/living/user, mob/living/carbon/human/target)
 	if(shattered)
+		return FALSE
+	if(!ishigherbeing(user) || !ishuman(target))
+		return FALSE
+	if(!isturf(user.loc) || !isturf(target.loc))
+		return FALSE
+	if(!Adjacent(user) || !Adjacent(target))
+		return FALSE
+	if(user.incapacitated())
+		return FALSE
+	return TRUE
+
+/obj/structure/mirror/proc/delay(mob/living/user, mob/living/carbon/human/target, which)
+	if(user == target)
+		return TRUE
+	which = lowertext(which)
+	visible_message("<span class='danger'>[user] tries to change [target]'s [which].</span>")
+	if(do_after_many(user, list(target, src), 3 SECONDS))
+		visible_message("<span class='notice'>[user] changes [target]'s [which].</span>")
+		return TRUE
+	return FALSE
+
+/obj/structure/mirror/proc/vampire_check(mob/living/user, mob/living/carbon/human/target)
+	var/datum/role/vampire/V = isvampire(target)
+	if(V && !(VAMP_MATURE in V.powers))
+		to_chat(user, "<span class='notice'>You don't see anything in \the [src].</span>")
+		return FALSE
+	return TRUE
+
+/obj/structure/mirror/proc/attempt(mob/living/user, mob/living/carbon/human/target, which)
+	if(!can_use(user, target))
+		return FALSE
+	if(!delay(user, target, which))
+		return FALSE
+	if(!can_use(user, target))
+		return FALSE
+	if(!vampire_check(user, target))
+		return FALSE
+	return TRUE
+
+/obj/structure/mirror/proc/choose(mob/living/user, mob/living/carbon/human/target)
+	if(!can_use(user, target))
+		return
+	if(user.hallucinating())
+		switch(rand(1,100))
+			if(1 to 20)
+				to_chat(user, "<span class='sinister'>You look like [pick("a monster","a goliath","a catbeast","a ghost","a chicken","the mailman","a demon")]! Your heart skips a beat.</span>")
+				user.Knockdown(4)
+				user.Stun(4)
+				return
+			if(21 to 40)
+				to_chat(user, "<span class='sinister'>There's [pick("somebody","a monster","a little girl","a zombie","a ghost","a catbeast","a demon")] standing behind you!</span>")
+				user.audible_scream()
+				user.dir = turn(user.dir, 180)
+				return
+			if(41 to 50)
+				to_chat(user, "<span class='notice'>You don't see anything.</span>")
+				return
+
+	var/which = alert(user, "What would you like to change?", "Appearance", "Hair", "Beard", "Undies")
+
+	if(!which || !can_use(user, target))
 		return
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/datum/role/vampire/V = isvampire(H)
-		if(isvampire(H))
-			if(!(VAMP_MATURE in V.powers))
-				to_chat(H, "<span class='notice'>You don't see anything.</span>")
+	//copypasted from user prefs, check there for more info
+
+	switch(which)
+		if("Beard")
+			var/list/species_facial_hair = valid_sprite_accessories(facial_hair_styles_list, target.gender, target.species.name)
+			if(species_facial_hair.len)
+				var/new_style = input(user, "Select a facial hair style", "Grooming") as null|anything in species_facial_hair
+				if(!new_style || !attempt(user, target, which))
+					return
+				target.my_appearance.f_style = new_style
+				target.update_hair()
+
+		if("Hair")
+			var/list/species_hair = valid_sprite_accessories(hair_styles_list, null, target.species.name) //gender intentionally left null so speshul snowflakes can cross-hairdress
+			if(species_hair.len)
+				var/new_style = input(user, "Select a hair style", "Grooming") as null|anything in species_hair
+				if(!new_style || !attempt(user, target, which))
+					return
+				target.my_appearance.h_style = new_style
+				target.update_hair()
+
+		if("Undies")
+			var/list/underwear_options
+			if(target.gender == MALE)
+				underwear_options = underwear_m
+			else
+				underwear_options = underwear_f
+
+			var/new_underwear = input(user, "Select your underwear:", "Undies") as null|anything in underwear_options
+			if(!new_underwear || !attempt(user, target, which))
 				return
-		if(user.hallucinating())
-			switch(rand(1,100))
-				if(1 to 20)
-					to_chat(H, "<span class='sinister'>You look like [pick("a monster","a goliath","a catbeast","a ghost","a chicken","the mailman","a demon")]! Your heart skips a beat.</span>")
-					H.Knockdown(4)
-					H.Stun(4)
-					return
-				if(21 to 40)
-					to_chat(H, "<span class='sinister'>There's [pick("somebody","a monster","a little girl","a zombie","a ghost","a catbeast","a demon")] standing behind you!</span>")
-					H.audible_scream()
-					H.dir = turn(H.dir, 180)
-					return
-				if(41 to 50)
-					to_chat(H, "<span class='notice'>You don't see anything.</span>")
-					return
+			target.underwear = underwear_options.Find(new_underwear)
+			target.regenerate_icons()
 
-		var/which = alert("What would you like to change?", "Appearance", "Hair", "Beard", "Undies")
+/obj/structure/mirror/attack_hand(mob/user)
+	choose(user, user)
 
-		if((!which) || (!Adjacent(user)))
-			return
-
-		//copypasted from user prefs, check there for more info
-
-		switch(which)
-			if("Beard")
-				var/list/species_facial_hair = valid_sprite_accessories(facial_hair_styles_list, H.gender, (H.species.name || null))
-				if(species_facial_hair.len)
-					var/new_style = input(user, "Select a facial hair style", "Grooming")  as null|anything in species_facial_hair
-					if(!Adjacent(user))
-						return	//no tele-grooming
-					if(new_style)
-						H.my_appearance.f_style = new_style
-						H.update_hair()
-
-			if("Hair")
-				var/list/species_hair = valid_sprite_accessories(hair_styles_list, null, (H.species.name || null)) //gender intentionally left null so speshul snowflakes can cross-hairdress
-				if(species_hair.len)
-					var/new_style = input(user, "Select a hair style", "Grooming")  as null|anything in species_hair
-					if(!Adjacent(user))
-						return
-					if(new_style)
-						H.my_appearance.h_style = new_style
-						H.update_hair()
-
-			if("Undies")
-				var/list/underwear_options
-				if(H.gender == MALE)
-					underwear_options = underwear_m
-				else
-					underwear_options = underwear_f
-
-				var/new_underwear = input(user, "Select your underwear:", "Undies")  as null|anything in underwear_options
-				if(!Adjacent(user))
-					return
-				if(new_underwear)
-					H.underwear = underwear_options.Find(new_underwear)
-					H.regenerate_icons()
+/obj/structure/mirror/MouseDropTo(mob/living/carbon/human/victim, mob/user)
+	choose(user, victim)
 
 /obj/structure/mirror/proc/shatter()
 	if(shattered)
@@ -96,7 +131,7 @@
 	..()
 
 
-/obj/structure/mirror/attackby(obj/item/I, mob/living/user )
+/obj/structure/mirror/attackby(obj/item/I as obj, mob/living/user as mob)
 	if ((shattered) && (istype(I, /obj/item/stack/sheet/glass/glass)))
 		var/obj/item/stack/sheet/glass/glass/stack = I
 		if ((stack.amount - 2) < 0)
@@ -133,7 +168,7 @@
 			playsound(src, 'sound/effects/Glasshit.ogg', 70, 1)
 
 
-/obj/structure/mirror/attack_alien(mob/living/user )
+/obj/structure/mirror/attack_alien(mob/living/user as mob)
 	if(islarva(user))
 		return
 	user.do_attack_animation(src, user)
@@ -144,7 +179,7 @@
 	shatter()
 
 
-/obj/structure/mirror/attack_animal(mob/living/user )
+/obj/structure/mirror/attack_animal(mob/living/user as mob)
 	if(!isanimal(user))
 		return
 	var/mob/living/simple_animal/M = user
@@ -158,7 +193,7 @@
 	shatter()
 
 
-/obj/structure/mirror/attack_slime(mob/living/user )
+/obj/structure/mirror/attack_slime(mob/living/user as mob)
 	if(!isslimeadult(user))
 		return
 	user.do_attack_animation(src, user)
