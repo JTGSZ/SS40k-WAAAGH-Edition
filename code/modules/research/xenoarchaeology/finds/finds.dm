@@ -1026,7 +1026,6 @@
 
 /obj/item/weapon/archaeological_find/New(loc, var/new_item_type)
 	..()
-	AddToProfiler()
 	if(new_item_type)
 		find_type = new_item_type
 	else

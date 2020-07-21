@@ -740,7 +740,6 @@ steam.start() -- spawns the effect
 			local_air.temperature = savedtemp
 		sleep(5)
 		qdel(src)
-	AddToProfiler()
 
 /obj/effect/effect/foam/fire/process()
 	if(--amount < 0)
