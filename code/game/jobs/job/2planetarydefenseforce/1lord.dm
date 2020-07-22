@@ -1,3 +1,4 @@
+/*
 /datum/job/general
 	title = "General"
 	flag = GENERAL
@@ -21,11 +22,11 @@
 
 /datum/job/general/get_access()
 	return get_all_accesses()
-
+*/
 /datum/outfit/general
 
 	outfit_name = "General"
-	associated_job = /datum/job/general
+//	associated_job = /datum/job/general
 	no_backpack = TRUE
 
 	items_to_spawn = list( 

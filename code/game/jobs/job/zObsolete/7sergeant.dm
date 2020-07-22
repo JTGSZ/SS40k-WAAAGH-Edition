@@ -1,5 +1,5 @@
 // ------------ Sergeant --------------//
-/datum/job/IG_trooper_sergeant
+/*/datum/job/IG_trooper_sergeant
 	title = "Sergeant"
 	flag = IGSERGEANT
 	department_flag = ENGSEC
@@ -20,11 +20,11 @@
 
 
 // ------------ Sergeant Outfit Datum --------------//
-
+*/
 /datum/outfit/IG_trooper_sergeant
 
 	outfit_name = "Sergeant"
-	associated_job = /datum/job/IG_trooper_sergeant
+//	associated_job = /datum/job/IG_trooper_sergeant
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,

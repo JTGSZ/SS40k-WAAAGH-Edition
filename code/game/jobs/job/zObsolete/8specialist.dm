@@ -1,5 +1,5 @@
 // ------------ Sergeant --------------//
-/datum/job/IG_weapon_specialist
+/*/datum/job/IG_weapon_specialist
 	title = "Weapon Specialist"
 	flag = IGWEPSPEC
 	department_flag = ENGSEC
@@ -20,11 +20,11 @@
 
 
 // ------------ Sergeant Outfit Datum --------------//
-
+*/
 /datum/outfit/IG_weapon_specialist
 
 	outfit_name = "IG Weapon Specialist"
-	associated_job = /datum/job/IG_weapon_specialist
+//	associated_job = /datum/job/IG_weapon_specialist
 	no_backpack = TRUE
 
 	items_to_spawn = list(

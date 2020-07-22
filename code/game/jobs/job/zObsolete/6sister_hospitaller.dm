@@ -1,5 +1,5 @@
 //--------------Sister Hospitaller---------------//
-/datum/job/sister_hospitaller
+/*/datum/job/sister_hospitaller
 	title = "Sister Hospitaller"
 	flag = SISTERHOSPITALLER
 	department_flag = ENGSEC
@@ -17,11 +17,11 @@
 	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_NO_RELATIONS
-
+*/
 /datum/outfit/sister_hospitaller
 
 	outfit_name = "sister_hospitaller"
-	associated_job = /datum/job/sister_hospitaller
+//	associated_job = /datum/job/sister_hospitaller
 	no_backpack = TRUE
 
 	items_to_spawn = list(

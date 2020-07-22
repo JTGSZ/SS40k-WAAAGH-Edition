@@ -75,6 +75,9 @@
 /datum/outfit/proc/pre_equip(var/mob/living/carbon/human/H)
 	return
 
+/datum/outfit/proc/bypass_list_equips(var/mob/living/carbon/human/H)
+	return 0
+
 /datum/outfit/proc/pre_equip_disabilities(var/mob/living/carbon/human/H, var/list/items_to_equip)
 	if (H.client.IsByondMember())
 		to_chat(H, "Thank you for supporting BYOND!")
@@ -99,35 +102,36 @@
 		L = items_to_spawn["Default"]
 	pre_equip_disabilities(H, L)
 
-	for(var/slot in L) //For var/slot in items to spawn Species Key
-		var/list/snowflake_items = special_snowflakes[species]
+	if(!bypass_list_equips(H)) //If the proc returns a 0 we function as normal, if its a 1 we bypass the below.
+		for(var/slot in L) //For var/slot in items to spawn Species Key
+			var/list/snowflake_items = special_snowflakes[species]
 
-		if(snowflake_items && (slot in snowflake_items[H.mind.role_alt_title])) // ex: special_snowflakes["Vox"]["Emergency responder"].
-			special_equip(H.mind.role_alt_title, slot, 	H)
-			continue
-	
-		var/obj_type = L[slot] //Obj type is species tied key list and then the slot key
-		if(islist(obj_type)) // Special objects for alt-titles, if the obj type is another list.
-			var/list/L2 = obj_type
-			obj_type = L2[H.mind.role_alt_title]
-			if(islist(obj_type))
-				if(gender_gear) //This would mean that you would use gender as the key for the lists.
-					var/list/L3 = obj_type
-					obj_type = L3[H.gender]
-					if(islist(obj_type)) //rng select on list in list in list in list
+			if(snowflake_items && (slot in snowflake_items[H.mind.role_alt_title])) // ex: special_snowflakes["Vox"]["Emergency responder"].
+				special_equip(H.mind.role_alt_title, slot, 	H)
+				continue
+		
+			var/obj_type = L[slot] //Obj type is species tied key list and then the slot key
+			if(islist(obj_type)) // Special objects for alt-titles, if the obj type is another list.
+				var/list/L2 = obj_type
+				obj_type = L2[H.mind.role_alt_title]
+				if(islist(obj_type))
+					if(gender_gear) //This would mean that you would use gender as the key for the lists.
+						var/list/L3 = obj_type
+						obj_type = L3[H.gender]
+						if(islist(obj_type)) //rng select on list in list in list in list
+							obj_type = pick(obj_type)
+					else //same deal except we now aren't tied to a gender key in
 						obj_type = pick(obj_type)
-				else //same deal except we now aren't tied to a gender key in
-					obj_type = pick(obj_type)
 
-		if(!obj_type)
-			continue
-		slot = text2num(slot)
-		if(slot == 19)
-			H.put_in_hand(GRASP_LEFT_HAND, new obj_type(get_turf(H)))
-		else if(slot == 20)
-			H.put_in_hand(GRASP_RIGHT_HAND, new obj_type(get_turf(H)))
-		else
-			H.equip_to_slot_or_del(new obj_type(get_turf(H)), slot, TRUE)
+			if(!obj_type)
+				continue
+			slot = text2num(slot)
+			if(slot == 19)
+				H.put_in_hand(GRASP_LEFT_HAND, new obj_type(get_turf(H)))
+			else if(slot == 20)
+				H.put_in_hand(GRASP_RIGHT_HAND, new obj_type(get_turf(H)))
+			else
+				H.equip_to_slot_or_del(new obj_type(get_turf(H)), slot, TRUE)
 	
 	if(!no_backpack)
 		equip_backbag(H, species)

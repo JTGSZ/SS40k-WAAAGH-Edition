@@ -1,4 +1,4 @@
-/datum/job/orkwarboss
+/*/datum/job/orkwarboss
 	title = "Ork Warboss"
 	flag = ORKWARBOSS
 	department_flag = ENGSEC
@@ -16,11 +16,11 @@
 	must_be_map_enabled = 1
 
 	relationship_chance = XENO_NO_RELATIONS
-
+*/
 /datum/outfit/orkwarboss
 
 	outfit_name = "Ork Warboss"
-	associated_job = /datum/job/orkwarboss
+//	associated_job = /datum/job/orkwarboss
 	no_backpack = TRUE
 	no_id = TRUE
 

@@ -1,4 +1,4 @@
-/datum/job/orknob
+/*/datum/job/orknob
 	title = "Ork Nob"
 	flag = ORKNOB
 	department_flag = ENGSEC
@@ -17,11 +17,11 @@
 
 	relationship_chance = XENO_NO_RELATIONS
 	must_be_map_enabled = 1
-
+*/
 /datum/outfit/orknob
 
 	outfit_name = "Ork Nob"
-	associated_job = /datum/job/orknob
+//	associated_job = /datum/job/orknob
 	no_backpack = TRUE
 	no_id = TRUE
 

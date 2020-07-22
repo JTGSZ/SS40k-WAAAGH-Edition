@@ -1,4 +1,4 @@
-/datum/job/orktankbusta
+/*/datum/job/orktankbusta
 	title = "Ork Tankbusta"
 	flag = ORKTANKBUSTA
 	department_flag = ENGSEC
@@ -16,11 +16,11 @@
 	outfit_datum = /datum/outfit/orktankbusta
 
 	relationship_chance = XENO_NO_RELATIONS
-
+*/
 /datum/outfit/orktankbusta
 
 	outfit_name = "Ork Tankbusta"
-	associated_job = /datum/job/orktankbusta
+//	associated_job = /datum/job/orktankbusta
 	no_backpack = TRUE
 	no_id = TRUE
 

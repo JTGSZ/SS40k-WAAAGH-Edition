@@ -1,4 +1,4 @@
-/datum/job/basicmek
+/*/datum/job/basicmek
 	title = "Mek"
 	flag = BASICMEK
 	department_flag = ENGSEC
@@ -16,11 +16,11 @@
 	outfit_datum = /datum/outfit/basicmek
 
 	relationship_chance = XENO_NO_RELATIONS
-
+*/
 /datum/outfit/basicmek
 
 	outfit_name = "Basic Mek"
-	associated_job = /datum/job/basicmek
+//	associated_job = /datum/job/basicmek
 	no_backpack = TRUE
 	no_id = TRUE
 

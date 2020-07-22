@@ -118,4 +118,3 @@
 
 /datum/outfit/basicork/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.add_spell(new /spell/aoe_turf/waaagh1, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)
-

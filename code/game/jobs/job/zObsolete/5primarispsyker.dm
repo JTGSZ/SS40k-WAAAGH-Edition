@@ -1,4 +1,4 @@
-
+/*
 /datum/job/primarispsyker
 	title = "Primaris Psyker"
 	flag = PRIMARISPSYKER 
@@ -17,12 +17,12 @@
 	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_NO_RELATIONS
-
+*/
 
 /datum/outfit/primarispsyker
 
 	outfit_name = "Primaris Psyker"
-	associated_job = /datum/job/primarispsyker
+//	associated_job = /datum/job/primarispsyker
 	no_backpack = TRUE
 
 	items_to_spawn = list(

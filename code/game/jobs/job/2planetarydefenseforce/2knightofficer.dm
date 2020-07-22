@@ -1,5 +1,5 @@
 //------------Commissar---------------//
-/datum/job/commissar 
+/*/datum/job/commissar 
 	title = "Commissar"
 	flag = COMMISSAR
 	department_flag = ENGSEC
@@ -20,12 +20,12 @@
 	outfit_datum = /datum/outfit/commissar
 
 	relationship_chance = HUMAN_NO_RELATIONS
-
+*/
 //-------------Commissar Outfit Datum--------------//
 /datum/outfit/commissar
 
 	outfit_name = "Commissar"
-	associated_job = /datum/job/commissar
+//	associated_job = /datum/job/commissar
 	no_backpack = TRUE
 
 	items_to_spawn = list(

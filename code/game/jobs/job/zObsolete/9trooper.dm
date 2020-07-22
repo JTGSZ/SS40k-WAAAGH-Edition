@@ -1,5 +1,5 @@
 //---------------Trooper-----------------//
-/datum/job/IG_trooper //This will be converted to the basic guardsman.
+/*/datum/job/IG_trooper //This will be converted to the basic guardsman.
 	title = "Trooper"
 	flag = IGTROOPER
 	department_flag = ENGSEC
@@ -17,12 +17,12 @@
 	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_COMMON
-
+*/
 //--------------Trooper Outfit Datum----------------//
 /datum/outfit/IG_cadian_trooper
 
 	outfit_name = "Trooper"
-	associated_job = /datum/job/IG_trooper
+//	associated_job = /datum/job/IG_trooper
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
