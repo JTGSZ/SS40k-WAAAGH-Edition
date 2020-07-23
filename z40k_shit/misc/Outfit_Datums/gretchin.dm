@@ -1,4 +1,4 @@
-/datum/job/gretchin
+/*/datum/job/gretchin
 	title = "Gretchin"
 	flag = ORKGRETCHIN
 	department_flag = ENGSEC
@@ -16,11 +16,11 @@
 	must_be_map_enabled = 0
 
 	relationship_chance = XENO_NO_RELATIONS
-
+*/
 /datum/outfit/orkgretchin
 
 	outfit_name = "Gretchin"
-	associated_job = /datum/job/gretchin
+//	associated_job = /datum/job/gretchin
 	no_backpack = TRUE
 	no_id = TRUE
 

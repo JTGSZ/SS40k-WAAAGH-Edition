@@ -1,12 +1,12 @@
-/*
-/datum/job/general
-	title = "General"
-	flag = GENERAL
+
+/datum/job/lord
+	title = "Lord"
+	flag = LORD
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the emperor, and the imperium of man"
+	supervisors = "yourself, and maybe the imperium"
 	selection_color = "#78DB7D"
 	req_admin_notify = 1
 	access = list() 			//See get_access()
@@ -20,13 +20,13 @@
 
 	relationship_chance = HUMAN_SUPER_RARE
 
-/datum/job/general/get_access()
+/datum/job/lord/get_access()
 	return get_all_accesses()
-*/
-/datum/outfit/general
 
-	outfit_name = "General"
-//	associated_job = /datum/job/general
+/datum/outfit/lord
+
+	outfit_name = "Lord"
+	associated_job = /datum/job/lord
 	no_backpack = TRUE
 
 	items_to_spawn = list( 
@@ -47,10 +47,6 @@
 
 	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
-/datum/outfit/general/post_equip(var/mob/living/carbon/human/H)
-	to_chat(world, "<b>[H.real_name] is the General!</b>")
+/datum/outfit/lord/post_equip(var/mob/living/carbon/human/H)
+	to_chat(world, "<b>[H.real_name] is the Lord of these lands!</b>")
 
-/datum/outfit/general/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/general/new_general = new 
-	new_general.AssignToRole(M.mind,TRUE)
-	new_general.mind_storage(M.mind)

@@ -1,12 +1,12 @@
-//------------Commissar---------------//
-/*/datum/job/commissar 
-	title = "Commissar"
-	flag = COMMISSAR
+
+/datum/job/knight_officer 
+	title = "Knight Officer"
+	flag = KNIGHTOFFICER
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Regiment General"
+	supervisors = "the lord of these lands"
 	selection_color = "#E0D68B"
 	req_admin_notify = 1
 	wage_payout = 80
@@ -17,15 +17,14 @@
 
 	species_whitelist = list("Human")
 
-	outfit_datum = /datum/outfit/commissar
+	outfit_datum = /datum/outfit/knight_officer
 
 	relationship_chance = HUMAN_NO_RELATIONS
-*/
-//-------------Commissar Outfit Datum--------------//
-/datum/outfit/commissar
 
-	outfit_name = "Commissar"
-//	associated_job = /datum/job/commissar
+/datum/outfit/knight_officer
+
+	outfit_name = "Knight Officer"
+	associated_job = /datum/job/knight_officer 
 	no_backpack = TRUE
 
 	items_to_spawn = list(
@@ -48,11 +47,6 @@
 
 /datum/outfit/commissar/post_equip(var/mob/living/carbon/human/H)
 	
-
-/datum/outfit/commissar/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/commissar/commissar = new
-	commissar.AssignToRole(M.mind,TRUE)
-	commissar.mind_storage(M.mind)
 
 /datum/outfit/commissar/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.attribute_strength = 10

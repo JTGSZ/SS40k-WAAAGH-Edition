@@ -1,13 +1,13 @@
-//---------------Trooper-----------------//
-/*/datum/job/IG_trooper //This will be converted to the basic guardsman.
-	title = "Trooper"
-	flag = IGTROOPER
+
+/datum/job/patrolman //This will be converted to the basic guardsman.
+	title = "Patrolman"
+	flag = PATROLMAN
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 500
 	spawn_positions = 50
 	wage_payout = 45
-	supervisors = "Commissar and your Platoon Sergeant."
+	supervisors = "Knight Officers, and your lord."
 	selection_color = "#A6EAA9"
 	access = list()
 	minimal_access = list()
@@ -17,12 +17,11 @@
 	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_COMMON
-*/
-//--------------Trooper Outfit Datum----------------//
-/datum/outfit/IG_cadian_trooper
 
-	outfit_name = "Trooper"
-//	associated_job = /datum/job/IG_trooper
+
+/datum/outfit/patrolman
+	outfit_name = "patrolman"
+	associated_job = /datum/job/patrolman
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
@@ -52,10 +51,5 @@
 	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/IG_cadian_trooper/post_equip(var/mob/living/carbon/human/H)
-	H.mind.store_memory("Frequencies list: <b>Security:</b> [SEC_FREQ]<br/>")
-	
 
-/datum/outfit/IG_cadian_trooper/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/trooper/new_trooper = new
-	new_trooper.AssignToRole(M.mind,TRUE)
-	new_trooper.mind_storage(M.mind)
+	

@@ -199,8 +199,6 @@
 				switch(job_engsec_high)
 					if(BASICORK)
 						icobase = 'icons/mob/human_races/r_ork.dmi'
-					if(BASICMEK)
-						icobase = 'icons/mob/human_races/r_ork.dmi'
 //					if(ORKGRETCHIN)
 //						icobase = 'icons/mob/human_races/r_orkgretchin.dmi'
 			else
@@ -353,12 +351,6 @@
 				if(BASICORK) //SS40k EDIT
 					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
-					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
-				if(BASICMEK) //SS40k EDIT
-					clothes_s = new /icon(uniform_dmi, "orkuniform1_s")
-					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkarmor2"), ICON_OVERLAY)
-					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhat2"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
 
