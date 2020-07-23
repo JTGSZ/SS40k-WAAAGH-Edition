@@ -56,9 +56,9 @@
 	H.mind.store_memory("Frequencies list: <b>Security:</b> [SEC_FREQ]<br/>")
 
 /datum/outfit/inquisitor/handle_faction(var/mob/living/M)
-	var/datum/role/imperial_guard/inquisitor/inquisitor = new
+/*	var/datum/role/imperial_guard/inquisitor/inquisitor = new
 	inquisitor.AssignToRole(M.mind,TRUE)
-	inquisitor.mind_storage(M.mind)
+	inquisitor.mind_storage(M.mind)*/
 
 /datum/outfit/inquisitor/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.attribute_strength = 10

@@ -10,6 +10,7 @@
 	range = 20
 	spell_flags = WAIT_FOR_CLICK
 	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "cult"
 	hud_state = "hallucination"
 	warpcharge_cost = 120
 

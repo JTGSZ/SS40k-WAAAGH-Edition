@@ -2,6 +2,8 @@
 /spell/targeted/devastate
 	name = "Devastate"
 	desc = "Smite an unlucky adversary with a deadly wave of energy."
+	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "ork"
 	abbreviation = "DVST"
 	school = "evocation"
 	charge_max = 600

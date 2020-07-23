@@ -11,7 +11,7 @@
 	charge_type = Sp_RECHARGE
 	invocation_type = SpI_NONE
 	hud_state = "fire_barrier"
-
+	override_base = "cult"
 	duration = 100
 	range = 3
 	selection_type = "range"

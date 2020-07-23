@@ -12,6 +12,7 @@
 	range = 4
 	spell_flags = STATALLOWED
 	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "cult"
 	hud_state = "psychic_shriek"
 	warpcharge_cost = 20
 

@@ -1,7 +1,11 @@
 //Role IDs. See: role_datums_defines.dm
+//Fugmode shit
 #define ORKRAIDER "Ork Raider"
 #define IMPERIALGUARDSMEN "Imperial Guardsman"
 
+//Storymode Shit
+#define FREELOADA "Freeloada"
+#define ORKMOBBOSS "Mob Boss"
 /*
 	Imperial Guard Children
 							*/

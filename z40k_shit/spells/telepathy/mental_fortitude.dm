@@ -3,6 +3,7 @@
 	abbreviation = "MF"
 	desc = "Blessing - Fills everyone around your target with visions of glorious victory."
 	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "cult"
 	hud_state = "mental_fortitude"
 	user_type = USER_TYPE_PSYKER
 	spell_flags = INCLUDEUSER

@@ -9,7 +9,7 @@
 	initroletype = /datum/role/vampire
 	logo_state = "vampire-logo"
 	hud_icons = list("vampire-logo", "thrall-logo")
-
+   
 /datum/faction/vampire/proc/addMaster(var/datum/role/vampire/V)
 	if (!leader)
 		leader = V

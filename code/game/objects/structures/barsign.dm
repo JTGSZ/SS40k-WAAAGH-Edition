@@ -40,10 +40,10 @@
 	var/list/barsigns=list()
 	var/cult = 0
 
-/obj/structure/sign/double/barsign/attack_ai(mob/user )
+/obj/structure/sign/double/barsign/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/structure/sign/double/barsign/attack_hand(mob/user )
+/obj/structure/sign/double/barsign/attack_hand(mob/user)
 	if (!src.allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return

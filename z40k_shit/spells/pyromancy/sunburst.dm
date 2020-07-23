@@ -3,6 +3,7 @@
 	desc = "Witchfire (Nova) - Erupt into a firenova."
 	abbreviation = "SBST"
 	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "cult"
 	specialization = SSPYROMANCY
 	user_type = USER_TYPE_PSYKER
 

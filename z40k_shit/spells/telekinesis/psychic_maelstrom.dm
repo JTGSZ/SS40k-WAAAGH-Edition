@@ -20,6 +20,7 @@
 	invocation_type = SpI_NONE
 	spell_flags = WAIT_FOR_CLICK
 	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "ork"
 	hud_state = "psychic_maelstrom"
 	cast_prox_range = 2
 	warpcharge_cost = 170

@@ -11,6 +11,7 @@
 	range = 2
 	spell_flags = STATALLOWED
 	override_icon = 'z40k_shit/icons/buttons/warpmagic.dmi' //Basically points us to a different dmi.
+	override_base = "ork"
 	hud_state = "shockwave"
 	warpcharge_cost = 20
 

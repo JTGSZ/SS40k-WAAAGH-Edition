@@ -248,7 +248,7 @@
 
 		var/joined_faction
 		var/list/all_factions = list()
-		if (alert("Do you want that role to be part of a faction?", "Assigned role", "Yes", "No") == "Yes")
+		if(alert("Do you want that role to be part of a faction?", "Assigned role", "Yes", "No") == "Yes")
 			all_factions = get_faction_list()
 			joined_faction = input("Select new faction", "Assigned faction", null) as null|anything in all_factions
 
