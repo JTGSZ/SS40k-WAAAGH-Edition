@@ -5,11 +5,12 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "yourself, and your court warrant"
 	wage_payout = 15
 	selection_color = "#dddddd"
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/celebrity
+	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_COMMON
 

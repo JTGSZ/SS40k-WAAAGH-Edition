@@ -5,13 +5,14 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the lord"
 	wage_payout = 20
 	selection_color = "#dddddd"
 	access = list(access_janitor, access_maint_tunnels)
 	minimal_access = list(access_janitor, access_maint_tunnels)
 	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/janitor
+	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_COMMON
 

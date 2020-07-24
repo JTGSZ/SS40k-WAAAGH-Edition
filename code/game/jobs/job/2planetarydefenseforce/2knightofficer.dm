@@ -7,7 +7,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the lord of these lands"
-	selection_color = "#E0D68B"
+	selection_color = "#f8cb69"
 	req_admin_notify = 1
 	wage_payout = 80
 	access = list() 
@@ -45,7 +45,20 @@
 
 	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
-/datum/outfit/commissar/post_equip(var/mob/living/carbon/human/H)
+/datum/outfit/knight_officer/post_equip(var/mob/living/carbon/human/H)
+	var/changed_name
+	if(H.gender == MALE)
+		changed_name = "Sir" + " " + "[H.real_name]"
+		H.real_name = changed_name
+	else
+		changed_name = "Dame" + " " + "[H.real_name]"
+		H.real_name = changed_name
+	H.check_dna(H)
+
+	if(H.wear_id)
+		var/obj/item/weapon/card/id/id = H.wear_id
+		id.name = "[H.real_name]'s ID Card"
+		id.registered_name = H.real_name
 	
 
 /datum/outfit/commissar/handle_special_abilities(var/mob/living/carbon/human/H)

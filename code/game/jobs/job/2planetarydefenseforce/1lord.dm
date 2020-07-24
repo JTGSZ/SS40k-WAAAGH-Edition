@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "yourself, and maybe the imperium"
-	selection_color = "#78DB7D"
+	selection_color = "#f8cb69"
 	req_admin_notify = 1
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()

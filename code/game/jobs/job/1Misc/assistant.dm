@@ -17,6 +17,7 @@
 	outfit_datum = /datum/outfit/peasant
 
 	relationship_chance = HUMAN_COMMON
+	landmark_job_override = TRUE
 
 /datum/outfit/peasant
 

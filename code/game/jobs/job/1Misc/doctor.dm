@@ -6,7 +6,7 @@
 	total_positions = 5
 	spawn_positions = 3
 	wage_payout = 65
-	supervisors = "the chief medical officer"
+	supervisors = "the lord"
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_morgue, access_surgery, access_virology)
@@ -14,6 +14,7 @@
 	outfit_datum = /datum/outfit/doctor
 	species_blacklist = list("Ork")
 	relationship_chance = HUMAN_COMMON
+	landmark_job_override = TRUE
 
 
 /datum/outfit/doctor

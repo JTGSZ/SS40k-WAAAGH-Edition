@@ -1,4 +1,4 @@
-/obj/structure/ladder/chaosruin/ground
+/obj/structure/ladder/chaosruin/ground 
 	name = "ground"
 	id = "slaaneshruin"
 	height = 0

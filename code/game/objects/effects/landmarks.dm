@@ -4,12 +4,12 @@
 	icon_state = "x2"
 	anchored = 1
 	w_type=NOT_RECYCLABLE
+	invisibility = 101
 	var/landmark_override = FALSE
 
 /obj/effect/landmark/New()
 	. = ..()
 	tag = text("landmark*[]", name)
-	invisibility = 101
 	landmarks_list += src
 
 	switch(name)			//some of these are probably obsolete

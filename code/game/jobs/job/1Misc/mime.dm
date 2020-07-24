@@ -5,13 +5,14 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the inquisitor"
 	wage_payout = 15
 	selection_color = "#dddddd"
 	access = list(access_mime, access_theatre, access_maint_tunnels)
 	minimal_access = list(access_mime, access_theatre)
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/mime
+	landmark_job_override = TRUE
 
 	relationship_chance = HUMAN_COMMON
 

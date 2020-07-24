@@ -6,7 +6,7 @@
 	school = "evocation"
 	panel = "Celebrity"
 	charge_max = 40
-	range = -1
+	range = 1
 
 /spell/slaanesh/celebfall/choose_targets(var/mob/user = usr)
 	return list(user)

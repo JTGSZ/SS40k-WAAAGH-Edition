@@ -7,7 +7,7 @@
 	school = "evocation"
 	panel = "Warp Magic"
 	charge_max = 500
-	range = -1
+	range = 1
 
 /spell/slaanesh/ascension/choose_targets(var/mob/user = usr)
 	return list(user)

@@ -56,6 +56,7 @@ Stage 2
 		playsound(src.loc, 'z40k_shit/sounds/misc_effects/bin_open.ogg', 50, 1)
 		to_chat(user, "Must... have... more.... power....")
 		new /obj/item/weapon/propguitar/three(user.loc)
+		user.drop_item(W)
 		qdel(W)
 		qdel(src)
 	else
@@ -65,7 +66,7 @@ Stage 3
 */
 
 /obj/item/weapon/propguitar/three
-	desc = "A heavilly modified Guitar. This one appears to be in need of a little bit of wire in order to optomize it's power consumption."
+	desc = "A heavily modified Guitar. This one appears to be in need of a little bit of wire in order to optimize it's power consumption."
 
 /obj/item/weapon/propguitar/three/attackby(obj/item/weapon/W, mob/user)
 	..()
@@ -73,6 +74,7 @@ Stage 3
 		playsound(src.loc, 'sound/effects/zzzt.ogg', 50, 1)
 		to_chat(user,"This is nice. Not that we are electricians or anything but this just seems natural some how. Now get out that screwdriver and lets close the cover.")
 		new /obj/item/weapon/propguitar/four(user.loc)
+		user.drop_item(W)
 		qdel(W)
 		qdel(src)
 	else
@@ -118,17 +120,22 @@ Stage 5
 		return
 	else
 		playing = 1
-		var/guitarsound = pick('z40k_shit/sounds/guitar3.ogg','z40k_shit/sounds/guitar4.ogg' , 'z40k_shit/sounds/guitar5.ogg')					//new sounds
+		var/guitarsound = pick('z40k_shit/sounds/guitar3.ogg','z40k_shit/sounds/guitar4.ogg') //'z40k_shit/sounds/guitar5.ogg' this ones raining blood//new sounds
 		flick("guitar2_on",src)
 		playsound(loc, guitarsound, 100, 0)
 		for(var/mob/living/M in hearers(4, user))//AOE stun
 			if(M.faction == "Slaanesh")
 				continue
-			if(prob(5))
+			if(prob(15))
 				user.say("THINGS WILL GET LOUD NOW!!!")
-			to_chat(M, "Man that guy can ROCK!")
 			if(iscarbon(M))
-				M.dizziness = max(M.dizziness-3, 0)
+				M.dizziness += 100
+				M.jitteriness += 20
+				M.confused += 20
+				to_chat(M, "Man that guy can ROCK!")
+				M.audible_scream()
+				M.Knockdown(3)
+				M.Stun(3)
 
 		spawn(90)
 			playing = 0

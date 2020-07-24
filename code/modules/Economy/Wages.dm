@@ -5,10 +5,11 @@ var/global/requested_payroll_amount = 0
 var/payroll_reduction_modifier = 1
 var/adjusted_wage_gain = 0
 
+
 /proc/wageSetup()
 	if(roundstart_enable_wages)
 		wages_enabled = 1
-	WageLoop()
+		WageLoop()
  
 /proc/wagePayout()
 	requested_payroll_amount = 0

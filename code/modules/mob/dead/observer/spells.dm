@@ -135,7 +135,7 @@ var/global/list/boo_phrases_silicon=list(
 
 /spell/targeted/ghost/reenter_corpse
 	name = "Reenter Corpse"
-	desc = ""
+	desc = "Re-enter your corpse"
 	hud_state = "reenter_corpse"
 
 /spell/targeted/ghost/reenter_corpse/cast()

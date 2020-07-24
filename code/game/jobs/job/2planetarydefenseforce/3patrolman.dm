@@ -8,7 +8,7 @@
 	spawn_positions = 50
 	wage_payout = 45
 	supervisors = "Knight Officers, and your lord."
-	selection_color = "#A6EAA9"
+	selection_color = "#f8cb69"
 	access = list()
 	minimal_access = list()
 	minimal_player_age = 7

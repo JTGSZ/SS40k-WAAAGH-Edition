@@ -113,8 +113,8 @@
 					alignment--
 					return
 			to_chat(our_protagonist, "<span class='notice'>Dye your mime's outfit in the washing machine by washing it with a pen.</span>")
-		if(-21)
-			if((istype(our_protagonist.get_active_hand(), /obj/item/clothing/shoes) && istype(our_protagonist.get_inactive_hand(), /obj/item/stack/sheet/metal)) || (istype(our_protagonist.get_inactive_hand(), /obj/item/clothing/shoes) && istype(our_protagonist.get_active_hand(), /obj/item/stack/sheet/metal)) )
+		if(-21) 
+			if((istype(our_protagonist.get_active_hand(), /obj/item/clothing/shoes) && istype(our_protagonist.get_inactive_hand(), /obj/item/stack/sheet/metal)) || (istype(our_protagonist.get_inactive_hand(), /obj/item/clothing/shoes) && istype(our_protagonist.get_active_hand(), /obj/item/stack/sheet/metal)))
 				our_protagonist.visible_message("[our_protagonist] reinforces the shoes with metal.")
 				var/obj/item/numone = our_protagonist.get_active_hand()
 				var/obj/item/numtwo = our_protagonist.get_inactive_hand()

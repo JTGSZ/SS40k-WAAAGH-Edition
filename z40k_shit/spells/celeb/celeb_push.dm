@@ -11,7 +11,7 @@ abilities
 	school = "evocation"
 	panel = "Warp Magic"
 	charge_max = 500
-	range = -1
+	range = 1
 
 /spell/slaanesh/push/choose_targets(var/mob/user = usr)
 	var/list/targets = list()

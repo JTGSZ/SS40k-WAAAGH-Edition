@@ -39,7 +39,7 @@
 	desc = "A high efficiency cheap, orange industrial light"
 	base_state = "hetube"
 	starting_materials = list(MAT_GLASS = 300, MAT_IRON = 60)
-	brightness_range = 6
+	brightness_range = 7
 	brightness_power = 2
 	brightness_color = "#ffc070"
 	cost = 2
@@ -64,7 +64,7 @@
 	name = "high efficiency light bulb"
 	desc = "An efficient light used to reduce strain on the station's power grid."
 	base_state = "hebulb"
-	brightness_range = 3
+	brightness_range = 5
 	brightness_power = 3
 	brightness_color = "#dd0000"
 	cost = 1

@@ -22,7 +22,7 @@
 	if(ishuman(mover))
 		var/mob/living/carbon/human/H = mover
 		if(H.species.name == "Human")
-			if(!H.job_quest)
+			if(!H.job_quest && H.stat != DEAD)
 				activated = TRUE
 				playsound(src,'sound/misc/click.ogg',30,0,-1)
 				visible_message("<span class='warning'>\The [src] clicks!</span>")

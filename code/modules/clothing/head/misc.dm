@@ -18,6 +18,7 @@
 	desc = "A powdered wig."
 	icon_state = "pwig"
 	item_state = "pwig"
+	body_parts_covered = HIDEHAIR
 
 /obj/item/clothing/head/that
 	name = "top hat"

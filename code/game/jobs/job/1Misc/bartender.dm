@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the lord"
 	wage_payout = 20
 	selection_color = "#dddddd"
 	access = list(access_hydroponics, access_bar, access_kitchen, access_morgue, access_weapons)
@@ -14,6 +14,7 @@
 	outfit_datum = /datum/outfit/bartender
 
 	relationship_chance = HUMAN_COMMON
+	landmark_job_override = TRUE
 
 /datum/outfit/bartender
 	outfit_name = "Bartender"
