@@ -3,6 +3,8 @@
 	desc = "Its red, and uhhhh yeah."
 	icon = 'z40k_shit/icons/warp_effect.dmi'
 	icon_state = "warp"
+	plane = EFFECTS_PLANE
+	layer = 3
 
 /obj/effect/warp
 	name = "Warp Blocker"

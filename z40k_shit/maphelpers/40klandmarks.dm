@@ -5,11 +5,10 @@
 	icon_state = "x"
 	anchored = 1.0
 	landmark_override = TRUE
+	invisibility = 101
 
 /obj/effect/landmark/start/New()
 	..()
-	invisibility = 101
-
 	return 1
 
 //Observer Start

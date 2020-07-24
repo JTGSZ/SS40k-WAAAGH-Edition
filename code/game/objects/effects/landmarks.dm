@@ -100,15 +100,13 @@
 /obj/effect/narration
 	name = "narrator"
 	icon_state = "megaphone"
-
+	invisibility = 101
 	var/msg
 	var/play_sound
 	var/list/saw_ckeys = list() //List of ckeys which have seen the message
 
 /obj/effect/narration/New()
 	..()
-
-	invisibility = 101
 
 /obj/effect/narration/Crossed(mob/living/O)
 	if(istype(O))

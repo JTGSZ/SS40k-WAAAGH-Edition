@@ -114,12 +114,14 @@
 				theladder.ourladder.loc = theladder.loc
 				our_protagonist.say("I have travelled south. I have found the place. Slaanesh, show me the way inside.")
 				alignment--
+				for(var/obj/structure/ladder/theladders in ladders) //Get your asses to work ladders
+					theladders.update_links()
 				return
 			to_chat(our_protagonist,"<span class='notice'> Remember that paper report? It said something about stuff going on far south..")
 		if(-15)
 //			our_protagonist.loud = 1
 			var/mob/living/carbon/human/H = our_protagonist
-			for(var/obj/effect/decal/slaaneshmarker/ourmarker in orange(4,our_protagonist.loc))
+			for(var/obj/effect/decal/slaaneshmarker/ourmarker in range(4,our_protagonist.loc))
 				our_protagonist.say("Things will get loud now!")
 				H.mutate("tentacle mutation")
 				our_protagonist.maxHealth = 300
@@ -139,3 +141,6 @@
 		if(-17)
 			to_chat(our_protagonist, "<span class='slaanesh'>You have done well thus far. Now is the time for you to assume your final form. I grant you the greatest blessing you will ever know. Find a private place and join the eternal party as an ascended champion!</span>")
 			our_protagonist.add_spell(new /spell/slaanesh/ascension,"cult_spell_ready",/obj/abstract/screen/movable/spell_master/slaanesh)
+			for(var/spell/slaanesh/celebfall/spell in our_protagonist.spell_list)
+				our_protagonist.remove_spell(spell)
+			alignment--

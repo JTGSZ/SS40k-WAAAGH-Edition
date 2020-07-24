@@ -110,7 +110,7 @@
 	var/turf/reward_turf //If there's a reward, this is the turf on which it was originally placed
 
 /datum/map_element/dungeon/sokoban_level/initialize(list/objects)
-	.=..()
+	. = ..()
 
 	for(var/obj/structure/closet/crate/sokoban/crate in objects)
 		//check_cheat performs some additional checks first, and only then marks the user as a cheater

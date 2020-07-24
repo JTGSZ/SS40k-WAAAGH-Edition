@@ -26,7 +26,7 @@
 				activated = TRUE
 				playsound(src,'sound/misc/click.ogg',30,0,-1)
 				visible_message("<span class='warning'>\The [src] clicks!</span>")
-				spawn(2 SECONDS)
+				spawn(4 SECONDS)
 					if(H.loc == loc)
 						SS_Scenario.check_pads(H,TRUE)
 

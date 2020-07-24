@@ -16,7 +16,7 @@ var/list/ladders = list()
 
 	ladders.Add(src)
 
-	spawn(5 SECONDS)
+	spawn(10)
 		update_links()
 
 /obj/structure/ladder/spawned_by_map_element(datum/map_element/ME, list/objects)
@@ -40,7 +40,6 @@ var/list/ladders = list()
 	ladders.Remove(src)
 
 /obj/structure/ladder/proc/update_links()
-
 	for(var/obj/structure/ladder/L in ladders)
 		if(L == src)
 			continue
@@ -78,7 +77,7 @@ var/list/ladders = list()
 	else	//wtf make your ladders properly assholes
 		icon_state = "ladder00"
 
-/obj/structure/ladder/attack_hand(mob/user)
+/obj/structure/ladder/attack_hand(mob/user )
 	if(up && down)
 		switch( alert("Go up or down the ladder?", "Ladder", "Up", "Down", "Cancel") )
 			if("Up")
