@@ -535,15 +535,14 @@ var/global/list/damage_icon_parts = list()
 		if(!isbelt(belt))
 			drop_items.Add(belt)
 		// Automatically drop anything in store / id if you're not wearing a uniform.	//CHECK IF NECESARRY
-		for( var/obj/item/thing in drop_items)						//
+		for(var/obj/item/thing in drop_items)						//
 			if(thing)																			//
 				u_equip(thing,1)																//
-				if (client)																		//
+				if(client)																		//
 					client.screen -= thing														//
 																								//
-				if (thing)																		//
+				if(thing)																		//
 					thing.forceMove(loc)																//
-					//thing.dropped(src)														//
 					thing.reset_plane_and_layer()
 
 	else if(w_uniform && !check_hidden_body_flags(HIDEJUMPSUIT) && w_uniform.is_visible())
@@ -588,7 +587,6 @@ var/global/list/damage_icon_parts = list()
 		if(w_uniform.blood_DNA && w_uniform.blood_DNA.len)
 			var/image/bloodsies	= image("icon" = 'icons/effects/blood.dmi', "icon_state" = "uniformblood")
 			bloodsies.color		= w_uniform.blood_color
-			//standing.overlays	+= bloodsies
 			O.overlays += bloodsies
 
 		under_uniform.generate_accessory_overlays(O)
@@ -600,8 +598,7 @@ var/global/list/damage_icon_parts = list()
 		O.pixel_x = species.inventory_offsets["[slot_w_uniform]"]["pixel_x"] * PIXEL_MULTIPLIER
 		O.pixel_y = species.inventory_offsets["[slot_w_uniform]"]["pixel_y"] * PIXEL_MULTIPLIER
 		obj_to_plane_overlay(O,UNIFORM_LAYER)
-		//overlays_standing[UNIFORM_LAYER]	= standing
-		//overlays_standing[UNIFORM_LAYER]	= null
+
 	if(update_icons)
 		update_icons()
 
@@ -629,11 +626,6 @@ var/global/list/damage_icon_parts = list()
 			O.pixel_x = species.inventory_offsets["[slot_wear_id]"]["pixel_x"] * PIXEL_MULTIPLIER
 			O.pixel_y = species.inventory_offsets["[slot_wear_id]"]["pixel_y"] * PIXEL_MULTIPLIER
 			obj_to_plane_overlay(O,ID_LAYER)
-			//overlays_standing[ID_LAYER]	= image("icon" = 'icons/mob/mob.dmi', "icon_state" = "id")
-		//else
-			//overlays_standing[ID_LAYER]	= null
-	//else
-		//overlays_standing[ID_LAYER]	= null
 
 	hud_updateflag |= 1 << ID_HUD
 	hud_updateflag |= 1 << WANTED_HUD
@@ -1119,9 +1111,7 @@ var/global/list/damage_icon_parts = list()
 		O.pixel_x = species.inventory_offsets["[slot_wear_mask]"]["pixel_x"] * PIXEL_MULTIPLIER
 		O.pixel_y = species.inventory_offsets["[slot_wear_mask]"]["pixel_y"] * PIXEL_MULTIPLIER
 		obj_to_plane_overlay(O,FACEMASK_LAYER)
-		//overlays_standing[FACEMASK_LAYER]	= standing
-	//else
-		//overlays_standing[FACEMASK_LAYER]	= null
+
 	if(update_icons)
 		update_icons()
 
@@ -1163,9 +1153,6 @@ var/global/list/damage_icon_parts = list()
 		O.pixel_y = species.inventory_offsets["[slot_back]"]["pixel_y"] * PIXEL_MULTIPLIER
 		obj_to_plane_overlay(O,BACK_LAYER)
 
-		//overlays_standing[BACK_LAYER]	= standing
-	//else
-		//overlays_standing[BACK_LAYER]	= null
 	if(update_icons)
 		update_icons()
 
@@ -1176,7 +1163,6 @@ var/global/list/damage_icon_parts = list()
 		if(hud_used)
 			update_internals()
 			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
-
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	overlays -= obj_overlays[HANDCUFF_LAYER]
@@ -1222,8 +1208,6 @@ var/global/list/damage_icon_parts = list()
 			if(src.hud_used && src.hud_used.move_intent)
 				src.hud_used.move_intent.icon_state = "walking"
 
-	//elsek
-		//overlays_standing[LEGCUFF_LAYER]	= null
 	if(update_icons)
 		update_icons()
 
@@ -1253,6 +1237,10 @@ var/global/list/damage_icon_parts = list()
 		O.color = I.color
 		O.pixel_x = -1*(check_dimensions.Width() - WORLD_ICON_SIZE)/2
 		O.pixel_y = -1*(check_dimensions.Height() - WORLD_ICON_SIZE)/2
+	
+		//Another shitty 40k EDIT by JTGSZ
+		//For when we want update_icons update_inv_hand to handle our north face differently.
+		//Set on the object itself
 		if(I.layer_handling)
 			O.layer = FLOAT_LAYER - (TOTAL_LAYERS - DAMAGE_LAYER)
 		else
@@ -1292,7 +1280,6 @@ var/global/list/damage_icon_parts = list()
 	return update_inv_hand(GRASP_LEFT_HAND, update_icons)
 
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
-	//overlays_standing[TAIL_LAYER] = null
 	overlays -= obj_overlays[TAIL_LAYER]
 	if(species && species.tail && species.anatomy_flags & HAS_TAIL)
 		if(!wear_suit || !is_slot_hidden(wear_suit.body_parts_covered, HIDEJUMPSUIT, 0, wear_suit.body_parts_visible_override))
@@ -1300,12 +1287,6 @@ var/global/list/damage_icon_parts = list()
 			O.icon = 'icons/effects/species.dmi'
 			O.icon_state = "[species.tail]_s"
 			obj_to_plane_overlay(O,TAIL_LAYER)
-			//if(!old_tail_state) //only update if we didnt show our tail already
-
-				//overlays_standing[TAIL_LAYER] = image("icon" = 'icons/effects/species.dmi', "icon_state" = "[species.tail]_s")
-//				to_chat(src, "update: tail is different")
-		//else
-			//overlays_standing[TAIL_LAYER] = null
 
 	if(update_icons)
 		update_icons()
@@ -1368,7 +1349,7 @@ var/global/list/damage_icon_parts = list()
 	if(is_slot_hidden(W.body_parts_covered, (HIDEEARS), 0, W.body_parts_visible_override))
 		update_inv_ears()
 
-proc/is_slot_hidden(var/clothes, var/slot = -1,var/ignore_slot = 0, var/visibility_override = 0)
+/proc/is_slot_hidden(var/clothes, var/slot = -1,var/ignore_slot = 0, var/visibility_override = 0)
 	if(!clothes)
 		return 0
 	var/true_body_parts_covered = clothes
