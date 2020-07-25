@@ -471,8 +471,6 @@
 				if(observer.locked_to) //Ghosts can move at any time to unlock themselves (in theory from following a mob)
 					observer.manual_stop_follow(observer.locked_to)
 
-				if (observer.station_holomap)
-					observer.station_holomap.update_holomap()
 			var/movedelay = GHOST_MOVEDELAY
 			if(isobserver(mob))
 				var/mob/dead/observer/observer = mob

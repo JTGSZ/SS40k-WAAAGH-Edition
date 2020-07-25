@@ -25,9 +25,6 @@ var/creating_arena = FALSE
 	// For Aghosts dicking with telecoms equipment.
 	var/obj/item/device/multitool/ghostMulti = null
 
-	// Holomaps for ghosts
-	var/obj/item/device/station_map/station_holomap = null
-
 	var/can_reenter_corpse
 	var/datum/hud/living/carbon/hud = null // hud
 	var/bootime = 0
@@ -123,8 +120,6 @@ var/creating_arena = FALSE
 	if(!T)
 		T = pick(latejoin)			//Safety in case we cannot find the body's position
 	loc = T
-
-	station_holomap = new(src)
 
 	if(!name)							//To prevent nameless ghosts
 		name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
