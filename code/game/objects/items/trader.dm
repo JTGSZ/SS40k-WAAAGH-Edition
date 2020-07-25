@@ -935,18 +935,17 @@
 
 /obj/item/vachandle/pickup(mob/user)
 	..()
-	event_key = user.on_moved.Add(src, "mob_moved")
+	user.lazy_register_event(/lazy_event/on_moved, src, .proc/mob_moved)
 
 /obj/item/vachandle/dropped(mob/user)
-	user.on_moved.Remove(event_key)
-	event_key = null
+	user.lazy_unregister_event(/lazy_event/on_moved, src, .proc/mob_moved)
 	if(loc != myvac)
 		retract()
 
 /obj/item/vachandle/throw_at()
 	retract()
 
-/obj/item/vachandle/proc/mob_moved(var/list/event_args, var/mob/holder)
+/obj/item/vachandle/proc/mob_moved(atom/movable/mover)
 	if(myvac && get_dist(src,myvac) > 2) //Needs a little leeway because dragging isn't instant
 		retract()
 

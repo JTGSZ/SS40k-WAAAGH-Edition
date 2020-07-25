@@ -19,7 +19,6 @@
 	var/active = 0
 	var/obj/structure/cable/last = null
 	var/obj/item/stack/cable_coil/loaded = null
-	var/targetMoveKey = null
 
 /obj/item/weapon/rcl/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W,/obj/item/stack/cable_coil))
@@ -93,7 +92,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/rcl/dropped(mob/wearer )
+/obj/item/weapon/rcl/dropped(mob/wearer)
 	..()
 	active = 0
 	set_move_event(wearer)
@@ -102,25 +101,20 @@
 	if(user)
 		if(active)
 			trigger(user)
-			targetMoveKey = user.on_moved.Add(src, "holder_moved")
+			user.lazy_register_event(/lazy_event/on_moved, src, .proc/holder_moved)
 			return
-		user.on_moved.Remove(targetMoveKey)
-	targetMoveKey = null
+		user.lazy_unregister_event(/lazy_event/on_moved, src, .proc/holder_moved)
 
-/obj/item/weapon/rcl/attack_self(mob/user )
+/obj/item/weapon/rcl/attack_self(mob/user)
 	active = !active
 	to_chat(user, "<span class='notice'>You turn \the [src] [active ? "on" : "off"].<span>")
 	set_move_event(user)
 
-/obj/item/weapon/rcl/proc/holder_moved(var/list/args)
-	var/event/E = args["event"]
-	if(!targetMoveKey)
-		E.handlers.Remove("\ref[src]:holder_moved")
-		return
+/obj/item/weapon/rcl/proc/holder_moved(atom/movable/mover)
 	if(active)
-		trigger(E.holder)
+		trigger(mover)
 
-/obj/item/weapon/rcl/proc/trigger(mob/user )
+/obj/item/weapon/rcl/proc/trigger(mob/user)
 	if(!loaded)
 		to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
 		return

@@ -45,8 +45,6 @@
 	var/throwpass = 0
 	var/level = 2
 
-	// When this object moves. (args: loc)
-	var/event/on_moved
 	// When the object is qdel'd
 	var/event/on_destroyed
 
@@ -68,7 +66,6 @@
 			materials.addAmount(matID, starting_materials[matID])
 
 	on_destroyed = new("owner"=src)
-	on_moved = new("owner"=src)
 
 /atom/movable/Destroy()
 	var/turf/T = loc
@@ -79,9 +76,6 @@
 		qdel(materials)
 		materials = null
 
-	if(on_moved)
-		on_moved.holder = null
-		on_moved = null
 	INVOKE_EVENT(on_destroyed, list("atom" = src)) // 1 argument - the object itself
 	if(on_destroyed)
 		on_destroyed.holder = null
@@ -241,8 +235,7 @@
 	last_moved = world.time
 	src.move_speed = world.timeofday - src.l_move_time
 	src.l_move_time = world.timeofday
-	// Update on_moved listeners.
-	INVOKE_EVENT(on_moved,list("loc"=NewLoc))
+	lazy_invoke_event(/lazy_event/on_moved, list("mover" = src))
 
 /atom/movable/search_contents_for(path,list/filter_path=null) // For vehicles
 	var/list/found = ..()
@@ -429,8 +422,7 @@
 
 	update_client_hook(loc)
 
-	// Update on_moved listeners.
-	INVOKE_EVENT(on_moved,list("loc"=loc))
+	lazy_invoke_event(/lazy_event/on_moved, list("mover" = src))
 	var/turf/T = get_turf(destination)
 	if(old_loc && T && old_loc.z != T.z)
 		lazy_invoke_event(/lazy_event/on_z_transition, list("user" = src, "from_z" = old_loc.z, "to_z" = T.z))
@@ -645,7 +637,6 @@
 /atom/movable/overlay
 	var/atom/master = null
 	var/follow_proc = /atom/movable/overlay/proc/move_to_turf_or_null
-	var/master_moved_key
 	var/master_destroyed_key
 	anchored = 1
 
@@ -661,10 +652,11 @@
 
 	if(istype(master, /atom/movable))
 		var/atom/movable/AM = master
-		master_moved_key = AM.on_moved.Add(src, follow_proc)
+		AM.lazy_register_event(/lazy_event/on_moved, src, follow_proc)
 		SetInitLoc()
+	if (istype(master, /atom/movable))
+		var/atom/movable/AM = master
 		master_destroyed_key = AM.on_destroyed.Add(src, .proc/qdel_self)
-	
 	verbs.len = 0
 
 /atom/movable/overlay/proc/qdel_self()
@@ -673,7 +665,7 @@
 /atom/movable/overlay/Destroy()
 	if(istype(master, /atom/movable))
 		var/atom/movable/AM = master
-		AM.on_moved.Remove(master_moved_key)
+		AM.lazy_unregister_event(/lazy_event/on_moved, src, follow_proc)
 		AM.on_destroyed.Remove(master_destroyed_key)
 	master = null
 	return ..()
@@ -699,9 +691,8 @@
 		return src.master.attack_hand(a, b, c)
 	return
 
-/atom/movable/overlay/proc/move_to_turf_or_null(var/list/event_args, var/mob/holder)
-	var/new_loc = event_args["loc"]
-	var/turf/T = get_turf(new_loc)
+/atom/movable/overlay/proc/move_to_turf_or_null(atom/movable/mover)
+	var/turf/T = get_turf(mover)
 	var/atom/movable/AM = master // the proc is only called if the master has a "on_moved" event.
 	if(T != loc)
 		forceMove(T, glide_size_override = DELAY2GLIDESIZE(AM.move_speed))
