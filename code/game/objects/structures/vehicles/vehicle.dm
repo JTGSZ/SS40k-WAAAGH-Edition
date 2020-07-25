@@ -238,10 +238,6 @@
 		"<span class='notice'>You climb onto \the [nick]!</span>")
 
 	lock_atom(M, /datum/locking_category/buckle/chair/vehicle)
-	M.throw_alert(SCREEN_ALARM_BUCKLE, /obj/abstract/screen/alert/object/buckled, new_master = src)
-
-	
-
 	for (var/datum/action/action in vehicle_actions)
 		if (action.owner && action.owner != user)
 			action.Remove(action.owner)
@@ -263,12 +259,12 @@
 /obj/structure/bed/chair/vehicle/MouseDropTo(var/atom/movable/C, mob/user)
 	..()
 
-	if (user.incapacitated() || !in_range(user, src) || !in_range(src, C) || !can_have_carts)
+	if(user.incapacitated() || !in_range(user, src) || !in_range(src, C) || !can_have_carts)
 		return
 
-	if (istype(C, /obj/machinery/cart))
+	if(istype(C, /obj/machinery/cart))
 
-		if (!next_cart)
+		if(!next_cart)
 			var/obj/machinery/cart/connecting = C
 			if(connecting.previous_cart)
 				to_chat(user, "\The [connecting] already has a cart connected to it!", "red")
@@ -279,7 +275,7 @@
 			playsound(src, 'sound/misc/buckle_click.ogg', 50, 1)
 			return
 
-		else if (next_cart == C)
+		else if(next_cart == C)
 			next_cart.previous_cart = null
 			next_cart = null
 			user.visible_message("[user] disconnects [C] to [src].", "You disconnect [C] to [src]")
