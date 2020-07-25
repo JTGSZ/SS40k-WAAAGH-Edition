@@ -267,7 +267,6 @@
 	var/event/on_ruattack	//on restrained unarmed attack
 	var/event/on_logout
 	var/event/on_damaged
-	var/event/on_irradiate
 	var/event/on_death
 	// Allows overiding click modifiers and such.
 	var/event/on_clickon
