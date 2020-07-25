@@ -2,7 +2,7 @@
 #define MASS_DELETE			1
 #define SELECTIVE_DELETE	2
 #define SELECTIVE_FILL		3
-/proc/togglebuildmode(mob/M  in player_list)
+/proc/togglebuildmode(mob/M as mob in player_list)
 	set name = "Toggle Build Mode"
 	set category = "Special Verbs"
 
@@ -17,11 +17,7 @@
 					holder = H
 					break
 			if(holder)
-				holder.buildmode.copycat = null
-			if(M.client.buildmode_objs && M.client.buildmode_objs.len)
-				for(var/BM in M.client.buildmode_objs)
-					qdel(BM)
-				M.client.buildmode_objs.Cut()
+				qdel(holder)
 		else
 			log_admin("[key_name(usr)] has entered build mode.")
 			M.client.buildmode = 1
@@ -34,7 +30,6 @@
 			hold.buildquit = new /obj/effect/bmode/buildquit(hold)
 			M.client.screen += list(hold.builddir,hold.buildhelp,hold.buildmode,hold.buildquit)
 			hold.cl = M.client
-			M.client.buildmode_objs |= list(hold,hold.builddir,hold.buildhelp,hold.buildmode,hold.buildquit)
 
 /obj/effect/bmode//Cleaning up the tree a bit
 	density = 1
@@ -50,10 +45,10 @@
 	master = loc
 
 /obj/effect/bmode/Destroy()
-	..()
 	if(master && master.cl)
-		master.cl.buildmode_objs &= ~src
 		master.cl.screen -= src
+		master = null
+	..()
 
 /obj/effect/bmode/builddir
 	icon_state = "build"
@@ -172,7 +167,6 @@ obj/effect/bmode/buildholder/New()
 /obj/effect/bmode/buildholder/Destroy()
 	..()
 	cl.screen -= list(builddir,buildhelp,buildmode,buildquit)
-	cl.buildmode_objs &= ~list(builddir,buildhelp,buildmode,buildquit,src)
 	cl.images -= buildmode.area_overlay
 	buildmodeholders -= src
 
@@ -187,8 +181,11 @@ obj/effect/bmode/buildholder/New()
 
 /obj/effect/bmode/buildmode/New()
 	..()
-
 	area_overlay = image('icons/turf/areas.dmi', "yellow")
+
+/obj/effect/bmode/buildmode/Destroy()
+	copycat = null
+	..()
 
 /obj/effect/bmode/buildmode/Click(location, control, params)
 	var/list/pa = params2list(params)
@@ -250,7 +247,7 @@ obj/effect/bmode/buildholder/New()
 			if(3)
 				var/list/locked = list("vars", "key", "ckey", "client", "firemut", "ishulk", "telekinesis", "xray", "virus", "viruses", "cuffed", "ka", "last_eaten", "urine")
 
-				var/edit_variable = input(usr,"Enter variable name:","Name", "name")
+				var/edit_variable = input(usr,"Enter variable name:" ,"Name", "name")
 				if(edit_variable in locked && !check_rights(R_DEBUG,0))
 					return 1
 
