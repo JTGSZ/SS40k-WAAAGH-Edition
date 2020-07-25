@@ -25,10 +25,9 @@
 /turf/simulated/Entered(atom/A, atom/OL)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>")//This is to identify lag problems
-
 		return
 
-	if (istype(A,/mob/living/carbon))
+	if(istype(A,/mob/living/carbon))
 		var/mob/living/carbon/M = A
 		if(!M.on_foot())
 			return ..()
@@ -52,7 +51,7 @@
 					bloodcolor = H.feet_blood_color
 					H.track_blood = max(round(H.track_blood - 1, 1),0)
 
-			if (bloodDNA)
+			if(bloodDNA)
 				src.AddTracks(H.get_footprint_type(),bloodDNA,H.dir,0,bloodcolor) // Coming
 				var/turf/simulated/from = get_step(H,reverse_direction(H.dir))
 				if(istype(from) && from)
@@ -71,8 +70,8 @@
 	..()
 
 //returns 1 if made bloody, returns 0 otherwise
-/turf/simulated/add_blood(mob/living/carbon/human/M )
-	if (!..())
+/turf/simulated/add_blood(mob/living/carbon/human/M)
+	if(!..())
 		return FALSE
 
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
@@ -87,13 +86,15 @@
 	return TRUE //we bloodied the floor
 
 // Only adds blood on the floor -- Skie
-/turf/simulated/proc/add_blood_floor(mob/living/carbon/M )
-	if(istype(M, /mob/living/carbon/monkey))
+/turf/simulated/proc/add_blood_floor(var/mob/living/carbon/M)
+	if(ishuman(M))
+		add_blood(M)
+	else if(istype(M, /mob/living/carbon/monkey))
 		blood_splatter(src,M,1)
-	else if( istype(M, /mob/living/carbon/alien ))
+	else if(istype(M, /mob/living/carbon/alien))
 		var/obj/effect/decal/cleanable/blood/xeno/this = new /obj/effect/decal/cleanable/blood/xeno(src)
 		this.New(src)
 		this.blood_DNA["UNKNOWN BLOOD"] = "X*"
-	else if( istype(M, /mob/living/silicon/robot ))
+	else if(istype(M, /mob/living/silicon/robot))
 		var/obj/effect/decal/cleanable/blood/oil/B = new /obj/effect/decal/cleanable/blood/oil(src)
 		B.New(src)

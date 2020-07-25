@@ -942,7 +942,7 @@
 
 //returns 1 if made bloody, returns 0 otherwise
 
-/mob/living/carbon/human/add_blood(mob/living/carbon/human/M )
+/mob/living/carbon/human/add_blood(mob/living/carbon/human/M)
 	if (!..())
 		return 0
 	if(!M)
@@ -951,10 +951,25 @@
 	if(blood_DNA[M.dna.unique_enzymes])
 		return 0 //already bloodied with this blood. Cannot add more.
 	blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	hand_blood_color = blood_color
-	src.update_inv_gloves()	//handles bloody hands overlays and updating
+	update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
 	return 1 //we applied blood to the item
+
+/mob/living/carbon/human/add_blood_from_data(var/list/blood_data)
+	if (!..())
+		return FALSE
+	if(!blood_data)
+		return
+
+	had_blood = TRUE
+
+	//if this blood isn't already in the list, add it
+	if(blood_DNA[blood_data["blood_DNA"]])
+		return FALSE //already bloodied with this blood. Cannot add more.
+	blood_DNA[blood_data["blood_DNA"]] = blood_data["blood_type"]
+	update_inv_gloves()	//handles bloody hands overlays and updating
+	verbs += /mob/living/carbon/human/proc/bloody_doodle
+	return TRUE //we applied blood to the item
 
 /mob/living/carbon/human/clean_blood(var/clean_feet)
 	.=..()
@@ -1192,6 +1207,9 @@
 	if (src.stat)
 		return
 
+	if (!(bloody_hands_data?.len))
+		return
+
 	if (usr != src)
 		return 0 //something is terribly wrong
 
@@ -1235,7 +1253,7 @@
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new /obj/effect/decal/cleanable/blood/writing(T)
 		W.New(T)
-		W.basecolor = (hand_blood_color) ? hand_blood_color : DEFAULT_BLOOD
+		W.basecolor = (bloody_hands_data["blood_colour"]) ? bloody_hands_data["blood_colour"] : DEFAULT_BLOOD
 		W.update_icon()
 		W.message = message
 
