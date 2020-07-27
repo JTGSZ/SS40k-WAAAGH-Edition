@@ -482,7 +482,7 @@ var/global/list/radial_menus = list()
 // Copying atoms is stupid and this is a stupid solution
 var/list/variables_not_to_be_copied = list(
 	"type","loc","locs","vars","parent","parent_type","verbs","ckey","key",
-	"group","on_login","on_ban","on_unban","on_density_change",
+	"group","on_login","on_ban","on_unban","registered_events",
 	"on_use","on_emote","on_life","on_resist",
 	"on_spellcast","on_uattack","on_ruattack","on_logout","on_damaged",
 	"on_death","on_clickon","on_attackhand","on_attackby",
