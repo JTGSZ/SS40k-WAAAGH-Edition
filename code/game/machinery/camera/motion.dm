@@ -34,13 +34,18 @@
 		detectTime = world.time // start the clock
 	if (!(target in motionTargets))
 		motionTargets += target
+		target.lazy_register_event(/lazy_event/on_destroyed, src, .proc/clearDeletedTarget)
 	return 1
 
 /obj/machinery/camera/proc/lostTarget(var/mob/target)
 	if (target in motionTargets)
 		motionTargets -= target
+		target.lazy_unregister_event(/lazy_event/on_destroyed, src, .proc/clearDeletedTarget)
 	if (motionTargets.len == 0)
 		cancelAlarm()
+
+/obj/machinery/camera/proc/clearDeletedTarget(datum/thing)
+	lostTarget(thing)
 
 /obj/machinery/camera/proc/cancelAlarm()
 	if (detectTime == -1)
@@ -61,9 +66,8 @@
 	detectTime = -1
 	return 1
 
-/obj/machinery/camera/HasProximity(atom/movable/AM )
+/obj/machinery/camera/HasProximity(atom/movable/AM)
 	// Motion cameras outside of an "ai monitored" area will use this to detect stuff.
 	if (!area_motion)
 		if(isliving(AM))
 			newTarget(AM)
-
