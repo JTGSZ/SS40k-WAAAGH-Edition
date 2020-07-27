@@ -112,7 +112,7 @@
 	icon_state = "gshell"
 	caliber = GAUGE12
 	projectile_type = /obj/item/projectile/bullet
-	starting_materials = list(MAT_IRON = 12500)
+	starting_materials = list(MAT_IRON = 250)
 	w_type = RECYK_METAL
 
 /obj/item/ammo_casing/shotgun/update_icon()
@@ -194,7 +194,7 @@
 	projectile_type = /obj/item/projectile/bullet/a762x55
 	w_type = RECYK_METAL
 	icon_state = "762x55-casing-live"
-	starting_materials = list(MAT_IRON = 12500)
+	starting_materials = list(MAT_IRON = 125)
 
 /obj/item/ammo_casing/a762x55/update_icon()
 	desc = "[initial(desc)][BB ? "" : " This one is spent"]"
