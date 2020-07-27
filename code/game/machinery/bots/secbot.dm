@@ -408,8 +408,7 @@ Auto Patrol: []"},
 
 	spark(src)
 
-	var/obj/effect/decal/cleanable/blood/oil/O = new /obj/effect/decal/cleanable/blood/oil(src.loc)
-	O.New(O.loc)
+	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
 /obj/machinery/bot/secbot/attack_alien(var/mob/living/carbon/alien/user )
@@ -565,8 +564,7 @@ Auto Patrol: []"},
 	for(var/i in parts)
 		new i(Tsec)
 	spark(src)
-	var/obj/effect/decal/cleanable/blood/oil/O = new /obj/effect/decal/cleanable/blood/oil(src.loc)
-	O.New(O.loc)
+	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
 /obj/machinery/bot/secbot/beepsky/cheapsky
