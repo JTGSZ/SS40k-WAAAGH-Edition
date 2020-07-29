@@ -345,7 +345,7 @@ var/list/telesci_warnings = list(
 		to_chat(user, "<span class='caution'>Error: not enough buffer energy.</span>")
 		return
 
-	if(telepad && (!telepad.linked == src))
+	if(telepad?.linked != src)
 		to_chat(user, "<span class='caution'>Error: No telepad linked.</span>")
 		return
 
