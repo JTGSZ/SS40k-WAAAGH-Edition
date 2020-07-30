@@ -22,6 +22,19 @@
 /obj/effect/landmark/newplayerstart //Basically spawnbox, mobs load in here and move to other locs
 	name = "start"					//Also handles the lobby screen area
 
+//PDF
+/obj/effect/landmark/start/lord
+	name = "Lord"
+	icon_state = "pdf_lord"
+
+/obj/effect/landmark/start/knight_officer
+	name = "Knight Officer"
+	icon_state = "pdf_knight"
+
+/obj/effect/landmark/start/patrolman
+	name = "Patrolman"
+	icon_state = "pdf_patrolman"
+
 //Imperial Guard
 /obj/effect/landmark/start/general
 	name = "General"

@@ -23,13 +23,7 @@
 
 	outfit_name = "Inquisitor"
 	associated_job = /datum/job/inquisitor
-
-	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/satchel_norm,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/satchel,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/messenger/sec,
-	)
+	no_backpack = TRUE
 
 	items_to_spawn = list(
 		"Default" = list(
@@ -39,7 +33,7 @@
 			slot_head_str = /obj/item/clothing/head/inqhat,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/inq,
-			slot_r_hand = /obj/item/weapon/powersword
+			slot_back_str = /obj/item/weapon/inq_katana
 		),
 	)
 

@@ -34,7 +34,7 @@
 			slot_head_str = /obj/item/clothing/head/knight_officer_helmet,
 			slot_shoes_str = /obj/item/clothing/shoes/knight_officer,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/knight_officer,
-			slot_l_hand = /obj/item/weapon/chainsword
+			slot_r_hand = /obj/item/weapon/chainaxe
 		),
 	)
 

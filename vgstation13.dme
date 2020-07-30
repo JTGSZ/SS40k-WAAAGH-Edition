@@ -2765,6 +2765,7 @@
 #include "z40k_shit\spells\harlequin\shadows.dm"
 #include "z40k_shit\spells\harlequin\shrieker_cannon.dm"
 #include "z40k_shit\spells\harlequin\stealth.dm"
+#include "z40k_shit\spells\lord\dwell.dm"
 #include "z40k_shit\spells\pyromancy\fiery_form.dm"
 #include "z40k_shit\spells\pyromancy\fire_shield.dm"
 #include "z40k_shit\spells\pyromancy\inferno.dm"
@@ -2938,6 +2939,7 @@
 #include "z40k_shit\weapons\orkammoandmags.dm"
 #include "z40k_shit\weapons\boltguns\boltammoNmags.dm"
 #include "z40k_shit\weapons\boltguns\boltpistol.dm"
+#include "z40k_shit\weapons\chainweapons\chainaxes.dm"
 #include "z40k_shit\weapons\chainweapons\chainsword.dm"
 #include "z40k_shit\weapons\chainweapons\chaos_chainsword.dm"
 #include "z40k_shit\weapons\chainweapons\Eviscerator.dm"
@@ -2968,5 +2970,7 @@
 #include "z40k_shit\weapons\shields\ork_shield.dm"
 #include "z40k_shit\weapons\shotguns\orkshotgun.dm"
 #include "z40k_shit\weapons\standardmetal\boss_choppa.dm"
+#include "z40k_shit\weapons\standardmetal\inq_katana.dm"
 #include "z40k_shit\weapons\standardmetal\standard_choppa.dm"
+#include "z40k_shit\weapons\standardmetal\standard_sword.dm"
 // END_INCLUDE

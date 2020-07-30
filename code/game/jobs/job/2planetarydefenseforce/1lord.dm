@@ -36,7 +36,7 @@
 			slot_w_uniform_str = /obj/item/clothing/under/lord_uniform,
 			slot_shoes_str = /obj/item/clothing/shoes/lord_boots,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/lord_suit,
-			slot_r_hand = /obj/item/weapon/powersword,
+			slot_belt_str = /obj/item/weapon/dksword,
 			slot_r_store_str = /obj/item/weapon/shield/energy,
 			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/boltpistol,
 		)
@@ -49,5 +49,6 @@
 	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/lord/post_equip(var/mob/living/carbon/human/H)
+	H.add_spell(new /spell/targeted/dwell,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
 	to_chat(world, "<b>[H.real_name] is the Lord of these lands!</b>")
 

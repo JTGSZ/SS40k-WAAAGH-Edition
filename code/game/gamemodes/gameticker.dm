@@ -262,7 +262,7 @@ var/datum/controller/gameticker/ticker
 			M.locked_to = temp_buckle				//buckles the mob so it can't do anything
 			if(M.client)
 				M.client.screen += cinematic	//show every client the cinematic
-	else	//nuke kills everyone on the station to prevent "hurr-durr I survived"
+	else //nuke kills everyone on the station to prevent "hurr-durr I survived"
 		for(var/mob/living/M in living_mob_list)
 			M.locked_to = temp_buckle
 			if(M.client)
@@ -315,6 +315,11 @@ var/datum/controller/gameticker/ticker
 					flick("station_explode_fade_red",cinematic)
 					world << sound('sound/effects/explosionfar.ogg')
 					cinematic.icon_state = "summary_malf"
+				if("planet_nuke")
+					world << sound('sound/effects/explosionfar.ogg')
+					flick("intro_self_detonation",cinematic)
+					sleep(127)
+					cinematic.icon_state = "summary_self_detonation"
 				else //Station nuked (nuke,explosion,summary)
 					flick("intro_nuke",cinematic)
 					sleep(35)
