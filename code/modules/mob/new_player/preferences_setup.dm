@@ -353,7 +353,21 @@
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkhelmet1"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkboots1"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('z40k_shit/icons/mob/orks/orkgearMOB.dmi', "orkbackpack"), ICON_OVERLAY)
-
+				if(LORD)
+					clothes_s = new /icon(uniform_dmi, "lord_s")
+					clothes_s.Blend(new /icon(feet_dmi, "lord"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/head.dmi', "lord"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon(suit_dmi, "lord"), ICON_OVERLAY)
+				if(KNIGHTOFFICER)
+					clothes_s = new /icon(uniform_dmi, "knight_officer_s")
+					clothes_s.Blend(new /icon(feet_dmi, "knight_officer"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/head.dmi', "knight_officer"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon(suit_dmi, "knight_officer"), ICON_OVERLAY)
+				if(PATROLMAN)
+					clothes_s = new /icon(uniform_dmi, "patrolman_s")
+					clothes_s.Blend(new /icon(feet_dmi, "patrolman"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/head.dmi', "patrolman"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon(suit_dmi, "patrolman"), ICON_OVERLAY)
 	// Observers get tourist outfit.
 	else
 		clothes_s = new /icon(uniform_dmi, "tourist_s")

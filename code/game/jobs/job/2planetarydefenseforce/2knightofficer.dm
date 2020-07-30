@@ -30,11 +30,10 @@
 	items_to_spawn = list(
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/commissar,
-			slot_head_str = /obj/item/clothing/head/commissarcap,
-			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/comissarcoat,
-			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/boltpistol,
+			slot_w_uniform_str = /obj/item/clothing/under/knight_officer,
+			slot_head_str = /obj/item/clothing/head/knight_officer_helmet,
+			slot_shoes_str = /obj/item/clothing/shoes/knight_officer,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/knight_officer,
 			slot_l_hand = /obj/item/weapon/chainsword
 		),
 	)
@@ -51,7 +50,7 @@
 		changed_name = "Sir" + " " + "[H.real_name]"
 		H.real_name = changed_name
 	else
-		changed_name = "Dame" + " " + "[H.real_name]"
+		changed_name = "Lady" + " " + "[H.real_name]"
 		H.real_name = changed_name
 	H.check_dna(H)
 
@@ -61,7 +60,7 @@
 		id.registered_name = H.real_name
 	
 
-/datum/outfit/commissar/handle_special_abilities(var/mob/living/carbon/human/H)
+/datum/outfit/knight_officer/handle_special_abilities(var/mob/living/carbon/human/H)
 	H.attribute_strength = 10
 	H.attribute_agility = 10
 	H.attribute_dexterity = 10

@@ -16,13 +16,13 @@
 	landmark_job_override = TRUE
 
 	species_whitelist = list("Human")
-	outfit_datum = /datum/outfit/general
+	outfit_datum = /datum/outfit/lord
 
 	relationship_chance = HUMAN_SUPER_RARE
 
 /datum/job/lord/get_access()
 	return get_all_accesses()
-
+ 
 /datum/outfit/lord
 
 	outfit_name = "Lord"
@@ -31,10 +31,11 @@
 
 	items_to_spawn = list( 
 		"Default" = list(
+			slot_head_str = /obj/item/clothing/head/lord_hat,
 			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
-			slot_shoes_str = /obj/item/clothing/shoes/IG_cadian_boots,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/commanderarmor,
+			slot_w_uniform_str = /obj/item/clothing/under/lord_uniform,
+			slot_shoes_str = /obj/item/clothing/shoes/lord_boots,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/lord_suit,
 			slot_r_hand = /obj/item/weapon/powersword,
 			slot_r_store_str = /obj/item/weapon/shield/energy,
 			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/boltpistol,
