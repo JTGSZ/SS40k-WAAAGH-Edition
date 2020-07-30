@@ -1,14 +1,10 @@
-//within this file is the ork melee shit maybe.
-
-//choppa - a basic ork sword
-//choppa1 = a basic ork axe
-/obj/item/weapon/choppa
-	name = "choppa"
-	desc = "A basic choppa made for choppin shit."
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/orkequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/orkequipment_right.dmi')
-	icon = 'z40k_shit/icons/obj/orks/orkequipment.dmi'
-	icon_state = "choppa"
-	item_state = "choppa"
+/obj/item/weapon/dksword
+	name = "Sword"
+	desc = "Its a sword alright."
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/32x32axes_swords_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/32x32axes_swords_right.dmi')
+	icon = 'z40k_shit/icons/obj/weapons.dmi'
+	icon_state = "DKsword"
+	item_state = "DKsword"
 	hitsound = 'sound/weapons/bloodyslice.ogg'
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
@@ -22,14 +18,10 @@
 	attack_verb = list("attacks", "slashes",  "slices", "tears", "rips", "dices", "cuts", "slamdunks")
 	actions_types = list(/datum/action/item_action/warhams/basic_swap_stance)
 
-/obj/item/weapon/choppa/New()
-	. = ..()
-	var/rngicon
-	rngicon = pick("choppa","choppa1")
-	icon_state = rngicon
-	item_state = rngicon
-	
-/obj/item/weapon/choppa/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+/obj/item/weapon/dksword/New()
+	..()
+
+/obj/item/weapon/dksword/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	..()
 	var/mob/living/carbon/human/H = user
 	var/mob/living/carbon/human/T = target
@@ -56,5 +48,3 @@
 			T.attackby(src,user)
 			H.word_combo_chain = ""
 			H.update_powerwords_hud(clear = TRUE)
-
-

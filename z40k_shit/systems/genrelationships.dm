@@ -121,7 +121,7 @@
 	switch (relationship) // just in case we mistyped
 		if("mates")
 			if(mob1_gender == mob2_gender)
-				if(prob(10)) //Sorry, theres gays but no gay marriage in this grimdark universe.
+				if(prob(10)) //Sorry, theres different people but no unstandard marriage in this grimdark universe.
 					mob1.relationships[mob2.real_name] = "Lover"
 					mob2.relationships[mob1.real_name] = "Lover"
 					return 1

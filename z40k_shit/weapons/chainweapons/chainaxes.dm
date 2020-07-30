@@ -1,14 +1,14 @@
-/obj/item/weapon/chainsword
-	name = "Chainsword"
-	desc = "A chainsword, that can probably saw through a great many things."
-	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/IGequipment_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/IGequipment_right.dmi')
-	icon = 'z40k_shit/icons/obj/ig/IGequipment.dmi'
-	icon_state = "chainsword"
-	item_state = "chainsword"
+/obj/item/weapon/chainaxe
+	name = "Chainaxe"
+	desc = "Its an axe that also lets you saw wood after you chop it."
+	inhand_states = list("left_hand" = 'z40k_shit/icons/inhands/LEFTIES/32x32axes_swords_left.dmi', "right_hand" = 'z40k_shit/icons/inhands/RIGHTIES/32x32axes_swords_right.dmi')
+	icon = 'z40k_shit/icons/obj/weapons.dmi'
+	icon_state = "chainaxe"
+	item_state = "chainaxe"
 	hitsound = 'z40k_shit/sounds/chainsword_swing.ogg'
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
-	force = 40
+	force = 25
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 7
@@ -19,10 +19,14 @@
 	actions_types = list(/datum/action/item_action/warhams/begin_sawing,
 						/datum/action/item_action/warhams/basic_swap_stance)
 
-/obj/item/weapon/chainsword/New()
-	. = ..()
+/obj/item/weapon/chainaxe/New()
+	..()
+	var/rngicon
+	rngicon = pick("chainaxe","chainaxe2")
+	icon_state = rngicon
+	item_state = rngicon
 
-/obj/item/weapon/chainsword/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
+/obj/item/weapon/chainaxe/interpret_powerwords(mob/living/target, mob/living/user, def_zone, var/originator = null)
 	..()
 	var/mob/living/carbon/human/H = user
 	var/mob/living/carbon/human/T = target

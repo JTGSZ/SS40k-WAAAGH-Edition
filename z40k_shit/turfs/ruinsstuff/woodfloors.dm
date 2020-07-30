@@ -1,4 +1,4 @@
-//TODO: Jam shit in nigga.
+//TODO: Jam shit in.
 
 /turf/simulated/floor/woodruin
 	name = "Ruined Wood floor"
