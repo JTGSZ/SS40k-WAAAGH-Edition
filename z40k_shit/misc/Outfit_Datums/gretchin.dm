@@ -26,7 +26,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
+			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
 		),
 		/datum/species/ork/gretchin = list()
 	)

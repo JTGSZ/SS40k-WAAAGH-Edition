@@ -22,28 +22,28 @@
 	associated_job = /datum/job/basicork
 	no_backpack = TRUE
 	no_id = TRUE
-	var/list/ork_uniforms =	list(/obj/item/clothing/under/ork/pantsandshirt,
-							/obj/item/clothing/under/ork/pants,
-							/obj/item/clothing/under/ork/leatherpantsandshirt
+	var/list/ork_uniforms =	list(/obj/item/clothing/under/ork_pantsandshirt,
+							/obj/item/clothing/under/ork_pants,
+							/obj/item/clothing/under/ork_leatherpantsandshirt
 							)
-	var/list/ork_hats = list(/obj/item/clothing/head/ork/armorhelmet,
-								/obj/item/clothing/head/ork/bucket,
-								/obj/item/clothing/head/ork/redbandana,
-								/obj/item/clothing/head/ork/milcap
+	var/list/ork_hats = list(/obj/item/clothing/head/armorhelmet,
+								/obj/item/clothing/head/bucket,
+								/obj/item/clothing/head/redbandana,
+								/obj/item/clothing/head/milcap
 								)
-	var/list/ork_suits = list(/obj/item/clothing/suit/armor/ork/samuraiorkarmor,
-							/obj/item/clothing/suit/armor/ork/rwallplate,
-							/obj/item/clothing/suit/armor/ork/ironplate,
-							/obj/item/clothing/suit/armor/ork/leatherbikervest
+	var/list/ork_suits = list(/obj/item/clothing/suit/armor/samuraiorkarmor,
+							/obj/item/clothing/suit/armor/rwallplate,
+							/obj/item/clothing/suit/armor/ironplate,
+							/obj/item/clothing/suit/armor/leatherbikervest
 							)
-	var/list/ork_belts = list(/obj/item/weapon/storage/belt/ork/armorbelt,
-							/obj/item/weapon/storage/belt/ork/basicbelt
+	var/list/ork_belts = list(/obj/item/weapon/storage/belt/armorbelt,
+							/obj/item/weapon/storage/belt/basicbelt
 							)
-	var/list/ork_shoes = list(/obj/item/clothing/shoes/ork/orkboots
+	var/list/ork_shoes = list(/obj/item/clothing/shoes/orkboots
 							)
 
-	var/list/ork_mek_hats = list(/obj/item/clothing/head/ork/redbandana,
-								/obj/item/clothing/head/ork/milcap)
+	var/list/ork_mek_hats = list(/obj/item/clothing/head/redbandana,
+								/obj/item/clothing/head/milcap)
 	
 
 /datum/outfit/basicork/bypass_list_equips(var/mob/living/carbon/human/H)
@@ -70,8 +70,8 @@
 			H.equip_to_slot_or_del(new object(get_turf(H)), slot_head, TRUE)
 			object = pick(ork_shoes)
 			H.equip_to_slot_or_del(new object(get_turf(H)), slot_shoes, TRUE)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/ork/leatherbikervest(get_turf(H)), slot_wear_suit, TRUE)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/ork/brownbackpack(get_turf(H)), slot_back, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/leatherbikervest(get_turf(H)), slot_wear_suit, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/brownbackpack(get_turf(H)), slot_back, TRUE)
 			H.add_spell(new /spell/aoe_turf/mekbuild, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)
 			H.attribute_strength = 12
 	return 1

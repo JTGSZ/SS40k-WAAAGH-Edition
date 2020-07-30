@@ -26,35 +26,35 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
+			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
 		),
 		/datum/species/ork = list(
 			slot_w_uniform_str = list(
-				"Ork Tankbusta" = list(/obj/item/clothing/under/ork/pantsandshirt,
-									/obj/item/clothing/under/ork/pants,
-									/obj/item/clothing/under/ork/leatherpantsandshirt)
+				"Ork Tankbusta" = list(/obj/item/clothing/under/ork_pantsandshirt,
+									/obj/item/clothing/under/ork_pants,
+									/obj/item/clothing/under/ork_leatherpantsandshirt)
 			),
 			slot_shoes_str = list(
-				"Ork Tankbusta" = list(/obj/item/clothing/shoes/ork/orkboots)
+				"Ork Tankbusta" = list(/obj/item/clothing/shoes/orkboots)
 			),
 			slot_gloves_str = list(
-				"Ork Tankbusta" = list(/obj/item/clothing/gloves/ork/clothgloves)
+				"Ork Tankbusta" = list(/obj/item/clothing/gloves/clothgloves)
 			),
 			slot_belt_str = list(
-				"Ork Tankbusta" = list(/obj/item/weapon/storage/belt/ork/armorbelt/rokkitbelt,
-										/obj/item/weapon/storage/belt/ork/basicbelt/rokkitbelt)
+				"Ork Tankbusta" = list(/obj/item/weapon/storage/belt/armorbelt/rokkitbelt,
+										/obj/item/weapon/storage/belt/basicbelt/rokkitbelt)
 			),
 			slot_head_str = list(
-				"Ork Tankbusta" = list(/obj/item/clothing/head/ork/armorhelmet,
-									/obj/item/clothing/head/ork/bucket,
-									/obj/item/clothing/head/ork/redbandana,
-									/obj/item/clothing/head/ork/milcap)
+				"Ork Tankbusta" = list(/obj/item/clothing/head/armorhelmet,
+									/obj/item/clothing/head/bucket,
+									/obj/item/clothing/head/redbandana,
+									/obj/item/clothing/head/milcap)
 			),
 			slot_wear_suit_str = list(
-				"Ork Tankbusta" = list(/obj/item/clothing/suit/armor/ork/samuraiorkarmor,
-									/obj/item/clothing/suit/armor/ork/rwallplate,
-									/obj/item/clothing/suit/armor/ork/ironplate,
-									/obj/item/clothing/suit/armor/ork/leatherbikervest)
+				"Ork Tankbusta" = list(/obj/item/clothing/suit/armor/samuraiorkarmor,
+									/obj/item/clothing/suit/armor/rwallplate,
+									/obj/item/clothing/suit/armor/ironplate,
+									/obj/item/clothing/suit/armor/leatherbikervest)
 			),
 			slot_back_str = list(
 				"Ork Tankbusta" = list(/obj/item/weapon/gun/projectile/rocketlauncher/rokkitlauncha)

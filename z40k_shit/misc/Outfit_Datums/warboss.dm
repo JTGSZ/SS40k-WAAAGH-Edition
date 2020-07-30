@@ -26,16 +26,16 @@
 
 	items_to_spawn = list(
 		"Default" = list(
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
+			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
 		),
 		/datum/species/ork/warboss = list( 
-			slot_w_uniform_str = /obj/item/clothing/under/ork/warboss/pants,
-			slot_shoes_str = /obj/item/clothing/shoes/ork/bossboots,
-			slot_gloves_str = /obj/item/clothing/gloves/ork/warboss/armorbracers,
-			slot_belt_str = /obj/item/weapon/storage/belt/ork/warboss,
-			slot_head_str = /obj/item/clothing/head/ork/warboss/bossarmorhelmet,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/ork/warboss/platearmor,
-			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack,
+			slot_w_uniform_str = /obj/item/clothing/under/warboss_pants,
+			slot_shoes_str = /obj/item/clothing/shoes/bossboots,
+			slot_gloves_str = /obj/item/clothing/gloves/warboss_armorbracers,
+			slot_belt_str = /obj/item/weapon/storage/belt/warboss,
+			slot_head_str = /obj/item/clothing/head/warboss/bossarmorhelmet,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/warboss_platearmor,
+			slot_back_str = /obj/item/weapon/storage/backpack/brownbackpack,
 			slot_r_hand = /obj/item/weapon/boss_choppa
 		)
 	)

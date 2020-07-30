@@ -35,26 +35,26 @@
 		),
 		/datum/species/ork/nob = list( 
 			slot_w_uniform_str = list(
-				"Ork Nob" = list(/obj/item/clothing/under/ork/pants,
-								/obj/item/clothing/under/ork/pantsandshirt,
-								/obj/item/clothing/under/ork/leatherpantsandshirt)
+				"Ork Nob" = list(/obj/item/clothing/under/ork_pants,
+								/obj/item/clothing/under/ork_pantsandshirt,
+								/obj/item/clothing/under/ork_leatherpantsandshirt)
 			),
 			slot_head_str = list(
-				"Ork Nob" = list(/obj/item/clothing/head/ork/armorhelmet,
-								/obj/item/clothing/head/ork/redbandana,
-								/obj/item/clothing/head/ork/milcap)
+				"Ork Nob" = list(/obj/item/clothing/head/armorhelmet,
+								/obj/item/clothing/head/redbandana,
+								/obj/item/clothing/head/milcap)
 			),
 			slot_wear_suit_str = list(
-				"Ork Nob" = list(/obj/item/clothing/suit/armor/ork/samuraiorkarmor,
-								/obj/item/clothing/suit/armor/ork/rwallplate,
-								/obj/item/clothing/suit/armor/ork/ironplate,
-								/obj/item/clothing/suit/armor/ork/leatherbikervest)
+				"Ork Nob" = list(/obj/item/clothing/suit/armor/samuraiorkarmor,
+								/obj/item/clothing/suit/armor/rwallplate,
+								/obj/item/clothing/suit/armor/ironplate,
+								/obj/item/clothing/suit/armor/leatherbikervest)
 			),
 			slot_belt_str = list(
-				"Ork Nob" = list(/obj/item/weapon/storage/belt/ork/basicbelt/stikkbombs)
+				"Ork Nob" = list(/obj/item/weapon/storage/belt/basicbelt/stikkbombs)
 			),
-			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
-			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack/kustomshootabelts,
+			slot_shoes_str = /obj/item/clothing/shoes/orkboots,
+			slot_back_str = /obj/item/weapon/storage/backpack/brownbackpack/kustomshootabelts,
 			slot_r_hand = list(
 				"Ork Nob" = list(/obj/item/weapon/gun/projectile/kustomshoota)
 			),

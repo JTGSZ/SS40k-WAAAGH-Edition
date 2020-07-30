@@ -34,22 +34,22 @@
 		),
 		/datum/species/ork = list( 
 			slot_w_uniform_str = list(
-				"Mek" = list(/obj/item/clothing/under/ork/pants,
-								/obj/item/clothing/under/ork/pantsandshirt,
-								/obj/item/clothing/under/ork/leatherpantsandshirt)
+				"Mek" = list(/obj/item/clothing/under/ork_pants,
+								/obj/item/clothing/under/ork_pantsandshirt,
+								/obj/item/clothing/under/ork_leatherpantsandshirt)
 			),
 			slot_head_str = list(
-				"Mek" = list(/obj/item/clothing/head/ork/redbandana,
-								/obj/item/clothing/head/ork/milcap)
+				"Mek" = list(/obj/item/clothing/head/redbandana,
+								/obj/item/clothing/head/milcap)
 			),
 			slot_wear_suit_str = list(
-				"Mek" = list(/obj/item/clothing/suit/armor/ork/leatherbikervest)
+				"Mek" = list(/obj/item/clothing/suit/armor/leatherbikervest)
 			),
 			slot_belt_str = list(
-				"Mek" = list(/obj/item/weapon/storage/belt/ork/basicbelt/stikkbombs)
+				"Mek" = list(/obj/item/weapon/storage/belt/basicbelt/stikkbombs)
 			),
-			slot_shoes_str = /obj/item/clothing/shoes/ork/orkboots,
-			slot_back_str = /obj/item/weapon/storage/backpack/ork/brownbackpack/mekpack,
+			slot_shoes_str = /obj/item/clothing/shoes/orkboots,
+			slot_back_str = /obj/item/weapon/storage/backpack/brownbackpack/mekpack,
 			slot_r_hand = list(
 				"Mek" = list(/obj/item/weapon/gun/projectile/kustomshoota)
 			),

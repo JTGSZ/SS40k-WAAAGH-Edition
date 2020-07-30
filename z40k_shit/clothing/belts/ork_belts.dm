@@ -1,7 +1,7 @@
 /*
 	Belts
 	*/
-/obj/item/weapon/storage/belt/ork/basicbelt
+/obj/item/weapon/storage/belt/basicbelt
 	name = "Basic Belt"
 	desc = "A basic belt for a basic bitch."
 	icon_state = "orkbelt1"
@@ -22,8 +22,10 @@
 	"/obj/item/ammo_storage/magazine/sluggamag",
 	"/obj/item/ammo_storage/magazine/shottamag",
 	"/obj/item/ammo_storage/magazine/kustom_shoota_belt")
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
+	species_fit = list("Ork", "Ork Nob", "Ork Warboss") 
 
-/obj/item/weapon/storage/belt/ork/basicbelt/stikkbombs/New()
+/obj/item/weapon/storage/belt/basicbelt/stikkbombs/New()
 	..()
 	new /obj/item/weapon/grenade/stikkbomb(src)
 	new /obj/item/weapon/grenade/stikkbomb(src)
@@ -33,7 +35,7 @@
 	new /obj/item/weapon/grenade/stikkbomb(src)
 	new /obj/item/weapon/grenade/stikkbomb(src)
 
-/obj/item/weapon/storage/belt/ork/basicbelt/rokkitbelt/New()
+/obj/item/weapon/storage/belt/basicbelt/rokkitbelt/New()
 	..()
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
@@ -43,7 +45,7 @@
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
 
-/obj/item/weapon/storage/belt/ork/armorbelt
+/obj/item/weapon/storage/belt/armorbelt
 	name = "Belt with Plates"
 	desc = "A belt with armored plates attached to it."
 	icon_state = "orkbelt1dev1"
@@ -66,8 +68,10 @@
 	"/obj/item/ammo_storage/magazine/sluggamag",
 	"/obj/item/ammo_storage/magazine/shottamag",
 	"/obj/item/ammo_storage/magazine/kustom_shoota_belt")
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
+	species_fit = list("Ork", "Ork Nob", "Ork Warboss") 
 
-/obj/item/weapon/storage/belt/ork/armorbelt/rokkitbelt/New()
+/obj/item/weapon/storage/belt/armorbelt/rokkitbelt/New()
 	..()
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
@@ -77,3 +81,30 @@
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
 	new /obj/item/ammo_casing/rocket_rpg/rokkit(src)
 	
+/*
+	Belts
+	*/
+/obj/item/weapon/storage/belt/warboss
+	name = "Leather Belt with Metal Skull"
+	desc = "A not very basic belt."
+	icon_state = "warboss_belt"
+	item_state = "warboss_belt"
+	w_class = W_CLASS_LARGE
+	storage_slots = 14
+	max_combined_w_class = 200
+	fits_max_w_class = 5
+	can_only_hold = list(
+	"/obj/item/weapon/,")
+	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
+	species_fit = list("Ork Warboss") 
+
+/obj/item/weapon/storage/belt/warboss/New()
+	..()
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)
+	new /obj/item/weapon/grenade/stikkbomb(src)

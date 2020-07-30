@@ -30,8 +30,8 @@
 			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/rank/chaplain,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
-			slot_head_str = /obj/item/clothing/head/iguard/primarispsykertop,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/primarispsykerrobe,
+			slot_head_str = /obj/item/clothing/head/primarispsykertop,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/primarispsykerrobe,
 			slot_back_str = /obj/item/weapon/psykerstaff,
 			slot_belt_str = /obj/item/weapon/psychic_spellbook,
 		)

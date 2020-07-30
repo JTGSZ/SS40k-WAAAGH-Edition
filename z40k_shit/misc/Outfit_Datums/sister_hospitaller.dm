@@ -28,10 +28,10 @@
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/inquisitor,
-			slot_shoes_str = /obj/item/clothing/shoes/sbattle/hospitaller_shoes,
-			slot_head_str = /obj/item/clothing/head/sbattle/hospitaller_head,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/sbattle/hospitaller_suit,
-			slot_belt_str = /obj/item/weapon/storage/belt/sbattle/hospitaller_belt,
+			slot_shoes_str = /obj/item/clothing/shoes/hospitaller_shoes,
+			slot_head_str = /obj/item/clothing/head/hospitaller_head,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/hospitaller_suit,
+			slot_belt_str = /obj/item/weapon/storage/belt/hospitaller_belt,
 			slot_r_hand = /obj/item/weapon/powersword,
 			slot_l_hand = /obj/item/weapon/gun/projectile/automatic/boltpistol
 		),

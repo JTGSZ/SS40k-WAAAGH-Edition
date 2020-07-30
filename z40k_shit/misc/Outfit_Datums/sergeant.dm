@@ -27,18 +27,18 @@
 //	associated_job = /datum/job/IG_trooper_sergeant
 
 	backpack_types = list(
-		BACKPACK_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
-		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/iguard/trooperbag,
+		BACKPACK_STRING = /obj/item/weapon/storage/backpack/trooperbag,
+		SATCHEL_NORM_STRING = /obj/item/weapon/storage/backpack/trooperbag,
+		SATCHEL_ALT_STRING = /obj/item/weapon/storage/backpack/trooperbag,
+		MESSENGER_BAG_STRING = /obj/item/weapon/storage/backpack/trooperbag,
 	)
 
 	items_to_spawn = list(
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
-			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_armor,
+			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
+			slot_shoes_str = /obj/item/clothing/shoes/IG_cadian_boots,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/IG_cadian_armor,
 			slot_s_store_str = /obj/item/weapon/gun/energy/lasgun,
 			slot_r_hand = /obj/item/weapon/chainsword,
 		),

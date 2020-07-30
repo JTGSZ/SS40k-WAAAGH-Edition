@@ -32,9 +32,9 @@
 	items_to_spawn = list( 
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
-			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_cadian_boots,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/commanderarmor,
+			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
+			slot_shoes_str = /obj/item/clothing/shoes/IG_cadian_boots,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/commanderarmor,
 			slot_r_hand = /obj/item/weapon/powersword,
 			slot_r_store_str = /obj/item/weapon/shield/energy,
 			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/boltpistol,

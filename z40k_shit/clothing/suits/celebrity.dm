@@ -4,3 +4,4 @@
 	icon = 'z40k_shit/icons/obj/clothing/suits.dmi'
 	icon_state = "celeb"
 	item_state = "celeb"
+	species_restricted = list("Human")

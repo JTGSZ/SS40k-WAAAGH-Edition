@@ -36,9 +36,9 @@
 			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/inquisitor,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
-			slot_head_str = /obj/item/clothing/head/iguard/inqhat,
+			slot_head_str = /obj/item/clothing/head/inqhat,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/inq,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/inq,
 			slot_r_hand = /obj/item/weapon/powersword
 		),
 	)

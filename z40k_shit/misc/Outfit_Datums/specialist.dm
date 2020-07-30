@@ -30,16 +30,15 @@
 	items_to_spawn = list(
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/ig_guard,
-			slot_head_str = /obj/item/clothing/head/iguard/IG_cadian_helmet,
-			slot_shoes_str = /obj/item/clothing/shoes/iguard/IG_wepspec_boots,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/IG_cadian_armor,
-			slot_gloves_str = /obj/item/clothing/gloves/iguard/IG_wepspec_gloves,
+			slot_w_uniform_str = /obj/item/clothing/under/ig_guard,
+			slot_head_str = /obj/item/clothing/head/IG_cadian_helmet,
+			slot_shoes_str = /obj/item/clothing/shoes/IG_wepspec_boots,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/IG_cadian_armor,
+			slot_gloves_str = /obj/item/clothing/gloves/IG_wepspec_gloves,
 			slot_s_store_str = /obj/item/weapon/chainsword,
 			slot_r_hand = /obj/item/weapon/gun/ig_plasma_gun,
-			slot_wear_mask_str = /obj/item/clothing/mask/gas/iguard/ig_wepspec_mask,
+			slot_wear_mask_str = /obj/item/clothing/mask/gas/ig_wepspec_mask,
 			slot_back_str = /obj/item/weapon/iguard/ig_powerpack
-
 		),
 	)
 

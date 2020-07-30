@@ -30,10 +30,10 @@
 	items_to_spawn = list(
 		"Default" = list(
 			slot_ears_str = /obj/item/device/radio/headset,
-			slot_w_uniform_str = /obj/item/clothing/under/iguard/commissar,
-			slot_head_str = /obj/item/clothing/head/iguard/commissarcap,
+			slot_w_uniform_str = /obj/item/clothing/under/commissar,
+			slot_head_str = /obj/item/clothing/head/commissarcap,
 			slot_shoes_str = /obj/item/clothing/shoes/jackboots/inquisitor,
-			slot_wear_suit_str = /obj/item/clothing/suit/armor/iguard/comissarcoat,
+			slot_wear_suit_str = /obj/item/clothing/suit/armor/comissarcoat,
 			slot_s_store_str = /obj/item/weapon/gun/projectile/automatic/boltpistol,
 			slot_l_hand = /obj/item/weapon/chainsword
 		),
