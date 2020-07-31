@@ -259,7 +259,7 @@
 	if(istype(W, /obj/item/toy/crayon))
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.mind && H.mind.assigned_role == "Mime" && H.job_quest.alignment <= -22)
+			if(H.mind && H.mind.assigned_role == "Mime" && H.mind.job_quest.alignment <= -22)
 				usr.visible_message("<span class='notice'>[usr] colors the [src] in shades of black and red.</span>", "<span class='notice'>You color the gloves in blacks and reds. It almost seems like they become something more under your careful work. These will serve you well.</span>", "<span class='warning>HOLY CRAP WHAT?!</span>")
 				user.put_in_hands(new /obj/item/clothing/gloves/combat/harlequin(user))
 				qdel(src)

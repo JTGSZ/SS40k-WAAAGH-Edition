@@ -8,4 +8,5 @@
 	var/mob/living/harlequin
 	var/mob/living/tzeentch_champion
 	var/mob/living/slaanesh_champion
+	var/list/game_end_objects = list()
 

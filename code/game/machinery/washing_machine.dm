@@ -255,7 +255,7 @@
 		wash_state = 4
 	if(usr && ishuman(usr))
 		var/mob/living/carbon/human/H = usr
-		if(H.mind && H.mind.assigned_role == "Mime" && H.job_quest.alignment <= -20)
+		if(H.mind && H.mind.assigned_role == "Mime" && H.mind.job_quest.alignment <= -20)
 			for(var/obj/item/clothing/under/mime/harlequin in contents)
 				for(var/obj/item/weapon/pen/P in contents)
 					if(harlequin)

@@ -17,7 +17,7 @@
 /spell/targeted/focus/cast(list/targets)
 	for(var/mob/living/carbon/human/H in targets)
 		var/client/C = H.client
-		var/datum/job_quest/QST = H.job_quest
+		var/datum/job_quest/QST = H.mind.job_quest
 		if(QST.alignment == -5)
 			to_chat(H, "<span class='notice'>You need to stand still and focus for a moment. This is important.</span>")
 			QST.alignment--

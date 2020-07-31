@@ -15,6 +15,6 @@
 //	override_base = "const"
 
 /spell/targeted/concentrate/cast(list/targets)
-	for(var/mob/living/carbon/human/M in targets)
-		M.job_quest.main_body()
+	for(var/mob/living/carbon/human/H in targets)
+		H.mind.job_quest.main_body()
 		return

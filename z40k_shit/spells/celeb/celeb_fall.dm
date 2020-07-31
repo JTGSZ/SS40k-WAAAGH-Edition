@@ -27,5 +27,5 @@
 		H.visible_message(text("<span class='alert'>[H] stares blankly.</span>"))
 		H.say("Sing us a song you're the piano man! Sing us a song tonight!!</span>")
 		return
-	H.job_quest.main_body()
+	H.mind.job_quest.main_body()
 	return

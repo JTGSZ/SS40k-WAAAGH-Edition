@@ -35,8 +35,8 @@
 /datum/outfit/celebrity/post_equip(var/mob/living/carbon/human/H)
 	//Harlequin job quest
 	var/datum/job_quest/slaanesh_champion/ourboy = new()
-	H.job_quest = ourboy
-	ourboy.our_protagonist = H
+	H.mind.job_quest = ourboy
+	ourboy.our_protagonist = H.mind
 	quest_master.slaanesh_champion = H
 	H.add_spell(new /spell/slaanesh/celebfall)
 	return 1

@@ -23,6 +23,7 @@
 	desc = "For some reason, it has a built in power source, two you don't even know what its for, maybe something will unlock it."
 	var/nuke_authorized = FALSE
 	var/lord_authorized = FALSE
+	var/forced_authorization = FALSE
 	var/already_signalled = FALSE
 	var/list/used_id = list()
 	var/time_left = 600 //This is a value in seconds, deciseconds will be deducted
@@ -32,8 +33,10 @@
 
 /obj/structure/nuke_computer/New()
 	..()
+	quest_master += quest_master.game_end_objects
 
 /obj/structure/nuke_computer/Destroy()
+	quest_master -= quest_master.game_end_objects
 	..()
 
 /obj/structure/nuke_computer/attack_hand(mob/user)
@@ -82,6 +85,8 @@
 	if(lord_authorized)
 		nuke_authorized = TRUE
 	if(used_id.len >= 3)
+		nuke_authorized = TRUE
+	if(forced_authorization)
 		nuke_authorized = TRUE
 	return nuke_authorized
 

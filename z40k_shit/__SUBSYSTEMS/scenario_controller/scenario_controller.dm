@@ -19,10 +19,11 @@
 
 */
 
-var/datum/subsystem/scenario_controller/SS_Scenario
-var/datum/job_quest/global_tracker/quest_master
-var/list/scenario_order_one = list()
-var/list/scenario_order_two = list()
+var/datum/subsystem/scenario_controller/SS_Scenario //The subsystem
+var/datum/job_quest/global_tracker/quest_master //Datum storage for job_quest shit
+var/list/scenario_order_one = list() // A list of objects that fire on one tick
+var/list/scenario_order_two = list() //A list of objects that fire on the next they alternate
+
 //var/list/scenario_order_three = list()
 var/list/tzeentchpads = list()
 
@@ -74,7 +75,7 @@ var/list/tzeentchpads = list()
 		for(var/obj/structure/pressure_plate/pads in tzeentchpads)
 			for(var/mob/living/carbon/human/H in range(0,pads))
 				if(H.species.name == "Human")
-					if(!H.job_quest)
+					if(!H.mind.job_quest)
 						H.x = rand(214,218)
 						H.y = 179
 						H.z = 2

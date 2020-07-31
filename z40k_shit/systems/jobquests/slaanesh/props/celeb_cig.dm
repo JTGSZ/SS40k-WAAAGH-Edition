@@ -49,8 +49,8 @@ Drugs are bad!
 	if(M.ckey != thekey)
 		active = 1
 	if((active) && (M.ckey == thekey))
-		if(M.job_quest)
-			M.job_quest.alignment --
+		if(M.mind.job_quest)
+			M.mind.job_quest.alignment --
 			to_chat(M,"<span class='notice'>Nice. That was real nice. This has been a real inspiration. Now that we are in the correct frame of mind. Lets go back to our shitshack and see just how inspired we really are.</span>")
 			qdel(src)
 	return
