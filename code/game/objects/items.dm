@@ -337,7 +337,7 @@
 // for items that can be placed in multiple slots
 // note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot, hand_index = 0)
-	if(cant_drop) //Item can't be dropped
+	if(cant_drop) //Item can't be dropped 
 		if(hand_index) //Item was equipped in a hand slot
 			to_chat(user, "<span class='notice'>\The [src][cant_drop_msg]</span>")
 	for(var/X in actions)

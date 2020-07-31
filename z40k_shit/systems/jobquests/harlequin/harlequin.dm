@@ -3,6 +3,7 @@
 	var/suit_achieved = FALSE //Have we got our suit yet?
 
 /datum/job_quest/harlequin/main_body()
+	our_protagonist = actual_protagonist.current
 	switch(alignment)
 		if(1 to INFINITY)
 			to_chat(our_protagonist, "<span class='notice'>There was something you needed to remember. What was it?</span>")

@@ -3,6 +3,7 @@
 	var/suit_achieved = FALSE //Have we got our suit yet?
 
 /datum/job_quest/slaanesh_champion/main_body()
+	our_protagonist = actual_protagonist.current
 	switch(alignment)
 		if(1 to INFINITY)
 			to_chat(our_protagonist, "<span class='notice'>You renounce the Emperor and all that nonsense.</span>")

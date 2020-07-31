@@ -7,6 +7,10 @@
 	item_state = "lord" //Check: Its there
 	armor = list(melee = 20, bullet = 10, laser = 20, energy = 10, bomb = 20, bio = 0, rad = 0)
  
+/obj/item/clothing/head/lord_hat/equipped(var/mob/user, var/slot, hand_index = 0)
+	..()
+	update_icon(user)
+
 /obj/item/clothing/head/lord_hat/update_icon(var/mob/living/carbon/human/user)
 	if(!istype(user))
 		return

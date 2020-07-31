@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "__40kEARLYLoad\_QUESTLINES.dm"
 #include "__40kEARLYLoad\artifact_defines.dm"
 #include "__40kEARLYLoad\ATCHDEF.dm"
 #include "__40kEARLYLoad\CHEMS.dm"
@@ -2598,11 +2599,10 @@
 #include "maps\RandomZLevels\stationCollision.dm"
 #include "maps\RandomZLevels\tomb.dm"
 #include "maps\RandomZLevels\wildwest.dm"
-#include "z40k_shit\__LATEDEFS\datum_procs.dm"
 #include "z40k_shit\__LATEDEFS\obj_item.dm"
 #include "z40k_shit\__LATEDEFS\rngchemshit.dm"
 #include "z40k_shit\__LATEDEFS\salvage_lists.dm"
-#include "z40k_shit\__SUBSYSTEMS\global_light.dm"
+#include "z40k_shit\__SUBSYSTEMS\global_light\global_light.dm"
 #include "z40k_shit\__SUBSYSTEMS\scenario_controller\quest_master.dm"
 #include "z40k_shit\__SUBSYSTEMS\scenario_controller\scenario_controller.dm"
 #include "z40k_shit\_HELPERS\roleshit.dm"

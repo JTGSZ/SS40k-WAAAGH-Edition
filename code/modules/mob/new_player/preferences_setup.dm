@@ -356,7 +356,7 @@
 				if(LORD)
 					clothes_s = new /icon(uniform_dmi, "lord_s")
 					clothes_s.Blend(new /icon(feet_dmi, "lord"), ICON_UNDERLAY)
-					clothes_s.Blend(new /icon('icons/mob/head.dmi', "lord"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon('z40k_shit/icons/mob/lord_hat.dmi', "lord_hat"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "lord"), ICON_OVERLAY)
 				if(KNIGHTOFFICER)
 					clothes_s = new /icon(uniform_dmi, "knight_officer_s")

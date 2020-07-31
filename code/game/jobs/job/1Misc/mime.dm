@@ -51,13 +51,7 @@
 	H.add_spell(new /spell/targeted/oathbreak/)
 	H.mind.miming = MIMING_OUT_OF_CHOICE
 	mob_rename_self(H,"mime")
-	
-	//Harlequin job quest
-	var/datum/job_quest/harlequin/harlequin = new()
-	H.mind.job_quest = harlequin
-	harlequin.our_protagonist = H.mind
-	quest_master.harlequin = H
-	H.add_spell(new /spell/targeted/concentrate,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
+	quest_master.configure_quest(H,HARLEQUIN)
 	return 1
 	
  

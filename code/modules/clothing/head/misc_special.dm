@@ -181,6 +181,10 @@
 		if(anime || Holiday == APRIL_FOOLS_DAY)
 			speech.message = nekospeech(speech.message)
 
+/obj/item/clothing/head/kitty/equipped(var/mob/user, var/slot, hand_index = 0)
+	..()
+	update_icon(user)
+
 /obj/item/clothing/head/kitty/update_icon(var/mob/living/carbon/human/user)
 	if(!istype(user) || !haircolored)
 		return

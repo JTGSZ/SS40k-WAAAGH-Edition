@@ -165,5 +165,5 @@
 /datum/relationships/proc/print_to_mind()
 	for(var/mob/living/carbon/human/H in players)
 		for(var/mob/living/carbon/human/HH in H.relationships)
-			to_chat(H.mind, "<B><span class='average'>[HH.real_name] is your [H.relationships[HH.real_name]]</span></B>.")
-			H.store_memory("<B>[HH.real_name] is your [H.relationships[HH.real_name]].</B>")
+			to_chat(H.mind.current, "<B><span class='average'>[HH.real_name] is your [H.relationships[HH.real_name]]</span></B>.")
+			H.mind.store_memory("<B>[HH.real_name] is your [H.relationships[HH.real_name]].</B>")

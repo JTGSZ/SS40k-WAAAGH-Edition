@@ -33,7 +33,10 @@
 
 /obj/structure/nuke_computer/New()
 	..()
-	quest_master += quest_master.game_end_objects
+
+/obj/structure/nuke_computer/initialize()
+	spawn(5 SECONDS) //We load before the quest_master does ironically.
+		quest_master += quest_master.game_end_objects
 
 /obj/structure/nuke_computer/Destroy()
 	quest_master -= quest_master.game_end_objects

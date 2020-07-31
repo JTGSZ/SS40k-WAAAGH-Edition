@@ -33,11 +33,6 @@
 	items_to_collect = list()
 
 /datum/outfit/celebrity/post_equip(var/mob/living/carbon/human/H)
-	//Harlequin job quest
-	var/datum/job_quest/slaanesh_champion/ourboy = new()
-	H.mind.job_quest = ourboy
-	ourboy.our_protagonist = H.mind
-	quest_master.slaanesh_champion = H
-	H.add_spell(new /spell/slaanesh/celebfall)
+	quest_master.configure_quest(H,SLAANESH_CHAMPION)
 	return 1
  

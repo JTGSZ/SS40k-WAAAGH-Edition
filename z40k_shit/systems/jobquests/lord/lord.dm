@@ -1,7 +1,8 @@
-/datum/job_quest/tzeetch_champion
+/datum/job_quest/tzeentch_plot_one
 	title = "Retrieving A Heirloom - Crown Quest"
 
-/datum/job_quest/tzeetch_champion/main_body()
+/datum/job_quest/tzeentch_plot_one/main_body()
+	our_protagonist = actual_protagonist.current
 	switch(alignment)
 		if(1 to INFINITY)
 			to_chat(our_protagonist, "<span class='notice'> You reminisce for a moment, dwelling upon when things were much more simple. Mostly because you weren't responsible for much.</span>")

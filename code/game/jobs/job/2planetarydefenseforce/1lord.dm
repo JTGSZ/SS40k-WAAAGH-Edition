@@ -49,6 +49,6 @@
 	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/lord/post_equip(var/mob/living/carbon/human/H)
-	H.add_spell(new /spell/targeted/dwell,"ork_spell_ready",/obj/abstract/screen/movable/spell_master/harlequin)
+	quest_master.configure_quest(H,TZEENTCH_PLOT_ONE)
 	to_chat(world, "<b>[H.real_name] is the Lord of these lands!</b>")
 

@@ -47,10 +47,10 @@ var/list/tzeentchpads = list()
 
 /datum/subsystem/scenario_controller/New()
 	NEW_SS_GLOBAL(SS_Scenario)
+	quest_master = new /datum/job_quest/global_tracker()
 	
 /datum/subsystem/scenario_controller/Initialize()
 	..()
-	quest_master = new /datum/job_quest/global_tracker()
 
 /datum/subsystem/scenario_controller/fire(resumed = FALSE)
 	ticker++
