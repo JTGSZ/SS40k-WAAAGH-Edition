@@ -1,6 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/var/const/access_nuke_computer = 1
+/var/const/access_lord_nuke_computer = 1
+/var/const/accesss_knight_nuke_computer = 2
 
 /obj/var/list/req_access = null
 /obj/var/req_access_txt = "0"			// A user must have ALL of these accesses to use the object

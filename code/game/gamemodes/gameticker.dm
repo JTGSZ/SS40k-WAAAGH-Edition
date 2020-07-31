@@ -278,9 +278,9 @@ var/datum/controller/gameticker/ticker
 	//Now animate the cinematic
 	switch(station_missed)
 		if(1)	//nuke was nearby but (mostly) missed
-			if( mode && !override )
+			if(mode && !override)
 				override = mode.name
-			switch( override )
+			switch(override)
 				if("nuclear emergency") //Nuke wasn't on station when it blew up
 					flick("intro_nuke",cinematic)
 					sleep(35)
@@ -291,18 +291,13 @@ var/datum/controller/gameticker/ticker
 					flick("intro_nuke",cinematic)
 					sleep(35)
 					world << sound('sound/effects/explosionfar.ogg')
-					//flick("end",cinematic)
-
-
 		if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
 			sleep(50)
 			world << sound('sound/effects/explosionfar.ogg')
-
-
 		else	//station was destroyed
-			if( mode && !override )
+			if(mode && !override)
 				override = mode.name
-			switch( override )
+			switch(override)
 				if("nuclear emergency") //Nuke Ops successfully bombed the station
 					flick("intro_nuke",cinematic)
 					sleep(35)
@@ -330,7 +325,6 @@ var/datum/controller/gameticker/ticker
 	//If its actually the end of the round, wait for it to end.
 	//Otherwise if its a verb it will continue on afterwards.
 	sleep(300)
-
 	if(cinematic)
 		qdel(cinematic)		//end the cinematic
 	if(temp_buckle)
@@ -425,7 +419,7 @@ var/datum/controller/gameticker/ticker
 			if(station_was_nuked)
 				feedback_set_details("end_proper","nuke")
 				if(!delay_end)
-					to_chat(world, "<span class='notice'><B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B></span>")
+					to_chat(world, "<span class='notice'><B>Rebooting due to destruction of world in [restart_timeout/10] seconds</B></span>")
 			else
 				feedback_set_details("end_proper","\proper completion")
 				if(!delay_end)

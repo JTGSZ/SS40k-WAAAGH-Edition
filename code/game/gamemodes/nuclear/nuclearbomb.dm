@@ -288,7 +288,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 	to_chat(world, "<B>The station was destroyed by the nuclear blast!</B>")
 
 	ticker.station_was_nuked = (off_station<2)	//offstation==1 is a draw. the station becomes irradiated and needs to be evacuated.
-													//kinda shit but I couldn't  get permission to do what I wanted to do.
+													//kinda shit but I couldn't get permission to do what I wanted to do.
 	SSpersistence_map.setSavingFilth(FALSE)
 	stat_collection.nuked++
 
