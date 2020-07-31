@@ -35,11 +35,10 @@
 	..()
 
 /obj/structure/nuke_computer/initialize()
-	spawn(5 SECONDS) //We load before the quest_master does ironically.
-		quest_master += quest_master.game_end_objects
+	quest_master.game_end_objects += src
 
 /obj/structure/nuke_computer/Destroy()
-	quest_master -= quest_master.game_end_objects
+	quest_master.game_end_objects -= src
 	..()
 
 /obj/structure/nuke_computer/attack_hand(mob/user)

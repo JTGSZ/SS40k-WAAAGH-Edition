@@ -65,5 +65,6 @@
 	siemens_coefficient = 0.6
 	body_parts_covered = FULL_TORSO
 	icon = 'z40k_shit/icons/obj/orks/orkarmorandclothesOBJ.dmi'
+	allowed = list(/obj/item/weapon)
 	species_restricted = list("Ork Warboss") 
 	species_fit = list("Ork Warboss") 

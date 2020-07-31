@@ -74,9 +74,9 @@
 
 //Orks
 /obj/effect/landmark/start/basicOrk
-	name = "Slugga Boy"
+	name = "(RNG) Various Orks"
 	icon_state = "basic_ork"
-
+ 
 /obj/effect/landmark/start/orknob
 	name = "Ork Nob"
 	icon_state = "ork_nob"

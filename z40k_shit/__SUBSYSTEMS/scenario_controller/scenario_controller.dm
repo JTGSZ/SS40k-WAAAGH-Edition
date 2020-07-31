@@ -18,7 +18,6 @@
 	When that day comes at least.
 
 */
-
 var/datum/subsystem/scenario_controller/SS_Scenario //The subsystem
 var/datum/job_quest/global_tracker/quest_master //Datum storage for job_quest shit
 var/list/scenario_order_one = list() // A list of objects that fire on one tick
