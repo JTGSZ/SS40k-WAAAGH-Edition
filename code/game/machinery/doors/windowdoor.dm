@@ -376,7 +376,6 @@
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
-	req_access = list(access_security)
 	secure = TRUE
 	health = 100
 	assembly_type = /obj/structure/windoor_assembly/secure

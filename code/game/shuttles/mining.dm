@@ -3,7 +3,6 @@ var/global/datum/shuttle/mining/mining_shuttle = new(starting_area = /area/shutt
 /datum/shuttle/mining
 	name = "mining shuttle"
 	can_link_to_computer = LINK_FREE
-	req_access = list(access_mining)
 
 /datum/shuttle/mining/initialize()
 	.=..()

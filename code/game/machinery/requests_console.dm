@@ -459,8 +459,7 @@ var/list/obj/machinery/requests_console/requests_consoles = list()
 		return
 	if (istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
 		if(screen == 5)
-			var/obj/item/weapon/card/id/ID = O.GetID()
-			if (hackState || ID.access.Find(access_engine_equip))
+			if(hackState)
 				announceAuth = 1
 			else
 				announceAuth = 0
@@ -473,7 +472,7 @@ var/list/obj/machinery/requests_console/requests_consoles = list()
 		if (screen == 10)
 			var/obj/item/weapon/card/id/ID = O.GetID()
 
-			if (!isnull(ID) && ID.access.Find(access_RC_announce) || hackState)
+			if (!isnull(ID) || hackState)
 				announceAuth = TRUE
 			else
 				announceAuth = FALSE

@@ -42,7 +42,6 @@ list("category" = "machinery", "name" = "MSGS", "path" = /obj/machinery/atmosphe
 	density = 1
 	anchored = 0
 	machine_flags = WRENCHMOVE | FIXED2WORK | EMAGGABLE
-	req_access = list(access_engine)
 
 	var/consumption = 0 //How much are we set to draw off the net? Clamped between 0 and 2 GIGAWATT (2,000,000,000 Watts)
 	var/on = 0

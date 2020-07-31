@@ -8,8 +8,8 @@
 	supervisors = "the lord"
 	wage_payout = 20
 	selection_color = "#dddddd"
-	access = list(access_hydroponics, access_bar, access_kitchen, access_morgue, access_weapons)
-	minimal_access = list(access_bar,access_weapons)
+	access = list()
+	minimal_access = list()
 	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/bartender
 
@@ -19,6 +19,7 @@
 /datum/outfit/bartender
 	outfit_name = "Bartender"
 	associated_job = /datum/job/bartender
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack,
@@ -58,10 +59,6 @@
 		/obj/item/ammo_casing/shotgun/beanbag = "Survival Box",
 		/obj/item/weapon/reagent_containers/food/drinks/shaker = slot_l_store_str,
 	)
-
-	pda_type = /obj/item/device/pda/bar
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id
 
 /datum/outfit/bartender/post_equip(var/mob/living/carbon/human/H)
 	H.put_in_hands(new /obj/item/weapon/storage/bag/plasticbag(H))

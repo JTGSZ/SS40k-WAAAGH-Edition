@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/var/const/access_security = 1 // Security equipment
+/var/const/access_nuke_computer = 1
 
 /obj/var/list/req_access = null
 /obj/var/req_access_txt = "0"			// A user must have ALL of these accesses to use the object
@@ -19,6 +19,19 @@
 
 /obj/item/proc/GetAccess()
 	return list()
+
+/proc/get_all_accesses()
+	return list()
+
+/proc/get_region_accesses(var/code)
+	switch(code)
+		if(0 to 7)
+			return get_all_accesses()
+
+/proc/get_region_accesses_name(var/code)
+	switch(code)
+		if(0 to 7)
+			return "All"
 
 /obj/item/proc/GetID()
 	return null
@@ -53,7 +66,6 @@
 		ACL=I.GetAccess()
 	return can_access(ACL,req_access,req_one_access)
 
-
 /obj/proc/check_access_list(var/list/L)
 	set_up_access()
 	if(!src.req_access  && !src.req_one_access)
@@ -75,6 +87,11 @@
 				return 1
 		return 0
 	return 1
+
+/proc/get_access_desc(A)
+	switch(A)
+		if("Ass")
+			return "Fuck you"
 
 // /vg/ - Generic Access Checks.
 // Allows more flexible access checks.
@@ -109,10 +126,7 @@
 	return 1
 
 /proc/wpermit(var/mob/M) //weapons permit checking
-	var/list/L = M.GetAccess()
-	if(access_weapons in L)
-		return 1
-	return 0
+	return 1
 
 // Cache - N3X
 var/global/list/all_jobs

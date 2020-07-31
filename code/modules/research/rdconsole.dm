@@ -65,8 +65,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	)
 	var/autorefresh = 1 //Prevents the window from being updated while queueing items
 
-	req_access = list(access_rnd)	//Data and setting manipulation requires scientist access.
-
 	starting_materials = list()
 
 	light_color = LIGHT_COLOR_PINK
@@ -1096,31 +1094,24 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/mommi
 	name = "MoMMI R&D Console"
 	id = 3
-	req_access = list(access_rnd)
 	circuit = "/obj/item/weapon/circuitboard/rdconsole/mommi"
 
 /obj/machinery/computer/rdconsole/robotics
 	name = "Robotics R&D Console"
 	id = 2
-	req_one_access = list(access_robotics)
-	req_access=list()
 	circuit = "/obj/item/weapon/circuitboard/rdconsole/robotics"
 
 /obj/machinery/computer/rdconsole/mechanic
 	name = "Mechanics R&D Console"
 	id = 4
-	req_one_access = list(access_mechanic)
-	req_access=list()
 	circuit = "/obj/item/weapon/circuitboard/rdconsole/mechanic"
 
 /obj/machinery/computer/rdconsole/core
 	name = "Core R&D Console"
 	id = 1
-	req_access = list(access_rnd)
 	circuit = "/obj/item/weapon/circuitboard/rdconsole"
 
 /obj/machinery/computer/rdconsole/pod
 	name = "Pod Bay R&D Console"
 	id = 5
-	req_access=list()
 	circuit = "/obj/item/weapon/circuitboard/rdconsole/pod"

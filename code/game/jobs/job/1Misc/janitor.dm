@@ -8,8 +8,8 @@
 	supervisors = "the lord"
 	wage_payout = 20
 	selection_color = "#dddddd"
-	access = list(access_janitor, access_maint_tunnels)
-	minimal_access = list(access_janitor, access_maint_tunnels)
+	access = list()
+	minimal_access = list()
 	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/janitor
 	landmark_job_override = TRUE
@@ -19,6 +19,7 @@
 /datum/outfit/janitor
 	outfit_name = "Janitor"
 	associated_job = /datum/job/janitor
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage,
@@ -50,10 +51,6 @@
 			slot_wear_mask_str = /obj/item/clothing/mask/breath/vox,
 		),
 	)
-
-	pda_type = /obj/item/device/pda/janitor
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id
 
 /datum/outfit/janitor/post_equip(var/mob/living/carbon/human/H)
 	H.add_language(LANGUAGE_MOUSE)

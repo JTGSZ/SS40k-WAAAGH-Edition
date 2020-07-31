@@ -49,8 +49,6 @@
 
 	assignment_leader = "Trader"
 	assignment_member = "Trader"
-	id_type = /obj/item/weapon/card/id/syndicate/raider
-	id_type_leader = /obj/item/weapon/card/id/syndicate/raider
 
 /datum/outfit/striketeam/voxraider/equip_backbag(var/mob/living/carbon/human/H)
 	return FALSE

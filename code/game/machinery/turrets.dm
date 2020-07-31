@@ -350,7 +350,6 @@
 	var/locked = 1
 	var/area/control_area //Can be area name, path or nothing.
 	var/ailock = 0 //AI cannot use this
-	req_access = list(access_ai_upload)
 
 	ghost_read = 0
 

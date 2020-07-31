@@ -178,10 +178,8 @@ var/list/response_team_members = list()
 	W.registered_name = real_name
 	W.name = "[real_name]'s ID Card ([W.assignment])"
 	if(!leader_selected)
-		W.access = get_centcom_access("Emergency Responder")
 		W.icon_state = "ERT_empty"	//placeholder until revamp
 	else
-		W.access = get_centcom_access("Emergency Responders Leader")
 		W.icon_state = "ERT_leader"
 	equip_to_slot_or_del(W, slot_wear_id)
 	var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(src)

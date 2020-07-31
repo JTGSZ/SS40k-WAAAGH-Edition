@@ -49,7 +49,6 @@ var/global/list/floorbot_targets=list()
 	var/eattiles = 0
 	var/maketiles = 0
 	var/oldloc = null
-	req_one_access = list(access_robotics, access_construction)
 	var/targetdirection
 	beacon_freq = 1445		// navigation beacon frequency
 	var/skin = null

@@ -475,7 +475,7 @@
 	w_class = W_CLASS_MEDIUM
 	max_combined_w_class = 14 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
-	req_one_access = list(access_virology) //Obj was inheriting from obj/storage/lockbox which requires armory access.  This behavior is overridden here.
+	req_one_access = list() //Obj was inheriting from obj/storage/lockbox which requires armory access.  This behavior is overridden here.
 
 /obj/item/weapon/storage/lockbox/vials/New()
 	..()

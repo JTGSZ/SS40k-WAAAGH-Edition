@@ -15,7 +15,6 @@ var/specops_shuttle_timeleft = 0
 	name = "Spec. Ops. Shuttle Console"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "shuttle"
-	req_access = list(access_cent_specops,access_cent_ert)
 	var/temp = null
 	var/hacked = 0
 	var/allowedtocall = 0

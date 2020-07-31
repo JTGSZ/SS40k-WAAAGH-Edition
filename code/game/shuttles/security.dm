@@ -3,7 +3,6 @@ var/global/datum/shuttle/security/security_shuttle = new(starting_area = /area/s
 /datum/shuttle/security
 	name = "security shuttle"
 	can_link_to_computer = LINK_FREE
-	req_access = list(access_security)
 
 /datum/shuttle/security/initialize()
 	.=..()

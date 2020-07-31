@@ -7,7 +7,6 @@
 	nano_file = "medalprinter.tmpl"
 	machine_flags = SCREWTOGGLE | CROWDESTROY | WRENCHMOVE | FIXED2WORK | EMAGGABLE
 	research_flags = NANOTOUCH | TAKESMATIN | HASOUTPUT | IGNORE_CHEMS | HASMAT_OVER | ACCESS_EMAG
-	req_access = list(access_hop)
 
 	allowed_materials = list(
 						MAT_IRON,

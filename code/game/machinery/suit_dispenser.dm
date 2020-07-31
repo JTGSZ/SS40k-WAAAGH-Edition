@@ -284,20 +284,9 @@ var/list/dispenser_presets = list()
 	var/obj/item/weapon/card/id/card = user.get_id_card()
 	if(!card)
 		return suit_list
-	for(var/job in card.access)
-		switch(job)
-			if(access_brig)
-				suit_list["Security"] = suits["Security"]
-			if(access_medical)
-				suit_list["Medical"] = suits["Medical"]
-			if(access_mining)
-				suit_list["Mining"] = suits["Mining"]
-			if(access_paramedic)
-				suit_list["Paramedic"] = suits["Paramedic"]
-			if(access_atmospherics)
-				suit_list["Atmospherics Technician"] = suits["Atmospherics Technician"]
-			if(access_engine)
-				suit_list["Engineering"] = suits["Engineering"]
+	else
+		suit_list["Mining"] = suits["Mining"]
+		return suit_list
 	return suit_list
 
 /obj/machinery/suit_dispenser/standard

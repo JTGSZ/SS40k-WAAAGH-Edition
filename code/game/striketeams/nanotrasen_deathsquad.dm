@@ -127,11 +127,9 @@
 	var/obj/item/weapon/card/id/W = new(src)
 	W.name = "[real_name]'s ID Card"
 	if(leader)
-		W.access = get_centcom_access("Creed Commander")
 		W.icon_state = "creed"
 		W.assignment = "Death Commander"
 	else
-		W.access = get_centcom_access("Death Commando")
 		W.icon_state = "deathsquad"
 		W.assignment = "Death Commando"
 	W.registered_name = real_name

@@ -18,8 +18,6 @@ var/global/datum/shuttle/syndicate/syndicate_shuttle = new(starting_area = /area
 	stable = 1 //Don't stun everyone and don't throw anything when moving
 	can_rotate = 0 //Sleepers, body scanners and multi-tile airlocks aren't rotated properly
 
-	req_access = list(access_syndicate)
-
 /datum/shuttle/syndicate/initialize()
 	.=..()
 	add_dock(/obj/docking_port/destination/syndicate/start)

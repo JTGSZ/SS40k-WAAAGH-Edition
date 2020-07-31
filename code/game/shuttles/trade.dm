@@ -6,7 +6,6 @@ var/global/datum/shuttle/trade/trade_shuttle = new(starting_area = /area/shuttle
 /datum/shuttle/trade
 	name = "trade shuttle"
 	can_link_to_computer = LINK_FREE
-	req_access = list(access_trade)
 	cooldown = TRADE_SHUTTLE_COOLDOWN
 	transit_delay = TRADE_SHUTTLE_TRANSIT_DELAY - 30 //Once somebody sends the shuttle, it waits for 3 seconds before leaving. Transit delay is reduced to compensate for that
 	pre_flight_delay = 30

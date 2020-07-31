@@ -128,7 +128,6 @@
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
 	name = "Xenoarchaeologist Locker"
-	req_access = list(access_tox_storage)
 	icon_state = "secureres1"
 	icon_closed = "secureres"
 	icon_locked = "secureres1"
@@ -150,7 +149,6 @@
 
 /obj/structure/closet/secure_closet/excavation
 	name = "Excavation Tools"
-	req_access = list(access_tox_storage)
 	icon_state = "securexen1"
 	icon_closed = "securexen0"
 	icon_locked = "securexen1"
@@ -179,4 +177,3 @@
 
 /obj/machinery/alarm/isolation
 	name = "Isolation room air control"
-	req_access = list(access_science)

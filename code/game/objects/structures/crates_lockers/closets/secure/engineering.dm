@@ -1,6 +1,5 @@
 /obj/structure/closet/secure_closet/engineering_chief
 	name = "\improper Chief Engineer's locker"
-	req_access = list(access_ce)
 	icon_state = "securece1"
 	icon_closed = "securece"
 	icon_locked = "securece1"
@@ -40,7 +39,6 @@
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies locker"
-	req_access = list(access_engine_equip)
 	icon_state = "secureengelec1"
 	icon_closed = "secureengelec"
 	icon_locked = "secureengelec1"
@@ -59,7 +57,6 @@
 
 /obj/structure/closet/secure_closet/engineering_welding
 	name = "welding supplies locker"
-	req_access = list(access_engine_equip)
 	icon_state = "secureengweld1"
 	icon_closed = "secureengweld"
 	icon_locked = "secureengweld1"
@@ -75,7 +72,6 @@
 
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "\improper Engineer's locker"
-	req_access = list(access_engine_equip)
 	icon_state = "secureeng1"
 	icon_closed = "secureeng"
 	icon_locked = "secureeng1"
@@ -108,7 +104,6 @@
 
 /obj/structure/closet/secure_closet/engineering_atmos
 	name = "\improper Atmospheric Technician's locker"
-	req_access = list(access_atmospherics)
 	icon_state = "secureatmos1"
 	icon_closed = "secureatmos"
 	icon_locked = "secureatmos1"
@@ -144,7 +139,6 @@
 
 /obj/structure/closet/secure_closet/engineering_mechanic
 	name = "\improper Mechanic's locker"
-	req_access = list(access_mechanic)
 	icon_state = "securemechni1"
 	icon_closed = "securemechni"
 	icon_locked = "securemechni1"
@@ -175,7 +169,6 @@
 
 /obj/structure/closet/secure_closet/engineering_general
 	name = "engineering locker"
-	req_access = list(access_engine_equip)
 	icon_state = "secureeng1"
 	icon_closed = "secureeng"
 	icon_locked = "secureeng1"
@@ -185,7 +178,6 @@
 
 /obj/structure/closet/crate/secure/large/reinforced/shard
 	name = "supermatter shard crate"
-	req_access = list(access_engine_equip)
 	var/payload = /obj/machinery/power/supermatter/shard
 	var/mapping_idtag
 

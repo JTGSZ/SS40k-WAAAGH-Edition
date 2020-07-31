@@ -7,8 +7,8 @@
 	spawn_positions = 3
 	supervisors = "nobody"
 	selection_color = "#dddddd"
-	access = list(access_trade)
-	minimal_access = list(access_trade)
+	access = list()
+	minimal_access = list()
 	alt_titles = list("Merchant","Salvage Broker")
 
 	species_whitelist = list("Vox")
@@ -33,6 +33,7 @@
 
 	outfit_name = "Trader"
 	associated_job = /datum/job/trader
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack,
@@ -56,10 +57,6 @@
 	items_to_collect = list(
 		/obj/item/weapon/storage/wallet/trader = "Survival Box",
 	)
-
-	pda_type = null
-	associated_job = /datum/job/trader
-	id_type = /obj/item/weapon/card/id/vox
 
 /datum/job/trader/introduce(mob/living/carbon/human/M, job_title)
 	if(!job_title)

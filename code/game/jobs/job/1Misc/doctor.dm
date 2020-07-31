@@ -8,8 +8,8 @@
 	wage_payout = 65
 	supervisors = "the lord"
 	selection_color = "#ffeef0"
-	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_morgue, access_surgery, access_virology)
+	access = list()
+	minimal_access = list()
 	alt_titles = list("Emergency Physician", "Nurse", "Surgeon")
 	outfit_datum = /datum/outfit/doctor
 	species_blacklist = list("Ork")
@@ -20,6 +20,7 @@
 /datum/outfit/doctor
 	outfit_name = "Medical Doctor"
 	associated_job = /datum/job/doctor
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack/medic,
@@ -75,10 +76,6 @@
 			slot_wear_mask_str =  /obj/item/clothing/mask/breath/,
 		),
 	)
-
-	pda_type = /obj/item/device/pda/medical
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id/medical
 
 	special_snowflakes = list(
 		"Default" = list(

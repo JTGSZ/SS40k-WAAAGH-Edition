@@ -19,7 +19,6 @@
 	desc = "Generates a box-shaped wall of energy when active."
 	icon = 'code/WorkInProgress/Cael_Aislinn/ShieldGen/shielding.dmi'
 	icon_state = "generator_regular_off"
-	req_one_access = list(access_security, access_engine) // For locking/unlocking controls
 	density = 1
 	anchored = TRUE
 	use_power = 1			//0 use nothing

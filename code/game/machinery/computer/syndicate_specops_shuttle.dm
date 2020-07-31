@@ -14,7 +14,6 @@ var/syndicate_elite_shuttle_timeleft = 0
 	name = "Elite Syndicate Squad Shuttle Console"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "syndishuttle"
-	req_access = list(access_cent_specops)
 	var/temp = null
 	var/hacked = 0
 	var/allowedtocall = 0

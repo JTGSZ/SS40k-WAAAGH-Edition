@@ -28,7 +28,6 @@
 
 /obj/structure/closet/secure_closet/vault/armory
 	name = "\improper Armory vault locker"
-	req_access = list(access_armory)
 	
 /obj/structure/closet/secure_closet/vault/armory/atoms_to_spawn()
 	if(Holiday == APRIL_FOOLS_DAY)
@@ -42,16 +41,12 @@
 	new /obj/item/weapon/storage/lockbox/lawgiver(src)
 
 /obj/structure/closet/secure_closet/vault/vault
-	req_access = list(access_heads_vault)
 
 /obj/structure/closet/secure_closet/vault/centcomm
 	name = "\improper Centcomm vault locker"
-	req_access = list(access_cent_general)
 
 /obj/structure/closet/secure_closet/vault/syndicate
 	name = "\improper Syndicate vault locker"
-	req_access = list(access_syndicate)
 
 /obj/structure/closet/secure_closet/vault/ert
 	name = "\improper ERT vault locker"
-	req_access = list(access_cent_ert)

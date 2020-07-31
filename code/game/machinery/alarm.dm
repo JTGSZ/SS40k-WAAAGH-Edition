@@ -180,7 +180,6 @@ var/global/list/airalarm_presets = list(
 	idle_power_usage = 100
 	active_power_usage = 200
 	power_channel = ENVIRON
-	req_one_access = list(access_atmospherics, access_engine_equip)
 	var/frequency = 1439
 	//var/skipprocess = 0 //Experimenting
 	var/alarm_frequency = 1437
@@ -217,22 +216,17 @@ var/global/list/airalarm_presets = list(
 	return TRUE
 
 /obj/machinery/alarm/xenobio
-	req_one_access = list(access_rd, access_atmospherics, access_engine_equip, access_xenobiology)
 	req_access = list()
 
 /obj/machinery/alarm/execution
-	req_one_access = list(access_atmospherics, access_engine_equip, access_brig)
 	req_access = list()
 
 /obj/machinery/alarm/server
 	preset = "Coldroom"
-	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
 	req_access = list()
 
 /obj/machinery/alarm/vox
 	preset = "Vox"
-	req_one_access = list()
-	req_access = list(access_trade)
 
 /obj/machinery/alarm/proc/apply_preset(var/no_cycle_after=0, var/propagate=1)
 	var/datum/airalarm_preset/presetdata = airalarm_presets[preset]

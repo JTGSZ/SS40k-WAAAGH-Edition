@@ -16,7 +16,7 @@
 		/obj/item/robot_parts/l_arm = 1
 	)
 
-	req_access = list(access_robotics)
+	req_access = list()
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 

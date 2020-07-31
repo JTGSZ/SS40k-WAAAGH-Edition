@@ -17,7 +17,6 @@ var/global/list/obj/machinery/keycard_auth/authenticators = list()
 	var/ert_reason
 	//1 = select event
 	//2 = authenticate
-	req_one_access = list(access_keycard_auth)
 	anchored = 1.0
 	use_power = 1
 	idle_power_usage = 2
@@ -28,42 +27,40 @@ var/global/list/obj/machinery/keycard_auth/authenticators = list()
 	..()
 	authenticators += src
 
-/obj/machinery/keycard_auth/attack_ai(mob/user )
+/obj/machinery/keycard_auth/attack_ai(mob/user)
 	to_chat(user, "The station AI is not to interact with these devices.")
 	return
 
-/obj/machinery/keycard_auth/attack_paw(mob/user )
+/obj/machinery/keycard_auth/attack_paw(mob/user)
 	to_chat(user, "You are too primitive to use this device.")
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/keycard_auth/attackby(obj/item/weapon/W, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return
 	if(istype(W,/obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/ID = W
-		if(access_keycard_auth in ID.access)
-			if(active == 1)
-				//This is not the device that made the initial request. It is the device confirming the request.
-				if(event_source)
-					confirmed = 1
+		if(active == 1)
+			//This is not the device that made the initial request. It is the device confirming the request.
+			if(event_source)
+				confirmed = 1
 
-					// All the useful information is in the source device, so copy it over. There's probably a better way to do this.
-					event_triggered_by = event_source.event_triggered_by
-					event_confirmed_by = usr
-					event = event_source.event
-					ert_reason = event_source.ert_reason
+				// All the useful information is in the source device, so copy it over. There's probably a better way to do this.
+				event_triggered_by = event_source.event_triggered_by
+				event_confirmed_by = usr
+				event = event_source.event
+				ert_reason = event_source.ert_reason
 
-					playsound(src, get_sfx("card_swipe"), 60, 1, -5)
-					to_chat(user, "<span class='notice'>You swipe your ID card to confirm the [event].</span>")
-
-					trigger_event(event)
-			else if(screen == 2)
 				playsound(src, get_sfx("card_swipe"), 60, 1, -5)
-				to_chat(user, "<span class='notice'>You swipe your ID card to request the [event].</span>")
+				to_chat(user, "<span class='notice'>You swipe your ID card to confirm the [event].</span>")
 
-				event_triggered_by = usr
-				broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
+				trigger_event(event)
+		else if(screen == 2)
+			playsound(src, get_sfx("card_swipe"), 60, 1, -5)
+			to_chat(user, "<span class='notice'>You swipe your ID card to request the [event].</span>")
+
+			event_triggered_by = usr
+			broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
 
 /obj/machinery/keycard_auth/power_change()
 	if(powered(ENVIRON))
@@ -212,6 +209,5 @@ var/global/maint_all_access = 0
 	to_chat(world, "<span class='red'>The maintenance access requirement has been readded on all maintenance airlocks.</span>")
 
 /obj/machinery/door/airlock/allowed(mob/M)
-	if(maint_all_access && src.check_access_list(list(access_maint_tunnels)))
-		return 1
-	return ..(M)
+	return 1
+

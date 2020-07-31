@@ -356,7 +356,6 @@ var/list/admin_verbs_mod = list(
 		/client/proc/cheat_power,
 		/client/proc/setup_atmos,
 		/client/proc/ticklag,
-		/client/proc/cmd_admin_grantfullaccess,
 		/client/proc/kaboom,
 		/client/proc/rigvote,
 		/client/proc/splash,

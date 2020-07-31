@@ -7,7 +7,7 @@
 	fits_max_w_class = W_CLASS_MEDIUM
 	max_combined_w_class = 14 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 4
-	req_one_access = list(access_armory)
+	req_one_access = list()
 	var/locked = 1
 	var/broken = 0
 	var/icon_locked = "lockbox+l"
@@ -176,7 +176,6 @@
 
 /obj/item/weapon/storage/lockbox/loyalty
 	name = "lockbox (loyalty implants)"
-	req_one_access = list(access_security)
 
 /obj/item/weapon/storage/lockbox/loyalty/New()
 	..()
@@ -187,7 +186,6 @@
 
 /obj/item/weapon/storage/lockbox/tracking
 	name = "lockbox (tracking implants)"
-	req_one_access = list(access_security)
 	storage_slots = 5
 
 /obj/item/weapon/storage/lockbox/tracking/New()
@@ -200,7 +198,6 @@
 
 /obj/item/weapon/storage/lockbox/chem
 	name = "lockbox (chemical implants)"
-	req_one_access = list(access_security)
 	storage_slots = 5
 
 /obj/item/weapon/storage/lockbox/chem/New()
@@ -214,7 +211,6 @@
 /obj/item/weapon/storage/lockbox/clusterbang
 	name = "lockbox (clusterbang)"
 	desc = "You have a bad feeling about opening this."
-	req_one_access = list(access_security)
 
 /obj/item/weapon/storage/lockbox/clusterbang/New()
 	..()
@@ -223,7 +219,6 @@
 /obj/item/weapon/storage/lockbox/secway
 	name = "lockbox (secway keys)"
 	desc = "Nobody knows this mall better than I do."
-	req_one_access = list(access_security)
 
 /obj/item/weapon/storage/lockbox/secway/New()
 	..()
@@ -272,7 +267,7 @@
 	force = 8
 	throwforce = 10
 	storage_slots = 20
-	req_one_access = list(access_qm)
+	req_one_access = list()
 	locked = 1
 	broken = 0
 	icon_locked = "coinbox+l"
@@ -281,7 +276,7 @@
 
 /obj/item/weapon/storage/lockbox/lawgiver
 	name = "lockbox (lawgiver)"
-	req_one_access = list(access_armory)
+	req_one_access = list()
 
 /obj/item/weapon/storage/lockbox/lawgiver/New()
 	..()

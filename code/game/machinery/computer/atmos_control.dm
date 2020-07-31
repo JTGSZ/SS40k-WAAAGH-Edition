@@ -249,7 +249,7 @@ var/global/list/atmos_controllers = list()
 		data["selected_preset"] = null
 		data["selected_preset_name"] = null
 
-	if(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || user.hasFullAccess())
+	if(log_in_id || emagged || user.hasFullAccess())
 		data["admin_access"] = TRUE
 	else
 		data["admin_access"] = FALSE
@@ -310,13 +310,13 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["select_preset"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		selected_preset = new(airalarm_presets[href_list["select_preset"]]) //copy the existing preset for editing
 		return 1
 
 	if(href_list["add_preset"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		var/name = trimcenter(trim(stripped_input(usr,"Enter the name for the preset (max 12 characters).", "Preset name",""),1,12))
 		if(!name || name == "")
@@ -335,7 +335,7 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["save_preset_setting"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		var/name = selected_preset.name
 		airalarm_presets[name] = new /datum/airalarm_preset(selected_preset) //make a copy
@@ -345,7 +345,7 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["rename_preset"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		//renames the currently selected preset
 		if(selected_preset.core)
@@ -370,7 +370,7 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["delete_preset"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		//deletes the currently selected preset if possible
 		if(selected_preset.core)
@@ -384,7 +384,7 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["reset_preset"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		//resets the currently selected core preset
 		if(!selected_preset.core)
@@ -404,7 +404,7 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["apply_preset_batch"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		//save preset
 		var/newname = selected_preset.name
@@ -418,7 +418,7 @@ var/global/list/atmos_controllers = list()
 		return 1
 
 	if(href_list["set_preset_setting"])
-		if(!(log_in_id && (access_ce in log_in_id.GetAccess()) || emagged || usr.hasFullAccess()))
+		if(!(log_in_id || emagged || usr.hasFullAccess()))
 			return 1
 		switch(href_list["set_preset_setting"])
 			if("oxygen", "nitrogen", "carbon_dioxide", "plasma", "n2o", "other", "pressure", "temperature")

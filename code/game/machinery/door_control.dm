@@ -205,7 +205,6 @@
     name = "windoor control"
     desc = "Open or close the windoors in the armoury."
     id_tag = "IDTagBoxArmoury"
-    req_access = list(access_security)
     range = 6
 
 /obj/machinery/door_control/mapped/box_armoury/attack_hand(var/mob/user)

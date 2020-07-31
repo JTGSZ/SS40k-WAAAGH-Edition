@@ -36,8 +36,6 @@
 		)
 	)
 
-	id_type_leader = /obj/item/weapon/card/id/death_commando_leader
-	id_type = /obj/item/weapon/card/id/death_commando
 	assignment_leader = "Death Commander"
 	assignment_member = "Death Commando"
 

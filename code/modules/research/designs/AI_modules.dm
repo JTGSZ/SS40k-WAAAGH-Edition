@@ -18,7 +18,6 @@
 	category = "Module Boards"
 	build_path = /obj/item/weapon/aiModule/targetted/oneHuman
 	locked = 1
-	req_lock_access = list(access_general)
 
 /datum/design/protectstation_module
 	name = "Module Design (ProtectStation)"
@@ -60,7 +59,6 @@
 	category = "Module Boards"
 	build_path = /obj/item/weapon/aiModule/standard/oxygen
 	locked = 1
-	req_lock_access = list(access_general)
 
 /datum/design/freeform_module
 	name = "Module Design (Freeform)"
@@ -132,7 +130,6 @@
 	category = "Module Boards"
 	build_path = /obj/item/weapon/aiModule/core/tyrant
 	locked = 1
-	req_lock_access = list(access_general)
 
 /datum/design/nt_default
 	name = "Core Module Design (NT default)"

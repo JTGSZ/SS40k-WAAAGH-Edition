@@ -4,7 +4,6 @@
 	name = "Prisoner Management"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "explosive"
-	req_access = list(access_armory)
 	circuit = "/obj/item/weapon/circuitboard/prisoner"
 	var/id = 0.0
 	var/temp = null
@@ -15,13 +14,13 @@
 
 	light_color = LIGHT_COLOR_RED
 
-/obj/machinery/computer/prisoner/attack_ai(var/mob/user )
+/obj/machinery/computer/prisoner/attack_ai(var/mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/prisoner/attack_paw(var/mob/user )
+/obj/machinery/computer/prisoner/attack_paw(var/mob/user)
 	return
 
-/obj/machinery/computer/prisoner/attack_hand(var/mob/user )
+/obj/machinery/computer/prisoner/attack_hand(var/mob/user)
 	if(..())
 		return
 	user.set_machine(src)

@@ -229,7 +229,7 @@ var/list/lawgiver_modes = list(
 			self_destruct(H)
 
 /obj/item/weapon/gun/lawgiver/proc/self_destruct(mob/user)
-	var/req_access = list(access_security)
+	var/req_access = list()
 	if(can_access(user.GetAccess(),req_access))
 		say("ERROR: DNA PROFILE DOES NOT MATCH.")
 		return

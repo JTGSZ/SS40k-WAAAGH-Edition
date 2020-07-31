@@ -9,7 +9,7 @@
 	w_type = RECYK_ELECTRONIC
 	melt_temperature = MELTPOINT_SILICON
 
-	req_access = list(access_engine_equip)
+	req_access = list()
 
 	var/list/conf_access = null
 	var/one_access = 0 //if set to 1, door would receive req_one_access instead of req_access
@@ -18,13 +18,13 @@
 	var/installed = 0
 
 	// Allow dicking with it while it's on the floor.
-/obj/item/weapon/circuitboard/airlock/attack_robot(mob/user )
+/obj/item/weapon/circuitboard/airlock/attack_robot(mob/user)
 	if(isMoMMI(user))
 		return ..()
 	attack_self(user)
 	return 1
 
-/obj/item/weapon/circuitboard/airlock/attackby(obj/item/W, mob/user )
+/obj/item/weapon/circuitboard/airlock/attackby(obj/item/W, mob/user)
 	if(issolder(W))
 		var/obj/item/weapon/solder/S = W
 		if(icon_state == "door_electronics_smoked")
@@ -50,7 +50,7 @@
 
 	interact(user)
 
-/obj/item/weapon/circuitboard/airlock/interact(mob/user )
+/obj/item/weapon/circuitboard/airlock/interact(mob/user)
 	var/t1 = text("<B>Access control</B><br>\n")
 
 	if (last_configurator)

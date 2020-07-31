@@ -11,7 +11,6 @@
 	machine_flags = EMAGGABLE
 	flags = OPENCONTAINER | NOREACT
 	stat = NOPOWER
-	req_access = list(access_atmospherics)
 
 	var/obj/item/weapon/reagent_containers/glass/beaker/noreact/large/mixing_chamber = null //We can't just use a holder because the machine is NOREACT,
 																					//we need an internal holder without that flag.

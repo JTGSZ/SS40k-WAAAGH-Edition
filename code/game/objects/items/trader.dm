@@ -57,7 +57,6 @@
 /obj/structure/closet/secure_closet/wonderful
 	name = "wonderful wardrobe"
 	desc = "Stolen from Space Narnia."
-	req_access = list(access_trade)
 	icon_state = "cabinetdetective_locked"
 	icon_closed = "cabinetdetective"
 	icon_locked = "cabinetdetective_locked"
@@ -310,7 +309,7 @@
 			self_destruct(H)
 
 /obj/item/clothing/head/helmet/donutgiver/proc/self_destruct(mob/user)
-	var/req_access = list(access_security)
+	var/req_access = list()
 	if(can_access(user.GetAccess(),req_access))
 		say("ERROR: DNA PROFILE DOES NOT MATCH.")
 		return
@@ -396,7 +395,6 @@
 /obj/structure/largecrate/secure
 	name = "security livestock crate"
 	desc = "An access-locked crate containing a security wolf. Handlers are responsible for obedience: wolves require regular meat or they will lash out at small animals and, if desperate, humans."
-	req_access = list(access_brig)
 	icon = 'icons/obj/cage.dmi'
 	icon_state = "cage_secure"
 	var/mob_path = /mob/living/simple_animal/hostile/wolf
@@ -424,14 +422,12 @@
 /obj/structure/largecrate/secure/magmaw
 	name = "engineering livestock crate"
 	desc = "An access-locked crate containing a magmaw. Handlers are advised to stand back when administering plasma to the animal."
-	req_access = list(access_engine)
 	mob_path = /mob/living/simple_animal/hostile/asteroid/magmaw
 	bonus_path = null //originally was /obj/item/stack/sheet/mineral/plasma resulting in immediate FIRE
 
 /obj/structure/largecrate/secure/frankenstein
 	name = "medical livestock crate"
 	desc = "An access-locked crate containing medical horrors. Handlers are advised to scream 'It's alive!' repeatedly."
-	req_access = list(access_surgery)
 	mob_path = null
 	bonus_path = /mob/living/carbon/human/frankenstein
 
@@ -713,7 +709,6 @@
 	w_class = W_CLASS_SMALL
 	origin_tech = Tc_COMBAT + "=4"
 	restraint_resist_time = TRUE //This doesn't actually matter as long as it is nonzero
-	req_access = list(access_brig) //Brig timers
 	var/obj/item/weapon/handcuffs/cyborg/stored
 
 /obj/item/weapon/autocuffer/Destroy()

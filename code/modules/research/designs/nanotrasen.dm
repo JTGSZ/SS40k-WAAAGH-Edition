@@ -18,7 +18,6 @@
 	category = "Nanotrasen"
 	build_path = /obj/item/weapon/gun/energy/ricochet
 	locked = 1
-	req_lock_access = list(access_armory)
 
 /datum/design/mami
 	name = "Machine-Man Interface"
@@ -40,4 +39,3 @@
 	category = "Nanotrasen"
 	build_path = /obj/item/weapon/gun/gravitywell
 	locked = 1
-	req_lock_access = list(access_rd)

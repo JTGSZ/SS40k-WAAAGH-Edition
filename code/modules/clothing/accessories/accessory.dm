@@ -282,7 +282,7 @@
 			var/obj/item/device/pda/pda = O
 			id_card = pda.id
 
-		if ((access_security in id_card.access) || emagged)
+		if((id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			stored_name = id_card.registered_name
 			name = "holobadge ([stored_name])"

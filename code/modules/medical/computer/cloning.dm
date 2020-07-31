@@ -5,7 +5,6 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "cloning"
 	circuit = "/obj/item/weapon/circuitboard/cloning"
-	req_access = list(access_heads) //Only used for record deletion right now.
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	//var/obj/machinery/species_modifier/species_mod = null //linked Species Modifier. For handling species.
 	var/obj/machinery/cloning/clonepod/pod1 = null //Linked cloning pod.

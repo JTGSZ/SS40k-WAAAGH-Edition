@@ -4,7 +4,6 @@
 	name = "Identification Computer"
 	desc = "Terminal for programming Nanotrasen employee ID cards to access parts of the station."
 	icon_state = "id"
-	req_access = list(access_change_ids)
 	circuit = "/obj/item/weapon/circuitboard/card"
 	var/obj/item/weapon/card/id/modify = null
 	var/mode = 0.0
@@ -107,10 +106,7 @@
 	if(id_card.loc == src) //With telekinesis, someone can retain the reference to a card after it's put inside via TKgrab, thus attacking us with a card we already had
 		return
 
-	if(!is_centcom() && !scan && (access_change_ids in id_card.access))
-		if(user.drop_item(id_card, src))
-			scan = id_card
-	else if(is_centcom() && !scan && ((access_cent_creed in id_card.access) || (access_cent_captain in id_card.access)))
+	if(!is_centcom() && !scan)
 		if(user.drop_item(id_card, src))
 			scan = id_card
 	else if(!modify)
@@ -167,16 +163,6 @@
 	if(modify)
 		data["current_skin"] = modify.icon_state
 
-	if (modify && is_centcom())
-		var/list/all_centcom_access = list()
-		for(var/access in get_all_centcom_access())
-			if (get_centcom_access_desc(access))
-				all_centcom_access.Add(list(list(
-					"desc" = replacetext(get_centcom_access_desc(access), " ", "&nbsp"),
-					"ref" = access,
-					"allowed" = (access in modify.access) ? 1 : 0)))
-
-		data["all_centcom_access"] = all_centcom_access
 	else if (modify)
 		var/list/regions = list()
 		for(var/i = 1; i <= 7; i++)
@@ -239,13 +225,12 @@
 				if(is_authenticated())
 					var/access_type = text2num(href_list["access_target"])
 					var/access_allowed = text2num(href_list["allowed"])
-					if(access_type in (is_centcom() ? get_all_centcom_access() : get_all_accesses()))
+					if(access_type in get_all_accesses())
 						modify.access -= access_type
 						if(!access_allowed)
 							modify.access += access_type
 		if("skin")
 			modify.icon_state = href_list["skin_target"]
-
 
 		if ("assign")
 			if (is_authenticated() && modify)
@@ -268,20 +253,17 @@
 
 				else
 					var/list/access = list()
-					if(is_centcom())
-						access = get_centcom_access(t1)
-					else
-						var/datum/job/jobdatum
-						for(var/jobtype in typesof(/datum/job))
-							var/datum/job/J = new jobtype
-							if(ckey(J.title) == ckey(t1))
-								jobdatum = J
-								break
-						if(!jobdatum)
-							to_chat(usr, "<span class='warning'>No log exists for this job: [t1]</span>")
-							return
+					var/datum/job/jobdatum
+					for(var/jobtype in typesof(/datum/job))
+						var/datum/job/J = new jobtype
+						if(ckey(J.title) == ckey(t1))
+							jobdatum = J
+							break
+					if(!jobdatum)
+						to_chat(usr, "<span class='warning'>No log exists for this job: [t1]</span>")
+						return
 
-						access = jobdatum.get_access()
+					access = jobdatum.get_access()
 
 					modify.access = access
 					modify.assignment = t1
@@ -362,7 +344,3 @@
 /obj/machinery/computer/card/centcom
 	name = "CentCom Identification Computer"
 	circuit = "/obj/item/weapon/circuitboard/card/centcom"
-	req_access = list(
-		access_cent_creed,
-		access_cent_captain,
-		)

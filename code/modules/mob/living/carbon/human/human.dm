@@ -1320,7 +1320,7 @@
 		threatcount += 4
 	//Check for weapons
 	if(judgebot.weaponscheck)
-		if(!idcard || !(access_weapons in idcard.access))
+		if(!idcard)
 			for(var/obj/item/I in held_items)
 				if(judgebot.check_for_weapons(I))
 					threatcount += 4

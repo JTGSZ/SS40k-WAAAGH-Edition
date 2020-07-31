@@ -13,10 +13,10 @@
 	lets_a_go(user)
 
 /obj/structure/mekanical_shouta/attackby(obj/item/weapon/W, mob/user)
-	if()
+	//if()
 
 /obj/structure/nuke_computer/proc/lets_a_go(mob/user)
-	var/dat
+/*	var/dat
 	dat += {"<B>Build Recipes</B><BR>
 			<HR>
 			<B>Build Object:</B><BR>
@@ -28,7 +28,7 @@
 		dat += "[src.temp]"
 	var/datum/browser/popup = new(user, "craftbuilder", "Crafting Menu")
 	popup.set_content(dat)
-	popup.open()
+	popup.open()*/
 
 /obj/structure/nuke_computer/Topic(href, href_list)
 	if(usr.stat != DEAD)
@@ -36,7 +36,7 @@
 	var/mob/living/L = usr
 	if(!istype(L))
 		return
-
+/*
 	if(href_list["free_recruit"])//We don't have time to wait for the recruiter, just grab whoever applied first!
 		if(!our_boy)
 			our_boy = usr.client
@@ -44,4 +44,4 @@
 		else
 			to_chat(usr, "<span class='warning'>Uhm, Someone got the role before you. Bitch</span>")
 	
-	lets_a_go(L)
+	lets_a_go(L)*/

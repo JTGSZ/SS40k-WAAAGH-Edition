@@ -79,8 +79,6 @@ var/global/datum/shuttle/vox/vox_shuttle = new(starting_area=/area/shuttle/vox/s
 	icon_state = "syndishuttle"
 	allow_silicons = 0
 
-	req_access = list(access_syndicate)
-
 	light_color = LIGHT_COLOR_RED
 	machine_flags = EMAGGABLE //No screwtoggle because this computer can't be built
 

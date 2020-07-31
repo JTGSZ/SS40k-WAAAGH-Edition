@@ -15,7 +15,6 @@
 	anchored = 0
 	health = 40
 	maxhealth = 20
-	req_access = list(access_medical)
 	var/currently_drawing_blood = 0 //One patient at a time.
 	var/quiet = 0
 	var/since_last_reward = 0 //Once every 55u, dispense reward

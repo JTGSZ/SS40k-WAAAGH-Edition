@@ -24,7 +24,6 @@ var/global/list/moneytypes = list(
 	throw_range = 2
 	w_class = W_CLASS_TINY
 	var/access = list()
-	access = access_crate_cash
 	var/worth = 1 //Per chip
 	var/amount = 1 //Number of chips
 	var/stack_color = "#4E054F"

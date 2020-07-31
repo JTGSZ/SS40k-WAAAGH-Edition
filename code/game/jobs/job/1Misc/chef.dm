@@ -8,8 +8,8 @@
 	supervisors = "the lord"
 	wage_payout = 20
 	selection_color = "#dddddd"
-	access = list(access_hydroponics, access_bar, access_kitchen, access_morgue)
-	minimal_access = list(access_kitchen, access_morgue, access_bar)
+	access = list()
+	minimal_access = list()
 	alt_titles = list("Cook")
 	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/chef
@@ -21,6 +21,7 @@
 
 	outfit_name = "Chef"
 	associated_job = /datum/job/chef
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage/backpack,
@@ -53,10 +54,6 @@
 			slot_head_str = /obj/item/clothing/head/helmet/space/vox/civ/chef,
 		),
 	)
-
-	pda_type = /obj/item/device/pda/chef
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id
 
 /datum/outfit/chef/post_equip(var/mob/living/carbon/human/H)
 	H.mind.store_memory("Frequencies list: <br/> <b>Service:</b> [SER_FREQ]<br/>")

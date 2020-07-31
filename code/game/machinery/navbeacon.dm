@@ -20,8 +20,6 @@ var/list/navbeacons = list()
 	var/list/codes		// assoc. list of transponder codes
 	var/codes_txt = ""	// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
 
-	req_access = list(access_engine)
-
 	machine_flags = SCREWTOGGLE
 
 /obj/machinery/navbeacon/New()

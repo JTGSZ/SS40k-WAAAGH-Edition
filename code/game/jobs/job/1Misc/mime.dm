@@ -8,8 +8,8 @@
 	supervisors = "the inquisitor"
 	wage_payout = 15
 	selection_color = "#dddddd"
-	access = list(access_mime, access_theatre, access_maint_tunnels)
-	minimal_access = list(access_mime, access_theatre)
+	access = list()
+	minimal_access = list()
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/mime
 	landmark_job_override = TRUE
@@ -20,6 +20,7 @@
 	
 	outfit_name = "Mime"
 	associated_job = /datum/job/mime
+	no_id = TRUE
 
 	backpack_types = list(
 		BACKPACK_STRING = /obj/item/weapon/storage,
@@ -44,10 +45,6 @@
 	items_to_collect = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing = GRASP_LEFT_HAND
 	)
-
-	pda_type = /obj/item/device/pda/mime
-	pda_slot = slot_belt
-	id_type = /obj/item/weapon/card/id/mime
 
 /datum/outfit/mime/post_equip(var/mob/living/carbon/human/H)
 	H.add_spell(new /spell/aoe_turf/conjure/forcewall/mime, "grey_spell_ready")

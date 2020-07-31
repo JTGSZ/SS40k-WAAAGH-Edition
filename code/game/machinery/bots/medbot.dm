@@ -26,11 +26,10 @@
 	anchored = 0
 	health = 20
 	maxhealth = 20
-	req_access =list(access_medical)
 	bot_flags = BOT_NOT_CHASING|BOT_CONTROL
 	can_take_pai = TRUE
 	var/stunned = 0 //It can be stunned by tasers. Delicate circuits.
-	var/list/botcard_access = list(access_medical)
+	var/list/botcard_access = list()
 	var/obj/item/weapon/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
 	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
 	var/last_newpatient_speak = 0 //Don't spam the "HEY I'M COMING" messages

@@ -36,7 +36,6 @@ var/global/datum/shuttle/transport/transport_shuttle = new(starting_area = /area
 
 	stable = 1
 
-	req_access = list(access_cent_captain)
 
 /datum/shuttle/transport/initialize()
 	.=..()
@@ -78,7 +77,6 @@ var/global/datum/shuttle/ert/ert_shuttle = new(starting_area = /area/shuttle/ert
 
 	stable = 0
 
-	req_access = list(access_cent_ert)
 
 /datum/shuttle/ert/initialize()
 	.=..()
@@ -119,8 +117,6 @@ var/global/datum/shuttle/deathsquad/deathsquad_shuttle = new(starting_area = /ar
 	transit_delay = 0
 	destroy_everything = 1
 	stable = 0
-
-	req_access = list(access_cent_specops)
 
 /datum/shuttle/deathsquad/initialize()
 	.=..()
@@ -165,8 +161,6 @@ var/global/datum/shuttle/elite_syndie/elite_syndie_shuttle = new(starting_area =
 	transit_delay = 0
 	destroy_everything = 1
 	stable = 0
-
-	req_access = list(access_syndicate)
 
 /datum/shuttle/elite_syndie/initialize()
 	.=..()
@@ -214,8 +208,6 @@ var/global/datum/shuttle/striketeam/strike_team_shuttle = new(starting_area = /a
 	destroy_everything = 1
 	stable = 0
 
-	req_access = list(access_cent_captain)
-
 /datum/shuttle/striketeam/initialize()
 	.=..()
 	add_dock(/obj/docking_port/destination/striketeam/destination1)
@@ -260,8 +252,6 @@ var/global/datum/shuttle/admin/admin_shuttle = new(starting_area = /area/shuttle
 	transit_delay = 0
 
 	stable = 1
-
-	req_access = list(access_cent_captain)
 
 /datum/shuttle/admin/initialize()
 	.=..()

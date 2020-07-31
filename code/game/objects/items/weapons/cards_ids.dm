@@ -323,7 +323,7 @@
 
 /obj/item/weapon/card/id/nt_disguise
 	name = "\improper Nanotrasen undercover ID"
-	access = list(access_weapons, access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court, access_eva)
+	access = list()
 	registered_name = null
 
 	var/registered_user = null
@@ -408,8 +408,6 @@
 
 /obj/item/weapon/card/id/syndicate
 	name = "agent card"
-	access = AGENT_CARD_DEFAULT_ACCESS
-	base_access = list(access_syndicate)
 	origin_tech = Tc_SYNDICATE + "=3"
 	var/registered_user=null
 
@@ -542,7 +540,6 @@
 						associated_account_number = initial(associated_account_number)
 						blood_type = initial(blood_type)
 						dna_hash = initial(dna_hash)
-						access = AGENT_CARD_DEFAULT_ACCESS
 						registered_user = null
 
 						to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
@@ -551,9 +548,6 @@
 
 #undef AGENT_CARD_DEFAULT_ACCESS
 
-/obj/item/weapon/card/id/syndicate/raider
-	access = list(access_syndicate, access_trade)
-	assignment = "Trader"
 
 /obj/item/weapon/card/id/syndicate_command
 	name = "syndicate ID card"
@@ -561,8 +555,6 @@
 	registered_name = "Syndicate"
 	icon_state = "syndie"
 	assignment = "Syndicate Overlord"
-	access = list(access_syndicate, access_external_airlocks)
-	base_access = list(access_syndicate, access_external_airlocks)
 
 /obj/item/weapon/card/id/captains_spare
 	name = "captain's spare ID"
@@ -577,112 +569,77 @@
 	access = J.get_access()
 	..()
 
-/obj/item/weapon/card/id/admin
-	name = "Admin ID"
-	icon_state = "admin"
-	item_state = "gold_id"
-	registered_name = "Admin"
-	assignment = "Testing Shit"
-
-/obj/item/weapon/card/id/admin/New()
-	access = get_absolutely_all_accesses()
-	..()
-
-/obj/item/weapon/card/id/centcom
-	name = "\improper CentCom. ID"
-	desc = "An ID awarded only to the best brown nosers."
-	icon_state = "centcom"
-	registered_name = "Central Command"
-	assignment = "General"
-
-/obj/item/weapon/card/id/centcom/New()
-	access = get_all_centcom_access()
-	..()
-
 /obj/item/weapon/card/id/salvage_captain
 	name = "Captain's ID"
 	registered_name = "General"
 	icon_state = "centcom"
 	desc = "Finders, keepers."
-	access = list(access_salvage_captain)
-	base_access = list(access_salvage_captain)
 
 /obj/item/weapon/card/id/medical
 	name = "Medical ID"
 	registered_name = "Medic"
 	icon_state = "medical"
 	desc = "A card covered in the blood stains of the wild ride."
-	access = list(access_medical, access_genetics, access_morgue, access_chemistry, access_paramedic, access_virology, access_surgery, access_cmo)
 
 /obj/item/weapon/card/id/security
 	name = "Security ID"
 	registered_name = "Officer"
 	icon_state = "security"
 	desc = "Some say these cards are drowned in the tears of assistants, forged in the burning bodies of clowns."
-	access = list(access_sec_doors, access_security, access_brig, access_armory, access_forensics_lockers, access_court, access_hos)
 
 /obj/item/weapon/card/id/research
 	name = "Research ID"
 	registered_name = "Scientist"
 	icon_state = "research"
 	desc = "The pinnacle of name technology."
-	access = list(access_science, access_rnd, access_tox_storage, access_robotics, access_xenobiology, access_rd)
 
 /obj/item/weapon/card/id/supply
 	name = "Supply ID"
 	registered_name = "Cargonian"
 	icon_state = "cargo"
 	desc = "ROH ROH! HEIL THE QUARTERMASTER!"
-	access = list(access_mailsorting, access_mining, access_mining_station, access_cargo, access_qm)
 
 /obj/item/weapon/card/id/engineering
 	name = "Engineering ID"
 	registered_name = "Engineer"
 	icon_state = "engineering"
 	desc = "Shame it's going to be lost in the void of a black hole."
-	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_construction)
 
 /obj/item/weapon/card/id/hos
 	name = "Head of Security ID"
 	registered_name = "HoS"
 	icon_state = "HoS"
 	desc = "An ID awarded to only the most robust shits in the business."
-	access = list(access_security, access_sec_doors, access_brig, access_armory, access_court, access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers, access_science, access_engine, access_mining, access_medical, access_construction, access_mailsorting, access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway)
 
 /obj/item/weapon/card/id/cmo
 	name = "Chief Medical Officer ID"
 	registered_name = "CMO"
 	icon_state = "CMO"
 	desc = "It gives off the faint smell of chloral hydrate, mixed with a backdraft of equipment abuse."
-	access = list(access_medical, access_morgue, access_genetics, access_heads, access_chemistry, access_virology, access_biohazard, access_cmo, access_surgery, access_RC_announce, access_keycard_auth, access_sec_doors, access_paramedic, access_maint_tunnels)
 
 /obj/item/weapon/card/id/rd
 	name = "Research Director ID"
 	registered_name = "RD"
 	icon_state = "RD"
 	desc = "If you put your ear to the card, you can faintly hear screaming, glomping, and mechs. What the fuck?"
-	access = list(access_rd, access_heads, access_rnd, access_genetics, access_morgue, access_tox_storage, access_teleporter, access_sec_doors, access_science, access_robotics, access_xenobiology, access_ai_upload, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway)
 
 /obj/item/weapon/card/id/ce
 	name = "Chief Engineer ID"
 	registered_name = "CE"
 	icon_state = "CE"
 	desc = "The card has a faint aroma of autism."
-	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_heads, access_construction, access_sec_doors, access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
 
 /obj/item/weapon/card/id/clown
 	name = "Pink ID"
 	registered_name = "HONK!"
 	icon_state = "clown"
 	desc = "Just looking at the card strikes you with deep fear."
-	access = list(access_clown, access_theatre, access_maint_tunnels)
 
 /obj/item/weapon/card/id/mime
 	name = "Black and White ID"
 	registered_name = "..."
 	icon_state = "mime"
 	desc = "..."
-	access = list(access_clown, access_theatre, access_maint_tunnels)
 
 /obj/item/weapon/card/id/thunderdome/red
 	name = "Thunderdome Red ID"
@@ -704,8 +661,8 @@
 	registered_name = "traveler"
 	assignment = "visitor"
 	icon_state = "trader"
-	access = list(access_trade)
-	base_access = list(access_trade)
+	access = list()
+	base_access = list()
 
 /obj/item/weapon/card/id/tunnel_clown
 	name = "Tunnel Clown ID card"
@@ -723,99 +680,3 @@
 	..()
 	access = get_all_accesses()
 
-/obj/item/weapon/card/id/death_commando
-	name = "Reaper ID card"
-	assignment = "Death Commando"
-	icon_state = "deathsquad"
-
-/obj/item/weapon/card/id/death_commando/New()
-	. = ..()
-	access = get_centcom_access("Death Commando")
-
-/obj/item/weapon/card/id/death_commando_leader
-	name = "Sgt.Reaper ID card"
-	assignment = "Death Commander"
-	icon_state = "creed"
-
-/obj/item/weapon/card/id/death_commando_leader/New()
-	. = ..()
-	access = get_centcom_access("Creed Commander")
-
-/obj/item/weapon/card/id/syndicate/commando
-	name = "Syndicate Commando ID card"
-	assignment = "Syndicate Commando"
-	icon_state = "id"
-
-/obj/item/weapon/card/id/syndicate/commando/New()
-	..()
-	access = get_all_accesses()
-	access += list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage, access_syndicate)
-
-/obj/item/weapon/card/id/nt_rep
-	name = "Nanotrasen Navy Representative ID card"
-	assignment = "Nanotrasen Navy Representative"
-	icon_state = "centcom"
-	item_state = "id_inv"
-
-/obj/item/weapon/card/id/nt_rep/New()
-	..()
-	access = get_all_accesses()
-	access += list("VIP Guest","Custodian","Thunderdome Overseer","Intel Officer","Medical Officer","Death Commando","Research Officer")
-
-/obj/item/weapon/card/id/centcom/nt_officer
-	name = "Nanotrasen Navy Officer ID card"
-	assignment = "Nanotrasen Navy Officer"
-
-/obj/item/weapon/card/id/centcom/nt_officer/New()
-	..()
-	access = get_all_accesses()
-	access += get_all_centcom_access()
-
-/obj/item/weapon/card/id/centcom/nt_captain
-	name = "Nanotrasen Navy Captain ID card"
-	assignment = "Nanotrasen Navy Captain"
-
-/obj/item/weapon/card/id/centcom/nt_captain/New()
-	..()
-	access = get_all_accesses()
-	access += get_all_centcom_access()
-
-/obj/item/weapon/card/id/admin/nt_supreme
-	name = "Nanotrasen Supreme Commander ID card"
-	assignment = "Nanotrasen Supreme Commander"
-
-/obj/item/weapon/card/id/admin/nt_supreme/New()
-	..()
-	access = get_all_accesses()
-	access += get_all_centcom_access()
-
-/obj/item/weapon/card/id/emergency_responder
-	name = "Emergency Responder ID card"
-	assignment = "Emergency Responder"
-	icon_state = "ERT_empty"
-
-/obj/item/weapon/card/id/emergency_responder/New()
-	..()
-	access = get_centcom_access("Emergency Responder")
-
-/obj/item/weapon/card/id/special_operations
-	name = "Special Operations Officer ID card"
-	assignment = "Special Operations Officer"
-	icon_state = "centcom"
-
-/obj/item/weapon/card/id/special_operations/New()
-	..()
-	access = get_all_accesses()
-	access += get_all_centcom_access()
-
-/obj/item/weapon/card/id/soviet_admiral
-	name = "Admiral ID card"
-	assignment = "Admiral"
-	icon_state = "centcom"
-
-/obj/item/weapon/card/id/soviet_admiral/New()
-	..()
-	access = get_all_accesses()
-	access += get_all_centcom_access()
-
-/obj/item/weapon/card/id/death_commando_

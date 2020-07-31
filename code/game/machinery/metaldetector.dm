@@ -18,8 +18,6 @@
 	var/scanmode = 0
 	var/senset = 0
 
-	req_access = list(access_security)
-
 	flags = PROXMOVE
 	machine_flags = WRENCHMOVE | FIXED2WORK | EMAGGABLE
 

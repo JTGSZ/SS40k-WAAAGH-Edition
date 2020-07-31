@@ -41,7 +41,6 @@
 	category = "Armor"
 	build_path = /obj/item/clothing/glasses/sunglasses/sechud
 	locked = 1
-	req_lock_access = list(access_security)
 
 /datum/design/ablative_armor_vest
 	name = "Ablative Armor Vest"
@@ -53,7 +52,6 @@
 	category = "Armor"
 	build_path = /obj/item/clothing/suit/armor/laserproof
 	locked = 1
-	req_lock_access = list(access_security)
 
 /datum/design/advancedeod
 	name = "Advanced EOD Suit"

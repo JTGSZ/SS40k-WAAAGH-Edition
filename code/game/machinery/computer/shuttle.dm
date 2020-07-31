@@ -26,10 +26,6 @@
 				to_chat(user, "The access level of [W:registered_name]\'s card is not high enough. ")
 				return
 
-			if(!(access_heads in W:access)) //doesn't have this access
-				to_chat(user, "The access level of [W:registered_name]\'s card is not high enough. ")
-				return 0
-
 			var/choice = alert(user, text("Would you like to (un)authorize a shortened launch time? [] authorization\s are still needed. Use abort to cancel all authorizations.", src.auth_need - src.authorized.len), "Shuttle Launch", "Authorize", "Repeal", "Abort")
 			if(emergency_shuttle.location != 1 && user.get_active_hand() != W)
 				return 0

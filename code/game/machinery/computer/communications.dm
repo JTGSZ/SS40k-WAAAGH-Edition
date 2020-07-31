@@ -46,7 +46,6 @@ var/list/shuttle_log = list()
 	name = "Communications Console"
 	desc = "A console that is used for various important Command functions."
 	icon_state = "comm"
-	req_access = list(access_heads)
 	circuit = "/obj/item/weapon/circuitboard/communications"
 	var/prints_intercept = 1
 	var/authenticated = UNAUTH //1 = normal login, 2 = emagged or had access_general, 0 = logged out. Gremlins can set to 1 or 0.
@@ -89,13 +88,7 @@ var/list/shuttle_log = list()
 		if("main")
 			setMenuState(usr,COMM_SCREEN_MAIN)
 		if("login")
-			var/mob/M = usr
-			if(allowed(M))
-				authenticated = AUTH_HEAD
-				if(access_general in M.GetAccess())
-					authenticated = AUTH_CAPT
-			if(emagged) //Login regardless if you have an ID
-				authenticated = AUTH_CAPT
+			authenticated = AUTH_CAPT
 		if("logout")
 			authenticated = UNAUTH
 			setMenuState(usr,COMM_SCREEN_MAIN)
@@ -109,28 +102,24 @@ var/list/shuttle_log = list()
 			tmp_alertlevel = text2num(href_list["level"])
 			var/mob/M = usr
 			if (allowed(M) || emagged)
-				if(isAdminGhost(usr) || (access_heads in M.GetAccess()) || emagged) //Let heads change the alert level. Works while emagged
-					var/old_level = security_level
-					if(!tmp_alertlevel)
-						tmp_alertlevel = SEC_LEVEL_GREEN
-					if(tmp_alertlevel < SEC_LEVEL_GREEN)
-						tmp_alertlevel = SEC_LEVEL_GREEN
-					if(tmp_alertlevel > SEC_LEVEL_BLUE)
-						tmp_alertlevel = SEC_LEVEL_BLUE //Cannot engage delta with this
-					set_security_level(tmp_alertlevel)
-					if(security_level != old_level)
-						//Only notify the admins if an actual change happened
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
-						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
-						switch(security_level)
-							if(SEC_LEVEL_GREEN)
-								feedback_inc("alert_comms_green",1)
-							if(SEC_LEVEL_BLUE)
-								feedback_inc("alert_comms_blue",1)
-					tmp_alertlevel = 0
-				else
-					to_chat(usr, "You are not authorized to do this.")
-					tmp_alertlevel = 0
+				var/old_level = security_level
+				if(!tmp_alertlevel)
+					tmp_alertlevel = SEC_LEVEL_GREEN
+				if(tmp_alertlevel < SEC_LEVEL_GREEN)
+					tmp_alertlevel = SEC_LEVEL_GREEN
+				if(tmp_alertlevel > SEC_LEVEL_BLUE)
+					tmp_alertlevel = SEC_LEVEL_BLUE //Cannot engage delta with this
+				set_security_level(tmp_alertlevel)
+				if(security_level != old_level)
+					//Only notify the admins if an actual change happened
+					log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
+					message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
+					switch(security_level)
+						if(SEC_LEVEL_GREEN)
+							feedback_inc("alert_comms_green",1)
+						if(SEC_LEVEL_BLUE)
+							feedback_inc("alert_comms_blue",1)
+				tmp_alertlevel = 0
 				setMenuState(usr,COMM_SCREEN_MAIN)
 			else
 				to_chat(usr, "You need to have a valid ID.")
@@ -330,34 +319,31 @@ var/list/shuttle_log = list()
 				return
 			var/mob/M = usr
 			var/obj/item/weapon/card/id/I = M.get_id_card()
-			if (I || isAdminGhost(usr))
-				if(isAdminGhost(usr) || (access_hos in I.access) || (access_heads in I.access && security_level >= SEC_LEVEL_RED))
-					if(ports_open)
-						var/reason = stripped_input(usr, "Please input a concise justification for port closure. This reason will be transmitted to the trader shuttle.", "Nanotrasen Anti-Comdom Systems")
-						if(!reason || !(usr in view(1,src)))
-							return
-						log_game("[key_name(usr)] closed the port to traders for [reason].")
-						message_admins("[key_name_admin(usr)] closed the port to traders for [reason].")
-						if(trade_shuttle.current_port.areaname == "NanoTrasen Station")
-							var/obj/machinery/computer/shuttle_control/C = trade_shuttle.control_consoles[1] //There should be exactly one
-							if(C)
-								trade_shuttle.travel_to(pick(trade_shuttle.docking_ports - trade_shuttle.current_port),C) //Just send it; this has all relevant checks
-						trade_shuttle.remove_dock(/obj/docking_port/destination/trade/station)
-						trade_shuttle.notify_port_toggled(reason)
-						ports_open = FALSE
+			if(I || isAdminGhost(usr))
+				if(ports_open)
+					var/reason = stripped_input(usr, "Please input a concise justification for port closure. This reason will be transmitted to the trader shuttle.", "Nanotrasen Anti-Comdom Systems")
+					if(!reason || !(usr in view(1,src)))
 						return
-					if(!ports_open)
-						var/response = alert(usr,"Are you sure you wish to open the station to traders?", "Port Opening", "Yes", "No")
-						if(response != "Yes")
-							return
-						log_game("[key_name(usr)] opened the port to traders.")
-						message_admins("[key_name_admin(usr)] opened the port to traders.")
-						trade_shuttle.add_dock(/obj/docking_port/destination/trade/station)
-						trade_shuttle.notify_port_toggled()
-						ports_open = TRUE
+					log_game("[key_name(usr)] closed the port to traders for [reason].")
+					message_admins("[key_name_admin(usr)] closed the port to traders for [reason].")
+					if(trade_shuttle.current_port.areaname == "NanoTrasen Station")
+						var/obj/machinery/computer/shuttle_control/C = trade_shuttle.control_consoles[1] //There should be exactly one
+						if(C)
+							trade_shuttle.travel_to(pick(trade_shuttle.docking_ports - trade_shuttle.current_port),C) //Just send it; this has all relevant checks
+					trade_shuttle.remove_dock(/obj/docking_port/destination/trade/station)
+					trade_shuttle.notify_port_toggled(reason)
+					ports_open = FALSE
+					return
+				if(!ports_open)
+					var/response = alert(usr,"Are you sure you wish to open the station to traders?", "Port Opening", "Yes", "No")
+					if(response != "Yes")
 						return
-				else
-					to_chat(usr, "<span class='warning'>This action requires either a red alert or head of security authorization.</span>")
+					log_game("[key_name(usr)] opened the port to traders.")
+					message_admins("[key_name_admin(usr)] opened the port to traders.")
+					trade_shuttle.add_dock(/obj/docking_port/destination/trade/station)
+					trade_shuttle.notify_port_toggled()
+					ports_open = TRUE
+					return
 			else
 				to_chat(usr, "<span class='warning'>You must wear an ID for this function.</span>")
 		if("ViewShuttleLog")

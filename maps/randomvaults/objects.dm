@@ -483,7 +483,6 @@
 	name = "\improper AI Satellite APC"
 
 /obj/machinery/porta_turret/AIvault
-	req_access = list(access_ai_upload)
 	check_records = 1
 	criminals = 1
 	auth_weapons = 1

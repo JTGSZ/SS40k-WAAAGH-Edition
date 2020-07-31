@@ -3,7 +3,6 @@
 	desc = "A machine used to alleviate recycling problems in the absence of a disposal network."
 	icon_state = "compactor_on" //New sprite indicating fullness?
 	machine_flags = WRENCHMOVE | FIXED2WORK
-	req_access = list(access_janitor)
 	template_path = "disposalsbincompactor.tmpl"
 
 /obj/machinery/disposal/compactor/proc/compact()

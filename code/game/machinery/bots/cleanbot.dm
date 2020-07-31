@@ -32,7 +32,6 @@
 	var/blood = 1
 	var/crayon = 0
 	var/list/blacklisted_targets = list()
-	req_access = list(access_janitor)
 	bot_flags = BOT_PATROL|BOT_BEACON|BOT_CONTROL
 	auto_patrol = TRUE
 

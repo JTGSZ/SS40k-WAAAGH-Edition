@@ -91,8 +91,8 @@ var/list/cyborg_list = list()
 	var/tonermax = CYBORG_MAX_TONER
 
 //Access
-	var/list/req_access = list(access_robotics) //Access needed to open cover
-	var/list/robot_access = list(access_ai_upload, access_robotics, access_maint_tunnels, access_external_airlocks) //Our current access
+	var/list/req_access = list() //Access needed to open cover
+	var/list/robot_access = list() //Our current access
 
 	var/last_tase_timeofday
 	var/last_high_damage_taken_timeofday

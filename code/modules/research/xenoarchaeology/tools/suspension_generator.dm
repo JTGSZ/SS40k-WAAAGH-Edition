@@ -7,7 +7,6 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "suspension2-b"
 	density = 1
-	req_access = list(access_science)
 	var/obj/item/weapon/cell/cell
 	var/obj/item/weapon/card/id/auth_card
 	var/locked = 1

@@ -8,7 +8,6 @@
 	anchored = 1
 	circuit = "/obj/item/weapon/circuitboard/smeltcomp"
 	light_color = LIGHT_COLOR_GREEN
-	req_access = list(access_mining)
 
 	var/frequency = FREQ_DISPOSAL //Same as conveyors.
 	var/smelter_tag = null

@@ -2,7 +2,7 @@
 /mob/living/silicon/robot/syndie
 	modtype = "Syndicate"
 	icon_state = "robot_old"
-	req_access = list(access_syndicate)
+	req_access = list()
 	cell_type = /obj/item/weapon/cell/hyper
 	startup_sound = 'sound/mecha/nominalsyndi.ogg'
 	startup_vary = FALSE
@@ -12,7 +12,7 @@
 	return syndicate_robot_modules
 
 /mob/living/silicon/robot/syndie/GetRobotAccess()
-	return get_all_syndicate_access()
+	return get_all_accesses()
 
 /mob/living/silicon/robot/syndie/New()
 	..()

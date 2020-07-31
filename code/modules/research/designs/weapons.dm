@@ -8,7 +8,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/kinetic_accelerator
 	locked = TRUE
-	req_lock_access = list(access_mining)
 
 /datum/design/nuclear_gun
 	name = "Advanced Energy Gun Modkit"
@@ -32,7 +31,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/stunrevolver
 	locked = TRUE
-	req_lock_access = list(access_security, access_weapons)
 
 /datum/design/lasercannon
 	name = "Laser Cannon"
@@ -44,7 +42,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/laser/cannon
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/xcomplasmapistol
 	name = "Plasma Pistol"
@@ -56,7 +53,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/plasma/pistol
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/xcomplasmarifle
 	name = "Plasma Cannon"
@@ -68,7 +64,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/plasma/rifle
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/xcomlightplasmarifle
 	name = "Plasma Rifle"
@@ -80,7 +75,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/plasma/light
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/xcomlaserrifle
 	name = "Laser Rifle"
@@ -92,7 +86,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/laser/rifle
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/xcomlaserpistol
 	name = "Laser Pistol"
@@ -104,7 +97,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/laser/pistol
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/ioncarbine
 	name = "Ion Carbine"
@@ -116,7 +108,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/ionrifle/ioncarbine
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/xcomar
 	name = "Assault Rifle"
@@ -128,7 +119,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/projectile/automatic/xcom/lockbox
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/decloner
 	name = "Decloner"
@@ -140,7 +130,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/decloner
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/chemsprayer
 	name = "Chem Sprayer"
@@ -152,7 +141,6 @@
 	reliability_base = 100
 	category = "Weapons"
 	build_path = /obj/item/weapon/reagent_containers/spray/chemsprayer
-	req_lock_access = list(access_medical, access_cmo)
 
 /datum/design/rapidsyringe
 	name = "Rapid Syringe Gun"
@@ -174,7 +162,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/temp_gun
 	name = "Temperature Gun"
@@ -186,7 +173,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/energy/temperature
 	locked = TRUE
-	req_lock_access = list(access_rnd, access_robotics, access_rd)
 
 /datum/design/large_grenade
 	name = "Large Grenade"
@@ -220,7 +206,6 @@
 	category = "Weapons"
 	build_path = /obj/item/weapon/gun/projectile/automatic/lockbox
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/pneumatic
 	name = "Pneumatic Cannon"
@@ -243,7 +228,6 @@
 	materials = list(MAT_IRON = 10000, MAT_GLASS = 10000)
 	build_path = /obj/item/weapon/gun/projectile/glock/lockbox
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/vector
 	name = "Vector"
@@ -253,7 +237,6 @@
 	materials = list(MAT_IRON = 12500, MAT_GLASS = 12500)
 	build_path = /obj/item/weapon/gun/projectile/automatic/vector/lockbox
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 /datum/design/rocketlauncher
 	name = "rocket launcher"
@@ -263,7 +246,6 @@
 	materials = list(MAT_IRON = 50000, MAT_GLASS = 50000, MAT_GOLD = 6000)
 	build_path = /obj/item/weapon/gun/projectile/rocketlauncher/nanotrasen/lockbox
 	locked = TRUE
-	req_lock_access = list(access_armory, access_weapons)
 
 //Single ammunition
 

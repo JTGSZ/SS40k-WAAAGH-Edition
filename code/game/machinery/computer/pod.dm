@@ -285,7 +285,6 @@
 /obj/machinery/computer/pod/old/syndicate
 	name = "External Airlock Controls"
 	desc = "The Syndicate operate on a tight budget. Operates external airlocks."
-	req_access = list(access_syndicate)
 	circuit = /obj/item/weapon/circuitboard/syndicatedoor
 	light_color = null
 

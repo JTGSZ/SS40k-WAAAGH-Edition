@@ -245,7 +245,6 @@
 	new_id.name = "[highlander_human.real_name]'s ID Card"
 	new_id.icon_state = "centcom"
 	new_id.access = get_all_accesses()
-	new_id.access += get_all_centcom_access()
 	new_id.assignment = "Highlander"
 	new_id.registered_name = highlander_human.real_name
 	highlander_human.equip_to_slot_or_del(new_id, slot_wear_id)
@@ -442,7 +441,6 @@
 	C.UpdateName()
 	C.SetOwnerInfo(src)
 	C.icon_state = "trader"
-	C.access = list(access_syndicate, access_trade)
 	var/obj/item/weapon/storage/wallet/W = new(src)
 	W.handle_item_insertion(C)
 	H.equip_to_slot_or_del(W, slot_wear_id)

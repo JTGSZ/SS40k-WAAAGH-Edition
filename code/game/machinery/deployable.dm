@@ -2,7 +2,6 @@
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
-	req_access = list(access_security)
 
 /obj/machinery/deployable/barrier
 	name = "deployable barrier"

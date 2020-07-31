@@ -179,7 +179,7 @@ var/global/list/loopModeNames=list(
 
 	var/datum/wires/jukebox/wires = null
 	var/pick_allowed = 1 //Allows you to pick songs
-	var/access_unlocked = 0 //Allows you to access settings
+	var/access_unlocked = 1 //Allows you to access settings
 
 	machine_flags = WRENCHMOVE | FIXED2WORK | EMAGGABLE | MULTITOOL_MENU | SCREWTOGGLE | SHUTTLEWRENCH
 	mech_flags = MECH_SCAN_FAIL
@@ -253,7 +253,7 @@ var/global/list/loopModeNames=list(
 		wires.Interact(user)
 	var/t = "<div class=\"navbar\">"
 	t += "<a href=\"?src=\ref[src];screen=[JUKEBOX_SCREEN_MAIN]\">Main</a>"
-	if(allowed(user)|| access_unlocked)
+	if(allowed(user))
 		t += " | <a href=\"?src=\ref[src];screen=[JUKEBOX_SCREEN_SETTINGS]\">Settings</a>"
 	t += "</div>"
 	switch(screen)
@@ -281,7 +281,7 @@ var/global/list/loopModeNames=list(
 	if(playlist == null)
 		t += "\[DOWNLOADING PLAYLIST, PLEASE WAIT\]"
 	else
-		if(req_access.len == 0 || allowed(user) || access_unlocked)
+		if(req_access.len == 0 || allowed(user))
 			if(check_reload())
 				t += "<b>Playlist:</b> "
 				for(var/plid in playlists)
@@ -307,9 +307,7 @@ var/global/list/loopModeNames=list(
 		t += "<table class='prettytable'><tr><th colspan='2'>Artist - Title</th><th>Album</th></tr>"
 		var/i
 		var/can_change=!next_song
-		if(change_access.len > 0) // Permissions
-			if(can_access(user.GetAccess(),req_access=change_access))
-				can_change = 1
+		can_change = 1
 
 		for(i = 1,i <= playlist.len,i++)
 			var/datum/song_info/song=playlist[i]
@@ -353,22 +351,6 @@ var/global/list/loopModeNames=list(
 			<legend>Pricing</legend>
 			<div>
 				<b>Change Song:</b> $<input type="textbox" name="set_change_cost" value="[change_cost]" />
-			</div>
-		</fieldset>
-		<fieldset>
-			<legend>Access</legend>
-			<p>Permissions required to change song:</p>
-			<div>
-				<input type="radio" name="lock" id="lock_none" value=""[change_access == list() ? " checked='selected'":""] /> <label for="lock_none">None</label>
-			</div>
-			<div>
-				<input type="radio" name="lock" id="lock_bar" value="[access_bar]"[change_access == list(access_bar) ? " checked='selected'":""] /> <label for="lock_bar">Bar</label>
-			</div>
-			<div>
-				<input type="radio" name="lock" id="lock_head" value="[access_heads]"[change_access == list(access_heads) ? " checked='selected'":""] /> <label for="lock_head">Any Head</label>
-			</div>
-			<div>
-				<input type="radio" name="lock" id="lock_cap" value="[access_general]"[change_access == list(access_general) ? " checked='selected'":""] /> <label for="lock_cap">Captain</label>
 			</div>
 		</fieldset>
 		<input type="submit" name="act" value="Save Settings" /></form>"}
@@ -544,10 +526,6 @@ var/global/list/loopModeNames=list(
 
 				change_cost = max(0,text2num(href_list["set_change_cost"]))
 				linked_account = new_linked_account
-				if("lock" in href_list && href_list["lock"] != "")
-					change_access = list(text2num(href_list["lock"]))
-				else
-					change_access = list()
 
 				screen=POS_SCREEN_SETTINGS
 
@@ -757,7 +735,6 @@ var/global/list/loopModeNames=list(
 
 /obj/machinery/media/jukebox/bar
 	department = "Civilian"
-	req_access = list(access_bar)
 
 	playlist_id="bar"
 	// Must be defined on your server.
@@ -892,7 +869,6 @@ var/global/list/loopModeNames=list(
 	pixel_y = -WORLD_ICON_SIZE
 
 	var/datum/browser/popup = null
-	req_access = list()
 	playlist_id="endgame"
 
 /obj/machinery/media/jukebox/superjuke/adminbus/attack_hand(var/mob/user)

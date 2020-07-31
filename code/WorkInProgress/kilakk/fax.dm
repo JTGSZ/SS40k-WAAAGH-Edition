@@ -7,7 +7,6 @@ var/list/alldepartments = list("Central Command")
 	name = "fax machine"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
-	req_one_access = list(access_lawyer, access_heads)
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -172,13 +171,9 @@ var/list/alldepartments = list("Central Command")
 		if ( (!( authenticated ) && (scan)) )
 			if (check_access(scan))
 				authenticated = 1
-				if(access_lawyer in scan.access)
-					alldepartments += "Nanotrasen HR"
 
 	if(href_list["logout"])
 		authenticated = 0
-		if(access_lawyer in scan.access)
-			alldepartments -= "Nanotrasen HR"
 
 	updateUsrDialog()
 

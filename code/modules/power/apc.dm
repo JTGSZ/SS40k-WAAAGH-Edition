@@ -48,7 +48,6 @@
 	icon_state = "apc0"
 	anchored = 1
 	use_power = 0
-	req_access = list(access_engine_equip)
 	var/spooky=0
 	var/obj/item/weapon/cell/cell
 	var/start_charge = 90				// initial cell charge %

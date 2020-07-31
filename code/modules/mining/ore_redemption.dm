@@ -10,14 +10,6 @@
 	anchored = 1.0
 	var/obj/machinery/mineral/input = null
 	var/obj/machinery/mineral/output = null
-	req_one_access = list(
-		access_mining_station,
-		access_chemistry,
-		access_bar,
-		access_science,
-		access_ce,
-		access_virology
-	)
 	starting_materials = list() //Makes the new datum
 	var/stack_amt = 50 //Amount to stack before releasing
 	var/obj/item/weapon/card/id/inserted_id

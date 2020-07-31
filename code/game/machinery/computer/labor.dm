@@ -14,7 +14,6 @@ var/list/labor_console_categories = list(
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "labor"
 	light_color = LIGHT_COLOR_GREEN
-	req_access = list(access_hop)
 	circuit = "/obj/item/weapon/circuitboard/labor"
 
 	var/awaiting_swipe = FALSE

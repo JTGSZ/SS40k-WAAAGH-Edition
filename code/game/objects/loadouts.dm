@@ -254,8 +254,7 @@
 						/obj/item/weapon/pinpointer,
 						/obj/item/weapon/shield/energy,
 						/obj/item/weapon/plastique,
-						/obj/item/weapon/gun/energy/pulse_rifle,
-						/obj/item/weapon/card/id/death_commando)
+						/obj/item/weapon/gun/energy/pulse_rifle)
 
 /obj/abstract/loadout/death_commando/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -293,8 +292,7 @@
 						/obj/item/osipr_core,
 						/obj/item/weapon/plastique,
 						/obj/item/energy_magazine/osipr,
-						/obj/item/weapon/gun/osipr,
-						/obj/item/weapon/card/id/syndicate/commando)
+						/obj/item/weapon/gun/osipr)
 
 /obj/abstract/loadout/syndicate_commando/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -318,8 +316,7 @@
 						/obj/item/device/radio/headset/heads/hop,
 						/obj/item/device/pda/heads/nt_rep,
 						/obj/item/clothing/glasses/sunglasses,
-						/obj/item/weapon/storage/bag/clipboard,
-						/obj/item/weapon/card/id/nt_rep)
+						/obj/item/weapon/storage/bag/clipboard)
 
 /obj/abstract/loadout/nanotrasen_representative/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -337,8 +334,7 @@
 						/obj/item/clothing/head/beret/centcom/officer,
 						/obj/item/device/pda/heads/nt_officer,
 						/obj/item/clothing/glasses/sunglasses,
-						/obj/item/weapon/gun/energy,
-						/obj/item/weapon/card/id/centcom/nt_officer)
+						/obj/item/weapon/gun/energy)
 
 /obj/abstract/loadout/nanotrasen_officer/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -356,8 +352,7 @@
 						/obj/item/clothing/head/beret/centcom/captain,
 						/obj/item/device/pda/heads/nt_captain,
 						/obj/item/clothing/glasses/sunglasses,
-						/obj/item/weapon/gun/energy,
-						/obj/item/weapon/card/id/centcom/nt_officer)
+						/obj/item/weapon/gun/energy)
 
 /obj/abstract/loadout/nanotrasen_captain/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -376,8 +371,7 @@
 						/obj/item/clothing/suit/armor/centcomm,
 						/obj/item/clothing/glasses/sunglasses,
 						/obj/item/weapon/gun/energy/laser/captain,
-						/obj/item/device/pda/heads/nt_supreme,
-						/obj/item/weapon/card/id/admin/nt_supreme)
+						/obj/item/device/pda/heads/nt_supreme)
 
 /obj/abstract/loadout/nanotrasen_supreme_commander/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -397,8 +391,7 @@
 						/obj/item/clothing/gloves/swat,
 						/obj/item/weapon/storage/backpack/security,
 						/obj/item/weapon/storage/box/survival/ert,
-						/obj/item/weapon/storage/firstaid/regular,
-						/obj/item/weapon/card/id/emergency_responder)
+						/obj/item/weapon/storage/firstaid/regular)
 
 /obj/abstract/loadout/emergency_response_team/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -426,8 +419,7 @@
 						/obj/item/clothing/head/beret/centcom,
 						/obj/item/weapon/gun/energy/pulse_rifle/M1911,
 						/obj/item/weapon/lighter/zippo,
-						/obj/item/weapon/storage/backpack/satchel,
-						/obj/item/weapon/card/id/special_operations)
+						/obj/item/weapon/storage/backpack/satchel)
 
 /obj/abstract/loadout/special_ops_officer/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
@@ -479,8 +471,7 @@
 						/obj/item/clothing/suit/hgpirate,
 						/obj/item/weapon/storage/backpack/satchel,
 						/obj/item/weapon/gun/projectile/mateba,
-						/obj/item/clothing/under/soviet,
-						/obj/item/weapon/card/id/soviet_admiral)
+						/obj/item/clothing/under/soviet)
 
 /obj/abstract/loadout/soviet_admiral/alter_items(var/list/items, var/mob/M)
 	for(var/obj/item/weapon/card/id/I in items)
