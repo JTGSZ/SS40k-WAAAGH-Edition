@@ -40,10 +40,19 @@
 	var/mob/living/wielder = pick(targets)
 	if(istype(wielder,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = wielder
-		for(var/datum/organ/external/temp in H.organs)
-			if(temp.status & ORGAN_BLEEDING)
-				temp.clamp_wounds()
-
+		for(var/datum/organ/internal/I in H.internal_organs)
+			if(prob(50))
+				if(I && I.damage > 0)
+					I.damage = max(0, I.damage - 4)
+				if(I)
+					I.status &= ~ORGAN_BROKEN
+					I.status &= ~ORGAN_SPLINTED
+					I.status &= ~ORGAN_BLEEDING
+		for(var/datum/organ/external/O in H.organs)
+			if(prob(50))
+				O.status &= ~ORGAN_BROKEN
+				O.status &= ~ORGAN_SPLINTED
+				O.status &= ~ORGAN_BLEEDING
 	playsound(wielder.loc, 'sound/effects/mend.ogg', 50, 0, -2)
 	wielder.heal_organ_damage(10, 0)
 	to_chat(user,"You heal some of your wielder's wounds.")

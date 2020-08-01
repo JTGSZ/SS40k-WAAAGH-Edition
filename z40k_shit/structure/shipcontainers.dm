@@ -106,19 +106,20 @@
 
 /obj/structure/shipping_containers/middle/New()
 	..()
+
+/obj/structure/shipping_containers/middle/initialize()
+	..()
 	SLVS = new(src)
 	SLVS.salvage_items = container_salvage_contents_basic.Copy()
 	SLVS.attachpoint = src
+	SLVS.mybitches += src
 	var/turf/T1 = get_step(src,EAST)
 	var/turf/T2 = get_step(src,WEST)
 	for(var/turf/TURFZ in list(T1,T2))
-		for(var/obj/structure/shipping_containers/SCONTZ in TURFZ)
+		for(var/obj/structure/shipping_containers/SCONTZ in TURFZ.contents)
 			SLVS.mybitches += SCONTZ
 			SCONTZ.SLVS = SLVS
-		/*	if(istype(SCONTZ,/obj/structure/shipping_containers/left))
-				lock_atom(SCONTZ,/datum/locking_category/shipping_container_left)
-			else if(istype(SCONTZ, /obj/structure/shipping_containers/right))
-				lock_atom(SCONTZ,/datum/locking_category/shipping_container_right)*/
+			
 /*
 	Clean Containers
 						*/

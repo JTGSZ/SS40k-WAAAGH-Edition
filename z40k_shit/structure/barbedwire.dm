@@ -140,7 +140,7 @@
 	else
 		switch(user.attribute_dexterity)
 			if(1 to 6)
-				user.adjustBruteLoss(15)
+				user.apply_damage(4,BRUTE,(pick(LIMB_LEFT_LEG, LIMB_RIGHT_LEG)))
 				user.Knockdown(5)
 				user.Stun(5)
 				user.visible_message("<span class='warning'>[user] gets caught in [src] and collapses!</span>")
@@ -148,12 +148,12 @@
 				return 0
 			if(6 to 12)
 				if(prob(20))
-					user.adjustBruteLoss(15)
+					user.apply_damage(4,BRUTE,(pick(LIMB_LEFT_LEG, LIMB_RIGHT_LEG)))
 					user.visible_message("<span class='warning'>[user] gets caught in [src] but pushes through. DAMN!</span>")
 					user.stat_increase(ATTR_DEXTERITY,50)
 					return !density
 				else
-					user.adjustBruteLoss(15)
+					user.apply_damage(4,BRUTE,(pick(LIMB_LEFT_LEG, LIMB_RIGHT_LEG)))
 					user.Knockdown(5)
 					user.Stun(5)
 					user.visible_message("<span class='warning'>[user] gets caught in [src] and collapses!</span>")
@@ -161,7 +161,7 @@
 					return 0
 			if(12 to 16)
 				if(prob(25))
-					user.adjustBruteLoss(15)
+					user.apply_damage(4,BRUTE,(pick(LIMB_LEFT_LEG, LIMB_RIGHT_LEG)))
 					user.visible_message("<span class='warning'>[user] gets caught in [src] but pushes through. DAMN!</span>")
 					return !density
 					user.stat_increase(ATTR_CONSTITUTION, 25)
