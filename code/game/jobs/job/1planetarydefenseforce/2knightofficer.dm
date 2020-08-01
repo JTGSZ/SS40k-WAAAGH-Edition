@@ -50,7 +50,7 @@
 		changed_name = "Sir" + " " + "[H.real_name]"
 		H.real_name = changed_name
 	else
-		changed_name = "Lady" + " " + "[H.real_name]"
+		changed_name = "Dame" + " " + "[H.real_name]"
 		H.real_name = changed_name
 	H.check_dna(H)
 

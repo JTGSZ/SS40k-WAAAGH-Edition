@@ -49,6 +49,25 @@
 	id_type = /obj/item/weapon/card/id/imperial_guard_dogtag
 
 /datum/outfit/lord/post_equip(var/mob/living/carbon/human/H)
+	var/changed_name
+	if(H.gender == MALE)
+		changed_name = "Lord" + " " + "[H.real_name]"
+		H.real_name = changed_name
+	else
+		changed_name = "Lady" + " " + "[H.real_name]"
+		H.real_name = changed_name
+	H.check_dna(H)
+
+	if(H.wear_id)
+		var/obj/item/weapon/card/id/id = H.wear_id
+		id.name = "[H.real_name]'s ID Card"
+		id.registered_name = H.real_name
 	quest_master.configure_quest(H,TZEENTCH_PLOT_ONE)
 	to_chat(world, "<b>[H.real_name] is the Lord of these lands!</b>")
+
+/datum/outfit/lord/handle_special_abilities(var/mob/living/carbon/human/H)
+	H.attribute_strength = 11
+	H.attribute_agility = 9
+	H.attribute_dexterity = 9
+	return 1
 
