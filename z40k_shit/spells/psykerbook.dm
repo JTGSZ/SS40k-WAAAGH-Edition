@@ -22,20 +22,9 @@
 
 	var/current_spellpoints = 5
 
-// called after an item is picked up (loc has already changed)
-
-
 /obj/item/weapon/psychic_spellbook/New()
 	..()
 
-//The motherfucker that adds spells motherfucker
-/* Currently deprecated lol
-/obj/item/weapon/psychic_spellbook/proc/add_spell(var/spell/spell_to_add,var/mob/user, var/spellmaster)
-	if(spellmaster)
-		user.add_spell(spell_to_add,iswizard = TRUE,master_type = spellmaster)
-	else
-		user.add_spell(spell_to_add, iswizard = TRUE)
-*/
 /obj/item/weapon/psychic_spellbook/proc/use_psykpoints(amount, mob/living/user)
 	if(!user)
 		return 0

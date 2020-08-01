@@ -91,9 +91,6 @@
 
 /obj/item/weapon/gun/projectile/kustomshoota/attackby(obj/item/I, mob/user)
 	var/good2go = FALSE //Basically I don't really feel like doing ALL the guns atm
-	if(totalguncount > 29)
-		to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
-		return
 	if(!isork(user))
 		to_chat(user,"<span class='warning'> What on earth are you trying to do?</span>")
 		return
@@ -103,6 +100,9 @@
 		playsound(loc, 'z40k_shit/sounds/tape.ogg', 50, 0)
 		return
 	if(istype(I, /obj/item/weapon/gun)) //I think I can nab any gun that can appear on the map.		
+		if(totalguncount > 29)
+			to_chat(user,"<span class='warning'> Looks like there is no more room for that. Any more and only a cybork could lift it.</span>")
+			return
 		if(istype(I, /obj/item/weapon/gun/projectile/automatic))
 			basicbullets++
 			totalguncount++

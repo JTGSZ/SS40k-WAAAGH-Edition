@@ -74,7 +74,7 @@
 	else
 		if(!already_signalled)
 			dat += "<BR><I><B>SIGNAL DEATHSTRIKE MISSILE</I></B><BR>"
-			dat += "<A href='byond://?src=\ref[src];signal_missile=1>Hit the Button</A>"
+			dat += "<span style=\"color:red\"><a href='?src=\ref[src];signalmissile=1'>Hit the Button</a></span><br>"
 		else
 			dat += "<BR><B><font='#ff0000'>MISSILE ENROUTE TO COORDINATES</font></B><BR>"
 			dat += "Time before Impact: [time_left] Seconds"
@@ -118,7 +118,7 @@
 	if(!istype(L))
 		return
 
-	if(href_list["signal_missile"])
+	if(href_list["signalmissile"])
 		if(check_authorization())
 			if(!already_signalled)
 				say("Authorization Cleared, Sending Coordinates to Missile.")
