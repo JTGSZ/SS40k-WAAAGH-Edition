@@ -51,27 +51,6 @@
 
 /datum/faction/revolution/OnPostSetup()
 	..()
-	/*var/datum/gamemode/dynamic/D = ticker.mode
-	if(locate(/datum/dynamic_ruleset/midround/from_ghosts/faction_based/revsquad) in D.executed_rules)
-		//Move the revheads! In the future this could be used to make the revsquad arrive via shuttle.
-		var/list/turf/revsq_spawn = list()
-
-		for(var/obj/effect/landmark/A in landmarks_list)
-			if(A.name == "RevSq-Spawn")
-				revsq_spawn += get_turf(A)
-				qdel(A)
-				A = null
-				continue
-
-		var/spawnpos = 1
-
-		for(var/datum/role/revolutionary/leader/L in members)
-			if(spawnpos > revsq_spawn.len)
-				spawnpos = 1
-			if(revsq_spawn[spawnpos])
-				RS.forceMove(revsq_spawn[spawnpos])
-			spawnpos++*/
-
 	update_faction_icons()
 	if(!objective_holder.objectives.len)
 		forgeObjectives()

@@ -455,10 +455,12 @@
 
 /proc/Staticspawn_Latejoin(var/atom/movable/target, var/rank)
 	var/obj/effect/landmark/start/override_point = null
+	var/list/rng_static_spawns = list()
 	for(var/obj/effect/landmark/start/S in landmarks_list)
 		if(S.name == rank)
-			override_point = S
+			rng_static_spawns += S
 			break
+	override_point = pick(rng_static_spawns)
 	if(!override_point)
 		message_admins("ERROR - NO VALID OVERRIDE SPAWN. Here's what I've got: [json_encode(landmarks_list)]")
 		//Error! We have no targetable spawn!
