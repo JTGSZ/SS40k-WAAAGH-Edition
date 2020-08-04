@@ -7,6 +7,7 @@
 	item_state = "bible"
 	throw_speed = 1
 	throw_range = 5
+	slot_flags = SLOT_BELT
 	w_class = W_CLASS_MEDIUM
 	force = 2.5 //A big book, solely used for non-Chaplains trying to use it on people
 	attack_verb = list("whacks", "slaps", "slams", "forcefully blesses")

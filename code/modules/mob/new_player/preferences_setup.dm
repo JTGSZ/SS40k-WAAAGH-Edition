@@ -284,10 +284,10 @@
 	if(!for_observer)
 		// Commenting this check so that, if all else fails, the preview icon is never naked. - N3X
 		//if(job_civilian_low & ASSISTANT) //This gives the preview icon clothes depending on which job(if any) is set to 'high'
-		if((current_species.name != "Ork"))
-			clothes_s = new /icon(uniform_dmi, "grey_s")
+		if((current_species.name != "Ork")) 
+			clothes_s = new /icon(uniform_dmi, "squatteroutfit_s")
+			clothes_s.Blend(new /icon('icons/mob/head.dmi', "squatter_hat"), ICON_OVERLAY)
 			clothes_s.Blend(new /icon(feet_dmi, "black"), ICON_UNDERLAY)
-			clothes_s=blend_backpack(clothes_s,backbag,"satchel-norm",null,"courierbag")
 		//if(current_species.name == "Ork") //Ss40k edit
 		//	clothes_s = new /icon(uniform_dmi, "orkuniform1_s") //Edit end - No naked orks on job pref.
 		//else

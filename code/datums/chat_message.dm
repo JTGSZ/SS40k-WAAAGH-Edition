@@ -80,12 +80,28 @@ var/runechat_icon = null
 	var/maxlen = owned_by.prefs.max_chat_length
 	if (length_char(text) > maxlen)
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
-
+ 
 	// Calculate target color if not already present
-	if (!target.chat_color || target.chat_color_name != target.name)
-		target.chat_color = colorize_string(target.name)
-		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-		target.chat_color_name = target.name
+	if(isliving(target))
+		var/mob/living/the_speaker = target
+		switch(the_speaker.a_intent)
+			if(I_HELP)
+				target.chat_color = rgb(50,255,0)
+				target.chat_color_darkened = rgb(50,230,0)
+			if(I_DISARM)
+				target.chat_color = rgb(240,250,120)
+				target.chat_color_darkened = rgb(240,250,120)
+			if(I_GRAB)
+				target.chat_color = rgb(240,250,120)
+				target.chat_color_darkened = rgb(240,250,120)
+			if(I_HURT)
+				target.chat_color = rgb(255,0,0)
+				target.chat_color_darkened = rgb(255,0,0)
+	else
+		if(!target.chat_color || target.chat_color_name != target.name)
+			target.chat_color = colorize_string(target.name)
+			target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
+			target.chat_color_name = target.name
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
@@ -104,7 +120,7 @@ var/runechat_icon = null
 	// If we heard our name, it's important
 	var/list/names = splittext(owner.name, " ")
 	for (var/word in names)
-		text = replacetext(text, word, "<b>[word]</b>")
+		text = replacetext(text, word, "<u>[word]</u>")
 
 	// Append radio icon if comes from a radio
 	if (extra_classes.Find("spoken_into_radio"))
@@ -120,7 +136,7 @@ var/runechat_icon = null
 	// BYOND Bug #2563917
 	// Construct text
 	var/static/regex/html_metachars = new(@"&[A-Za-z]{1,7};", "g")
-	var/complete_text = "<span class='center maptext [extra_classes != null ? extra_classes.Join(" ") : ""]' style='color: [tgt_color];'>[text]</span>"
+	var/complete_text = "<b><span class='center maptext [extra_classes != null ? extra_classes.Join(" ") : ""]' style='color: [tgt_color];'>[text]</span></b>"
 	var/mheight = WXH_TO_HEIGHT(owned_by.MeasureText(replacetext(complete_text, html_metachars, "m"), null, CHAT_MESSAGE_WIDTH))
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 
@@ -208,7 +224,7 @@ var/runechat_icon = null
 		if (5 to 16)
 			extra_classes += "very_small"
 
-	if (message_language && !say_understands(speaker, message_language))
+	if(message_language && !say_understands(speaker, message_language))
 		raw_message = message_language.scramble(raw_message)
 
 	// Display visual above source

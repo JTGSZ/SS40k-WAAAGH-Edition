@@ -211,9 +211,9 @@ var/const/MAX_SAVE_SLOTS = 8
 	var/jingle = JINGLE_CLASSIC
 
 		// Runscape-like chat
-	var/mob_chat_on_map = FALSE
+	var/mob_chat_on_map = TRUE
 	var/max_chat_length = CHAT_MESSAGE_MAX_LENGTH
-	var/obj_chat_on_map = FALSE
+	var/obj_chat_on_map = TRUE
 	var/no_goonchat_for_obj = FALSE
 
 	var/client/client

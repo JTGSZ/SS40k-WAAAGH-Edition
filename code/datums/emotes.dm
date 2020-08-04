@@ -60,24 +60,23 @@
 		var/T = get_turf(user)
 		if(isobserver(M) && M.client && (M.client.prefs.toggles & CHAT_GHOSTSIGHT) && !(M in viewers(T)))
 			M.show_message("<a href='?src=\ref[M];follow=\ref[user]'>(Follow)</a> " + msg)
-			if (user.client && M?.client?.prefs.mob_chat_on_map && get_dist(M, user) < M?.client.view)
+			if(user.client && M?.client?.prefs.mob_chat_on_map && get_dist(M, user) < M?.client.view)
 				M.create_chat_message(user, null, msg_runechat, "", list("italics"))
 
-	if (emote_type == EMOTE_VISIBLE)
+	if(emote_type == EMOTE_VISIBLE)
 		user.visible_message(msg)
-		for (var/mob/O in viewers(world.view, user))
-			if (user.client && O?.client?.prefs.mob_chat_on_map && O.stat != UNCONSCIOUS)
+		for(var/mob/O in viewers(world.view, user))
+			if(user.client && O?.client?.prefs.mob_chat_on_map && O.stat != UNCONSCIOUS)
 				O.create_chat_message(user, null, msg_runechat, "", list("italics"))
 	else
 		for(var/mob/O in get_hearers_in_view(world.view, user))
 			O.show_message(msg)
-			if (user.client && O?.client?.prefs.mob_chat_on_map && O.stat != UNCONSCIOUS && !O.is_deaf())
+			if(user.client && O?.client?.prefs.mob_chat_on_map && O.stat != UNCONSCIOUS && !O.is_deaf())
 				O.create_chat_message(user, null, msg_runechat, "", list("italics"))
 
 	var/turf/T = get_turf(user)
 	var/location = T ? "[T.x],[T.y],[T.z]" : "nullspace"
 	log_emote("[user.name]/[user.key] (@[location]): [message]")
-
 
 // TODO : gender & all
 /datum/emote/proc/replace_pronoun(mob/user, message)
