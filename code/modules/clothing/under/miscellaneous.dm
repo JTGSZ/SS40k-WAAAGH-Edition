@@ -795,6 +795,7 @@
 	_color = "teamsec_light"
 	jersey_overlays = 'icons/mob/uniform_overlays.dmi'
 	clothing_flags = ONESIZEFITSALL
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/clothing.dmi', "right_hand" = 'icons/mob/in-hand/right/clothing.dmi')
 
 /obj/item/clothing/under/team_security/dark
 	name = "dark Team Security suit"
@@ -810,6 +811,7 @@
 	_color = "spesstv"
 	jersey_overlays = 'icons/mob/uniform_overlays.dmi'
 	clothing_flags = ONESIZEFITSALL
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/clothing.dmi', "right_hand" = 'icons/mob/in-hand/right/clothing.dmi')
 
 /obj/item/clothing/under/team_geometer
 	name = "\improper Team Geometer suit"
@@ -818,6 +820,7 @@
 	_color = "teamgeometer"
 	jersey_overlays = 'icons/mob/uniform_overlays.dmi'
 	clothing_flags = ONESIZEFITSALL
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/clothing.dmi', "right_hand" = 'icons/mob/in-hand/right/clothing.dmi')
 
 /obj/item/clothing/under/team_nt
 	name = "\improper NanoTrasen sports suit"
@@ -826,3 +829,4 @@
 	_color = "teamnt"
 	jersey_overlays = 'icons/mob/uniform_overlays.dmi'
 	clothing_flags = ONESIZEFITSALL
+	inhand_states = list("left_hand" = 'icons/mob/in-hand/left/clothing.dmi', "right_hand" = 'icons/mob/in-hand/right/clothing.dmi')

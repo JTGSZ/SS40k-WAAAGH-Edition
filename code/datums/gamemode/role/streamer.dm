@@ -45,7 +45,7 @@
 		text = {"[show_logo ? "<img src='data:image/png;base64,[icon2base64(logo)]' style='position: relative; top: 10;'/> " : "" ]
 [name] <a href='?_src_=holder;adminplayeropts=\ref[M]'>[key_name(M)]</a>[M.client ? "" : " <i> - (logged out)</i>"][M.stat == DEAD ? " <b><font color=red> - (DEAD)</font></b>" : ""]
  - <a href='?src=\ref[usr];priv_msg=\ref[M]'>(priv msg)</a>
- - <a href='?_src_=holder;traitor=\ref[M]'>(role panel)</a> - <a href='?src=\ref[src]&mind=\ref[antag]&giveblood=1'>Give blood</a>"}
+ - <a href='?_src_=holder;traitor=\ref[M]'>(role panel)</a>"}
 	return text
 
 /datum/role/streamer/ForgeObjectives()
@@ -107,7 +107,7 @@
 		return
 	tv.reconnect_database()
 	if(tv.charge_flow(tv.linked_db, new_subscriber.current.get_id_card(), new_subscriber.current, 250, station_account, "Spess.TV subscription to [antag.name]") == CARD_CAPTURE_SUCCESS)
-		tv.visible_message("<span class='big notice'>[new_subscriber.current] just subscribed to [name]!</span>")
+		tv.visible_message("<span class='big notice'>[new_subscriber.current] just subscribed to [antag.name]!</span>")
 		playsound(tv, pick('sound/effects/noisemaker1.ogg', 'sound/effects/noisemaker2.ogg', 'sound/effects/noisemaker3.ogg'), 100, TRUE)
 		playsound(antag.current, pick('sound/effects/noisemaker1.ogg', 'sound/effects/noisemaker2.ogg', 'sound/effects/noisemaker3.ogg'), 100, TRUE)
 	else
