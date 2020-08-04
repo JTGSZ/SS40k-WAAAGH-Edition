@@ -25,9 +25,7 @@
 	item_state = "commissarcoat" //Check: Its there
 	armor = list(melee = 50, bullet = 50, laser = 50, energy = 50, bomb = 50, bio = 50, rad = 50)
 	body_parts_covered = FULL_TORSO
-	allowed = list(/obj/item/weapon/gun/projectile/automatic/boltpistol,
-					/obj/item/weapon/chainsword
-					)
+	allowed = list(/obj/item/weapon)
 	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
 	species_restricted = list("Human") //Only humans can wear IG stuff for now at least.
 
@@ -43,6 +41,7 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(melee = 55, bullet = 35, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 0)
 	species_restricted = list("Human")
+	allowed = list(/obj/item/weapon)
 
 /obj/item/clothing/suit/armor/inq/alt
 	icon_state = "inqalt" //Check: Its there

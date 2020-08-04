@@ -32,7 +32,8 @@
 			slot_head_str = /obj/item/clothing/head/inqhat,
 			slot_gloves_str = /obj/item/clothing/gloves/black,
 			slot_wear_suit_str = /obj/item/clothing/suit/armor/inq,
-			slot_back_str = /obj/item/weapon/inq_katana
+			slot_back_str = /obj/item/weapon/inq_katana,
+			slot_r_store_str = /obj/item/weapon/shield/energy
 		),
 	)
 

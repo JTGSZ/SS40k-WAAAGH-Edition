@@ -5,3 +5,6 @@
 	icon_state = "celeb"
 	item_state = "celeb"
 	species_restricted = list("Human")
+	allowed = list(/obj/item/weapon)
+	body_parts_covered = UPPER_TORSO
+	heat_conductivity = SNOWGEAR_HEAT_CONDUCTIVITY
