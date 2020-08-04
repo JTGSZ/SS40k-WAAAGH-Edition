@@ -537,6 +537,35 @@ var/list/camera_messages = list()
 /obj/machinery/camera/arena/bullet_act(var/obj/item/projectile/Proj)
 	return
 
+/obj/machinery/camera/arena/spesstv
+	name = "\improper Spess.TV camera"
+	network = list(CAMERANET_SPESSTV)
+	var/datum/role/streamer/streamer
+
+/obj/machinery/camera/arena/spesstv/New()
+	..()
+	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/carrot in assembly.upgrades)
+		assembly.upgrades -= carrot
+	update_upgrades()
+	deactivate()
+
+/obj/machinery/camera/arena/spesstv/name_camera()
+	var/team_name = streamer?.team
+	var/basename = streamer?.antag?.name || "Unknown"
+	if(team_name)
+		basename = "\[[team_name]\] [basename]"
+	var/nethash = english_list(network)
+	var/suffix = 0
+	while(!suffix || (nethash+c_tag in camera_names))
+		c_tag = "[basename]"
+		if(suffix)
+			c_tag += " [suffix]"
+		suffix++
+	camera_names[nethash+c_tag]=src
+
+/obj/machinery/camera/deactivate(mob/user, choice = TRUE, quiet = TRUE)
+	..()
+
 /obj/machinery/camera/kick_act(mob/living/carbon/human/H)
 	H.visible_message("<span class='danger'>[H] attempts to kick \the [src].</span>", "<span class='danger'>You attempt to kick \the [src].</span>")
 	to_chat(H, "<span class='danger'>Dumb move! You strain a muscle.</span>")

@@ -101,7 +101,6 @@
 		nuke_authorized = TRUE
 	if(forced_authorization)
 		nuke_authorized = TRUE
-	lets_a_go(L)
 	return nuke_authorized
 
 /obj/structure/nuke_computer/proc/the_long_goodbye()
