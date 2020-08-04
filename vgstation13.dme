@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "__40kEARLYLoad\__RSCHOTLOAD.dm"
 #include "__40kEARLYLoad\_QUESTLINES.dm"
 #include "__40kEARLYLoad\artifact_defines.dm"
 #include "__40kEARLYLoad\ATCHDEF.dm"
