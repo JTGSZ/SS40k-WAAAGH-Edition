@@ -65,7 +65,6 @@
 	var/kick_inactive = 0				//force disconnect for inactive players
 	var/ToRban = 0
 	var/automute_on = 0					//enables automuting/spam prevention
-	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 	var/copy_logs = null
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
@@ -243,9 +242,6 @@
 
 				if ("use_age_restriction_for_jobs")
 					config.use_age_restriction_for_jobs = 1
-
-				if ("jobs_have_minimal_access")
-					config.jobs_have_minimal_access = 1
 
 				if ("use_recursive_explosions")
 					use_recursive_explosions = 1

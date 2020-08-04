@@ -10,7 +10,6 @@
 	supervisors = "the Emperor"
 	selection_color = "#E0D68B"
 	access = list()
-	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/primarispsyker
 	species_whitelist = list("Human")

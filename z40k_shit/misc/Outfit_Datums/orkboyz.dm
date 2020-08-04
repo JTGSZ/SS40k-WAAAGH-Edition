@@ -10,7 +10,6 @@
 	selection_color = "#FFB5B5"
 	species_whitelist = list("Ork") //Orks are whitelisted to orks
 	access = list()
-	minimal_access = list()
 	landmark_job_override = TRUE
 	alt_titles = list("Slugga Boy", "Shoota Boy", "Kommando", "Burna Boy", "Storm Boy")
 	outfit_datum = /datum/outfit/basicork

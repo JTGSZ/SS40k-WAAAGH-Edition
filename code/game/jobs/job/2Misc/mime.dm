@@ -9,7 +9,6 @@
 	wage_payout = 15
 	selection_color = "#dddddd"
 	access = list()
-	minimal_access = list()
 	species_whitelist = list("Human")
 	outfit_datum = /datum/outfit/mime
 	landmark_job_override = TRUE

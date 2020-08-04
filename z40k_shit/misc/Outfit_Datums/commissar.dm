@@ -11,7 +11,6 @@
 	req_admin_notify = 1
 	wage_payout = 80
 	access = list() 
-	minimal_access = list()
 	minimal_player_age = 30
 	landmark_job_override = TRUE
 

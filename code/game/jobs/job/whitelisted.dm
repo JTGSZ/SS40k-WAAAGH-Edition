@@ -8,7 +8,6 @@
 	supervisors = "nobody"
 	selection_color = "#dddddd"
 	access = list()
-	minimal_access = list()
 	alt_titles = list("Merchant","Salvage Broker")
 
 	species_whitelist = list("Vox")

@@ -10,7 +10,6 @@
 	supervisors = "The Ecclesiarchy"
 	selection_color = "#ffddf0"
 	access = list()
-	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/sister_hospitaller
 	species_whitelist = list("Human")

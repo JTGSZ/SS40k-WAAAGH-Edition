@@ -10,7 +10,6 @@
 	selection_color = "#f8cb69"
 	req_admin_notify = 1
 	access = list(access_lord_nuke_computer) //See get_access()
-	minimal_access = list(access_lord_nuke_computer) 	//See get_access()
 	minimal_player_age = 30
 	wage_payout = 100
 	landmark_job_override = TRUE
@@ -20,9 +19,6 @@
 
 	relationship_chance = HUMAN_SUPER_RARE
 
-/datum/job/lord/get_access()
-	return get_all_accesses()
- 
 /datum/outfit/lord
 
 	outfit_name = "Lord"

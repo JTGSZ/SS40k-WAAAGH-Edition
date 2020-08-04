@@ -90,7 +90,7 @@
 /mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(var/atom/A, var/proximity_flag, var/params)
 	if(istype(A,/obj/structure/window) && proximity_flag && (!target || !ismob(target)) && performPressureCheck(get_turf(A)))
 		return
-	.=..()
+	. = ..()
 
 //Can we actually attack a possible target?
 /mob/living/simple_animal/hostile/giant_spider/CanAttack(var/atom/the_target)

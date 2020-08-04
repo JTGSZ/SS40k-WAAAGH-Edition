@@ -250,7 +250,7 @@ var/datum/controller/gameticker/ticker
 	//initialise our cinematic screen object
 	cinematic = new(src)
 	cinematic.icon = 'icons/effects/station_explosion.dmi'
-	cinematic.icon_state = "station_intact"
+	//cinematic.icon_state = "station_intact"
 	cinematic.plane = HUD_PLANE
 	cinematic.mouse_opacity = 0
 	cinematic.screen_loc = "1,0"
@@ -312,8 +312,8 @@ var/datum/controller/gameticker/ticker
 					cinematic.icon_state = "summary_malf"
 				if("planet_nuke")
 					world << sound('sound/effects/explosionfar.ogg')
-					flick("intro_self_detonation",cinematic)
-					sleep(127)
+					flick("intro_self_detonation", cinematic)
+					sleep(130)
 					cinematic.icon_state = "summary_self_detonation"
 				else //Station nuked (nuke,explosion,summary)
 					flick("intro_nuke",cinematic)

@@ -76,5 +76,9 @@
 
 	flick("blissrazor_spintime",SB)
 	for(var/atom/A in targets)
-		A.attackby(SB,user)
+		if(isliving(A))
+			SB.attack(A, user)
+		else
+			A.attackby(SB,user)
+			
 

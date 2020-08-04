@@ -10,7 +10,6 @@
 	supervisors = "Commissar and your Platoon Sergeant."
 	selection_color = "#A6EAA9"
 	access = list()
-	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/IG_cadian_trooper
 	species_whitelist = list("Human")

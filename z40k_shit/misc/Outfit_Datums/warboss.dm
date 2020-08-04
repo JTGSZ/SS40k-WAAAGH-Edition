@@ -10,7 +10,6 @@
 	selection_color = "#FFB5B5"
 	species_whitelist = list("Ork") //Orks are whitelisted to orks
 	access = list()
-	minimal_access = list()
 	landmark_job_override = TRUE
 	outfit_datum = /datum/outfit/orkwarboss
 	must_be_map_enabled = 1

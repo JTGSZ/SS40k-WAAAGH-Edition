@@ -9,7 +9,6 @@
 	supervisors = "the lord"
 	selection_color = "#ffeef0"
 	access = list()
-	minimal_access = list()
 	alt_titles = list("Emergency Physician", "Nurse", "Surgeon")
 	outfit_datum = /datum/outfit/doctor
 	species_blacklist = list("Ork")

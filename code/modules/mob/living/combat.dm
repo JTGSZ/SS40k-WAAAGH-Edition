@@ -91,7 +91,7 @@
 //Armor modifier is a value that multiplies effect of armor on the attack's target. The higher it is, the less effective your attacks are vs armor. 2 means armor is twice as effective, etc.
 /mob/living/proc/get_armor_modifier(mob/living/target)
 	return 1
-
+ 
 /mob/living/proc/unarmed_attack_mob(mob/living/target)
 	if(is_pacified(VIOLENCE_DEFAULT,target))
 		return
@@ -115,7 +115,7 @@
 
 	visible_message(get_attack_message(target, attack_verb))
 	do_attack_animation(target, src)
-
+ 
 	var/damage_done
 	if(ishuman(target))
 		damage_done = target.apply_damage(damage, damage_type, affecting, armor_block, sharpness)
@@ -125,11 +125,11 @@
 
 	if(target.BrainContainer)
 		target.BrainContainer.SendSignal(COMSIG_ATTACKEDBY, list("assailant"=src,"damage"=damage_done))
+
 	target.unarmed_attacked(src, damage, damage_type, zone)
 	after_unarmed_attack(target, damage, damage_type, affecting, armor_block)
 
 	add_logs(src, target, "attacked ([damage_done]dmg)", admin = (src.ckey && target.ckey) ? TRUE : FALSE) //Only add this to the server logs if both mobs were controlled by player
-
 	return damage_done
 
 /mob/living/proc/after_unarmed_attack(mob/living/target, damage, damage_type, organ, armor)

@@ -9,7 +9,6 @@
 	wage_payout = 25
 	selection_color = "#E0D68B"
 	access = list()
-	minimal_access = list()
 	var/datum/religion/chap_religion
 	landmark_job_override = TRUE
 	

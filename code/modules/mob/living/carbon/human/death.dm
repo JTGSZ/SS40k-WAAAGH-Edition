@@ -113,11 +113,11 @@
 		do_release_control(0)
 
 	if(ishuman(LAssailant))
-		var/mob/living/carbon/human/H=LAssailant
+		var/mob/living/carbon/human/H = LAssailant
 		if(H.mind)
 			H.mind.kills += "[name] ([ckey])"
 			if(isork(H))
-				var/mob/living/carbon/human/ork/ORK=LAssailant
+				var/mob/living/carbon/human/ork/ORK = H
 				ORK.grow_nigga(25)
 	
 	if(mind && (mind.antag_roles.len > 0))

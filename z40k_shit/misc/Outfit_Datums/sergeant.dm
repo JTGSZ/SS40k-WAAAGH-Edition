@@ -10,7 +10,6 @@
 	supervisors = "the head of security"
 	selection_color = "#A6EAA9"
 	access = list()
-	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/IG_trooper_sergeant
 	species_whitelist = list("Human")

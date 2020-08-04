@@ -10,7 +10,6 @@
 	selection_color = "#78DB7D"
 	req_admin_notify = 1
 	access = list() 			//See get_access()
-	minimal_access = list() 	//See get_access()
 	minimal_player_age = 30
 	wage_payout = 100
 	landmark_job_override = TRUE

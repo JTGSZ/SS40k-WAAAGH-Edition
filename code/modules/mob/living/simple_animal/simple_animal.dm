@@ -446,9 +446,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 		..()
 
 /mob/living/simple_animal/attack_alien(mob/living/carbon/alien/humanoid/M )
-
 	switch(M.a_intent)
-
 		if (I_HELP)
 			visible_message("<span class='notice'>[M] caresses [src] with its scythe like arm.</span>")
 		if (I_GRAB)
@@ -457,12 +455,9 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 			M.unarmed_attack_mob(src)
 
 /mob/living/simple_animal/attack_larva(mob/living/carbon/alien/larva/L )
-
 	switch(L.a_intent)
 		if(I_HELP)
 			visible_message("<span class='notice'>[L] rubs it's head against [src]</span>")
-
-
 		else
 			L.do_attack_animation(src, L)
 			var/damage = rand(5, 10)
@@ -522,8 +517,6 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 		purge = 3
 	..()
 
-
-
 /mob/living/simple_animal/base_movement_tally()
 	return speed
 
@@ -567,15 +560,14 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 	if(flags & INVULNERABLE)
 		return
 	..()
-	switch (severity)
-		if (1.0)
+	switch(severity)
+		if(1.0)
 			adjustBruteLoss(500)
 			gib()
 			return
 
-		if (2.0)
+		if(2.0)
 			adjustBruteLoss(60)
-
 
 		if(3.0)
 			adjustBruteLoss(30)

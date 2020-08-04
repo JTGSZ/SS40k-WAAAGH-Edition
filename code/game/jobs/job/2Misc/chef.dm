@@ -9,7 +9,6 @@
 	wage_payout = 20
 	selection_color = "#dddddd"
 	access = list()
-	minimal_access = list()
 	alt_titles = list("Cook")
 	species_blacklist = list("Ork")
 	outfit_datum = /datum/outfit/chef

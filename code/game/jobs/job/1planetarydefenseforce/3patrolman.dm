@@ -10,7 +10,6 @@
 	supervisors = "Knight Officers, and your lord."
 	selection_color = "#f8cb69"
 	access = list()
-	minimal_access = list()
 	minimal_player_age = 7
 	outfit_datum = /datum/outfit/patrolman
 	species_whitelist = list("Human")

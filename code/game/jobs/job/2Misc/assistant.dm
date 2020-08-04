@@ -9,7 +9,6 @@
 	wage_payout = 10
 	selection_color = "#dddddd"
 	access = list()	
-	minimal_access = list()	
 	alt_titles = list()
 	species_blacklist = list("Ork")
 	no_random_roll = 1 //Don't become assistant randomly

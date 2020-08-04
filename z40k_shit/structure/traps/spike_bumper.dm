@@ -44,9 +44,9 @@
 			M.Knockdown(12)
 
 //No damagies
-/mob/living/simple_animal/adjustFireLoss(damage)
+/mob/living/simple_animal/hostile/spike_bumper/adjustFireLoss(damage)
 	return 0
-/mob/living/simple_animal/adjustBruteLoss(damage)
+/mob/living/simple_animal/hostile/spike_bumper/adjustBruteLoss(damage)
 	return 0
 
 /mob/living/simple_animal/hostile/spike_bumper/attackby(var/obj/item/O, var/mob/user)

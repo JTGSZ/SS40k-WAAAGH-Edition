@@ -10,8 +10,7 @@
 	selection_color = "#f8cb69"
 	req_admin_notify = 1
 	wage_payout = 80
-	access = list(accesss_knight_nuke_computer) 
-	minimal_access = list(accesss_knight_nuke_computer)
+	access = list(access_knight_nuke_computer) 
 	minimal_player_age = 30
 	landmark_job_override = TRUE
 
