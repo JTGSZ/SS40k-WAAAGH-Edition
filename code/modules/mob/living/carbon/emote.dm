@@ -242,8 +242,6 @@
 	var/list/science_sounds = null
 	var/list/male_sounds = null
 	var/list/female_sounds = null
-	var/list/birb_sounds = null
-	var/list/ork_screams = null
 	var/sound_message = null
 
 /datum/emote/living/carbon/sound/scream
@@ -255,9 +253,7 @@
 	science_sounds = list('sound/misc/science_scream1.ogg', 'sound/misc/science_scream2.ogg', 'sound/misc/science_scream3.ogg', 'sound/misc/science_scream4.ogg', 'sound/misc/science_scream5.ogg', 'sound/misc/science_scream6.ogg')
 	male_sounds =  list('sound/misc/malescream1.ogg', 'sound/misc/malescream2.ogg', 'sound/misc/malescream3.ogg', 'sound/misc/malescream4.ogg', 'sound/misc/malescream5.ogg', 'sound/misc/wilhelm.ogg', 'sound/misc/goofy.ogg')
 	female_sounds = list('sound/misc/femalescream1.ogg', 'sound/misc/femalescream2.ogg', 'sound/misc/femalescream3.ogg', 'sound/misc/femalescream4.ogg', 'sound/misc/femalescream5.ogg')
-	ork_screams = list('z40k_shit/sounds/orkpain1.ogg', 'z40k_shit/sounds/orkpain2.ogg', 'z40k_shit/sounds/orkpain3.ogg', 'z40k_shit/sounds/orkpain4.ogg')
 	sound_message = "screams in agony!"
-	voxemote = FALSE
 
 /datum/emote/living/carbon/sound/shriek
 	key = "shriek"
@@ -265,11 +261,11 @@
 	message = "shrieks!"
 	message_mime = "acts out a shriek!"
 	emote_type = EMOTE_AUDIBLE
-	birb_sounds = list('sound/misc/shriek1.ogg')
+	species_specific = list("Vox" = list('sound/misc/shriek1.ogg'),
+							"Skeletal Vox" = list('sound/misc/shriek1.ogg')
+							)
 	sound_message = "shrieks in agony!"
-	voxemote = TRUE
-	voxrestrictedemote = TRUE
-  
+
 /datum/emote/living/carbon/sound/cough
 	key = "cough"
 	key_third_person = "coughs"
@@ -285,7 +281,7 @@
 		return ..()
 	if(H.stat == DEAD)
 		return
-	if (!H.is_muzzled() && !issilent(H)) // Silent = mime, mute species.
+	if(!H.is_muzzled() && !issilent(H)) // Silent = mime, mute species.
 		if((params == TRUE) || (Holiday == APRIL_FOOLS_DAY) || H.manual_emote_sound_override) // Forced scream or april fools or admin override
 			if(world.time-H.last_emote_sound >= 30)//prevent scream spam with things like poly spray
 				if(sound_message)
@@ -293,10 +289,15 @@
 				var/obj/item/clothing/C = search_sound_clothing(H, key)
 				var/sound
 				if(!C)
-					if(isvox(H) || isskelevox(H))
-						sound = pick(birb_sounds)
-					else if(isork(H))
-						sound = pick(ork_screams)
+					if(species_specific && species_specific.len)
+						var/species = H.species.name //we have the name string
+						var/check_object = species_specific[species][1] //We have a keyed thing which is the species name
+						var/list/L //We have list L
+						if(check_object == MALE || check_object == FEMALE) //If entry 1 is a gender
+							L = species_specific[species][H.gender]
+						else
+							L = species_specific[species]
+						sound = pick(L)
 					else
 						switch(H.gender)
 							if(MALE)
@@ -307,7 +308,6 @@
 					sound = pick(C.sound_file)
 				playsound(user, sound, 50, 0)
 				H.last_emote_sound = world.time
-
 	else
 		message = "makes a very loud noise."
 

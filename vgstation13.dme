@@ -2628,6 +2628,7 @@
 #include "z40k_shit\_procgen\templates\village_buildings.dm"
 #include "z40k_shit\_species\orkorgans.dm"
 #include "z40k_shit\_species\orkspecies.dm"
+#include "z40k_shit\_species\orks\ork_emotes.dm"
 #include "z40k_shit\chems\destroyer_venom.dm"
 #include "z40k_shit\chems\stimulant.dm"
 #include "z40k_shit\clothing\backpacks\cadian_backpacks.dm"

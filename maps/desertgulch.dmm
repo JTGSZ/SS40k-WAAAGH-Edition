@@ -1663,7 +1663,7 @@
 "nil" = (/obj/effect/decal/ruinshit/rubble/rubblecorner/east,/obj/effect/decal/ruinshit/rubble/overlap/north,/turf/unsimulated/outside/sand,/area/warhammer/ruinedcity)
 "nin" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/ruinedcity)
 "njG" = (/obj/structure/table/woodentable,/obj/effect/decal/cleanable/dirt,/obj/item/hydrogen_fuel_cell,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/device/flashlight/tactical,/turf/simulated/floor/metalplating/metalplate/three,/area/warhammer/tunneltown)
-"njS" = (/obj/structure/door_assembly,/turf/unsimulated/floor/asteroid/plating{icon_state = "asteroidfloor"},/area/warhammer/tunneltown)
+"njS" = (/obj/structure/door_assembly{anchored = 1},/turf/simulated/floor/metalplating/metalplate/four,/area/warhammer/tunneltown)
 "nkd" = (/obj/structure/table,/obj/machinery/cell_charger,/turf/simulated/floor/metalplating/metaltile/three,/area/warhammer/warehousetwo)
 "nkq" = (/obj/structure/shipping_containers/right/redtwo,/turf/unsimulated/outside/imperial_rockcrete,/area/warhammer/warehouseone)
 "nkP" = (/obj/machinery/door/airlock/maintenance_hatch,/turf/simulated/floor,/area/warhammer/miningcomplex)

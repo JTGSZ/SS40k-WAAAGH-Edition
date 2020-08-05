@@ -5,7 +5,7 @@
 	icon = 'z40k_shit/icons/obj/weapons.dmi'
 	icon_state = "chainaxe"
 	item_state = "chainaxe"
-	hitsound = 'z40k_shit/sounds/chainsword_swing.ogg'
+	hitsound = 'z40k_shit/sounds/chainaxe1.ogg'
 	siemens_coefficient = 1
 	slot_flags = SLOT_BELT
 	force = 25

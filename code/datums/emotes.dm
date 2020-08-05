@@ -22,8 +22,7 @@
 	var/list/mob_type_allowed_typelist = list(/mob) //Types that are allowed to use that emote
 	var/list/mob_type_blacklist_typelist //Types that are NOT allowed to use that emote
 	var/list/mob_type_ignore_stat_typelist
-	var/voxemote = TRUE //Flags if a vox CAN use an emote. Defaults to can.
-	var/voxrestrictedemote = FALSE //Flags if Non-Vox CANNOT use an emote. Defaults to CAN.
+	var/list/species_specific //If this has a len, we look for a name key matching the species
 	var/stat_allowed = CONSCIOUS
 	var/static/list/emote_list = list()
 
@@ -141,13 +140,21 @@
 		return FALSE
 	if(is_type_in_list(user, mob_type_blacklist_typelist))
 		return FALSE
+	if(species_specific && species_specific.len)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/species = H.species.name //we have the name string
+			var/check_object = species_specific[species][1] //We have a keyed object which is the species name
+			var/list/L //We have list L
+			if(check_object == MALE || check_object == FEMALE) //If entry 1 is a gender
+				L = species_specific[species][H.gender]
+			else
+				L = species_specific[species]
+			if(L.Find(species))
+				return TRUE
+			else
+				return FALSE
 
-	if((isvox(user) || isskelevox(user)) && voxrestrictedemote == TRUE)
-		return TRUE
-	if((!isvox(user) || !isskelevox(user)) && voxrestrictedemote == TRUE)
-		return FALSE
-	if((isvox(user) || isskelevox(user)) && voxemote == FALSE)
-		return FALSE
 	if(!user.client && user.ckey == null) //Auto emote, like a monkey or corgi
 		var/someone_in_earshot=0
 		for(var/mob/M in get_hearers_in_view(world.view, user)) //See if anyone is in earshot
@@ -189,5 +196,11 @@
 	if(isvox(src) || isskelevox(src))
 		emote("shrieks", message = TRUE, ignore_status = TRUE)
 		return
-	else
+	else if(isgretchin(src))
+		emote("gretscream", message = TRUE, ignore_status = TRUE)
+		return
+	else if(isork(src))
+		emote("orkscream", message = TRUE, ignore_status = TRUE)
+		return
+	else 
 		emote("screams", message = TRUE, ignore_status = TRUE) // So it's forced
