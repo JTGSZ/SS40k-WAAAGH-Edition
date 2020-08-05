@@ -143,18 +143,10 @@
 	if(species_specific && species_specific.len)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			var/species = H.species.name //we have the name string
-			var/check_object = species_specific[species][1] //We have a keyed object which is the species name
-			var/list/L //We have list L
-			if(check_object == MALE || check_object == FEMALE) //If entry 1 is a gender
-				L = species_specific[species][H.gender]
-			else
-				L = species_specific[species]
-			if(L.Find(species))
+			if(species_specific.Find(H.species.name))
 				return TRUE
 			else
 				return FALSE
-
 	if(!user.client && user.ckey == null) //Auto emote, like a monkey or corgi
 		var/someone_in_earshot=0
 		for(var/mob/M in get_hearers_in_view(world.view, user)) //See if anyone is in earshot
