@@ -43,7 +43,7 @@ var/list/camera_names=list()
 
 /obj/machinery/camera/flawless
 	failure_chance = 0
-
+ 
 /obj/machinery/camera/initialize()
 	..()
 	if(prob(failure_chance))

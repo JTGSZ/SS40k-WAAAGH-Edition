@@ -23,7 +23,7 @@
 	user.machine = src
 	return
 
-/obj/machinery/computer/security/advanced/check_eye(var/mob/user )
+/obj/machinery/computer/security/advanced/check_eye(var/mob/user)
 	if (( ( get_dist(user, src) > 1 ) || !( user.canmove ) || ( user.blinded )) && (!istype(user, /mob/living/silicon)))
 		if(user.machine == src)
 			user.machine = null
