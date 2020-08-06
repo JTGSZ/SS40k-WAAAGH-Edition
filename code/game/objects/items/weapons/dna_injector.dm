@@ -70,7 +70,7 @@
 	else
 		return buf.dna.SetUIValue(real_block,val)
 
-/obj/item/weapon/dnainjector/proc/inject(mob/M, mob/user )
+/obj/item/weapon/dnainjector/proc/inject(mob/M, mob/user)
 	if(ismanifested(M))
 		to_chat(M, "<span class='warning'> Apparently it didn't work.</span>")
 		if(M != user)

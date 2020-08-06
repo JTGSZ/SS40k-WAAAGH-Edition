@@ -720,7 +720,7 @@ trans_to_atmos(var/datum/gas_mixture/target, var/amount=1, var/multiplier=1, var
 	// SLOWWWWWWW
 	for(var/A in reagent_list)
 		var/datum/reagent/R = A
-		if (R.id == reagent)
+		if(R.id == reagent)
 			if(!amount)
 				return R
 			else

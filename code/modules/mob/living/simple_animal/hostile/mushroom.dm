@@ -76,7 +76,7 @@
 			return
 		M.visible_message("<span class='notice'>[M] devours [src]!</span>")
 		var/level_gain = (powerlevel - M.powerlevel)
-		if(level_gain >= -1 && !bruised && !M.ckey)//Player shrooms can't level up to become robust gods.
+		if(level_gain >= -1 && !bruised)
 			if(level_gain < 1)//So we still gain a level if two mushrooms were the same level
 				level_gain = 1
 			M.LevelUp(level_gain)

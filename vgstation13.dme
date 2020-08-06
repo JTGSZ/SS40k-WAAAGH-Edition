@@ -2742,6 +2742,7 @@
 #include "z40k_shit\simple_animals\daemons\plaguebearer\plaguebearer.dm"
 #include "z40k_shit\simple_animals\daemons\tzeentchhorror\tzeentchhorror.dm"
 #include "z40k_shit\simple_animals\daemons\tzeentchhorror\tzeentchhorror_power.dm"
+#include "z40k_shit\simple_animals\rng_animals\growing_pig.dm"
 #include "z40k_shit\simple_animals\spiritshit\ebon_geist.dm"
 #include "z40k_shit\simple_animals\spiritshit\neverborn.dm"
 #include "z40k_shit\simple_animals\spiritshit\parent.dm"

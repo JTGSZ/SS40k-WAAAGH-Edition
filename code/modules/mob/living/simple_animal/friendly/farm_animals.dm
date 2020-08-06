@@ -135,7 +135,7 @@
 /mob/living/simple_animal/cow/New()
 	..()
 
-/mob/living/simple_animal/cow/attackby(var/obj/item/O, var/mob/user )
+/mob/living/simple_animal/cow/attackby(var/obj/item/O, var/mob/user)
 	if(stat == CONSCIOUS && istype(O, /obj/item/weapon/reagent_containers/glass))
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/obj/item/weapon/reagent_containers/glass/G = O
@@ -155,7 +155,7 @@
 		if(reagents && prob(5))
 			reagents.add_reagent(MILK, rand(5, 10))
 
-/mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M )
+/mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
 		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
 		Knockdown(30)
@@ -304,7 +304,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicks"
-	health = 60
+	health = 200
 	melee_damage_lower = 10
 	melee_damage_upper = 12 //Those tusk will maul you!
 	size = SIZE_SMALL
@@ -369,13 +369,12 @@
 	..(gibbed)
 	playsound(src, 'sound/effects/box_scream.ogg', 100, 1)
 
-/mob/living/simple_animal/hostile/retaliate/box/attackby(var/obj/item/O, var/mob/user )
+/mob/living/simple_animal/hostile/retaliate/box/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/chickenshroom)) //Pigs like mushrooms
 		if(!stat && size < SIZE_BIG)
 			if(!user.drop_item(O))
-				user << "<span class='notice'>You can't let go of \the [O]!</span>"
+				to_chat(user, "<span class='notice'>You can't let go of \the [O]!</span>")
 				return
-
 			user.visible_message("<span class='notice'>[user] feeds [O] to [name].</span>","<span class='notice'>You feed [O] to [name].</span>")
 			qdel(O)
 			fat += rand(15,25)
@@ -413,7 +412,7 @@
 	response_disarm = "flips"
 	response_harm = "kicks"
 	attacktext = "kicks"
-	health = 10
+	health = 20
 	pass_flags = PASSTABLE
 	size = SIZE_SMALL
 	speak_override = TRUE
@@ -456,7 +455,7 @@
 
 /mob/living/simple_animal/rabbit/bunny/Life()
 	..()
-	if(!stat && !ckey)
+	if(!stat)
 		amount_grown += rand(1,5)
 		if(amount_grown >= 100)
 			grow_up()

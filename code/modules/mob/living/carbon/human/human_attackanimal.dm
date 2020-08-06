@@ -1,4 +1,7 @@
 /mob/living/carbon/human/attack_animal(mob/living/simple_animal/M)
+	if(stat == DEAD)
+		butcher()
+	
 	if(check_shields(0, M))
 		return 0
 

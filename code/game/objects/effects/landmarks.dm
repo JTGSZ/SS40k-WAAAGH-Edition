@@ -29,17 +29,11 @@
 		if("monkey") 
 			monkeystart += loc
 			qdel(src)
-		if("start")
-			newplayer_start += loc
-			qdel(src)
 
 		if("wizard")
 			wizardstart += loc
 			qdel(src)
 
-		if("JoinLate")
-			latejoin += loc
-			qdel(src)
 		if("AssetJoinLate")
 			peasant_latejoin += loc
 			qdel(src)
@@ -48,8 +42,7 @@
 		if("prisonwarp")
 			prisonwarp += loc
 			qdel(src)
-	//	if("mazewarp")
-	//		mazewarp += loc
+
 		if("Holding Facility")
 			holdingfacility += loc
 		if("tdome1")

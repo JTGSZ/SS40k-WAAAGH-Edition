@@ -356,7 +356,7 @@
 	job_master.AssignRole(src, rank, 1)
 
 	ticker.mode.latespawn(src)//can we make them a latejoin antag?
-
+ 
 	var/mob/living/carbon/human/character = create_character()	//creates the human and transfers vars and mind
 	if(character.client.prefs.randomslot)
 		character.client.prefs.random_character_sqlite(character, character.ckey)
@@ -367,7 +367,7 @@
 	job_master.CheckPriorityFulfilled(rank)
 
 	var/turf/T = character.loc
-	for(var/role in character.mind.antag_roles)
+	for(var/role in character.mind?.antag_roles)
 		var/datum/role/R = character.mind.antag_roles[role]
 		R.OnPostSetup()
 		R.ForgeObjectives()
@@ -459,7 +459,6 @@
 	for(var/obj/effect/landmark/start/S in landmarks_list)
 		if(S.name == rank)
 			rng_static_spawns += S
-			break
 	override_point = pick(rng_static_spawns)
 	if(!override_point)
 		message_admins("ERROR - NO VALID OVERRIDE SPAWN. Here's what I've got: [json_encode(landmarks_list)]")
@@ -554,7 +553,7 @@ Round Duration: [round(hours)]h [round(mins)]m<br>"}
 	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = CHANNEL_LOBBY)// MAD JAMS cant last forever yo
 
 
-	if (mind)
+	if(mind)
 		mind.active = 0 // we wish to transfer the key manually
 		mind.transfer_to(new_character) // won't transfer key since the mind is not active
 

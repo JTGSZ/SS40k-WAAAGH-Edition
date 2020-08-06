@@ -34,12 +34,12 @@
 				C.fire_stacks += 1
 				C.IgniteMob()
 	if(prob(25))
-		for(var/atom/movable/target in range(5, get_turf(src)))
+		for(var/mob/living/target in range(5, get_turf(src)))
 			src.icon = target.icon
 			src.icon_state = target.icon_state
 			src.overlays = target.overlays
 			src.color = horror_color
-			src.GlichAnimation(changecolor = 0)
+//			src.GlichAnimation(changecolor = 0)
 
 /mob/living/simple_animal/hostile/retaliate/daemon/tzeenchhorror/blue
 	speed = 2

@@ -9,7 +9,6 @@
 
 /obj/effect/landmark/start/New()
 	..()
-	return 1
 
 //Observer Start
 /obj/effect/landmark/observer
@@ -19,8 +18,23 @@
 	name = "JoinLate"
 	//Place where latejoins end up
 
+/obj/effect/landmark/latejoin/New()
+	..()
+	latejoin += loc
+	qdel(src)
+
 /obj/effect/landmark/newplayerstart //Basically spawnbox, mobs load in here and move to other locs
 	name = "start"					//Also handles the lobby screen area
+
+/obj/effect/landmark/newplayerstart/New()
+	..()
+	newplayer_start += loc
+	qdel(src)
+
+//RNG Animals
+/obj/effect/landmark/start/rng_animals
+	name = "(RNG) Animals"
+	icon_state = "rng_animals"
 
 //PDF
 /obj/effect/landmark/start/lord
@@ -125,3 +139,4 @@
 /obj/effect/landmark/start/janitor
 	name = "Janitor"
 	icon_state = "civ_janitor"
+

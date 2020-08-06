@@ -14,6 +14,10 @@
 		src.pixel_x = rand(-5, 5) * PIXEL_MULTIPLIER	//Randomizes position slightly.
 		src.pixel_y = rand(-5, 5) * PIXEL_MULTIPLIER
 
+/obj/item/weapon/reagent_containers/food/attack_animal(var/mob/living/simple_animal/user)
+	user.animal_food_act(src)
+
+
 /obj/item/weapon/reagent_containers/food/fits_in_iv_drip()
 	return 1
 

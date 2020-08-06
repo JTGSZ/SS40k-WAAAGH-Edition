@@ -133,6 +133,10 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 
 	animal_count[src.type]++
 
+//Basically when attack animal is ran on like /obj/item/weapon/reagent_containers/food
+/mob/living/simple_animal/proc/animal_food_act(var/obj/item/weapon/reagent_containers/food/food)
+	return
+
 /mob/living/simple_animal/Login()
 	if(src && src.client)
 		src.client.reset_screen()
@@ -371,7 +375,6 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 
 
 /mob/living/simple_animal/proc/handle_automated_speech()
-
 	if(!speak_chance || !(speak.len || emote_hear.len || emote_see.len))
 		return
 
@@ -402,6 +405,8 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 					emote("me", MESSAGE_SEE, "[pick(emote_see)].")
 
 /mob/living/simple_animal/attack_animal(mob/living/simple_animal/M)
+	if(M.stat == DEAD)
+		butcher()
 	M.unarmed_attack_mob(src)
 
 /mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
