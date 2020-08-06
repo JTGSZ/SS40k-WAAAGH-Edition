@@ -1,7 +1,9 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/var/const/access_lord_nuke_computer = 2
-/var/const/access_knight_nuke_computer = 3
+/var/const/access_lord = 1
+/var/const/access_knight = 2
+/var/const/access_enginseer = 3
+/var/const/access_seneschal = 4
 
 /obj/var/list/req_access = null
 /obj/var/req_access_txt = "0"			// A user must have ALL of these accesses to use the object
@@ -149,7 +151,7 @@ var/global/list/all_jobs
 	return list("VIP Guest","Custodian","Thunderdome Overseer","Intel Officer","Medical Officer","Death Commando","Research Officer","BlackOps Commander","Supreme Commander")
 
 
-proc/FindNameFromID(var/mob/living/carbon/human/H)
+/proc/FindNameFromID(var/mob/living/carbon/human/H)
 	ASSERT(istype(H))
 	var/obj/item/weapon/card/id/C = H.get_active_hand()
 	if( istype(C) || istype(C, /obj/item/device/pda) )
@@ -178,5 +180,5 @@ proc/FindNameFromID(var/mob/living/carbon/human/H)
 		if(ID)
 			return ID.registered_name
 
-proc/get_all_job_icons() //For all existing HUD icons
+/proc/get_all_job_icons() //For all existing HUD icons
 	return get_all_jobs() + list("Prisoner", "visitor")

@@ -63,12 +63,12 @@
 		if(end_proc_early)
 			return
 		else
-			if(access_lord_nuke_computer in id_card.access)
+			if(access_lord in id_card.access)
 				lord_authorized = TRUE
 				used_id_cards += id_card
 				say("Access Granted.")
 				return
-			if(access_knight_nuke_computer in id_card.access)
+			if(access_knight in id_card.access)
 				used_id_cards += id_card
 				say("Access Partially Granted.")
 				return

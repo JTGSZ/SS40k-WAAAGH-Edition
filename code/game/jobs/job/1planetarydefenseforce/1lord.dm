@@ -9,7 +9,7 @@
 	supervisors = "yourself, and maybe the imperium"
 	selection_color = "#f8cb69"
 	req_admin_notify = 1
-	access = list(access_lord_nuke_computer) //See get_access()
+	access = list(access_lord,access_enginseer,access_seneschal) //See get_access()
 	minimal_player_age = 30
 	wage_payout = 100
 	landmark_job_override = TRUE
