@@ -80,39 +80,33 @@ var/list/all_doors = list()
 		return FALSE
 	open()
 	return TRUE
-
+ 
 /obj/machinery/door/Bumped(atom/AM)
-
-	if (ismob(AM))
+	if(ismob(AM))
 		var/mob/M = AM
-
 		if(!M.restrained() && (M.size > SIZE_TINY))
 			bump_open(M)
-
 		return
 
-	if (istype(AM, /obj/machinery/bot))
+	if(istype(AM, /obj/machinery/bot))
 		var/obj/machinery/bot/bot = AM
-
-		if (check_access(bot.botcard) && !operating)
+		if(check_access(bot.botcard) && !operating)
 			open()
-
 		return
 
-	if (istype(AM, /obj/mecha))
+	if(istype(AM, /obj/mecha))
 		var/obj/mecha/mecha = AM
-
-		if (density)
-			if (mecha.occupant && !operating && (allowed(mecha.occupant) || check_access_list(mecha.operation_req_access)))
+		if(density)
+			if(mecha.occupant && !operating && (allowed(mecha.occupant) || check_access_list(mecha.operation_req_access)))
 				open()
 			else if(!operating)
 				denied()
 
-	if (istype(AM, /obj/structure/bed/chair/vehicle))
+	if(istype(AM, /obj/structure/bed/chair/vehicle))
 		var/obj/structure/bed/chair/vehicle/vehicle = AM
 
-		if (density)
-			if (vehicle.is_locking(/datum/locking_category/buckle/chair/vehicle, subtypes=TRUE) && !operating && allowed(vehicle.get_locked(/datum/locking_category/buckle/chair/vehicle, subtypes=TRUE)[1]))
+		if(density)
+			if(vehicle.is_locking(/datum/locking_category/buckle/chair/vehicle, subtypes=TRUE) && !operating && allowed(vehicle.get_locked(/datum/locking_category/buckle/chair/vehicle, subtypes=TRUE)[1]))
 				if(istype(vehicle, /obj/structure/bed/chair/vehicle/firebird))
 					vehicle.forceMove(get_step(vehicle,vehicle.dir))//Firebird doesn't wait for no slowpoke door to fully open before dashing through!
 				open()
@@ -133,51 +127,46 @@ var/list/all_doors = list()
 					O.take_damage(damage) //Brute damage only
 			return
 
-/obj/machinery/door/proc/bump_open(mob/user )
+/obj/machinery/door/proc/bump_open(mob/user)
 	// TODO: analyze this
 	headbutt_check(user, 8, 5, 10)
 
 	if(user.last_airflow > world.time - zas_settings.Get(/datum/ZAS_Setting/airflow_delay)) //Fakkit
 		return
 
-	
-
 	if(!requiresID())
 		user = null
 
 	if(allowed(user))
-		if (isshade(user))
+		if(isshade(user))
 			user.forceMove(loc)//They're basically slightly tangible ghosts, they can fit through doors as soon as they begin openning.
 		open()
 	else if(!operating)
 		denied()
 
-/obj/machinery/door/attack_ai(mob/user )
+/obj/machinery/door/attack_ai(mob/user)
 	attack_hand(user)
 
-/obj/machinery/door/attack_paw(mob/user )
+/obj/machinery/door/attack_paw(mob/user)
 	attack_hand(user)
 
-/obj/machinery/door/attack_hand(mob/user )
+/obj/machinery/door/attack_hand(mob/user)
 	headbutt_check(user, 8, 5, 10)
 
 	if(isobserver(user)) //Adminghosts don't want to toggle the door open, they want to see the AI interface
 		return
 
-	
-
 	if (!requiresID())
 		user = null
 
-	if (allowed(user))
-		if (!density)
+	if(allowed(user))
+		if(!density)
 			return close()
 		else
 			return open()
 
 	if(horror_force(user))
 		return
-
 	denied()
 
 /obj/machinery/door/attackby(obj/item/I, mob/user)
@@ -192,7 +181,6 @@ var/list/all_doors = list()
 			return close()
 		else
 			return open()
-
 
 	if(horror_force(user))
 		return
@@ -368,7 +356,7 @@ var/list/all_doors = list()
 			return 1
 	return !density
 
-/obj/machinery/door/Crossed(AM ) //Since we can't actually quite open AS the car goes through us, we'll do the next best thing: open as the car goes into our tile.
+/obj/machinery/door/Crossed(atom/movable/AM) //Since we can't actually quite open AS the car goes through us, we'll do the next best thing: open as the car goes into our tile.
 	if(istype(AM, /obj/structure/bed/chair/vehicle/firebird)) //Which is not 100% correct for things like windoors but it's close enough.
 		open()
 	return ..()

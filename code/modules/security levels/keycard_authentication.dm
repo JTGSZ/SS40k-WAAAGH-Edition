@@ -209,5 +209,5 @@ var/global/maint_all_access = 0
 	to_chat(world, "<span class='red'>The maintenance access requirement has been readded on all maintenance airlocks.</span>")
 
 /obj/machinery/door/airlock/allowed(mob/M)
-	return 1
-
+	return ..(M)
+ 

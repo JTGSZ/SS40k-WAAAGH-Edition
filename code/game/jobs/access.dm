@@ -126,7 +126,8 @@
 			if(req in L) //has an access from the single access list
 				return 1
 		return 0
-	return 1
+	
+	return 0
 
 /proc/wpermit(var/mob/M) //weapons permit checking
 	return 1
