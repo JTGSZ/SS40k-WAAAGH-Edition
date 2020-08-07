@@ -92,7 +92,7 @@
 	var/list/enabled_jobs = list() //Jobs that require enabling that are enabled on this map
 	var/list/disabled_jobs = list() //Jobs that are disabled on this map
 
-	var/list/event_blacklist = list()
+	var/list/event_blacklist = list(/datum/event/blizzard, /datum/event/omega_blizzard)
 	var/list/event_whitelist = list()
 
 	//Map elements that should be loaded together with this map. Stuff like the holodeck areas, etc.
@@ -102,6 +102,7 @@
 
 	var/snow_theme = FALSE
 	var/can_enlarge = TRUE //can map elements expand this map? turn off for surface maps
+	var/datum/climate/climate = null //use for weather cycle
 
 //Loada Debugging
 	//Toggles startup coordinate debugging
