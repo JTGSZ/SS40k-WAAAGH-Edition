@@ -40,10 +40,11 @@ var/list/tzeentchpads = list()
 	/*
 		Segment one - Immaterium Dungeon
 	*/
-	var/mob_ticker = 0
+	var/active_dungeon = FALSE //is the dungeon currently firing?
 	var/mask_is_active = FALSE //Has the mask been picked up?
+	var/list/scenario_one_participants = list()
 	
-
+ 
 /datum/subsystem/scenario_controller/New()
 	NEW_SS_GLOBAL(SS_Scenario)
 	quest_master = new /datum/job_quest/global_tracker()
@@ -55,11 +56,22 @@ var/list/tzeentchpads = list()
 	ticker++
 	switch(ticker)	//for now we have two firing orders
 		if(1)
-			for(var/obj/structure/traps/traps in scenario_order_one)
-				traps.turn_my_ass_over()
+			if(active_dungeon)
+				for(var/obj/structure/traps/traps in scenario_order_one)
+					traps.turn_my_ass_over()
 		if(2)
-			for(var/obj/structure/traps/traps in scenario_order_two)
-				traps.turn_my_ass_over()
+			if(active_dungeon)
+				for(var/obj/structure/traps/traps in scenario_order_two)
+					traps.turn_my_ass_over()
+
+	if(scenario_one_participants.len)
+		active_dungeon = TRUE
+		for(var/mob/living/carbon/human/H in scenario_one_participants)
+			if(H.stat == DEAD)
+				scenario_one_participants -= H
+	else
+		active_dungeon = FALSE
+		
 
 	if(ticker >= 2)
 		ticker = 0
@@ -79,4 +91,5 @@ var/list/tzeentchpads = list()
 						H.y = 179
 						H.z = 2
 						pads.activated = FALSE
+						scenario_one_participants += H
 

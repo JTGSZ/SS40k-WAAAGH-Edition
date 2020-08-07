@@ -1,3 +1,10 @@
+/*
+	Basically this loads things onto the client screen, unrenders them.
+	Then it basically makes objects the client passes by to be rendered cheaply(?) thanks to this
+	I am unsure of how to actually gauge performance increase so for now this will be unticked.
+	As at best we are using this for misc overlays.
+*/
+
 /client/proc/initialize_fuckmaster()
 	if(fuckmaster)
 		screen -= fuckmaster
@@ -27,6 +34,15 @@
 	c.screen += fucktwo
 	c.screen += fuckthree
 	c.screen += fuckfour
+
+/obj/fuckmasterholder/Destroy()
+	fuckzero = null
+	fuckone = null
+	fucktwo = null
+	fuckthree = null
+	fuckfour = null
+
+	..()
 
 /obj/abstract/screen/fuckzero //light overlays
 	icon = 'z40k_shit/icons/turfs/imperial_road_overlays.dmi'
