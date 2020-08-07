@@ -23,7 +23,7 @@
 	var/time_died_as_mouse = null //when the client last died as a mouse
 	var/datum/tooltip/tooltips //datum that controls the displaying and hiding of tooltips
 	var/list/radial_menus = list() //keeping track of open menus so we're not gonna have several on top of each other.
-
+	var/obj/fuckmasterholder/fuckmaster = null //wa ha ha ha
 		///////////////
 		//SOUND STUFF//
 		///////////////

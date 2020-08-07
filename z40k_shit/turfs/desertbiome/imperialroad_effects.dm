@@ -9,13 +9,21 @@
 	icon_state = "roadmarker"
 
 /obj/effect/decal/imperial_road_effects/roadhook/north
-	dir = NORTH
+	icon_state = "roadmarker_n"
+	render_source = "*0"
+//	dir = NORTH
 /obj/effect/decal/imperial_road_effects/roadhook/south
-	dir = SOUTH
+	icon_state = "roadmarker_s"
+	render_source = "*2"
+//	dir = SOUTH
 /obj/effect/decal/imperial_road_effects/roadhook/east
-	dir = EAST
+	icon_state = "roadmarker_e"
+	render_source = "*3"
+//	dir = EAST
 /obj/effect/decal/imperial_road_effects/roadhook/west
-	dir = WEST
+	icon_state = "roadmarker_w"
+	render_source = "*4"
+//	dir = WEST
 
 /obj/effect/decal/imperial_road_effects/manhole_cover
 	name = "Manhole Cover"
