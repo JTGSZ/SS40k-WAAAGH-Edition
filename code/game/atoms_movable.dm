@@ -52,6 +52,9 @@
 
 	var/ignore_blocking = 0
 
+	var/last_explosion_push = 0
+	var/mob/virtualhearer/virtualhearer
+
 /atom/movable/New()
 	. = ..()
 	if((flags & HEAR) && !ismob(src))
@@ -92,10 +95,9 @@
 	if (T)
 		T.recalc_atom_opacity()
 
-	if(flags & (HEAR|HEAR_ALWAYS))
-		for(var/mob/virtualhearer/VH in virtualhearers)
-			if(VH.attached == src)
-				qdel(VH)
+	if(virtualhearer)
+		qdel(virtualhearer)
+		virtualhearer = null
 
 	for(var/atom/movable/AM in src)
 		qdel(AM)
@@ -709,13 +711,13 @@
 ////////////
 /atom/movable/proc/addHear()
 	flags |= HEAR
-	new /mob/virtualhearer(src)
+	virtualhearer = new /mob/virtualhearer(src)
 
 /atom/movable/proc/removeHear()
 	flags &= ~HEAR
-	for(var/mob/virtualhearer/VH in virtualhearers)
-		if(VH.attached == src)
-			qdel(VH)
+	if(virtualhearer)
+		qdel(virtualhearer)
+		virtualhearer = null
 
 //Can it be moved by a shuttle?
 /atom/movable/proc/can_shuttle_move(var/datum/shuttle/S)
