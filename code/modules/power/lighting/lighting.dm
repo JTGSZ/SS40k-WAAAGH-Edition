@@ -30,7 +30,7 @@
 			mode = "It's wired."
 	to_chat(user, "<span class='info'>[mode]</span>")
 
-/obj/machinery/light_construct/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/light_construct/attackby(obj/item/weapon/W, mob/user)
 	
 	if (W.is_wrench(user))
 		if (src.stage == 1)
@@ -138,15 +138,19 @@ var/global/list/obj/machinery/light/alllights = list()
 		if(A && !A.requires_power)
 			on = 1
 
-		switch(fitting)
-			if("tube")
-				if(prob(2))
-					broken(1)
-			if("bulb")
-				if(prob(5))
-					broken(1)
+		spawn_breaking()
+
 		spawn(1)
 			update(0)
+
+/obj/machinery/light/proc/spawn_breaking()
+	switch(fitting)
+		if("tube")
+			if(prob(2))
+				broken(1)
+		if("bulb")
+			if(prob(5))
+				broken(1)
 
 /obj/machinery/light/supports_holomap()
 	return TRUE
@@ -238,8 +242,6 @@ var/global/list/obj/machinery/light/alllights = list()
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)
-
-
 	update_icon()
 	if(on)
 		if(light_range != current_bulb.brightness_range || light_power != current_bulb.brightness_power || light_color != current_bulb.brightness_color)
@@ -463,8 +465,6 @@ var/global/list/obj/machinery/light/alllights = list()
 
 	if(!Adjacent(user))
 		return
-
-	
 
 	if(!current_bulb)
 		to_chat(user, "There is no [fitting] in this light.")

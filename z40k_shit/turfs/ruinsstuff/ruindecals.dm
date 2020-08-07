@@ -18,7 +18,7 @@
 /obj/effect/decal/ruinshit/rubble/rubblefull
 	desc = "Its rubble alright."
 	icon_state = "rubblefull"
-	render_source = "*1"
+//	render_source = "*1"
 
 /obj/effect/decal/ruinshit/rubble/rubbleslab
 	desc = "Appears theres a slab in your rubble, sir."

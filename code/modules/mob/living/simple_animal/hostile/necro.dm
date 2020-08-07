@@ -102,9 +102,9 @@
 	maxRegenTime = 1800
 
 
-	harm_intent_damage = 15
+	harm_intent_damage = 20
 	melee_damage_lower = 10
-	melee_damage_upper = 20
+	melee_damage_upper = 15
 	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 	stat_attack = DEAD

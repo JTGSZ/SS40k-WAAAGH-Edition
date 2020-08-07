@@ -5,6 +5,9 @@
 /obj/machinery/light/day_and_night
 	name = "time based lighting"
 
+/obj/machinery/light/day_and_night/spawn_breaking()
+	return
+
 /obj/machinery/light/day_and_night/New()
 	..()
 	day_and_night_lights += src
@@ -24,6 +27,9 @@
 /obj/machinery/light/industrial_orange
 	icon_state = "lhetube1"
 	spawn_with_bulb = /obj/item/weapon/light/tube/industrial_orange
+
+/obj/machinery/light/industrial_orange/spawn_breaking()
+	return
 
 /obj/machinery/light/industrial_orange/broken
 	icon_state = "lhetube-broken" //for the mapper
@@ -60,6 +66,9 @@
 	desc = "A small lighting fixture."
 	spawn_with_bulb = /obj/item/weapon/light/bulb/red
 
+/obj/machinery/light/small/redbulb/spawn_breaking()
+	return
+
 /obj/item/weapon/light/bulb/red
 	name = "high efficiency light bulb"
 	desc = "An efficient light used to reduce strain on the station's power grid."
@@ -85,6 +94,9 @@
 	fitting = "bulb"
 	desc = "A small lighting fixture."
 	spawn_with_bulb = /obj/item/weapon/light/bulb/green
+
+/obj/machinery/light/small/greenbulb/spawn_breaking()
+	return
 
 /obj/item/weapon/light/bulb/green
 	name = "high efficiency light bulb"

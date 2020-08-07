@@ -30,7 +30,7 @@
 							/mob/living/simple_animal/hostile/wolf,
 							/mob/living/simple_animal/hostile/deer,
 							/mob/living/simple_animal/snail)
-
+ 
 /datum/outfit/rnganimals/post_equip(var/mob/living/carbon/human/H)
 	var/numerical_fun = rand(1,10)
 	switch(numerical_fun)
