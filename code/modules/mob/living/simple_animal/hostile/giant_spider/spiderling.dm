@@ -124,7 +124,7 @@
 			species_type = pick(spider_types)
 			grow_up()
 			return
-
+ 
 	..()
 
 /mob/living/simple_animal/hostile/giant_spider/spiderling/GiveTarget(var/new_target)

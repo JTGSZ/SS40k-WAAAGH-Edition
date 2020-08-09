@@ -26,7 +26,7 @@
 	target_rules.Add(D)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/check_evolve()
-	if(animal_count[species_type] < MAX_SQUEENS && !key)	//don't evolve if there's a player inside
+	if(animal_count[species_type] < MAX_SQUEENS)	//don't evolve if there's a player inside
 		grow_up()
 		return 1
 	return 0
