@@ -730,7 +730,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 	qdel(src)
 
 	return new_animal
-
+ 
 /mob/living/simple_animal/proc/inherit_mind(mob/living/simple_animal/from)
 	src.faction = from.faction
 

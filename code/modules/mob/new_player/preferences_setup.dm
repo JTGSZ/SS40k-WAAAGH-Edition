@@ -368,6 +368,12 @@
 					clothes_s.Blend(new /icon(feet_dmi, "patrolman"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/head.dmi', "patrolman"), ICON_OVERLAY)
 					clothes_s.Blend(new /icon(suit_dmi, "patrolman"), ICON_OVERLAY)
+				if(COMMISSAR)
+					clothes_s = new /icon(uniform_dmi, "commissar_s")
+					clothes_s.Blend(new /icon(feet_dmi, "noble-boots"), ICON_UNDERLAY)
+					clothes_s.Blend(new /icon('icons/mob/head.dmi', "commissarcap"), ICON_OVERLAY)
+					clothes_s.Blend(new /icon(suit_dmi, "commissarcoat"), ICON_OVERLAY) 
+
 	// Observers get tourist outfit.
 	else
 		clothes_s = new /icon(uniform_dmi, "tourist_s")

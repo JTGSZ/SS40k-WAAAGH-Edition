@@ -2,7 +2,7 @@ var/datum/subsystem/event/SSevent
 
 var/list/events = list()
 
-
+/*
 /datum/subsystem/event
 	name     = "Event"
 	wait     = 2 SECONDS
@@ -15,7 +15,7 @@ var/list/events = list()
 /datum/subsystem/event/New()
 	NEW_SS_GLOBAL(SSevent)
 
-
+ 
 /datum/subsystem/event/stat_entry()
 	..("E:[events.len]")
 
@@ -37,3 +37,4 @@ var/list/events = list()
 			return
 
 	checkEvent()
+*/

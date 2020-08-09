@@ -1,11 +1,11 @@
 //------------Commissar---------------//
-/*/datum/job/commissar 
+/datum/job/commissar 
 	title = "Commissar"
 	flag = COMMISSAR
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the Regiment General"
 	selection_color = "#E0D68B"
 	req_admin_notify = 1
@@ -19,12 +19,12 @@
 	outfit_datum = /datum/outfit/commissar
 
 	relationship_chance = HUMAN_NO_RELATIONS
-*/
+
 //-------------Commissar Outfit Datum--------------//
 /datum/outfit/commissar 
 
 	outfit_name = "Commissar"
-//	associated_job = /datum/job/commissar
+	associated_job = /datum/job/commissar
 	no_backpack = TRUE
 
 	items_to_spawn = list(
@@ -54,7 +54,7 @@
 	commissar.mind_storage(M.mind)
 
 /datum/outfit/commissar/handle_special_abilities(var/mob/living/carbon/human/H)
-	H.attribute_strength = 10
-	H.attribute_agility = 10
-	H.attribute_dexterity = 10
+	H.attribute_strength = 9
+	H.attribute_agility = 9
+	H.attribute_dexterity = 9
 	return 1

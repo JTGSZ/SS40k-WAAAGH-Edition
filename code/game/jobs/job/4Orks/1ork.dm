@@ -62,10 +62,12 @@
 			H.equip_to_slot_or_del(new object(get_turf(H)), slot_shoes)
 			if(prob(80)) 
 				H.put_in_hand(GRASP_RIGHT_HAND, new /obj/item/weapon/choppa(get_turf(H)))
-			to_chat(H,"<span class='good'>You are a standard ork, you grow by krumpin gits (to death). But that don't mean you shouldn't balance that with a social life, ya git.</span>")
+			spawn(2 SECONDS)
+				to_chat(H,"<span class='good'>You are a standard ork, you grow by krumpin gits (to death). But that don't mean you shouldn't balance that with a social life, ya git.</span>")
 		if(9 to 10) //Gretchin
 			H.set_species("Ork Gretchin")
-			to_chat(H,"<span class='bad'>Such is life, you were born a gretchin. You are doomed to suffer until your very last breath.</span>")
+			spawn(2 SECONDS)
+				to_chat(H,"<span class='bad'>Such is life, you were born a gretchin. You are doomed to suffer until your very last breath.</span>")
 		if(11) //Mek
 			object = pick(ork_uniforms)
 			H.equip_to_slot_or_del(new object(get_turf(H)), slot_w_uniform)
@@ -77,7 +79,8 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/brownbackpack(get_turf(H)), slot_back)
 			H.add_spell(new /spell/aoe_turf/mekbuild, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)
 			H.attribute_strength = 12
-			to_chat(H,"<span class='good'>Lucky you, you are a mek, a 1 in 11 chance. You can still grow like other orks, but you also have the ability to build things, from a menu located on a spell to the top right of your screen.")
+			spawn(2 SECONDS)
+				to_chat(H,"<span class='good'>Lucky you, you are a mek, a 1 in 11 chance. You can still grow like other orks, but you also have the ability to build things, from a menu located on a spell to the top right of your screen.")
 	return 1
 
 /datum/outfit/basicork/post_equip(var/mob/living/carbon/human/H)

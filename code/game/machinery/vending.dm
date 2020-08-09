@@ -616,10 +616,10 @@ var/global/num_vending_terminals = 1
 				playsound(src, 'sound/machines/alert.ogg', 50, 1)
 				visible_message("[bicon(src)] \The [src] buzzes.")
 
-/obj/machinery/vending/attack_paw(mob/user )
+/obj/machinery/vending/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/machinery/vending/attack_ai(mob/user )
+/obj/machinery/vending/attack_ai(mob/user)
 	return attack_hand(user)
 
 /obj/machinery/vending/proc/GetProductLine(var/datum/data/vending_product/P)
@@ -722,7 +722,7 @@ var/global/num_vending_terminals = 1
 		return 1
 	return 0
 
-/obj/machinery/vending/attack_hand(mob/living/user )
+/obj/machinery/vending/attack_hand(mob/living/user)
 	if(stat & (BROKEN))
 		to_chat(user, "<span class='notice'>The glass in \the [src] is broken, it refuses to work.</span>")
 		return

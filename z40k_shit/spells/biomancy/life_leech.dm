@@ -10,8 +10,8 @@
 	school = "evocation"
 	projectile_speed = 1
 	duration = 20
-	var/leech_amount = 30
-
+	var/leech_amount = 10
+	var/temp_dmg_integer = 0
 	charge_max = 100
 	invocation_type = SpI_NONE
 	spell_flags = WAIT_FOR_CLICK
@@ -19,10 +19,9 @@
 	cast_prox_range = 3
 	warpcharge_cost = 20
 
-
 /spell/targeted/projectile/life_leech/cast(list/targets, mob/living/user = usr)
 	cast_prox_range = cast_prox_range + round(user.attribute_sensitivity/500)
-	leech_amount = leech_amount + user.attribute_willpower
+	temp_dmg_integer = leech_amount + user.attribute_willpower
 	..()
 
 //Basically it runs this when its in range to do shit.
@@ -30,11 +29,12 @@
 	spell_holder.visible_message("<span class='danger'>\The [spell_holder] pops with a flash!</span>")
 	var/mob/living/owner = spell_holder.shot_from
 	for(var/mob/living/M in targets)
-		M.adjustBruteLoss(leech_amount)
+		M.adjustBruteLoss(temp_dmg_integer)
 		M.vis_contents += new /obj/effect/overlay/redsparkles(M,10)
 		M.vis_contents += new /obj/effect/overlay/red_downwards_lines(M,10)
-		owner.adjustBruteLoss(-leech_amount)
+		owner.adjustBruteLoss(-temp_dmg_integer)
 		owner.vis_contents += new /obj/effect/overlay/greensparkles(owner,10)
+	temp_dmg_integer = 0 //We reset
 
 /spell/targeted/projectile/life_leech/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
 	var/list/targets = ..()

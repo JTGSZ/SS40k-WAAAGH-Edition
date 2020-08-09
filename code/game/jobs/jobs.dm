@@ -9,6 +9,7 @@ var/const/CYBORG			=(1<<5)
 var/const/MOMMI				=(1<<6)
 var/const/BASICORK 			=(1<<7)
 var/const/RNGANIMALS		=(1<<8)
+var/const/COMMISSAR			=(1<<9)
 
 var/const/MEDSCI			=(1<<1)
 var/const/DOCTOR			=(1<<0)

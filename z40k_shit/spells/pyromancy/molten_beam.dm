@@ -21,7 +21,6 @@
 
 /spell/aoe_turf/molten_beam/cast(list/targets, mob/living/user)
 	set waitfor = 0
-	user.anchored = TRUE
 
 	var/turf/user_turf = get_turf(user)
 	var/turf/starting_turf = get_step(user_turf, user.dir)
