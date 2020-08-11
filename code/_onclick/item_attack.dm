@@ -257,7 +257,7 @@
 					to_chat(M, "Aargh it burns!")
 		. = TRUE //The attack always lands
 		M.updatehealth()
-
+ 
 /obj/item/proc/on_attack(var/atom/attacked, var/mob/user)
 	if(!user.gcDestroyed)
 		user.do_attack_animation(attacked, src)

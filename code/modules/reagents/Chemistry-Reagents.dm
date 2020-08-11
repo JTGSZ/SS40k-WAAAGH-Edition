@@ -2847,7 +2847,7 @@
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(2 * REM,0)
 
-
+ 
 /datum/reagent/bicaridine/on_overdose(var/mob/living/M)
 	M.adjustToxLoss(1)
 	if(ishuman(M))

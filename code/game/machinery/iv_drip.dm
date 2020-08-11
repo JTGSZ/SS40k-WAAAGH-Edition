@@ -68,7 +68,7 @@
 		src.attached = over_object
 		src.update_icon()
 
-/obj/machinery/iv_drip/attackby(obj/item/weapon/W, mob/user )
+/obj/machinery/iv_drip/attackby(obj/item/weapon/W, mob/user)
 	if(isobserver(user))
 		return
 	if(user.stat)

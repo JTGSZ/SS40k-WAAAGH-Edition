@@ -17,3 +17,4 @@
 /datum/organ/internal/heart/ork/Life()
 	if(owner.health < owner.maxHealth)
 		owner.health += 5
+		
