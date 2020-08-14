@@ -48,8 +48,13 @@
 					O.status &= ~ORGAN_SPLINTED
 					O.status &= ~ORGAN_BLEEDING
 	*/
-	user.say("WAAAAGH!")
-	playsound(user, 'z40k_shit/sounds/waagh1.ogg', 100)
+	
+	if(isgretchin(user))
+		user.say("AaAaAaHH!")
+		playsound(user, 'z40k_shit/sounds/gretscream3.ogg',100)
+	else
+		user.say("WAAAAGH!")
+		playsound(user, 'z40k_shit/sounds/waagh1.ogg', 100)
 
 /spell/aoe_turf/waaagh1/choose_targets(var/mob/user = usr)
 	var/list/targets = list()

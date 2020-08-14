@@ -64,7 +64,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 	var/max_n2 = 0
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 
-
+ 
 	mob_bump_flag = SIMPLE_ANIMAL
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
@@ -539,7 +539,7 @@ var/global/list/animal_count = list() //Stores types, and amount of animals of t
 /mob/living/simple_animal/death(gibbed)
 	if(stat == DEAD)
 		return
-
+ 
 	if(!gibbed)
 		emote("deathgasp", message = TRUE)
 

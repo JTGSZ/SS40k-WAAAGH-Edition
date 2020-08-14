@@ -43,6 +43,9 @@
 				H.x = 0
 				H.y = 0
 				H.z = 1
+				oursimplemob.see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+				oursimplemob.see_in_dark_override = 8
+				oursimplemob.see_invisible_override = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 				spawn(5)
 					qdel(H)
 		if(10)

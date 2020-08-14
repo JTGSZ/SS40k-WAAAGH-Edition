@@ -1466,6 +1466,9 @@ Thanks.
 				if(!tool_name)
 					tool_name = "claws"
 
+		if(isork(H))
+			H.grow_nigga(5)
+
 		if(isgrue(H))
 			tool_name = "grue"
 			speed_mod += 0.5
