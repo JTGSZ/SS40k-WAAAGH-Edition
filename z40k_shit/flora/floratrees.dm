@@ -25,6 +25,11 @@
 /obj/structure/flora/tree/New()
 	..()
 
+	for(var/atom/A in loc)
+		if(istype(A,/obj/effect/decal/ruinshit/rubble/rubblefull))
+			qdel(src)
+			return
+
 	if(randomize_on_creation)
 		health = rand(60, 200)
 		maxHealth = health

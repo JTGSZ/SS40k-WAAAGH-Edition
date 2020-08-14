@@ -10,3 +10,14 @@
 	armor = list(melee = 70, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)
 	species_restricted = list("Human")
 	allowed = list(/obj/item/weapon)
+	var/icon/jersey_overlays = 'icons/mob/uniform_overlays.dmi'
+
+/obj/item/clothing/suit/armor/knight_officer/New()
+	..()
+	var/number = jersey_numbers[type]++ % 99
+	var/first_digit = num2text(round((number / 10) % 10))
+	var/second_digit = num2text(round(number % 10))
+	var/image/jersey_overlay = image(jersey_overlays, src, "[first_digit]-")
+	jersey_overlay.overlays += image(jersey_overlays, src, second_digit)
+	jersey_overlay.pixel_y += 2
+	dynamic_overlay["[SUIT_LAYER]"] = jersey_overlay

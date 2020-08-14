@@ -62,8 +62,9 @@
 			H.equip_to_slot_or_del(new object(get_turf(H)), slot_shoes)
 			if(prob(80)) 
 				H.put_in_hand(GRASP_RIGHT_HAND, new /obj/item/weapon/choppa(get_turf(H)))
+			H.add_spell(new /spell/aoe_turf/mekbuild/standard_ork_build, "ork_spell_ready", /obj/abstract/screen/movable/spell_master/ork_racial)
 			spawn(2 SECONDS)
-				to_chat(H,"<span class='good'>You are a standard ork, you grow by krumpin gits (to death). But that don't mean you shouldn't balance that with a social life, ya git.</span>")
+				to_chat(H,"<span class='good'>Ya a ork, ya grow by krumpin gits (to death) n' mountin their heads onta a pole or banner. But dat don't mean ya shouldn't balance that with a social life, ya git. After-all ya need a mek for some good bits.</span>")
 		if(9 to 10) //Gretchin
 			H.set_species("Ork Gretchin")
 			spawn(2 SECONDS)

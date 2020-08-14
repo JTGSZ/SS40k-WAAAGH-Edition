@@ -46,6 +46,10 @@ Append - We load in some Fauna
 		if("prototype_desert")
 			loada_prototype_desert()
 			log_startup_progress("Prototype Desert Generation Selected")
+		if("flora_generation")
+			var/florawatch = start_watch()
+			loada_floragen()
+			log_startup_progress("Finished with floragen in [stop_watch(florawatch)]s.")
 
 
 /datum/loada_gen/proc/loada_prototype_desert()

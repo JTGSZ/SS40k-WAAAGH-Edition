@@ -118,7 +118,7 @@
 			H.mind.kills += "[name] ([ckey])"
 			if(isork(H))
 				var/mob/living/carbon/human/ork/ORK = H
-				ORK.grow_nigga(25)
+				ORK.grow_nigga(10)
 	
 	if(mind && (mind.antag_roles.len > 0))
 		if(!suiciding)

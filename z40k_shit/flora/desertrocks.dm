@@ -11,3 +11,7 @@
 
 	if(prob(50))
 		qdel(src)
+	for(var/atom/A in loc)
+		if(istype(A,/obj/effect/decal/ruinshit/rubble/rubblefull))
+			qdel(src)
+			return

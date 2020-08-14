@@ -1773,6 +1773,7 @@ obj/item/organ/external/r_leg/New(loc, mob/living/carbon/human/H)
 	var/mob/living/carbon/brain/brainmob
 	var/brain_op_stage = 0
 	var/mob/living/carbon/human/origin_body = null
+	var/used = FALSE //40k edit, is the head already claimed for a trophy?
 
 /obj/item/organ/external/head/ashtype()
 	return /obj/item/weapon/skull

@@ -26,9 +26,11 @@
 				new/datum/crafting_recipes/buckshot,
 				new/datum/crafting_recipes/ork_jumppack,
 				new/datum/crafting_recipes/burnapack,
-				new/datum/crafting_recipes/mekanical_shouta
+				new/datum/crafting_recipes/mekanical_shouta,
+				new/datum/crafting_recipes/trophy_banner,
+				new/datum/crafting_recipes/kustom_shoota_belt
 				)
-/*
+/* 
 	Old List
 	var/list/crafting_recipes = list(
 				new/datum/crafting_recipes/choppa,

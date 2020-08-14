@@ -18,5 +18,9 @@
 		#undef MAP_OVERRIDE
 		#include "maptestsnow.dm"
 		#define MAP_OVERRIDE 1
+	#elif MAP_OVERRIDE == 2
+		#undef MAP_OVERRIDE
+		#include "desertGulch.dm"
+		#define MAP_OVERRIDE 2
 	#endif
 #endif

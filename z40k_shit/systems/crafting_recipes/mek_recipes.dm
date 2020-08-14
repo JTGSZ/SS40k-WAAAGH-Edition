@@ -123,3 +123,11 @@
 	sheet_types = list(/obj/item/stack/sheet/metal = 40)
 	other_objects = list(/obj/item/weapon/cell = 1)
 
+/datum/crafting_recipes/kustom_shoota_belt
+	title = "Kustom Shoota Belt"
+	result_type = /obj/item/ammo_storage/magazine/kustom_shoota_belt
+	time = 10 SECONDS
+	build_desc = "20 Metal Sheets, 20 Floor Tiles"
+	obj_desc = "Its a belt for a kustom shoota, uses scrap bullets tho"
+	sheet_types = list(/obj/item/stack/sheet/metal = 20,
+						/obj/item/stack/tile/plasteel = 20)

@@ -153,7 +153,7 @@
 	pixel_x = -16 * PIXEL_MULTIPLIER
 	health = 600
 	maxHealth = 600
-	speed = 5
+	speed = 1
 	move_to_delay = 10
 	melee_damage_lower = 35
 	melee_damage_upper = 50 //Jesus christ

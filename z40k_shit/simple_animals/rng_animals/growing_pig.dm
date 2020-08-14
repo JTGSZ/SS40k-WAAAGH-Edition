@@ -18,12 +18,13 @@
 	response_harm   = "kicks"
 	attacktext = "kicks"
 	health = 200
+	speed = 1
 	melee_damage_lower = 10
 	melee_damage_upper = 15 //Those tusk will maul you!
 	size = SIZE_SMALL
 	min_oxy = 0
-	max_oxy = 1
-	min_n2 = 5
+	max_oxy = 0
+	min_n2 = 0
 	max_n2 = 0
 	treadmill_speed = 1.5
 	speak_override = TRUE
@@ -50,6 +51,7 @@
 		M.Scale(1.1,1.1)
 		src.transform = M
 		health += 25
+		maxHealth += 25
 		melee_damage_lower += 5
 		melee_damage_upper += 5
 		series_of_fifteens = 0
@@ -83,15 +85,16 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/retaliate/growing_pig/Life()
-	if(!..())
-		return 0
+	..()
+	if(health < maxHealth)
+		health += 5
 
 /mob/living/simple_animal/hostile/retaliate/growing_pig/death(var/gibbed = FALSE)
 	..(gibbed)
 	playsound(src, 'sound/effects/box_scream.ogg', 100, 1)
 
 /mob/living/simple_animal/hostile/retaliate/growing_pig/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/reagent_containers/food)) //Pigs like mushrooms
+	if(istype(O, /obj/item/weapon/reagent_containers/food)) //Pigs like FOOD
 		if(!user.drop_item(O))
 			to_chat(user, "<span class='notice'>You can't let go of \the [O]!</span>")
 			return

@@ -28,8 +28,7 @@
 							/mob/living/simple_animal/cat,
 							/mob/living/simple_animal/hostile/wendigo/alpha,
 							/mob/living/simple_animal/hostile/wolf,
-							/mob/living/simple_animal/hostile/deer,
-							/mob/living/simple_animal/snail)
+							/mob/living/simple_animal/hostile/deer)
  
 /datum/outfit/rnganimals/post_equip(var/mob/living/carbon/human/H)
 	var/numerical_fun = rand(1,10)

@@ -37,7 +37,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
 
-	speed = 1
+	speed = 0.9
 	health = 75
 	maxHealth = 75
 	size = SIZE_SMALL

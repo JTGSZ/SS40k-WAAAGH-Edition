@@ -26,6 +26,7 @@
 
 	items_to_spawn = list(
 		"Default" = list(
+			slot_ears_str = /obj/item/device/radio/headset,
 			slot_w_uniform_str = /obj/item/clothing/under/patrolman_uniform,
 			slot_head_str = /obj/item/clothing/head/patrolman_hat,
 			slot_shoes_str = /obj/item/clothing/shoes/patrolman_boots,

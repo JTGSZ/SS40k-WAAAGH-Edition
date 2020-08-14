@@ -35,8 +35,9 @@
 	explosions.Add(e)
 
 /datum/stat_collector/proc/add_death_stat(var/mob/living/M)
-	if(M.iscorpse) return 0 // only ever 1 if they are a corpse landmark spawned mob
-	if(ticker.current_state != GAME_STATE_PLAYING) 
+	if(M.iscorpse) 
+		return 0 // only ever 1 if they are a corpse landmark spawned mob
+	if(ticker?.current_state != GAME_STATE_PLAYING) 
 		return 0 // We don't care about pre-round or post-round deaths. 3 is TICKERSTATE_PLAYING which is undefined I guess
 	if(!istype(M, /mob/living) || istype(M, /mob/living/carbon/human/manifested)) return 0
 

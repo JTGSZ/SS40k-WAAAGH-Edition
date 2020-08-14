@@ -1,4 +1,4 @@
-/obj/structure/headpole
+/obj/structure/orkheadpole
 	name = "pole"
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "metal_pike"
@@ -9,7 +9,7 @@
 	var/obj/item/organ/external/head/head = null
 	var/image/display_head = null
 
-/obj/structure/headpole/New(atom/A, var/obj/item/organ/external/head/H, var/obj/item/weapon/spear/S)
+/obj/structure/orkheadpole/New(atom/A, var/obj/item/organ/external/head/H, var/obj/item/weapon/spear/S)
 	..(A)
 	if(istype(H))
 		head = H
@@ -36,7 +36,7 @@
 	M.Turn(rand(-20,20))
 	transform = M
 
-/obj/structure/headpole/attackby(obj/item/weapon/W, mob/user)
+/obj/structure/orkheadpole/attackby(obj/item/weapon/W, mob/user)
 	..()
 	if(istype(W, /obj/item/weapon/crowbar))
 		to_chat(user, "You pry \the [head] off \the [spear].")
@@ -50,7 +50,7 @@
 			new /obj/item/weapon/spear(get_turf(src))
 		qdel(src)
 
-/obj/structure/headpole/Destroy()
+/obj/structure/orkheadpole/Destroy()
 	if(head)
 		qdel(head)
 		head = null
@@ -62,7 +62,7 @@
 		display_head = null
 	..()
 
-/obj/structure/headpole/with_head/New(atom/A)
+/obj/structure/orkheadpole/with_head/New(atom/A)
 	var/obj/item/organ/external/head/H = new (src)
 	H.name = "severed head"
 	spear = new (src)

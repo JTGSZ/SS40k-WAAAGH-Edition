@@ -21,12 +21,19 @@
 
 /obj/structure/flora/rngduneholder/New()
 	..()
+
+	for(var/atom/A in loc)
+		if(istype(A,/obj/effect/decal/ruinshit/rubble/rubblefull))
+			qdel(src)
+			return
+
 	if(prob(5))
 		if(prob(50))
-			new /obj/structure/flora/desertdunelarge(src.loc)
+			new /obj/structure/flora/desertdunelarge(loc)
 			qdel(src)
 		else
-			new /obj/structure/flora/desertdunesmall(src.loc)
+			new /obj/structure/flora/desertdunesmall(loc)
 			qdel(src)
 	else
 		qdel(src)
+

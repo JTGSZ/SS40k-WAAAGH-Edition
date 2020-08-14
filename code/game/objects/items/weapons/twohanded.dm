@@ -169,6 +169,12 @@
 /obj/item/weapon/spear/attackby(obj/item/weapon/W, mob/user)
 	..()
 	if(istype(W, /obj/item/organ/external/head))
+		if(isork(user))
+			var/mob/living/carbon/human/the_ork = user
+			var/obj/item/organ/external/head/the_head = W
+			if(!the_head.used)
+				the_ork.grow_nigga(50)
+				the_head.used = TRUE
 		if(loc == user)
 			user.drop_item(src, force_drop = 1)
 		var/obj/structure/headpole/H = new (get_turf(src), W, src)
