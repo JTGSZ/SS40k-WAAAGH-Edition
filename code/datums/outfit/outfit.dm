@@ -79,15 +79,15 @@
 	return 0
 
 /datum/outfit/proc/pre_equip_disabilities(var/mob/living/carbon/human/H, var/list/items_to_equip)
-	if (H.client.IsByondMember())
+	if(H.client.IsByondMember())
 		to_chat(H, "Thank you for supporting BYOND!")
 		items_to_collect[/obj/item/weapon/storage/box/byond] = GRASP_LEFT_HAND
 
-	if (!give_disabilities_equipment)
+	if(!give_disabilities_equipment)
 		return
-	if (H.disabilities & ASTHMA)
+	if(H.disabilities & ASTHMA)
 		items_to_collect[/obj/item/device/inhaler] = "Survival Box"
-	if (!items_to_equip[slot_glasses_str])
+	if(!items_to_equip[slot_glasses_str] && (H.disabilities & NEARSIGHTED))
 		items_to_equip[slot_glasses_str] = /obj/item/clothing/glasses/regular
 
 /datum/outfit/proc/equip(var/mob/living/carbon/human/H)
