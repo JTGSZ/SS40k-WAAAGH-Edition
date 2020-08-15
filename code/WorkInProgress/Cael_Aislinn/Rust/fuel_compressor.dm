@@ -21,8 +21,8 @@ var/const/max_assembly_amount = 300
 		return*/
 	interact(user)
 
-/obj/machinery/rust_fuel_compressor/attackby(obj/item/weapon/W, mob/user )
-	if (istype(W, /obj/item/weapon/rcd_ammo))
+/obj/machinery/rust_fuel_compressor/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/stack/rcd_ammo))
 		compressed_matter += 10
 		qdel(W)
 		return
@@ -67,7 +67,7 @@ var/const/max_assembly_amount = 300
 	if( href_list["eject_matter"] )
 		var/ejected = 0
 		while(compressed_matter > 10)
-			new /obj/item/weapon/rcd_ammo(get_step(get_turf(src), src.dir))
+			new /obj/item/stack/rcd_ammo(get_step(get_turf(src), src.dir))
 			compressed_matter -= 10
 			ejected = 1
 		if(ejected)
