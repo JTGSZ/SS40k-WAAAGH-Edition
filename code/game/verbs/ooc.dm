@@ -10,6 +10,7 @@
 		return
 
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
+	msg = parse_emoji(msg, ooc_mode = TRUE)
 	if(!msg)
 		return
 
@@ -66,6 +67,7 @@
 		return
 
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
+	msg = parse_emoji(msg, ooc_mode = TRUE)
 	if(!msg)
 		return
 
