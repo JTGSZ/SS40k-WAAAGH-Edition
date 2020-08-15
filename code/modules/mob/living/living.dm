@@ -19,7 +19,6 @@
 	immune_system = new (src)
 
 	on_resist = new(owner = src)
-	on_life = new(owner = src)
 
 /mob/living/Destroy()
 	for(var/mob/living/silicon/robot/mommi/MoMMI in player_list)
@@ -48,10 +47,6 @@
 	if(on_resist)
 		qdel(on_resist)
 		on_resist = null
-
-	if(on_life)
-		qdel(on_life)
-		on_life = null
 
 	. = ..()
 
@@ -109,8 +104,6 @@
 			mutations.Remove(M_HARDCORE)
 			to_chat(src, "<span class='notice'>You feel like a pleb.</span>")
 	handle_beams()
-
-	INVOKE_EVENT(on_life, list())
 
 	return 1
 
